@@ -1,0 +1,54 @@
+acute myelogenous leukemia
+alkaptonuria
+alport syndrome
+als
+amyloidosis
+amyotrophic lateral sclerosis
+anaplastic thyroid carcinoma
+arachnoid cyst
+asbestosis
+autoimmune hepatitis
+autoimmune pancreatitis
+babesiosis
+budd chiari syndrome
+budd-chiari
+bullous pemphigoid
+calciphylaxis
+cervical stenosis
+crest syndrome
+dilated cardiomyopathy
+essential thrombocythemia
+familial mediterranean fever
+fulminant hepatic failure
+hemochromatosis
+heparin induced thrombocytopenia
+heparin-induced thrombocytopenia
+hepatocellular carcinoma
+hit
+hyperparathyroidism
+intraductal papillary mucinous tumor
+legionella
+mediastinitis
+medullary sponge kidney
+mesenteric vein thrombosis
+methemoglobinemia
+multifocal atrial tachycardia
+multiple myeloma
+necrotizing enterocolitis
+neovascular glaucoma angle closure
+nocardiosis
+pml
+portal vein thrombosis
+post polio syndrome
+primary sclerosing cholangitis
+protein c deficiency
+pulmonary arterial hypertension
+pyoderma gangrenosum
+retinitis pigmentosa
+retinopathy of prematurity
+sarcoid
+sarcoidosis
+sick sinus syndrome
+thrombotic thrombocytopenic purpura
+tracheal stenosis
+tracheobronchomalacia

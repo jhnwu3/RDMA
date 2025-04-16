@@ -1,0 +1,9 @@
+# Ignore the data directory
+data/
+
+# Ignore all shell script files
+*.sh
+
+# Ignore all log files
+*.log
+*.pyc
