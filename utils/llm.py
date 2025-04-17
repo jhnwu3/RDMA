@@ -307,7 +307,8 @@ class ModelLoader:
         elif model == "llama3_70b_2b":
             model_id = "ISTA-DASLab/Meta-Llama-3.1-70B-Instruct-AQLM-PV-2Bit-1x16"
         elif model == "phi4" or model == "phi4_mini":
-            model_id = "microsoft/Phi-3-mini-128k-instruct"
+            # model_id = "microsoft/Phi-4-mini-128k-instruct"
+            model_id = "microsoft/Phi-4-mini-instruct"
         
         cache_path = self.get_cache_path(model_id, "bfloat16")
         

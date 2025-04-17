@@ -17,7 +17,8 @@ parent_dir = os.path.dirname(current_dir)
 sys.path.insert(0, parent_dir)
 
 # Import project modules
-from rdrag.entity import LLMRDExtractor, BaseRDExtractor
+from rdrag.entity import LLMRDExtractor, BaseRDExtractor, RetrievalEnhancedRDExtractor,MultiIterativeRDExtractor,IterativeLLMRDExtractor
+from utils.embedding import EmbeddingsManager
 from hporag.context import ContextExtractor
 from utils.llm_client import LocalLLMClient, APILLMClient
 from utils.setup import setup_device
@@ -42,8 +43,33 @@ def parse_arguments() -> argparse.Namespace:
                        help="System prompt for LLM extraction")
     
     # Entity extractor configuration
-    parser.add_argument("--extractor_type", type=str, choices=["llm"],
+    parser.add_argument("--entity_extractor", type=str, choices=["llm", "retrieval", "iterative", "multi"],
                        default="llm", help="Entity extraction method (default: llm)")
+    parser.add_argument("--max_iterations", type=int, default=3,
+                       help="Maximum iterations for iterative extractor (default: 3)")
+    
+    # Retrieval-enhanced extractor configuration
+    parser.add_argument("--embeddings_file", type=str,
+                       help="Path to embeddings file for retrieval-enhanced extraction")
+    parser.add_argument("--retriever", type=str,
+                       choices=["fastembed", "sentence_transformer", "medcpt"],
+                       default="fastembed",
+                       help="Type of retriever/embedding model to use (default: fastembed)")
+    parser.add_argument("--retriever_model", type=str,
+                       default="BAAI/bge-small-en-v1.5",
+                       help="Model name for retriever (default: BAAI/bge-small-en-v1.5)")
+    parser.add_argument("--top_k", type=int, default=10,
+                       help="Number of top candidates to retrieve per sentence (default: 10)")
+    
+    # Multi-temperature extractor configuration
+    parser.add_argument("--temperatures", type=str, default="0.01,0.1,0.3,0.7,0.9",
+                       help="Comma-separated list of temperatures for multi-temp extraction")
+    parser.add_argument("--aggregation_type", type=str, 
+                       choices=["union", "intersection", "hybrid"],
+                       default="hybrid",
+                       help="Method to aggregate results from multiple temperature runs")
+    parser.add_argument("--hybrid_threshold", type=int, default=2,
+                       help="Minimum number of runs an entity must appear in for hybrid aggregation")
     
     # Context extractor configuration
     parser.add_argument("--window_size", type=int, default=0,
@@ -77,6 +103,13 @@ def parse_arguments() -> argparse.Namespace:
                           help="Use generic CUDA device without specific GPU ID (for job schedulers)")
     gpu_group.add_argument("--cpu", action="store_true",
                           help="Force CPU usage even if GPU is available")
+    
+    # GPU configuration for retriever separately
+    retriever_group = parser.add_mutually_exclusive_group()
+    retriever_group.add_argument("--retriever_gpu_id", type=int,
+                                help="Specific GPU ID to use for retriever/embeddings")
+    retriever_group.add_argument("--retriever_cpu", action="store_true",
+                                help="Force CPU usage for retriever even if GPU is available")
     
     # Debug mode
     parser.add_argument("--debug", action="store_true", 
@@ -249,19 +282,67 @@ def main():
         timestamp_print(f"Starting rare disease entity extraction process")
         
         # Setup device
-        device = setup_device(args)
-        timestamp_print(f"Using device: {device}")
+        devices = setup_device(args)
+        timestamp_print(f"Using device for LLM: {devices['llm']}")
+        if args.entity_extractor == "retrieval":
+            timestamp_print(f"Using device for retriever: {devices['retriever']}")
         
         # Initialize LLM client
         timestamp_print(f"Initializing {args.llm_type} LLM client")
-        llm_client = initialize_llm_client(args, device)
+        llm_client = initialize_llm_client(args, devices['llm'])
         
         # Initialize entity extractor
-        timestamp_print(f"Initializing entity extractor ({args.extractor_type})")
-        if args.extractor_type == "llm":
+        timestamp_print(f"Initializing entity extractor ({args.entity_extractor})")
+        if args.entity_extractor == "retrieval":
+            # Validate embeddings file is provided
+            if not args.embeddings_file:
+                raise ValueError("--embeddings_file is required when using retrieval-enhanced entity extraction")
+            
+            # Initialize embedding manager
+            timestamp_print(f"Initializing {args.retriever} embedding manager")
+            embedding_manager = EmbeddingsManager(
+                model_type=args.retriever,
+                model_name=args.retriever_model if args.retriever in ['fastembed', 'sentence_transformer'] else None,
+                device=devices['retriever']
+            )
+            
+            # Load embeddings
+            timestamp_print(f"Loading embeddings from {args.embeddings_file}")
+            try:
+                embedded_documents = np.load(args.embeddings_file, allow_pickle=True)
+                timestamp_print(f"Loaded {len(embedded_documents)} embedded documents")
+            except Exception as e:
+                timestamp_print(f"Error loading embeddings file: {e}")
+                raise
+            
+            # Initialize retrieval-enhanced entity extractor
+            entity_extractor = RetrievalEnhancedRDExtractor(
+                llm_client=llm_client,
+                embedding_manager=embedding_manager,
+                embedded_documents=embedded_documents,
+                system_message=args.system_prompt,
+                top_k=args.top_k
+            )
+            
+        elif args.entity_extractor == "iterative":
+            entity_extractor = IterativeLLMRDExtractor(
+                llm_client, 
+                args.system_prompt, 
+                max_iterations=args.max_iterations
+            )
+        elif args.entity_extractor == "multi":
+            # Parse temperatures from string
+            temperatures = [float(t) for t in args.temperatures.split(',')]
+            entity_extractor = MultiIterativeRDExtractor(
+                llm_client,
+                args.system_prompt, 
+                temperatures=temperatures,
+                max_iterations=args.max_iterations,
+                aggregation_type=args.aggregation_type,
+                hybrid_threshold=args.hybrid_threshold
+            )
+        else:  # "llm"
             entity_extractor = LLMRDExtractor(llm_client, args.system_prompt)
-        else:
-            raise ValueError(f"Unsupported extractor type: {args.extractor_type}")
         
         # Initialize context extractor
         timestamp_print(f"Initializing context extractor (window_size={args.window_size})")

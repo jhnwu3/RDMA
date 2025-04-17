@@ -19,7 +19,7 @@ sys.path.insert(0, parent_dir)
 from utils.data import parse_case_range
 
 # Import project modules
-from hporag.verify import ConfigurableHPOVerifier, HPOVerifierConfig, MultiStageHPOVerifierV2, MultiStageHPOVerifierV3, MultiStageHPOVerifierV4
+from hporag.verify import HPOVerifierConfig, MultiStageHPOVerifierV2, MultiStageHPOVerifierV3, MultiStageHPOVerifierV4
 # Import the V3 verifier
 # You'll need to ensure MultiStageHPOVerifierV3.py is in the correct directory
 # and properly imported in your project
@@ -533,12 +533,13 @@ def main():
         # Initialize the appropriate verifier based on version argument
         timestamp_print(f"Initializing {args.verifier_version.upper()} verifier")
         if args.verifier_version == "v1":
-            verifier = ConfigurableHPOVerifier(
-                embedding_manager=embedding_manager,
-                llm_client=llm_client,
-                config=verifier_config,
-                debug=args.debug
-            )
+            # verifier = ConfigurableHPOVerifier(
+            #     embedding_manager=embedding_manager,
+            #     llm_client=llm_client,
+            #     config=verifier_config,
+            #     debug=args.debug
+            # )
+            raise(NotImplementedError("V1 verifier is not implemented in this version."))
             timestamp_print("Using original HPO verifier (V1)")
         elif args.verifier_version == "v2":  
             verifier = MultiStageHPOVerifierV2(
