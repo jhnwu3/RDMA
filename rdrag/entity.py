@@ -30,7 +30,7 @@ class LLMRDExtractor(BaseRDExtractor):
         
     def extract_entities(self, text: str) -> List[str]:
         """Extract rare disease mentions using LLM."""
-        prompt = f"""Extract all diseases and conditions that are NOT negated (i.e., don't include terms that are preceded by 'no', 'not', 'without', etc.) from the text below.
+        prompt = f"""Extract all rare diseases and conditions that are NOT negated (i.e., don't include terms that are preceded by 'no', 'not', 'without', etc.) from the text below.
 
         Text: {text}
 
@@ -80,9 +80,13 @@ class RetrievalEnhancedRDExtractor(BaseRDExtractor):
     2. Uses this context to prompt the LLM for more accurate disease extraction
     
     This approach helps the LLM with domain knowledge before extraction begins.
+    
+    Features:
+    - Optionally merges small sentences to ensure minimum chunk size for processing
     """
     
-    def __init__(self, llm_client, embedding_manager, embedded_documents, system_message: str, top_k: int = 10):
+    def __init__(self, llm_client, embedding_manager, embedded_documents, 
+                 system_message: str, top_k: int = 10, min_sentence_size: Optional[int] = None):
         """
         Initialize the retrieval-enhanced rare disease extractor.
         
@@ -92,6 +96,7 @@ class RetrievalEnhancedRDExtractor(BaseRDExtractor):
             embedded_documents: Rare disease terms with embeddings
             system_message: System message for LLM extraction
             top_k: Number of top candidates to retrieve per sentence
+            min_sentence_size: Minimum character length for sentences (smaller ones will be merged)
         """
         self.llm_client = llm_client
         self.embedding_manager = embedding_manager
@@ -99,6 +104,7 @@ class RetrievalEnhancedRDExtractor(BaseRDExtractor):
         self.index = None
         self.system_message = system_message
         self.top_k = top_k
+        self.min_sentence_size = min_sentence_size
         self.context_extractor = ContextExtractor()
         
     def prepare_index(self):
@@ -130,23 +136,29 @@ class RetrievalEnhancedRDExtractor(BaseRDExtractor):
         seen_metadata = set()
         
         for idx, distance in zip(indices[0], distances[0]):
-            metadata = self.embedded_documents[idx]['unique_metadata']
-            metadata_str = json.dumps(metadata)
-            
-            if metadata_str not in seen_metadata:
-                seen_metadata.add(metadata_str)
-                candidates.append({
-                    'name': metadata.get('name', ''),
-                    'id': metadata.get('id', ''),
-                    'definition': metadata.get('definition', ''),
-                    'similarity_score': 1.0 / (1.0 + distance)  # Convert distance to similarity
-                })
+            try:
+                # Access document directly since it already has name, id, definition
+                document = self.embedded_documents[idx]
                 
-                if len(candidates) >= self.top_k:
-                    break
+                # Create an identifier for deduplication
+                metadata_id = f"{document.get('name', '')}-{document.get('id', '')}"
+                
+                if metadata_id not in seen_metadata:
+                    seen_metadata.add(metadata_id)
+                    candidates.append({
+                        'name': document.get('name', ''),
+                        'id': document.get('id', ''),
+                        'definition': document.get('definition', ''),
+                        'similarity_score': 1.0 / (1.0 + distance)  # Convert distance to similarity
+                    })
+                    
+                    if len(candidates) >= self.top_k:
+                        break
+            except Exception as e:
+                print(f"Error processing metadata at index {idx}: {e}")
+                continue
                     
         return candidates
-    
     def _create_enhanced_prompt(self, sentence: str, candidates: List[Dict]) -> str:
         """
         Create a prompt enhanced with retrieved candidates.
@@ -167,20 +179,71 @@ class RetrievalEnhancedRDExtractor(BaseRDExtractor):
         
         # Create the enhanced prompt
         prompt = (
-            f"I have a clinical sentence: \"{sentence}\"\n\n"
-            f"Here are some relevant rare disease terms for context that are potentially mentioned in the sentence:\n\n"
+            f"I have CLINICAL TEXT: \"{sentence}\"\n\n"
+            f"Here are some relevant rare disease terms for reference that may help you find rare disease mentions in the sentence:\n\n"
             f"{context_text}\n\n"
-            f"Based on this sentence and the provided rare disease terms for context, extract all rare disease mentions "
+            f"Based on this sentence and the provided rare disease terms as reference, extract all potential disease mentions "
             f"that are NOT negated (i.e., NOT preceded by 'no', 'not', 'without', 'ruled out', etc.). "
-            f"\n\nReturn only a Python list of strings, with each disease exactly as it appears in the text. "
+            f"Please also include any potential abbreviations that might be referring to rare diseases in the CLINICAL TEXT."
+            f"\n\nReturn only a Python list of strings, with each disease exactly as it appears in the CLINICAL TEXT. "
             f"Ensure the output is concise without any additional notes, commentary, or meta explanations."
         )
         
         return prompt
     
+    def _merge_small_sentences(self, sentences: List[str], min_size: int) -> List[str]:
+        """
+        Merge sentences smaller than the minimum size with subsequent sentences.
+        
+        Args:
+            sentences: List of extracted sentences
+            min_size: Minimum character length for a sentence
+            
+        Returns:
+            List of merged sentences meeting the minimum size requirement
+        """
+        if not sentences:
+            return []
+        
+        if min_size is None or min_size <= 0:
+            return sentences
+            
+        merged_sentences = []
+        current_idx = 0
+        
+        while current_idx < len(sentences):
+            current_sentence = sentences[current_idx]
+            
+            # If the current sentence is already large enough, add it directly
+            if len(current_sentence) >= min_size:
+                merged_sentences.append(current_sentence)
+                current_idx += 1
+                continue
+            
+            # Start merging with next sentences until we reach min_size
+            merged_chunk = current_sentence
+            next_idx = current_idx + 1
+            
+            while next_idx < len(sentences) and len(merged_chunk) < min_size:
+                # Add the next sentence to our chunk with a space
+                if merged_chunk and sentences[next_idx]:
+                    merged_chunk += " " + sentences[next_idx]
+                else:
+                    merged_chunk += sentences[next_idx]
+                next_idx += 1
+            
+            # Add the merged chunk to our results
+            merged_sentences.append(merged_chunk)
+            
+            # Update the index to continue after the merged sentences
+            current_idx = next_idx
+        
+        return merged_sentences
+    
     def extract_entities(self, text: str) -> List[str]:
         """
         Extract rare disease mentions from text using retrieval-enhanced prompting.
+        With sentence merging for efficiency when min_sentence_size is set.
         
         Args:
             text: Clinical text to extract rare disease mentions from
@@ -189,7 +252,14 @@ class RetrievalEnhancedRDExtractor(BaseRDExtractor):
             List of extracted rare disease mentions
         """
         # Split text into sentences
-        sentences = self.context_extractor.extract_sentences(text)
+        original_sentences = self.context_extractor.extract_sentences(text)
+        
+        # Merge small sentences if min_sentence_size is set
+        if self.min_sentence_size:
+            sentences = self._merge_small_sentences(original_sentences, self.min_sentence_size)
+            print(f"After merging: Processing {len(sentences)} chunks instead of {len(original_sentences)} raw sentences")
+        else:
+            sentences = original_sentences
         
         all_entities = []
         
@@ -198,7 +268,7 @@ class RetrievalEnhancedRDExtractor(BaseRDExtractor):
             if not sentence or len(sentence) < 5:
                 continue
                 
-            # Retrieve candidates for this sentence
+            # Retrieve candidates for this sentence/chunk
             candidates = self._retrieve_candidates(sentence)
             
             # Create enhanced prompt
@@ -206,10 +276,8 @@ class RetrievalEnhancedRDExtractor(BaseRDExtractor):
             
             # Query LLM
             findings_text = self.llm_client.query(prompt, self.system_message)
-
             # Extract entities from response
             entities = self._extract_findings_from_response(findings_text)
-            
             # Add to results
             all_entities.extend(entities)
         
@@ -266,7 +334,7 @@ class RetrievalEnhancedRDExtractor(BaseRDExtractor):
             entities = self.extract_entities(text)
             results.append(entities)
         return results
-
+    
 
 class IterativeLLMRDExtractor(BaseRDExtractor):
     """Rare disease extraction pipeline using iterative LLM passes.

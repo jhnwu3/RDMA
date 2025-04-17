@@ -4,6 +4,7 @@ import json
 import os
 import torch
 import traceback
+import numpy as np
 from datetime import datetime
 from typing import Dict, List, Any
 from pathlib import Path
@@ -84,6 +85,8 @@ def parse_arguments() -> argparse.Namespace:
     parser.add_argument("--api_config", type=str, 
                        help="Path to API configuration file for API LLM")
     parser.add_argument("--temperature", type=float, default=0.2,
+                       help="Temperature for LLM inference (default: 0.2)")
+    parser.add_argument("--min_sentence_size", type=int, default=None, # by default we don't use any of it. But, for sanity sake, we do.
                        help="Temperature for LLM inference (default: 0.2)")
     parser.add_argument("--cache_dir", type=str, 
                        default="/shared/rsaas/jw3/rare_disease/model_cache",
@@ -234,7 +237,7 @@ def process_cases(cases: Dict[str, Dict[str, Any]], args: argparse.Namespace,
             
             # Find contexts for entities
             entity_contexts = context_extractor.extract_contexts(entities, clinical_text, window_size=args.window_size)
-            
+            print(entity_contexts)
             # Store results
             results[case_id] = {
                 "clinical_text": clinical_text,
@@ -321,7 +324,8 @@ def main():
                 embedding_manager=embedding_manager,
                 embedded_documents=embedded_documents,
                 system_message=args.system_prompt,
-                top_k=args.top_k
+                top_k=args.top_k,
+                min_sentence_size=args.min_sentence_size
             )
             
         elif args.entity_extractor == "iterative":
