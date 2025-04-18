@@ -24,7 +24,7 @@ from utils.llm_client import LocalLLMClient, APILLMClient
 from utils.setup import setup_device
 
 # Import the new MultiStageRDVerifier class
-from rdrag.verify import MultiStageRDVerifier, RDVerifierConfig
+from rdrag.verify import MultiStageRDVerifier
 
 def timestamp_print(message: str) -> None:
     """Print message with timestamp."""
@@ -117,22 +117,6 @@ def parse_arguments() -> argparse.Namespace:
     
     return parser.parse_args()
 
-
-def create_verifier_config(args: argparse.Namespace) -> RDVerifierConfig:
-    """Create a RDVerifierConfig from command line arguments or config file."""
-    # Check for config file first
-    if args.config_file and os.path.exists(args.config_file):
-        try:
-            with open(args.config_file, 'r') as f:
-                config_dict = json.load(f)
-            timestamp_print(f"Loaded verifier configuration from {args.config_file}")
-            return RDVerifierConfig.from_dict(config_dict)
-        except Exception as e:
-            timestamp_print(f"Error loading config file: {e}. Using default configuration.")
-    
-    # Otherwise, use default optimized configuration
-    timestamp_print("Using default optimized configuration")
-    return RDVerifierConfig()
 
 
 def setup_device(args: argparse.Namespace) -> str:
@@ -447,7 +431,7 @@ def main():
         timestamp_print(f"Initializing {args.verifier_type} verifier")
         if args.verifier_type == "multi_stage":
             # Create verifier configuration
-            config = create_verifier_config(args)
+            config = None
             
             # Initialize multi-stage verifier
             verifier = MultiStageRDVerifier(
