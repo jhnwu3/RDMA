@@ -23,6 +23,9 @@ from utils.embedding import EmbeddingsManager
 from utils.llm_client import LocalLLMClient, APILLMClient
 from utils.setup import setup_device
 
+# Import the new MultiStageRDVerifier class
+from rdrag.verify import MultiStageRDVerifier, RDVerifierConfig
+
 def timestamp_print(message: str) -> None:
     """Print message with timestamp."""
     print(f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} - {message}")
@@ -44,6 +47,20 @@ def parse_arguments() -> argparse.Namespace:
     parser.add_argument("--system_prompt", type=str, 
                        default="You are a medical expert specializing in rare diseases.",
                        help="System prompt for LLM verification")
+    
+    # Verifier configuration
+    parser.add_argument("--verifier_type", type=str, 
+                       choices=["simple", "multi_stage"],
+                       default="simple",
+                       help="Type of verifier to use (default: simple)")
+    
+    # Multi-stage verifier specific configuration
+    parser.add_argument("--abbreviations_file", type=str,
+                       help="Path to abbreviations embeddings file for multi-stage verifier")
+    parser.add_argument("--use_abbreviations", action="store_true",
+                       help="Enable abbreviation lookup for multi-stage verifier")
+    parser.add_argument("--config_file", 
+                       help="Optional JSON file with verifier configuration parameters")
     
     # Verification configuration
     parser.add_argument("--min_context_length", type=int, default=1,
@@ -87,11 +104,35 @@ def parse_arguments() -> argparse.Namespace:
     gpu_group.add_argument("--cpu", action="store_true",
                           help="Force CPU usage even if GPU is available")
     
+    # GPU configuration for retriever separately
+    retriever_group = parser.add_mutually_exclusive_group()
+    retriever_group.add_argument("--retriever_gpu_id", type=int,
+                                help="Specific GPU ID to use for retriever/embeddings")
+    retriever_group.add_argument("--retriever_cpu", action="store_true",
+                                help="Force CPU usage for retriever even if GPU is available")
+    
     # Debug mode
     parser.add_argument("--debug", action="store_true", 
                        help="Enable debug output")
     
     return parser.parse_args()
+
+
+def create_verifier_config(args: argparse.Namespace) -> RDVerifierConfig:
+    """Create a RDVerifierConfig from command line arguments or config file."""
+    # Check for config file first
+    if args.config_file and os.path.exists(args.config_file):
+        try:
+            with open(args.config_file, 'r') as f:
+                config_dict = json.load(f)
+            timestamp_print(f"Loaded verifier configuration from {args.config_file}")
+            return RDVerifierConfig.from_dict(config_dict)
+        except Exception as e:
+            timestamp_print(f"Error loading config file: {e}. Using default configuration.")
+    
+    # Otherwise, use default optimized configuration
+    timestamp_print("Using default optimized configuration")
+    return RDVerifierConfig()
 
 
 def setup_device(args: argparse.Namespace) -> str:
@@ -167,6 +208,10 @@ def load_existing_results(output_file: str) -> Dict:
             with open(output_file, 'r') as f:
                 data = json.load(f)
             
+            # Handle case where the results are wrapped in a metadata structure
+            if "results" in data:
+                data = data["results"]
+                
             timestamp_print(f"Loaded existing results for {len(data)} cases from {output_file}")
             return data
         except Exception as e:
@@ -281,38 +326,44 @@ def verify_cases(cases: Dict, verifier, args: argparse.Namespace,
                     "clinical_text": case_data.get("clinical_text", ""),
                     "verified_rare_diseases": [],
                     "filtered_entities_count": len(entities_with_contexts),
-                    "note": "All entities filtered as potential hallucinations (no valid contexts)"
+                    "note": "All entities filtered as potential hallucinations (no valid contexts)",
+                    "verifier_type": args.verifier_type
                 }
                 continue
-            
-            # Verify if entities are rare diseases using the matcher's _verify_rare_disease method
-            verified_rare_diseases = []
-            
-            for entity_data in formatted_entities:
-                entity = entity_data["entity"]
-                context = entity_data["context"]
                 
-                # Get candidates for verification
-                candidates = verifier._retrieve_candidates(entity)
+            # Use the appropriate verification method based on verifier type
+            if args.verifier_type == "multi_stage":
+                # Use batch_process method for MultiStageRDVerifier
+                verified_rare_diseases = verifier.batch_process(formatted_entities)
+            else:
+                # For the simple verifier, process each entity individually
+                verified_rare_diseases = []
                 
-                # Verify if it's a rare disease
-                is_rare_disease = verifier._verify_rare_disease(entity, candidates[:5])
-                
-                if is_rare_disease:
-                    # Add to verified list
-                    verified_entity = {
-                        "entity": entity,
-                        "context": context,
-                        "is_verified": True,
-                        "status": "rare_disease",
-                    }
-                    verified_rare_diseases.append(verified_entity)
+                for entity_data in formatted_entities:
+                    entity = entity_data["entity"]
+                    context = entity_data["context"]
                     
-                    if args.debug:
-                        timestamp_print(f"  ✓ Verified '{entity}' as a rare disease")
-                else:
-                    if args.debug:
-                        timestamp_print(f"  ✗ '{entity}' is not a rare disease")
+                    # Get candidates for verification
+                    candidates = verifier._retrieve_candidates(entity)
+                    
+                    # Verify if it's a rare disease
+                    is_rare_disease = verifier._verify_rare_disease(entity, candidates[:5])
+                    
+                    if is_rare_disease:
+                        # Add to verified list
+                        verified_entity = {
+                            "entity": entity,
+                            "context": context,
+                            "is_verified": True,
+                            "status": "rare_disease",
+                        }
+                        verified_rare_diseases.append(verified_entity)
+                        
+                        if args.debug:
+                            timestamp_print(f"  ✓ Verified '{entity}' as a rare disease")
+                    else:
+                        if args.debug:
+                            timestamp_print(f"  ✗ '{entity}' is not a rare disease")
             
             # Store results with tracking of filtered entities
             original_count = len(entities_with_contexts)
@@ -327,7 +378,8 @@ def verify_cases(cases: Dict, verifier, args: argparse.Namespace,
                     "filtered_hallucinations": filtered_count,
                     "entities_verified": len(formatted_entities),
                     "rare_diseases_found": len(verified_rare_diseases)
-                }
+                },
+                "verifier_type": args.verifier_type
             }
             
             # Save checkpoint if interval reached
@@ -350,7 +402,8 @@ def verify_cases(cases: Dict, verifier, args: argparse.Namespace,
                     "entities_verified": 0,
                     "rare_diseases_found": 0
                 },
-                "error": str(e)
+                "error": str(e),
+                "verifier_type": args.verifier_type
             }
     
     return results
@@ -362,30 +415,23 @@ def main():
         # Parse command line arguments
         args = parse_arguments()
         
-        timestamp_print(f"Starting rare disease verification process")
+        timestamp_print(f"Starting rare disease verification process with {args.verifier_type} verifier")
         
         # Setup device
-        device = setup_device(args)
-        timestamp_print(f"Using device: {device}")
+        devices = setup_device(args)
+        timestamp_print(f"Using device for LLM: {devices['llm']}")
+        timestamp_print(f"Using device for embeddings: {devices['retriever']}")
         
         # Initialize LLM client
         timestamp_print(f"Initializing {args.llm_type} LLM client")
-        llm_client = initialize_llm_client(args, device)
+        llm_client = initialize_llm_client(args, devices['llm'])
         
         # Initialize embedding manager
         timestamp_print(f"Initializing {args.retriever} embedding manager")
         embedding_manager = EmbeddingsManager(
             model_type=args.retriever,
             model_name=args.retriever_model if args.retriever in ['fastembed', 'sentence_transformer'] else None,
-            device=device
-        )
-        
-        # Initialize RAG matcher for verification
-        timestamp_print(f"Initializing RAG matcher for verification")
-        verifier = RAGRDMatcher(
-            embeddings_manager=embedding_manager,
-            llm_client=llm_client,
-            system_message=args.system_prompt
+            device=devices['retriever']
         )
         
         # Load embeddings
@@ -397,8 +443,33 @@ def main():
             timestamp_print(f"Error loading embeddings file: {e}")
             raise
         
-        # Prepare matcher index
-        timestamp_print(f"Preparing matcher index")
+        # Initialize the appropriate verifier based on type argument
+        timestamp_print(f"Initializing {args.verifier_type} verifier")
+        if args.verifier_type == "multi_stage":
+            # Create verifier configuration
+            config = create_verifier_config(args)
+            
+            # Initialize multi-stage verifier
+            verifier = MultiStageRDVerifier(
+                embedding_manager=embedding_manager,
+                llm_client=llm_client,
+                config=config,
+                debug=args.debug,
+                abbreviations_file=args.abbreviations_file,
+                use_abbreviations=args.use_abbreviations
+            )
+            timestamp_print("Using multi-stage rare disease verifier")
+        else:
+            # Initialize simple RAGRDMatcher verifier
+            verifier = RAGRDMatcher(
+                embeddings_manager=embedding_manager,
+                llm_client=llm_client,
+                system_message=args.system_prompt
+            )
+            timestamp_print("Using simple rare disease verifier")
+        
+        # Prepare verifier index
+        timestamp_print(f"Preparing verifier index")
         verifier.prepare_index(embedded_documents)
         
         # Load input data from extraction step
@@ -421,6 +492,7 @@ def main():
         
         # Add metadata about the verification run
         metadata = {
+            "verifier_type": args.verifier_type,
             "verification_timestamp": datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
             "model_info": {
                 "llm_type": args.llm_type,

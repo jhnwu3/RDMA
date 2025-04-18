@@ -22,6 +22,265 @@ class BaseRDMatcher(ABC):
         """Process a batch of entities for rare disease term matching."""
         pass
 
+class SimpleRDMatcher(BaseRDMatcher):
+    """
+    Simple rare disease matcher that focuses solely on matching entities to rare disease terms
+    without performing verification.
+    
+    This class uses embedding-based retrieval to find the most similar rare disease terms
+    for a given entity string. It provides both exact/fuzzy matching and LLM-assisted matching.
+    """
+    
+    def __init__(self, embeddings_manager, llm_client=None, system_message: str = None):
+        """
+        Initialize the simple rare disease matcher.
+        
+        Args:
+            embeddings_manager: Manager for embedding operations
+            llm_client: Optional LLM client for enhanced matching (can be None)
+            system_message: System message for LLM prompting (required if llm_client is provided)
+        """
+        self.embeddings_manager = embeddings_manager
+        self.llm_client = llm_client
+        self.system_message = system_message
+        self.index = None
+        self.embedded_documents = None
+        
+    def prepare_index(self, metadata: List[Dict]):
+        """
+        Prepare FAISS index from metadata.
+        
+        Args:
+            metadata: List of dictionaries containing rare disease metadata with embeddings
+        """
+        embeddings_array = self.embeddings_manager.prepare_embeddings(metadata)
+        self.index = self.embeddings_manager.create_index(embeddings_array)
+        self.embedded_documents = metadata
+        
+    def _retrieve_candidates(self, entity: str, max_candidates: int = 20) -> List[Dict]:
+        """
+        Retrieve relevant candidates with metadata and similarity scores.
+        
+        Args:
+            entity: Entity text to match
+            max_candidates: Maximum number of candidates to retrieve
+            
+        Returns:
+            List of candidate dictionaries with metadata and similarity scores
+        """
+        if self.index is None:
+            raise ValueError("Index not prepared. Call prepare_index() first.")
+            
+        query_vector = self.embeddings_manager.query_text(entity).reshape(1, -1)
+        distances, indices = self.embeddings_manager.search(query_vector, self.index, k=500)
+        
+        seen_metadata = set()
+        candidate_metadata = []
+        
+        for idx, distance in zip(indices[0], distances[0]):
+            try:
+                # Access document directly since it already has name, id, definition
+                document = self.embedded_documents[idx]
+                
+                # Create an identifier for deduplication
+                metadata_id = f"{document.get('name', '')}-{document.get('id', '')}"
+                
+                if metadata_id not in seen_metadata:
+                    seen_metadata.add(metadata_id)
+                    candidate_metadata.append({
+                        'metadata': {
+                            'name': document.get('name', ''),
+                            'id': document.get('id', ''),
+                            'definition': document.get('definition', '')
+                        },
+                        'similarity_score': 1.0 / (1.0 + distance)  # Convert distance to similarity
+                    })
+                    
+                    if len(candidate_metadata) >= max_candidates:
+                        break
+            except Exception as e:
+                print(f"Error processing metadata at index {idx}: {e}")
+                continue
+                    
+        return candidate_metadata
+    
+    def match_entity(self, entity: str, top_k: int = 5) -> Dict:
+        """
+        Match an entity to the most appropriate rare disease term.
+        
+        Args:
+            entity: Entity text to match
+            top_k: Number of top candidates to include in results
+            
+        Returns:
+            Dictionary with matching results
+        """
+        if self.index is None:
+            raise ValueError("Index not prepared. Call prepare_index() first.")
+            
+        # Get candidates
+        candidates = self._retrieve_candidates(entity)
+        
+        # Prepare result structure
+        result = {
+            'entity': entity,
+            'top_candidates': candidates[:top_k]
+        }
+        
+        # Try to find exact/fuzzy match first
+        rd_term = self._try_similarity_matching(entity, candidates)
+        if rd_term:
+            result.update({
+                'rd_term': rd_term['name'],
+                'orpha_id': rd_term['id'],
+                'match_method': 'similarity',
+                'confidence_score': rd_term.get('confidence', 0.9)
+            })
+            return result
+        
+        # If no similarity match but LLM available, try LLM matching
+        if self.llm_client and self.system_message:
+            rd_term = self._try_llm_match(entity, candidates[:5])
+            if rd_term:
+                result.update({
+                    'rd_term': rd_term['name'],
+                    'orpha_id': rd_term['id'],
+                    'match_method': 'llm',
+                    'confidence_score': 0.7
+                })
+                return result
+        
+        # If no match found but we have candidates, use top candidate as fallback
+        if candidates:
+            top_candidate = candidates[0]
+            result.update({
+                'rd_term': top_candidate['metadata']['name'],
+                'orpha_id': top_candidate['metadata']['id'],
+                'match_method': 'fallback',
+                'confidence_score': min(0.5, top_candidate['similarity_score'])  # Cap confidence at 0.5
+            })
+        else:
+            # No candidates at all
+            result.update({
+                'rd_term': None,
+                'orpha_id': None,
+                'match_method': 'no_match',
+                'confidence_score': 0.0
+            })
+            
+        return result
+    
+    def _try_similarity_matching(self, entity: str, candidates: List[Dict]) -> Optional[Dict]:
+        """
+        Try to match entity to a rare disease term using string similarity.
+        
+        Args:
+            entity: Entity text to match
+            candidates: List of candidate rare disease terms
+            
+        Returns:
+            Dictionary with matched term info or None if no match found
+        """
+        from fuzzywuzzy import fuzz
+        
+        cleaned_entity = entity.lower().strip()
+        
+        # Check for exact match
+        for candidate in candidates:
+            name = candidate['metadata']['name']
+            cleaned_name = name.lower().strip()
+            
+            # Exact match
+            if cleaned_name == cleaned_entity:
+                return {
+                    'name': name,
+                    'id': candidate['metadata']['id'],
+                    'confidence': 1.0
+                }
+        
+        # Check for high fuzzy match
+        best_score = 0
+        best_match = None
+        
+        for candidate in candidates:
+            name = candidate['metadata']['name']
+            score = fuzz.ratio(cleaned_entity, name.lower().strip())
+            
+            if score > best_score and score >= 90:  # Only consider very strong matches (90%+)
+                best_score = score
+                best_match = {
+                    'name': name,
+                    'id': candidate['metadata']['id'],
+                    'confidence': score / 100.0
+                }
+        
+        return best_match
+    
+    def _try_llm_match(self, entity: str, candidates: List[Dict]) -> Optional[Dict]:
+        """
+        Try to match entity to a rare disease term using LLM assistance.
+        
+        Args:
+            entity: Entity text to match
+            candidates: List of candidate rare disease terms
+            
+        Returns:
+            Dictionary with matched term info or None if no match found
+        """
+        if not self.llm_client or not self.system_message:
+            return None
+            
+        # Format candidates for LLM prompt
+        context = "\n".join([
+            f"{i+1}. {candidate['metadata']['name']} (ID: {candidate['metadata']['id']})"
+            for i, candidate in enumerate(candidates[:5])
+        ])
+        
+        prompt = (
+            f"I need to match the entity '{entity}' to the most appropriate rare disease term.\n\n"
+            f"Here are some candidate matches:\n{context}\n\n"
+            f"Select the best matching rare disease from these candidates. "
+            f"Return ONLY the ID of the matched rare disease (e.g., 'ORPHA:12345') or 'NONE' if none match."
+        )
+        
+        # Query LLM
+        response = self.llm_client.query(prompt, self.system_message)
+        
+        # Extract ORPHA ID from response
+        orpha_match = re.search(r'ORPHA:\d+', response)
+        if orpha_match:
+            orpha_id = orpha_match.group(0)
+            # Find corresponding metadata
+            for candidate in candidates:
+                if candidate['metadata']['id'] == orpha_id:
+                    return {
+                        'name': candidate['metadata']['name'],
+                        'id': orpha_id
+                    }
+        
+        return None
+    
+    def batch_match_entities(self, entities: List[str], top_k: int = 5) -> List[Dict]:
+        """
+        Match multiple entities to rare disease terms.
+        
+        Args:
+            entities: List of entity strings to match
+            top_k: Number of top candidates to include in results
+            
+        Returns:
+            List of dictionaries with matching results
+        """
+        if self.index is None:
+            raise ValueError("Index not prepared. Call prepare_index() first.")
+            
+        results = []
+        for entity in entities:
+            match_result = self.match_entity(entity, top_k)
+            results.append(match_result)
+            
+        return results
+
 class RAGRDMatcher(BaseRDMatcher):
     """Rare disease term matcher using RAG approach with enhanced match tracking."""
     
