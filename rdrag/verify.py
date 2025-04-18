@@ -164,20 +164,30 @@ class MultiStageRDVerifier:
         seen_metadata = set()
         
         for idx, distance in zip(indices[0], distances[0]):
-            metadata = self.embedded_documents[idx]['unique_metadata']
-            metadata_str = json.dumps(metadata)
-            
-            if metadata_str not in seen_metadata:
-                seen_metadata.add(metadata_str)
-                similar_diseases.append({
-                    'name': metadata.get('name', ''),
-                    'id': metadata.get('id', ''),
-                    'definition': metadata.get('definition', ''),
-                    'similarity_score': 1.0 / (1.0 + distance)  # Convert distance to similarity
-                })
+            try:
+                document = self.embedded_documents[idx]
                 
-                if len(similar_diseases) >= k:
-                    break
+                # Check if document has 'unique_metadata' or direct fields
+                if 'unique_metadata' in document:
+                    metadata = document['unique_metadata']
+                else:
+                    # Assume direct structure
+                    metadata_id = f"{document.get('name', '')}-{document.get('id', '')}"
+                    
+                    if metadata_id not in seen_metadata:
+                        seen_metadata.add(metadata_id)
+                        similar_diseases.append({
+                            'name': document.get('name', ''),
+                            'id': document.get('id', ''),
+                            'definition': document.get('definition', ''),
+                            'similarity_score': 1.0 / (1.0 + distance)
+                        })
+                        
+                        if len(similar_diseases) >= k:
+                            break
+            except Exception as e:
+                print(f"Error processing metadata at index {idx}: {e}")
+                continue
                     
         return similar_diseases
     

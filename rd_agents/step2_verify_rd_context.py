@@ -118,32 +118,6 @@ def parse_arguments() -> argparse.Namespace:
     return parser.parse_args()
 
 
-
-def setup_device(args: argparse.Namespace) -> str:
-    """Configure the device based on command line arguments."""
-    if args.cpu:
-        return "cpu"
-    elif args.condor:
-        if torch.cuda.is_available():
-            timestamp_print("Using generic CUDA device for condor/job scheduler environment")
-            return "cuda"
-        else:
-            timestamp_print("Warning: CUDA requested but not available. Falling back to CPU.")
-            return "cpu"
-    elif args.gpu_id is not None:
-        if torch.cuda.is_available():
-            if args.gpu_id < torch.cuda.device_count():
-                return f"cuda:{args.gpu_id}"
-            else:
-                timestamp_print(f"Warning: GPU {args.gpu_id} requested but only {torch.cuda.device_count()} GPUs available. Using GPU 0.")
-                return "cuda:0"
-        else:
-            timestamp_print(f"Warning: GPU {args.gpu_id} requested but no CUDA available. Falling back to CPU.")
-            return "cpu"
-    else:
-        return "cuda" if torch.cuda.is_available() else "cpu"
-
-
 def initialize_llm_client(args: argparse.Namespace, device: str):
     """Initialize appropriate LLM client based on arguments."""
     if args.llm_type == "api":
