@@ -11,7 +11,6 @@ from datetime import datetime
 from typing import Dict, List, Any, Optional
 from pathlib import Path
 from tqdm import tqdm
-
 # Set correct directory pathing
 import os
 import sys
@@ -20,7 +19,7 @@ parent_dir = os.path.dirname(current_dir)
 sys.path.insert(0, parent_dir)
 
 # Import project modules
-from rdrag.rd_match import SimpleRDMatcher
+from rdrag.rd_match import RAGRDMatcher
 from utils.embedding import EmbeddingsManager
 from utils.llm_client import LocalLLMClient, APILLMClient
 from utils.setup import setup_device
@@ -32,13 +31,13 @@ def timestamp_print(message: str) -> None:
 
 def parse_arguments() -> argparse.Namespace:
     """Parse command line arguments."""
-    parser = argparse.ArgumentParser(description="Directly match extracted entities to ORPHA codes")
+    parser = argparse.ArgumentParser(description="Match verified rare disease entities to ORPHA codes")
     
     # Input/output files
     parser.add_argument("--input_file", required=True, 
-                       help="Input JSON file from extraction step (step1)")
+                       help="Input JSON file from verification step")
     parser.add_argument("--output_file", required=True, 
-                       help="Output JSON file for matching results")
+                       help="Output JSON file for matched results")
     parser.add_argument("--embeddings_file", required=True,
                        help="NPY file containing rare disease embeddings")
     parser.add_argument("--csv_output", 
@@ -98,8 +97,11 @@ def parse_arguments() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def initialize_llm_client(args: argparse.Namespace, device: str):
+def initialize_llm_client(args: argparse.Namespace, device_info: Dict[str, str]):
     """Initialize appropriate LLM client based on arguments."""
+    # Extract the LLM device from the device_info dictionary
+    device = device_info['llm']
+    
     if args.llm_type == "api":
         if args.api_config:
             return APILLMClient.from_config(args.api_config)
@@ -114,21 +116,32 @@ def initialize_llm_client(args: argparse.Namespace, device: str):
         )
 
 
-def load_extraction_results(input_file: str) -> Dict:
-    """Load extraction results from step 1."""
+def load_verification_results(input_file: str) -> Dict:
+    """Load verification results from step 2."""
     try:
         with open(input_file, 'r') as f:
             data = json.load(f)
         
-        # Check if the data has the expected structure with "entities_with_contexts"
-        for case_id, case_data in data.items():
-            if "entities_with_contexts" not in case_data:
-                timestamp_print(f"Warning: Case {case_id} missing entities_with_contexts field")
-        
-        return data
+        # Check if the data has the expected structure with "metadata" and "results" keys
+        if isinstance(data, dict) and "results" in data:
+            timestamp_print(f"Found structured output with 'results' key")
+            results = data["results"]
+            metadata = data.get("metadata", {})
             
+            return {
+                "metadata": metadata,
+                "results": results
+            }
+        else:
+            # Fallback for older format where the entire JSON is the results
+            timestamp_print(f"Using legacy format - treating entire JSON as results")
+            
+            return {
+                "metadata": {},
+                "results": data
+            }
     except Exception as e:
-        timestamp_print(f"Error loading extraction results: {e}")
+        timestamp_print(f"Error loading verification results: {e}")
         raise
 
 
@@ -159,9 +172,9 @@ def save_checkpoint(results: Dict, output_file: str, checkpoint_num: int) -> Non
     timestamp_print(f"Saved checkpoint to {checkpoint_file}")
 
 
-def format_entities_for_matching(entities_with_contexts: List[Dict]) -> List[str]:
-    """Format extracted entities for matching."""
-    return [entity_data["entity"] for entity_data in entities_with_contexts if "entity" in entity_data]
+def format_entities_for_matching(verified_entities: List[Dict]) -> List[str]:
+    """Format verified rare disease entities for matching."""
+    return [entity["entity"] for entity in verified_entities if entity.get("is_verified", False)]
 
 
 def convert_to_serializable(obj):
@@ -185,17 +198,20 @@ def convert_to_serializable(obj):
         return str(obj)
 
 
-def match_cases(extraction_results: Dict, matcher, args: argparse.Namespace, 
+def match_cases(verification_results: Dict, matcher, args: argparse.Namespace, 
                embedded_documents: List[Dict], existing_results: Dict = None) -> Dict:
-    """Match extracted entities to rare disease terms."""
+    """Match verified entities to rare disease terms."""
     results = existing_results or {}
     checkpoint_counter = 0
     
+    # Extract the actual verification results
+    cases = verification_results.get("results", verification_results)
+    
     # Determine which cases need processing
-    pending_cases = {case_id: case_data for case_id, case_data in extraction_results.items() 
+    pending_cases = {case_id: case_data for case_id, case_data in cases.items() 
                    if case_id not in results or not results[case_id].get('matched_diseases')}
     
-    timestamp_print(f"Matching rare diseases for {len(pending_cases)} cases out of {len(extraction_results)} total cases")
+    timestamp_print(f"Matching rare diseases for {len(pending_cases)} cases out of {len(cases)} total cases")
     
     # Convert to list for progress tracking
     case_items = list(pending_cases.items())
@@ -206,55 +222,117 @@ def match_cases(extraction_results: Dict, matcher, args: argparse.Namespace,
             if args.debug:
                 timestamp_print(f"Processing case {i+1}/{len(pending_cases)} (ID: {case_id})")
             
-            # Get extracted entities with contexts
-            entities_with_contexts = case_data.get("entities_with_contexts", [])
+            # Get entities to match - check for verified_rare_diseases first,
+            # then fall back to entities_with_contexts from extraction step
+            if "verified_rare_diseases" in case_data and case_data["verified_rare_diseases"]:
+                verified_entities = case_data["verified_rare_diseases"]
+                timestamp_print(f"  Found {len(verified_entities)} verified rare diseases for case {case_id}")
+            elif "entities_with_contexts" in case_data and case_data["entities_with_contexts"]:
+                # Using entities directly from extraction step
+                verified_entities = case_data["entities_with_contexts"]
+                timestamp_print(f"  Using {len(verified_entities)} extracted entities for case {case_id}")
+            else:
+                verified_entities = []
+                timestamp_print(f"  Warning: No entities found for case {case_id}")
             
             if args.debug:
-                timestamp_print(f"  Processing {len(entities_with_contexts)} extracted entities")
+                timestamp_print(f"  Processing {len(verified_entities)} verified rare diseases")
             
-            # Skip processing if no entities
-            if not entities_with_contexts:
+            # Skip processing if no verified entities
+            if not verified_entities:
                 results[case_id] = {
                     "clinical_text": case_data.get("clinical_text", ""),
                     "metadata": case_data.get("metadata", {}),
                     "matched_diseases": [],
-                    "note": "No extracted entities to match"
+                    "note": "No verified rare diseases to match"
                 }
                 continue
             
-            # Format entities for matching
+            # Format entities for matching based on their structure
             formatted_entities = []
-            for ewc in entities_with_contexts:
-                if "entity" in ewc:
-                    formatted_entities.append(ewc["entity"])
-                elif "term" in ewc:
-                    formatted_entities.append(ewc["term"])
+            for entity_item in verified_entities:
+                # Handle different entity formats
+                if isinstance(entity_item, str):
+                    # Direct string format
+                    formatted_entities.append(entity_item)
+                elif isinstance(entity_item, dict):
+                    # Check for various possible key names
+                    if "entity" in entity_item:
+                        formatted_entities.append(entity_item["entity"])
+                    elif "term" in entity_item:
+                        formatted_entities.append(entity_item["term"])
+                    elif "mention" in entity_item:
+                        formatted_entities.append(entity_item["mention"])
+            
+            # Remove empty entities and duplicates
+            formatted_entities = [e for e in formatted_entities if e and e.strip()]
+            formatted_entities = list(dict.fromkeys(formatted_entities))  # Remove duplicates while preserving order
             
             if args.debug:
                 timestamp_print(f"  Matching {len(formatted_entities)} formatted entities")
             
-            # Match entities to rare disease terms using SimpleRDMatcher
+            # Match entities to rare disease terms
             matched_diseases = []
-            batch_matches = matcher.batch_match_entities(formatted_entities, top_k=args.top_k)
             
-            for entity, match_result in zip(formatted_entities, batch_matches):
-                # Only include successful matches
-                if match_result.get("rd_term") and match_result.get("orpha_id"):
-                    matched_disease = {
-                        "entity": entity,
-                        "rd_term": match_result["rd_term"],
-                        "orpha_id": match_result["orpha_id"],
-                        "match_method": match_result.get("match_method", "direct"),
-                        "confidence_score": match_result.get("confidence_score", 0.0),
-                        "top_candidates": match_result.get("top_candidates", [])
-                    }
-                    matched_diseases.append(matched_disease)
+            for entity in formatted_entities:
+                # Get matching candidates from the index
+                candidates = matcher._retrieve_candidates(entity)
+                
+                if candidates:
+                    # Try to match the entity to a specific rare disease term
+                    rd_term = matcher._try_enriched_matching(entity, candidates)
                     
-                    if args.debug:
-                        timestamp_print(f"  ✓ Matched '{entity}' to {match_result['rd_term']} ({match_result['orpha_id']})")
+                    if rd_term:
+                        # Found an exact or fuzzy match
+                        matched_disease = {
+                            "entity": entity,
+                            "rd_term": rd_term["name"],
+                            "orpha_id": rd_term["id"],
+                            "match_method": "exact",
+                            "confidence_score": 1.0,
+                            "top_candidates": [
+                                {
+                                    "name": c["metadata"]["name"],
+                                    "id": c["metadata"]["id"],
+                                    "similarity": float(c["similarity_score"])
+                                }
+                                for c in candidates[:args.top_k]
+                            ]
+                        }
+                        matched_diseases.append(matched_disease)
+                        
+                        if args.debug:
+                            timestamp_print(f"  ✓ Exact match for '{entity}': {rd_term['name']} ({rd_term['id']})")
+                    else:
+                        # Try LLM matching
+                        rd_term = matcher._try_llm_match(entity, candidates[:5])
+                        
+                        if rd_term:
+                            matched_disease = {
+                                "entity": entity,
+                                "rd_term": rd_term["name"],
+                                "orpha_id": rd_term["id"],
+                                "match_method": "llm",
+                                "confidence_score": 0.7,
+                                "top_candidates": [
+                                    {
+                                        "name": c["metadata"]["name"],
+                                        "id": c["metadata"]["id"],
+                                        "similarity": float(c["similarity_score"])
+                                    }
+                                    for c in candidates[:args.top_k]
+                                ]
+                            }
+                            matched_diseases.append(matched_disease)
+                            
+                            if args.debug:
+                                timestamp_print(f"  ✓ LLM match for '{entity}': {rd_term['name']} ({rd_term['id']})")
+                        else:
+                            if args.debug:
+                                timestamp_print(f"  ✗ No match found for '{entity}'")
                 else:
                     if args.debug:
-                        timestamp_print(f"  ✗ No match found for '{entity}'")
+                        timestamp_print(f"  ✗ No candidates found for '{entity}'")
             
             # Store results
             results[case_id] = {
@@ -262,7 +340,7 @@ def match_cases(extraction_results: Dict, matcher, args: argparse.Namespace,
                 "metadata": case_data.get("metadata", {}),
                 "matched_diseases": matched_diseases,
                 "stats": {
-                    "extracted_entities_count": len(formatted_entities),
+                    "verified_diseases_count": len(verified_entities),
                     "matched_diseases_count": len(matched_diseases)
                 }
             }
@@ -283,7 +361,7 @@ def match_cases(extraction_results: Dict, matcher, args: argparse.Namespace,
                 "metadata": case_data.get("metadata", {}),
                 "matched_diseases": [],
                 "stats": {
-                    "extracted_entities_count": len(case_data.get("entities_with_contexts", [])),
+                    "verified_diseases_count": len(case_data.get("verified_rare_diseases", [])),
                     "matched_diseases_count": 0
                 },
                 "error": str(e)
@@ -320,32 +398,32 @@ def format_csv_results(results: Dict) -> pd.DataFrame:
 
 
 def main():
-    """Main function to run the direct rare disease matching pipeline."""
+    """Main function to run the rare disease matching pipeline."""
     try:
         # Parse command line arguments
         args = parse_arguments()
         
-        timestamp_print(f"Starting direct rare disease matching process")
+        timestamp_print(f"Starting rare disease matching process")
         
         # Setup device
-        device = setup_device(args)
-        timestamp_print(f"Using device: {device}")
+        devices = setup_device(args)
+        timestamp_print(f"Using device: {devices}")
         
         # Initialize LLM client
         timestamp_print(f"Initializing {args.llm_type} LLM client")
-        llm_client = initialize_llm_client(args, device)
+        llm_client = initialize_llm_client(args, devices)
         
         # Initialize embedding manager
         timestamp_print(f"Initializing {args.retriever} embedding manager")
         embedding_manager = EmbeddingsManager(
             model_type=args.retriever,
             model_name=args.retriever_model if args.retriever in ['fastembed', 'sentence_transformer'] else None,
-            device=device
+            device=devices['retriever']
         )
         
-        # Initialize matcher - use SimpleRDMatcher for direct matching
-        timestamp_print(f"Initializing SimpleRDMatcher")
-        matcher = SimpleRDMatcher(
+        # Initialize matcher
+        timestamp_print(f"Initializing RAG matcher")
+        matcher = RAGRDMatcher(
             embeddings_manager=embedding_manager,
             llm_client=llm_client,
             system_message=args.system_prompt
@@ -364,19 +442,24 @@ def main():
         timestamp_print(f"Preparing matcher index")
         matcher.prepare_index(embedded_documents)
         
-        # Load extraction results from step 1
-        timestamp_print(f"Loading extraction results from {args.input_file}")
-        extraction_data = load_extraction_results(args.input_file)
-        timestamp_print(f"Loaded extraction results for {len(extraction_data)} cases")
+        # Load verification results from step 2
+        timestamp_print(f"Loading verification results from {args.input_file}")
+        verification_data = load_verification_results(args.input_file)
+        
+        # Extract results and metadata
+        verification_results = verification_data.get("results", verification_data)
+        verification_metadata = verification_data.get("metadata", {})
+        
+        timestamp_print(f"Loaded verification results for {len(verification_results)} cases")
         
         # Check for existing results if resuming
         existing_results = {}
         if args.resume:
             existing_results = load_existing_results(args.output_file)
         
-        # Match extracted entities to rare disease terms
+        # Match verified entities to rare disease terms
         timestamp_print(f"Starting rare disease matching")
-        results = match_cases(extraction_data, matcher, args, embedded_documents, existing_results)
+        results = match_cases(verification_results, matcher, args, embedded_documents, existing_results)
         
         # Save results to JSON
         timestamp_print(f"Saving matching results to {args.output_file}")
@@ -384,6 +467,7 @@ def main():
         
         # Add metadata about the matching run
         metadata = {
+            "verification_metadata": verification_metadata,
             "matching_timestamp": datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
             "model_info": {
                 "llm_type": args.llm_type,
@@ -413,17 +497,17 @@ def main():
             csv_df.to_csv(args.csv_output, index=False)
         
         # Print summary
-        total_extracted_entities = sum(case_data.get("stats", {}).get("extracted_entities_count", 0) for case_data in results.values())
+        total_verified_entities = sum(case_data.get("stats", {}).get("verified_diseases_count", 0) for case_data in results.values())
         total_matched_entities = sum(case_data.get("stats", {}).get("matched_diseases_count", 0) for case_data in results.values())
         
         # Calculate match rate
-        match_rate = (total_matched_entities / total_extracted_entities * 100) if total_extracted_entities > 0 else 0
+        match_rate = (total_matched_entities / total_verified_entities * 100) if total_verified_entities > 0 else 0
         
         timestamp_print(f"Matching complete:")
-        timestamp_print(f"  Total extracted entities: {total_extracted_entities}")
+        timestamp_print(f"  Total verified rare diseases: {total_verified_entities}")
         timestamp_print(f"  Successfully matched to ORPHA codes: {total_matched_entities} ({match_rate:.1f}%)")
         
-        timestamp_print(f"Direct rare disease matching completed successfully.")
+        timestamp_print(f"Rare disease matching completed successfully.")
     
     except Exception as e:
         timestamp_print(f"Critical error: {e}")
