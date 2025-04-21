@@ -309,9 +309,76 @@ class MultiStageRDVerifier:
         
 
 
+    def _check_if_disease(self, entity: str, context: Optional[str] = None) -> bool:
+        """
+        Simple check to determine if an entity represents a disease (not necessarily a rare one).
+        
+        Args:
+            entity: Entity text to check
+            context: Original sentence containing the entity
+            
+        Returns:
+            Boolean indicating if the entity is likely a disease
+        """
+        # Create a cache key
+        cache_key = f"disease_check::{entity}::{context or ''}"
+        
+        # Check cache first
+        if cache_key in self.verification_cache:
+            result = self.verification_cache[cache_key]
+            self._debug_print(f"Cache hit for disease check '{entity}': {result}", level=1)
+            return result
+        
+        self._debug_print(f"Checking if '{entity}' is a disease", level=1)
+        
+        # Define the system message for this specific check
+        system_message = (
+            "You are a medical expert specializing in disease classification. "
+            "Your task is to determine if the given entity represents a disease or medical condition. "
+            "Answer with ONLY 'YES' or 'NO' with no additional text."
+        )
+        
+        # Format the context part
+        context_part = ""
+        if context:
+            context_part = f"\nOriginal sentence: '{context}'"
+        
+        # Create the prompt
+        prompt = (
+            f"I need to determine if the term '{entity}' represents a disease or medical condition."
+            f"{context_part}\n\n"
+            f"A disease or medical condition is a pathological state or disorder with characteristic symptoms and causes, "
+            f"such as cancer, diabetes, asthma, or genetic syndromes."
+            f"\n\nIs '{entity}' a disease or medical condition? Answer with ONLY 'YES' or 'NO'."
+        )
+        
+        # Query the LLM
+        response = self.llm_client.query(prompt, system_message)
+        
+        # Parse the response - strictly look for "YES"
+        response_text = response.strip().upper()
+        is_disease = "YES" in response_text and "NO" not in response_text
+        
+        # Cache the result
+        self.verification_cache[cache_key] = is_disease
+        
+        self._debug_print(f"Disease check result for '{entity}': {is_disease}", level=2)
+        return is_disease
+    
     def verify_rare_disease(self, entity: str, context: Optional[str] = None) -> Dict:
         """
-        Verify if an entity is a rare disease through a multi-step process.
+        Verify if an entity is a rare disease through a two-step process:
+        1. Check if the term exists in the ORPHA ontology (or closely matches)
+        2. Verify that it's an actual disease with an LLM sanity check
+
+        Both conditions must be true to classify it as a rare disease.
+        
+        Args:
+            entity: Entity text to verify
+            context: Original sentence containing the entity
+            
+        Returns:
+            Dictionary with verification results
         """
         # Handle empty entities
         if not entity:
@@ -319,7 +386,7 @@ class MultiStageRDVerifier:
                 'is_rare_disease': False,
                 'method': 'empty_entity'
             }
-                
+            
         # Create a cache key
         cache_key = f"verify::{entity}::{context or ''}"
         
@@ -328,128 +395,128 @@ class MultiStageRDVerifier:
             result = self.verification_cache[cache_key]
             self._debug_print(f"Cache hit for rare disease verification '{entity}': {result['is_rare_disease']}", level=1)
             return result
-                
-        self._debug_print(f"Verifying if '{entity}' is a rare disease", level=1)
+            
+        self._debug_print(f"Verifying if '{entity}' is a rare disease via two-step process", level=1)
         
-        # STEP 1: Check for exact matches using fuzzy matching first (optimization)
-        similar_diseases = self._retrieve_similar_diseases(entity)
+        # STEP 1: Retrieve similar entities from ORPHA ontology
+        similar_entities = self._retrieve_similar_diseases(entity)
         
-        # Check if the entity exactly matches any ORPHA term
-        is_among_orpha_terms = False
-        exact_match_disease = None
-        high_similarity_match = None
-        similarity_score = None
+        if not similar_entities:
+            # No candidates found in ORPHA ontology
+            self._debug_print(f"No ORPHA candidates found for '{entity}'", level=2)
+            result = {
+                'is_rare_disease': False,
+                'method': 'no_orpha_candidates'
+            }
+            self.verification_cache[cache_key] = result
+            return result
         
-        for disease in similar_diseases:
-            normalized_name = self._normalize_text(disease['name'])
+        # Check if any of the candidates have high similarity to our entity
+        has_matching_entity = False
+        matched_entity = None
+        matched_id = None
+        
+        for entity_data in similar_entities[:5]:  # Only check top 5 candidates
+            normalized_name = self._normalize_text(entity_data['name'])
             normalized_entity = self._normalize_text(entity)
             
             # Check for exact match
             if normalized_name == normalized_entity:
-                self._debug_print(f"Exact match found: '{entity}' matches '{disease['name']}' ({disease['id']})", level=2)
-                is_among_orpha_terms = True
-                exact_match_disease = disease
+                self._debug_print(f"Exact ORPHA match found: '{entity}' matches '{entity_data['name']}' ({entity_data['id']})", level=2)
+                has_matching_entity = True
+                matched_entity = entity_data['name']
+                matched_id = entity_data['id']
                 break
                 
-            # Check for high similarity match (over 93%)
+            # Check for high similarity match (over 90%)
             similarity = fuzz.ratio(normalized_name, normalized_entity)
-            if similarity > 93:
-                self._debug_print(f"High similarity match ({similarity}%): '{entity}' matches '{disease['name']}' ({disease['id']})", level=2)
-                is_among_orpha_terms = True
-                high_similarity_match = disease
-                similarity_score = similarity / 100.0
-                if not exact_match_disease:  # Only set if no exact match yet
-                    exact_match_disease = disease
+            if similarity > 90:
+                self._debug_print(f"High similarity ORPHA match ({similarity}%): '{entity}' matches '{entity_data['name']}' ({entity_data['id']})", level=2)
+                has_matching_entity = True
+                matched_entity = entity_data['name']
+                matched_id = entity_data['id']
+                break
         
-        # If exact match found, it's a rare disease
-        if is_among_orpha_terms and exact_match_disease:
-            result = {
-                'is_rare_disease': True,
-                'method': 'exact_match' if normalized_name == normalized_entity else 'high_similarity_match',
-                'orpha_id': exact_match_disease['id'],
-                'matched_term': exact_match_disease['name']
-            }
+        if not has_matching_entity:
+            # No close match in ORPHA ontology
+            self._debug_print(f"No close ORPHA match found for '{entity}'", level=2)
             
-            # Only add similarity score if it's from fuzzy matching
-            if result['method'] == 'high_similarity_match' and similarity_score:
-                result['similarity_score'] = similarity_score
-                
-            self.verification_cache[cache_key] = result
-            return result
+            # For borderline cases, proceed to LLM check as we might have a variant name not in the ontology
+            if similar_entities[0]['similarity_score'] > 0.7:  # Threshold for proceeding
+                self._debug_print(f"But similarity is high enough to proceed to disease check", level=2)
+            else:
+                result = {
+                    'is_rare_disease': False,
+                    'method': 'low_orpha_similarity'
+                }
+                self.verification_cache[cache_key] = result
+                return result
         
-        # STEP 2: No exact match, check if it might be a rare disease using LLM
-        # Format candidates for the LLM prompt
-        candidate_items = []
-        for i, disease in enumerate(similar_diseases[:5], 1):
-            candidate_items.append(f"{i}. '{disease['name']}' ({disease['id']})")
+        # STEP 2: Verify that it's a disease using the LLM
+        # Format entities for the LLM prompt
+        entity_items = []
+        for i, entity_data in enumerate(similar_entities[:5], 1):
+            entity_items.append(f"{i}. '{entity_data['name']}' ({entity_data['id']})")
         
-        candidates_text = "\n".join(candidate_items)
+        entities_text = "\n".join(entity_items)
         
         # Create context part
         context_part = ""
         if context:
             context_part = f"\nOriginal sentence context: '{context}'"
         
-        # First ask if entity is among ORPHA terms
-        orpha_prompt = (
-            f"I need to determine if the entity '{entity}' might be related to any of these rare disease terms."
-            f"\n\nRare disease candidates for reference:"
-            f"\n\n{candidates_text}\n"
+        # Create the binary YES/NO matching prompt
+        prompt = (
+            f"I need to determine if the entity '{entity}' represents a rare disease."
+            f"\n\nHere are some similar medical entities from a rare disease database for context:"
+            f"\n\n{entities_text}\n"
             f"{context_part}\n\n"
-            f"Based on these candidates, could '{entity}' potentially refer to any of these rare diseases or a similar condition?"
+            f"First, determine if '{entity}' is actually a disease or medical condition (not a symptom, finding, protein, enzyme, etc.)."
+            f"\nThen, determine if it's a rare disease (typically affecting fewer than 1 in 2,000 people)."
+            f"\n\nIs '{entity}' a rare disease?"
             f"\nRespond with ONLY 'YES' or 'NO'."
         )
         
         # Query the LLM
-        orpha_response = self.llm_client.query(orpha_prompt, self.direct_verification_system_message)
+        response = self.llm_client.query(prompt, self.direct_verification_system_message)
         
         # Parse the response - strictly look for "YES" or "NO"
-        orpha_response_text = orpha_response.strip().upper()
-        is_potentially_orpha = "YES" in orpha_response_text and "NO" not in orpha_response_text
+        response_text = response.strip().upper()
+        is_rare_disease = "YES" in response_text and "NO" not in response_text
         
-        # If not potentially related to ORPHA terms, we can stop here
-        if not is_potentially_orpha:
+        # Create result based on both steps
+        if is_rare_disease:
+            result = {
+                'is_rare_disease': True,
+                'method': 'two_step_verification'
+            }
+            
+            # Include the matched entity information if available
+            if matched_entity and matched_id:
+                result['matched_term'] = matched_entity
+                result['orpha_id'] = matched_id
+        else:
             result = {
                 'is_rare_disease': False,
-                'method': 'not_among_orpha_terms'
+                'method': 'failed_disease_check' if has_matching_entity else 'not_in_orpha'
             }
-            self.verification_cache[cache_key] = result
-            self._debug_print(f"'{entity}' is not related to any ORPHA terms", level=2)
-            return result
-        
-        # STEP 3: Entity is potentially related to ORPHA terms, verify if it's actually a disease
-        disease_prompt = (
-            f"I need to determine if the entity '{entity}' represents a rare disease."
-            f"\n\nHere are some rare disease candidates for reference:"
-            f"\n\n{candidates_text}\n"
-            f"{context_part}\n\n"
-            f"A rare disease is typically defined as a condition that affects fewer than 1 in 2,000 people."
-            f"\n\nBased on these candidates and criteria, is '{entity}' definitely a rare disease?"
-            f"\nRespond with ONLY 'YES' or 'NO'."
-        )
-        
-        # Query the LLM
-        disease_response = self.llm_client.query(disease_prompt, self.direct_verification_system_message)
-        
-        # Parse the response - strictly look for "YES" or "NO"
-        disease_response_text = disease_response.strip().upper()
-        is_rare_disease = "YES" in disease_response_text and "NO" not in disease_response_text
-        
-        # Create result based on disease verification
-        result = {
-            'is_rare_disease': is_rare_disease,
-            'method': 'llm_disease_verification' if is_rare_disease else 'not_a_disease'
-        }
         
         # Cache the result
         self.verification_cache[cache_key] = result
         
-        self._debug_print(f"Disease verification: '{entity}' is{'' if is_rare_disease else ' not'} a rare disease", level=2)
+        self._debug_print(f"Two-step verification: '{entity}' is{'' if is_rare_disease else ' not'} a rare disease", level=2)
         return result
 
     def process_entity(self, entity: str, context: Optional[str] = None) -> Dict:
         """
-        Process an entity through the improved multistage pipeline.
+        Process an entity through the multistage pipeline with two-step verification.
+        
+        Args:
+            entity: Entity text to process
+            context: Original sentence containing the entity
+            
+        Returns:
+            Dictionary with processing results
         """
         # Handle empty entities
         if not entity:
@@ -459,7 +526,7 @@ class MultiStageRDVerifier:
                 'original_entity': entity,
                 'method': 'empty_entity'
             }
-                
+            
         self._debug_print(f"Processing entity: '{entity}'", level=0)
         
         # Clean and preprocess the entity
@@ -472,74 +539,55 @@ class MultiStageRDVerifier:
                 'method': 'empty_after_preprocessing'
             }
         
-        # STAGE 1: Check if it's an abbreviation with case-sensitive matching
+        # STAGE 1: Check if it's an abbreviation
+        entity_to_verify = cleaned_entity
+        is_abbreviation = False
+        expanded_term = None
+        
         if self.use_abbreviations and self.abbreviation_searcher:
             abbreviation_result = self.check_abbreviation(cleaned_entity, context)
             
             if abbreviation_result['is_abbreviation']:
                 expanded_term = abbreviation_result['expanded_term']
-                self._debug_print(f"'{entity}' is an abbreviation for '{expanded_term}' (method: {abbreviation_result['method']})", level=1)
-                
-                # Use the expanded term for verification
+                is_abbreviation = True
                 entity_to_verify = expanded_term
-                
-                # Verify if the expanded term is a rare disease
-                verification_result = self.verify_rare_disease(entity_to_verify, context)
-                
-                if verification_result['is_rare_disease']:
-                    self._debug_print(f"Expanded term '{expanded_term}' is a rare disease", level=1)
-                    
-                    result = {
-                        'status': 'verified_rare_disease',
-                        'entity': verification_result.get('matched_term', expanded_term),
-                        'original_entity': entity,
-                        'expanded_term': expanded_term,
-                        'method': f"abbreviation_expansion__{verification_result['method']}"
-                    }
-                    
-                    # Include similarity score if available
-                    if 'similarity_score' in abbreviation_result:
-                        result['similarity_score'] = abbreviation_result['similarity_score']
-                    
-                    if 'orpha_id' in verification_result:
-                        result['orpha_id'] = verification_result['orpha_id']
-                        
-                    return result
-                else:
-                    self._debug_print(f"Expanded term '{expanded_term}' is not a rare disease (method: {verification_result['method']})", level=1)
-                    # Continue to STAGE 2 with the original term, as the expanded term is not a disease
+                self._debug_print(f"'{entity}' is an abbreviation for '{expanded_term}'", level=1)
         
-        # STAGE 2: Verify if the original term is a rare disease using the improved process
-        verification_result = self.verify_rare_disease(cleaned_entity, context)
+        # STAGE 2: Verify if it's a rare disease using the two-step process
+        verification_result = self.verify_rare_disease(entity_to_verify, context)
         
         if verification_result['is_rare_disease']:
-            self._debug_print(f"'{entity}' is a rare disease (method: {verification_result['method']})", level=1)
+            self._debug_print(f"'{entity_to_verify}' is a rare disease", level=1)
             
             result = {
                 'status': 'verified_rare_disease',
-                'entity': verification_result.get('matched_term', cleaned_entity),
+                'entity': verification_result.get('matched_term', entity_to_verify),
                 'original_entity': entity,
-                'method': verification_result['method']
+                'method': 'abbreviation_expansion' if is_abbreviation else verification_result['method']
             }
             
-            # Include similarity score if available
-            if 'similarity_score' in verification_result:
-                result['similarity_score'] = verification_result['similarity_score']
+            # Include expansion information if this was an abbreviation
+            if is_abbreviation:
+                result['expanded_term'] = entity_to_verify
             
+            # Include ORPHA ID if available
             if 'orpha_id' in verification_result:
                 result['orpha_id'] = verification_result['orpha_id']
                 
             return result
         
         # Not a rare disease
-        self._debug_print(f"'{entity}' is not a rare disease (method: {verification_result['method']})", level=1)
+        self._debug_print(f"'{entity_to_verify}' is not a rare disease", level=1)
         return {
             'status': 'not_rare_disease',
             'entity': None,
             'original_entity': entity,
+            'expanded_term': entity_to_verify if is_abbreviation else None,
             'method': verification_result['method']
         }
     
+
+
     def batch_process(self, entities_with_context: List[Dict]) -> List[Dict]:
         """
         Process a batch of entities with their contexts.
