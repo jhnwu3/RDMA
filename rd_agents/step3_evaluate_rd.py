@@ -8,7 +8,18 @@ from typing import List, Dict, Tuple, Optional, Set, Any
 from collections import Counter, defaultdict
 from datetime import datetime
 from pathlib import Path
-
+#!/usr/bin/env python3
+import argparse
+import json
+import os
+import pandas as pd
+import numpy as np
+from typing import List, Dict, Tuple, Optional, Set, Any
+from collections import Counter, defaultdict
+from datetime import datetime
+from pathlib import Path
+from fuzzywuzzy import fuzz
+import re
 # Add parent directory to path
 import os
 import sys
@@ -16,10 +27,10 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 parent_dir = os.path.dirname(current_dir)
 sys.path.insert(0, parent_dir)
 
-
 def code_based_evaluation(predictions: List[str], ground_truth: List[str]) -> Dict:
     """
     Evaluates predictions against ground truth using exact matching of ORPHA codes.
+    Only compares the numeric portion of the ORPHA codes.
     
     Args:
         predictions: List of predicted ORPHA codes
@@ -28,13 +39,37 @@ def code_based_evaluation(predictions: List[str], ground_truth: List[str]) -> Di
     Returns:
         Dictionary with precision, recall, F1 scores and match information
     """
-    # Create sets for exact matching
-    unique_predictions = set(predictions)
-    unique_ground_truth = set(ground_truth)
+    import re
+    
+    # Extract only numeric part of ORPHA codes
+    def normalize_code(code):
+        if not code:
+            return ""
+        # Use regex to extract only the digits
+        match = re.search(r'(\d+)', code)
+        if match:
+            return match.group(1)
+        return code
+    
+    # Normalize predictions and ground truth
+    normalized_predictions = [normalize_code(p) for p in predictions if p]
+    normalized_ground_truth = [normalize_code(g) for g in ground_truth if g]
+    
+    # Print some debug info
+    if predictions and ground_truth:
+        print(f"\nDebug: Sample normalization:")
+        print(f"  Original prediction: '{predictions[0]}'")
+        print(f"  Normalized prediction: '{normalize_code(predictions[0])}'")
+        print(f"  Original ground truth: '{ground_truth[0]}'")
+        print(f"  Normalized ground truth: '{normalize_code(ground_truth[0])}'")
+    
+    # Create sets for exact matching with normalized codes
+    unique_predictions = set(normalized_predictions)
+    unique_ground_truth = set(normalized_ground_truth)
     
     # Store original counts for reference
-    pred_counter = Counter(predictions)
-    truth_counter = Counter(ground_truth)
+    pred_counter = Counter(normalized_predictions)
+    truth_counter = Counter(normalized_ground_truth)
     
     # Default empty result with all required fields
     result = {
@@ -133,18 +168,10 @@ def load_data(predictions_file: str, ground_truth_file: str) -> Tuple[Dict[str, 
 
 
 def extract_predictions(predictions_data: Dict, 
-                         match_method: Optional[str] = None, 
-                         confidence_threshold: Optional[float] = None) -> Dict[str, List[str]]:
+                        match_method: Optional[str] = None, 
+                        confidence_threshold: Optional[float] = None) -> Dict[str, List[str]]:
     """
     Extract ORPHA codes from the predictions data structure with filtering options.
-    
-    Args:
-        predictions_data: Loaded predictions data
-        match_method: If provided, only include predictions with this match_method (e.g., "exact", "llm")
-        confidence_threshold: If provided, only include predictions with confidence >= this value
-        
-    Returns:
-        Dictionary mapping sample_id to list of predicted ORPHA codes
     """
     result = {}
     
@@ -175,9 +202,7 @@ def extract_predictions(predictions_data: Dict,
                 # Extract the ORPHA code
                 orpha_id = item.get("orpha_id")
                 if orpha_id and isinstance(orpha_id, str):
-                    # Normalize format to ensure consistent comparison
-                    if not orpha_id.startswith("ORPHA:"):
-                        orpha_id = f"ORPHA:{orpha_id}"
+                    # Keep original format for now, normalization happens in evaluation
                     orpha_codes.append(orpha_id)
         
         # Add non-empty lists to result
@@ -187,56 +212,133 @@ def extract_predictions(predictions_data: Dict,
     print(f"Extracted predictions for {len(result)} cases with {sum(len(codes) for codes in result.values())} total ORPHA codes")
     return result
 
+def extract_prediction_entities(predictions_data: Dict) -> Tuple[Dict[str, List[str]], Dict[str, Dict[str, str]]]:
+    """
+    Extract ORPHA codes and entity names from the predictions data structure.
+    
+    Returns:
+        Tuple of (
+            Dictionary mapping sample_id to list of ORPHA codes,
+            Dictionary mapping {doc_id: {orpha_code: entity_name}}
+        )
+    """
+    orpha_codes_dict = {}
+    entity_names_dict = {}
+    
+    if isinstance(predictions_data, dict):
+        for case_id, case_data in predictions_data.items():
+            orpha_codes = []
+            entity_names = {}
+            
+            if "matched_diseases" in case_data and isinstance(case_data["matched_diseases"], list):
+                for item in case_data["matched_diseases"]:
+                    if not isinstance(item, dict):
+                        continue
+                    
+                    orpha_id = item.get("orpha_id")
+                    entity = item.get("entity")
+                    
+                    if orpha_id and isinstance(orpha_id, str):
+                        # Normalize format
+                        if not orpha_id.startswith("ORPHA:"):
+                            orpha_id = f"ORPHA:{orpha_id}"
+                            
+                        orpha_codes.append(orpha_id)
+                        
+                        # Store entity name mapping
+                        if entity:
+                            normalized_id = orpha_id.replace("ORPHA:", "").strip().lower()
+                            entity_names[normalized_id] = entity
+            
+            if orpha_codes:
+                orpha_codes_dict[str(case_id)] = orpha_codes
+                entity_names_dict[str(case_id)] = entity_names
+    
+    return orpha_codes_dict, entity_names_dict
+
+def extract_ground_truth_entities(ground_truth_data: Dict) -> Tuple[Dict[str, List[str]], Dict[str, Dict[str, str]]]:
+    """
+    Extract ORPHA codes and entity names from the ground truth data structure.
+    
+    Returns:
+        Tuple of (
+            Dictionary mapping sample_id to list of ORPHA codes,
+            Dictionary mapping {doc_id: {orpha_code: entity_name}}
+        )
+    """
+    orpha_codes_dict = {}
+    entity_names_dict = {}
+    
+    if isinstance(ground_truth_data, dict):
+        for case_id, case_data in ground_truth_data.items():
+            orpha_codes = []
+            entity_names = {}
+            
+            if isinstance(case_data, dict) and "annotations" in case_data:
+                annotations = case_data["annotations"]
+                
+                for annotation in annotations:
+                    if isinstance(annotation, dict):
+                        ordo_field = annotation.get("ordo_with_desc", "")
+                        mention = annotation.get("mention", "")
+                        
+                        if ordo_field and isinstance(ordo_field, str):
+                            # Split by space to separate ID from description
+                            ordo_parts = ordo_field.split(' ', 1)
+                            orpha_id = ordo_parts[0] if ordo_parts else ''
+                            
+                            if orpha_id:
+                                # Normalize format
+                                if not orpha_id.startswith("ORPHA:"):
+                                    orpha_id = f"ORPHA:{orpha_id}"
+                                
+                                orpha_codes.append(orpha_id)
+                                
+                                # Store entity name mapping
+                                if mention:
+                                    normalized_id = orpha_id.replace("ORPHA:", "").strip().lower()
+                                    entity_names[normalized_id] = mention
+            
+            if orpha_codes:
+                orpha_codes_dict[str(case_id)] = orpha_codes
+                entity_names_dict[str(case_id)] = entity_names
+    
+    return orpha_codes_dict, entity_names_dict
 
 def extract_ground_truth(ground_truth_data: Dict) -> Dict[str, List[str]]:
     """
-    Extract ORPHA codes from the ground truth data structure.
-    
-    Args:
-        ground_truth_data: Loaded ground truth data
-        
-    Returns:
-        Dictionary mapping sample_id to list of ground truth ORPHA codes
+    Extract ORPHA codes from the ground truth data structure in MIMIC-style format.
     """
     result = {}
+    total_annotations = 0
     
-    # Handle different possible formats
+    # Handle MIMIC-style format
     if isinstance(ground_truth_data, dict):
-        # Format: {case_id: {"gold_annotations"/"annotations"/"matched_diseases": [...]}, ...}
         for case_id, case_data in ground_truth_data.items():
             orpha_codes = []
             
-            # Try different possible field names
-            for field in ["gold_annotations", "annotations", "matched_diseases", "ground_truth", "orpha_terms"]:
-                if field in case_data:
-                    field_data = case_data[field]
-                    if isinstance(field_data, list):
-                        for item in field_data:
-                            # Check for different possible field names in nested dictionaries
-                            if isinstance(item, dict):
-                                # Try different field names for the ORPHA code
-                                for code_field in ["orpha_id", "OrphaId", "ordo_id", "id"]:
-                                    if code_field in item:
-                                        code = item[code_field]
-                                        # Ensure code is valid
-                                        if code and isinstance(code, str):
-                                            # Normalize format
-                                            if not code.startswith("ORPHA:"):
-                                                code = f"ORPHA:{code}"
-                                            orpha_codes.append(code)
-                                        break
-                            # Handle direct string format
-                            elif isinstance(item, str) and item.startswith("ORPHA:"):
-                                orpha_codes.append(item)
-                    break
+            # Check for MIMIC-style format with note_details and annotations
+            if isinstance(case_data, dict) and "annotations" in case_data:
+                annotations = case_data["annotations"]
+                total_annotations += len(annotations)
+                
+                if isinstance(annotations, list):
+                    for annotation in annotations:
+                        if isinstance(annotation, dict) and "ordo_with_desc" in annotation:
+                            ordo_field = annotation["ordo_with_desc"]
+                            
+                            # Extract ORPHA ID from the ordo_with_desc field
+                            if ordo_field and isinstance(ordo_field, str):
+                                # Keep original format for now, normalization happens in evaluation
+                                orpha_codes.append(f"ORPHA:{ordo_field.split(' ', 1)[0]}")
             
             # Add non-empty lists to result
             if orpha_codes:
                 result[str(case_id)] = orpha_codes
     
+    print(f"Found {total_annotations} total annotations in data")
     print(f"Extracted ground truth for {len(result)} cases with {sum(len(codes) for codes in result.values())} total ORPHA codes")
     return result
-
 
 def evaluate_corpus(predictions_dict: Dict[str, List[str]], 
                     ground_truth_dict: Dict[str, List[str]]) -> Dict:
@@ -665,165 +767,429 @@ def print_evaluation_summary(result: Dict) -> None:
         print("  3. Check for ORPHA: prefix differences or formatting issues")
 
 
+def evaluate_fuzzy_match(
+    predictions_dict: Dict[str, List[str]],
+    ground_truth_dict: Dict[str, List[str]],
+    prediction_entities: Dict[str, Dict[str, str]],
+    ground_truth_entities: Dict[str, Dict[str, str]],
+    threshold: int = 90
+) -> Dict[str, Any]:
+    """
+    Evaluate predictions using fuzzy matching on entity names.
+    
+    Args:
+        predictions_dict: Dictionary mapping sample_id to predicted ORPHA codes
+        ground_truth_dict: Dictionary mapping sample_id to ground truth ORPHA codes
+        prediction_entities: Dictionary mapping {doc_id: {numeric_orpha_id: entity_name}}
+        ground_truth_entities: Dictionary mapping {doc_id: {numeric_orpha_id: entity_name}}
+        threshold: Threshold for fuzzy matching (0-100)
+        
+    Returns:
+        Dictionary with evaluation metrics
+    """
+    from fuzzywuzzy import fuzz
+    import re
+    
+    # Helper function to extract numeric ID
+    def get_numeric_id(code: str) -> str:
+        match = re.search(r'(\d+)', code)
+        return match.group(1) if match else ""
+    
+    # Initialize counters
+    tp_count = 0
+    fp_count = 0
+    fn_count = 0
+    fuzzy_matches_found = 0
+    
+    # Process each document with ground truth
+    for doc_id in set(predictions_dict.keys()) & set(ground_truth_dict.keys()):
+        pred_codes = predictions_dict.get(doc_id, [])
+        gt_codes = ground_truth_dict.get(doc_id, [])
+        
+        # Skip if no ground truth
+        if not gt_codes:
+            continue
+            
+        # Extract numeric IDs
+        pred_nums = [get_numeric_id(code) for code in pred_codes]
+        gt_nums = [get_numeric_id(code) for code in gt_codes]
+        
+        # Find exact matches first
+        exact_matches = set(pred_nums) & set(gt_nums)
+        tp_count += len(exact_matches)
+        
+        # Remaining predictions and ground truth after removing exact matches
+        remaining_preds = [num for num in pred_nums if num not in exact_matches]
+        remaining_gts = [num for num in gt_nums if num not in exact_matches]
+        
+        # Skip fuzzy matching if no entity names available for this document
+        if doc_id not in prediction_entities or doc_id not in ground_truth_entities:
+            fp_count += len(remaining_preds)
+            fn_count += len(remaining_gts)
+            continue
+        
+        # Get entity names
+        pred_entities = prediction_entities[doc_id]
+        gt_entities = ground_truth_entities[doc_id]
+        
+        # Track matched prediction and ground truth IDs to avoid double counting
+        matched_preds = set()
+        matched_gts = set()
+        
+        # Try to find fuzzy matches for each remaining prediction
+        for pred_num in remaining_preds:
+            if pred_num not in pred_entities:
+                continue
+                
+            pred_name = pred_entities[pred_num].lower()
+            best_score = 0
+            best_match = None
+            
+            # Compare against all ground truth entities
+            for gt_num in remaining_gts:
+                if gt_num not in gt_entities or gt_num in matched_gts:
+                    continue
+                    
+                gt_name = gt_entities[gt_num].lower()
+                score = fuzz.ratio(pred_name, gt_name)
+                
+                if score > best_score:
+                    best_score = score
+                    best_match = gt_num
+            
+            # If good match found, count as true positive
+            if best_match and best_score >= threshold:
+                tp_count += 1
+                matched_preds.add(pred_num)
+                matched_gts.add(best_match)
+                fuzzy_matches_found += 1
+                print(f"Fuzzy match: '{pred_name}' matched with '{gt_entities[best_match]}' (score: {best_score})")
+        
+        # Count remaining as false positives and false negatives
+        fp_count += len(remaining_preds) - len(matched_preds)
+        fn_count += len(remaining_gts) - len(matched_gts)
+    
+    # Calculate metrics
+    precision = tp_count / (tp_count + fp_count) if (tp_count + fp_count) > 0 else 0
+    recall = tp_count / (tp_count + fn_count) if (tp_count + fn_count) > 0 else 0
+    f1_score = 2 * (precision * recall) / (precision + recall) if (precision + recall) > 0 else 0
+    
+    return {
+        "precision": precision,
+        "recall": recall,
+        "f1_score": f1_score,
+        "tp_count": tp_count,
+        "fp_count": fp_count,
+        "fn_count": fn_count,
+        "fuzzy_threshold": threshold,
+        "fuzzy_matches_found": fuzzy_matches_found,
+        "description": f"Fuzzy matching of disease names with threshold {threshold}"
+    }
+
+def evaluate_entity_extraction(step1_file: str, step2_file: str, ground_truth_file: str, fuzzy_threshold: int = 90) -> Dict:
+    """
+    Evaluate entity extraction quality from step 1 and step 2 using fuzzy matching against ground truth mentions.
+    
+    Args:
+        step1_file: Path to step 1 extraction results
+        step2_file: Path to step 2 verification results
+        ground_truth_file: Path to ground truth data
+        fuzzy_threshold: Threshold for fuzzy matching (0-100)
+        
+    Returns:
+        Evaluation metrics for both steps
+    """
+    # Load files
+    print(f"Loading step 1 extraction results from {step1_file}")
+    with open(step1_file, 'r') as f:
+        step1_data = json.load(f)
+    
+    print(f"Loading step 2 verification results from {step2_file}")
+    with open(step2_file, 'r') as f:
+        step2_data = json.load(f)
+        
+    print(f"Loading ground truth from {ground_truth_file}")
+    with open(ground_truth_file, 'r') as f:
+        ground_truth_data = json.load(f)
+    
+    # Handle nested structure if present
+    if isinstance(step1_data, dict) and "results" in step1_data:
+        step1_data = step1_data["results"]
+    if isinstance(step2_data, dict) and "results" in step2_data:
+        step2_data = step2_data["results"]
+    
+    # Extract entities from each file
+    extracted_entities = extract_step1_entities(step1_data)
+    verified_entities = extract_step2_entities(step2_data)
+    ground_truth_entities = extract_ground_truth_entities(ground_truth_data)
+    
+    # Print statistics
+    print(f"\nStatistics:")
+    print(f"  Step 1 extracted entities: {sum(len(entities) for entities in extracted_entities.values())} across {len(extracted_entities)} documents")
+    print(f"  Step 2 verified entities: {sum(len(entities) for entities in verified_entities.values())} across {len(verified_entities)} documents")
+    print(f"  Ground truth entities: {sum(len(entities) for entities in ground_truth_entities.values())} across {len(ground_truth_entities)} documents")
+    
+    # Evaluate both steps
+    step1_metrics = evaluate_entities_fuzzy_match(extracted_entities, ground_truth_entities, fuzzy_threshold)
+    step2_metrics = evaluate_entities_fuzzy_match(verified_entities, ground_truth_entities, fuzzy_threshold)
+    
+    # Return combined results
+    return {
+        "step1_extraction": step1_metrics,
+        "step2_verification": step2_metrics,
+        "metadata": {
+            "fuzzy_threshold": fuzzy_threshold,
+            "evaluation_timestamp": datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        }
+    }
+
+def extract_step1_entities(data: Dict) -> Dict[str, List[str]]:
+    """Extract entities from step 1 extraction results."""
+    entities_dict = {}
+    
+    for doc_id, doc_data in data.items():
+        if "entities_with_contexts" in doc_data and isinstance(doc_data["entities_with_contexts"], list):
+            entities = []
+            
+            for item in doc_data["entities_with_contexts"]:
+                # Different possible entity formats
+                if isinstance(item, dict):
+                    if "entity" in item:
+                        entities.append(item["entity"])
+                    elif "term" in item:
+                        entities.append(item["term"])
+                elif isinstance(item, str):
+                    entities.append(item)
+            
+            if entities:
+                entities_dict[str(doc_id)] = entities
+    
+    return entities_dict
+
+def extract_step2_entities(data: Dict) -> Dict[str, List[str]]:
+    """Extract entities from step 2 verification results."""
+    entities_dict = {}
+    
+    for doc_id, doc_data in data.items():
+        if "verified_rare_diseases" in doc_data and isinstance(doc_data["verified_rare_diseases"], list):
+            entities = []
+            
+            for item in doc_data["verified_rare_diseases"]:
+                if isinstance(item, dict):
+                    if "entity" in item:
+                        entities.append(item["entity"])
+                    elif "term" in item:
+                        entities.append(item["term"])
+                elif isinstance(item, str):
+                    entities.append(item)
+            
+            if entities:
+                entities_dict[str(doc_id)] = entities
+    
+    return entities_dict
+
+def extract_ground_truth_entities(data: Dict) -> Dict[str, List[str]]:
+    """Extract ground truth entity mentions for fuzzy matching."""
+    entities_dict = {}
+    
+    for doc_id, doc_data in data.items():
+        if isinstance(doc_data, dict) and "annotations" in doc_data:
+            entities = []
+            
+            for annotation in doc_data["annotations"]:
+                if isinstance(annotation, dict) and "mention" in annotation:
+                    entities.append(annotation["mention"])
+            
+            if entities:
+                entities_dict[str(doc_id)] = entities
+    
+    return entities_dict
+
+def evaluate_entities_fuzzy_match(
+    pred_entities: Dict[str, List[str]], 
+    gt_entities: Dict[str, List[str]],
+    threshold: int = 90
+) -> Dict:
+    """
+    Evaluate entity extraction using fuzzy matching.
+    
+    Args:
+        pred_entities: Dictionary mapping doc_id to list of predicted entities
+        gt_entities: Dictionary mapping doc_id to list of ground truth entities
+        threshold: Threshold for fuzzy matching (0-100)
+        
+    Returns:
+        Dictionary with evaluation metrics
+    """
+    # Initialize counters
+    tp_count = 0
+    fp_count = 0
+    fn_count = 0
+    fuzzy_matches_found = 0
+    
+    # Process each document with ground truth
+    processed_docs = 0
+    for doc_id in sorted(set(pred_entities.keys()) & set(gt_entities.keys())):
+        pred_list = pred_entities.get(doc_id, [])
+        gt_list = gt_entities.get(doc_id, [])
+        
+        # Skip if either is empty
+        if not pred_list or not gt_list:
+            continue
+            
+        processed_docs += 1
+        
+        # Track matches to avoid double counting
+        matched_preds = set()
+        matched_gts = set()
+        
+        # Try to find fuzzy matches for each prediction
+        for i, pred in enumerate(pred_list):
+            pred_normalized = pred.lower()
+            best_score = 0
+            best_match_idx = -1
+            
+            # Compare against all ground truth entities
+            for j, gt in enumerate(gt_list):
+                if j in matched_gts:
+                    continue
+                    
+                gt_normalized = gt.lower()
+                score = fuzz.ratio(pred_normalized, gt_normalized)
+                
+                if score > best_score:
+                    best_score = score
+                    best_match_idx = j
+            
+            # If good match found, count as true positive
+            if best_match_idx >= 0 and best_score >= threshold:
+                tp_count += 1
+                matched_preds.add(i)
+                matched_gts.add(best_match_idx)
+                fuzzy_matches_found += 1
+                
+                if fuzzy_matches_found <= 10:  # Limit printing to avoid excessive output
+                    print(f"Fuzzy match: '{pred}' matched with '{gt_list[best_match_idx]}' (score: {best_score})")
+        
+        # Count remaining as false positives and false negatives
+        fp_count += len(pred_list) - len(matched_preds)
+        fn_count += len(gt_list) - len(matched_gts)
+    
+    # Calculate metrics
+    precision = tp_count / (tp_count + fp_count) if (tp_count + fp_count) > 0 else 0
+    recall = tp_count / (tp_count + fn_count) if (tp_count + fn_count) > 0 else 0
+    f1_score = 2 * (precision * recall) / (precision + recall) if (precision + recall) > 0 else 0
+    
+    return {
+        "precision": precision,
+        "recall": recall,
+        "f1_score": f1_score,
+        "tp_count": tp_count,
+        "fp_count": fp_count,
+        "fn_count": fn_count,
+        "fuzzy_threshold": threshold,
+        "fuzzy_matches_found": fuzzy_matches_found,
+        "processed_documents": processed_docs,
+        "description": f"Fuzzy matching of entity mentions with threshold {threshold}"
+    }
+
 def main():
-    parser = argparse.ArgumentParser(description="Evaluate ORPHA code predictions across a corpus")
+    parser = argparse.ArgumentParser(description="Evaluate rare disease entity extraction and verification")
     
     # Required arguments
-    parser.add_argument("--predictions", required=True,
-                       help="Path to JSON file with predictions")
+    parser.add_argument("--step1", required=True,
+                       help="Path to step 1 extraction results JSON file")
+    parser.add_argument("--step2", required=True,
+                       help="Path to step 2 verification results JSON file")
     parser.add_argument("--ground-truth", required=True,
-                       help="Path to JSON file with ground truth")
+                       help="Path to ground truth JSON file")
     parser.add_argument("--output", required=True,
                        help="Path to save evaluation results JSON")
     
-    # Optional filtering arguments
-    parser.add_argument("--match-method", type=str, choices=["exact", "llm"],
-                       help="Filter predictions by match method ('exact' or 'llm')")
-    parser.add_argument("--confidence-threshold", type=float,
-                       help="Filter predictions by minimum confidence score (0.0-1.0)")
-    
-    # Output control arguments
+    # Optional arguments
+    parser.add_argument("--fuzzy-threshold", type=int, default=90,
+                       help="Threshold for fuzzy matching (0-100, default: 90)")
     parser.add_argument("--summary-only", action="store_true",
                        help="Only print summary, don't save detailed JSON")
     parser.add_argument("--save-csv", type=str,
                        help="Path to save summary results as CSV")
-    parser.add_argument("--compare-methods", action="store_true",
-                       help="Compare results from 'exact' vs 'llm' match methods")
     
     args = parser.parse_args()
     
-    # Load data
-    print(f"Loading predictions from {args.predictions}")
-    print(f"Loading ground truth from {args.ground_truth}")
-    predictions_data, ground_truth_data = load_data(args.predictions, args.ground_truth)
+    # Run entity extraction evaluation
+    results = evaluate_entity_extraction(
+        args.step1, 
+        args.step2, 
+        args.ground_truth, 
+        args.fuzzy_threshold
+    )
     
-    # Extract codes based on arguments
-    if args.compare_methods:
-        # Extract with both methods for comparison
-        print("\n=== Comparing exact vs LLM matching methods ===")
-        
-        # Extract with exact method only
-        predictions_dict_exact = extract_predictions(predictions_data, match_method="exact")
-        result_exact = evaluate_corpus(predictions_dict_exact, extract_ground_truth(ground_truth_data))
-        
-        # Extract with LLM method only
-        predictions_dict_llm = extract_predictions(predictions_data, match_method="llm")
-        result_llm = evaluate_corpus(predictions_dict_llm, extract_ground_truth(ground_truth_data))
-        
-        # Extract with all methods (default)
-        predictions_dict_all = extract_predictions(predictions_data)
-        result_all = evaluate_corpus(predictions_dict_all, extract_ground_truth(ground_truth_data))
-        
-        # Print comparison summaries
-        print("\n=== Comparison: Exact vs LLM vs All Matches ===")
-        print("\nCount-based metrics:")
-        print(f"  Precision:")
-        print(f"    Exact only: {result_exact['count_based_metrics']['precision']:.4f}")
-        print(f"    LLM only: {result_llm['count_based_metrics']['precision']:.4f}")
-        print(f"    All matches: {result_all['count_based_metrics']['precision']:.4f}")
-        
-        print(f"  Recall:")
-        print(f"    Exact only: {result_exact['count_based_metrics']['recall']:.4f}")
-        print(f"    LLM only: {result_llm['count_based_metrics']['recall']:.4f}")
-        print(f"    All matches: {result_all['count_based_metrics']['recall']:.4f}")
-        
-        print(f"  F1 Score:")
-        print(f"    Exact only: {result_exact['count_based_metrics']['f1_score']:.4f}")
-        print(f"    LLM only: {result_llm['count_based_metrics']['f1_score']:.4f}")
-        print(f"    All matches: {result_all['count_based_metrics']['f1_score']:.4f}")
-        
-        print(f"  TP/FP/FN - Exact: {result_exact['count_based_metrics']['tp_count']}/{result_exact['count_based_metrics']['fp_count']}/{result_exact['count_based_metrics']['fn_count']}")
-        print(f"  TP/FP/FN - LLM: {result_llm['count_based_metrics']['tp_count']}/{result_llm['count_based_metrics']['fp_count']}/{result_llm['count_based_metrics']['fn_count']}")
-        print(f"  TP/FP/FN - All: {result_all['count_based_metrics']['tp_count']}/{result_all['count_based_metrics']['fp_count']}/{result_all['count_based_metrics']['fn_count']}")
-        
-        # Save each result to separate JSON files
-        if not args.summary_only:
-            # Set up output paths with method suffix
-            base_output = os.path.splitext(args.output)[0]
-            
-            # Add error analysis to each result
-            result_exact["error_analysis"] = analyze_corpus_errors(result_exact)
-            result_llm["error_analysis"] = analyze_corpus_errors(result_llm)
-            result_all["error_analysis"] = analyze_corpus_errors(result_all)
-            
-            # Save exact matches result
-            exact_output = f"{base_output}_exact_matches.json"
-            print(f"Saving exact-match evaluation results to {exact_output}")
-            with open(exact_output, 'w') as f:
-                json.dump(result_exact, f, indent=2)
-            
-            # Save LLM matches result
-            llm_output = f"{base_output}_llm_matches.json"
-            print(f"Saving LLM-match evaluation results to {llm_output}")
-            with open(llm_output, 'w') as f:
-                json.dump(result_llm, f, indent=2)
-            
-            # Save combined results
-            all_output = f"{base_output}_all_matches.json"
-            print(f"Saving all-match evaluation results to {all_output}")
-            with open(all_output, 'w') as f:
-                json.dump(result_all, f, indent=2)
-            
-        # Return the all matches result as the main result
-        result = result_all
-        
-    else:
-        # Standard evaluation with filters applied
-        print(f"Extracting ORPHA codes from predictions")
-        predictions_dict = extract_predictions(
-            predictions_data, 
-            match_method=args.match_method,
-            confidence_threshold=args.confidence_threshold
-        )
-        
-        print(f"Extracting ORPHA codes from ground truth")
-        ground_truth_dict = extract_ground_truth(ground_truth_data)
-        
-        # Evaluate corpus
-        print(f"Evaluating with exact matching of ORPHA codes")
-        result = evaluate_corpus(predictions_dict, ground_truth_dict)
-        
-        # Add error analysis
-        result["error_analysis"] = analyze_corpus_errors(result)
-        
-        # Print evaluation summary
-        print_evaluation_summary(result)
+    # Print evaluation summary
+    print("\n=== Entity Extraction Evaluation Summary ===")
+    
+    print("\nStep 1 Extraction Results:")
+    step1 = results["step1_extraction"]
+    print(f"  Precision: {step1['precision']:.4f}")
+    print(f"  Recall: {step1['recall']:.4f}")
+    print(f"  F1 Score: {step1['f1_score']:.4f}")
+    print(f"  TP/FP/FN: {step1['tp_count']}/{step1['fp_count']}/{step1['fn_count']}")
+    print(f"  Fuzzy matches found: {step1['fuzzy_matches_found']}")
+    
+    print("\nStep 2 Verification Results:")
+    step2 = results["step2_verification"]
+    print(f"  Precision: {step2['precision']:.4f}")
+    print(f"  Recall: {step2['recall']:.4f}")
+    print(f"  F1 Score: {step2['f1_score']:.4f}")
+    print(f"  TP/FP/FN: {step2['tp_count']}/{step2['fp_count']}/{step2['fn_count']}")
+    print(f"  Fuzzy matches found: {step2['fuzzy_matches_found']}")
+    
+    # Print improvement from step 1 to step 2
+    print("\nImprovement from Step 1 to Step 2:")
+    print(f"  Precision: {step2['precision'] - step1['precision']:.4f}")
+    print(f"  Recall: {step2['recall'] - step1['recall']:.4f}")
+    print(f"  F1 Score: {step2['f1_score'] - step1['f1_score']:.4f}")
     
     # Save results if not summary-only
-    if not args.summary_only and not args.compare_methods:
-        print(f"Saving evaluation results to {args.output}")
+    if not args.summary_only:
+        print(f"\nSaving entity evaluation results to {args.output}")
         os.makedirs(os.path.dirname(os.path.abspath(args.output)), exist_ok=True)
         with open(args.output, 'w') as f:
-            json.dump(result, f, indent=2)
+            json.dump(results, f, indent=2)
     
     # Save summary as CSV if requested
     if args.save_csv:
         print(f"Saving summary as CSV to {args.save_csv}")
-        metrics_df = pd.DataFrame({
-            'metric': ['precision', 'recall', 'f1_score', 'tp_count', 'fp_count', 'fn_count'],
-            'micro_averaging': [
-                result['micro_averaging_metrics']['precision'],
-                result['micro_averaging_metrics']['recall'],
-                result['micro_averaging_metrics']['f1_score'],
-                result['micro_averaging_metrics']['tp_count'],
-                result['micro_averaging_metrics']['fp_count'],
-                result['micro_averaging_metrics']['fn_count']
+        
+        # Create DataFrame for CSV
+        data = {
+            'metric': ['precision', 'recall', 'f1_score', 'tp_count', 'fp_count', 'fn_count', 'fuzzy_matches'],
+            'step1_extraction': [
+                step1['precision'],
+                step1['recall'],
+                step1['f1_score'],
+                step1['tp_count'],
+                step1['fp_count'],
+                step1['fn_count'],
+                step1['fuzzy_matches_found']
             ],
-            'macro_averaging': [
-                result['macro_averaging_metrics']['precision'],
-                result['macro_averaging_metrics']['recall'],
-                result['macro_averaging_metrics']['f1_score'],
-                'N/A', 'N/A', 'N/A'
+            'step2_verification': [
+                step2['precision'],
+                step2['recall'],
+                step2['f1_score'],
+                step2['tp_count'],
+                step2['fp_count'],
+                step2['fn_count'],
+                step2['fuzzy_matches_found']
             ],
-            'count_based': [
-                result['count_based_metrics']['precision'],
-                result['count_based_metrics']['recall'],
-                result['count_based_metrics']['f1_score'],
-                result['count_based_metrics']['tp_count'],
-                result['count_based_metrics']['fp_count'],
-                result['count_based_metrics']['fn_count']
+            'improvement': [
+                step2['precision'] - step1['precision'],
+                step2['recall'] - step1['recall'],
+                step2['f1_score'] - step1['f1_score'],
+                'N/A', 'N/A', 'N/A', 'N/A'
             ]
-        })
+        }
+        
+        metrics_df = pd.DataFrame(data)
         metrics_df.to_csv(args.save_csv, index=False)
         print(f"CSV summary saved successfully")
 

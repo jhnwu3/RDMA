@@ -237,7 +237,7 @@ def process_cases(cases: Dict[str, Dict[str, Any]], args: argparse.Namespace,
             
             # Find contexts for entities
             entity_contexts = context_extractor.extract_contexts(entities, clinical_text, window_size=args.window_size)
-            print(entity_contexts)
+    
             # Store results
             results[case_id] = {
                 "clinical_text": clinical_text,

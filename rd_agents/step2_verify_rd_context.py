@@ -193,13 +193,13 @@ def filter_hallucinated_entities(entities_with_contexts: List[Dict], min_context
     # Keep only entities with non-empty context
     filtered_entities = [
         entity for entity in entities_with_contexts
-        if entity.get("context") and len(entity.get("context", "").strip()) >= min_context_length
+        if entity.get("context") and len(entity.get("context", "").strip()) >= min_context_length and entity in entity.get("context")
     ]
     
     removed_count = initial_count - len(filtered_entities)
     
     if removed_count > 0:
-        timestamp_print(f"  Filtered out {removed_count} potentially hallucinated entities with no context")
+        timestamp_print(f"  Filtered out {removed_count} potentially hallucinated entities with invalid context")
     
     return filtered_entities
 

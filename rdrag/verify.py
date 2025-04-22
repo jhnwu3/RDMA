@@ -460,8 +460,9 @@ class MultiStageRDVerifier:
                 f"{entities_text}\n\n"
                 f"Decide if '{entity}' is the same disease as any of these entries. Consider synonyms, abbreviations, and variant names. "
                 f"Account for spelling variations and different naming conventions for the same disease entity.\n\n"
-                f"For example, 'MPS-I' would match 'Mucopolysaccharidosis type 1' or 'Hurler syndrome', and 'Duchenne MD' would match 'Duchenne muscular dystrophy'.\n\n"
-                f"Respond with ONLY 'YES' if there is a match, and 'NO' if there is no match. NO EXPLANATION."
+                f"For variants of common diseases, it must be explicitly marked as a rare variant."
+                f"If there is a partial match, i.e cholangitis vs. sclerosing cholangitis. There must be a mention of its descriptor (sclerosing) in the term itself, otherwise it's an invalid match."
+                f"Respond with ONLY 'YES' if there is a match, and 'NO' if there is no match."
             )
             
             # Query the LLM

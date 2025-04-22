@@ -180,7 +180,7 @@ class RetrievalEnhancedRDExtractor(BaseRDExtractor):
         # Create the enhanced prompt
         prompt = (
             f"I have CLINICAL TEXT: \"{sentence}\"\n\n"
-            f"Here are some relevant rare disease terms for reference that may help you find rare disease mentions in the sentence:\n\n"
+            f"Here are some relevant ORPHA rare disease terms for reference that may help you find rare disease mentions in the sentence:\n\n"
             f"{context_text}\n\n"
             f"Based on this sentence and the provided rare disease terms as reference, extract all potential disease mentions "
             f"that are NOT negated (i.e., NOT preceded by 'no', 'not', 'without', 'ruled out', etc.). "
