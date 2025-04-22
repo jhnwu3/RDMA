@@ -19,7 +19,7 @@ parent_dir = os.path.dirname(current_dir)
 sys.path.insert(0, parent_dir)
 
 # Import project modules
-from rdrag.rd_match import RAGRDMatcher
+from rdrag.rd_match import RAGRDMatcher, SimpleRDMatcher
 from utils.embedding import EmbeddingsManager
 from utils.llm_client import LocalLLMClient, APILLMClient
 from utils.setup import setup_device, initialize_llm_client
@@ -157,8 +157,24 @@ def save_checkpoint(results: Dict, output_file: str, checkpoint_num: int) -> Non
 
 def format_entities_for_matching(verified_entities: List[Dict]) -> List[str]:
     """Format verified rare disease entities for matching."""
-    return [entity["entity"] for entity in verified_entities if entity.get("is_verified", False)]
-
+    formatted_entities = []
+    for entity_item in verified_entities:
+        # Handle different entity formats
+        if isinstance(entity_item, str):
+            # Direct string format
+            formatted_entities.append(entity_item)
+        elif isinstance(entity_item, dict):
+            # Check for status field from step 2 verification
+            if entity_item.get("status") == "verified_rare_disease" and "entity" in entity_item:
+                formatted_entities.append(entity_item["entity"])
+            # Also check for various other possible key names
+            elif "entity" in entity_item:
+                formatted_entities.append(entity_item["entity"])
+            elif "term" in entity_item:
+                formatted_entities.append(entity_item["term"])
+            elif "mention" in entity_item:
+                formatted_entities.append(entity_item["mention"])
+    return formatted_entities
 
 def convert_to_serializable(obj):
     """Convert all non-serializable types to serializable ones."""
@@ -374,16 +390,17 @@ def main():
         llm_client = initialize_llm_client(args, device)
         
         # Initialize embedding manager
+        # Initialize embedding manager
         timestamp_print(f"Initializing {args.retriever} embedding manager")
         embedding_manager = EmbeddingsManager(
             model_type=args.retriever,
             model_name=args.retriever_model if args.retriever in ['fastembed', 'sentence_transformer'] else None,
-            device=device
+            device=device['retriever']  # Access the specific device string
         )
         
         # Initialize matcher
         timestamp_print(f"Initializing RAG matcher")
-        matcher = RAGRDMatcher(
+        matcher = SimpleRDMatcher(
             embeddings_manager=embedding_manager,
             llm_client=llm_client,
             system_message=args.system_prompt
