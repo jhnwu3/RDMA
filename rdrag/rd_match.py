@@ -280,6 +280,58 @@ class SimpleRDMatcher(BaseRDMatcher):
             results.append(match_result)
             
         return results
+    
+    def match_rd_terms(self, entities: List[str], metadata: List[Dict]) -> List[Dict]:
+        """
+        Match entities to rare disease terms.
+        
+        Args:
+            entities: List of entity strings to match
+            metadata: List of dictionaries containing rare disease metadata with embeddings
+            
+        Returns:
+            List of dictionaries with matching results
+        """
+        # Prepare index if needed
+        if self.index is None:
+            self.prepare_index(metadata)
+            
+        results = []
+        
+        for entity in entities:
+            match_result = self.match_entity(entity)
+            
+            # Format result to match the expected output
+            if match_result.get('rd_term'):
+                results.append({
+                    'entity': entity,
+                    'rd_term': match_result.get('rd_term'),
+                    'orpha_id': match_result.get('orpha_id'),
+                    'match_method': match_result.get('match_method', 'similarity'),
+                    'confidence_score': match_result.get('confidence_score', 0.0)
+                })
+                
+        return results
+
+    def process_batch(self, entities_batch: List[List[str]], metadata_batch: List[List[Dict]]) -> List[List[Dict]]:
+        """
+        Process a batch of entities for rare disease term matching.
+        
+        Args:
+            entities_batch: Batch of entity lists to process
+            metadata_batch: Corresponding batch of metadata lists
+            
+        Returns:
+            List of lists containing matching results for each batch
+        """
+        results = []
+        
+        for entities, metadata in zip(entities_batch, metadata_batch):
+            # Match entities to rare disease terms
+            batch_results = self.match_rd_terms(entities, metadata)
+            results.append(batch_results)
+            
+        return results
 
 class RAGRDMatcher(BaseRDMatcher):
     """Rare disease term matcher using RAG approach with enhanced match tracking."""

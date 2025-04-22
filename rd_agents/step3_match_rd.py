@@ -196,10 +196,9 @@ def convert_to_serializable(obj):
         # For any other types, convert to string
         return str(obj)
 
-
 def match_cases(verification_results: Dict, matcher, args: argparse.Namespace, 
                embedded_documents: List[Dict], existing_results: Dict = None) -> Dict:
-    """Match verified entities to rare disease terms."""
+    """Match verified entities to rare disease terms using the matcher's interface."""
     results = existing_results or {}
     checkpoint_counter = 0
     
@@ -247,68 +246,21 @@ def match_cases(verification_results: Dict, matcher, args: argparse.Namespace,
             if args.debug:
                 timestamp_print(f"  Matching {len(formatted_entities)} formatted entities")
             
-            # Match entities to rare disease terms
-            matched_diseases = []
+            # Ensure matcher's index is initialized
+            if not hasattr(matcher, 'index') or matcher.index is None:
+                matcher.prepare_index(embedded_documents)
             
-            for entity in formatted_entities:
-                # Get matching candidates from the index
-                candidates = matcher._retrieve_candidates(entity)
-                
-                if candidates:
-                    # Try to match the entity to a specific rare disease term
-                    rd_term = matcher._try_enriched_matching(entity, candidates)
-                    
-                    if rd_term:
-                        # Found an exact or fuzzy match
-                        matched_disease = {
-                            "entity": entity,
-                            "rd_term": rd_term["name"],
-                            "orpha_id": rd_term["id"],
-                            "match_method": "exact",
-                            "confidence_score": 1.0,
-                            "top_candidates": [
-                                {
-                                    "name": c["metadata"]["name"],
-                                    "id": c["metadata"]["id"],
-                                    "similarity": float(c["similarity_score"])
-                                }
-                                for c in candidates[:args.top_k]
-                            ]
-                        }
-                        matched_diseases.append(matched_disease)
-                        
-                        if args.debug:
-                            timestamp_print(f"  ✓ Exact match for '{entity}': {rd_term['name']} ({rd_term['id']})")
-                    else:
-                        # Try LLM matching
-                        rd_term = matcher._try_llm_match(entity, candidates[:5])
-                        
-                        if rd_term:
-                            matched_disease = {
-                                "entity": entity,
-                                "rd_term": rd_term["name"],
-                                "orpha_id": rd_term["id"],
-                                "match_method": "llm",
-                                "confidence_score": 0.7,
-                                "top_candidates": [
-                                    {
-                                        "name": c["metadata"]["name"],
-                                        "id": c["metadata"]["id"],
-                                        "similarity": float(c["similarity_score"])
-                                    }
-                                    for c in candidates[:args.top_k]
-                                ]
-                            }
-                            matched_diseases.append(matched_disease)
-                            
-                            if args.debug:
-                                timestamp_print(f"  ✓ LLM match for '{entity}': {rd_term['name']} ({rd_term['id']})")
-                        else:
-                            if args.debug:
-                                timestamp_print(f"  ✗ No match found for '{entity}'")
-                else:
-                    if args.debug:
-                        timestamp_print(f"  ✗ No candidates found for '{entity}'")
+            # Use the properly defined interface method instead of implementation details
+            matched_diseases = matcher.match_rd_terms(formatted_entities, embedded_documents)
+            
+            if args.debug:
+                timestamp_print(f"  Found {len(matched_diseases)} matches")
+                for match in matched_diseases:
+                    entity = match.get("entity", "")
+                    rd_term = match.get("rd_term", "")
+                    orpha_id = match.get("orpha_id", "")
+                    method = match.get("match_method", "")
+                    timestamp_print(f"  ✓ {method.capitalize()} match for '{entity}': {rd_term} ({orpha_id})")
             
             # Store results
             results[case_id] = {
