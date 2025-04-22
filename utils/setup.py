@@ -7,7 +7,7 @@ from datetime import datetime
 from typing import Dict, Any, List
 from pathlib import Path
 from tqdm import tqdm
-
+from utils.llm_client import LocalLLMClient, APILLMClient
 def timestamp_print(message: str) -> None:
     """Print message with timestamp."""
     print(f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} - {message}")
@@ -71,3 +71,24 @@ def setup_device(args: argparse.Namespace) -> Dict[str, str]:
     devices["retriever"] = devices["embeddings"]
     
     return devices
+
+
+# In step3_match_rd.py, change this function:
+
+def initialize_llm_client(args: argparse.Namespace, device_info: Dict[str, str]):
+    """Initialize appropriate LLM client based on arguments."""
+    # Extract the LLM device from the device_info dictionary
+    device = device_info['llm']
+    
+    if args.llm_type == "api":
+        if args.api_config:
+            return APILLMClient.from_config(args.api_config)
+        else:
+            return APILLMClient.initialize_from_input()
+    else:  # local
+        return LocalLLMClient(
+            model_type=args.model_type,
+            device=device,  # Pass the string, not the dictionary
+            cache_dir=args.cache_dir,
+            temperature=args.temperature
+        )

@@ -22,7 +22,7 @@ sys.path.insert(0, parent_dir)
 from rdrag.rd_match import RAGRDMatcher
 from utils.embedding import EmbeddingsManager
 from utils.llm_client import LocalLLMClient, APILLMClient
-from utils.setup import setup_device
+from utils.setup import setup_device, initialize_llm_client
 
 def timestamp_print(message: str) -> None:
     """Print message with timestamp."""
@@ -97,21 +97,7 @@ def parse_arguments() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def initialize_llm_client(args: argparse.Namespace, device: str):
-    """Initialize appropriate LLM client based on arguments."""
-    if args.llm_type == "api":
-        if args.api_config:
-            return APILLMClient.from_config(args.api_config)
-        else:
-            return APILLMClient.initialize_from_input()
-    else:  # local
-        return LocalLLMClient(
-            model_type=args.model_type,
-            device=device,
-            cache_dir=args.cache_dir,
-            temperature=args.temperature
-        )
-
+# In step3_match_rd.py, change this function:
 
 def load_verification_results(input_file: str) -> Dict:
     """Load verification results from step 2."""
