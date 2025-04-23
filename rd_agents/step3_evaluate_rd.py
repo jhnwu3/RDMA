@@ -755,14 +755,13 @@ def print_evaluation_summary(result: Dict) -> None:
         print("  2. ORPHA codes in predictions may not match those in ground truth")
         print("  3. Check for ORPHA: prefix differences or formatting issues")
 
-
 def evaluate_fuzzy_match(
     predictions_dict: Dict[str, List[str]],
     ground_truth_dict: Dict[str, List[str]],
     prediction_entities: Dict[str, Dict[str, str]],
     ground_truth_entities: Dict[str, Dict[str, str]],
     threshold: int = 90,
-    debug: bool = False  # Add debug parameter
+    debug: bool = False
 ) -> Dict[str, Any]:
     """
     Evaluate predictions using fuzzy matching on entity names.
@@ -780,184 +779,236 @@ def evaluate_fuzzy_match(
     """
     from fuzzywuzzy import fuzz
     import re
+    import numpy as np
     
     # Helper function to extract numeric ID
     def get_numeric_id(code: str) -> str:
         match = re.search(r'(\d+)', code)
         return match.group(1) if match else ""
     
-    # Initialize counters
-    tp_count = 0
-    fp_count = 0
-    fn_count = 0
-    fuzzy_matches_found = 0
+    # Initialize result structure similar to evaluate_corpus
+    result = {
+        "per_sample_metrics": {},
+        "corpus_metrics": {},
+        "micro_averaging_metrics": {},
+        "macro_averaging_metrics": {},
+        "count_based_metrics": {},
+        "cases_with_ground_truth": [],
+        "cases_without_ground_truth": []
+    }
     
-    # For debugging - collect detailed match info
+    # Initialize counters for aggregate metrics
+    all_tp_count = 0
+    all_fp_count = 0
+    all_fn_count = 0
+    
+    # Initialize lists for macro-averaging
+    case_precision_values = []
+    case_recall_values = []
+    case_f1_values = []
+    
+    # Detailed match tracking for debugging
     all_fuzzy_matches = []
     
     if debug:
         print("\n===== DEBUG: FUZZY MATCHING DETAILS =====")
         print(f"Threshold for fuzzy matching: {threshold}")
-        print(f"Number of prediction documents: {len(predictions_dict)}")
-        print(f"Number of ground truth documents: {len(ground_truth_dict)}")
-        print(f"Number of prediction entity mappings: {len(prediction_entities)}")
-        print(f"Number of ground truth entity mappings: {len(ground_truth_entities)}")
     
-    # Process each document with ground truth
+    # Process each document
     for doc_id in set(predictions_dict.keys()) & set(ground_truth_dict.keys()):
         pred_codes = predictions_dict.get(doc_id, [])
         gt_codes = ground_truth_dict.get(doc_id, [])
         
-        if debug:
-            print(f"\nDocument {doc_id}:")
-            print(f"  Prediction codes: {pred_codes}")
-            print(f"  Ground truth codes: {gt_codes}")
-        
         # Skip if no ground truth
         if not gt_codes:
+            result["cases_without_ground_truth"].append(doc_id)
             continue
-            
-        # Extract numeric IDs
-        pred_nums = [get_numeric_id(code) for code in pred_codes]
-        gt_nums = [get_numeric_id(code) for code in gt_codes]
         
-        if debug:
-            print(f"  Numeric prediction codes: {pred_nums}")
-            print(f"  Numeric ground truth codes: {gt_nums}")
+        result["cases_with_ground_truth"].append(doc_id)
         
-        # Find exact matches first
-        exact_matches = set(pred_nums) & set(gt_nums)
-        tp_count += len(exact_matches)
-        
-        if debug:
-            print(f"  Exact matches: {exact_matches} (count: {len(exact_matches)})")
-        
-        # Remaining predictions and ground truth after removing exact matches
-        remaining_preds = [num for num in pred_nums if num not in exact_matches]
-        remaining_gts = [num for num in gt_nums if num not in exact_matches]
-        
-        if debug:
-            print(f"  Remaining predictions: {remaining_preds}")
-            print(f"  Remaining ground truth: {remaining_gts}")
-        
-        # Skip fuzzy matching if no entity names available for this document
-        if doc_id not in prediction_entities or doc_id not in ground_truth_entities:
+        # Check if we have entity names for fuzzy matching
+        if (doc_id not in prediction_entities or doc_id not in ground_truth_entities):
             if debug:
                 print(f"  No entity names available for document {doc_id} - skipping fuzzy matching")
-                if doc_id not in prediction_entities:
-                    print(f"    Missing prediction entities")
-                if doc_id not in ground_truth_entities:
-                    print(f"    Missing ground truth entities")
             
-            fp_count += len(remaining_preds)
-            fn_count += len(remaining_gts)
+            # Count all predictions as false positives if no names
+            sample_result = {
+                "tp_count": 0,
+                "fp_count": len(pred_codes),
+                "fn_count": len(gt_codes),
+                "precision": 0.0,
+                "recall": 0.0,
+                "f1_score": 0.0
+            }
+            result["per_sample_metrics"][doc_id] = sample_result
+            
+            # Update aggregate counts
+            all_fp_count += sample_result["fp_count"]
+            all_fn_count += sample_result["fn_count"]
+            
             continue
         
         # Get entity names
         pred_entities = prediction_entities[doc_id]
         gt_entities = ground_truth_entities[doc_id]
         
-        if debug:
-            print(f"  Prediction entities: {pred_entities}")
-            print(f"  Ground truth entities: {gt_entities}")
+        # Track matches
+        matched_pred_nums = set()
+        matched_gt_nums = set()
         
-        # Track matched prediction and ground truth IDs to avoid double counting
-        matched_preds = set()
-        matched_gts = set()
+        # Track fuzzy matches for this document
+        doc_fuzzy_matches = []
         
-        # Try to find fuzzy matches for each remaining prediction
-        for pred_num in remaining_preds:
-            if pred_num not in pred_entities:
-                if debug:
-                    print(f"  Prediction {pred_num} has no entity name - skipping")
-                continue
-                
-            pred_name = pred_entities[pred_num].lower()
-            best_score = 0
+        # Try to match each prediction to ground truth
+        for pred_num, pred_name in pred_entities.items():
+            pred_name = pred_name.lower()
             best_match = None
+            best_score = 0
             
-            if debug:
-                print(f"\n  Trying to find fuzzy match for '{pred_name}' (ID: {pred_num})")
-            
-            # Compare against all ground truth entities
-            for gt_num in remaining_gts:
-                if gt_num not in gt_entities or gt_num in matched_gts:
+            # Try to find best match among unmatched ground truth entities
+            for gt_num, gt_name in gt_entities.items():
+                # Skip already matched ground truth
+                if gt_num in matched_gt_nums:
                     continue
-                    
-                gt_name = gt_entities[gt_num].lower()
-                score = fuzz.ratio(pred_name, gt_name)
                 
-                if debug:
-                    print(f"    Comparing with '{gt_name}' (ID: {gt_num}) - Score: {score}")
+                gt_name = gt_name.lower()
+                score = fuzz.ratio(pred_name, gt_name)
                 
                 if score > best_score:
                     best_score = score
                     best_match = gt_num
             
-            # If good match found, count as true positive
+            # If good match found
             if best_match and best_score >= threshold:
-                tp_count += 1
-                matched_preds.add(pred_num)
-                matched_gts.add(best_match)
-                fuzzy_matches_found += 1
+                matched_pred_nums.add(pred_num)
+                matched_gt_nums.add(best_match)
                 
-                if debug:
-                    print(f"    ✓ MATCH: '{pred_name}' matched with '{gt_entities[best_match]}' (score: {best_score})")
-                    all_fuzzy_matches.append({
-                        'doc_id': doc_id,
+                if debug or len(doc_fuzzy_matches) < 10:
+                    doc_fuzzy_matches.append({
                         'pred_name': pred_name,
                         'gt_name': gt_entities[best_match],
-                        'pred_id': pred_num,
-                        'gt_id': best_match,
                         'score': best_score
                     })
-                else:
-                    print(f"Fuzzy match: '{pred_name}' matched with '{gt_entities[best_match]}' (score: {best_score})")
-            else:
-                if debug:
-                    if best_match:
-                        print(f"    ✗ NO MATCH: Best score {best_score} is below threshold {threshold}")
-                    else:
-                        print(f"    ✗ NO MATCH: No potential matches found")
         
-        # Count remaining as false positives and false negatives
-        unmatched_preds = len(remaining_preds) - len(matched_preds)
-        unmatched_gts = len(remaining_gts) - len(matched_gts)
+        # Calculate metrics for this document
+        tp_count = len(matched_pred_nums)
+        fp_count = len(pred_entities) - tp_count
+        fn_count = len(gt_entities) - len(matched_gt_nums)
         
-        if debug:
-            print(f"\n  Document {doc_id} Summary:")
-            print(f"    Exact matches: {len(exact_matches)}")
-            print(f"    Fuzzy matches: {len(matched_preds)}")
-            print(f"    Unmatched predictions (FP): {unmatched_preds}")
-            print(f"    Unmatched ground truth (FN): {unmatched_gts}")
+        # Compute precision, recall, F1
+        precision = tp_count / (tp_count + fp_count) if (tp_count + fp_count) > 0 else 0.0
+        recall = tp_count / (tp_count + fn_count) if (tp_count + fn_count) > 0 else 0.0
+        f1_score = 2 * (precision * recall) / (precision + recall) if (precision + recall) > 0 else 0.0
         
-        fp_count += unmatched_preds
-        fn_count += unmatched_gts
+        # Store sample-level metrics
+        sample_result = {
+            "tp_count": tp_count,
+            "fp_count": fp_count,
+            "fn_count": fn_count,
+            "precision": precision,
+            "recall": recall,
+            "f1_score": f1_score,
+            "fuzzy_matches": doc_fuzzy_matches
+        }
+        result["per_sample_metrics"][doc_id] = sample_result
+        
+        # Accumulate for aggregate metrics
+        all_tp_count += tp_count
+        all_fp_count += fp_count
+        all_fn_count += fn_count
+        
+        # For macro-averaging
+        case_precision_values.append(precision)
+        case_recall_values.append(recall)
+        case_f1_values.append(f1_score)
+        
+        # Collect debug matches
+        if debug and doc_fuzzy_matches:
+            all_fuzzy_matches.extend(doc_fuzzy_matches)
     
-    # Print summary of all fuzzy matches if in debug mode
+    # Compute aggregate metrics similar to evaluate_corpus approach
+    
+    # Micro-averaging
+    micro_precision = all_tp_count / (all_tp_count + all_fp_count) if (all_tp_count + all_fp_count) > 0 else 0.0
+    micro_recall = all_tp_count / (all_tp_count + all_fn_count) if (all_tp_count + all_fn_count) > 0 else 0.0
+    micro_f1 = 2 * (micro_precision * micro_recall) / (micro_precision + micro_recall) if (micro_precision + micro_recall) > 0 else 0.0
+    
+    result["micro_averaging_metrics"] = {
+        "precision": micro_precision,
+        "recall": micro_recall,
+        "f1_score": micro_f1,
+        "tp_count": all_tp_count,
+        "fp_count": all_fp_count,
+        "fn_count": all_fn_count,
+        "description": "Micro-averaging: All matches pooled together across cases"
+    }
+    
+    # Macro-averaging
+    macro_precision = np.mean(case_precision_values) if case_precision_values else 0.0
+    macro_recall = np.mean(case_recall_values) if case_recall_values else 0.0
+    macro_f1 = np.mean(case_f1_values) if case_f1_values else 0.0
+    
+    result["macro_averaging_metrics"] = {
+        "precision": macro_precision,
+        "recall": macro_recall,
+        "f1_score": macro_f1,
+        "precision_std": np.std(case_precision_values) if case_precision_values else 0.0,
+        "recall_std": np.std(case_recall_values) if case_recall_values else 0.0,
+        "f1_score_std": np.std(case_f1_values) if case_f1_values else 0.0,
+        "case_count": len(case_precision_values),
+        "description": "Macro-averaging: Metrics calculated per case, then averaged"
+    }
+    
+    # Count-based metrics (summed across cases)
+    result["count_based_metrics"] = {
+        "precision": all_tp_count / (all_tp_count + all_fp_count) if (all_tp_count + all_fp_count) > 0 else 0.0,
+        "recall": all_tp_count / (all_tp_count + all_fn_count) if (all_tp_count + all_fn_count) > 0 else 0.0,
+        "f1_score": 2 * (all_tp_count / (all_tp_count + all_fp_count) * all_tp_count / (all_tp_count + all_fn_count)) / 
+                    (all_tp_count / (all_tp_count + all_fp_count) + all_tp_count / (all_tp_count + all_fn_count)) 
+                    if (all_tp_count + all_fp_count + all_fn_count) > 0 else 0.0,
+        "tp_count": all_tp_count,
+        "fp_count": all_fp_count,
+        "fn_count": all_fn_count,
+        "description": "Count-based: TP, FP, FN counts summed across cases, then metrics calculated"
+    }
+    
+    # Add top-level keys for compatibility with existing script
+    result["precision"] = micro_precision  # Use micro-averaging as the primary metric
+    result["recall"] = micro_recall
+    result["f1_score"] = micro_f1
+    result["fuzzy_tp_count"] = all_tp_count
+    result["fuzzy_fp_count"] = all_fp_count
+    result["fuzzy_fn_count"] = all_fn_count
+    result["total_matches_found"] = len(all_fuzzy_matches)
+    
+    # Corpus metrics (using micro-averaging)
+    result["corpus_metrics"] = result["micro_averaging_metrics"].copy()
+    result["corpus_metrics"].update({
+        "cases_with_ground_truth": len(result["cases_with_ground_truth"]),
+        "cases_without_ground_truth": len(result["cases_without_ground_truth"]),
+        "total_cases": len(result["cases_with_ground_truth"]) + len(result["cases_without_ground_truth"])
+    })
+    
+    # Add notes about the evaluation
+    result["notes"] = [
+        "Fuzzy matching approach: " + 
+        f"Matching entities with similarity threshold of {threshold}",
+        "Three approaches to metric calculation are provided:",
+        " 1. Micro-averaging: All matches pooled together across cases",
+        " 2. Macro-averaging: Metrics calculated per case, then averaged",
+        " 3. Count-based: TP, FP, FN counts summed across cases, then metrics calculated",
+        "NOTE: Only documents with entity names are processed for fuzzy matching"
+    ]
+    
+    # Print debug summary if requested
     if debug and all_fuzzy_matches:
         print("\n===== FUZZY MATCHING SUMMARY =====")
-        print(f"Total fuzzy matches found: {len(all_fuzzy_matches)}")
         print("Top 10 fuzzy matches:")
-        for i, match in enumerate(sorted(all_fuzzy_matches, key=lambda x: x['score'], reverse=True)[:10]):
-            print(f"  {i+1}. Doc {match['doc_id']}: '{match['pred_name']}' matched with '{match['gt_name']}' (score: {match['score']})")
+        sorted_matches = sorted(all_fuzzy_matches, key=lambda x: x['score'], reverse=True)
+        for i, match in enumerate(sorted_matches[:10], 1):
+            print(f"  {i}. '{match['pred_name']}' matched with '{match['gt_name']}' (score: {match['score']})")
     
-    # Calculate metrics
-    precision = tp_count / (tp_count + fp_count) if (tp_count + fp_count) > 0 else 0
-    recall = tp_count / (tp_count + fn_count) if (tp_count + fn_count) > 0 else 0
-    f1_score = 2 * (precision * recall) / (precision + recall) if (precision + recall) > 0 else 0
-    
-    return {
-        "precision": precision,
-        "recall": recall,
-        "f1_score": f1_score,
-        "tp_count": tp_count,
-        "fp_count": fp_count,
-        "fn_count": fn_count,
-        "fuzzy_threshold": threshold,
-        "fuzzy_matches_found": fuzzy_matches_found,
-        "description": f"Fuzzy matching of disease names with threshold {threshold}"
-    }
+    return result
 
 def main():
     parser = argparse.ArgumentParser(description="Evaluate ORPHA code predictions across a corpus")
@@ -1118,8 +1169,8 @@ def main():
         print(f"  Precision: {fuzzy_result['precision']:.4f}")
         print(f"  Recall: {fuzzy_result['recall']:.4f}")
         print(f"  F1 Score: {fuzzy_result['f1_score']:.4f}")
-        print(f"  TP/FP/FN: {fuzzy_result['tp_count']}/{fuzzy_result['fp_count']}/{fuzzy_result['fn_count']}")
-        print(f"  Entity matches found: {fuzzy_result['fuzzy_matches_found']}")
+        print(f"  TP/FP/FN: {fuzzy_result['fuzzy_tp_count']}/{fuzzy_result['fuzzy_fp_count']}/{fuzzy_result['fuzzy_fn_count']}")
+        print(f"  Entity matches found: {fuzzy_result['total_matches_found']}")
     
     # Save results if not summary-only
     if not args.summary_only:
