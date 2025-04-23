@@ -4,7 +4,7 @@ import json
 import pandas as pd
 import numpy as np
 import re
-from typing import List, Dict, Any, Optional, Tuple
+from typing import List, Dict, Any, Optional, Tuple, Union
 from datetime import datetime
 from fuzzywuzzy import fuzz
 from utils.embedding import EmbeddingsManager
@@ -104,12 +104,12 @@ class SimpleRDMatcher(BaseRDMatcher):
                     
         return candidate_metadata
     
-    def match_entity(self, entity: str, top_k: int = 5) -> Dict:
+    def match_entity(self, entity_data: Union[str, Dict], top_k: int = 5) -> Dict:
         """
         Match an entity to the most appropriate rare disease term.
         
         Args:
-            entity: Entity text to match
+            entity_data: Entity text to match or dict with entity and metadata
             top_k: Number of top candidates to include in results
             
         Returns:
@@ -117,6 +117,14 @@ class SimpleRDMatcher(BaseRDMatcher):
         """
         if self.index is None:
             raise ValueError("Index not prepared. Call prepare_index() first.")
+        
+        # Extract entity and metadata
+        if isinstance(entity_data, dict):
+            entity = entity_data.get("entity", "")
+            metadata = entity_data
+        else:
+            entity = entity_data
+            metadata = {"entity": entity}
             
         # Get candidates
         candidates = self._retrieve_candidates(entity)
@@ -126,6 +134,33 @@ class SimpleRDMatcher(BaseRDMatcher):
             'entity': entity,
             'top_candidates': candidates[:top_k]
         }
+        
+        # Preserve original entity and metadata
+        if isinstance(entity_data, dict):
+            # Preserve original entity if available
+            if "original_entity" in metadata:
+                result["original_entity"] = metadata["original_entity"]
+            else:
+                result["original_entity"] = entity
+                
+            # Preserve context if available
+            if "context" in metadata:
+                result["context"] = metadata["context"]
+                
+            # Preserve abbreviation info if available
+            if "expanded_term" in metadata:
+                result["expanded_term"] = metadata["expanded_term"]
+                result["is_abbreviation"] = True
+                
+            # Preserve verification method if available
+            if "status" in metadata and metadata["status"] == "verified_rare_disease":
+                result["verification_status"] = "verified_rare_disease"
+                
+            if "method" in metadata:
+                result["verification_method"] = metadata["method"]
+        else:
+            # For string entities, set original_entity to the entity itself
+            result["original_entity"] = entity
         
         # Try to find exact/fuzzy match first
         rd_term = self._try_similarity_matching(entity, candidates)
@@ -260,12 +295,12 @@ class SimpleRDMatcher(BaseRDMatcher):
         
         return None
     
-    def batch_match_entities(self, entities: List[str], top_k: int = 5) -> List[Dict]:
+    def batch_match_entities(self, entities: List[Union[str, Dict]], top_k: int = 5) -> List[Dict]:
         """
         Match multiple entities to rare disease terms.
         
         Args:
-            entities: List of entity strings to match
+            entities: List of entity strings or dictionaries to match
             top_k: Number of top candidates to include in results
             
         Returns:
@@ -281,12 +316,12 @@ class SimpleRDMatcher(BaseRDMatcher):
             
         return results
     
-    def match_rd_terms(self, entities: List[str], metadata: List[Dict]) -> List[Dict]:
+    def match_rd_terms(self, entities: List[Union[str, Dict]], metadata: List[Dict]) -> List[Dict]:
         """
         Match entities to rare disease terms.
         
         Args:
-            entities: List of entity strings to match
+            entities: List of entity strings or dictionaries with metadata
             metadata: List of dictionaries containing rare disease metadata with embeddings
             
         Returns:
@@ -298,22 +333,87 @@ class SimpleRDMatcher(BaseRDMatcher):
             
         results = []
         
-        for entity in entities:
-            match_result = self.match_entity(entity)
-            
-            # Format result to match the expected output
-            if match_result.get('rd_term'):
-                results.append({
-                    'entity': entity,
-                    'rd_term': match_result.get('rd_term'),
-                    'orpha_id': match_result.get('orpha_id'),
-                    'match_method': match_result.get('match_method', 'similarity'),
-                    'confidence_score': match_result.get('confidence_score', 0.0)
-                })
+        for entity_obj in entities:
+            # Extract the entity string and metadata
+            if isinstance(entity_obj, str):
+                entity = entity_obj
+                entity_metadata = {"original_entity": entity}
+            else:
+                entity = entity_obj.get("entity", "")
+                entity_metadata = entity_obj
                 
+            # Skip empty entities
+            if not entity:
+                continue
+                
+            # Get candidates
+            candidates = self._retrieve_candidates(entity)
+            
+            if candidates:
+                # Try to find exact/fuzzy match first
+                rd_term = self._try_similarity_matching(entity, candidates)
+                
+                if rd_term:
+                    # Found an exact or fuzzy match
+                    result = {
+                        'entity': entity,
+                        'rd_term': rd_term['name'],
+                        'orpha_id': rd_term['id'],
+                        'match_method': 'similarity',
+                        'confidence_score': rd_term.get('confidence', 0.9),
+                    }
+                    
+                    # Add top candidates
+                    result['top_candidates'] = [
+                        {
+                            'name': c['metadata']['name'],
+                            'id': c['metadata']['id'],
+                            'similarity': float(c['similarity_score'])
+                        }
+                        for c in candidates[:5]
+                    ]
+                    
+                    # Preserve metadata from entity_obj
+                    for key in ['original_entity', 'context', 'expanded_term', 'is_abbreviation', 'method']:
+                        if key in entity_metadata:
+                            result[key] = entity_metadata[key]
+                            
+                    results.append(result)
+                    continue
+                    
+                # If no similarity match but LLM available, try LLM matching
+                if self.llm_client and self.system_message:
+                    rd_term = self._try_llm_match(entity, candidates[:5])
+                    
+                    if rd_term:
+                        result = {
+                            'entity': entity,
+                            'rd_term': rd_term['name'],
+                            'orpha_id': rd_term['id'],
+                            'match_method': 'llm',
+                            'confidence_score': 0.7,
+                        }
+                        
+                        # Add top candidates
+                        result['top_candidates'] = [
+                            {
+                                'name': c['metadata']['name'],
+                                'id': c['metadata']['id'],
+                                'similarity': float(c['similarity_score'])
+                            }
+                            for c in candidates[:5]
+                        ]
+                        
+                        # Preserve metadata from entity_obj
+                        for key in ['original_entity', 'context', 'expanded_term', 'is_abbreviation', 'method']:
+                            if key in entity_metadata:
+                                result[key] = entity_metadata[key]
+                                
+                        results.append(result)
+            
         return results
 
-    def process_batch(self, entities_batch: List[List[str]], metadata_batch: List[List[Dict]]) -> List[List[Dict]]:
+    def process_batch(self, entities_batch: List[List[Union[str, Dict]]], metadata_batch: List[List[Dict]]) -> List[List[Dict]]:
         """
         Process a batch of entities for rare disease term matching.
         
