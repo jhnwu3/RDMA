@@ -156,55 +156,56 @@ def save_checkpoint(results: Dict, output_file: str, checkpoint_num: int) -> Non
 
 
 def format_entities_for_matching(verified_entities: List[Dict]) -> List[Dict]:
-    """Format verified rare disease entities for matching with metadata preservation."""
+    """Format verified rare disease entities for matching while preserving metadata."""
     formatted_entities = []
     
     for entity_item in verified_entities:
-        # Handle different entity formats
+        # Handle different entity formats based on step 2 verification output
         if isinstance(entity_item, str):
-            # Direct string format
+            # Direct string format (unlikely from step 2)
             formatted_entities.append({
-                "entity": entity_item,
-                "original_entity": entity_item
+                'entity_text': entity_item,
+                'metadata': {}
             })
         elif isinstance(entity_item, dict):
-            # Extract entity value based on available fields
-            entity_value = None
-            if entity_item.get("status") == "verified_rare_disease" and "entity" in entity_item:
-                entity_value = entity_item["entity"]
+            # Most common case from step 2 verification
+            if entity_item.get("status") == "verified_rare_disease":
+                # Multi-stage verifier format
+                entity_text = entity_item.get("entity", "")
+                if entity_text:
+                    formatted_entities.append({
+                        'entity_text': entity_text,
+                        'metadata': {
+                            'original_entity': entity_item.get("original_entity", entity_text),
+                            'expanded_term': entity_item.get("expanded_term"),
+                            'context': entity_item.get("context", ""),
+                            'method': entity_item.get("method", ""),
+                            'orpha_id': entity_item.get("orpha_id")
+                        }
+                    })
+            # Legacy or alternative formats
             elif "entity" in entity_item:
-                entity_value = entity_item["entity"]
+                formatted_entities.append({
+                    'entity_text': entity_item["entity"],
+                    'metadata': {
+                        'context': entity_item.get("context", ""),
+                        'original_entity': entity_item.get("original_entity", entity_item["entity"])
+                    }
+                })
             elif "term" in entity_item:
-                entity_value = entity_item["term"]
+                formatted_entities.append({
+                    'entity_text': entity_item["term"],
+                    'metadata': {
+                        'context': entity_item.get("context", "")
+                    }
+                })
             elif "mention" in entity_item:
-                entity_value = entity_item["mention"]
-            
-            if not entity_value:
-                continue  # Skip if no entity value found
-            
-            # Create new entity dict with metadata preserved
-            entity_dict = {
-                "entity": entity_value,
-                "original_entity": entity_item.get("original_entity", entity_value)
-            }
-            
-            # Preserve context
-            if "context" in entity_item:
-                entity_dict["context"] = entity_item["context"]
-            
-            # Handle abbreviation-specific fields
-            if "expanded_term" in entity_item:
-                entity_dict["expanded_term"] = entity_item["expanded_term"]
-                entity_dict["is_abbreviation"] = True
-                # For abbreviations, the entity to match should be the expanded term
-                entity_dict["entity"] = entity_item["expanded_term"]
-                entity_dict["original_entity"] = entity_value  # Original abbreviation
-            
-            # Preserve method information
-            if "method" in entity_item:
-                entity_dict["method"] = entity_item["method"]
-            
-            formatted_entities.append(entity_dict)
+                formatted_entities.append({
+                    'entity_text': entity_item["mention"],
+                    'metadata': {
+                        'context': entity_item.get("context", "")
+                    }
+                })
     
     return formatted_entities
 
@@ -227,7 +228,7 @@ def convert_to_serializable(obj):
     else:
         # For any other types, convert to string
         return str(obj)
-
+    
 def match_cases(verification_results: Dict, matcher, args: argparse.Namespace, 
                embedded_documents: List[Dict], existing_results: Dict = None) -> Dict:
     """Match verified entities to rare disease terms using the matcher's interface."""
@@ -252,12 +253,18 @@ def match_cases(verification_results: Dict, matcher, args: argparse.Namespace,
             if args.debug:
                 timestamp_print(f"Processing case {i+1}/{len(pending_cases)} (ID: {case_id})")
             
-            # Get verified rare diseases
-            if "verified_rare_diseases" in case_data:
+            # Get entities to match - check for verified_rare_diseases first,
+            # then fall back to entities_with_contexts from extraction step
+            if "verified_rare_diseases" in case_data and case_data["verified_rare_diseases"]:
                 verified_entities = case_data["verified_rare_diseases"]
+                timestamp_print(f"  Found {len(verified_entities)} verified rare diseases for case {case_id}")
+            elif "entities_with_contexts" in case_data and case_data["entities_with_contexts"]:
+                # Using entities directly from extraction step
+                verified_entities = case_data["entities_with_contexts"]
+                timestamp_print(f"  Using {len(verified_entities)} extracted entities for case {case_id}")
             else:
                 verified_entities = []
-                timestamp_print(f"  Warning: No verified rare diseases found for case {case_id}")
+                timestamp_print(f"  Warning: No entities found for case {case_id}")
             
             if args.debug:
                 timestamp_print(f"  Processing {len(verified_entities)} verified rare diseases")
@@ -272,51 +279,91 @@ def match_cases(verification_results: Dict, matcher, args: argparse.Namespace,
                 }
                 continue
             
-            # Format entities for matching - preserve metadata
-            formatted_entities = format_entities_for_matching(verified_entities)
+            # Extract just the entity text for matching but preserve full metadata
+            entity_texts = []
+            entity_metadata = {}
+            
+            for entity_item in verified_entities:
+                if isinstance(entity_item, str):
+                    entity_texts.append(entity_item)
+                    entity_metadata[entity_item] = {"original_entity": entity_item}
+                    
+                elif isinstance(entity_item, dict):
+                    # Handle multi-stage verifier format (step 2)
+                    if entity_item.get("status") == "verified_rare_disease":
+                        entity_text = entity_item.get("entity", "")
+                        if entity_text:
+                            entity_texts.append(entity_text)
+                            entity_metadata[entity_text] = {
+                                "original_entity": entity_item.get("original_entity", entity_text),
+                                "expanded_term": entity_item.get("expanded_term"),
+                                "context": entity_item.get("context", ""),
+                                "method": entity_item.get("method", ""),
+                                "orpha_id": entity_item.get("orpha_id", "")
+                            }
+                    # Handle regular entity format
+                    elif "entity" in entity_item:
+                        entity_text = entity_item["entity"]
+                        entity_texts.append(entity_text)
+                        entity_metadata[entity_text] = {
+                            "context": entity_item.get("context", ""),
+                            "original_entity": entity_item.get("original_entity", entity_text)
+                        }
+                    # Handle alternative formats
+                    elif "term" in entity_item:
+                        entity_text = entity_item["term"]
+                        entity_texts.append(entity_text)
+                        entity_metadata[entity_text] = {"context": entity_item.get("context", "")}
+                    elif "mention" in entity_item:
+                        entity_text = entity_item["mention"]
+                        entity_texts.append(entity_text)
+                        entity_metadata[entity_text] = {"context": entity_item.get("context", "")}
+            
+            # Remove empty entries and duplicates while preserving order
+            unique_entities = []
+            seen = set()
+            for entity in entity_texts:
+                if entity and entity not in seen:
+                    seen.add(entity)
+                    unique_entities.append(entity)
             
             if args.debug:
-                timestamp_print(f"  Matching {len(formatted_entities)} formatted entities")
+                timestamp_print(f"  Matching {len(unique_entities)} unique entities")
             
             # Ensure matcher's index is initialized
             if not hasattr(matcher, 'index') or matcher.index is None:
                 matcher.prepare_index(embedded_documents)
             
-            # Use the properly defined interface method instead of implementation details
-            matched_diseases = matcher.match_rd_terms(formatted_entities, embedded_documents)
-            print("DEBUG -----")
-            print(matched_diseases)
-            print("DEBUG -----")
-            # Process matched diseases to ensure metadata is preserved
-            for match in matched_diseases:
-                # For abbreviations, ensure original_entity and expanded_term are properly set
-                if "is_abbreviation" in match:
-                    # If this is an abbreviation, make sure the original abbreviation is marked as the original_entity
-                    # Ensure expanded_term is properly set
-                    if "expanded_term" not in match and "entity" in match:
-                        match["expanded_term"] = match["entity"]
-                    if "original_entity" not in match:
-                        match["original_entity"] = match.get("entity", "")
-                    else:
-                        match["entity"] = match["original_entity"]
-                else:
-                    # For regular entities, make sure original_entity is set
-                    if "original_entity" not in match and "entity" in match:
-                        match["original_entity"] = match["entity"]
+            # Call matcher's match_rd_terms directly
+            matched_results = matcher.match_rd_terms(unique_entities, embedded_documents)
             
-            if args.debug:
-                timestamp_print(f"  Found {len(matched_diseases)} matches")
-                for match in matched_diseases:
-                    entity = match.get("entity", "")
-                    rd_term = match.get("rd_term", "")
-                    orpha_id = match.get("orpha_id", "")
-                    method = match.get("match_method", "")
-                    original = match.get("original_entity", entity)
-                    if match.get("is_abbreviation", False):
-                        expanded = match.get("expanded_term", "")
-                        timestamp_print(f"  ✓ {method.capitalize()} match for abbreviation '{original}' (expanded: '{expanded}'): {rd_term} ({orpha_id})")
-                    else:
-                        timestamp_print(f"  ✓ {method.capitalize()} match for '{entity}': {rd_term} ({orpha_id})")
+            # Enrich the matches with preserved metadata
+            matched_diseases = []
+            for match in matched_results:
+                entity = match.get("entity", "")
+                if entity:
+                    # Preserve the original metadata from verification step
+                    preserved_metadata = entity_metadata.get(entity, {})
+                    
+                    # Create enriched match with all metadata
+                    enriched_match = match.copy()
+                    
+                    # Add preserved metadata from verification
+                    for key, value in preserved_metadata.items():
+                        if value is not None and (key not in enriched_match or not enriched_match[key]):
+                            enriched_match[key] = value
+                    
+                    matched_diseases.append(enriched_match)
+                    
+                    if args.debug:
+                        if "rd_term" in enriched_match:
+                            entity_desc = f"'{entity}'"
+                            if "original_entity" in enriched_match and enriched_match["original_entity"] != entity:
+                                entity_desc += f" (original: '{enriched_match['original_entity']}')"
+                            if "expanded_term" in enriched_match:
+                                entity_desc += f" (expanded: '{enriched_match['expanded_term']}')"
+                                
+                            timestamp_print(f"  ✓ Matched {entity_desc} to {enriched_match['rd_term']} ({enriched_match['orpha_id']})")
             
             # Store results
             results[case_id] = {
