@@ -318,130 +318,95 @@ class SimpleRDMatcher(BaseRDMatcher):
     
     def match_rd_terms(self, entities: List[Union[str, Dict]], metadata: List[Dict]) -> List[Dict]:
         """
-        Match entities to rare disease terms preserving needed metadata.
+        Match entities to rare disease terms with better metadata preservation.
         
         Args:
-            entities: List of entity strings or dictionaries to match
-            metadata: List of dictionaries containing rare disease metadata with embeddings
+            entities: List of entity strings or dictionaries
+            metadata: Embedded rare disease documents
             
         Returns:
-            List of dictionaries with matching results
+            List of matched disease terms with preserved metadata
         """
-        # Prepare index if needed
         if self.index is None:
             self.prepare_index(metadata)
             
-        results = []
+        matches = []
         
         for entity_item in entities:
-            # Handle different entity formats (string or dict)
+            # Default values
+            original_input = entity_item
+            metadata_dict = {}
+            
+            # Extract entity text and metadata
             if isinstance(entity_item, str):
                 entity = entity_item
-                entity_metadata = {"original_entity": entity}
                 original_entity = entity
             elif isinstance(entity_item, dict):
-                # For abbreviations, the entity we got might already be the expanded form
-                if "status" in entity_item and entity_item["status"] == "verified_rare_disease":
-                    # This may be an abbreviation that's been expanded
+                # Detailed handling of different verification formats
+                if entity_item.get("status") == "verified_rare_disease":
                     entity = entity_item.get("entity", "")
-                    
-                    # The actual original abbreviation might be in original_entity
                     original_entity = entity_item.get("original_entity", entity)
-                    
-                    # If this was expanded, the expanded_term field should be present
-                    # and the method should be "abbreviation_expansion"
-                    if "expanded_term" in entity_item and entity_item.get("method") == "abbreviation_expansion":
-                        # In this case, the original abbreviation is in original_entity,
-                        # and the expanded term (what we'll match on) is in entity or expanded_term
-                        expanded_term = entity_item.get("expanded_term", entity)
-                        
-                        # For matching purposes, we use the expanded term
-                        entity = expanded_term
-                    else:
-                        # Not an abbreviation expansion case
-                        original_entity = entity_item.get("original_entity", entity)
+                    metadata_dict = {
+                        "original_entity": original_entity,
+                        "expanded_term": entity_item.get("expanded_term"),
+                        "method": entity_item.get("method"),
+                        "context": entity_item.get("context"),
+                        "orpha_id": entity_item.get("orpha_id")
+                    }
+                elif "entity" in entity_item:
+                    entity = entity_item["entity"]
+                    original_entity = entity_item.get("original_entity", entity)
+                    metadata_dict = entity_item.copy()
                 else:
-                    # Standard case - not from abbreviation expansion
-                    entity = entity_item.get("entity", "")
-                    original_entity = entity_item.get("original_entity", entity)
-                
-                # Skip empty entities
-                if not entity:
-                    continue
+                    continue  # Skip if no usable entity
             else:
-                continue  # Skip invalid entity types
+                continue  # Skip unsupported types
             
-            # Get candidates
+            # Retrieve candidates
             candidates = self._retrieve_candidates(entity)
             
-            # Build metadata dict to preserve all relevant information
-            entity_metadata = {}
-            if isinstance(entity_item, dict):
-                # Copy all fields we want to preserve
-                for key in ["context", "method", "status", "expanded_term", "is_abbreviation"]:
-                    if key in entity_item and entity_item[key] is not None:
-                        entity_metadata[key] = entity_item[key]
-            
-            # Create base result with preserved metadata
-            result = {
+            # Create base match result
+            match_result = {
                 'entity': entity,
-                'original_entity': original_entity,  # This should now be the true original entity (e.g., "ALS")
+                'original_entity': original_entity,
+                'top_candidates': [
+                    {
+                        'name': c['metadata']['name'],
+                        'id': c['metadata']['id'],
+                        'similarity': float(c['similarity_score'])
+                    }
+                    for c in candidates[:5]
+                ]
             }
-            
-            # Add any preserved metadata
-            for key, value in entity_metadata.items():
-                result[key] = value
-                
-            # Add top candidates
-            result['top_candidates'] = [
-                {
-                    'name': c['metadata']['name'],
-                    'id': c['metadata']['id'],
-                    'similarity': float(c['similarity_score'])
-                }
-                for c in candidates[:5]
-            ]
-            
-            # For abbreviations, ensure we're correctly marking it
-            if "expanded_term" in entity_metadata or ("method" in entity_metadata and entity_metadata["method"] == "abbreviation_expansion"):
-                if "expanded_term" not in result:
-                    result["expanded_term"] = entity  # The entity is already the expanded form
-                result["is_abbreviation"] = True
-            
-            # Try to find exact/fuzzy match first
-            rd_term = self._try_similarity_matching(entity, candidates) or self._try_enriched_matching(entity, candidates)
+            print(match_result)
+            # Try to find an exact or close match
+            rd_term = self._try_similarity_matching(entity, candidates)
             if rd_term:
-                result.update({
+                match_result.update({
                     'rd_term': rd_term['name'],
                     'orpha_id': rd_term['id'],
                     'match_method': 'exact',
                     'confidence_score': 1.0
                 })
-                results.append(result)
-                continue
-                
-            # If no exact match but LLM available, try LLM matching
-            if self.llm_client:
+            elif self.llm_client:
+                # Try LLM matching if no similarity match
                 rd_term = self._try_llm_match(entity, candidates[:5])
                 if rd_term:
-                    result.update({
+                    match_result.update({
                         'rd_term': rd_term['name'],
                         'orpha_id': rd_term['id'],
                         'match_method': 'llm',
                         'confidence_score': 0.7
                     })
-                    results.append(result)
-                    continue
             
-            # If we get here, no match was found
-            # For consistency with match_cases, add a "no_match" entry
-            result.update({
-                'match_method': 'no_match',
-                'confidence_score': 0.0
-            })
-            results.append(result)
-                    
-        return results
+            # Preserve additional metadata
+            for key, value in metadata_dict.items():
+                if value is not None:
+                    match_result[key] = value
+
+            matches.append(match_result)
+        
+        return matches
 
     def process_batch(self, entities_batch: List[List[Union[str, Dict]]], metadata_batch: List[List[Dict]]) -> List[List[Dict]]:
         """

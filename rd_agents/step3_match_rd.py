@@ -156,57 +156,11 @@ def save_checkpoint(results: Dict, output_file: str, checkpoint_num: int) -> Non
 
 
 def format_entities_for_matching(verified_entities: List[Dict]) -> List[Dict]:
-    """Format verified rare disease entities for matching while preserving metadata."""
     formatted_entities = []
-    
     for entity_item in verified_entities:
-        # Handle different entity formats based on step 2 verification output
-        if isinstance(entity_item, str):
-            # Direct string format (unlikely from step 2)
-            formatted_entities.append({
-                'entity_text': entity_item,
-                'metadata': {}
-            })
-        elif isinstance(entity_item, dict):
-            # Most common case from step 2 verification
-            if entity_item.get("status") == "verified_rare_disease":
-                # Multi-stage verifier format
-                entity_text = entity_item.get("entity", "")
-                if entity_text:
-                    formatted_entities.append({
-                        'entity_text': entity_text,
-                        'metadata': {
-                            'original_entity': entity_item.get("original_entity", entity_text),
-                            'expanded_term': entity_item.get("expanded_term"),
-                            'context': entity_item.get("context", ""),
-                            'method': entity_item.get("method", ""),
-                            'orpha_id': entity_item.get("orpha_id")
-                        }
-                    })
-            # Legacy or alternative formats
-            elif "entity" in entity_item:
-                formatted_entities.append({
-                    'entity_text': entity_item["entity"],
-                    'metadata': {
-                        'context': entity_item.get("context", ""),
-                        'original_entity': entity_item.get("original_entity", entity_item["entity"])
-                    }
-                })
-            elif "term" in entity_item:
-                formatted_entities.append({
-                    'entity_text': entity_item["term"],
-                    'metadata': {
-                        'context': entity_item.get("context", "")
-                    }
-                })
-            elif "mention" in entity_item:
-                formatted_entities.append({
-                    'entity_text': entity_item["mention"],
-                    'metadata': {
-                        'context': entity_item.get("context", "")
-                    }
-                })
-    
+        # Preserve the full entity dictionary
+        if entity_item.get("status") == "verified_rare_disease":
+            formatted_entities.append(entity_item)
     return formatted_entities
 
 def convert_to_serializable(obj):
@@ -284,49 +238,25 @@ def match_cases(verification_results: Dict, matcher, args: argparse.Namespace,
             entity_metadata = {}
             
             for entity_item in verified_entities:
+                # print(entity_item)
                 if isinstance(entity_item, str):
                     entity_texts.append(entity_item)
                     entity_metadata[entity_item] = {"original_entity": entity_item}
                     
-                elif isinstance(entity_item, dict):
-                    # Handle multi-stage verifier format (step 2)
-                    if entity_item.get("status") == "verified_rare_disease":
-                        entity_text = entity_item.get("entity", "")
-                        if entity_text:
-                            entity_texts.append(entity_text)
-                            entity_metadata[entity_text] = {
-                                "original_entity": entity_item.get("original_entity", entity_text),
-                                "expanded_term": entity_item.get("expanded_term"),
-                                "context": entity_item.get("context", ""),
-                                "method": entity_item.get("method", ""),
-                                "orpha_id": entity_item.get("orpha_id", "")
-                            }
-                    # Handle regular entity format
-                    elif "entity" in entity_item:
-                        entity_text = entity_item["entity"]
-                        entity_texts.append(entity_text)
-                        entity_metadata[entity_text] = {
-                            "context": entity_item.get("context", ""),
-                            "original_entity": entity_item.get("original_entity", entity_text)
-                        }
-                    # Handle alternative formats
-                    elif "term" in entity_item:
-                        entity_text = entity_item["term"]
-                        entity_texts.append(entity_text)
-                        entity_metadata[entity_text] = {"context": entity_item.get("context", "")}
-                    elif "mention" in entity_item:
-                        entity_text = entity_item["mention"]
-                        entity_texts.append(entity_text)
-                        entity_metadata[entity_text] = {"context": entity_item.get("context", "")}
-            
             # Remove empty entries and duplicates while preserving order
+            # Extract entities while preserving full metadata
             unique_entities = []
-            seen = set()
-            for entity in entity_texts:
-                if entity and entity not in seen:
-                    seen.add(entity)
-                    unique_entities.append(entity)
-            
+
+            for entity_item in verified_entities:
+                # Skip completely empty or invalid entries
+                if not isinstance(entity_item, dict):
+                    continue
+                
+                # Specifically check for verified rare disease status or presence of an entity
+                if entity_item.get("status") == "verified_rare_disease" or entity_item.get("entity"):
+                    unique_entities.append(entity_item)
+
+            matched_results = matcher.match_rd_terms(unique_entities, embedded_documents)
             if args.debug:
                 timestamp_print(f"  Matching {len(unique_entities)} unique entities")
             
@@ -375,6 +305,7 @@ def match_cases(verification_results: Dict, matcher, args: argparse.Namespace,
                     "matched_diseases_count": len(matched_diseases)
                 }
             }
+            # print(results[case_id])
             
             # Save checkpoint if interval reached
             checkpoint_counter += 1

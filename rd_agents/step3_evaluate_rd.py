@@ -1045,7 +1045,10 @@ def main():
                         import re
                         match_id = re.search(r'(\d+)', match["orpha_id"])
                         if match_id:
-                            entities[match_id.group(1)] = match["entity"]
+                            if "original_entity" in match:
+                                entities[match_id.group(1)] = match["original_entity"]
+                            else:
+                                entities[match_id.group(1)] = match["entity"]
                 
                 if entities:
                     prediction_entities[doc_id] = entities
