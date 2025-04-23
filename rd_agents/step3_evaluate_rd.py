@@ -761,7 +761,8 @@ def evaluate_fuzzy_match(
     ground_truth_dict: Dict[str, List[str]],
     prediction_entities: Dict[str, Dict[str, str]],
     ground_truth_entities: Dict[str, Dict[str, str]],
-    threshold: int = 90
+    threshold: int = 90,
+    debug: bool = False  # Add debug parameter
 ) -> Dict[str, Any]:
     """
     Evaluate predictions using fuzzy matching on entity names.
@@ -772,6 +773,7 @@ def evaluate_fuzzy_match(
         prediction_entities: Dictionary mapping {doc_id: {numeric_orpha_id: entity_name}}
         ground_truth_entities: Dictionary mapping {doc_id: {numeric_orpha_id: entity_name}}
         threshold: Threshold for fuzzy matching (0-100)
+        debug: Whether to print detailed debug information
         
     Returns:
         Dictionary with evaluation metrics
@@ -790,10 +792,26 @@ def evaluate_fuzzy_match(
     fn_count = 0
     fuzzy_matches_found = 0
     
+    # For debugging - collect detailed match info
+    all_fuzzy_matches = []
+    
+    if debug:
+        print("\n===== DEBUG: FUZZY MATCHING DETAILS =====")
+        print(f"Threshold for fuzzy matching: {threshold}")
+        print(f"Number of prediction documents: {len(predictions_dict)}")
+        print(f"Number of ground truth documents: {len(ground_truth_dict)}")
+        print(f"Number of prediction entity mappings: {len(prediction_entities)}")
+        print(f"Number of ground truth entity mappings: {len(ground_truth_entities)}")
+    
     # Process each document with ground truth
     for doc_id in set(predictions_dict.keys()) & set(ground_truth_dict.keys()):
         pred_codes = predictions_dict.get(doc_id, [])
         gt_codes = ground_truth_dict.get(doc_id, [])
+        
+        if debug:
+            print(f"\nDocument {doc_id}:")
+            print(f"  Prediction codes: {pred_codes}")
+            print(f"  Ground truth codes: {gt_codes}")
         
         # Skip if no ground truth
         if not gt_codes:
@@ -803,16 +821,34 @@ def evaluate_fuzzy_match(
         pred_nums = [get_numeric_id(code) for code in pred_codes]
         gt_nums = [get_numeric_id(code) for code in gt_codes]
         
+        if debug:
+            print(f"  Numeric prediction codes: {pred_nums}")
+            print(f"  Numeric ground truth codes: {gt_nums}")
+        
         # Find exact matches first
         exact_matches = set(pred_nums) & set(gt_nums)
         tp_count += len(exact_matches)
+        
+        if debug:
+            print(f"  Exact matches: {exact_matches} (count: {len(exact_matches)})")
         
         # Remaining predictions and ground truth after removing exact matches
         remaining_preds = [num for num in pred_nums if num not in exact_matches]
         remaining_gts = [num for num in gt_nums if num not in exact_matches]
         
+        if debug:
+            print(f"  Remaining predictions: {remaining_preds}")
+            print(f"  Remaining ground truth: {remaining_gts}")
+        
         # Skip fuzzy matching if no entity names available for this document
         if doc_id not in prediction_entities or doc_id not in ground_truth_entities:
+            if debug:
+                print(f"  No entity names available for document {doc_id} - skipping fuzzy matching")
+                if doc_id not in prediction_entities:
+                    print(f"    Missing prediction entities")
+                if doc_id not in ground_truth_entities:
+                    print(f"    Missing ground truth entities")
+            
             fp_count += len(remaining_preds)
             fn_count += len(remaining_gts)
             continue
@@ -821,6 +857,10 @@ def evaluate_fuzzy_match(
         pred_entities = prediction_entities[doc_id]
         gt_entities = ground_truth_entities[doc_id]
         
+        if debug:
+            print(f"  Prediction entities: {pred_entities}")
+            print(f"  Ground truth entities: {gt_entities}")
+        
         # Track matched prediction and ground truth IDs to avoid double counting
         matched_preds = set()
         matched_gts = set()
@@ -828,11 +868,16 @@ def evaluate_fuzzy_match(
         # Try to find fuzzy matches for each remaining prediction
         for pred_num in remaining_preds:
             if pred_num not in pred_entities:
+                if debug:
+                    print(f"  Prediction {pred_num} has no entity name - skipping")
                 continue
                 
             pred_name = pred_entities[pred_num].lower()
             best_score = 0
             best_match = None
+            
+            if debug:
+                print(f"\n  Trying to find fuzzy match for '{pred_name}' (ID: {pred_num})")
             
             # Compare against all ground truth entities
             for gt_num in remaining_gts:
@@ -841,6 +886,9 @@ def evaluate_fuzzy_match(
                     
                 gt_name = gt_entities[gt_num].lower()
                 score = fuzz.ratio(pred_name, gt_name)
+                
+                if debug:
+                    print(f"    Comparing with '{gt_name}' (ID: {gt_num}) - Score: {score}")
                 
                 if score > best_score:
                     best_score = score
@@ -852,11 +900,47 @@ def evaluate_fuzzy_match(
                 matched_preds.add(pred_num)
                 matched_gts.add(best_match)
                 fuzzy_matches_found += 1
-                print(f"Fuzzy match: '{pred_name}' matched with '{gt_entities[best_match]}' (score: {best_score})")
+                
+                if debug:
+                    print(f"    ✓ MATCH: '{pred_name}' matched with '{gt_entities[best_match]}' (score: {best_score})")
+                    all_fuzzy_matches.append({
+                        'doc_id': doc_id,
+                        'pred_name': pred_name,
+                        'gt_name': gt_entities[best_match],
+                        'pred_id': pred_num,
+                        'gt_id': best_match,
+                        'score': best_score
+                    })
+                else:
+                    print(f"Fuzzy match: '{pred_name}' matched with '{gt_entities[best_match]}' (score: {best_score})")
+            else:
+                if debug:
+                    if best_match:
+                        print(f"    ✗ NO MATCH: Best score {best_score} is below threshold {threshold}")
+                    else:
+                        print(f"    ✗ NO MATCH: No potential matches found")
         
         # Count remaining as false positives and false negatives
-        fp_count += len(remaining_preds) - len(matched_preds)
-        fn_count += len(remaining_gts) - len(matched_gts)
+        unmatched_preds = len(remaining_preds) - len(matched_preds)
+        unmatched_gts = len(remaining_gts) - len(matched_gts)
+        
+        if debug:
+            print(f"\n  Document {doc_id} Summary:")
+            print(f"    Exact matches: {len(exact_matches)}")
+            print(f"    Fuzzy matches: {len(matched_preds)}")
+            print(f"    Unmatched predictions (FP): {unmatched_preds}")
+            print(f"    Unmatched ground truth (FN): {unmatched_gts}")
+        
+        fp_count += unmatched_preds
+        fn_count += unmatched_gts
+    
+    # Print summary of all fuzzy matches if in debug mode
+    if debug and all_fuzzy_matches:
+        print("\n===== FUZZY MATCHING SUMMARY =====")
+        print(f"Total fuzzy matches found: {len(all_fuzzy_matches)}")
+        print("Top 10 fuzzy matches:")
+        for i, match in enumerate(sorted(all_fuzzy_matches, key=lambda x: x['score'], reverse=True)[:10]):
+            print(f"  {i+1}. Doc {match['doc_id']}: '{match['pred_name']}' matched with '{match['gt_name']}' (score: {match['score']})")
     
     # Calculate metrics
     precision = tp_count / (tp_count + fp_count) if (tp_count + fp_count) > 0 else 0
@@ -885,7 +969,8 @@ def main():
                        help="Path to JSON file with ground truth")
     parser.add_argument("--output", required=True,
                        help="Path to save evaluation results JSON")
-    
+    parser.add_argument("--debug-fuzzy", action="store_true",
+                       help="Enable detailed debug output for fuzzy matching")
     # Optional filtering arguments
     parser.add_argument("--match-method", type=str, choices=["exact", "llm"],
                        help="Filter predictions by match method ('exact' or 'llm')")
@@ -991,7 +1076,8 @@ def main():
             ground_truth_dict,
             prediction_entities,
             ground_truth_entities,
-            threshold=args.fuzzy_threshold
+            threshold=args.fuzzy_threshold,
+            debug=args.debug_fuzzy  # Pass the debug flag
         )
         
         # Combine results
