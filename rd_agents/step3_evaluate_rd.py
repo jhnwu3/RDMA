@@ -161,28 +161,45 @@ def extract_predictions(predictions_data: Dict,
                         confidence_threshold: Optional[float] = None) -> Dict[str, List[str]]:
     """
     Extract ORPHA codes from the predictions data structure with filtering options.
-    """
-    result = {}
     
+    This function will include all cases in the result, even those with no matched diseases,
+    to ensure comprehensive evaluation coverage.
+    
+    Args:
+        predictions_data (Dict): Dictionary of prediction results
+        match_method (Optional[str]): Optional filter for match method (e.g., 'exact', 'llm')
+        confidence_threshold (Optional[float]): Optional minimum confidence score threshold
+    
+    Returns:
+        Dict[str, List[str]]: Dictionary mapping case IDs to lists of ORPHA codes
+    """
+    # Input validation
     if not isinstance(predictions_data, dict):
         print(f"Warning: Unexpected predictions data format: {type(predictions_data)}")
-        return result
+        return {}
+    
+    result = {}
+    total_cases_processed = 0
+    total_orpha_codes_extracted = 0
     
     for case_id, case_data in predictions_data.items():
+        total_cases_processed += 1
         orpha_codes = []
         
-        # Check for matched diseases field
+        # Check for matched diseases field, but proceed even if it's empty
         if "matched_diseases" in case_data and isinstance(case_data["matched_diseases"], list):
             matched_diseases = case_data["matched_diseases"]
             
             for item in matched_diseases:
+                # Validate item type
                 if not isinstance(item, dict):
                     continue
                     
-                # Apply filters if specified
+                # Apply match method filter if specified
                 if match_method and item.get("match_method") != match_method:
                     continue
                 
+                # Apply confidence threshold filter if specified
                 if confidence_threshold is not None:
                     confidence = item.get("confidence_score", 0.0)
                     if confidence < confidence_threshold:
@@ -191,14 +208,19 @@ def extract_predictions(predictions_data: Dict,
                 # Extract the ORPHA code
                 orpha_id = item.get("orpha_id")
                 if orpha_id and isinstance(orpha_id, str):
-                    # Keep original format for now, normalization happens in evaluation
                     orpha_codes.append(orpha_id)
+                    total_orpha_codes_extracted += 1
         
-        # Add non-empty lists to result
-        if orpha_codes:
-            result[str(case_id)] = orpha_codes
+        # Always add the case to the result, even with an empty list of ORPHA codes
+        result[str(case_id)] = orpha_codes
     
-    print(f"Extracted predictions for {len(result)} cases with {sum(len(codes) for codes in result.values())} total ORPHA codes")
+    # Print comprehensive statistics
+    print(f"Processed {total_cases_processed} total cases")
+    print(f"Extracted predictions for {len(result)} cases")
+    print(f"Total ORPHA codes extracted: {total_orpha_codes_extracted}")
+    print(f"Cases with matched ORPHA codes: {sum(1 for codes in result.values() if codes)}")
+    print(f"Cases with zero matched ORPHA codes: {sum(1 for codes in result.values() if not codes)}")
+    
     return result
 
 def extract_prediction_entities(predictions_data: Dict) -> Tuple[Dict[str, List[str]], Dict[str, Dict[str, str]]]:
@@ -259,6 +281,8 @@ def extract_ground_truth_entities(ground_truth_data: Dict) -> Tuple[Dict[str, Li
     entity_names_dict = {}
     
     if isinstance(ground_truth_data, dict):
+        if "documents" in ground_truth_data:
+            ground_truth_data = ground_truth_data["documents"]
         for case_id, case_data in ground_truth_data.items():
             orpha_codes = []
             entity_names = {}
@@ -303,6 +327,8 @@ def extract_ground_truth(ground_truth_data: Dict) -> Dict[str, List[str]]:
     
     # Handle MIMIC-style format
     if isinstance(ground_truth_data, dict):
+        if "documents" in ground_truth_data.keys():
+            ground_truth_data = ground_truth_data["documents"]
         for case_id, case_data in ground_truth_data.items():
             orpha_codes = []
             
@@ -322,8 +348,8 @@ def extract_ground_truth(ground_truth_data: Dict) -> Dict[str, List[str]]:
                                 orpha_codes.append(f"ORPHA:{ordo_field.split(' ', 1)[0]}")
             
             # Add non-empty lists to result
-            if orpha_codes:
-                result[str(case_id)] = orpha_codes
+           
+            result[str(case_id)] = orpha_codes
     
     print(f"Found {total_annotations} total annotations in data")
     print(f"Extracted ground truth for {len(result)} cases with {sum(len(codes) for codes in result.values())} total ORPHA codes")
@@ -1077,7 +1103,8 @@ def main():
     print(f"Loading predictions from {args.predictions}")
     print(f"Loading ground truth from {args.ground_truth}")
     predictions_data, ground_truth_data = load_data(args.predictions, args.ground_truth)
-    
+    if "documents" in ground_truth_data.keys():
+        ground_truth_data = ground_truth_data["documents"]
     # Apply any filtering from command-line arguments
     predictions_dict = extract_predictions(
         predictions_data, 
@@ -1086,7 +1113,7 @@ def main():
     )
     
     ground_truth_dict = extract_ground_truth(ground_truth_data)
-    
+ 
     # Print debug info about document ID matching
     pred_ids = set(predictions_dict.keys())
     gt_ids = set(ground_truth_dict.keys())
