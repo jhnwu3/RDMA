@@ -754,7 +754,6 @@ def print_evaluation_summary(result: Dict) -> None:
         print("  1. Ground truth format might not match expected structure")
         print("  2. ORPHA codes in predictions may not match those in ground truth")
         print("  3. Check for ORPHA: prefix differences or formatting issues")
-
 def evaluate_fuzzy_match(
     predictions_dict: Dict[str, List[str]],
     ground_truth_dict: Dict[str, List[str]],
@@ -775,7 +774,7 @@ def evaluate_fuzzy_match(
         debug: Whether to print detailed debug information
         
     Returns:
-        Dictionary with evaluation metrics
+        Dictionary with evaluation metrics and unmatched entity details
     """
     from fuzzywuzzy import fuzz
     import re
@@ -786,7 +785,7 @@ def evaluate_fuzzy_match(
         match = re.search(r'(\d+)', code)
         return match.group(1) if match else ""
     
-    # Initialize result structure similar to evaluate_corpus
+    # Initialize result structure
     result = {
         "per_sample_metrics": {},
         "corpus_metrics": {},
@@ -794,7 +793,8 @@ def evaluate_fuzzy_match(
         "macro_averaging_metrics": {},
         "count_based_metrics": {},
         "cases_with_ground_truth": [],
-        "cases_without_ground_truth": []
+        "cases_without_ground_truth": [],
+        "unmatched_details": {}
     }
     
     # Initialize counters for aggregate metrics
@@ -826,12 +826,26 @@ def evaluate_fuzzy_match(
         
         result["cases_with_ground_truth"].append(doc_id)
         
+        # Initialize unmatched details for this document
+        result["unmatched_details"][doc_id] = {
+            "false_negatives": [],
+            "false_positives": []
+        }
+        
         # Check if we have entity names for fuzzy matching
         if (doc_id not in prediction_entities or doc_id not in ground_truth_entities):
             if debug:
                 print(f"  No entity names available for document {doc_id} - skipping fuzzy matching")
             
-            # Count all predictions as false positives if no names
+            # Mark all predictions as false positives and all ground truth as false negatives
+            result["unmatched_details"][doc_id]["false_positives"] = [
+                {"name": code, "orpha_code": code} for code in pred_codes
+            ]
+            result["unmatched_details"][doc_id]["false_negatives"] = [
+                {"name": code, "orpha_code": code} for code in gt_codes
+            ]
+            
+            # Count metrics
             sample_result = {
                 "tp_count": 0,
                 "fp_count": len(pred_codes),
@@ -890,6 +904,16 @@ def evaluate_fuzzy_match(
                         'score': best_score
                     })
         
+        # Store unmatched details
+        result["unmatched_details"][doc_id]["false_positives"] = [
+            {"name": pred_entities[num], "orpha_code": f"ORPHA:{num}"} 
+            for num in set(pred_entities.keys()) - matched_pred_nums
+        ]
+        result["unmatched_details"][doc_id]["false_negatives"] = [
+            {"name": gt_entities[num], "orpha_code": f"ORPHA:{num}"} 
+            for num in set(gt_entities.keys()) - matched_gt_nums
+        ]
+        
         # Calculate metrics for this document
         tp_count = len(matched_pred_nums)
         fp_count = len(pred_entities) - tp_count
@@ -926,9 +950,7 @@ def evaluate_fuzzy_match(
         if debug and doc_fuzzy_matches:
             all_fuzzy_matches.extend(doc_fuzzy_matches)
     
-    # Compute aggregate metrics similar to evaluate_corpus approach
-    
-    # Micro-averaging
+    # Compute micro-averaging metrics
     micro_precision = all_tp_count / (all_tp_count + all_fp_count) if (all_tp_count + all_fp_count) > 0 else 0.0
     micro_recall = all_tp_count / (all_tp_count + all_fn_count) if (all_tp_count + all_fn_count) > 0 else 0.0
     micro_f1 = 2 * (micro_precision * micro_recall) / (micro_precision + micro_recall) if (micro_precision + micro_recall) > 0 else 0.0
@@ -943,7 +965,7 @@ def evaluate_fuzzy_match(
         "description": "Micro-averaging: All matches pooled together across cases"
     }
     
-    # Macro-averaging
+    # Compute macro-averaging metrics
     macro_precision = np.mean(case_precision_values) if case_precision_values else 0.0
     macro_recall = np.mean(case_recall_values) if case_recall_values else 0.0
     macro_f1 = np.mean(case_f1_values) if case_f1_values else 0.0
@@ -959,7 +981,7 @@ def evaluate_fuzzy_match(
         "description": "Macro-averaging: Metrics calculated per case, then averaged"
     }
     
-    # Count-based metrics (summed across cases)
+    # Compute count-based metrics
     result["count_based_metrics"] = {
         "precision": all_tp_count / (all_tp_count + all_fp_count) if (all_tp_count + all_fp_count) > 0 else 0.0,
         "recall": all_tp_count / (all_tp_count + all_fn_count) if (all_tp_count + all_fn_count) > 0 else 0.0,
@@ -972,14 +994,15 @@ def evaluate_fuzzy_match(
         "description": "Count-based: TP, FP, FN counts summed across cases, then metrics calculated"
     }
     
-    # Add top-level keys for compatibility with existing script
-    result["precision"] = micro_precision  # Use micro-averaging as the primary metric
-    result["recall"] = micro_recall
-    result["f1_score"] = micro_f1
-    result["fuzzy_tp_count"] = all_tp_count
-    result["fuzzy_fp_count"] = all_fp_count
-    result["fuzzy_fn_count"] = all_fn_count
-    result["total_matches_found"] = len(all_fuzzy_matches)
+    # Add sample-level unmatched details to the result structure
+    result["total_false_positives"] = sum(
+        len(details["false_positives"]) 
+        for details in result["unmatched_details"].values()
+    )
+    result["total_false_negatives"] = sum(
+        len(details["false_negatives"]) 
+        for details in result["unmatched_details"].values()
+    )
     
     # Corpus metrics (using micro-averaging)
     result["corpus_metrics"] = result["micro_averaging_metrics"].copy()
@@ -989,18 +1012,26 @@ def evaluate_fuzzy_match(
         "total_cases": len(result["cases_with_ground_truth"]) + len(result["cases_without_ground_truth"])
     })
     
-    # Add notes about the evaluation
+    # Top-level metrics for compatibility
+    result["precision"] = micro_precision
+    result["recall"] = micro_recall
+    result["f1_score"] = micro_f1
+    result["tp_count"] = all_tp_count
+    result["fp_count"] = all_fp_count
+    result["fn_count"] = all_fn_count
+    result["total_matches_found"] = len(all_fuzzy_matches)
+    
+    # Notes about the evaluation
     result["notes"] = [
-        "Fuzzy matching approach: " + 
-        f"Matching entities with similarity threshold of {threshold}",
-        "Three approaches to metric calculation are provided:",
+        f"Fuzzy matching approach using threshold of {threshold}",
+        "Three approaches to metric calculation:",
         " 1. Micro-averaging: All matches pooled together across cases",
         " 2. Macro-averaging: Metrics calculated per case, then averaged",
         " 3. Count-based: TP, FP, FN counts summed across cases, then metrics calculated",
         "NOTE: Only documents with entity names are processed for fuzzy matching"
     ]
     
-    # Print debug summary if requested
+    # Debug output if requested
     if debug and all_fuzzy_matches:
         print("\n===== FUZZY MATCHING SUMMARY =====")
         print("Top 10 fuzzy matches:")
@@ -1169,7 +1200,7 @@ def main():
         print(f"  Precision: {fuzzy_result['precision']:.4f}")
         print(f"  Recall: {fuzzy_result['recall']:.4f}")
         print(f"  F1 Score: {fuzzy_result['f1_score']:.4f}")
-        print(f"  TP/FP/FN: {fuzzy_result['fuzzy_tp_count']}/{fuzzy_result['fuzzy_fp_count']}/{fuzzy_result['fuzzy_fn_count']}")
+        print(f"  TP/FP/FN: {fuzzy_result['tp_count']}/{fuzzy_result['fp_count']}/{fuzzy_result['fn_count']}")
         print(f"  Entity matches found: {fuzzy_result['total_matches_found']}")
     
     # Save results if not summary-only
