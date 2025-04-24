@@ -9,6 +9,8 @@ from rdrag.rd_match import RAGRDMatcher
 from utils.embedding import EmbeddingsManager
 from utils.llm_client import APILLMClient, LocalLLMClient
 from utils.data import NumpyJSONEncoder
+
+# All Defunct for Now, Not-tested
 class IterativeSupervisor:
     """Iteratively improve gold standard annotations by validating false positives."""
     

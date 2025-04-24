@@ -21,6 +21,7 @@ sys.path.insert(0, parent_dir)
 
 # Import project modules
 from rdrag.rd_match import RAGRDMatcher
+from rdrag.verify import MultiStageRDVerifier
 from utils.embedding import EmbeddingsManager
 from utils.llm_client import LocalLLMClient, APILLMClient
 from utils.setup import setup_device
@@ -45,7 +46,8 @@ def parse_arguments() -> argparse.Namespace:
                        help="Path to save supervision results JSON")
     parser.add_argument("--embeddings_file", required=True,
                        help="NPY file containing rare disease embeddings")
-    
+    parser.add_argument("--abbreviations_file", type=str,
+                       help="NPY file containing abbreviation embeddings for resolution")
     # System prompt configuration
     parser.add_argument("--system_prompt", type=str, 
                        default="You are a medical expert specializing in rare diseases with extensive knowledge of Orphanet classifications.",
@@ -170,7 +172,6 @@ def load_data(predictions_file: str, ground_truth_file: str, evaluation_file: st
     
     return predictions_data, ground_truth, evaluation_data
 
-
 def extract_entities_with_context(
     predictions_data: Dict, 
     ground_truth_data: Dict,
@@ -178,6 +179,7 @@ def extract_entities_with_context(
 ) -> Dict[str, List[Dict]]:
     """
     Extract entities and their contexts categorized as false negatives, false positives, and true positives.
+    Also preserves top_candidates from matched_diseases when available.
     
     Args:
         predictions_data: Dictionary containing prediction results
@@ -254,6 +256,8 @@ def extract_entities_with_context(
                 # Find corresponding prediction
                 pred_entity = None
                 pred_context = None
+                top_candidates = None  # Store top_candidates from matched entity
+                expanded_term = None   # Store expanded abbreviation if available
                 
                 # Look up sample in predictions
                 if sample_id in predictions_data:
@@ -264,8 +268,17 @@ def extract_entities_with_context(
                     if 'matched_diseases' in pred_sample:
                         for match in pred_sample['matched_diseases']:
                             # Check if this match corresponds to our code
-                            if match.get('orpha_id') == code or code in match.get('orpha_id', ''):
+                            orpha_id = match.get('orpha_id', '')
+                            if orpha_id == code or code in orpha_id:
                                 pred_entity = match.get('entity', '')
+                                
+                                # Preserve expanded term if available
+                                if 'expanded_term' in match:
+                                    expanded_term = match['expanded_term']
+                                
+                                # Preserve top_candidates if available
+                                if 'top_candidates' in match:
+                                    top_candidates = match['top_candidates']
                                 
                                 # Extract context from the clinical text
                                 if clinical_text and pred_entity and pred_entity in clinical_text:
@@ -273,16 +286,29 @@ def extract_entities_with_context(
                                     start = max(0, pos - 100)
                                     end = min(len(clinical_text), pos + len(pred_entity) + 100)
                                     pred_context = clinical_text[start:end]
+                                # If entity not found in clinical text but context is available in match
+                                elif 'context' in match:
+                                    pred_context = match['context']
                                 break
                 
                 # Only include entities with context
                 if pred_entity and pred_context:
-                    entities[category].append({
+                    entity_data = {
                         'entity': pred_entity,
                         'context': pred_context,
                         'orpha_code': code,
                         'document_id': sample_id
-                    })
+                    }
+                    
+                    # Add expanded term if available
+                    if expanded_term:
+                        entity_data['expanded_term'] = expanded_term
+                        
+                    # Add top_candidates if available
+                    if top_candidates:
+                        entity_data['top_candidates'] = top_candidates
+                        
+                    entities[category].append(entity_data)
     
     # Print statistics
     timestamp_print(f"Extracted entities with context:")
@@ -292,189 +318,17 @@ def extract_entities_with_context(
     
     return entities
 
-
-def verify_rare_disease(
-    entity: str, 
-    context: str, 
-    orpha_candidates: List[Dict],
-    matcher: RAGRDMatcher,
-    category: str
-) -> Dict[str, Any]:
-    """
-    Verify if an entity is truly a rare disease using its context and Orphanet candidates.
-    Flag for review when is_rare_disease contradicts the entity's category.
-    
-    Args:
-        entity: Entity text to verify
-        context: Context around the entity
-        orpha_candidates: Candidate rare diseases from Orphanet
-        matcher: RAGRDMatcher instance for verification
-        category: Entity category ('false_negatives', 'false_positives', or 'true_positives')
-        
-    Returns:
-        Dictionary with verification results
-    """
-    # Format verification prompt based on entity category
-    if category == 'false_negatives':
-        # For false negatives, we want to check if they truly are rare diseases and not negated
-        verification_system_message = (
-            "You are a medical expert specializing in rare diseases with extensive knowledge of Orphanet. "
-            "Your task is to verify if an entity mentioned in a clinical text is truly a rare disease "
-            "and is NOT negated in the context."
-        )
-        
-        # Format candidate context
-        candidates_text = "\n".join([
-            f"{i+1}. {candidate['metadata']['name']} (ORPHA:{candidate['metadata']['id']})"
-            for i, candidate in enumerate(orpha_candidates[:5])
-        ])
-        
-        prompt = (
-            f"Analyze this entity from a clinical note and determine if it represents a rare disease that is NOT negated.\n\n"
-            f"Entity: '{entity}'\n"
-            f"Context: '{context}'\n\n"
-            f"Relevant Orphanet entries:\n{candidates_text}\n\n"
-            f"A term should only be considered a valid rare disease mention if all these criteria are met:\n"
-            f"1. It represents a disease or syndrome (not just a symptom or finding)\n"
-            f"2. It is a rare condition (typically affecting fewer than 1 in 2,000 people)\n"
-            f"3. It is NOT negated in the context (not preceded by terms like 'no', 'not', 'ruled out', 'without', etc.)\n"
-            f"4. It semantically matches one of the Orphanet entries or is a recognized variant/synonym\n\n"
-            f"RESPONSE FORMAT:\n"
-            f"First line: 'DECISION: YES' or 'DECISION: NO'\n"
-            f"Additional lines: Brief explanation (max 3 sentences)\n\n"
-            f"Note: This entity was categorized as a false negative (missed in original analysis)"
-        )
-    
-    elif category == 'false_positives':
-        # For false positives, we want to check if they truly are rare diseases despite not being in the ground truth
-        verification_system_message = (
-            "You are a medical expert specializing in rare diseases with extensive knowledge of Orphanet. "
-            "Your task is to verify if an entity predicted as a rare disease is truly a rare disease "
-            "even though it wasn't marked as such in the ground truth."
-        )
-        
-        # Format candidate context
-        candidates_text = "\n".join([
-            f"{i+1}. {candidate['metadata']['name']} (ORPHA:{candidate['metadata']['id']})"
-            for i, candidate in enumerate(orpha_candidates[:5])
-        ])
-        
-        prompt = (
-            f"Analyze this entity from a clinical note that was predicted as a rare disease but not marked in the ground truth.\n\n"
-            f"Entity: '{entity}'\n"
-            f"Context: '{context}'\n\n"
-            f"Relevant Orphanet entries:\n{candidates_text}\n\n"
-            f"A term should only be considered a valid rare disease if all these criteria are met:\n"
-            f"1. It represents a disease or syndrome (not just a symptom or finding)\n"
-            f"2. It is a rare condition (typically affecting fewer than 1 in 2,000 people)\n"
-            f"3. It semantically matches one of the Orphanet entries or is a recognized variant/synonym\n\n"
-            f"RESPONSE FORMAT:\n"
-            f"First line: 'DECISION: YES' or 'DECISION: NO'\n"
-            f"Additional lines: Brief explanation (max 3 sentences)\n\n"
-            f"Note: This entity was categorized as a false positive (incorrectly identified as a rare disease)"
-        )
-    
-    else:  # true_positives
-        # For true positives, we want to verify they truly are rare diseases
-        verification_system_message = (
-            "You are a medical expert specializing in rare diseases with extensive knowledge of Orphanet. "
-            "Your task is to verify if an entity that was matched to a rare disease is truly a rare disease."
-        )
-        
-        # Format candidate context
-        candidates_text = "\n".join([
-            f"{i+1}. {candidate['metadata']['name']} (ORPHA:{candidate['metadata']['id']})"
-            for i, candidate in enumerate(orpha_candidates[:5])
-        ])
-        
-        prompt = (
-            f"Analyze this entity from a clinical note that was matched to a rare disease.\n\n"
-            f"Entity: '{entity}'\n"
-            f"Context: '{context}'\n\n"
-            f"Relevant Orphanet entries:\n{candidates_text}\n\n"
-            f"A term should only be confirmed as a valid rare disease if all these criteria are met:\n"
-            f"1. It represents a disease or syndrome (not just a symptom or finding)\n"
-            f"2. It is a rare condition (typically affecting fewer than 1 in 2,000 people)\n"
-            f"3. It is NOT negated in the context (not preceded by terms like 'no', 'not', 'ruled out', 'without', etc.)\n"
-            f"4. It semantically matches one of the Orphanet entries or is a recognized variant/synonym\n\n"
-            f"RESPONSE FORMAT:\n"
-            f"First line: 'DECISION: YES' or 'DECISION: NO'\n"
-            f"Additional lines: Brief explanation (max 3 sentences)\n\n"
-            f"Note: This entity was categorized as a true positive (correctly identified as a rare disease)"
-        )
-    
-    # Get verification response from LLM
-    try:
-        response = matcher.llm_client.query(prompt, verification_system_message)
-        
-        # Parse response
-        lines = response.strip().split('\n')
-        
-        # Extract decision
-        decision = "NO"
-        explanation = ""
-        
-        for line in lines:
-            if line.startswith("DECISION:"):
-                decision = "YES" if "YES" in line.upper() else "NO"
-            elif not line.startswith("FLAG FOR REVIEW:"):  # Skip the original flag line
-                explanation += line + " "
-        
-        # Determine whether to flag for review based on contradiction
-        flag_for_review = False
-        if category == 'false_positives' and decision == "YES":
-            # Contradiction: LLM thinks it's a rare disease but it's marked as false positive
-            flag_for_review = True
-            explanation += " [FLAGGED: Entity determined to be a rare disease despite being categorized as false positive]"
-        elif category == 'false_negatives' and decision == "NO":
-            # Contradiction: LLM thinks it's not a rare disease but it's marked as false negative
-            flag_for_review = True
-            explanation += " [FLAGGED: Entity determined not to be a rare disease despite being categorized as false negative]"
-        elif category == 'true_positives' and decision == "NO":
-            # Contradiction: LLM thinks it's not a rare disease but it's marked as true positive
-            flag_for_review = True
-            explanation += " [FLAGGED: Entity determined not to be a rare disease despite being categorized as true positive]"
-        
-        return {
-            'entity': entity,
-            'context': context,
-            'is_rare_disease': decision == "YES",
-            'flag_for_review': flag_for_review,
-            'explanation': explanation.strip(),
-            'category': category,
-            'orpha_candidates': [
-                {
-                    'name': candidate['metadata']['name'],
-                    'id': candidate['metadata']['id'], 
-                    'similarity': float(candidate['similarity_score'])
-                }
-                for candidate in orpha_candidates[:5]
-            ]
-        }
-    
-    except Exception as e:
-        # Return error result - always flag for review on errors
-        return {
-            'entity': entity,
-            'context': context,
-            'is_rare_disease': False,
-            'flag_for_review': True,  # Flag for review on errors
-            'explanation': f"Error during verification: {str(e)}",
-            'category': category,
-            'error': str(e)
-        }
-
 def process_entities(
     entities: Dict[str, List[Dict]],
-    matcher: RAGRDMatcher,
+    verifier: MultiStageRDVerifier,
     args: argparse.Namespace
 ) -> Dict[str, List[Dict]]:
     """
-    Process and verify all categorized entities.
+    Process and verify all categorized entities using the MultiStageRDVerifier.
     
     Args:
         entities: Dictionary with categorized entities
-        matcher: RAGRDMatcher instance for verification
+        verifier: MultiStageRDVerifier instance for verification
         args: Command line arguments
         
     Returns:
@@ -505,30 +359,86 @@ def process_entities(
                 if args.debug:
                     timestamp_print(f"Processing {category} entity: '{entity}' (Document: {document_id})")
                 
-                # Get Orphanet candidates for the entity
-                candidates = matcher._retrieve_candidates(entity)
+                if entity is None and "original_entity" in entity_data:
+                    entity = entity_data["original_entity"]
+                # Process the entity through MultiStageRDVerifier
+                verification_result = verifier.process_entity(entity, context)
+                print(entity)
+                print(verification_result)
+                # Check if it's an abbreviation
+                is_abbreviation = False
+                expanded_term = None
                 
-                # Verify if it's a rare disease
-                verification_result = verify_rare_disease(
-                    entity, 
-                    context, 
-                    candidates[:args.top_k], 
-                    matcher,
-                    category
-                )
+                if 'expanded_term' in verification_result:
+                    is_abbreviation = True
+                    expanded_term = verification_result['expanded_term']
+                    if args.debug:
+                        timestamp_print(f"  Detected abbreviation: '{entity}' expands to '{expanded_term}'")
                 
-                # Add document and ORPHA info to the result
-                verification_result['document_id'] = document_id
-                verification_result['orpha_code'] = orpha_code
+                # Determine if we should flag for review based on category and verification result
+                flag_for_review = False
+                explanation = verification_result.get('method', '')
+                
+                # Determine if the entity is a rare disease according to the verifier
+                is_rare_disease = verification_result.get('status') == 'verified_rare_disease'
+                
+                # Logic for flagging based on category and verification result
+                if category == 'false_positives' and is_rare_disease:
+                    # Contradiction: Verifier thinks it's a rare disease but it's marked as false positive
+                    flag_for_review = True
+                    explanation += " [FLAGGED: Entity verified as a rare disease despite being categorized as false positive]"
+                elif category == 'false_negatives' and not is_rare_disease:
+                    # Contradiction: Verifier thinks it's not a rare disease but it's marked as false negative
+                    flag_for_review = True
+                    explanation += " [FLAGGED: Entity verified as not a rare disease despite being categorized as false negative]"
+                elif category == 'true_positives' and not is_rare_disease:
+                    # Contradiction: Verifier thinks it's not a rare disease but it's marked as true positive
+                    flag_for_review = True
+                    explanation += " [FLAGGED: Entity verified as not a rare disease despite being categorized as true positive]"
+                
+                # Create the final result
+                result = {
+                    'entity': entity,
+                    'context': context,
+                    'is_rare_disease': is_rare_disease,
+                    'flag_for_review': flag_for_review,
+                    'explanation': explanation,
+                    'category': category,
+                    'document_id': document_id,
+                    'orpha_code': orpha_code,
+                    'verification_method': verification_result.get('method', '')
+                }
+                
+                # Add expanded term if it's an abbreviation
+                if is_abbreviation and expanded_term:
+                    result['expanded_term'] = expanded_term
+                
+                # Add candidates if available (from top_candidates or from new retrieval)
+                if 'top_candidates' in entity_data and entity_data['top_candidates']:
+                    result['orpha_candidates'] = entity_data['top_candidates']
+                else:
+                    # Use query for retrieval based on expanded term if available
+                    query_term = expanded_term if expanded_term else entity
+                    candidates = verifier._retrieve_similar_diseases(query_term)
+                    if candidates:
+                        # FIXED: The candidates from _retrieve_similar_diseases have a different structure
+                        result['orpha_candidates'] = [
+                            {
+                                'name': c.get('name', ''),
+                                'id': c.get('id', ''),
+                                'similarity': float(c.get('similarity_score', 0.0))
+                            }
+                            for c in candidates[:5]  # Include up to 5 candidates
+                        ]
                 
                 # Add to results
-                results[category].append(verification_result)
+                results[category].append(result)
                 
                 # Debug output
                 if args.debug:
-                    timestamp_print(f"  Result: is_rare_disease={verification_result['is_rare_disease']}, "
-                                   f"flag_for_review={verification_result['flag_for_review']}")
-                    timestamp_print(f"  Explanation: {verification_result['explanation']}")
+                    timestamp_print(f"  Result: is_rare_disease={result['is_rare_disease']}, "
+                                   f"flag_for_review={result['flag_for_review']}")
+                    timestamp_print(f"  Explanation: {result['explanation']}")
                 
                 # Save checkpoint if interval reached
                 checkpoint_counter += 1
@@ -542,20 +452,21 @@ def process_entities(
                     traceback.print_exc()
                 
                 # Add error result
-                results[category].append({
+                error_result = {
                     'entity': entity_data.get('entity', ''),
                     'context': entity_data.get('context', ''),
                     'document_id': entity_data.get('document_id', ''),
                     'orpha_code': entity_data.get('orpha_code', ''),
                     'is_rare_disease': False,
-                    'flag_for_review': True,  # Flag for review on errors
+                    'flag_for_review': True,  # Always flag for review on errors
                     'explanation': f"Error during processing: {str(e)}",
                     'category': category,
                     'error': str(e)
-                })
+                }
+                
+                results[category].append(error_result)
     
     return results
-
 
 def save_checkpoint(results: Dict[str, List[Dict]], output_file: str, checkpoint_num: int, category: str) -> None:
     """
@@ -670,7 +581,6 @@ def prepare_summary(verification_results: Dict[str, List[Dict]]) -> Dict[str, An
     
     return summary
 
-
 def main():
     """Main function for the supervisor script."""
     try:
@@ -696,14 +606,6 @@ def main():
             device=devices['retriever']
         )
         
-        # Initialize matcher
-        timestamp_print(f"Initializing RAG matcher")
-        matcher = RAGRDMatcher(
-            embeddings_manager=embedding_manager,
-            llm_client=llm_client,
-            system_message=args.system_prompt
-        )
-        
         # Load embeddings
         timestamp_print(f"Loading embeddings from {args.embeddings_file}")
         try:
@@ -713,9 +615,24 @@ def main():
             timestamp_print(f"Error loading embeddings file: {e}")
             raise
         
-        # Prepare matcher index
-        timestamp_print(f"Preparing matcher index")
-        matcher.prepare_index(embedded_documents)
+        # Initialize MultiStageRDVerifier instead of RAGRDMatcher
+        timestamp_print(f"Initializing MultiStageRDVerifier")
+        
+        # Import the MultiStageRDVerifier class
+        from rdrag.verify import MultiStageRDVerifier
+        
+        verifier = MultiStageRDVerifier(
+            embedding_manager=embedding_manager,
+            llm_client=llm_client,
+            config=None,  # No specific config needed
+            debug=args.debug,
+            abbreviations_file=args.abbreviations_file if hasattr(args, 'abbreviations_file') else None,
+            use_abbreviations=True  # Enable abbreviation resolution
+        )
+        
+        # Prepare verifier index
+        timestamp_print(f"Preparing verifier index")
+        verifier.prepare_index(embedded_documents)
         
         # Load data files
         timestamp_print(f"Loading data files")
@@ -729,9 +646,9 @@ def main():
             predictions_data, ground_truth_data, evaluation_data
         )
         
-        # Process entities
+        # Process entities with the verifier
         timestamp_print(f"Starting entity verification")
-        verification_results = process_entities(entities, matcher, args)
+        verification_results = process_entities(entities, verifier, args)
         
         # Prepare summary
         timestamp_print(f"Preparing results summary")
