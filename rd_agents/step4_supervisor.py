@@ -302,13 +302,14 @@ def verify_rare_disease(
 ) -> Dict[str, Any]:
     """
     Verify if an entity is truly a rare disease using its context and Orphanet candidates.
+    Flag for review when is_rare_disease contradicts the entity's category.
     
     Args:
         entity: Entity text to verify
         context: Context around the entity
         orpha_candidates: Candidate rare diseases from Orphanet
         matcher: RAGRDMatcher instance for verification
-        category: Entity category ('false_negative', 'false_positive', or 'true_positive')
+        category: Entity category ('false_negatives', 'false_positives', or 'true_positives')
         
     Returns:
         Dictionary with verification results
@@ -340,9 +341,8 @@ def verify_rare_disease(
             f"4. It semantically matches one of the Orphanet entries or is a recognized variant/synonym\n\n"
             f"RESPONSE FORMAT:\n"
             f"First line: 'DECISION: YES' or 'DECISION: NO'\n"
-            f"Second line: 'FLAG FOR REVIEW: YES' or 'FLAG FOR REVIEW: NO'\n"
             f"Additional lines: Brief explanation (max 3 sentences)\n\n"
-            f"Note: Flag for review if this was incorrectly marked as a false negative (i.e., it is a valid rare disease mention)"
+            f"Note: This entity was categorized as a false negative (missed in original analysis)"
         )
     
     elif category == 'false_positives':
@@ -370,9 +370,8 @@ def verify_rare_disease(
             f"3. It semantically matches one of the Orphanet entries or is a recognized variant/synonym\n\n"
             f"RESPONSE FORMAT:\n"
             f"First line: 'DECISION: YES' or 'DECISION: NO'\n"
-            f"Second line: 'FLAG FOR REVIEW: YES' or 'FLAG FOR REVIEW: NO'\n"
             f"Additional lines: Brief explanation (max 3 sentences)\n\n"
-            f"Note: Flag for review if this was incorrectly marked as a false positive (i.e., it is a valid rare disease mention)"
+            f"Note: This entity was categorized as a false positive (incorrectly identified as a rare disease)"
         )
     
     else:  # true_positives
@@ -400,9 +399,8 @@ def verify_rare_disease(
             f"4. It semantically matches one of the Orphanet entries or is a recognized variant/synonym\n\n"
             f"RESPONSE FORMAT:\n"
             f"First line: 'DECISION: YES' or 'DECISION: NO'\n"
-            f"Second line: 'FLAG FOR REVIEW: YES' or 'FLAG FOR REVIEW: NO'\n"
             f"Additional lines: Brief explanation (max 3 sentences)\n\n"
-            f"Note: Flag for review if this was incorrectly marked as a true positive (i.e., it is NOT a valid rare disease mention)"
+            f"Note: This entity was categorized as a true positive (correctly identified as a rare disease)"
         )
     
     # Get verification response from LLM
@@ -414,28 +412,40 @@ def verify_rare_disease(
         
         # Extract decision
         decision = "NO"
-        flag_for_review = "NO"
         explanation = ""
         
         for line in lines:
             if line.startswith("DECISION:"):
                 decision = "YES" if "YES" in line.upper() else "NO"
-            elif line.startswith("FLAG FOR REVIEW:"):
-                flag_for_review = "YES" if "YES" in line.upper() else "NO"
-            else:
+            elif not line.startswith("FLAG FOR REVIEW:"):  # Skip the original flag line
                 explanation += line + " "
+        
+        # Determine whether to flag for review based on contradiction
+        flag_for_review = False
+        if category == 'false_positives' and decision == "YES":
+            # Contradiction: LLM thinks it's a rare disease but it's marked as false positive
+            flag_for_review = True
+            explanation += " [FLAGGED: Entity determined to be a rare disease despite being categorized as false positive]"
+        elif category == 'false_negatives' and decision == "NO":
+            # Contradiction: LLM thinks it's not a rare disease but it's marked as false negative
+            flag_for_review = True
+            explanation += " [FLAGGED: Entity determined not to be a rare disease despite being categorized as false negative]"
+        elif category == 'true_positives' and decision == "NO":
+            # Contradiction: LLM thinks it's not a rare disease but it's marked as true positive
+            flag_for_review = True
+            explanation += " [FLAGGED: Entity determined not to be a rare disease despite being categorized as true positive]"
         
         return {
             'entity': entity,
             'context': context,
             'is_rare_disease': decision == "YES",
-            'flag_for_review': flag_for_review == "YES",
+            'flag_for_review': flag_for_review,
             'explanation': explanation.strip(),
             'category': category,
             'orpha_candidates': [
                 {
                     'name': candidate['metadata']['name'],
-                    'id': candidate['metadata']['id'],
+                    'id': candidate['metadata']['id'], 
                     'similarity': float(candidate['similarity_score'])
                 }
                 for candidate in orpha_candidates[:5]
@@ -443,7 +453,7 @@ def verify_rare_disease(
         }
     
     except Exception as e:
-        # Return error result
+        # Return error result - always flag for review on errors
         return {
             'entity': entity,
             'context': context,
@@ -453,7 +463,6 @@ def verify_rare_disease(
             'category': category,
             'error': str(e)
         }
-
 
 def process_entities(
     entities: Dict[str, List[Dict]],
