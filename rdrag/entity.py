@@ -200,12 +200,21 @@ class RetrievalEnhancedRDExtractor(BaseRDExtractor):
         # Create the enhanced prompt
         prompt = (
             f'I have CLINICAL TEXT: "{sentence}"\n\n'
-            f"Here are some relevant ORPHA rare disease terms for reference that may help you find rare disease mentions in the sentence:\n\n"
+            f"Here are some relevant ORPHA rare disease terms for reference that may help you identify rare disease mentions in the sentence:\n\n"
             f"{context_text}\n\n"
-            f"Based on this sentence and the provided rare disease terms as reference, extract all potential disease mentions "
-            f"that are NOT negated (i.e., NOT preceded by 'no', 'not', 'without', 'ruled out', etc.). "
-            f"Please also include any potential abbreviations that might be referring to rare diseases in the CLINICAL TEXT."
-            f"\n\nReturn only a Python list of strings, with each disease exactly as it appears in the CLINICAL TEXT. "
+            f"Based on this sentence, extract ALL medically relevant entities including but not limited to:\n"
+            f"1. Any disease or condition (common or rare)\n"
+            f"2. Signs and symptoms\n"
+            f"3. Syndromes\n"
+            f"4. Disorders\n"
+            f"5. Medical findings\n"
+            f"6. Abnormalities\n"
+            f"7. Medical events\n"
+            f"8. Any abbreviations or acronyms that might refer to medical conditions\n"
+            f"9. Phenotypic descriptions\n"
+            f"10. Congenital anomalies\n\n"
+            f"Only include entities that are NOT negated (i.e., NOT preceded by 'no', 'not', 'without', 'ruled out', 'denies', etc.).\n\n"
+            f"Return only a Python list of strings, with each entity extracted exactly as it appears in the CLINICAL TEXT. "
             f"Ensure the output is concise without any additional notes, commentary, or meta explanations."
         )
 

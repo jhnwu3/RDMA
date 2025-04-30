@@ -20,8 +20,8 @@ sys.path.insert(0, parent_dir)
 
 def code_based_evaluation(predictions: List[str], ground_truth: List[str]) -> Dict:
     """
-    Evaluates predictions against ground truth using exact matching of ORPHA codes.
-    Only compares the numeric portion of the ORPHA codes.
+    Evaluates predictions against ground truth using count-based exact matching of ORPHA codes.
+    Counts all occurrences rather than using set-based deduplication.
 
     Args:
         predictions: List of predicted ORPHA codes
@@ -31,6 +31,7 @@ def code_based_evaluation(predictions: List[str], ground_truth: List[str]) -> Di
         Dictionary with precision, recall, F1 scores and match information
     """
     import re
+    from collections import Counter
 
     # Extract only numeric part of ORPHA codes
     def normalize_code(code):
@@ -46,7 +47,7 @@ def code_based_evaluation(predictions: List[str], ground_truth: List[str]) -> Di
     normalized_predictions = [normalize_code(p) for p in predictions if p]
     normalized_ground_truth = [normalize_code(g) for g in ground_truth if g]
 
-    # Print some debug info
+    # Debug info if available
     if predictions and ground_truth:
         print(f"\nDebug: Sample normalization:")
         print(f"  Original prediction: '{predictions[0]}'")
@@ -54,15 +55,11 @@ def code_based_evaluation(predictions: List[str], ground_truth: List[str]) -> Di
         print(f"  Original ground truth: '{ground_truth[0]}'")
         print(f"  Normalized ground truth: '{normalize_code(ground_truth[0])}'")
 
-    # Create sets for exact matching with normalized codes
-    unique_predictions = set(normalized_predictions)
-    unique_ground_truth = set(normalized_ground_truth)
-
-    # Store original counts for reference
+    # Count all occurrences using Counter
     pred_counter = Counter(normalized_predictions)
     truth_counter = Counter(normalized_ground_truth)
 
-    # Default empty result with all required fields
+    # Initialize result structure
     result = {
         "precision": 0.0,
         "recall": 0.0,
@@ -74,52 +71,78 @@ def code_based_evaluation(predictions: List[str], ground_truth: List[str]) -> Di
         "tp_count": 0,
         "fp_count": 0,
         "fn_count": 0,
-        "unique_pred_count": len(unique_predictions),
-        "unique_truth_count": len(unique_ground_truth),
-        "total_pred_count": len(predictions),
-        "total_truth_count": len(ground_truth),
+        "total_pred_count": len(normalized_predictions),
+        "total_truth_count": len(normalized_ground_truth),
+        "unique_pred_count": len(set(normalized_predictions)),
+        "unique_truth_count": len(set(normalized_ground_truth)),
     }
 
-    # Handle empty sets
-    if not unique_predictions or not unique_ground_truth:
-        # Set precision to 1.0 if no predictions (no false positives)
-        if not unique_predictions:
-            result["precision"] = 1.0
-        # Populate false positives and false negatives
-        result["false_positives"] = [
-            {"code": p, "count": pred_counter[p]} for p in unique_predictions
-        ]
-        result["false_negatives"] = [
-            {"code": t, "count": truth_counter[t]} for t in unique_ground_truth
-        ]
-        result["fp_count"] = len(unique_predictions)
-        result["fn_count"] = len(unique_ground_truth)
+    # Handle empty cases
+    if not normalized_predictions or not normalized_ground_truth:
+        if not normalized_predictions:
+            result["precision"] = 1.0  # No false positives
+
+        # Add all predictions as false positives
+        for code, count in pred_counter.items():
+            result["false_positives"].append({"code": code, "count": count})
+            result["fp_count"] += count
+
+        # Add all ground truth as false negatives
+        for code, count in truth_counter.items():
+            result["false_negatives"].append({"code": code, "count": count})
+            result["fn_count"] += count
+
         return result
 
-    # Find matches (true positives)
-    true_positives = unique_predictions & unique_ground_truth
-    false_positives = unique_predictions - unique_ground_truth
-    false_negatives = unique_ground_truth - unique_predictions
+    # Count-based matching for true positives, false positives, and false negatives
+    tp_count = 0
+    for code, truth_count in truth_counter.items():
+        pred_count = pred_counter.get(code, 0)
+        # True positives: minimum of prediction count and truth count for this code
+        match_count = min(pred_count, truth_count)
+        if match_count > 0:
+            result["true_positives"].append({"code": code, "count": match_count})
+            tp_count += match_count
 
-    # Record matches and errors
-    result["true_positives"] = [{"code": code} for code in true_positives]
-    result["false_positives"] = [
-        {"code": code, "count": pred_counter[code]} for code in false_positives
-    ]
-    result["false_negatives"] = [
-        {"code": code, "count": truth_counter[code]} for code in false_negatives
-    ]
+    # Count total false positives (predictions - matches)
+    fp_count = 0
+    for code, pred_count in pred_counter.items():
+        truth_count = truth_counter.get(code, 0)
+        # False positives: prediction count - match count (which is min of pred and truth)
+        excess_count = max(0, pred_count - truth_count)
+        if excess_count > 0:
+            result["false_positives"].append({"code": code, "count": excess_count})
+            fp_count += excess_count
 
-    # Calculate metrics based on unique items (set-based)
-    result["tp_count"] = len(true_positives)
-    result["fp_count"] = len(false_positives)
-    result["fn_count"] = len(false_negatives)
+    # Count total false negatives (truth - matches)
+    fn_count = 0
+    for code, truth_count in truth_counter.items():
+        pred_count = pred_counter.get(code, 0)
+        # False negatives: truth count - match count (which is min of pred and truth)
+        excess_count = max(0, truth_count - pred_count)
+        if excess_count > 0:
+            result["false_negatives"].append({"code": code, "count": excess_count})
+            fn_count += excess_count
+
+    # Store total counts
+    result["tp_count"] = tp_count
+    result["fp_count"] = fp_count
+    result["fn_count"] = fn_count
+
+    # Calculate metrics
+    total_predictions = tp_count + fp_count
+    total_ground_truth = tp_count + fn_count
 
     # Calculate precision and recall
-    if unique_predictions:
-        result["precision"] = result["tp_count"] / len(unique_predictions)
-    if unique_ground_truth:
-        result["recall"] = result["tp_count"] / len(unique_ground_truth)
+    if total_predictions > 0:
+        result["precision"] = tp_count / total_predictions
+    else:
+        result["precision"] = 1.0  # No predictions means no false positives
+
+    if total_ground_truth > 0:
+        result["recall"] = tp_count / total_ground_truth
+    else:
+        result["recall"] = 1.0  # No ground truth means no false negatives
 
     # Calculate F1 score
     if result["precision"] + result["recall"] > 0:
@@ -404,10 +427,7 @@ def evaluate_corpus(
     predictions_dict: Dict[str, List[str]], ground_truth_dict: Dict[str, List[str]]
 ) -> Dict:
     """
-    Evaluate predictions against ground truth across the entire corpus using three approaches:
-    1. Micro-averaging (corpus-level): All ORPHA codes from all cases are pooled together
-    2. Macro-averaging (case-level): Metrics are calculated per case, then averaged
-    3. Count-based: All TP, FP, FN counts are summed across cases, then metrics are calculated
+    Evaluate predictions against ground truth across the entire corpus using count-based evaluation.
 
     Args:
         predictions_dict: Dictionary mapping sample_id to predicted ORPHA codes
@@ -465,7 +485,7 @@ def evaluate_corpus(
         if not predictions and not ground_truth:
             continue
 
-        # Evaluate this sample
+        # Evaluate this sample using count-based evaluation
         sample_result = code_based_evaluation(predictions, ground_truth)
 
         # Store per-sample metrics
@@ -507,12 +527,12 @@ def evaluate_corpus(
             all_predictions_with_gt.extend(predictions)
             all_ground_truth.extend(ground_truth)
 
-            # Approach 2: Count-based - accumulate counts
+            # Count-based - accumulate raw counts
             total_tp += sample_result["tp_count"]
             total_fp += sample_result["fp_count"]
             total_fn += sample_result["fn_count"]
 
-            # Approach 3: Macro-averaging - collect metrics for averaging
+            # Macro-averaging - collect metrics for averaging
             case_precision_values.append(sample_result["precision"])
             case_recall_values.append(sample_result["recall"])
             case_f1_values.append(sample_result["f1_score"])
@@ -530,10 +550,10 @@ def evaluate_corpus(
         else:
             cases_without_ground_truth.append(sample_id)
 
-    # Approach 1: Micro-averaging metrics (corpus-level pooling)
+    # Corpus-level pooling (micro-averaging)
     micro_result = code_based_evaluation(all_predictions_with_gt, all_ground_truth)
 
-    # Approach 2: Count-based metrics
+    # Count-based metrics (these are now actual count-based, not set-based)
     count_based_metrics = {}
     if total_tp + total_fp > 0:
         count_based_metrics["precision"] = total_tp / (total_tp + total_fp)
@@ -558,7 +578,7 @@ def evaluate_corpus(
     count_based_metrics["fp_count"] = total_fp
     count_based_metrics["fn_count"] = total_fn
 
-    # Approach 3: Macro-averaging metrics
+    # Macro-averaging metrics
     macro_metrics = {}
     if case_precision_values:
         macro_metrics["precision"] = np.mean(case_precision_values)
@@ -645,7 +665,7 @@ def evaluate_corpus(
         f"Only cases in predictions file were evaluated ({len(predictions_dict)} cases)",
         f"Cases without ground truth ({len(cases_without_ground_truth)}) are tracked but excluded from F1 calculations",
         "False positives are tracked for all cases, including those without ground truth",
-        "NOTE: This evaluation uses EXACT MATCHING of ORPHA codes, not fuzzy string matching of disease names",
+        "NOTE: This evaluation now uses COUNT-BASED matching of ORPHA codes, including all occurrences",
     ]
 
     # Add total cases evaluated
@@ -876,7 +896,8 @@ def evaluate_fuzzy_match(
     debug: bool = False,
 ) -> Dict[str, Any]:
     """
-    Evaluate predictions using fuzzy matching on entity names.
+    Evaluate predictions using count-based fuzzy matching on entity names.
+    Includes all documents from ground truth, even if predictions don't exist.
 
     Args:
         predictions_dict: Dictionary mapping sample_id to predicted ORPHA codes
@@ -892,6 +913,7 @@ def evaluate_fuzzy_match(
     from fuzzywuzzy import fuzz
     import re
     import numpy as np
+    from collections import Counter
 
     # Helper function to extract numeric ID
     def get_numeric_id(code: str) -> str:
@@ -927,17 +949,37 @@ def evaluate_fuzzy_match(
         print("\n===== DEBUG: FUZZY MATCHING DETAILS =====")
         print(f"Threshold for fuzzy matching: {threshold}")
 
+    # Process all documents from both predictions and ground truth
+    all_doc_ids = set(predictions_dict.keys()) | set(ground_truth_dict.keys())
+
+    if debug:
+        print(f"Total documents to evaluate: {len(all_doc_ids)}")
+        print(f"Documents in predictions: {len(predictions_dict)}")
+        print(f"Documents in ground truth: {len(ground_truth_dict)}")
+        print(
+            f"Documents only in ground truth: {len(set(ground_truth_dict.keys()) - set(predictions_dict.keys()))}"
+        )
+        print(
+            f"Documents only in predictions: {len(set(predictions_dict.keys()) - set(ground_truth_dict.keys()))}"
+        )
+
     # Process each document
-    for doc_id in set(predictions_dict.keys()) & set(ground_truth_dict.keys()):
+    for doc_id in sorted(all_doc_ids):
         pred_codes = predictions_dict.get(doc_id, [])
         gt_codes = ground_truth_dict.get(doc_id, [])
 
-        # Skip if no ground truth
-        if not gt_codes:
-            result["cases_without_ground_truth"].append(doc_id)
-            continue
+        # Create Counters to track occurrence counts
+        pred_counter = Counter(pred_codes)
+        gt_counter = Counter(gt_codes)
 
-        result["cases_with_ground_truth"].append(doc_id)
+        # Track if this case has ground truth
+        has_ground_truth = len(gt_codes) > 0
+
+        # Update tracking lists
+        if has_ground_truth:
+            result["cases_with_ground_truth"].append(doc_id)
+        else:
+            result["cases_without_ground_truth"].append(doc_id)
 
         # Initialize unmatched details for this document
         result["unmatched_details"][doc_id] = {
@@ -945,121 +987,302 @@ def evaluate_fuzzy_match(
             "false_positives": [],
         }
 
+        # Special case: No ground truth for this document
+        if not gt_codes:
+            # All predictions are false positives
+            if pred_codes and doc_id in prediction_entities:
+                # Add all predictions as false positives with their counts
+                pred_entities_for_doc = prediction_entities.get(doc_id, {})
+
+                for code, count in pred_counter.items():
+                    result["unmatched_details"][doc_id]["false_positives"].append(
+                        {
+                            "name": pred_entities_for_doc.get(
+                                get_numeric_id(code), code
+                            ),
+                            "orpha_code": code,
+                            "count": count,
+                        }
+                    )
+
+                # Count metrics - all false positives
+                sample_result = {
+                    "tp_count": 0,
+                    "fp_count": len(pred_codes),  # Count all occurrences
+                    "fn_count": 0,
+                    "precision": 0.0,
+                    "recall": 1.0,  # No false negatives, so recall is 1.0
+                    "f1_score": 0.0,
+                }
+
+                all_fp_count += len(pred_codes)
+            else:
+                # No predictions and no ground truth
+                sample_result = {
+                    "tp_count": 0,
+                    "fp_count": 0,
+                    "fn_count": 0,
+                    "precision": 1.0,  # No false positives
+                    "recall": 1.0,  # No false negatives
+                    "f1_score": (
+                        1.0 if pred_codes else 0.0
+                    ),  # 1.0 if predictions exist, 0.0 otherwise
+                }
+
+            result["per_sample_metrics"][doc_id] = sample_result
+            continue
+
+        # Special case: No predictions for this document
+        if not pred_codes:
+            # All ground truth items are false negatives
+            if gt_codes and doc_id in ground_truth_entities:
+                # Add all ground truth items as false negatives with their counts
+                gt_entities_for_doc = ground_truth_entities.get(doc_id, {})
+
+                for code, count in gt_counter.items():
+                    result["unmatched_details"][doc_id]["false_negatives"].append(
+                        {
+                            "name": gt_entities_for_doc.get(get_numeric_id(code), code),
+                            "orpha_code": code,
+                            "count": count,
+                        }
+                    )
+
+                # Count metrics - all false negatives
+                sample_result = {
+                    "tp_count": 0,
+                    "fp_count": 0,
+                    "fn_count": len(gt_codes),  # Count all occurrences
+                    "precision": 1.0,  # No false positives
+                    "recall": 0.0,  # All false negatives
+                    "f1_score": 0.0,
+                }
+
+                all_fn_count += len(gt_codes)
+            else:
+                # Empty case
+                sample_result = {
+                    "tp_count": 0,
+                    "fp_count": 0,
+                    "fn_count": 0,
+                    "precision": 1.0,
+                    "recall": 1.0,
+                    "f1_score": 0.0,
+                }
+
+            result["per_sample_metrics"][doc_id] = sample_result
+
+            # For macro-averaging
+            if has_ground_truth:
+                case_precision_values.append(sample_result["precision"])
+                case_recall_values.append(sample_result["recall"])
+                case_f1_values.append(sample_result["f1_score"])
+
+            continue
+
         # Check if we have entity names for fuzzy matching
-        if doc_id not in prediction_entities or doc_id not in ground_truth_entities:
+        have_entity_names = (doc_id in prediction_entities) and (
+            doc_id in ground_truth_entities
+        )
+
+        if not have_entity_names:
             if debug:
                 print(
-                    f"  No entity names available for document {doc_id} - skipping fuzzy matching"
+                    f"  No entity names available for document {doc_id} - using code-based evaluation"
                 )
 
-            # Mark all predictions as false positives and all ground truth as false negatives
-            result["unmatched_details"][doc_id]["false_positives"] = [
-                {"name": code, "orpha_code": code} for code in pred_codes
-            ]
-            result["unmatched_details"][doc_id]["false_negatives"] = [
-                {"name": code, "orpha_code": code} for code in gt_codes
-            ]
+            # Fallback to count-based code evaluation for this document
+            code_result = code_based_evaluation(pred_codes, gt_codes)
+
+            # Add fallback results with counts
+            for fp in code_result["false_positives"]:
+                result["unmatched_details"][doc_id]["false_positives"].append(
+                    {"name": fp["code"], "orpha_code": fp["code"], "count": fp["count"]}
+                )
+
+            for fn in code_result["false_negatives"]:
+                result["unmatched_details"][doc_id]["false_negatives"].append(
+                    {"name": fn["code"], "orpha_code": fn["code"], "count": fn["count"]}
+                )
 
             # Count metrics
             sample_result = {
-                "tp_count": 0,
-                "fp_count": len(pred_codes),
-                "fn_count": len(gt_codes),
-                "precision": 0.0,
-                "recall": 0.0,
-                "f1_score": 0.0,
+                "tp_count": code_result["tp_count"],
+                "fp_count": code_result["fp_count"],
+                "fn_count": code_result["fn_count"],
+                "precision": code_result["precision"],
+                "recall": code_result["recall"],
+                "f1_score": code_result["f1_score"],
             }
+
             result["per_sample_metrics"][doc_id] = sample_result
 
             # Update aggregate counts
+            all_tp_count += sample_result["tp_count"]
             all_fp_count += sample_result["fp_count"]
             all_fn_count += sample_result["fn_count"]
+
+            # For macro-averaging
+            case_precision_values.append(sample_result["precision"])
+            case_recall_values.append(sample_result["recall"])
+            case_f1_values.append(sample_result["f1_score"])
 
             continue
 
         # Get entity names
-        pred_entities = prediction_entities[doc_id]
-        gt_entities = ground_truth_entities[doc_id]
+        pred_entities_for_doc = prediction_entities.get(doc_id, {})
+        gt_entities_for_doc = ground_truth_entities.get(doc_id, {})
 
-        # Track matches
-        matched_pred_nums = set()
-        matched_gt_nums = set()
+        # Map entity names to ORPHA codes with counts
+        pred_entity_to_codes = {}
+        for code in pred_codes:
+            numeric_id = get_numeric_id(code)
+            if numeric_id in pred_entities_for_doc:
+                entity_name = pred_entities_for_doc[numeric_id].lower()
+                if entity_name not in pred_entity_to_codes:
+                    pred_entity_to_codes[entity_name] = []
+                pred_entity_to_codes[entity_name].append(code)
 
-        # Track fuzzy matches for this document
-        doc_fuzzy_matches = []
+        gt_entity_to_codes = {}
+        for code in gt_codes:
+            numeric_id = get_numeric_id(code)
+            if numeric_id in gt_entities_for_doc:
+                entity_name = gt_entities_for_doc[numeric_id].lower()
+                if entity_name not in gt_entity_to_codes:
+                    gt_entity_to_codes[entity_name] = []
+                gt_entity_to_codes[entity_name].append(code)
 
-        # Try to match each prediction to ground truth
-        for pred_num, pred_name in pred_entities.items():
-            pred_name = pred_name.lower()
+        # Create entity name counters
+        pred_entity_counter = {
+            name: len(codes) for name, codes in pred_entity_to_codes.items()
+        }
+        gt_entity_counter = {
+            name: len(codes) for name, codes in gt_entity_to_codes.items()
+        }
+
+        # Initialize counters for fuzzy matching
+        tp_count = 0
+        fp_count = 0
+        fn_count = 0
+
+        # Track fuzzy matches
+        fuzzy_matches = []
+        matched_gt_entities = set()
+
+        # For each predicted entity, try to find matching ground truth entity
+        for pred_entity, pred_count in pred_entity_counter.items():
             best_match = None
             best_score = 0
+            best_match_count = 0
 
-            # Try to find best match among unmatched ground truth entities
-            for gt_num, gt_name in gt_entities.items():
-                # Skip already matched ground truth
-                if gt_num in matched_gt_nums:
+            # Try each ground truth entity for fuzzy matching
+            for gt_entity, gt_count in gt_entity_counter.items():
+                if gt_entity in matched_gt_entities:
+                    # Skip already fully matched ground truth entities
                     continue
 
-                gt_name = gt_name.lower()
-                score = fuzz.ratio(pred_name, gt_name)
+                # Calculate fuzzy match score
+                score = fuzz.ratio(pred_entity, gt_entity)
 
-                if score > best_score:
+                if score > threshold and score > best_score:
                     best_score = score
-                    best_match = gt_num
+                    best_match = gt_entity
+                    best_match_count = gt_count
 
-            # If good match found
-            if best_match and best_score >= threshold:
-                matched_pred_nums.add(pred_num)
-                matched_gt_nums.add(best_match)
+            # Found a match
+            if best_match:
+                # Calculate match count based on counts of both entities
+                match_count = min(pred_count, best_match_count)
+                tp_count += match_count
 
-                if debug or len(doc_fuzzy_matches) < 10:
-                    doc_fuzzy_matches.append(
+                # Record false positives (excess predictions)
+                if pred_count > match_count:
+                    excess_count = pred_count - match_count
+                    fp_count += excess_count
+
+                    # Add to unmatched details
+                    result["unmatched_details"][doc_id]["false_positives"].append(
                         {
-                            "pred_name": pred_name,
-                            "gt_name": gt_entities[best_match],
-                            "score": best_score,
+                            "name": pred_entity,
+                            "orpha_code": pred_entity_to_codes[pred_entity][
+                                0
+                            ],  # Take first code as representative
+                            "count": excess_count,
                         }
                     )
 
-        # Store unmatched details
-        result["unmatched_details"][doc_id]["false_positives"] = [
-            {"name": pred_entities[num], "orpha_code": f"ORPHA:{num}"}
-            for num in set(pred_entities.keys()) - matched_pred_nums
-        ]
-        result["unmatched_details"][doc_id]["false_negatives"] = [
-            {"name": gt_entities[num], "orpha_code": f"ORPHA:{num}"}
-            for num in set(gt_entities.keys()) - matched_gt_nums
-        ]
+                # Record match for debugging
+                fuzzy_matches.append(
+                    {
+                        "pred_name": pred_entity,
+                        "gt_name": best_match,
+                        "score": best_score,
+                        "count": match_count,
+                    }
+                )
 
-        # Calculate metrics for this document
-        tp_count = len(matched_pred_nums)
-        fp_count = len(pred_entities) - tp_count
-        fn_count = len(gt_entities) - len(matched_gt_nums)
+                # Mark ground truth entity as matched for its matched count
+                gt_entity_counter[best_match] -= match_count
 
-        # Compute precision, recall, F1
+                # If fully matched, add to matched set
+                if gt_entity_counter[best_match] <= 0:
+                    matched_gt_entities.add(best_match)
+            else:
+                # No match found - all predicted occurrences are false positives
+                fp_count += pred_count
+
+                # Add to unmatched details
+                result["unmatched_details"][doc_id]["false_positives"].append(
+                    {
+                        "name": pred_entity,
+                        "orpha_code": pred_entity_to_codes[pred_entity][
+                            0
+                        ],  # Take first code as representative
+                        "count": pred_count,
+                    }
+                )
+
+        # Count remaining ground truth entities as false negatives
+        for gt_entity, remaining_count in gt_entity_counter.items():
+            if remaining_count > 0:
+                fn_count += remaining_count
+
+                # Add to unmatched details
+                result["unmatched_details"][doc_id]["false_negatives"].append(
+                    {
+                        "name": gt_entity,
+                        "orpha_code": gt_entity_to_codes[gt_entity][
+                            0
+                        ],  # Take first code as representative
+                        "count": remaining_count,
+                    }
+                )
+
+        # Calculate metrics
         precision = (
-            tp_count / (tp_count + fp_count) if (tp_count + fp_count) > 0 else 0.0
+            tp_count / (tp_count + fp_count) if (tp_count + fp_count) > 0 else 1.0
         )
-        recall = tp_count / (tp_count + fn_count) if (tp_count + fn_count) > 0 else 0.0
-        f1_score = (
+        recall = tp_count / (tp_count + fn_count) if (tp_count + fn_count) > 0 else 1.0
+        f1 = (
             2 * (precision * recall) / (precision + recall)
             if (precision + recall) > 0
             else 0.0
         )
 
-        # Store sample-level metrics
+        # Store results
         sample_result = {
             "tp_count": tp_count,
             "fp_count": fp_count,
             "fn_count": fn_count,
             "precision": precision,
             "recall": recall,
-            "f1_score": f1_score,
-            "fuzzy_matches": doc_fuzzy_matches,
+            "f1_score": f1,
+            "fuzzy_matches": fuzzy_matches[:10],  # Store up to 10 matches for brevity
         }
+
         result["per_sample_metrics"][doc_id] = sample_result
 
-        # Accumulate for aggregate metrics
+        # Update aggregate metrics
         all_tp_count += tp_count
         all_fp_count += fp_count
         all_fn_count += fn_count
@@ -1067,22 +1290,21 @@ def evaluate_fuzzy_match(
         # For macro-averaging
         case_precision_values.append(precision)
         case_recall_values.append(recall)
-        case_f1_values.append(f1_score)
+        case_f1_values.append(f1)
 
-        # Collect debug matches
-        if debug and doc_fuzzy_matches:
-            all_fuzzy_matches.extend(doc_fuzzy_matches)
+        # Store some matches for debugging
+        all_fuzzy_matches.extend(fuzzy_matches[:5])
 
     # Compute micro-averaging metrics
     micro_precision = (
         all_tp_count / (all_tp_count + all_fp_count)
         if (all_tp_count + all_fp_count) > 0
-        else 0.0
+        else 1.0
     )
     micro_recall = (
         all_tp_count / (all_tp_count + all_fn_count)
         if (all_tp_count + all_fn_count) > 0
-        else 0.0
+        else 1.0
     )
     micro_f1 = (
         2 * (micro_precision * micro_recall) / (micro_precision + micro_recall)
@@ -1118,48 +1340,16 @@ def evaluate_fuzzy_match(
         "description": "Macro-averaging: Metrics calculated per case, then averaged",
     }
 
-    # Compute count-based metrics
+    # Count-based metrics
     result["count_based_metrics"] = {
-        "precision": (
-            all_tp_count / (all_tp_count + all_fp_count)
-            if (all_tp_count + all_fp_count) > 0
-            else 0.0
-        ),
-        "recall": (
-            all_tp_count / (all_tp_count + all_fn_count)
-            if (all_tp_count + all_fn_count) > 0
-            else 0.0
-        ),
-        "f1_score": (
-            2
-            * (
-                all_tp_count
-                / (all_tp_count + all_fp_count)
-                * all_tp_count
-                / (all_tp_count + all_fn_count)
-            )
-            / (
-                all_tp_count / (all_tp_count + all_fp_count)
-                + all_tp_count / (all_tp_count + all_fn_count)
-            )
-            if (all_tp_count + all_fp_count + all_fn_count) > 0
-            else 0.0
-        ),
+        "precision": micro_precision,
+        "recall": micro_recall,
+        "f1_score": micro_f1,
         "tp_count": all_tp_count,
         "fp_count": all_fp_count,
         "fn_count": all_fn_count,
         "description": "Count-based: TP, FP, FN counts summed across cases, then metrics calculated",
     }
-
-    # Add sample-level unmatched details to the result structure
-    result["total_false_positives"] = sum(
-        len(details["false_positives"])
-        for details in result["unmatched_details"].values()
-    )
-    result["total_false_negatives"] = sum(
-        len(details["false_negatives"])
-        for details in result["unmatched_details"].values()
-    )
 
     # Corpus metrics (using micro-averaging)
     result["corpus_metrics"] = result["micro_averaging_metrics"].copy()
@@ -1167,8 +1357,13 @@ def evaluate_fuzzy_match(
         {
             "cases_with_ground_truth": len(result["cases_with_ground_truth"]),
             "cases_without_ground_truth": len(result["cases_without_ground_truth"]),
-            "total_cases": len(result["cases_with_ground_truth"])
-            + len(result["cases_without_ground_truth"]),
+            "total_cases": len(all_doc_ids),
+            "docs_only_in_ground_truth": len(
+                set(ground_truth_dict.keys()) - set(predictions_dict.keys())
+            ),
+            "docs_only_in_predictions": len(
+                set(predictions_dict.keys()) - set(ground_truth_dict.keys())
+            ),
         }
     )
 
@@ -1179,16 +1374,21 @@ def evaluate_fuzzy_match(
     result["tp_count"] = all_tp_count
     result["fp_count"] = all_fp_count
     result["fn_count"] = all_fn_count
-    result["total_matches_found"] = len(all_fuzzy_matches)
+    result["total_matches_found"] = sum(
+        match.get("count", 1) for match in all_fuzzy_matches
+    )
+    result["total_documents_evaluated"] = len(all_doc_ids)
 
     # Notes about the evaluation
     result["notes"] = [
-        f"Fuzzy matching approach using threshold of {threshold}",
+        f"Count-based fuzzy matching approach using threshold of {threshold}",
         "Three approaches to metric calculation:",
         " 1. Micro-averaging: All matches pooled together across cases",
         " 2. Macro-averaging: Metrics calculated per case, then averaged",
         " 3. Count-based: TP, FP, FN counts summed across cases, then metrics calculated",
-        "NOTE: Only documents with entity names are processed for fuzzy matching",
+        "All documents from both predictions and ground truth are included in evaluation",
+        "Documents without entity names fall back to code-based matching",
+        "Entity counts are preserved for more accurate count-based evaluation",
     ]
 
     # Debug output if requested
@@ -1199,8 +1399,9 @@ def evaluate_fuzzy_match(
             all_fuzzy_matches, key=lambda x: x["score"], reverse=True
         )
         for i, match in enumerate(sorted_matches[:10], 1):
+            count_str = f", count: {match.get('count', 1)}" if "count" in match else ""
             print(
-                f"  {i}. '{match['pred_name']}' matched with '{match['gt_name']}' (score: {match['score']})"
+                f"  {i}. '{match['pred_name']}' matched with '{match['gt_name']}' (score: {match['score']}{count_str})"
             )
 
     return result
