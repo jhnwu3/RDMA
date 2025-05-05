@@ -8,7 +8,6 @@ from typing import List, Dict, Any, Optional, Union
 
 
 from rdma.hporag.hpo_match import RAGHPOMatcher, OptimizedRAGHPOMatcher
-from rdma.utils.llm_client import LocalLLMClient, APILLMClient
 from rdma.utils.embedding import EmbeddingsManager
 
 
@@ -22,44 +21,34 @@ class HPOMatcher:
 
     def __init__(
         self,
+        llm_client,  # Required pre-initialized LLM client
         optimizer_version: str = "standard",
-        llm_type: str = "local",
-        model_type: str = "llama3_70b",
         device: str = None,
-        cache_dir: str = None,
-        temperature: float = 0.2,
-        api_config: str = None,
         embeddings_file: str = None,
         retriever: str = "fastembed",
         retriever_model: str = "BAAI/bge-small-en-v1.5",
         top_k: int = 5,
         system_prompt_file: str = None,
         debug: bool = False,
-        llm_client=None,  # New parameter for external LLM client
     ):
         """
         Initialize the HPO matcher wrapper.
 
         Args:
+            llm_client: Pre-initialized LLM client
             optimizer_version: Version of matcher ('standard' or 'optimized')
-            llm_type: Type of LLM client ('local' or 'api') - used only if llm_client is None
-            model_type: Model type for local LLM - used only if llm_client is None
             device: Device to use for inference (if None, will auto-detect)
-            cache_dir: Directory for caching models - used only if llm_client is None
-            temperature: Temperature for LLM inference - used only if llm_client is None
-            api_config: Path to API configuration file for API LLM - used only if llm_client is None
             embeddings_file: Path to HPO embeddings file (required)
             retriever: Type of retriever/embedding model to use
             retriever_model: Model name for retriever
             top_k: Number of top candidates to include in results
             system_prompt_file: File containing system prompts
             debug: Enable debug output
-            llm_client: Optional pre-initialized LLM client. If provided, llm_type, model_type,
-                    cache_dir, temperature, and api_config parameters are ignored.
         """
         self.optimizer_version = optimizer_version
         self.top_k = top_k
         self.debug = debug
+        self.llm_client = llm_client
 
         # Auto-detect device if not specified
         if device is None:
@@ -75,17 +64,6 @@ class HPOMatcher:
 
         # Load system prompt
         self.system_prompt = self._load_system_prompt(system_prompt_file)
-
-        # Use provided LLM client or initialize a new one
-        if llm_client is not None:
-            if self.debug:
-                print("Using provided LLM client")
-            self.llm_client = llm_client
-        else:
-            # Initialize LLM client based on parameters
-            self.llm_client = self._initialize_llm_client(
-                llm_type, model_type, device, cache_dir, temperature, api_config
-            )
 
         # Initialize embedding manager
         self.embedding_manager = self._initialize_embedding_manager(
@@ -124,32 +102,6 @@ class HPOMatcher:
                 print(f"Error loading system prompt: {e}")
                 print("Using default system prompt")
             return default_prompt
-
-    def _initialize_llm_client(
-        self,
-        llm_type: str,
-        model_type: str,
-        device: str,
-        cache_dir: Optional[str],
-        temperature: float,
-        api_config: Optional[str],
-    ):
-        """Initialize LLM client based on type."""
-        if self.debug:
-            print(f"Initializing {llm_type} LLM client")
-
-        if llm_type == "api":
-            if api_config:
-                return APILLMClient.from_config(api_config)
-            else:
-                return APILLMClient.initialize_from_input()
-        else:  # local
-            return LocalLLMClient(
-                model_type=model_type,
-                device=device,
-                cache_dir=cache_dir,
-                temperature=temperature,
-            )
 
     def _initialize_embedding_manager(self, retriever: str, retriever_model: str):
         """Initialize embedding manager for HPO matching."""

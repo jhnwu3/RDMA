@@ -44,7 +44,8 @@ class HPOVerifier:
         min_context_length: int = 1,
         verifier_config: Optional[Dict] = None,
         debug: bool = False,
-        llm_client=None,  # New parameter for external LLM client
+        llm_client=None,  # Parameter for external LLM client
+        use_demographics: bool = False,  # Flag to enable demographic extraction and use
     ):
         """
         Initialize the phenotype verifier wrapper.
@@ -66,7 +67,22 @@ class HPOVerifier:
             debug: Enable debug output
             llm_client: Optional pre-initialized LLM client. If provided, llm_type, model_type,
                     cache_dir, temperature, and api_config parameters are ignored.
+            use_demographics: Whether to enable demographic extraction and use for lab test analysis
         """
+        # ... [existing initialization code] ...
+
+        self.use_demographics = use_demographics
+
+        # Initialize demographics extractor if needed
+        self.demographics_extractor = None
+        if self.use_demographics and verifier_version == "v4":
+            from utils.demographic import DemographicsExtractor
+
+            self.demographics_extractor = DemographicsExtractor(
+                self.llm_client, debug=debug
+            )
+            if self.debug:
+                print("Initialized demographics extractor for lab test analysis")
         self.verifier_version = verifier_version
         self.min_context_length = min_context_length
         self.debug = debug
@@ -250,13 +266,16 @@ class HPOVerifier:
         return filtered_entities
 
     def verify(
-        self, entities_with_contexts: List[Dict[str, str]]
+        self,
+        entities_with_contexts: List[Dict[str, str]],
+        clinical_text: Optional[str] = None,
     ) -> List[Dict[str, Any]]:
         """
         Verify entities as phenotypes and classify them as direct or implied.
 
         Args:
             entities_with_contexts: List of dictionaries with 'entity' and 'context' fields
+            clinical_text: Original clinical text for demographic extraction (if enabled)
 
         Returns:
             List of dictionaries with entity, context, and phenotype type (direct/implied)
@@ -270,8 +289,40 @@ class HPOVerifier:
         if self.debug:
             print(f"Processing {len(filtered_entities)} entities after filtering")
 
-        # Verify entities using the appropriate verifier
-        verified_phenotypes = self.verifier.batch_process(filtered_entities)
+        # Extract demographics if enabled and text is provided
+        sample_data = None
+        if self.use_demographics and self.demographics_extractor and clinical_text:
+            sample_data = self.demographics_extractor.extract(clinical_text)
+            if self.debug:
+                print(f"Extracted demographics: {sample_data}")
+
+        # Verify entities using the appropriate verifier with demographics if available
+        if sample_data and hasattr(self.verifier, "batch_process_with_demographics"):
+            # Use special method if available
+            verified_phenotypes = self.verifier.batch_process_with_demographics(
+                filtered_entities, sample_data
+            )
+        else:
+            # Apply normal verification, possibly with demographics in process_entity
+            verified_phenotypes = []
+            for entity_data in filtered_entities:
+                # v4 verifier's process_entity method accepts sample_data parameter
+                if self.verifier_version == "v4" and sample_data:
+                    result = self.verifier.process_entity(
+                        entity=entity_data.get("entity", ""),
+                        context=entity_data.get("context", ""),
+                        sample_data=sample_data,
+                    )
+                    if result.get("status") in [
+                        "direct_phenotype",
+                        "implied_phenotype",
+                    ]:
+                        result["context"] = entity_data.get("context", "")
+                        verified_phenotypes.append(result)
+                else:
+                    # Use standard batch_process for other verifiers
+                    verified_phenotypes = self.verifier.batch_process(filtered_entities)
+                    break  # Exit loop as we've processed all at once
 
         if self.debug:
             print(
