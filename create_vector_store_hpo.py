@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import argparse
 import torch
-from hporag.vectorize import create_vectorizer, VectorizationConfig
+from rdma.hporag.vectorize import create_vectorizer, VectorizationConfig
 
 def parse_args():
     parser = argparse.ArgumentParser(description='Create vector database from HPO data')

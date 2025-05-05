@@ -1,4 +1,4 @@
-from utils.data import read_json_file, print_json_structure
+from rdma.utils.data import read_json_file, print_json_structure
 import re
 import json
 

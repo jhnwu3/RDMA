@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import argparse
 import torch
-from rdrag.vectorize import create_rare_disease_vectorizer
+from rdma.rdrag.vectorize import create_rare_disease_vectorizer
 
 def parse_args():
     parser = argparse.ArgumentParser(description='Create vector database from rare disease data')

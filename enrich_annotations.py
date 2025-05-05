@@ -12,8 +12,8 @@ parent_dir = os.path.dirname(current_dir)
 sys.path.insert(0, parent_dir)
 
 # Import project modules
-from utils.data import read_json_file
-from utils.embedding import EmbeddingsManager
+from rdma.utils.data import read_json_file
+from rdma.utils.embedding import EmbeddingsManager
 
 
 def enrich_annotations_with_orpha_codes(
