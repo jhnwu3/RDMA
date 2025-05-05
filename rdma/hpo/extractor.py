@@ -28,7 +28,7 @@ class PhenotypeExtractor:
     consistent interface regardless of which extractor is used.
     """
 
-    def __init__(
+   def __init__(
         self,
         extractor_type: str = "iterative",
         llm_type: str = "local",
@@ -44,25 +44,28 @@ class PhenotypeExtractor:
         retriever_model: str = "BAAI/bge-small-en-v1.5",
         top_k: int = 10,
         debug: bool = False,
+        llm_client = None,  # New parameter for external LLM client
     ):
         """
         Initialize the entity extractor wrapper.
 
         Args:
             extractor_type: Type of entity extractor to use ('simple', 'iterative', 'multi', 'retrieval')
-            llm_type: Type of LLM client ('local' or 'api')
-            model_type: Model type for local LLM
+            llm_type: Type of LLM client ('local' or 'api') - used only if llm_client is None
+            model_type: Model type for local LLM - used only if llm_client is None
             device: Device to use for inference (if None, will auto-detect)
             system_prompt_file: File containing system prompts
             max_iterations: Maximum iterations for iterative extractor
-            cache_dir: Directory for caching models
-            temperature: Temperature for LLM inference
-            api_config: Path to API configuration file for API LLM
+            cache_dir: Directory for caching models - used only if llm_client is None
+            temperature: Temperature for LLM inference - used only if llm_client is None
+            api_config: Path to API configuration file for API LLM - used only if llm_client is None
             embeddings_file: Path to embeddings file for retrieval-enhanced extraction
             retriever: Type of retriever/embedding model to use
             retriever_model: Model name for retriever
             top_k: Number of top candidates to retrieve per sentence
             debug: Enable debug output
+            llm_client: Optional pre-initialized LLM client. If provided, llm_type, model_type,
+                    cache_dir, temperature, and api_config parameters are ignored.
         """
         self.extractor_type = extractor_type
         self.debug = debug
@@ -78,10 +81,16 @@ class PhenotypeExtractor:
         # Load system prompt
         self.system_prompt = self._load_system_prompt(system_prompt_file)
 
-        # Initialize LLM client
-        self.llm_client = self._initialize_llm_client(
-            llm_type, model_type, device, cache_dir, temperature, api_config
-        )
+        # Use provided LLM client or initialize a new one
+        if llm_client is not None:
+            if self.debug:
+                print("Using provided LLM client")
+            self.llm_client = llm_client
+        else:
+            # Initialize LLM client based on parameters
+            self.llm_client = self._initialize_llm_client(
+                llm_type, model_type, device, cache_dir, temperature, api_config
+            )
 
         # Initialize entity extractor based on type
         self.entity_extractor = self._initialize_entity_extractor(

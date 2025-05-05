@@ -44,18 +44,19 @@ class HPOVerifier:
         min_context_length: int = 1,
         verifier_config: Optional[Dict] = None,
         debug: bool = False,
+        llm_client=None,  # New parameter for external LLM client
     ):
         """
         Initialize the phenotype verifier wrapper.
 
         Args:
             verifier_version: Verifier version to use (v2, v3, v4)
-            llm_type: Type of LLM client ('local' or 'api')
-            model_type: Model type for local LLM
+            llm_type: Type of LLM client ('local' or 'api') - used only if llm_client is None
+            model_type: Model type for local LLM - used only if llm_client is None
             device: Device to use for inference (if None, will auto-detect)
-            cache_dir: Directory for caching models
-            temperature: Temperature for LLM inference
-            api_config: Path to API configuration file for API LLM
+            cache_dir: Directory for caching models - used only if llm_client is None
+            temperature: Temperature for LLM inference - used only if llm_client is None
+            api_config: Path to API configuration file for API LLM - used only if llm_client is None
             embeddings_file: Path to HPO embeddings file (required)
             lab_embeddings_file: Path to lab test embeddings file for V4 verifier
             retriever: Type of retriever/embedding model to use
@@ -63,6 +64,8 @@ class HPOVerifier:
             min_context_length: Minimum context length to consider valid
             verifier_config: Optional configuration dict for verifier
             debug: Enable debug output
+            llm_client: Optional pre-initialized LLM client. If provided, llm_type, model_type,
+                    cache_dir, temperature, and api_config parameters are ignored.
         """
         self.verifier_version = verifier_version
         self.min_context_length = min_context_length
@@ -80,10 +83,16 @@ class HPOVerifier:
         if embeddings_file is None:
             raise ValueError("embeddings_file is required for phenotype verification")
 
-        # Initialize LLM client
-        self.llm_client = self._initialize_llm_client(
-            llm_type, model_type, device, cache_dir, temperature, api_config
-        )
+        # Use provided LLM client or initialize a new one
+        if llm_client is not None:
+            if self.debug:
+                print("Using provided LLM client")
+            self.llm_client = llm_client
+        else:
+            # Initialize LLM client based on parameters
+            self.llm_client = self._initialize_llm_client(
+                llm_type, model_type, device, cache_dir, temperature, api_config
+            )
 
         # Initialize embedding manager
         self.embedding_manager = self._initialize_embedding_manager(

@@ -39,24 +39,27 @@ class PhenotypeMatcher:
         top_k: int = 5,
         system_prompt_file: str = None,
         debug: bool = False,
+        llm_client=None,  # New parameter for external LLM client
     ):
         """
         Initialize the HPO matcher wrapper.
 
         Args:
             optimizer_version: Version of matcher ('standard' or 'optimized')
-            llm_type: Type of LLM client ('local' or 'api')
-            model_type: Model type for local LLM
+            llm_type: Type of LLM client ('local' or 'api') - used only if llm_client is None
+            model_type: Model type for local LLM - used only if llm_client is None
             device: Device to use for inference (if None, will auto-detect)
-            cache_dir: Directory for caching models
-            temperature: Temperature for LLM inference
-            api_config: Path to API configuration file for API LLM
+            cache_dir: Directory for caching models - used only if llm_client is None
+            temperature: Temperature for LLM inference - used only if llm_client is None
+            api_config: Path to API configuration file for API LLM - used only if llm_client is None
             embeddings_file: Path to HPO embeddings file (required)
             retriever: Type of retriever/embedding model to use
             retriever_model: Model name for retriever
             top_k: Number of top candidates to include in results
             system_prompt_file: File containing system prompts
             debug: Enable debug output
+            llm_client: Optional pre-initialized LLM client. If provided, llm_type, model_type,
+                    cache_dir, temperature, and api_config parameters are ignored.
         """
         self.optimizer_version = optimizer_version
         self.top_k = top_k
@@ -77,10 +80,16 @@ class PhenotypeMatcher:
         # Load system prompt
         self.system_prompt = self._load_system_prompt(system_prompt_file)
 
-        # Initialize LLM client
-        self.llm_client = self._initialize_llm_client(
-            llm_type, model_type, device, cache_dir, temperature, api_config
-        )
+        # Use provided LLM client or initialize a new one
+        if llm_client is not None:
+            if self.debug:
+                print("Using provided LLM client")
+            self.llm_client = llm_client
+        else:
+            # Initialize LLM client based on parameters
+            self.llm_client = self._initialize_llm_client(
+                llm_type, model_type, device, cache_dir, temperature, api_config
+            )
 
         # Initialize embedding manager
         self.embedding_manager = self._initialize_embedding_manager(
@@ -96,29 +105,29 @@ class PhenotypeMatcher:
         # Prepare matcher index
         self.matcher.prepare_index(self.embedded_documents)
 
-    def _load_system_prompt(self, system_prompt_file: Optional[str]) -> str:
-        """Load system prompt from file or use default."""
-        default_prompt = """You are a clinical expert specialized in Human Phenotype Ontology (HPO) coding. 
-        Your task is to analyze a phenotype term and its context, then determine the most appropriate HPO code.
-        Consider both the entity and its context. Respond with only the HPO ID (e.g., HP:0001250)."""
+        def _load_system_prompt(self, system_prompt_file: Optional[str]) -> str:
+            """Load system prompt from file or use default."""
+            default_prompt = """You are a clinical expert specialized in Human Phenotype Ontology (HPO) coding. 
+            Your task is to analyze a phenotype term and its context, then determine the most appropriate HPO code.
+            Consider both the entity and its context. Respond with only the HPO ID (e.g., HP:0001250)."""
 
-        if system_prompt_file is None:
-            if self.debug:
-                print("Using default system prompt")
-            return default_prompt
-
-        try:
-            with open(system_prompt_file, "r") as f:
-                prompts = json.load(f)
-                system_message = prompts.get("system_message_II", default_prompt)
+            if system_prompt_file is None:
                 if self.debug:
-                    print(f"Loaded system prompt from {system_prompt_file}")
-                return system_message
-        except Exception as e:
-            if self.debug:
-                print(f"Error loading system prompt: {e}")
-                print("Using default system prompt")
-            return default_prompt
+                    print("Using default system prompt")
+                return default_prompt
+
+            try:
+                with open(system_prompt_file, "r") as f:
+                    prompts = json.load(f)
+                    system_message = prompts.get("system_message_II", default_prompt)
+                    if self.debug:
+                        print(f"Loaded system prompt from {system_prompt_file}")
+                    return system_message
+            except Exception as e:
+                if self.debug:
+                    print(f"Error loading system prompt: {e}")
+                    print("Using default system prompt")
+                return default_prompt
 
     def _initialize_llm_client(
         self,
