@@ -3,7 +3,7 @@ import torch
 from transformers import BitsAndBytesConfig, pipeline, AutoTokenizer
 from pathlib import Path
 import os
-from utils.api_keys import LLAMA33_ACCESS_TOKEN, LLAMA31_ACCESS_TOKEN
+from rdma.utils.api_keys import LLAMA33_ACCESS_TOKEN, LLAMA31_ACCESS_TOKEN
 
 import os
 from pathlib import Path

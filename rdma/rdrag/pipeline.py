@@ -1,5 +1,5 @@
-from rdrag.entity import BaseRDExtractor
-from rdrag.rd_match import BaseRDMatcher
+from rdma.rdrag.entity import BaseRDExtractor
+from rdma.rdrag.rd_match import BaseRDMatcher
 from abc import ABC, abstractmethod
 import json
 import pandas as pd

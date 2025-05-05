@@ -1,5 +1,5 @@
 import time
-from utils.llm import ModelLoader
+from rdma.utils.llm import ModelLoader
 import sys
 from typing import List
 import torch

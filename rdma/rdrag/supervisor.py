@@ -3,12 +3,12 @@ import numpy as np
 import json
 import os
 from typing import Dict, Any, List, Optional, Union, Tuple
-from rdrag.pipeline import RDPipeline
-from rdrag.entity import LLMRDExtractor
-from rdrag.rd_match import RAGRDMatcher
-from utils.embedding import EmbeddingsManager
-from utils.llm_client import APILLMClient, LocalLLMClient
-from utils.data import NumpyJSONEncoder
+from rdma.rdrag.pipeline import RDPipeline
+from rdma.rdrag.entity import LLMRDExtractor
+from rdma.rdrag.rd_match import RAGRDMatcher
+from rdma.utils.embedding import EmbeddingsManager
+from rdma.utils.llm_client import APILLMClient, LocalLLMClient
+from rdma.utils.data import NumpyJSONEncoder
 
 # All Defunct for Now, Not-tested
 class IterativeSupervisor:

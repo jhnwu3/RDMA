@@ -6,7 +6,7 @@ import re
 from typing import List, Dict, Any, Optional, Tuple
 from datetime import datetime
 from fuzzywuzzy import fuzz
-from hporag.context import ContextExtractor
+from rdma.hporag.context import ContextExtractor
 
 
 class BaseRDExtractor(ABC):

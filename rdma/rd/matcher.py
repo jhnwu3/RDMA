@@ -18,7 +18,7 @@ import traceback
 
 from rdma.utils.embedding import EmbeddingsManager
 from rdma.utils.llm_client import LocalLLMClient
-from rdrag.rd_match import SimpleRDMatcher
+from rdma.rdrag.rd_match import SimpleRDMatcher
 
 
 class RDMAMatcher:

@@ -18,8 +18,8 @@ from datetime import datetime
 
 from rdma.utils.embedding import EmbeddingsManager
 from rdma.utils.llm_client import LocalLLMClient
-from hporag.context import ContextExtractor
-from rdrag.entity import (
+from rdma.hporag.context import ContextExtractor
+from rdma.rdrag.entity import (
     LLMRDExtractor,
     RetrievalEnhancedRDExtractor,
     IterativeLLMRDExtractor,

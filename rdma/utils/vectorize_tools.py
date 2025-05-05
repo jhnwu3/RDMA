@@ -13,7 +13,7 @@ import sys
 current_dir = os.path.dirname(os.path.abspath(__file__))
 parent_dir = os.path.dirname(current_dir)
 sys.path.insert(0, parent_dir)
-from utils.embedding import EmbeddingsManager
+from rdma.utils.embedding import EmbeddingsManager
 @dataclass
 class ToolVectorizationConfig:
     """Configuration for vectorization process."""

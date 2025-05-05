@@ -7,7 +7,7 @@ from datetime import datetime
 from typing import Dict, Any, List
 from pathlib import Path
 from tqdm import tqdm
-from utils.llm_client import LocalLLMClient, APILLMClient
+from rdma.utils.llm_client import LocalLLMClient, APILLMClient
 def timestamp_print(message: str) -> None:
     """Print message with timestamp."""
     print(f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} - {message}")

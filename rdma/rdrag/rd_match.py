@@ -7,8 +7,8 @@ import re
 from typing import List, Dict, Any, Optional, Tuple, Union
 from datetime import datetime
 from fuzzywuzzy import fuzz
-from utils.embedding import EmbeddingsManager
-from utils.llm_client import LocalLLMClient
+from rdma.utils.embedding import EmbeddingsManager
+from rdma.utils.llm_client import LocalLLMClient
 class BaseRDMatcher(ABC):
     """Abstract base class for rare disease term matching."""
     
