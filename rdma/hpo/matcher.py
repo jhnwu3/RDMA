@@ -6,17 +6,13 @@ import numpy as np
 import json
 from typing import List, Dict, Any, Optional, Union
 
-# Append parent directory to path for module imports
-current_dir = os.path.dirname(os.path.abspath(__file__))
-parent_dir = os.path.dirname(os.path.dirname(current_dir))
-sys.path.insert(0, parent_dir)
 
-from hporag.hpo_match import RAGHPOMatcher, OptimizedRAGHPOMatcher
-from utils.llm_client import LocalLLMClient, APILLMClient
-from utils.embedding import EmbeddingsManager
+from rdma.hporag.hpo_match import RAGHPOMatcher, OptimizedRAGHPOMatcher
+from rdma.utils.llm_client import LocalLLMClient, APILLMClient
+from rdma.utils.embedding import EmbeddingsManager
 
 
-class PhenotypeMatcher:
+class HPOMatcher:
     """
     Wrapper for HPO matching process.
 
@@ -105,29 +101,29 @@ class PhenotypeMatcher:
         # Prepare matcher index
         self.matcher.prepare_index(self.embedded_documents)
 
-        def _load_system_prompt(self, system_prompt_file: Optional[str]) -> str:
-            """Load system prompt from file or use default."""
-            default_prompt = """You are a clinical expert specialized in Human Phenotype Ontology (HPO) coding. 
-            Your task is to analyze a phenotype term and its context, then determine the most appropriate HPO code.
-            Consider both the entity and its context. Respond with only the HPO ID (e.g., HP:0001250)."""
+    def _load_system_prompt(self, system_prompt_file: Optional[str]) -> str:
+        """Load system prompt from file or use default."""
+        default_prompt = """You are a clinical expert specialized in Human Phenotype Ontology (HPO) coding. 
+        Your task is to analyze a phenotype term and its context, then determine the most appropriate HPO code.
+        Consider both the entity and its context. Respond with only the HPO ID (e.g., HP:0001250)."""
 
-            if system_prompt_file is None:
-                if self.debug:
-                    print("Using default system prompt")
-                return default_prompt
+        if system_prompt_file is None:
+            if self.debug:
+                print("Using default system prompt")
+            return default_prompt
 
-            try:
-                with open(system_prompt_file, "r") as f:
-                    prompts = json.load(f)
-                    system_message = prompts.get("system_message_II", default_prompt)
-                    if self.debug:
-                        print(f"Loaded system prompt from {system_prompt_file}")
-                    return system_message
-            except Exception as e:
+        try:
+            with open(system_prompt_file, "r") as f:
+                prompts = json.load(f)
+                system_message = prompts.get("system_message_II", default_prompt)
                 if self.debug:
-                    print(f"Error loading system prompt: {e}")
-                    print("Using default system prompt")
-                return default_prompt
+                    print(f"Loaded system prompt from {system_prompt_file}")
+                return system_message
+        except Exception as e:
+            if self.debug:
+                print(f"Error loading system prompt: {e}")
+                print("Using default system prompt")
+            return default_prompt
 
     def _initialize_llm_client(
         self,
