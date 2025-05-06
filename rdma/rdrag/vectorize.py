@@ -6,7 +6,7 @@ import numpy as np
 from tqdm import tqdm
 import torch
 from contextlib import nullcontext
-from utils.embedding import EmbeddingModel, FastEmbedModel, SentenceTransformerEmbedModel, MedCPTModel
+from rdma.utils.embedding import EmbeddingModel, FastEmbedModel, SentenceTransformerEmbedModel, MedCPTModel
 import re
 import os
 @dataclass

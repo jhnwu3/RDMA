@@ -10,7 +10,7 @@ from tqdm import tqdm
 from typing import Dict, List, Optional, Union, Any
 from dataclasses import dataclass
 from pathlib import Path
-from utils.embedding import EmbeddingsManager
+from rdma.utils.embedding import EmbeddingsManager
 
 
 @dataclass

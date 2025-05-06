@@ -347,8 +347,8 @@ class MultiIterativeExtractor(BaseEntityExtractor):
 from typing import List, Dict, Any
 import json
 import numpy as np
-from hporag.entity import BaseEntityExtractor
-from hporag.context import ContextExtractor
+# from hporag.entity import BaseEntityExtractor
+# from hporag.context import ContextExtractor
 
 # class RetrievalEnhancedEntityExtractorOld(BaseEntityExtractor):
 #     """
@@ -558,7 +558,7 @@ import json
 from typing import List, Dict, Tuple, Optional
 import numpy as np
 from sentence_transformers import SentenceTransformer
-
+from rdma.hporag.context import ContextExtractor
 class RetrievalEnhancedEntityExtractor(BaseEntityExtractor):
     """
     Entity extractor that uses embedding retrieval to enhance LLM-based extraction.
@@ -1166,7 +1166,7 @@ class NuExtractor(BaseEntityExtractor):
             results.append(entities)
         return results
 
-from hporag.phenogpt import PhenoGPT
+from rdma.hporag.phenogpt import PhenoGPT
 
 class PhenoGPTEntityExtractor(BaseEntityExtractor):
     """Entity extraction using PhenoGPT model."""

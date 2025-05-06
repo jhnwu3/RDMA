@@ -16,8 +16,8 @@ import re
 import time
 from typing import List, Dict, Any, Optional, Tuple
 from datetime import datetime
-from hporag.entity import BaseEntityExtractor, LLMEntityExtractor
-from hporag.hpo_match import BaseHPOMatcher
+from rdma.hporag.entity import BaseEntityExtractor, LLMEntityExtractor
+from rdma.hporag.hpo_match import BaseHPOMatcher
 
 class HPORAG:
     """Main pipeline class combining entity extraction and HPO matching with timing functionality."""

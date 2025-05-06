@@ -10,14 +10,14 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 parent_dir = os.path.dirname(os.path.dirname(current_dir))
 sys.path.insert(0, parent_dir)
 
-from hporag.verify import (
+from rdma.hporag.verify import (
     HPOVerifierConfig,
     MultiStageHPOVerifierV2,
     MultiStageHPOVerifierV3,
     MultiStageHPOVerifierV4,
 )
-from utils.llm_client import LocalLLMClient, APILLMClient
-from utils.embedding import EmbeddingsManager
+from rdma.utils.llm_client import LocalLLMClient, APILLMClient
+from rdma.utils.embedding import EmbeddingsManager
 
 
 class HPOVerifier:
@@ -30,62 +30,39 @@ class HPOVerifier:
 
     def __init__(
         self,
-        verifier_version: str = "v3",
-        llm_type: str = "local",
-        model_type: str = "llama3_70b",
+        llm_client,  # Required pre-initialized LLM client
+        embeddings_file: str,
+        verifier_version: str = "v4",
         device: str = None,
-        cache_dir: str = None,
-        temperature: float = 0.2,
-        api_config: str = None,
-        embeddings_file: str = None,
         lab_embeddings_file: str = None,
         retriever: str = "fastembed",
         retriever_model: str = "BAAI/bge-small-en-v1.5",
         min_context_length: int = 1,
         verifier_config: Optional[Dict] = None,
         debug: bool = False,
-        llm_client=None,  # Parameter for external LLM client
         use_demographics: bool = False,  # Flag to enable demographic extraction and use
     ):
         """
         Initialize the phenotype verifier wrapper.
 
         Args:
-            verifier_version: Verifier version to use (v2, v3, v4)
-            llm_type: Type of LLM client ('local' or 'api') - used only if llm_client is None
-            model_type: Model type for local LLM - used only if llm_client is None
-            device: Device to use for inference (if None, will auto-detect)
-            cache_dir: Directory for caching models - used only if llm_client is None
-            temperature: Temperature for LLM inference - used only if llm_client is None
-            api_config: Path to API configuration file for API LLM - used only if llm_client is None
+            llm_client: Pre-initialized LLM client.
             embeddings_file: Path to HPO embeddings file (required)
+            verifier_version: Verifier version to use (v2, v3, v4)
+            device: Device to use for inference (if None, will auto-detect)
             lab_embeddings_file: Path to lab test embeddings file for V4 verifier
             retriever: Type of retriever/embedding model to use
             retriever_model: Model name for retriever
             min_context_length: Minimum context length to consider valid
             verifier_config: Optional configuration dict for verifier
             debug: Enable debug output
-            llm_client: Optional pre-initialized LLM client. If provided, llm_type, model_type,
-                    cache_dir, temperature, and api_config parameters are ignored.
             use_demographics: Whether to enable demographic extraction and use for lab test analysis
         """
-        # ... [existing initialization code] ...
-
-        self.use_demographics = use_demographics
-
-        # Initialize demographics extractor if needed
-        self.demographics_extractor = None
-        if self.use_demographics and verifier_version == "v4":
-            from utils.demographic import DemographicsExtractor
-
-            self.demographics_extractor = DemographicsExtractor(
-                self.llm_client, debug=debug
-            )
-            if self.debug:
-                print("Initialized demographics extractor for lab test analysis")
         self.verifier_version = verifier_version
         self.min_context_length = min_context_length
         self.debug = debug
+        self.use_demographics = use_demographics
+        self.llm_client = llm_client
 
         # Auto-detect device if not specified
         if device is None:
@@ -99,16 +76,16 @@ class HPOVerifier:
         if embeddings_file is None:
             raise ValueError("embeddings_file is required for phenotype verification")
 
-        # Use provided LLM client or initialize a new one
-        if llm_client is not None:
-            if self.debug:
-                print("Using provided LLM client")
-            self.llm_client = llm_client
-        else:
-            # Initialize LLM client based on parameters
-            self.llm_client = self._initialize_llm_client(
-                llm_type, model_type, device, cache_dir, temperature, api_config
+        # Initialize demographics extractor if needed
+        self.demographics_extractor = None
+        if self.use_demographics and verifier_version == "v4":
+            from rdma.utils.demographic import DemographicsExtractor
+
+            self.demographics_extractor = DemographicsExtractor(
+                self.llm_client, debug=debug
             )
+            if self.debug:
+                print("Initialized demographics extractor for lab test analysis")
 
         # Initialize embedding manager
         self.embedding_manager = self._initialize_embedding_manager(
@@ -126,32 +103,6 @@ class HPOVerifier:
 
         # Prepare verifier index
         self.verifier.prepare_index(self.embedded_documents)
-
-    def _initialize_llm_client(
-        self,
-        llm_type: str,
-        model_type: str,
-        device: str,
-        cache_dir: Optional[str],
-        temperature: float,
-        api_config: Optional[str],
-    ):
-        """Initialize LLM client based on type."""
-        if self.debug:
-            print(f"Initializing {llm_type} LLM client")
-
-        if llm_type == "api":
-            if api_config:
-                return APILLMClient.from_config(api_config)
-            else:
-                return APILLMClient.initialize_from_input()
-        else:  # local
-            return LocalLLMClient(
-                model_type=model_type,
-                device=device,
-                cache_dir=cache_dir,
-                temperature=temperature,
-            )
 
     def _initialize_embedding_manager(self, retriever: str, retriever_model: str):
         """Initialize embedding manager for HPO matching."""
@@ -296,33 +247,25 @@ class HPOVerifier:
             if self.debug:
                 print(f"Extracted demographics: {sample_data}")
 
-        # Verify entities using the appropriate verifier with demographics if available
-        if sample_data and hasattr(self.verifier, "batch_process_with_demographics"):
-            # Use special method if available
-            verified_phenotypes = self.verifier.batch_process_with_demographics(
-                filtered_entities, sample_data
-            )
-        else:
-            # Apply normal verification, possibly with demographics in process_entity
-            verified_phenotypes = []
+        # Process entities individually or as a batch based on verifier version
+        verified_phenotypes = []
+
+        if self.verifier_version == "v4" and sample_data:
+            # Process entities individually for v4 to utilize sample_data
             for entity_data in filtered_entities:
-                # v4 verifier's process_entity method accepts sample_data parameter
-                if self.verifier_version == "v4" and sample_data:
-                    result = self.verifier.process_entity(
-                        entity=entity_data.get("entity", ""),
-                        context=entity_data.get("context", ""),
-                        sample_data=sample_data,
-                    )
-                    if result.get("status") in [
-                        "direct_phenotype",
-                        "implied_phenotype",
-                    ]:
-                        result["context"] = entity_data.get("context", "")
-                        verified_phenotypes.append(result)
-                else:
-                    # Use standard batch_process for other verifiers
-                    verified_phenotypes = self.verifier.batch_process(filtered_entities)
-                    break  # Exit loop as we've processed all at once
+                result = self.verifier.process_entity(
+                    entity=entity_data.get("entity", ""),
+                    context=entity_data.get("context", ""),
+                    sample_data=sample_data,
+                )
+                # Only add valid phenotypes to the results
+                if result.get("status") in ["direct_phenotype", "implied_phenotype"]:
+                    # Make sure context is included in the result
+                    result["context"] = entity_data.get("context", "")
+                    verified_phenotypes.append(result)
+        else:
+            # Use batch processing for other verifiers or when demographics not needed
+            verified_phenotypes = self.verifier.batch_process(filtered_entities)
 
         if self.debug:
             print(
