@@ -16,7 +16,7 @@ To see how to use RDMA, we have provided a jupyter notebook:
     example.ipynb
 
 ## Using the provided annotation UI
-We note that it is possible to use our existing annotation tool locally. Simply, double click or open annotation_tool.html, and you'll be greeted with this interface below:
+We note that it is possible to use our existing annotation tool locally. Simply, double click or open **annotation_tool.html**, and you'll be greeted with this interface below:
 
 ![UI_Interface](figs/AnnotationToolUI.png)
 
