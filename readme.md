@@ -22,7 +22,7 @@ We note that it is possible to use our existing annotation tool locally. Simply,
 
 Simply click the upload button and upload your .json file. 
 
-![Upload Button](figs/Uploadbutton.png)
+![Upload Button](figs/UploadButton.png)
 
 Upload your file.
 
