@@ -35,7 +35,7 @@ Then, you'll be greeted with the annotation display where you can click next, an
 
 Once you're done, hit the green export button in the top right, it will ask to save a corrections .json file. 
 
-![ExportButton](figs/ExportButton.png.png){width="1000" height="500"}
+![ExportButton](figs/ExportButton.png){width="1000" height="500"}
 
 
 Some important notes:
