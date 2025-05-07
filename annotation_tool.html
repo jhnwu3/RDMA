@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,23 +13,33 @@
     .hidden {
       display: none;
     }
+
     .animate-spin {
       animation: spin 1s linear infinite;
     }
+
     @keyframes spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
     }
+
     .whitespace-pre-wrap {
       white-space: pre-wrap;
     }
+
     /* Added styling for disabled button to make it obvious */
     button:disabled {
-        opacity: 0.6;
-        cursor: not-allowed;
+      opacity: 0.6;
+      cursor: not-allowed;
     }
   </style>
 </head>
+
 <body class="flex flex-col h-screen max-h-screen bg-gray-100 text-gray-900">
   <!-- Header -->
   <header class="bg-blue-700 text-white p-4 shadow-md">
@@ -39,13 +50,15 @@
           <i data-lucide="info" class="w-5 h-5"></i>
         </button>
         <div class="relative">
-          <label for="file-upload" class="flex items-center p-2 rounded bg-blue-600 hover:bg-blue-500 cursor-pointer" title="Upload JSON file">
+          <label for="file-upload" class="flex items-center p-2 rounded bg-blue-600 hover:bg-blue-500 cursor-pointer"
+            title="Upload JSON file">
             <i data-lucide="upload" class="w-5 h-5 mr-1"></i>
             <span>Upload</span>
           </label>
           <input id="file-upload" type="file" accept=".json" class="hidden">
         </div>
-        <button id="download-button" class="flex items-center p-2 rounded bg-green-600 hover:bg-green-500" title="Download corrected annotations" disabled>
+        <button id="download-button" class="flex items-center p-2 rounded bg-green-600 hover:bg-green-500"
+          title="Download corrected annotations" disabled>
           <i data-lucide="download" class="w-5 h-5 mr-1"></i>
           <span>Export</span>
         </button>
@@ -59,7 +72,8 @@
       <h2 class="text-xl font-bold mb-4">How to Use This Tool</h2>
       <div class="space-y-3">
         <p><strong>1. Load Data:</strong> Click "Upload" to load a JSON file with flagged entities.</p>
-        <p><strong>2. Review Entities:</strong> For each entity, decide if it's a rare disease by clicking Yes or No.</p>
+        <p><strong>2. Review Entities:</strong> For each entity, decide if it's a rare disease by clicking Yes or No.
+        </p>
         <p><strong>3. Navigate:</strong> Use the arrow buttons to move between entities.</p>
         <p><strong>4. Filter:</strong> Use the dropdown to filter by entity category.</p>
         <p><strong>5. Export:</strong> Click "Export" to download your decisions as a JSON file.</p>
@@ -88,7 +102,8 @@
           Please upload a JSON file containing flagged entities for review.
           The file should contain the output from the supervisor script.
         </p>
-        <label for="initial-file-upload" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-500 cursor-pointer">
+        <label for="initial-file-upload"
+          class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-500 cursor-pointer">
           <i data-lucide="upload" class="w-4.5 h-4.5 mr-2"></i>
           <span>Upload JSON File</span>
         </label>
@@ -151,11 +166,13 @@
             Showing entity 0 of 0
           </p>
           <div class="flex justify-between">
-            <button id="prev-button" class="flex items-center p-2 border rounded hover:bg-gray-100 disabled:opacity-50" disabled>
+            <button id="prev-button" class="flex items-center p-2 border rounded hover:bg-gray-100 disabled:opacity-50"
+              disabled>
               <i data-lucide="chevron-left" class="w-5 h-5 mr-1"></i>
               <span>Previous</span>
             </button>
-            <button id="next-button" class="flex items-center p-2 border rounded hover:bg-gray-100 disabled:opacity-50" disabled>
+            <button id="next-button" class="flex items-center p-2 border rounded hover:bg-gray-100 disabled:opacity-50"
+              disabled>
               <span>Next</span>
               <i data-lucide="chevron-right" class="w-5 h-5 ml-1"></i>
             </button>
@@ -250,13 +267,15 @@
 
             <!-- Unreveiwed State -->
             <div id="decision-buttons" class="flex space-x-4">
-              <button id="yes-button" class="flex-1 flex justify-center items-center px-4 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">
+              <button id="yes-button"
+                class="flex-1 flex justify-center items-center px-4 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">
                 <i data-lucide="check" class="w-6 h-6 mr-2"></i>
                 <span class="font-bold">YES</span>
                 <span class="ml-2">It's a rare disease</span>
               </button>
 
-              <button id="no-button" class="flex-1 flex justify-center items-center px-4 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition">
+              <button id="no-button"
+                class="flex-1 flex justify-center items-center px-4 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition">
                 <i data-lucide="x" class="w-6 h-6 mr-2"></i>
                 <span class="font-bold">NO</span>
                 <span class="ml-2">It's not a rare disease</span>
@@ -274,6 +293,7 @@
   </footer>
 
   <script>
+    // Application state
     // Application state
     const state = {
       entities: [],
@@ -383,10 +403,9 @@
 
     // Update the state of the download button
     function updateDownloadButtonState() {
-         const hasDecisions = Object.keys(state.decisions).length > 0;
-         elements.downloadButton.disabled = !hasDecisions;
+      const hasDecisions = Object.keys(state.decisions).length > 0;
+      elements.downloadButton.disabled = !hasDecisions;
     }
-
 
     // Apply filtering and update UI
     function applyFilters() {
@@ -397,13 +416,12 @@
 
         // Adjust index if current index is out of bounds after filtering
         if (state.currentIndex >= state.filteredEntities.length) {
-             state.currentIndex = state.filteredEntities.length > 0 ? state.filteredEntities.length - 1 : 0;
+          state.currentIndex = state.filteredEntities.length > 0 ? state.filteredEntities.length - 1 : 0;
         }
-         // Ensure index is not negative if filtering results in empty array
-         if (state.currentIndex < 0 && state.filteredEntities.length > 0) {
-            state.currentIndex = 0;
-         }
-
+        // Ensure index is not negative if filtering results in empty array
+        if (state.currentIndex < 0 && state.filteredEntities.length > 0) {
+          state.currentIndex = 0;
+        }
 
         // Update navigation counter
         elements.navigationCounter.textContent = `Showing entity ${state.filteredEntities.length > 0 ? state.currentIndex + 1 : 0} of ${state.filteredEntities.length}`;
@@ -426,56 +444,120 @@
     // Generate a unique key for each entity decision
     // Using JSON.stringify ensures a consistent key even if properties order changes
     function getEntityKey(entity) {
-       if (!entity) return null;
-       // Include minimal, essential identifying properties
-       return JSON.stringify({
-           entity: entity.entity || '',
-           document_id: entity.document_id || '',
-           orpha_code: entity.orpha_code || '' // Include if available and relevant for uniqueness
-       });
+      if (!entity) return null;
+
+      // Include context for uniqueness - create a context fingerprint to avoid excessively long keys
+      // Using a substring to ensure decent uniqueness without massive keys
+      const contextFingerprint = entity.context ? entity.context.substring(0, 100) : '';
+
+      // Return key with context included to properly handle duplicates with different contexts
+      return JSON.stringify({
+        entity: entity.entity || '',
+        document_id: entity.document_id || '',
+        orpha_code: entity.orpha_code || '',
+        context_fingerprint: contextFingerprint
+      });
     }
 
-
+    // Extract detailed entities from a supervisor output file structure
     // Extract detailed entities from a supervisor output file structure
     function extractDetailedEntities(data) {
       const flaggedEntities = data.summary?.flagged_entities || [];
       const detailedEntities = [];
 
+      // Track already added entity-context combinations to avoid duplicates
+      const addedEntityContextPairs = new Set();
+
       // Process each flagged entity
       for (const summaryEntity of flaggedEntities) {
-        // Find the corresponding detailed entry in the results section
+        // Find the corresponding detailed entries in the results section
         const category = summaryEntity.category;
         const docId = summaryEntity.document_id;
         const entityName = summaryEntity.entity;
 
-        let detailedEntity = null;
-
         if (docId && category && entityName && data.results && data.results[category]) {
-          // Find detailed entity data
-          detailedEntity = data.results[category].find(result =>
-             result.document_id === docId && result.entity === entityName
+          // Find ALL matching detailed entity data (not just the first one)
+          const matchingEntities = data.results[category].filter(result =>
+            result.document_id === docId && result.entity === entityName
           );
+
+          if (matchingEntities.length > 0) {
+            // Process each matching entity with its unique context
+            for (const detailedEntity of matchingEntities) {
+              const context = detailedEntity?.context || '';
+
+              // Create a unique key for this entity-context pair
+              const entityContextKey = `${entityName}|${docId}|${context.substring(0, 50)}`;
+
+              // Skip if we've already added this entity-context pair
+              if (addedEntityContextPairs.has(entityContextKey)) {
+                continue;
+              }
+
+              // Mark this entity-context pair as added
+              addedEntityContextPairs.add(entityContextKey);
+
+              // Combine summary and detailed info
+              const entityInfo = {
+                entity: entityName,
+                document_id: docId,
+                orpha_code: summaryEntity.orpha_code || detailedEntity?.orpha_id || '',
+                category: category,
+                explanation: summaryEntity.explanation || '',
+                context: context,
+                is_rare_disease: detailedEntity?.is_rare_disease || false,
+                top_candidate_name: detailedEntity?.orpha_candidates?.[0]?.name || '',
+                top_candidate_id: detailedEntity?.orpha_candidates?.[0]?.id || '',
+                top_candidate_similarity: detailedEntity?.orpha_candidates?.[0]?.similarity || 0
+              };
+
+              detailedEntities.push(entityInfo);
+            }
+          } else {
+            // No matching detailed entity found
+            // Use the same deduplication check here too
+            const entityContextKey = `${entityName}|${docId}|`;
+
+            if (!addedEntityContextPairs.has(entityContextKey)) {
+              addedEntityContextPairs.add(entityContextKey);
+
+              const entityInfo = {
+                entity: entityName,
+                document_id: docId,
+                orpha_code: summaryEntity.orpha_code || '',
+                category: category,
+                explanation: summaryEntity.explanation || '',
+                context: '',
+                is_rare_disease: false
+              };
+
+              detailedEntities.push(entityInfo);
+            }
+          }
+        } else {
+          // Missing essential data
+          // Still deduplicate
+          const entityContextKey = `${entityName || ''}|${docId || ''}|`;
+
+          if (!addedEntityContextPairs.has(entityContextKey)) {
+            addedEntityContextPairs.add(entityContextKey);
+
+            const entityInfo = {
+              entity: entityName || '',
+              document_id: docId || '',
+              orpha_code: summaryEntity.orpha_code || '',
+              category: category || '',
+              explanation: summaryEntity.explanation || '',
+              context: '',
+              is_rare_disease: false
+            };
+
+            detailedEntities.push(entityInfo);
+          }
         }
-
-        // Combine summary and detailed info
-        const entityInfo = {
-          entity: entityName,
-          document_id: docId,
-          orpha_code: summaryEntity.orpha_code || detailedEntity?.orpha_code || '', // Prefer summary code if available
-          category: category,
-          explanation: summaryEntity.explanation || '',
-          // Add detailed info if found
-          context: detailedEntity?.context || '',
-          is_rare_disease: detailedEntity?.is_rare_disease || false, // Default to false if not found
-          // Add top candidate if available
-          top_candidate_name: detailedEntity?.orpha_candidates?.[0]?.name || '',
-          top_candidate_id: detailedEntity?.orpha_candidates?.[0]?.id || '',
-          top_candidate_similarity: detailedEntity?.orpha_candidates?.[0]?.similarity || 0
-        };
-
-        detailedEntities.push(entityInfo);
       }
 
+      console.log(`After deduplication: ${detailedEntities.length} unique entities extracted`);
       return detailedEntities;
     }
 
@@ -505,22 +587,22 @@
           if (data.summary?.flagged_entities && data.results) {
             // Assume supervisor output file
             extractedEntities = extractDetailedEntities(data);
-             console.log(`Extracted ${extractedEntities.length} entities from supervisor format.`);
+            console.log(`Extracted ${extractedEntities.length} entities from supervisor format.`);
           } else if (Array.isArray(data)) {
             // Assume direct array of entities (might need structure validation)
-             console.warn("Uploaded file is a direct array. Ensure it matches the expected entity structure.");
-             // Basic structure check: does the first item look like an entity?
-             if (data.length > 0 && data[0].entity && data[0].document_id) {
-                 extractedEntities = data;
-             } else {
-                 throw new Error("Uploaded array structure does not match expected entity format.");
-             }
+            console.warn("Uploaded file is a direct array. Ensure it matches the expected entity structure.");
+            // Basic structure check: does the first item look like an entity?
+            if (data.length > 0 && data[0].entity && data[0].document_id) {
+              extractedEntities = data;
+            } else {
+              throw new Error("Uploaded array structure does not match expected entity format.");
+            }
           } else {
             throw new Error('Could not find flagged entities in the uploaded file. Ensure it\'s a valid supervisor output JSON.');
           }
 
           if (extractedEntities.length === 0) {
-              alert('No entities found in the uploaded file.');
+            alert('No entities found in the uploaded file.');
           }
 
           state.entities = extractedEntities;
@@ -528,6 +610,21 @@
 
           // Reset filter and apply it to populate filteredEntities and update UI
           applyFilters(); // This will call updateStats and updateUIState internally
+
+          // For debugging - show how many entities we found with the same name but different contexts
+          const entityNameCounts = {};
+          state.entities.forEach(entity => {
+            const name = entity.entity;
+            entityNameCounts[name] = (entityNameCounts[name] || 0) + 1;
+          });
+
+          const duplicateNames = Object.entries(entityNameCounts)
+            .filter(([name, count]) => count > 1)
+            .map(([name, count]) => `${name} (${count})`);
+
+          if (duplicateNames.length > 0) {
+            console.log(`Found ${duplicateNames.length} entity names with multiple contexts: ${duplicateNames.join(', ')}`);
+          }
 
         } catch (error) {
           console.error('Error loading or parsing file:', error);
@@ -539,8 +636,8 @@
           state.decisions = {};
           applyFilters(); // Reset UI to empty state
         } finally {
-           // Clear the file input value so the same file can be re-uploaded
-           event.target.value = null;
+          // Clear the file input value so the same file can be re-uploaded
+          event.target.value = null;
         }
       };
 
@@ -553,8 +650,8 @@
         state.currentIndex = 0;
         state.decisions = {};
         applyFilters(); // Reset UI to empty state
-         // Clear the file input value
-         event.target.value = null;
+        // Clear the file input value
+        event.target.value = null;
       };
 
       reader.readAsText(file);
@@ -585,22 +682,21 @@
 
       const currentEntity = state.filteredEntities[state.currentIndex];
       if (!currentEntity) {
-          console.error("Attempted to display entity at invalid index:", state.currentIndex, state.filteredEntities);
-          // Attempt to recover by going to the first entity if possible
-          if(state.filteredEntities.length > 0) {
-              state.currentIndex = 0;
-              displayCurrentEntity(); // Try again with index 0
-          }
-          return;
+        console.error("Attempted to display entity at invalid index:", state.currentIndex, state.filteredEntities);
+        // Attempt to recover by going to the first entity if possible
+        if (state.filteredEntities.length > 0) {
+          state.currentIndex = 0;
+          displayCurrentEntity(); // Try again with index 0
+        }
+        return;
       }
 
       // Update category badge
       elements.entityCategory.textContent = currentEntity.category?.replace('_', ' ') || 'Category';
-      elements.entityCategory.className = `px-3 py-1 rounded-full text-sm font-medium ${
-        currentEntity.category === 'false_positives' ? 'bg-orange-100 text-orange-800' :
+      elements.entityCategory.className = `px-3 py-1 rounded-full text-sm font-medium ${currentEntity.category === 'false_positives' ? 'bg-orange-100 text-orange-800' :
         currentEntity.category === 'false_negatives' ? 'bg-purple-100 text-purple-800' :
-        'bg-blue-100 text-blue-800' // Assuming true_positives or others
-      }`;
+          'bg-blue-100 text-blue-800' // Assuming true_positives or others
+        }`;
 
       // Basic information
       elements.entityName.textContent = currentEntity.entity || '';
@@ -637,7 +733,7 @@
           }
         });
       } else if (contextText) {
-           contextDiv.textContent = contextText; // Just display context if no entity name to highlight
+        contextDiv.textContent = contextText; // Just display context if no entity name to highlight
       }
       else {
         contextDiv.innerHTML = '<span class="text-gray-500 italic">No context available</span>';
@@ -657,16 +753,15 @@
         const reviewDecision = decision.is_rare_disease;
 
         // Update review result display
-        elements.reviewResult.className = `flex items-center p-3 rounded-lg ${
-          reviewDecision ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
-        }`;
+        elements.reviewResult.className = `flex items-center p-3 rounded-lg ${reviewDecision ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
+          }`;
 
         // Update review icon
         elements.reviewIcon.setAttribute('data-lucide', reviewDecision ? 'check' : 'x');
         // Re-create icon dynamically
-         if (typeof lucide !== 'undefined') {
-            lucide.createIcons({ attrs: { width: 24, height: 24, class: 'mr-2' }, container: elements.reviewResult });
-         }
+        if (typeof lucide !== 'undefined') {
+          lucide.createIcons({ attrs: { width: 24, height: 24, class: 'mr-2' }, container: elements.reviewResult });
+        }
 
 
         // Update review text
@@ -686,14 +781,14 @@
     function makeDecision(isRareDisease) {
       const currentEntity = state.filteredEntities[state.currentIndex];
       if (!currentEntity) {
-          console.error("Cannot make decision, no current entity.");
-          return;
+        console.error("Cannot make decision, no current entity.");
+        return;
       }
 
       const entityKey = getEntityKey(currentEntity);
       if (!entityKey) {
-           console.error("Cannot make decision, failed to generate entity key.");
-           return;
+        console.error("Cannot make decision, failed to generate entity key.");
+        return;
       }
 
 
@@ -704,7 +799,9 @@
         orpha_code: currentEntity.orpha_code,
         category: currentEntity.category,
         is_rare_disease: isRareDisease,
-        decision_timestamp: new Date().toISOString()
+        decision_timestamp: new Date().toISOString(),
+        // Store context to preserve it in the export
+        context: currentEntity.context || ''
       };
 
       // Update UI and state
@@ -715,8 +812,8 @@
       if (state.filteredEntities.length > 0 && state.currentIndex < state.filteredEntities.length - 1) {
         goToNext();
       } else if (state.filteredEntities.length > 0 && state.currentIndex === state.filteredEntities.length - 1) {
-         // If it's the last one, just ensure navigation is disabled
-         elements.nextButton.disabled = true;
+        // If it's the last one, just ensure navigation is disabled
+        elements.nextButton.disabled = true;
       }
     }
 
@@ -736,7 +833,7 @@
       if (state.filteredEntities.length > 0 && state.currentIndex < state.filteredEntities.length - 1) {
         state.currentIndex += 1;
         displayCurrentEntity();
-         // Update button states directly after changing index
+        // Update button states directly after changing index
         elements.prevButton.disabled = state.currentIndex <= 0;
         elements.nextButton.disabled = state.currentIndex >= state.filteredEntities.length - 1;
         elements.navigationCounter.textContent = `Showing entity ${state.currentIndex + 1} of ${state.filteredEntities.length}`;
@@ -745,59 +842,59 @@
 
     // Handle download of corrected annotations
     function downloadCorrectedAnnotations() {
-        console.log("Attempting to download corrected annotations...");
+      console.log("Attempting to download corrected annotations...");
 
-        const decisions = state.decisions || {};
-        const decisionCount = Object.keys(decisions).length;
+      const decisions = state.decisions || {};
+      const decisionCount = Object.keys(decisions).length;
 
-        if (decisionCount === 0) {
-            alert('No annotations have been reviewed yet. Please review at least one entity before exporting.');
-            console.warn("Download attempted with no decisions.");
-            return;
-        }
+      if (decisionCount === 0) {
+        alert('No annotations have been reviewed yet. Please review at least one entity before exporting.');
+        console.warn("Download attempted with no decisions.");
+        return;
+      }
 
-        try {
-            // Prepare export data
-            const output = {
-                metadata: {
-                    timestamp: new Date().toISOString(),
-                    total_entities_in_file: state.entities.length,
-                    reviewed_entities: decisionCount
-                },
-                corrected_annotations: Object.values(decisions)
-            };
+      try {
+        // Prepare export data
+        const output = {
+          metadata: {
+            timestamp: new Date().toISOString(),
+            total_entities_in_file: state.entities.length,
+            reviewed_entities: decisionCount
+          },
+          corrected_annotations: Object.values(decisions)
+        };
 
-            // Convert to JSON with pretty formatting
-            const jsonData = JSON.stringify(output, null, 2);
+        // Convert to JSON with pretty formatting
+        const jsonData = JSON.stringify(output, null, 2);
 
-            // Create a Blob
-            const blob = new Blob([jsonData], { type: 'application/json' });
+        // Create a Blob
+        const blob = new Blob([jsonData], { type: 'application/json' });
 
-            // Create a temporary URL for the blob
-            const url = URL.createObjectURL(blob);
+        // Create a temporary URL for the blob
+        const url = URL.createObjectURL(blob);
 
-            // Create a temporary link element
-            const link = document.createElement('a');
-            link.href = url;
-            link.download = 'rare_disease_reviews.json'; // Set desired file name
-            link.style.display = 'none'; // Hide the link
+        // Create a temporary link element
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'rare_disease_reviews.json'; // Set desired file name
+        link.style.display = 'none'; // Hide the link
 
-            // Append the link to the body, click it, and remove it
-            document.body.appendChild(link);
-            link.click();
+        // Append the link to the body, click it, and remove it
+        document.body.appendChild(link);
+        link.click();
 
-            // Clean up the temporary URL and link
-            setTimeout(() => {
-                document.body.removeChild(link);
-                URL.revokeObjectURL(url);
-                console.log("Download initiated successfully.");
-            }, 100); // Small delay to ensure click registers
+        // Clean up the temporary URL and link
+        setTimeout(() => {
+          document.body.removeChild(link);
+          URL.revokeObjectURL(url);
+          console.log("Download initiated successfully.");
+        }, 100); // Small delay to ensure click registers
 
 
-        } catch (error) {
-            console.error("Export error:", error);
-            alert(`Failed to export annotations: ${error.message}\n\nPlease try again or check the console for details.`);
-        }
+      } catch (error) {
+        console.error("Export error:", error);
+        alert(`Failed to export annotations: ${error.message}\n\nPlease try again or check the console for details.`);
+      }
     }
 
     // --- Event Listeners ---
@@ -805,62 +902,63 @@
     // Use DOMContentLoaded to ensure elements exist before attaching listeners
     document.addEventListener('DOMContentLoaded', () => {
 
-        // Initialize UI state (shows empty state initially)
-        updateUIState();
-        updateDownloadButtonState(); // Set initial download button state
+      // Initialize UI state (shows empty state initially)
+      updateUIState();
+      updateDownloadButtonState(); // Set initial download button state
 
-        // Info modal
-        elements.infoButton.addEventListener('click', () => {
-          elements.infoModal.classList.remove('hidden');
-        });
-        elements.closeInfoButton.addEventListener('click', () => {
+      // Info modal
+      elements.infoButton.addEventListener('click', () => {
+        elements.infoModal.classList.remove('hidden');
+      });
+      elements.closeInfoButton.addEventListener('click', () => {
+        elements.infoModal.classList.add('hidden');
+      });
+      // Close modal if clicked outside
+      elements.infoModal.addEventListener('click', (e) => {
+        if (e.target === elements.infoModal) {
           elements.infoModal.classList.add('hidden');
-        });
-        // Close modal if clicked outside
-        elements.infoModal.addEventListener('click', (e) => {
-            if (e.target === elements.infoModal) {
-                 elements.infoModal.classList.add('hidden');
-            }
-        });
+        }
+      });
 
 
-        // File Upload
-        elements.fileUpload.addEventListener('change', handleFileUpload);
-        elements.initialFileUpload.addEventListener('change', handleFileUpload); // Listener for the empty state upload
+      // File Upload
+      elements.fileUpload.addEventListener('change', handleFileUpload);
+      elements.initialFileUpload.addEventListener('change', handleFileUpload); // Listener for the empty state upload
 
-        // Filter
-        elements.categoryFilter.addEventListener('change', (e) => {
-          state.filter = e.target.value;
-          applyFilters();
-        });
+      // Filter
+      elements.categoryFilter.addEventListener('change', (e) => {
+        state.filter = e.target.value;
+        applyFilters();
+      });
 
-        // Navigation
-        elements.prevButton.addEventListener('click', goToPrevious);
-        elements.nextButton.addEventListener('click', goToNext);
+      // Navigation
+      elements.prevButton.addEventListener('click', goToPrevious);
+      elements.nextButton.addEventListener('click', goToNext);
 
-        // Decision Buttons
-        elements.yesButton.addEventListener('click', () => makeDecision(true));
-        elements.noButton.addEventListener('click', () => makeDecision(false));
-        elements.changeDecisionButton.addEventListener('click', () => {
-          const currentEntity = state.filteredEntities[state.currentIndex];
-          if (!currentEntity) return; // Should not happen if button is visible
+      // Decision Buttons
+      elements.yesButton.addEventListener('click', () => makeDecision(true));
+      elements.noButton.addEventListener('click', () => makeDecision(false));
+      elements.changeDecisionButton.addEventListener('click', () => {
+        const currentEntity = state.filteredEntities[state.currentIndex];
+        if (!currentEntity) return; // Should not happen if button is visible
 
-          const entityKey = getEntityKey(currentEntity);
-          const currentDecision = state.decisions[entityKey]?.is_rare_disease; // Get the current stored decision
+        const entityKey = getEntityKey(currentEntity);
+        const currentDecision = state.decisions[entityKey]?.is_rare_disease; // Get the current stored decision
 
-          // Toggle decision: if it was true, make it false; if false or undefined, make it true
-          makeDecision(!currentDecision);
-        });
+        // Toggle decision: if it was true, make it false; if false or undefined, make it true
+        makeDecision(!currentDecision);
+      });
 
-        // Download Button
-        // Attach the download function directly to the button click
-        elements.downloadButton.addEventListener('click', downloadCorrectedAnnotations);
+      // Download Button
+      // Attach the download function directly to the button click
+      elements.downloadButton.addEventListener('click', downloadCorrectedAnnotations);
 
-         // Initial update of navigation buttons and stats
-         applyFilters(); // This calls updateStats and displayCurrentEntity
+      // Initial update of navigation buttons and stats
+      applyFilters(); // This calls updateStats and displayCurrentEntity
     });
 
 
   </script>
 </body>
+
 </html>
