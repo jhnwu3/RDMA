@@ -1,7 +1,13 @@
 # RDMA - Rare Disease Mining Agents
 
 
-To start, please:
+For people who know how to use Git:
+
+    git clone https://github.com/jhnwu3/RDMA.git
+
+For others, on GitHub, there's a "Download Zip" button on the Green "Code" Button. You'll need to unzip manually yourself.
+
+To get the prerequisite dependencies, please:
     
     pip install -r requirements.txt
 
@@ -9,7 +15,6 @@ To start, please:
 Download these prerequisite files for the embedded documents [here.](https://drive.google.com/file/d/16wpcexHf2KDZ4w2qBHrTp8dn1oa59ABM/view?usp=sharing)
 
 Make sure to unzip the files and place them in a location where you can reference their pathing.
-
 
 To see how to use RDMA, we have provided a jupyter notebook:
 
