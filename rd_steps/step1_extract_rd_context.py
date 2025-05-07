@@ -18,11 +18,11 @@ parent_dir = os.path.dirname(current_dir)
 sys.path.insert(0, parent_dir)
 
 # Import project modules
-from rdrag.entity import LLMRDExtractor, BaseRDExtractor, RetrievalEnhancedRDExtractor,MultiIterativeRDExtractor,IterativeLLMRDExtractor
-from utils.embedding import EmbeddingsManager
-from hporag.context import ContextExtractor
-from utils.llm_client import LocalLLMClient, APILLMClient
-from utils.setup import setup_device
+from rdma.rdrag.entity import LLMRDExtractor, BaseRDExtractor, RetrievalEnhancedRDExtractor,MultiIterativeRDExtractor,IterativeLLMRDExtractor
+from rdma.utils.embedding import EmbeddingsManager
+from rdma.hporag.context import ContextExtractor
+from rdma.utils.llm_client import LocalLLMClient, APILLMClient
+from rdma.utils.setup import setup_device
 
 def timestamp_print(message: str) -> None:
     """Print message with timestamp."""

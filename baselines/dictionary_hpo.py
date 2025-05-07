@@ -439,7 +439,7 @@ def process_cases(
     pending_cases = {
         case_id: case_data
         for case_id, case_data in cases.items()
-        if case_id not in results or not results[case_id].get("hpo_codes")
+        if case_id not in results or not results[case_id].get("matched_phenotypes")
     }
 
     timestamp_print(
@@ -449,7 +449,6 @@ def process_cases(
     # Convert to list for progress tracking
     case_items = list(pending_cases.items())
 
-    # Use tqdm for progress tracking
     for i, (case_id, case_data) in enumerate(tqdm(case_items, desc="Processing cases")):
         try:
             if args.debug:
@@ -459,23 +458,39 @@ def process_cases(
 
             clinical_text = case_data["clinical_text"]
 
-            # Extract HPO codes
-            hpo_codes = process_clinical_text(
+            # Extract raw HPO matches
+            raw_matches = process_clinical_text(
                 clinical_text,
                 embedding_manager,
                 embedded_documents,
                 args,
             )
 
-            # Store results
+            # Map raw output into enriched matched_phenotypes structure
+            matched_phenotypes = []
+            for match in raw_matches:
+                matched_phenotypes.append(
+                    {
+                        "status": match.get("status", "direct_phenotype"),
+                        "phenotype": match.get("entity"),
+                        "original_entity": match.get("entity"),
+                        "confidence": match.get("confidence", 0.9),
+                        "method": match.get("match_method", "retrieval"),
+                        "context": match.get("context", clinical_text),
+                        "hpo_term": match.get("hpo_code"),
+                        "hp_id": match.get("hpo_code"),
+                        "match_method": match.get("match_method", "retrieval"),
+                        "confidence_score": match.get("confidence_score", 1.0),
+                        "top_candidates": match.get("top_candidates", []),
+                    }
+                )
+
+            # Store results in new output format
             results[case_id] = {
-                "clinical_text": clinical_text,
-                "metadata": case_data.get("metadata", {}),
-                "hpo_codes": hpo_codes,
-                "stats": {"hpo_codes_count": len(hpo_codes)},
+                "original_text": clinical_text,
+                "matched_phenotypes": matched_phenotypes,
             }
 
-            # Save checkpoint if interval reached
             checkpoint_counter += 1
             if checkpoint_counter >= args.checkpoint_interval:
                 save_checkpoint(results, args.output_file, i + 1)
@@ -486,11 +501,9 @@ def process_cases(
             if args.debug:
                 traceback.print_exc()
 
-            # Still add the case to results but mark as failed
             results[case_id] = {
-                "clinical_text": case_data.get("clinical_text", ""),
-                "metadata": case_data.get("metadata", {}),
-                "hpo_codes": [],
+                "original_text": case_data.get("clinical_text", ""),
+                "matched_phenotypes": [],
                 "error": str(e),
             }
 
