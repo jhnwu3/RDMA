@@ -18,24 +18,24 @@ To see how to use RDMA, we have provided a jupyter notebook:
 ## Using the provided annotation UI
 We note that it is possible to use our existing annotation tool locally. Simply, double click or open annotation_tool.html, and you'll be greeted with this interface below:
 
-![UI_Interface](figs/AnnotationToolUI.png){width="1000" height="500"}
+![UI_Interface](figs/AnnotationToolUI.png)
 
 Simply click the upload button and upload your .json file. 
 
-![Upload Button](figs/Uploadbutton.png){width="1000" height="500"}
+![Upload Button](figs/Uploadbutton.png)
 
 Upload your file.
 
-![Upload Button Clicked](figs/UploadButtonAnnotation.drawio.png){width="1000" height="500"}
+![Upload Button Clicked](figs/UploadButtonAnnotation.drawio.png)
 
 
 Then, you'll be greeted with the annotation display where you can click next, and declare whether or not an entity is a rare disease or not.
 
-![Annotating](figs/AnnotatingUI.png){width="1000" height="500"}
+![Annotating](figs/AnnotatingUI.png)
 
 Once you're done, hit the green export button in the top right, it will ask to save a corrections .json file. 
 
-![ExportButton](figs/ExportButton.png){width="1000" height="500"}
+![ExportButton](figs/ExportButton.png)
 
 
 Some important notes:
