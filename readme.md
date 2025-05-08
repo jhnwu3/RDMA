@@ -45,4 +45,4 @@ Once you're done, hit the green export button in the top right, it will ask to s
 
 Some important notes:
 
-**Do not refresh the page or you will lose all of your progress. Do not exist on accident. There's no database or backend that's tracking your annotations.**
+**Do not refresh the page or you will lose all of your progress. Do not exit on accident. There's no database or backend that's tracking your annotations.**
