@@ -1,0 +1,4138 @@
+{
+  "287": {
+    "note_details": {
+      "subject_id": "5039",
+      "hadm_id": "198624.0",
+      "category": "Discharge summary",
+      "chartdate": "2130-12-06",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "sick sinus syndrome",
+        "umls_with_desc": "C0037052 Sick Sinus Syndrome",
+        "ordo_with_desc": "Orphanet_166282  Familial sick sinus syndrome",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "869": {
+    "note_details": {
+      "subject_id": "41795",
+      "hadm_id": "138132.0",
+      "category": "Discharge summary",
+      "chartdate": "2145-07-20",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "legionella",
+        "umls_with_desc": "C0023241 Legionella",
+        "ordo_with_desc": "Orphanet_549  Legionellosis",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "1208": {
+    "note_details": {
+      "subject_id": "9936",
+      "hadm_id": "147105.0",
+      "category": "Discharge summary",
+      "chartdate": "2102-11-07",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "nocardiosis",
+        "umls_with_desc": "C0028242 Nocardioses",
+        "ordo_with_desc": "Orphanet_31204  Nocardiosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Discharge_Diagnosis",
+        "semehr_label": 1
+      },
+      {
+        "mention": "nocardiosis",
+        "umls_with_desc": "C0028242 Nocardioses",
+        "ordo_with_desc": "Orphanet_31204  Nocardiosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "950": {
+    "note_details": {
+      "subject_id": "70642",
+      "hadm_id": "119768.0",
+      "category": "Discharge summary",
+      "chartdate": "2151-06-01",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "retinitis pigmentosa",
+        "umls_with_desc": "C0035334 Cone Rod Dystrophy",
+        "ordo_with_desc": "Orphanet_791  Retinitis pigmentosa",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "977": {
+    "note_details": {
+      "subject_id": "71709",
+      "hadm_id": "164940.0",
+      "category": "Discharge summary",
+      "chartdate": "2137-04-25",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "rheumatic fever",
+        "umls_with_desc": "C0035436 Rheumatic Fever",
+        "ordo_with_desc": "Orphanet_3099  Rheumatic fever",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "1552": {
+    "note_details": {
+      "subject_id": "12026",
+      "hadm_id": "153758.0",
+      "category": "Discharge summary",
+      "chartdate": "2128-01-05",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "HIT",
+        "umls_with_desc": "C0272285 HIT",
+        "ordo_with_desc": "Orphanet_3325  Heparin-induced thrombocytopenia",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "HIT",
+        "umls_with_desc": "C0272285 HIT",
+        "ordo_with_desc": "Orphanet_3325  Heparin-induced thrombocytopenia",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "1790": {
+    "note_details": {
+      "subject_id": "13330",
+      "hadm_id": "177542.0",
+      "category": "Discharge summary",
+      "chartdate": "2105-08-12",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "tracheobronchomalacia",
+        "umls_with_desc": "C0340231 Tracheobronchomalacia",
+        "ordo_with_desc": "Orphanet_411501  Williams-Campbell syndrome",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_Discharge_Studies",
+        "semehr_label": 1
+      },
+      {
+        "mention": "tracheobronchomalacia",
+        "umls_with_desc": "C0340231 Tracheobronchomalacia",
+        "ordo_with_desc": "Orphanet_411501  Williams-Campbell syndrome",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "2452": {
+    "note_details": {
+      "subject_id": "11341",
+      "hadm_id": "137194.0",
+      "category": "Discharge summary",
+      "chartdate": "2144-05-04",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "sarcoidosis",
+        "umls_with_desc": "C0036202 Sarcoid NOS",
+        "ordo_with_desc": "Orphanet_797  Sarcoidosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1
+      },
+      {
+        "mention": "sarcoidosis",
+        "umls_with_desc": "C0036202 Sarcoid NOS",
+        "ordo_with_desc": "Orphanet_797  Sarcoidosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1
+      },
+      {
+        "mention": "sarcoidosis",
+        "umls_with_desc": "C0036202 Sarcoid NOS",
+        "ordo_with_desc": "Orphanet_797  Sarcoidosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "basic",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "2541": {
+    "note_details": {
+      "subject_id": "4787",
+      "hadm_id": "165271.0",
+      "category": "Discharge summary",
+      "chartdate": "2125-09-17",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "heparin induced thrombocytopenia",
+        "umls_with_desc": "C0272285 HIT",
+        "ordo_with_desc": "Orphanet_3325  Heparin-induced thrombocytopenia",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "3390": {
+    "note_details": {
+      "subject_id": "509",
+      "hadm_id": "161218.0",
+      "category": "Discharge summary",
+      "chartdate": "2104-05-19",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "ALS",
+        "umls_with_desc": "C0002736 GEHRIGS DIS",
+        "ordo_with_desc": "Orphanet_803  Amyotrophic lateral sclerosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Discharge_Diagnosis",
+        "semehr_label": 1
+      },
+      {
+        "mention": "ALS",
+        "umls_with_desc": "C0002736 GEHRIGS DIS",
+        "ordo_with_desc": "Orphanet_803  Amyotrophic lateral sclerosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1
+      },
+      {
+        "mention": "ALS",
+        "umls_with_desc": "C0002736 GEHRIGS DIS",
+        "ordo_with_desc": "Orphanet_803  Amyotrophic lateral sclerosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "ALS",
+        "umls_with_desc": "C0002736 GEHRIGS DIS",
+        "ordo_with_desc": "Orphanet_803  Amyotrophic lateral sclerosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "ALS",
+        "umls_with_desc": "C0002736 GEHRIGS DIS",
+        "ordo_with_desc": "Orphanet_803  Amyotrophic lateral sclerosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "ALS",
+        "umls_with_desc": "C0002736 GEHRIGS DIS",
+        "ordo_with_desc": "Orphanet_803  Amyotrophic lateral sclerosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "ALS",
+        "umls_with_desc": "C0002736 GEHRIGS DIS",
+        "ordo_with_desc": "Orphanet_803  Amyotrophic lateral sclerosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Present_Illness",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "4043": {
+    "note_details": {
+      "subject_id": "27247",
+      "hadm_id": "124530.0",
+      "category": "Discharge summary",
+      "chartdate": "2118-03-09",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "seizure disorder",
+        "umls_with_desc": "C0014544 Epilepsy",
+        "ordo_with_desc": "Orphanet_101998  Rare epilepsy",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1
+      },
+      {
+        "mention": "seizure disorder",
+        "umls_with_desc": "C0014544 Epilepsy",
+        "ordo_with_desc": "Orphanet_101998  Rare epilepsy",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "Social_History",
+        "semehr_label": 1
+      },
+      {
+        "mention": "epilepsy",
+        "umls_with_desc": "C0014544 Epilepsy",
+        "ordo_with_desc": "Orphanet_101998  Rare epilepsy",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "4806": {
+    "note_details": {
+      "subject_id": "94962",
+      "hadm_id": "164132.0",
+      "category": "Discharge summary",
+      "chartdate": "2144-03-21",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "rheumatic fever",
+        "umls_with_desc": "C0035436 Rheumatic Fever",
+        "ordo_with_desc": "Orphanet_3099  Rheumatic fever",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Discharge_Diagnosis",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "4938": {
+    "note_details": {
+      "subject_id": "4113",
+      "hadm_id": "103203.0",
+      "category": "Discharge summary",
+      "chartdate": "2149-10-20",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "sarcoid",
+        "umls_with_desc": "C0036202 Sarcoid NOS",
+        "ordo_with_desc": "Orphanet_797  Sarcoidosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1
+      },
+      {
+        "mention": "legionella",
+        "umls_with_desc": "C0023241 Legionella",
+        "ordo_with_desc": "Orphanet_549  Legionellosis",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Present_Illness",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "5873": {
+    "note_details": {
+      "subject_id": "70872",
+      "hadm_id": "186292.0",
+      "category": "Discharge summary",
+      "chartdate": "2169-03-07",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "tetanus",
+        "umls_with_desc": "C0039614 Tetanus",
+        "ordo_with_desc": "Orphanet_3299  Tetanus",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Present_Illness",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "10406": {
+    "note_details": {
+      "subject_id": "27574",
+      "hadm_id": "114529.0",
+      "category": "Discharge summary",
+      "chartdate": "2126-08-16",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "HIT",
+        "umls_with_desc": "C0272285 HIT",
+        "ordo_with_desc": "Orphanet_3325  Heparin-induced thrombocytopenia",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "Medullary sponge kidney",
+        "start": 1330,
+        "end": 1353,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      }
+    ]
+  },
+  "5738": {
+    "note_details": {
+      "subject_id": "5689",
+      "hadm_id": "121702.0",
+      "category": "Discharge summary",
+      "chartdate": "2124-09-08",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "nph",
+        "umls_with_desc": "C0020258 Nph",
+        "ordo_with_desc": "Orphanet_314928  Normal pressure hydrocephalus",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "6465": {
+    "note_details": {
+      "subject_id": "30757",
+      "hadm_id": "187159.0",
+      "category": "Discharge summary",
+      "chartdate": "2189-12-24",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "HIT",
+        "umls_with_desc": "C0272285 HIT",
+        "ordo_with_desc": "Orphanet_3325  Heparin-induced thrombocytopenia",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "5811": {
+    "note_details": {
+      "subject_id": "26563",
+      "hadm_id": "172668.0",
+      "category": "Discharge summary",
+      "chartdate": "2143-02-14",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "nph",
+        "umls_with_desc": "C0020258 Nph",
+        "ordo_with_desc": "Orphanet_314928  Normal pressure hydrocephalus",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Discharge_Medications",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "7363": {
+    "note_details": {
+      "subject_id": "14607",
+      "hadm_id": "168786.0",
+      "category": "Discharge summary",
+      "chartdate": "2200-02-22",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "nph",
+        "umls_with_desc": "C0020258 Nph",
+        "ordo_with_desc": "Orphanet_314928  Normal pressure hydrocephalus",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Discharge_Medications",
+        "semehr_label": 1
+      },
+      {
+        "mention": "nph",
+        "umls_with_desc": "C0020258 Nph",
+        "ordo_with_desc": "Orphanet_314928  Normal pressure hydrocephalus",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "nph",
+        "umls_with_desc": "C0020258 Nph",
+        "ordo_with_desc": "Orphanet_314928  Normal pressure hydrocephalus",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "13231": {
+    "note_details": {
+      "subject_id": "28588",
+      "hadm_id": "141664.0",
+      "category": "Discharge summary",
+      "chartdate": "2150-08-28",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "nph",
+        "umls_with_desc": "C0020258 Nph",
+        "ordo_with_desc": "Orphanet_314928  Normal pressure hydrocephalus",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Discharge_Medications",
+        "semehr_label": 1
+      },
+      {
+        "mention": "nph",
+        "umls_with_desc": "C0020258 Nph",
+        "ordo_with_desc": "Orphanet_314928  Normal pressure hydrocephalus",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Admission_Medications",
+        "semehr_label": 1
+      },
+      {
+        "mention": "epilepsy",
+        "umls_with_desc": "C0014544 Epilepsy",
+        "ordo_with_desc": "Orphanet_101998  Rare epilepsy",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1
+      },
+      {
+        "mention": "hyperthyroidism",
+        "umls_with_desc": "C0020550 hyperthyroid",
+        "ordo_with_desc": "Orphanet_181399  Rare hyperthyroidism",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1
+      },
+      {
+        "mention": "nph",
+        "umls_with_desc": "C0020258 Nph",
+        "ordo_with_desc": "Orphanet_314928  Normal pressure hydrocephalus",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "7688": {
+    "note_details": {
+      "subject_id": "94",
+      "hadm_id": "140037.0",
+      "category": "Discharge summary",
+      "chartdate": "2176-09-25",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "amyotrophic lateral sclerosis",
+        "umls_with_desc": "C0002736 GEHRIGS DIS",
+        "ordo_with_desc": "Orphanet_803  Amyotrophic lateral sclerosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_Discharge_Instructions",
+        "semehr_label": 1
+      },
+      {
+        "mention": "ALS",
+        "umls_with_desc": "C0002736 GEHRIGS DIS",
+        "ordo_with_desc": "Orphanet_803  Amyotrophic lateral sclerosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "ALS",
+        "umls_with_desc": "C0002736 GEHRIGS DIS",
+        "ordo_with_desc": "Orphanet_803  Amyotrophic lateral sclerosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "ALS",
+        "umls_with_desc": "C0002736 GEHRIGS DIS",
+        "ordo_with_desc": "Orphanet_803  Amyotrophic lateral sclerosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "cervical stenosis",
+        "start": 531,
+        "end": 548,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      }
+    ]
+  },
+  "6188": {
+    "note_details": {
+      "subject_id": "10370",
+      "hadm_id": "122936.0",
+      "category": "Discharge summary",
+      "chartdate": "2145-01-26",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "pml",
+        "umls_with_desc": "C0023524 Prog multifoc leukoencep",
+        "ordo_with_desc": "Orphanet_217260  Progressive multifocal leukoencephalopathy",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "pertinent_results",
+        "semehr_label": 1
+      },
+      {
+        "mention": "pml",
+        "umls_with_desc": "C0023524 Prog multifoc leukoencep",
+        "ordo_with_desc": "Orphanet_217260  Progressive multifocal leukoencephalopathy",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "hyperthyroidism",
+        "umls_with_desc": "C0020550 hyperthyroid",
+        "ordo_with_desc": "Orphanet_181399  Rare hyperthyroidism",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "8979": {
+    "note_details": {
+      "subject_id": "12051",
+      "hadm_id": "132432.0",
+      "category": "Discharge summary",
+      "chartdate": "2129-03-05",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "heparin induced thrombocytopenia",
+        "umls_with_desc": "C0272285 HIT",
+        "ordo_with_desc": "Orphanet_3325  Heparin-induced thrombocytopenia",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Allergies_and_Intolerances",
+        "semehr_label": 1
+      },
+      {
+        "mention": "heparin induced thrombocytopenia",
+        "umls_with_desc": "C0272285 HIT",
+        "ordo_with_desc": "Orphanet_3325  Heparin-induced thrombocytopenia",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Discharge_Diagnosis",
+        "semehr_label": 1
+      },
+      {
+        "mention": "heparin induced thrombocytopenia",
+        "umls_with_desc": "C0272285 HIT",
+        "ordo_with_desc": "Orphanet_3325  Heparin-induced thrombocytopenia",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1
+      },
+      {
+        "mention": "heparin induced thrombocytopenia",
+        "umls_with_desc": "C0272285 HIT",
+        "ordo_with_desc": "Orphanet_3325  Heparin-induced thrombocytopenia",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "HIT",
+        "umls_with_desc": "C0272285 HIT",
+        "ordo_with_desc": "Orphanet_3325  Heparin-induced thrombocytopenia",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "sclerosis cholangitis",
+        "start": 2121,
+        "end": 2142,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      }
+    ]
+  },
+  "7699": {
+    "note_details": {
+      "subject_id": "31574",
+      "hadm_id": "131751.0",
+      "category": "Discharge summary",
+      "chartdate": "2112-02-16",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "endometriosis",
+        "umls_with_desc": "C0014175 Endo",
+        "ordo_with_desc": "Orphanet_137820  Extrapelvic endometriosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "6206": {
+    "note_details": {
+      "subject_id": "79814",
+      "hadm_id": "178365.0",
+      "category": "Discharge summary",
+      "chartdate": "2174-03-11",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "nph",
+        "umls_with_desc": "C0020258 Nph",
+        "ordo_with_desc": "Orphanet_314928  Normal pressure hydrocephalus",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Discharge_Medications",
+        "semehr_label": 1
+      },
+      {
+        "mention": "nph",
+        "umls_with_desc": "C0020258 Nph",
+        "ordo_with_desc": "Orphanet_314928  Normal pressure hydrocephalus",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Discharge_Medications",
+        "semehr_label": 1
+      },
+      {
+        "mention": "nph",
+        "umls_with_desc": "C0020258 Nph",
+        "ordo_with_desc": "Orphanet_314928  Normal pressure hydrocephalus",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Admission_Medications",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "10004": {
+    "note_details": {
+      "subject_id": "6116",
+      "hadm_id": "141655.0",
+      "category": "Discharge summary",
+      "chartdate": "2112-10-03",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "dilated cardiomyopathy",
+        "umls_with_desc": "C0007193 Dilated Cardiomyopathy",
+        "ordo_with_desc": "Orphanet_217604  Dilated cardiomyopathy",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1
+      },
+      {
+        "mention": "asbestosis",
+        "umls_with_desc": "C0003949 Asbestoses",
+        "ordo_with_desc": "Orphanet_2302  Asbestos intoxication",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1
+      },
+      {
+        "mention": "dilated cardiomyopathy",
+        "umls_with_desc": "C0007193 Dilated Cardiomyopathy",
+        "ordo_with_desc": "Orphanet_217604  Dilated cardiomyopathy",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Discharge_Diagnosis",
+        "semehr_label": 1
+      },
+      {
+        "mention": "asbestosis",
+        "umls_with_desc": "C0003949 Asbestoses",
+        "ordo_with_desc": "Orphanet_2302  Asbestos intoxication",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Discharge_Diagnosis",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "10715": {
+    "note_details": {
+      "subject_id": "12586",
+      "hadm_id": "128300.0",
+      "category": "Discharge summary",
+      "chartdate": "2182-05-03",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "heparin induced thrombocytopenia",
+        "umls_with_desc": "C0272285 HIT",
+        "ordo_with_desc": "Orphanet_3325  Heparin-induced thrombocytopenia",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "facility",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "8877": {
+    "note_details": {
+      "subject_id": "7107",
+      "hadm_id": "162930.0",
+      "category": "Discharge summary",
+      "chartdate": "2151-01-01",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "pulmonary arterial hypertension",
+        "umls_with_desc": "C0152171 Prim pulm hypertension",
+        "ordo_with_desc": "Orphanet_275766  Idiopathic pulmonary arterial hypertension",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_Discharge_Studies",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "9512": {
+    "note_details": {
+      "subject_id": "70425",
+      "hadm_id": "150284.0",
+      "category": "Discharge summary",
+      "chartdate": "2125-03-06",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "endometriosis",
+        "umls_with_desc": "C0014175 Endo",
+        "ordo_with_desc": "Orphanet_137820  Extrapelvic endometriosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1
+      },
+      {
+        "mention": "mediastinitis",
+        "start": 8535,
+        "end": 8548,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      }
+    ]
+  },
+  "8001": {
+    "note_details": {
+      "subject_id": "8337",
+      "hadm_id": "178592.0",
+      "category": "Discharge summary",
+      "chartdate": "2174-08-19",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "thrombotic thrombocytopenic purpura",
+        "umls_with_desc": "C0034155 Moschowitz Disease",
+        "ordo_with_desc": "Orphanet_54057  Thrombotic thrombocytopenic purpura",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Admission_Medications",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "8960": {
+    "note_details": {
+      "subject_id": "454",
+      "hadm_id": "182153.0",
+      "category": "Discharge summary",
+      "chartdate": "2127-07-03",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "sarcoid",
+        "umls_with_desc": "C0036202 Sarcoid NOS",
+        "ordo_with_desc": "Orphanet_797  Sarcoidosis",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1
+      },
+      {
+        "mention": "sick sinus syndrome",
+        "umls_with_desc": "C0037052 Sick Sinus Syndrome",
+        "ordo_with_desc": "Orphanet_166282  Familial sick sinus syndrome",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "Bechet's disease",
+        "start": 3194,
+        "end": 3210,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      }
+    ]
+  },
+  "13600": {
+    "note_details": {
+      "subject_id": "2398",
+      "hadm_id": "138345.0",
+      "category": "Discharge summary",
+      "chartdate": "2189-04-15",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "seizure disorder",
+        "umls_with_desc": "C0014544 Epilepsy",
+        "ordo_with_desc": "Orphanet_101998  Rare epilepsy",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1
+      },
+      {
+        "mention": "seizure disorder",
+        "umls_with_desc": "C0014544 Epilepsy",
+        "ordo_with_desc": "Orphanet_101998  Rare epilepsy",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "basic",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "16328": {
+    "note_details": {
+      "subject_id": "11817",
+      "hadm_id": "172085.0",
+      "category": "Discharge summary",
+      "chartdate": "2129-12-16",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "nph",
+        "umls_with_desc": "C0020258 Nph",
+        "ordo_with_desc": "Orphanet_314928  Normal pressure hydrocephalus",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Admission_Medications",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "16334": {
+    "note_details": {
+      "subject_id": "20816",
+      "hadm_id": "186333.0",
+      "category": "Discharge summary",
+      "chartdate": "2208-01-07",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "HIT",
+        "umls_with_desc": "C0272285 HIT",
+        "ordo_with_desc": "Orphanet_3325  Heparin-induced thrombocytopenia",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "Cervical stenosis",
+        "start": 1805,
+        "end": 1822,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      }
+    ]
+  },
+  "16347": {
+    "note_details": {
+      "subject_id": "20756",
+      "hadm_id": "112319.0",
+      "category": "Discharge summary",
+      "chartdate": "2162-02-02",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "hypothyroidism secondary",
+        "umls_with_desc": "C3665349 Tsh Deficiency",
+        "ordo_with_desc": "Orphanet_226298  Central congenital hypothyroidism",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "13666": {
+    "note_details": {
+      "subject_id": "14037",
+      "hadm_id": "185837.0",
+      "category": "Discharge summary",
+      "chartdate": "2196-08-24",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "seizure disorder",
+        "umls_with_desc": "C0014544 Epilepsy",
+        "ordo_with_desc": "Orphanet_101998  Rare epilepsy",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1
+      },
+      {
+        "mention": "Central nervous system and systemic lymphoma",
+        "start": 11099,
+        "end": 11143,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      }
+    ]
+  },
+  "14936": {
+    "note_details": {
+      "subject_id": "5927",
+      "hadm_id": "117783.0",
+      "category": "Discharge summary",
+      "chartdate": "2192-08-15",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "bullous pemphigoid",
+        "umls_with_desc": "C0030805 Pemphigoid",
+        "ordo_with_desc": "Orphanet_703  Bullous pemphigoid",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1
+      },
+      {
+        "mention": "methemoglobinemia",
+        "start": 1882,
+        "end": 1899,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      }
+    ]
+  },
+  "11052": {
+    "note_details": {
+      "subject_id": "9671",
+      "hadm_id": "175582.0",
+      "category": "Discharge summary",
+      "chartdate": "2194-12-26",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "hyperthyroidism",
+        "umls_with_desc": "C0020550 hyperthyroid",
+        "ordo_with_desc": "Orphanet_181399  Rare hyperthyroidism",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "basic",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "11938": {
+    "note_details": {
+      "subject_id": "20161",
+      "hadm_id": "149342.0",
+      "category": "Discharge summary",
+      "chartdate": "2200-01-13",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "retinopathy of prematurity",
+        "umls_with_desc": "C0035344 Terry Syndrome",
+        "ordo_with_desc": "Orphanet_90050  Retinopathy of prematurity",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "11604": {
+    "note_details": {
+      "subject_id": "92107",
+      "hadm_id": "192789.0",
+      "category": "Discharge summary",
+      "chartdate": "2183-07-07",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "hemochromatosis",
+        "umls_with_desc": "C0018995 Hemochromatose",
+        "ordo_with_desc": "Orphanet_220489  Rare hereditary hemochromatosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "Discharge_Diagnosis",
+        "semehr_label": 1
+      },
+      {
+        "mention": "hemochromatosis",
+        "umls_with_desc": "C0018995 Hemochromatose",
+        "ordo_with_desc": "Orphanet_220489  Rare hereditary hemochromatosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1
+      },
+      {
+        "mention": "protein c deficiency",
+        "umls_with_desc": "C0398625 Protein C Deficiency",
+        "ordo_with_desc": "Orphanet_745  Severe hereditary thrombophilia due to congenital protein C deficiency",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "hemochromatosis",
+        "umls_with_desc": "C0018995 Hemochromatose",
+        "ordo_with_desc": "Orphanet_220489  Rare hereditary hemochromatosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "microcytic anemia",
+        "umls_with_desc": "C0085576 Microcytic Anemia",
+        "ordo_with_desc": "Orphanet_209981  IRIDA syndrome",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "hemochromatosis",
+        "umls_with_desc": "C0018995 Hemochromatose",
+        "ordo_with_desc": "Orphanet_220489  Rare hereditary hemochromatosis",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "hemochromatosis",
+        "umls_with_desc": "C0018995 Hemochromatose",
+        "ordo_with_desc": "Orphanet_220489  Rare hereditary hemochromatosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "protein c deficiency",
+        "umls_with_desc": "C0398625 Protein C Deficiency",
+        "ordo_with_desc": "Orphanet_745  Severe hereditary thrombophilia due to congenital protein C deficiency",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "History_of_Present_Illness",
+        "semehr_label": 1
+      },
+      {
+        "mention": "hemochromatosis",
+        "umls_with_desc": "C0018995 Hemochromatose",
+        "ordo_with_desc": "Orphanet_220489  Rare hereditary hemochromatosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "History_of_Present_Illness",
+        "semehr_label": 1
+      },
+      {
+        "mention": "Protein S",
+        "start": 2314,
+        "end": 2323,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      },
+      {
+        "mention": "Protein S",
+        "start": 4738,
+        "end": 4747,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      },
+      {
+        "mention": "Protein S",
+        "start": 4753,
+        "end": 4762,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      },
+      {
+        "mention": "antiphospholipid antibody syndrome",
+        "start": 13576,
+        "end": 13610,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      },
+      {
+        "mention": "protein C",
+        "start": 443,
+        "end": 452,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      },
+      {
+        "mention": "Protein C",
+        "start": 2281,
+        "end": 2290,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      },
+      {
+        "mention": "Protein C",
+        "start": 2333,
+        "end": 2342,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      },
+      {
+        "mention": "Protein C",
+        "start": 4568,
+        "end": 4577,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      },
+      {
+        "mention": "Protein C",
+        "start": 4599,
+        "end": 4608,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      },
+      {
+        "mention": "protein C",
+        "start": 13099,
+        "end": 13108,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      },
+      {
+        "mention": "Protein C",
+        "start": 13561,
+        "end": 13570,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      }
+    ]
+  },
+  "22297": {
+    "note_details": {
+      "subject_id": "40496",
+      "hadm_id": "159938.0",
+      "category": "Discharge summary",
+      "chartdate": "2189-10-17",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "HIT",
+        "umls_with_desc": "C0272285 HIT",
+        "ordo_with_desc": "Orphanet_3325  Heparin-induced thrombocytopenia",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1
+      },
+      {
+        "mention": "HIT",
+        "umls_with_desc": "C0272285 HIT",
+        "ordo_with_desc": "Orphanet_3325  Heparin-induced thrombocytopenia",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "HIT",
+        "umls_with_desc": "C0272285 HIT",
+        "ordo_with_desc": "Orphanet_3325  Heparin-induced thrombocytopenia",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "HIT",
+        "umls_with_desc": "C0272285 HIT",
+        "ordo_with_desc": "Orphanet_3325  Heparin-induced thrombocytopenia",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Present_Illness",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "17850": {
+    "note_details": {
+      "subject_id": "21072",
+      "hadm_id": "152181.0",
+      "category": "Discharge summary",
+      "chartdate": "2104-03-17",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "amyotrophic lateral sclerosis",
+        "umls_with_desc": "C0002736 GEHRIGS DIS",
+        "ordo_with_desc": "Orphanet_803  Amyotrophic lateral sclerosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1
+      },
+      {
+        "mention": "amyotrophic lateral sclerosis",
+        "umls_with_desc": "C0002736 GEHRIGS DIS",
+        "ordo_with_desc": "Orphanet_803  Amyotrophic lateral sclerosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1
+      },
+      {
+        "mention": "amyotrophic lateral sclerosis",
+        "umls_with_desc": "C0002736 GEHRIGS DIS",
+        "ordo_with_desc": "Orphanet_803  Amyotrophic lateral sclerosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Discharge_Medications",
+        "semehr_label": 1
+      },
+      {
+        "mention": "amyotrophic lateral sclerosis",
+        "umls_with_desc": "C0002736 GEHRIGS DIS",
+        "ordo_with_desc": "Orphanet_803  Amyotrophic lateral sclerosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "basic",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "15908": {
+    "note_details": {
+      "subject_id": "5023",
+      "hadm_id": "196051.0",
+      "category": "Discharge summary",
+      "chartdate": "2196-11-04",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "NPH",
+        "umls_with_desc": "C0020258 Nph",
+        "ordo_with_desc": "Orphanet_314928  Normal pressure hydrocephalus",
+        "gold_text_to_umls_label": -1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_Discharge_Instructions",
+        "semehr_label": 1
+      },
+      {
+        "mention": "NPH",
+        "umls_with_desc": "C0020258 Nph",
+        "ordo_with_desc": "Orphanet_314928  Normal pressure hydrocephalus",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Discharge_Medications",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "17640": {
+    "note_details": {
+      "subject_id": "13954",
+      "hadm_id": "178769.0",
+      "category": "Discharge summary",
+      "chartdate": "2181-07-04",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "heparin-induced thrombocytopenia",
+        "umls_with_desc": "C0272285 HIT",
+        "ordo_with_desc": "Orphanet_3325  Heparin-induced thrombocytopenia",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Discharge_Medications",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "20208": {
+    "note_details": {
+      "subject_id": "14432",
+      "hadm_id": "109007.0",
+      "category": "Discharge summary",
+      "chartdate": "2168-11-19",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "portal vein thrombosis",
+        "umls_with_desc": "C0155773 Portal Vein Thrombosis",
+        "ordo_with_desc": "Orphanet_854  Primitive portal vein thrombosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "Discharge_Diagnosis",
+        "semehr_label": 1
+      },
+      {
+        "mention": "portal vein thrombosis",
+        "umls_with_desc": "C0155773 Portal Vein Thrombosis",
+        "ordo_with_desc": "Orphanet_854  Primitive portal vein thrombosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "portal vein thrombosis",
+        "umls_with_desc": "C0155773 Portal Vein Thrombosis",
+        "ordo_with_desc": "Orphanet_854  Primitive portal vein thrombosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "portal vein thrombosis",
+        "umls_with_desc": "C0155773 Portal Vein Thrombosis",
+        "ordo_with_desc": "Orphanet_854  Primitive portal vein thrombosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "portal vein thrombosis",
+        "umls_with_desc": "C0155773 Portal Vein Thrombosis",
+        "ordo_with_desc": "Orphanet_854  Primitive portal vein thrombosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "HIT",
+        "umls_with_desc": "C0272285 HIT",
+        "ordo_with_desc": "Orphanet_3325  Heparin-induced thrombocytopenia",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "HIT",
+        "umls_with_desc": "C0272285 HIT",
+        "ordo_with_desc": "Orphanet_3325  Heparin-induced thrombocytopenia",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "HIT",
+        "umls_with_desc": "C0272285 HIT",
+        "ordo_with_desc": "Orphanet_3325  Heparin-induced thrombocytopenia",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "portal vein thrombosis",
+        "umls_with_desc": "C0155773 Portal Vein Thrombosis",
+        "ordo_with_desc": "Orphanet_854  Primitive portal vein thrombosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "portal vein thrombosis",
+        "umls_with_desc": "C0155773 Portal Vein Thrombosis",
+        "ordo_with_desc": "Orphanet_854  Primitive portal vein thrombosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "portal vein thrombosis",
+        "umls_with_desc": "C0155773 Portal Vein Thrombosis",
+        "ordo_with_desc": "Orphanet_854  Primitive portal vein thrombosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "HIT",
+        "umls_with_desc": "C0272285 HIT",
+        "ordo_with_desc": "Orphanet_3325  Heparin-induced thrombocytopenia",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "HIT",
+        "umls_with_desc": "C0272285 HIT",
+        "ordo_with_desc": "Orphanet_3325  Heparin-induced thrombocytopenia",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "Acute myelogenous leukemia",
+        "start": 28714,
+        "end": 28740,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      }
+    ]
+  },
+  "31392": {
+    "note_details": {
+      "subject_id": "28316",
+      "hadm_id": "186478.0",
+      "category": "Discharge summary",
+      "chartdate": "2156-08-25",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "hyperthyroidism",
+        "umls_with_desc": "C0020550 hyperthyroid",
+        "ordo_with_desc": "Orphanet_181399  Rare hyperthyroidism",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "basic",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "24716": {
+    "note_details": {
+      "subject_id": "20247",
+      "hadm_id": "148030.0",
+      "category": "Discharge summary",
+      "chartdate": "2124-03-15",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "iron storage disease",
+        "umls_with_desc": "C0018995 Hemochromatose",
+        "ordo_with_desc": "Orphanet_220489  Rare hereditary hemochromatosis",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "pertinent_results",
+        "semehr_label": 1
+      },
+      {
+        "mention": "intraductal papillary mucinous tumor",
+        "start": 1191,
+        "end": 1227,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      }
+    ]
+  },
+  "30442": {
+    "note_details": {
+      "subject_id": "1986",
+      "hadm_id": "160127.0",
+      "category": "Discharge summary",
+      "chartdate": "2198-08-28",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "seizure disorder",
+        "umls_with_desc": "C0014544 Epilepsy",
+        "ordo_with_desc": "Orphanet_101998  Rare epilepsy",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "31210": {
+    "note_details": {
+      "subject_id": "32226",
+      "hadm_id": "148721.0",
+      "category": "Discharge summary",
+      "chartdate": "2201-05-20",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "familial mediterranean fever",
+        "umls_with_desc": "C0031069 PERIODIC DIS",
+        "ordo_with_desc": "Orphanet_342  Familial Mediterranean fever",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1
+      },
+      {
+        "mention": "familial mediterranean fever",
+        "umls_with_desc": "C0031069 PERIODIC DIS",
+        "ordo_with_desc": "Orphanet_342  Familial Mediterranean fever",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "20162": {
+    "note_details": {
+      "subject_id": "2218",
+      "hadm_id": "153622.0",
+      "category": "Discharge summary",
+      "chartdate": "2136-03-09",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "necrotizing enterocolitis",
+        "umls_with_desc": "C0520459 Necrotising enterocolitis",
+        "ordo_with_desc": "Orphanet_391673  Necrotizing enterocolitis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Discharge_Diagnosis",
+        "semehr_label": 1
+      },
+      {
+        "mention": "retinopathy of prematurity",
+        "umls_with_desc": "C0035344 Terry Syndrome",
+        "ordo_with_desc": "Orphanet_90050  Retinopathy of prematurity",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Discharge_Diagnosis",
+        "semehr_label": 1
+      },
+      {
+        "mention": "necrotizing enterocolitis",
+        "umls_with_desc": "C0520459 Necrotising enterocolitis",
+        "ordo_with_desc": "Orphanet_391673  Necrotizing enterocolitis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "basic",
+        "semehr_label": 1
+      },
+      {
+        "mention": "necrotizing enterocolitis",
+        "umls_with_desc": "C0520459 Necrotising enterocolitis",
+        "ordo_with_desc": "Orphanet_391673  Necrotizing enterocolitis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "basic",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "25095": {
+    "note_details": {
+      "subject_id": "1633",
+      "hadm_id": "129770.0",
+      "category": "Discharge summary",
+      "chartdate": "2155-10-24",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "autoimmune hepatitis",
+        "umls_with_desc": "C0241910 Autoimmune Hepatitis",
+        "ordo_with_desc": "Orphanet_2137  Autoimmune hepatitis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "basic",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "20589": {
+    "note_details": {
+      "subject_id": "47775",
+      "hadm_id": "133249.0",
+      "category": "Discharge summary",
+      "chartdate": "2133-03-24",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "rheumatic fever",
+        "umls_with_desc": "C0035436 Rheumatic Fever",
+        "ordo_with_desc": "Orphanet_3099  Rheumatic fever",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "20617": {
+    "note_details": {
+      "subject_id": "741",
+      "hadm_id": "133898.0",
+      "category": "Discharge summary",
+      "chartdate": "2104-04-29",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "lyme's disease",
+        "umls_with_desc": "C0024198 Borrelia",
+        "ordo_with_desc": "Orphanet_91546  Lyme disease",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1
+      },
+      {
+        "mention": "NPH",
+        "umls_with_desc": "C0020258 Nph",
+        "ordo_with_desc": "Orphanet_314928  Normal pressure hydrocephalus",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Admission_Medications",
+        "semehr_label": 1
+      },
+      {
+        "mention": "NPH",
+        "umls_with_desc": "C0020258 Nph",
+        "ordo_with_desc": "Orphanet_314928  Normal pressure hydrocephalus",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Admission_Medications",
+        "semehr_label": 1
+      },
+      {
+        "mention": "NPH",
+        "umls_with_desc": "C0020258 Nph",
+        "ordo_with_desc": "Orphanet_314928  Normal pressure hydrocephalus",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Admission_Medications",
+        "semehr_label": 1
+      },
+      {
+        "mention": "NPH",
+        "umls_with_desc": "C0020258 Nph",
+        "ordo_with_desc": "Orphanet_314928  Normal pressure hydrocephalus",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Admission_Medications",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "22133": {
+    "note_details": {
+      "subject_id": "85784",
+      "hadm_id": "117613.0",
+      "category": "Discharge summary",
+      "chartdate": "2139-08-28",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "epilepsy",
+        "umls_with_desc": "C0014544 Epilepsy",
+        "ordo_with_desc": "Orphanet_101998  Rare epilepsy",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "20387": {
+    "note_details": {
+      "subject_id": "15930",
+      "hadm_id": "184061.0",
+      "category": "Discharge summary",
+      "chartdate": "2146-04-19",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "portal vein thrombosis",
+        "umls_with_desc": "C0155773 Portal Vein Thrombosis",
+        "ordo_with_desc": "Orphanet_854  Primitive portal vein thrombosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "facility",
+        "semehr_label": 1
+      },
+      {
+        "mention": "mesenteric vein thrombosis",
+        "start": 2826,
+        "end": 2852,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      },
+      {
+        "mention": "mesenteric vein thrombosis",
+        "start": 3420,
+        "end": 3446,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      }
+    ]
+  },
+  "39676": {
+    "note_details": {
+      "subject_id": "75159",
+      "hadm_id": "109611.0",
+      "category": "Discharge summary",
+      "chartdate": "2102-09-13",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "arachnoid cyst",
+        "umls_with_desc": "C0078981 Arachnoid Cyst",
+        "ordo_with_desc": "Orphanet_2356  Arachnoid cyst",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "pertinent_results",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "38775": {
+    "note_details": {
+      "subject_id": "42757",
+      "hadm_id": "167098.0",
+      "category": "Discharge summary",
+      "chartdate": "2154-10-28",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "babesiosis",
+        "umls_with_desc": "C0004576 Babesiases",
+        "ordo_with_desc": "Orphanet_108  Babesiosis",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "lyme disease",
+        "umls_with_desc": "C0024198 Borrelia",
+        "ordo_with_desc": "Orphanet_91546  Lyme disease",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "39348": {
+    "note_details": {
+      "subject_id": "44288",
+      "hadm_id": "125243.0",
+      "category": "Discharge summary",
+      "chartdate": "2106-09-17",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "alkaptonuria",
+        "umls_with_desc": "C0002066 Alcaptonuria",
+        "ordo_with_desc": "Orphanet_56  Alkaptonuria",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_Discharge_Studies",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "37217": {
+    "note_details": {
+      "subject_id": "90317",
+      "hadm_id": "142551.0",
+      "category": "Discharge summary",
+      "chartdate": "2155-05-30",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "autoimmune pancreatitis",
+        "umls_with_desc": "C2609129 Autoimmune pancreatitis",
+        "ordo_with_desc": "Orphanet_103919  Autoimmune pancreatitis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Discharge_Diagnosis",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "40196": {
+    "note_details": {
+      "subject_id": "66133",
+      "hadm_id": "116011.0",
+      "category": "Discharge summary",
+      "chartdate": "2154-02-07",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "sarcoid",
+        "umls_with_desc": "C0036202 Sarcoid NOS",
+        "ordo_with_desc": "Orphanet_797  Sarcoidosis",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "sarcoidosis",
+        "start": 12464,
+        "end": 12475,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      }
+    ]
+  },
+  "25829": {
+    "note_details": {
+      "subject_id": "58441",
+      "hadm_id": "133224.0",
+      "category": "Discharge summary",
+      "chartdate": "2160-01-06",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "scds",
+        "umls_with_desc": "C0002895 HbS Disease",
+        "ordo_with_desc": "Orphanet_232  Sickle cell anemia",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "28965": {
+    "note_details": {
+      "subject_id": "12736",
+      "hadm_id": "159404.0",
+      "category": "Discharge summary",
+      "chartdate": "2121-08-27",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "tetanus",
+        "umls_with_desc": "C0039614 Tetanus",
+        "ordo_with_desc": "Orphanet_3299  Tetanus",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Present_Illness",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "26976": {
+    "note_details": {
+      "subject_id": "25397",
+      "hadm_id": "136124.0",
+      "category": "Discharge summary",
+      "chartdate": "2187-02-25",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "necrotizing enterocolitis",
+        "umls_with_desc": "C0520459 Necrotising enterocolitis",
+        "ordo_with_desc": "Orphanet_391673  Necrotizing enterocolitis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "facility",
+        "semehr_label": 1
+      },
+      {
+        "mention": "necrotizing enterocolitis",
+        "umls_with_desc": "C0520459 Necrotising enterocolitis",
+        "ordo_with_desc": "Orphanet_391673  Necrotizing enterocolitis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "facility",
+        "semehr_label": 1
+      },
+      {
+        "mention": "necrotizing enterocolitis",
+        "umls_with_desc": "C0520459 Necrotising enterocolitis",
+        "ordo_with_desc": "Orphanet_391673  Necrotizing enterocolitis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "facility",
+        "semehr_label": 1
+      },
+      {
+        "mention": "necrotizing enterocolitis",
+        "umls_with_desc": "C0520459 Necrotising enterocolitis",
+        "ordo_with_desc": "Orphanet_391673  Necrotizing enterocolitis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "facility",
+        "semehr_label": 1
+      },
+      {
+        "mention": "necrotizing enterocolitis",
+        "umls_with_desc": "C0520459 Necrotising enterocolitis",
+        "ordo_with_desc": "Orphanet_391673  Necrotizing enterocolitis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "facility",
+        "semehr_label": 1
+      },
+      {
+        "mention": "necrotizing enterocolitis",
+        "umls_with_desc": "C0520459 Necrotising enterocolitis",
+        "ordo_with_desc": "Orphanet_391673  Necrotizing enterocolitis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "facility",
+        "semehr_label": 1
+      },
+      {
+        "mention": "retinopathy of prematurity",
+        "umls_with_desc": "C0035344 Terry Syndrome",
+        "ordo_with_desc": "Orphanet_90050  Retinopathy of prematurity",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "facility",
+        "semehr_label": 1
+      },
+      {
+        "mention": "necrotizing enterocolitis",
+        "umls_with_desc": "C0520459 Necrotising enterocolitis",
+        "ordo_with_desc": "Orphanet_391673  Necrotizing enterocolitis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Immunizations",
+        "semehr_label": 1
+      },
+      {
+        "mention": "retinopathy of prematurity",
+        "umls_with_desc": "C0035344 Terry Syndrome",
+        "ordo_with_desc": "Orphanet_90050  Retinopathy of prematurity",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Immunizations",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "27335": {
+    "note_details": {
+      "subject_id": "29629",
+      "hadm_id": "132678.0",
+      "category": "Discharge summary",
+      "chartdate": "2171-06-03",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "portal vein thrombosis",
+        "umls_with_desc": "C0155773 Portal Vein Thrombosis",
+        "ordo_with_desc": "Orphanet_854  Primitive portal vein thrombosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1
+      },
+      {
+        "mention": "papillary carcinoma",
+        "start": 735,
+        "end": 754,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      },
+      {
+        "mention": "hepatocellular carcinoma",
+        "start": 2076,
+        "end": 2100,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      }
+    ]
+  },
+  "26825": {
+    "note_details": {
+      "subject_id": "14358",
+      "hadm_id": "143701.0",
+      "category": "Discharge summary",
+      "chartdate": "2120-04-02",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "ema",
+        "umls_with_desc": "C0268596 Glutaric Aciduria II",
+        "ordo_with_desc": "Orphanet_26791  Multiple acyl-CoA dehydrogenase deficiency",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "pertinent_results",
+        "semehr_label": 1
+      },
+      {
+        "mention": "anaplastic thyroid carcinoma",
+        "start": 571,
+        "end": 599,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      },
+      {
+        "mention": "anaplastic thyroid carcinoma",
+        "start": 4449,
+        "end": 4477,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      }
+    ]
+  },
+  "30504": {
+    "note_details": {
+      "subject_id": "16087",
+      "hadm_id": "116851.0",
+      "category": "Discharge summary",
+      "chartdate": "2163-02-02",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "polymyalgia rheumatica",
+        "umls_with_desc": "C0039483 HORTON DIS",
+        "ordo_with_desc": "Orphanet_397  Giant cell arteritis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "32261": {
+    "note_details": {
+      "subject_id": "28983",
+      "hadm_id": "135893.0",
+      "category": "Discharge summary",
+      "chartdate": "2178-02-19",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "retinopathy of prematurity",
+        "umls_with_desc": "C0035344 Terry Syndrome",
+        "ordo_with_desc": "Orphanet_90050  Retinopathy of prematurity",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Nutrition",
+        "semehr_label": 1
+      },
+      {
+        "mention": "retinopathy of prematurity",
+        "umls_with_desc": "C0035344 Terry Syndrome",
+        "ordo_with_desc": "Orphanet_90050  Retinopathy of prematurity",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Nutrition",
+        "semehr_label": 1
+      },
+      {
+        "mention": "congenital bleeding disorder",
+        "start": 563,
+        "end": 591,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      }
+    ]
+  },
+  "28690": {
+    "note_details": {
+      "subject_id": "40213",
+      "hadm_id": "143496.0",
+      "category": "Discharge summary",
+      "chartdate": "2125-05-07",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "legionella",
+        "umls_with_desc": "C0023241 Legionella",
+        "ordo_with_desc": "Orphanet_549  Legionellosis",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_Discharge_Studies",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "47026": {
+    "note_details": {
+      "subject_id": "18250",
+      "hadm_id": "184039.0",
+      "category": "Discharge summary",
+      "chartdate": "2203-09-23",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "seizure disorder",
+        "umls_with_desc": "C0014544 Epilepsy",
+        "ordo_with_desc": "Orphanet_101998  Rare epilepsy",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "hyperparathyroidism",
+        "umls_with_desc": "C0020502 Hyperparathyroidism",
+        "ordo_with_desc": "Orphanet_181408  Rare hyperparathyroidism",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "central retinal vein occlusion",
+        "umls_with_desc": "C0154841 Cent retinal vein occlus",
+        "ordo_with_desc": "Orphanet_411527  Central retinal vein occlusion",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "Primary CNS lymphoma",
+        "start": 2120,
+        "end": 2140,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      },
+      {
+        "mention": "Primary CNS lymphoma",
+        "start": 14802,
+        "end": 14822,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      },
+      {
+        "mention": "neovascular glaucoma",
+        "start": 1822,
+        "end": 1842,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      },
+      {
+        "mention": "Neovascular glaucoma",
+        "start": 11348,
+        "end": 11368,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      },
+      {
+        "mention": "neovascular glaucoma",
+        "start": 11493,
+        "end": 11513,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      },
+      {
+        "mention": "neovascular glaucoma angle closure",
+        "start": 1822,
+        "end": 1856,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      },
+      {
+        "mention": "Neovascular glaucoma angle closure",
+        "start": 11348,
+        "end": 11382,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      }
+    ]
+  },
+  "47035": {
+    "note_details": {
+      "subject_id": "27171",
+      "hadm_id": "129780.0",
+      "category": "Discharge summary",
+      "chartdate": "2105-02-05",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "portal vein thrombosis",
+        "umls_with_desc": "C0155773 Portal Vein Thrombosis",
+        "ordo_with_desc": "Orphanet_854  Primitive portal vein thrombosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "hepatocellular carcinoma",
+        "start": 2111,
+        "end": 2135,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      },
+      {
+        "mention": "Hepatocellular carcinoma",
+        "start": 11650,
+        "end": 11674,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      },
+      {
+        "mention": "hepatocellular carcinoma",
+        "start": 11881,
+        "end": 11905,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      }
+    ]
+  },
+  "45138": {
+    "note_details": {
+      "subject_id": "67536",
+      "hadm_id": "120346.0",
+      "category": "Discharge summary",
+      "chartdate": "2120-03-09",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "beta-thalassemia",
+        "umls_with_desc": "C0005283 Beta Thalassemia",
+        "ordo_with_desc": "Orphanet_848  Beta-thalassemia",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "beta thalassemia",
+        "umls_with_desc": "C0005283 Beta Thalassemia",
+        "ordo_with_desc": "Orphanet_848  Beta-thalassemia",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "hemochromatosis",
+        "umls_with_desc": "C0018995 Hemochromatose",
+        "ordo_with_desc": "Orphanet_220489  Rare hereditary hemochromatosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "History_of_Present_Illness",
+        "semehr_label": 1
+      },
+      {
+        "mention": "Hepatocellular Carcinoma",
+        "start": 10938,
+        "end": 10962,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      }
+    ]
+  },
+  "42584": {
+    "note_details": {
+      "subject_id": "44191",
+      "hadm_id": "175521.0",
+      "category": "Discharge summary",
+      "chartdate": "2179-02-05",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "sick sinus syndrome",
+        "umls_with_desc": "C0037052 Sick Sinus Syndrome",
+        "ordo_with_desc": "Orphanet_166282  Familial sick sinus syndrome",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "44132": {
+    "note_details": {
+      "subject_id": "19984",
+      "hadm_id": "137446.0",
+      "category": "Discharge summary",
+      "chartdate": "2179-04-02",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "ALS",
+        "umls_with_desc": "C0002736 GEHRIGS DIS",
+        "ordo_with_desc": "Orphanet_803  Amyotrophic lateral sclerosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Discharge_Diagnosis",
+        "semehr_label": 1
+      },
+      {
+        "mention": "ALS",
+        "umls_with_desc": "C0002736 GEHRIGS DIS",
+        "ordo_with_desc": "Orphanet_803  Amyotrophic lateral sclerosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1
+      },
+      {
+        "mention": "ALS",
+        "umls_with_desc": "C0002736 GEHRIGS DIS",
+        "ordo_with_desc": "Orphanet_803  Amyotrophic lateral sclerosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "ALS",
+        "umls_with_desc": "C0002736 GEHRIGS DIS",
+        "ordo_with_desc": "Orphanet_803  Amyotrophic lateral sclerosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Present_Illness",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "44150": {
+    "note_details": {
+      "subject_id": "53735",
+      "hadm_id": "191928.0",
+      "category": "Discharge summary",
+      "chartdate": "2157-02-05",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "her disease",
+        "umls_with_desc": "C0017925 Her Disease",
+        "ordo_with_desc": "Orphanet_369  Glycogen storage disease due to liver glycogen phosphorylase deficiency",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "44472": {
+    "note_details": {
+      "subject_id": "1226",
+      "hadm_id": "103915.0",
+      "category": "Discharge summary",
+      "chartdate": "2153-05-10",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "sick sinus syndrome",
+        "umls_with_desc": "C0037052 Sick Sinus Syndrome",
+        "ordo_with_desc": "Orphanet_166282  Familial sick sinus syndrome",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1
+      },
+      {
+        "mention": "glioblastoma multiforme",
+        "start": 14858,
+        "end": 14881,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      }
+    ]
+  },
+  "46706": {
+    "note_details": {
+      "subject_id": "83393",
+      "hadm_id": "144741.0",
+      "category": "Discharge summary",
+      "chartdate": "2198-09-22",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "hyperthyroidism",
+        "umls_with_desc": "C0020550 hyperthyroid",
+        "ordo_with_desc": "Orphanet_181399  Rare hyperthyroidism",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "45078": {
+    "note_details": {
+      "subject_id": "86276",
+      "hadm_id": "173367.0",
+      "category": "Discharge summary",
+      "chartdate": "2171-06-04",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "seizure disorder",
+        "umls_with_desc": "C0014544 Epilepsy",
+        "ordo_with_desc": "Orphanet_101998  Rare epilepsy",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1
+      },
+      {
+        "mention": "seizure disorder",
+        "umls_with_desc": "C0014544 Epilepsy",
+        "ordo_with_desc": "Orphanet_101998  Rare epilepsy",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "46361": {
+    "note_details": {
+      "subject_id": "27800",
+      "hadm_id": "104090.0",
+      "category": "Discharge summary",
+      "chartdate": "2161-12-10",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "tracheobronchomalacia",
+        "umls_with_desc": "C0340231 Tracheobronchomalacia",
+        "ordo_with_desc": "Orphanet_411501  Williams-Campbell syndrome",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "pertinent_results",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "46820": {
+    "note_details": {
+      "subject_id": "86455",
+      "hadm_id": "187756.0",
+      "category": "Discharge summary",
+      "chartdate": "2143-05-01",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "pmr",
+        "umls_with_desc": "C0032533 Senile arthritis",
+        "ordo_with_desc": "Orphanet_93569  Polymyalgia rheumatica",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1
+      },
+      {
+        "mention": "thymoma",
+        "start": 8643,
+        "end": 8650,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      }
+    ]
+  },
+  "32946": {
+    "note_details": {
+      "subject_id": "28775",
+      "hadm_id": "137169.0",
+      "category": "Discharge summary",
+      "chartdate": "2119-01-11",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "epilepsy",
+        "umls_with_desc": "C0014544 Epilepsy",
+        "ordo_with_desc": "Orphanet_101998  Rare epilepsy",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "seizure disorder",
+        "umls_with_desc": "C0014544 Epilepsy",
+        "ordo_with_desc": "Orphanet_101998  Rare epilepsy",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "History_of_Present_Illness",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "35397": {
+    "note_details": {
+      "subject_id": "81349",
+      "hadm_id": "119516.0",
+      "category": "Discharge summary",
+      "chartdate": "2120-02-15",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "tracheobronchomalacia",
+        "umls_with_desc": "C0340231 Tracheobronchomalacia",
+        "ordo_with_desc": "Orphanet_411501  Williams-Campbell syndrome",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Discharge_Diagnosis",
+        "semehr_label": 1
+      },
+      {
+        "mention": "complex tracheal stenosis",
+        "start": 298,
+        "end": 323,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      },
+      {
+        "mention": "complex tracheal stenosis",
+        "start": 1056,
+        "end": 1081,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      },
+      {
+        "mention": "complex tracheal stenosis",
+        "start": 4309,
+        "end": 4334,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      },
+      {
+        "mention": "Complex tracheal stenosis",
+        "start": 7938,
+        "end": 7963,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      },
+      {
+        "mention": "tracheal stenosis",
+        "start": 306,
+        "end": 323,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      },
+      {
+        "mention": "tracheal stenosis",
+        "start": 1064,
+        "end": 1081,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      },
+      {
+        "mention": "tracheal stenosis",
+        "start": 4317,
+        "end": 4334,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      },
+      {
+        "mention": "tracheal stenosis",
+        "start": 5095,
+        "end": 5112,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      },
+      {
+        "mention": "tracheal stenosis",
+        "start": 7946,
+        "end": 7963,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      }
+    ]
+  },
+  "34416": {
+    "note_details": {
+      "subject_id": "75493",
+      "hadm_id": "152863.0",
+      "category": "Discharge summary",
+      "chartdate": "2187-09-14",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "dilated cardiomyopathy",
+        "umls_with_desc": "C0007193 Dilated Cardiomyopathy",
+        "ordo_with_desc": "Orphanet_217604  Dilated cardiomyopathy",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Discharge_Diagnosis",
+        "semehr_label": 1
+      },
+      {
+        "mention": "dilated cardiomyopathy",
+        "umls_with_desc": "C0007193 Dilated Cardiomyopathy",
+        "ordo_with_desc": "Orphanet_217604  Dilated cardiomyopathy",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "dilated cardiomyopathy",
+        "umls_with_desc": "C0007193 Dilated Cardiomyopathy",
+        "ordo_with_desc": "Orphanet_217604  Dilated cardiomyopathy",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "dilated cardiomyopathy",
+        "umls_with_desc": "C0007193 Dilated Cardiomyopathy",
+        "ordo_with_desc": "Orphanet_217604  Dilated cardiomyopathy",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "dilated cardiomyopathy",
+        "umls_with_desc": "C0007193 Dilated Cardiomyopathy",
+        "ordo_with_desc": "Orphanet_217604  Dilated cardiomyopathy",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Present_Illness",
+        "semehr_label": 1
+      },
+      {
+        "mention": "hemochromatosis",
+        "umls_with_desc": "C0018995 Hemochromatose",
+        "ordo_with_desc": "Orphanet_220489  Rare hereditary hemochromatosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "History_of_Present_Illness",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "35579": {
+    "note_details": {
+      "subject_id": "87055",
+      "hadm_id": "134482.0",
+      "category": "Discharge summary",
+      "chartdate": "2151-02-20",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "amyloidosis",
+        "umls_with_desc": "C0002726 Amyloidoses",
+        "ordo_with_desc": "Orphanet_69  Amyloidosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1
+      },
+      {
+        "mention": "multiple myeloma",
+        "start": 403,
+        "end": 419,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      },
+      {
+        "mention": "Multiple Myeloma",
+        "start": 2645,
+        "end": 2661,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      },
+      {
+        "mention": "multiple myeloma",
+        "start": 10308,
+        "end": 10324,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      },
+      {
+        "mention": "Multiple Myeloma",
+        "start": 16840,
+        "end": 16856,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      }
+    ]
+  },
+  "35658": {
+    "note_details": {
+      "subject_id": "96638",
+      "hadm_id": "169767.0",
+      "category": "Discharge summary",
+      "chartdate": "2164-08-01",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "pmr",
+        "umls_with_desc": "C0032533 Senile arthritis",
+        "ordo_with_desc": "Orphanet_93569  Polymyalgia rheumatica",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "polymyalgia rheumatica",
+        "umls_with_desc": "C0039483 HORTON DIS",
+        "ordo_with_desc": "Orphanet_397  Giant cell arteritis",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "primary adrenal insufficiency",
+        "umls_with_desc": "C0001403 ADDISON DIS",
+        "ordo_with_desc": "Orphanet_85138  Addison disease",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "pmr",
+        "umls_with_desc": "C0032533 Senile arthritis",
+        "ordo_with_desc": "Orphanet_93569  Polymyalgia rheumatica",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Present_Illness",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "35228": {
+    "note_details": {
+      "subject_id": "54345",
+      "hadm_id": "128084.0",
+      "category": "Discharge summary",
+      "chartdate": "2145-11-01",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "post polio syndrome",
+        "umls_with_desc": "C0080040 Postpolio syndrome",
+        "ordo_with_desc": "Orphanet_2942  Postpoliomyelitis syndrome",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1
+      },
+      {
+        "mention": "transitional cell carcinoma",
+        "start": 538,
+        "end": 565,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      },
+      {
+        "mention": "transitional cell carcinoma",
+        "start": 1237,
+        "end": 1264,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      }
+    ]
+  },
+  "34689": {
+    "note_details": {
+      "subject_id": "27607",
+      "hadm_id": "154096.0",
+      "category": "Discharge summary",
+      "chartdate": "2196-08-18",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "her disease",
+        "umls_with_desc": "C0017925 Her Disease",
+        "ordo_with_desc": "Orphanet_369  Glycogen storage disease due to liver glycogen phosphorylase deficiency",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "33893": {
+    "note_details": {
+      "subject_id": "43305",
+      "hadm_id": "192925.0",
+      "category": "Discharge summary",
+      "chartdate": "2143-01-09",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "hypogammaglobulinemia",
+        "umls_with_desc": "C0086438 Hypogammaglobulinemia",
+        "ordo_with_desc": "Orphanet_229717  Isolated agammaglobulinemia",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1
+      },
+      {
+        "mention": "bronchiectasis",
+        "start": 5302,
+        "end": 5316,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      },
+      {
+        "mention": "bronchiectasis",
+        "start": 5605,
+        "end": 5619,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      }
+    ]
+  },
+  "40395": {
+    "note_details": {
+      "subject_id": "60424",
+      "hadm_id": "155222.0",
+      "category": "Discharge summary",
+      "chartdate": "2119-05-02",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "hyperparathyroidism",
+        "umls_with_desc": "C0020502 Hyperparathyroidism",
+        "ordo_with_desc": "Orphanet_181408  Rare hyperparathyroidism",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "33909": {
+    "note_details": {
+      "subject_id": "29560",
+      "hadm_id": "182407.0",
+      "category": "Discharge summary",
+      "chartdate": "2124-08-08",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "HIT",
+        "umls_with_desc": "C0272285 HIT",
+        "ordo_with_desc": "Orphanet_3325  Heparin-induced thrombocytopenia",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "HIT",
+        "umls_with_desc": "C0272285 HIT",
+        "ordo_with_desc": "Orphanet_3325  Heparin-induced thrombocytopenia",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "HIT",
+        "umls_with_desc": "C0272285 HIT",
+        "ordo_with_desc": "Orphanet_3325  Heparin-induced thrombocytopenia",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "HIT",
+        "umls_with_desc": "C0272285 HIT",
+        "ordo_with_desc": "Orphanet_3325  Heparin-induced thrombocytopenia",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "34305": {
+    "note_details": {
+      "subject_id": "28270",
+      "hadm_id": "153773.0",
+      "category": "Discharge summary",
+      "chartdate": "2189-11-23",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "calciphylaxis",
+        "umls_with_desc": "C0006666 Calciphylaxes",
+        "ordo_with_desc": "Orphanet_280062  Calciphylaxis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1
+      },
+      {
+        "mention": "pulmonary arterial hypertension",
+        "umls_with_desc": "C0152171 Prim pulm hypertension",
+        "ordo_with_desc": "Orphanet_275766  Idiopathic pulmonary arterial hypertension",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "pertinent_results",
+        "semehr_label": 1
+      },
+      {
+        "mention": "calciphylaxis",
+        "umls_with_desc": "C0006666 Calciphylaxes",
+        "ordo_with_desc": "Orphanet_280062  Calciphylaxis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "calciphylaxis",
+        "umls_with_desc": "C0006666 Calciphylaxes",
+        "ordo_with_desc": "Orphanet_280062  Calciphylaxis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Present_Illness",
+        "semehr_label": 1
+      },
+      {
+        "mention": "Pyoderma gangrenosum",
+        "start": 2530,
+        "end": 2550,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      }
+    ]
+  },
+  "34316": {
+    "note_details": {
+      "subject_id": "29433",
+      "hadm_id": "146826.0",
+      "category": "Discharge summary",
+      "chartdate": "2180-10-11",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "tracheobronchomalacia",
+        "umls_with_desc": "C0340231 Tracheobronchomalacia",
+        "ordo_with_desc": "Orphanet_411501  Williams-Campbell syndrome",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Discharge_Diagnosis",
+        "semehr_label": 1
+      },
+      {
+        "mention": "tracheobronchomalacia",
+        "umls_with_desc": "C0340231 Tracheobronchomalacia",
+        "ordo_with_desc": "Orphanet_411501  Williams-Campbell syndrome",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Present_Illness",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "36547": {
+    "note_details": {
+      "subject_id": "64145",
+      "hadm_id": "109844.0",
+      "category": "Discharge summary",
+      "chartdate": "2194-03-07",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "hyperthyroidism",
+        "umls_with_desc": "C0020550 hyperthyroid",
+        "ordo_with_desc": "Orphanet_181399  Rare hyperthyroidism",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "mediastinitis",
+        "start": 2158,
+        "end": 2171,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      },
+      {
+        "mention": "mediastinitis",
+        "start": 2608,
+        "end": 2621,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      },
+      {
+        "mention": "mediastinitis",
+        "start": 8248,
+        "end": 8261,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      },
+      {
+        "mention": "mediastinitis",
+        "start": 9179,
+        "end": 9192,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      },
+      {
+        "mention": "mediastinitis",
+        "start": 9818,
+        "end": 9831,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      },
+      {
+        "mention": "mediastinitis",
+        "start": 10674,
+        "end": 10687,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      }
+    ]
+  },
+  "35323": {
+    "note_details": {
+      "subject_id": "64277",
+      "hadm_id": "161558.0",
+      "category": "Discharge summary",
+      "chartdate": "2187-11-09",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "fulminant hepatic failure",
+        "umls_with_desc": "C0162557 Acute Liver Failure",
+        "ordo_with_desc": "Orphanet_90062  Acute liver failure",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Present_Illness",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "52501": {
+    "note_details": {
+      "subject_id": "95676",
+      "hadm_id": "146292.0",
+      "category": "Discharge summary",
+      "chartdate": "2156-01-22",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "HIT",
+        "umls_with_desc": "C0272285 HIT",
+        "ordo_with_desc": "Orphanet_3325  Heparin-induced thrombocytopenia",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "HIT",
+        "umls_with_desc": "C0272285 HIT",
+        "ordo_with_desc": "Orphanet_3325  Heparin-induced thrombocytopenia",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "legionella",
+        "umls_with_desc": "C0023241 Legionella",
+        "ordo_with_desc": "Orphanet_549  Legionellosis",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Present_Illness",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "52528": {
+    "note_details": {
+      "subject_id": "25367",
+      "hadm_id": "151193.0",
+      "category": "Discharge summary",
+      "chartdate": "2155-04-17",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "HIT",
+        "umls_with_desc": "C0272285 HIT",
+        "ordo_with_desc": "Orphanet_3325  Heparin-induced thrombocytopenia",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "pertinent_results",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "51061": {
+    "note_details": {
+      "subject_id": "6891",
+      "hadm_id": "145953.0",
+      "category": "Discharge summary",
+      "chartdate": "2146-07-11",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "recurrent fever",
+        "umls_with_desc": "C0035021 Recurrent fever",
+        "ordo_with_desc": "Orphanet_91547  Relapsing fever",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Discharge_Diagnosis",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "52206": {
+    "note_details": {
+      "subject_id": "20720",
+      "hadm_id": "193253.0",
+      "category": "Discharge summary",
+      "chartdate": "2101-02-19",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "sick sinus syndrome",
+        "umls_with_desc": "C0037052 Sick Sinus Syndrome",
+        "ordo_with_desc": "Orphanet_166282  Familial sick sinus syndrome",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "49795": {
+    "note_details": {
+      "subject_id": "22681",
+      "hadm_id": "125806.0",
+      "category": "Discharge summary",
+      "chartdate": "2111-07-21",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "fulminant liver failure",
+        "umls_with_desc": "C0162557 Acute Liver Failure",
+        "ordo_with_desc": "Orphanet_90062  Acute liver failure",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "impression",
+        "semehr_label": 1
+      },
+      {
+        "mention": "fulminant hepatic failure",
+        "umls_with_desc": "C0162557 Acute Liver Failure",
+        "ordo_with_desc": "Orphanet_90062  Acute liver failure",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Discharge_Diagnosis",
+        "semehr_label": 1
+      },
+      {
+        "mention": "acute hepatic failure",
+        "umls_with_desc": "C0162557 Acute Liver Failure",
+        "ordo_with_desc": "Orphanet_90062  Acute liver failure",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "fulminant hepatic failure",
+        "umls_with_desc": "C0162557 Acute Liver Failure",
+        "ordo_with_desc": "Orphanet_90062  Acute liver failure",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "fulminant hepatic failure",
+        "umls_with_desc": "C0162557 Acute Liver Failure",
+        "ordo_with_desc": "Orphanet_90062  Acute liver failure",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "fulminant hepatic failure",
+        "umls_with_desc": "C0162557 Acute Liver Failure",
+        "ordo_with_desc": "Orphanet_90062  Acute liver failure",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Present_Illness",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "49021": {
+    "note_details": {
+      "subject_id": "9256",
+      "hadm_id": "170652.0",
+      "category": "Discharge summary",
+      "chartdate": "2187-10-02",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "alport's syndrome",
+        "umls_with_desc": "C1567741 Alport Syndrome",
+        "ordo_with_desc": "Orphanet_63  Alport syndrome",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1
+      },
+      {
+        "mention": "alport syndrome",
+        "umls_with_desc": "C1567741 Alport Syndrome",
+        "ordo_with_desc": "Orphanet_63  Alport syndrome",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Present_Illness",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "41073": {
+    "note_details": {
+      "subject_id": "82083",
+      "hadm_id": "128465.0",
+      "category": "Discharge summary",
+      "chartdate": "2171-06-29",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "epilepsy",
+        "umls_with_desc": "C0014544 Epilepsy",
+        "ordo_with_desc": "Orphanet_101998  Rare epilepsy",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "Hospital_Discharge_Instructions",
+        "semehr_label": 1
+      },
+      {
+        "mention": "epileptic",
+        "umls_with_desc": "C0014544 Epilepsy",
+        "ordo_with_desc": "Orphanet_101998  Rare epilepsy",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "Discharge_Diagnosis",
+        "semehr_label": 1
+      },
+      {
+        "mention": "epilepsy",
+        "umls_with_desc": "C0014544 Epilepsy",
+        "ordo_with_desc": "Orphanet_101998  Rare epilepsy",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "epileptic seizures",
+        "umls_with_desc": "C0014544 Epilepsy",
+        "ordo_with_desc": "Orphanet_101998  Rare epilepsy",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "epilepsy",
+        "umls_with_desc": "C0014544 Epilepsy",
+        "ordo_with_desc": "Orphanet_101998  Rare epilepsy",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "41300": {
+    "note_details": {
+      "subject_id": "46077",
+      "hadm_id": "104395.0",
+      "category": "Discharge summary",
+      "chartdate": "2113-07-20",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "seizure disorder",
+        "umls_with_desc": "C0014544 Epilepsy",
+        "ordo_with_desc": "Orphanet_101998  Rare epilepsy",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "epilepsy",
+        "umls_with_desc": "C0014544 Epilepsy",
+        "ordo_with_desc": "Orphanet_101998  Rare epilepsy",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "History_of_Present_Illness",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "41466": {
+    "note_details": {
+      "subject_id": "76084",
+      "hadm_id": "134653.0",
+      "category": "Discharge summary",
+      "chartdate": "2180-01-11",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "nph",
+        "umls_with_desc": "C0020258 Nph",
+        "ordo_with_desc": "Orphanet_314928  Normal pressure hydrocephalus",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Discharge_Medications",
+        "semehr_label": 1
+      },
+      {
+        "mention": "NPH",
+        "umls_with_desc": "C0020258 Nph",
+        "ordo_with_desc": "Orphanet_314928  Normal pressure hydrocephalus",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "44246": {
+    "note_details": {
+      "subject_id": "44166",
+      "hadm_id": "149440.0",
+      "category": "Discharge summary",
+      "chartdate": "2158-04-28",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "NPH",
+        "umls_with_desc": "C0020258 Nph",
+        "ordo_with_desc": "Orphanet_314928  Normal pressure hydrocephalus",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "41991": {
+    "note_details": {
+      "subject_id": "85700",
+      "hadm_id": "167988.0",
+      "category": "Discharge summary",
+      "chartdate": "2185-12-11",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "epilepsy",
+        "umls_with_desc": "C0014544 Epilepsy",
+        "ordo_with_desc": "Orphanet_101998  Rare epilepsy",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "Discharge_Diagnosis",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "41739": {
+    "note_details": {
+      "subject_id": "65956",
+      "hadm_id": "189248.0",
+      "category": "Discharge summary",
+      "chartdate": "2158-11-15",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "hemochromatosis",
+        "umls_with_desc": "C0018995 Hemochromatose",
+        "ordo_with_desc": "Orphanet_220489  Rare hereditary hemochromatosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "54937": {
+    "note_details": {
+      "subject_id": "78515",
+      "hadm_id": "196984.0",
+      "category": "Discharge summary",
+      "chartdate": "2156-09-08",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "ttp",
+        "umls_with_desc": "C0034155 Moschowitz Disease",
+        "ordo_with_desc": "Orphanet_54057  Thrombotic thrombocytopenic purpura",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Chief_Complaint_and_Reason_for_Visit",
+        "semehr_label": 1
+      },
+      {
+        "mention": "ttp",
+        "umls_with_desc": "C0034155 Moschowitz Disease",
+        "ordo_with_desc": "Orphanet_54057  Thrombotic thrombocytopenic purpura",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Chief_Complaint_and_Reason_for_Visit",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "49532": {
+    "note_details": {
+      "subject_id": "7142",
+      "hadm_id": "119817.0",
+      "category": "Discharge summary",
+      "chartdate": "2131-12-06",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "primary sclerosing cholangitis",
+        "umls_with_desc": "C0566602 Sclerosing Cholangitis",
+        "ordo_with_desc": "Orphanet_171  Primary sclerosing cholangitis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Discharge_Diagnosis",
+        "semehr_label": 1
+      },
+      {
+        "mention": "primary sclerosing cholangitis",
+        "umls_with_desc": "C0566602 Sclerosing Cholangitis",
+        "ordo_with_desc": "Orphanet_171  Primary sclerosing cholangitis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "facility",
+        "semehr_label": 1
+      },
+      {
+        "mention": "primary sclerosing cholangitis",
+        "umls_with_desc": "C0566602 Sclerosing Cholangitis",
+        "ordo_with_desc": "Orphanet_171  Primary sclerosing cholangitis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "49955": {
+    "note_details": {
+      "subject_id": "61348",
+      "hadm_id": "173407.0",
+      "category": "Discharge summary",
+      "chartdate": "2165-09-09",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "pulmonary arterial hypertension",
+        "umls_with_desc": "C0152171 Prim pulm hypertension",
+        "ordo_with_desc": "Orphanet_275766  Idiopathic pulmonary arterial hypertension",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_Discharge_Studies",
+        "semehr_label": 1
+      },
+      {
+        "mention": "primary adrenal insufficiency",
+        "umls_with_desc": "C0001403 ADDISON DIS",
+        "ordo_with_desc": "Orphanet_85138  Addison disease",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "47713": {
+    "note_details": {
+      "subject_id": "69433",
+      "hadm_id": "174646.0",
+      "category": "Discharge summary",
+      "chartdate": "2138-11-20",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "pulmonary arterial hypertension",
+        "umls_with_desc": "C0152171 Prim pulm hypertension",
+        "ordo_with_desc": "Orphanet_275766  Idiopathic pulmonary arterial hypertension",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1
+      },
+      {
+        "mention": "hyperparathyroidism",
+        "umls_with_desc": "C0020502 Hyperparathyroidism",
+        "ordo_with_desc": "Orphanet_181408  Rare hyperparathyroidism",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1
+      },
+      {
+        "mention": "NPH",
+        "umls_with_desc": "C0020258 Nph",
+        "ordo_with_desc": "Orphanet_314928  Normal pressure hydrocephalus",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "hyperparathyroidism",
+        "umls_with_desc": "C0020502 Hyperparathyroidism",
+        "ordo_with_desc": "Orphanet_181408  Rare hyperparathyroidism",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "49482": {
+    "note_details": {
+      "subject_id": "12849",
+      "hadm_id": "142517.0",
+      "category": "Discharge summary",
+      "chartdate": "2139-10-17",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "crest syndrome",
+        "umls_with_desc": "C0206138 Syndrome, CREST",
+        "ordo_with_desc": "Orphanet_90290  CREST syndrome",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1
+      },
+      {
+        "mention": "crest syndrome",
+        "umls_with_desc": "C0206138 Syndrome, CREST",
+        "ordo_with_desc": "Orphanet_90290  CREST syndrome",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1
+      },
+      {
+        "mention": "crest syndrome",
+        "umls_with_desc": "C0206138 Syndrome, CREST",
+        "ordo_with_desc": "Orphanet_90290  CREST syndrome",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "basic",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "48386": {
+    "note_details": {
+      "subject_id": "2116",
+      "hadm_id": "170769.0",
+      "category": "Discharge summary",
+      "chartdate": "2138-02-06",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "multifocal atrial tachycardia",
+        "umls_with_desc": "C0221158 Ectopic atrial tachycardia",
+        "ordo_with_desc": "Orphanet_3282  Multifocal atrial tachycardia",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "48652": {
+    "note_details": {
+      "subject_id": "52593",
+      "hadm_id": "148720.0",
+      "category": "Discharge summary",
+      "chartdate": "2151-07-18",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "legionella",
+        "umls_with_desc": "C0023241 Legionella",
+        "ordo_with_desc": "Orphanet_549  Legionellosis",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "pertinent_results",
+        "semehr_label": 1
+      },
+      {
+        "mention": "legionella",
+        "umls_with_desc": "C0023241 Legionella",
+        "ordo_with_desc": "Orphanet_549  Legionellosis",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "Hepatocellular Carcinoma",
+        "start": 7198,
+        "end": 7222,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      }
+    ]
+  },
+  "49514": {
+    "note_details": {
+      "subject_id": "18544",
+      "hadm_id": "125442.0",
+      "category": "Discharge summary",
+      "chartdate": "2139-01-23",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "polymyalgia rheumatica",
+        "umls_with_desc": "C0039483 HORTON DIS",
+        "ordo_with_desc": "Orphanet_397  Giant cell arteritis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Discharge_Diagnosis",
+        "semehr_label": 1
+      },
+      {
+        "mention": "her disease",
+        "umls_with_desc": "C0017925 Her Disease",
+        "ordo_with_desc": "Orphanet_369  Glycogen storage disease due to liver glycogen phosphorylase deficiency",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "basic",
+        "semehr_label": 1
+      },
+      {
+        "mention": "polymyalgia rheumatica",
+        "umls_with_desc": "C0039483 HORTON DIS",
+        "ordo_with_desc": "Orphanet_397  Giant cell arteritis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "basic",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "53382": {
+    "note_details": {
+      "subject_id": "13877",
+      "hadm_id": "172753.0",
+      "category": "Discharge summary",
+      "chartdate": "2175-01-30",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "budd-chiari syndrome",
+        "umls_with_desc": "C0019154 Hepatic Vein Thromboses",
+        "ordo_with_desc": "Orphanet_131  Budd-Chiari syndrome",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "Discharge_Diagnosis",
+        "semehr_label": 1
+      },
+      {
+        "mention": "essential thrombocythemia",
+        "umls_with_desc": "C0040028 Primary Thrombocytoses",
+        "ordo_with_desc": "Orphanet_3318  Essential thrombocythemia",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Discharge_Diagnosis",
+        "semehr_label": 1
+      },
+      {
+        "mention": "essential thrombocytosis",
+        "umls_with_desc": "C0040028 Primary Thrombocytoses",
+        "ordo_with_desc": "Orphanet_3318  Essential thrombocythemia",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1
+      },
+      {
+        "mention": "essential thrombocytosis",
+        "umls_with_desc": "C0040028 Primary Thrombocytoses",
+        "ordo_with_desc": "Orphanet_3318  Essential thrombocythemia",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1
+      },
+      {
+        "mention": "essential thrombocythemia",
+        "umls_with_desc": "C0040028 Primary Thrombocytoses",
+        "ordo_with_desc": "Orphanet_3318  Essential thrombocythemia",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "essential thrombocythemia",
+        "umls_with_desc": "C0040028 Primary Thrombocytoses",
+        "ordo_with_desc": "Orphanet_3318  Essential thrombocythemia",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "budd chiari syndrome",
+        "umls_with_desc": "C0019154 Hepatic Vein Thromboses",
+        "ordo_with_desc": "Orphanet_131  Budd-Chiari syndrome",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "essential thrombocythemia",
+        "umls_with_desc": "C0040028 Primary Thrombocytoses",
+        "ordo_with_desc": "Orphanet_3318  Essential thrombocythemia",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Present_Illness",
+        "semehr_label": 1
+      },
+      {
+        "mention": "Budd-Chiari",
+        "start": 4550,
+        "end": 4561,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      },
+      {
+        "mention": "Budd-Chiari",
+        "start": 5192,
+        "end": 5203,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      },
+      {
+        "mention": "Budd-Chiari",
+        "start": 6470,
+        "end": 6481,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      },
+      {
+        "mention": "Budd-Chiari",
+        "start": 8406,
+        "end": 8417,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      },
+      {
+        "mention": "Budd-Chiari",
+        "start": 8579,
+        "end": 8590,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      }
+    ]
+  },
+  "53406": {
+    "note_details": {
+      "subject_id": "58433",
+      "hadm_id": "100415.0",
+      "category": "Discharge summary",
+      "chartdate": "2178-01-23",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "epileptic seizure",
+        "umls_with_desc": "C0014544 Epilepsy",
+        "ordo_with_desc": "Orphanet_101998  Rare epilepsy",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "seizure disorder",
+        "umls_with_desc": "C0014544 Epilepsy",
+        "ordo_with_desc": "Orphanet_101998  Rare epilepsy",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "epileptic",
+        "umls_with_desc": "C0014544 Epilepsy",
+        "ordo_with_desc": "Orphanet_101998  Rare epilepsy",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "History_of_Present_Illness",
+        "semehr_label": 1
+      },
+      {
+        "mention": "epileptic",
+        "umls_with_desc": "C0014544 Epilepsy",
+        "ordo_with_desc": "Orphanet_101998  Rare epilepsy",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "History_of_Present_Illness",
+        "semehr_label": 1
+      },
+      {
+        "mention": "meningocele",
+        "start": 5247,
+        "end": 5258,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      }
+    ]
+  },
+  "53691": {
+    "note_details": {
+      "subject_id": "4397",
+      "hadm_id": "148677.0",
+      "category": "Discharge summary",
+      "chartdate": "2156-05-21",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "calciphylaxis",
+        "umls_with_desc": "C0006666 Calciphylaxes",
+        "ordo_with_desc": "Orphanet_280062  Calciphylaxis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "basic",
+        "semehr_label": 1
+      },
+      {
+        "mention": "Alopecia",
+        "start": 1912,
+        "end": 1920,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true
+      }
+    ]
+  },
+  "59366": {
+    "note_details": {
+      "subject_id": "4910",
+      "hadm_id": "151003.0",
+      "category": "Discharge summary",
+      "chartdate": "2173-05-04",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "multifocal atrial tachycardia",
+        "umls_with_desc": "C0221158 Ectopic atrial tachycardia",
+        "ordo_with_desc": "Orphanet_3282  Multifocal atrial tachycardia",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Discharge_Medications",
+        "semehr_label": 1
+      },
+      {
+        "mention": "multifocal atrial tachycardia",
+        "umls_with_desc": "C0221158 Ectopic atrial tachycardia",
+        "ordo_with_desc": "Orphanet_3282  Multifocal atrial tachycardia",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "basic",
+        "semehr_label": 1
+      }
+    ]
+  }
+}

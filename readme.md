@@ -11,7 +11,6 @@ To get the prerequisite dependencies, please:
     
     pip install -r requirements.txt
 
-
 Download these prerequisite files for the embedded documents [here.](https://drive.google.com/file/d/16wpcexHf2KDZ4w2qBHrTp8dn1oa59ABM/view?usp=sharing)
 
 Make sure to unzip the files and place them in a location where you can reference their pathing.
@@ -19,6 +18,28 @@ Make sure to unzip the files and place them in a location where you can referenc
 To see how to use RDMA, we have provided a jupyter notebook:
 
     example.ipynb
+
+## Publicly available data
+
+We source our clinical case study annotations from the excel file from [RAG-HPO](https://github.com/PoseyPod/RAG-HPO) and provide it as a .json file in the directory: 
+    
+    public_data/phenotype_mining_benchmark.json
+
+We show three variants of our MIMIC3 rare disease mention annotations. 
+
+First, we showcase the original set from [here](https://github.com/acadTags/Rare-disease-identification/tree/main/data%20annotation)
+
+    public_data/rd_annos.json
+
+Next, we showcase the keyword filtered version:
+
+    public_data/filtered_rd_annos.json
+
+Then, we showcase the human-reannotated version:
+
+    public_data/reannotated_rd_annos.json
+
+To get the clinical note counterpart, please see the [MIMIC-III](https://physionet.org/content/mimiciii/1.4/) dataset.
 
 ## Using the provided annotation UI
 We note that it is possible to use our existing annotation tool locally. Simply, double click or open **annotation_tool.html**, and you'll be greeted with this interface below:
