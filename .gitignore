@@ -8,4 +8,4 @@ data/
 *.log
 *.pyc
 *.txt
-*.json
+# *.json
