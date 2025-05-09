@@ -66,4 +66,6 @@ Once you're done, hit the green export button in the top right, it will ask to s
 
 Some important notes:
 
+**Sometimes you'll see a "[Entity 'heparin induced thrombocytopenia' occurrence #1 (index 0) not found by string search or overlaps with previously used positions in document 2541 ORPHA:Orphanet_3325]", which implies the annotation entity was never found in the text"**
+
 **Do not refresh the page or you will lose all of your progress. Do not exit on accident. There's no database or backend that's tracking your annotations.**
