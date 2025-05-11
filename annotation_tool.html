@@ -46,6 +46,9 @@
     <div class="flex items-center justify-between">
       <h1 class="text-2xl font-bold">Rare Disease Annotation Reviewer</h1>
       <div class="flex items-center space-x-2">
+        <button id="guidelines-button" class="p-2 rounded hover:bg-blue-600" title="Show Guidelines">
+          <i data-lucide="book-open" class="w-5 h-5"></i>
+        </button>
         <button id="info-button" class="p-2 rounded hover:bg-blue-600" title="Show Information">
           <i data-lucide="info" class="w-5 h-5"></i>
         </button>
@@ -65,6 +68,27 @@
       </div>
     </div>
   </header>
+
+  <!-- Guidelines Modal -->
+  <div id="guidelines-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+    <div class="bg-white p-6 rounded-lg max-w-2xl w-full max-h-[80vh] overflow-y-auto">
+      <h2 class="text-xl font-bold mb-4">Annotation Guidelines</h2>
+      <div class="space-y-3">
+        <p>
+          Please decide whether the following highlighted entities are rare diseases. We define rare diseases as those that affect less than 1 in 200,000 people or a disease that is defined the rare disease database Orphanet.
+        </p>
+        <p>
+          We provide the context, existing annotated Orpha code, and potentially a candidate from Orphanet (defined by RDMA). When considering context, please make sure to check for negations and other key points of information.
+        </p>
+        <p>
+          Please decide whether the text mentions a rare disease, yes or no.
+        </p>
+      </div>
+      <button id="close-guidelines-modal" class="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-500">
+        Understood
+      </button>
+    </div>
+  </div>
 
   <!-- Information Modal -->
   <div id="info-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
@@ -294,7 +318,6 @@
 
   <script>
     // Application state
-    // Application state
     const state = {
       entities: [],
       filteredEntities: [],
@@ -302,7 +325,8 @@
       filter: 'all',
       decisions: {}, // Store decisions here
       stats: { total: 0, reviewed: 0, remaining: 0 },
-      loading: false
+      loading: false,
+      firstLoad: true // Track if this is the first file load
     };
     // Make state globally accessible for easier debugging if needed, but rely on 'state' within the script
     window.state = state;
@@ -318,6 +342,8 @@
       // Buttons
       infoButton: document.getElementById('info-button'),
       closeInfoButton: document.getElementById('close-info-modal'),
+      guidelinesButton: document.getElementById('guidelines-button'),
+      closeGuidelinesButton: document.getElementById('close-guidelines-modal'),
       downloadButton: document.getElementById('download-button'),
       prevButton: document.getElementById('prev-button'),
       nextButton: document.getElementById('next-button'),
@@ -332,6 +358,7 @@
 
       // Modals
       infoModal: document.getElementById('info-modal'),
+      guidelinesModal: document.getElementById('guidelines-modal'),
 
       // Stats
       statsTotal: document.getElementById('stats-total'),
@@ -442,7 +469,6 @@
     }
 
     // Generate a unique key for each entity decision
-    // Using JSON.stringify ensures a consistent key even if properties order changes
     function getEntityKey(entity) {
       if (!entity) return null;
 
@@ -459,7 +485,6 @@
       });
     }
 
-    // Extract detailed entities from a supervisor output file structure
     // Extract detailed entities from a supervisor output file structure
     function extractDetailedEntities(data) {
       const flaggedEntities = data.summary?.flagged_entities || [];
@@ -607,6 +632,12 @@
 
           state.entities = extractedEntities;
           state.loading = false; // Hide loading state
+
+          // Show guidelines on first successful load
+          if (state.firstLoad && extractedEntities.length > 0) {
+            elements.guidelinesModal.classList.remove('hidden');
+            state.firstLoad = false;
+          }
 
           // Reset filter and apply it to populate filteredEntities and update UI
           applyFilters(); // This will call updateStats and updateUIState internally
@@ -778,7 +809,8 @@
     }
 
     // Handle decision making (yes/no)
-    function makeDecision(isRareDisease) {
+    // Modified to accept a second parameter indicating whether to navigate after decision
+    function makeDecision(isRareDisease, navigateAfter = true) {
       const currentEntity = state.filteredEntities[state.currentIndex];
       if (!currentEntity) {
         console.error("Cannot make decision, no current entity.");
@@ -790,7 +822,6 @@
         console.error("Cannot make decision, failed to generate entity key.");
         return;
       }
-
 
       // Store/update decision in state.decisions using the unique key
       state.decisions[entityKey] = {
@@ -808,12 +839,15 @@
       displayCurrentEntity(); // Update current view to show reviewed state
       updateStats(); // Update stats counts and download button state
 
-      // Move to next entity if available and not the last one
-      if (state.filteredEntities.length > 0 && state.currentIndex < state.filteredEntities.length - 1) {
-        goToNext();
-      } else if (state.filteredEntities.length > 0 && state.currentIndex === state.filteredEntities.length - 1) {
-        // If it's the last one, just ensure navigation is disabled
-        elements.nextButton.disabled = true;
+      // Only navigate if the navigateAfter parameter is true
+      if (navigateAfter) {
+        // Move to next entity if available and not the last one
+        if (state.filteredEntities.length > 0 && state.currentIndex < state.filteredEntities.length - 1) {
+          goToNext();
+        } else if (state.filteredEntities.length > 0 && state.currentIndex === state.filteredEntities.length - 1) {
+          // If it's the last one, just ensure navigation is disabled
+          elements.nextButton.disabled = true;
+        }
       }
     }
 
@@ -920,6 +954,19 @@
         }
       });
 
+      // Guidelines modal
+      elements.guidelinesButton.addEventListener('click', () => {
+        elements.guidelinesModal.classList.remove('hidden');
+      });
+      elements.closeGuidelinesButton.addEventListener('click', () => {
+        elements.guidelinesModal.classList.add('hidden');
+      });
+      // Close modal if clicked outside
+      elements.guidelinesModal.addEventListener('click', (e) => {
+        if (e.target === elements.guidelinesModal) {
+          elements.guidelinesModal.classList.add('hidden');
+        }
+      });
 
       // File Upload
       elements.fileUpload.addEventListener('change', handleFileUpload);
@@ -935,9 +982,9 @@
       elements.prevButton.addEventListener('click', goToPrevious);
       elements.nextButton.addEventListener('click', goToNext);
 
-      // Decision Buttons
-      elements.yesButton.addEventListener('click', () => makeDecision(true));
-      elements.noButton.addEventListener('click', () => makeDecision(false));
+      // Decision Buttons - modified to include the navigateAfter parameter
+      elements.yesButton.addEventListener('click', () => makeDecision(true, true)); // Navigate after
+      elements.noButton.addEventListener('click', () => makeDecision(false, true)); // Navigate after
       elements.changeDecisionButton.addEventListener('click', () => {
         const currentEntity = state.filteredEntities[state.currentIndex];
         if (!currentEntity) return; // Should not happen if button is visible
@@ -946,18 +993,15 @@
         const currentDecision = state.decisions[entityKey]?.is_rare_disease; // Get the current stored decision
 
         // Toggle decision: if it was true, make it false; if false or undefined, make it true
-        makeDecision(!currentDecision);
+        makeDecision(!currentDecision, false); // Don't navigate after changing the decision
       });
 
       // Download Button
-      // Attach the download function directly to the button click
       elements.downloadButton.addEventListener('click', downloadCorrectedAnnotations);
 
       // Initial update of navigation buttons and stats
       applyFilters(); // This calls updateStats and displayCurrentEntity
     });
-
-
   </script>
 </body>
 
