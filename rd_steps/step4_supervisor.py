@@ -26,6 +26,7 @@ from rdma.rdrag.verify import MultiStageRDVerifier
 from rdma.utils.embedding import EmbeddingsManager
 from rdma.utils.llm_client import LocalLLMClient, APILLMClient
 from rdma.utils.setup import setup_device
+from rdma.hporag.context import ContextExtractor
 
 
 def timestamp_print(message: str) -> None:
@@ -247,7 +248,7 @@ def extract_entities_with_context(
     """
     # Initialize containers for categorized entities
     entities = {"false_negatives": [], "false_positives": [], "true_positives": []}
-
+    context_extractor = ContextExtractor()
     # Extract false negatives from evaluation results
     if "corpus_false_negatives" in evaluation_data:
         for fn in evaluation_data["corpus_false_negatives"]:
@@ -268,7 +269,7 @@ def extract_entities_with_context(
                 # Extract from annotations
                 if isinstance(gt_sample, dict) and "annotations" in gt_sample:
                     for ann in gt_sample["annotations"]:
-            
+
                         gt_entity = ann.get("mention", "")
                         # Get context if available
                         document_text = gt_sample.get("note_details", {}).get(
@@ -279,16 +280,14 @@ def extract_entities_with_context(
                         if (
                             document_text
                             and gt_entity
-                            and gt_entity in document_text
+                            and gt_entity.lower() in document_text.lower()
                         ):
-                            # Extract a simple context window
-                            pos = document_text.find(gt_entity)
-                            start = max(0, pos - 100)
-                            end = min(
-                                len(document_text), pos + len(gt_entity) + 100
-                            )
-                            gt_context = document_text[start:end]
-                           
+                            gt_context = context_extractor.extract_contexts(
+                                [gt_entity.lower()],
+                                document_text.lower(),
+                                window_size=2,
+                            )[0]["context"]
+
             # Only include entities with context
             if gt_entity and gt_context:
                 entities["false_negatives"].append(

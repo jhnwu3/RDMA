@@ -19,7 +19,10 @@ sys.path.insert(0, parent_dir)
 
 
 def set_based_code_evaluation(
-    predictions_dict: Dict[str, List[str]], ground_truth_dict: Dict[str, List[str]]
+    predictions_dict: Dict[str, List[str]],
+    ground_truth_dict: Dict[str, List[str]],
+    prediction_entities: Optional[Dict[str, Dict[str, str]]] = None,
+    ground_truth_entities: Optional[Dict[str, Dict[str, str]]] = None,
 ) -> Dict:
     """
     Evaluates predictions against ground truth using set-based exact matching of ORPHA codes.
@@ -28,6 +31,8 @@ def set_based_code_evaluation(
     Args:
         predictions_dict: Dictionary mapping sample_id to lists of predicted ORPHA codes
         ground_truth_dict: Dictionary mapping sample_id to lists of ground truth ORPHA codes
+        prediction_entities: Dictionary mapping {doc_id: {numeric_orpha_id: entity_name}}
+        ground_truth_entities: Dictionary mapping {doc_id: {numeric_orpha_id: entity_name}}
 
     Returns:
         Dictionary with precision, recall, F1 scores and match information
@@ -128,18 +133,49 @@ def set_based_code_evaluation(
             "has_ground_truth": has_ground_truth,
         }
 
-        # Add to corpus-level lists
+        # Get entity names for this sample
+        pred_entity_names = {}
+        gt_entity_names = {}
+
+        if prediction_entities and sample_id in prediction_entities:
+            pred_entity_names = prediction_entities[sample_id]
+
+        if ground_truth_entities and sample_id in ground_truth_entities:
+            gt_entity_names = ground_truth_entities[sample_id]
+
+        # Add to corpus-level lists with entity names
         for tp in true_positives:
-            result["corpus_true_positives"].append({"code": tp, "sample_id": sample_id})
+            # Try to get entity names from both sources
+            pred_name = pred_entity_names.get(tp, "")
+            gt_name = gt_entity_names.get(tp, "")
+
+            # Use prediction name by default, fall back to ground truth name if needed
+            entity_name = pred_name if pred_name else gt_name
+
+            result["corpus_true_positives"].append(
+                {
+                    "code": tp,
+                    "sample_id": sample_id,
+                    "name": entity_name,
+                    "pred_name": pred_name,
+                    "gt_name": gt_name,
+                }
+            )
 
         for fp in false_positives:
+            # Get entity name from predictions
+            entity_name = pred_entity_names.get(fp, "")
+
             result["corpus_false_positives"].append(
-                {"code": fp, "sample_id": sample_id}
+                {"code": fp, "sample_id": sample_id, "name": entity_name}
             )
 
         for fn in false_negatives:
+            # Get entity name from ground truth
+            entity_name = gt_entity_names.get(fn, "")
+
             result["corpus_false_negatives"].append(
-                {"code": fn, "sample_id": sample_id}
+                {"code": fn, "sample_id": sample_id, "name": entity_name}
             )
 
         # Update counters
@@ -630,64 +666,110 @@ def extract_entity_mappings(
         if not code:
             return ""
         match = re.search(r"(\d+)", code)
-        return match.group(1) if match else ""
+        return match.group(1) if match else code
 
     # Initialize mappings
     prediction_entities = {}
     ground_truth_entities = {}
 
     # Process predictions
-    pred_results = predictions_data.get("results", predictions_data)
-    for doc_id, doc_data in pred_results.items():
-        if "matched_diseases" in doc_data:
+    if predictions_data:
+        # Handle direct predictions format or nested results format
+        pred_results = predictions_data.get("results", predictions_data)
+        for doc_id, doc_data in pred_results.items():
+            if isinstance(doc_data, dict) and "matched_diseases" in doc_data:
+                entities = {}
+                for match in doc_data["matched_diseases"]:
+                    if isinstance(match, dict):
+                        # Extract entity and ORPHA ID
+                        orpha_id = match.get("orpha_id", "")
+                        entity = match.get("entity", "")
+
+                        if orpha_id and entity:
+                            # Extract just the numeric part for the key
+                            numeric_id = get_numeric_id(orpha_id)
+                            if numeric_id:
+                                # Use original_entity if available, otherwise entity
+                                if (
+                                    "original_entity" in match
+                                    and match["original_entity"]
+                                ):
+                                    entities[numeric_id] = match["original_entity"]
+                                else:
+                                    entities[numeric_id] = entity
+
+                if entities:
+                    prediction_entities[str(doc_id)] = entities
+
+    # Process ground truth
+    if ground_truth_data:
+        # Handle both old and new formats
+        gt_data = ground_truth_data
+        if "documents" in ground_truth_data:
+            gt_data = ground_truth_data["documents"]
+
+        for doc_id, doc_data in gt_data.items():
             entities = {}
-            for match in doc_data["matched_diseases"]:
-                if "entity" in match and "orpha_id" in match:
-                    # Extract just the numeric part for the key
-                    numeric_id = get_numeric_id(match["orpha_id"])
-                    if numeric_id:
-                        # Use original_entity if available, otherwise entity
-                        if "original_entity" in match:
-                            entities[numeric_id] = match["original_entity"]
-                        else:
-                            entities[numeric_id] = match["entity"]
+
+            # Format 1: documents with annotations
+            if isinstance(doc_data, dict) and "annotations" in doc_data:
+                for ann in doc_data["annotations"]:
+                    if isinstance(ann, dict) and "mention" in ann:
+                        mention = ann.get("mention", "")
+
+                        # Get ORPHA ID from ordo_with_desc field
+                        orpha_id = ""
+                        if "ordo_with_desc" in ann:
+                            ordo_parts = ann["ordo_with_desc"].split(" ", 1)
+                            orpha_id = ordo_parts[0] if ordo_parts else ""
+                        elif "orpha_id" in ann:
+                            orpha_id = ann["orpha_id"]
+
+                        if orpha_id and mention:
+                            # Extract just the numeric part for the key
+                            numeric_id = get_numeric_id(orpha_id)
+                            if numeric_id:
+                                entities[numeric_id] = mention
+
+            # Format 2: documents with gold_annotations
+            elif isinstance(doc_data, dict) and "gold_annotations" in doc_data:
+                gold_anns = doc_data["gold_annotations"]
+
+                if isinstance(gold_anns, list):
+                    for ann in gold_anns:
+                        if isinstance(ann, dict) and "mention" in ann:
+                            mention = ann.get("mention", "")
+                            orpha_id = ann.get("orpha_id", "")
+
+                            if orpha_id and mention:
+                                numeric_id = get_numeric_id(orpha_id)
+                                if numeric_id:
+                                    entities[numeric_id] = mention
 
             if entities:
-                prediction_entities[doc_id] = entities
+                ground_truth_entities[str(doc_id)] = entities
 
-    # Process ground truth - handle both old and new formats
-    if "documents" in ground_truth_data:
-        ground_truth_data = ground_truth_data["documents"]
+    # Debug info about extraction
+    print(f"Extracted entity mappings:")
+    print(f"  Prediction documents with entity mappings: {len(prediction_entities)}")
+    print(
+        f"  Ground truth documents with entity mappings: {len(ground_truth_entities)}"
+    )
 
-    for doc_id, doc_data in ground_truth_data.items():
-        if isinstance(doc_data, dict) and "annotations" in doc_data:
-            entities = {}
-            for ann in doc_data["annotations"]:
-                if "mention" in ann and "ordo_with_desc" in ann:
-                    # Get first word as ORPHA ID
-                    orpha_id = ann["ordo_with_desc"].split(" ", 1)[0]
-                    # Extract just the numeric part for the key
-                    numeric_id = get_numeric_id(orpha_id)
-                    if numeric_id:
-                        entities[numeric_id] = ann["mention"]
+    # Sample of entity mappings (first document for each)
+    if prediction_entities:
+        first_pred_doc = next(iter(prediction_entities))
+        first_pred_entities = prediction_entities[first_pred_doc]
+        print(f"  Sample prediction entity mappings (doc {first_pred_doc}):")
+        for i, (code, name) in enumerate(list(first_pred_entities.items())[:3]):
+            print(f"    {i+1}. ORPHA:{code} -> '{name}'")
 
-            if entities:
-                ground_truth_entities[doc_id] = entities
-
-        # Handle alternative format with gold_annotations
-        elif isinstance(doc_data, dict) and "gold_annotations" in doc_data:
-            entities = {}
-            gold_anns = doc_data["gold_annotations"]
-
-            if isinstance(gold_anns, list):
-                for ann in gold_anns:
-                    if isinstance(ann, dict) and "mention" in ann and "orpha_id" in ann:
-                        numeric_id = get_numeric_id(ann["orpha_id"])
-                        if numeric_id:
-                            entities[numeric_id] = ann["mention"]
-
-            if entities:
-                ground_truth_entities[doc_id] = entities
+    if ground_truth_entities:
+        first_gt_doc = next(iter(ground_truth_entities))
+        first_gt_entities = ground_truth_entities[first_gt_doc]
+        print(f"  Sample ground truth entity mappings (doc {first_gt_doc}):")
+        for i, (code, name) in enumerate(list(first_gt_entities.items())[:3]):
+            print(f"    {i+1}. ORPHA:{code} -> '{name}'")
 
     return prediction_entities, ground_truth_entities
 
@@ -908,6 +990,7 @@ def extract_predictions(
             matched_diseases = case_data["matched_diseases"]
 
             for item in matched_diseases:
+
                 # Validate item type
                 if not isinstance(item, dict):
                     continue
@@ -2159,6 +2242,15 @@ def main():
 
     ground_truth_dict = extract_ground_truth(ground_truth_data)
 
+    # Extract entity names for both exact and fuzzy evaluations
+    print(f"\nExtracting entity names from predictions and ground truth...")
+    prediction_entities, _ = extract_entity_mappings(predictions_data, {})
+    _, ground_truth_entities = extract_entity_mappings({}, ground_truth_data)
+
+    print(
+        f"Extracted entity names for {len(prediction_entities)} prediction docs and {len(ground_truth_entities)} ground truth docs"
+    )
+
     # Print debug info about document ID matching
     pred_ids = set(predictions_dict.keys())
     gt_ids = set(ground_truth_dict.keys())
@@ -2176,24 +2268,14 @@ def main():
         print("Sample prediction IDs:", list(pred_ids)[:5])
         print("Sample ground truth IDs:", list(gt_ids)[:5])
 
-    # Run set-based code evaluation
+    # Run set-based code evaluation with entity names
     print(f"\nRunning set-based code evaluation (numeric ORPHA ID matching)...")
-    exact_result = set_based_code_evaluation(predictions_dict, ground_truth_dict)
+    exact_result = set_based_code_evaluation(
+        predictions_dict, ground_truth_dict, prediction_entities, ground_truth_entities
+    )
 
-    # Extract entity names for fuzzy matching if enabled
+    # Run fuzzy matching evaluation if enabled
     if args.enable_fuzzy:
-        print(f"\nExtracting entity names for fuzzy matching...")
-
-        # Extract entity names mapped to ORPHA codes
-        prediction_entities, ground_truth_entities = extract_entity_mappings(
-            predictions_data, ground_truth_data
-        )
-
-        print(
-            f"Extracted entity names for {len(prediction_entities)} prediction docs and {len(ground_truth_entities)} ground truth docs"
-        )
-
-        # Run fuzzy matching evaluation
         print(f"\nRunning fuzzy match evaluation (disease entity name matching)...")
         fuzzy_result = fuzzy_set_based_evaluation(
             predictions_dict,
