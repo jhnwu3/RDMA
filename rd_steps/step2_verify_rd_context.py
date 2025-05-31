@@ -18,13 +18,13 @@ parent_dir = os.path.dirname(current_dir)
 sys.path.insert(0, parent_dir)
 
 # Import project modules
-from rdrag.rd_match import RAGRDMatcher
-from utils.embedding import EmbeddingsManager
-from utils.llm_client import LocalLLMClient, APILLMClient
-from utils.setup import setup_device
+from rdma.rdrag.rd_match import RAGRDMatcher
+from rdma.utils.embedding import EmbeddingsManager
+from rdma.utils.llm_client import LocalLLMClient, APILLMClient
+from rdma.utils.setup import setup_device
 
 # Import the new MultiStageRDVerifier class
-from rdrag.verify import MultiStageRDVerifier
+from rdma.rdrag.verify import MultiStageRDVerifier
 
 def timestamp_print(message: str) -> None:
     """Print message with timestamp."""

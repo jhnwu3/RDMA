@@ -1,0 +1,3006 @@
+{
+  "metadata": {
+    "timestamp": "2025-05-11T18:51:11.912Z",
+    "total_entities_in_file": 333,
+    "reviewed_entities": 333
+  },
+  "corrected_annotations": [
+    {
+      "entity": "sick sinus syndrome",
+      "document_id": "287",
+      "orpha_code": "Orphanet_166282",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-10T19:22:17.242Z",
+      "context": " the electrophysiology division of the\nCardiology service was consulted.  She was thought to have a\nsick sinus syndrome, and a DDD pacer was placed.  Lasix was\ngiven for diuresis.  She received bronchoscopy, which remov"
+    },
+    {
+      "entity": "legionella",
+      "document_id": "869",
+      "orpha_code": "Orphanet_549",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-09T21:13:05.742Z",
+      "context": "t that there was also a COPD\ncomponent to the patient's dyspnea.  DFA for flu was negative;\nurinary legionella antigen was also negative.  Over the course\nof his initial ICU stay, he was treated with IV solumed"
+    },
+    {
+      "entity": "nocardiosis",
+      "document_id": "1208",
+      "orpha_code": "Orphanet_31204",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-09T21:14:23.988Z",
+      "context": "he was stabilized with NIPPV. Etiology was likely\nmultifactorial, including advanced lung ca, COPD, Nocardiosis.\nAfter a couple of days, he returned to the medicine floor, where\nhe again had severe respiratory c"
+    },
+    {
+      "entity": "nocardiosis",
+      "document_id": "1208",
+      "orpha_code": "Orphanet_31204",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-09T21:14:27.949Z",
+      "context": "pital6 1952**], [**Location (un) 86**]\n\nDischarge Diagnosis:\nStage 4 Squamous Cell Lung Cancer\nCOPD\nNocardiosis\n\n\nDischarge Condition:\nN/A\n\nDischarge Instructions:\nN/A\n\nFollowup Instructions:\nN/A\n\n\n\n            "
+    },
+    {
+      "entity": "retinitis pigmentosa",
+      "document_id": "950",
+      "orpha_code": "Orphanet_791",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-09T21:14:30.565Z",
+      "context": "d fentanyl on arrival for better sedation. FAST was\nnegative in the ED.\n\nPast Medical History:\nPMH: Retinitis Pigmentosa, R radial head fxr tx'ed\nnonoperatively\n\nPSH: R shoulder reconstruction [**4-/2150**]\n\nSocial Histo"
+    },
+    {
+      "entity": "rheumatic fever",
+      "document_id": "977",
+      "orpha_code": "Orphanet_3099",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-09T21:14:31.845Z",
+      "context": "s disease\nHypertension\nBasal cell carcinoma left ear\nAmiodarone induced subclinical hyperthyroidism\nRheumatic fever at age 9\ns/p Aortic valve replacement in [**2105**]\ns/p Redo AVR in [**2115**] with placement of a "
+    },
+    {
+      "entity": "HIT",
+      "document_id": "1552",
+      "orpha_code": "Orphanet_3325",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-09T21:17:42.170Z",
+      "context": "**] she was started on Heparin and\nCoumadin for DVT prophylaxis with a goal INR of 2. Following day\nHIT panel was positive and Heparin was stopped. ID and\ndermatology were consulted for rash and fevers. "
+    },
+    {
+      "entity": "HIT",
+      "document_id": "1552",
+      "orpha_code": "Orphanet_3325",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-09T21:17:45.656Z",
+      "context": "atology were consulted for rash and fevers. Treatment done\nper derm. and Argatroban was started for HIT+. Rash improved\nover next couple of days. Argatroban was stopped. INR appeared\nto be at therapeutic"
+    },
+    {
+      "entity": "tracheobronchomalacia",
+      "document_id": "1790",
+      "orpha_code": "Orphanet_411501",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-09T21:17:47.444Z",
+      "context": "nt in [**2097**]\n5. Bipolar disorder\n6. ADD\n7. OSA - on BIPAP at home but has not been using it.\n8. Tracheobronchomalacia s/p tracheal bronchoplasty [**2104-6-5**]\n9. Right pleural effusion s/p pleurodesis(FEVI 1.95, FVC\n"
+    },
+    {
+      "entity": "tracheobronchomalacia",
+      "document_id": "1790",
+      "orpha_code": "Orphanet_411501",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-09T21:17:48.400Z",
+      "context": "his may be followed up with chest radiographs or a CT as per\nclinical need to assess resolution.\n3. Tracheobronchomalacia with soft tissue in the upper trachea,\nlikely representing tracheal secretions.\n.\nBRONCHOSCOPY WITH"
+    },
+    {
+      "entity": "sarcoidosis",
+      "document_id": "2452",
+      "orpha_code": "Orphanet_797",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-09T21:17:51.095Z",
+      "context": ":   Mrs. [**Known lastname **] is a 62-year-old\nfemale with a complicated medical history including\nsarcoidosis, hepatic cirrhosis, Grade II esophageal varices,\nhypertension, multiple orthopaedic procedures to h"
+    },
+    {
+      "entity": "sarcoidosis",
+      "document_id": "2452",
+      "orpha_code": "Orphanet_797",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-09T21:17:55.296Z",
+      "context": "site pain\nin her left thigh, with decreased range of motion of her\nknee.\n\nPAST MEDICAL HISTORY:\n1.  Sarcoidosis diagnosed in [**2137**], with pulmonary and hepatic\ninvolvement, on chronic steroids\n2.  Status pos"
+    },
+    {
+      "entity": "sarcoidosis",
+      "document_id": "2452",
+      "orpha_code": "Orphanet_797",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-09T21:17:57.490Z",
+      "context": "nfection.  Her Foley\ncatheter was removed on this date.  She was also started on\nprednisone for her sarcoidosis.  By this time, the patient's\nwhite blood cell count had decreased to 19.4.  Her serum\ncreatinine h"
+    },
+    {
+      "entity": "heparin induced thrombocytopenia",
+      "document_id": "2541",
+      "orpha_code": "Orphanet_3325",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-09T21:20:51.144Z",
+      "context": "[Entity 'heparin induced thrombocytopenia' occurrence #1 (index 0) not found by string search or overlaps with previously used positions in document 2541 ORPHA:Orphanet_3325]"
+    },
+    {
+      "entity": "ALS",
+      "document_id": "3390",
+      "orpha_code": "Orphanet_803",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-09T21:20:55.817Z",
+      "context": "nvasive Procedure:\nTracheostomy\nConversion PEG to PEJ tube\n\nHistory of Present Illness:\n70yo F with ALS (nonverbal at baseline but hearing is OK and\ncommunicates via keypad), RA, and G-tube, with multipl"
+    },
+    {
+      "entity": "ALS",
+      "document_id": "3390",
+      "orpha_code": "Orphanet_803",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-09T21:20:57.509Z",
+      "context": "d hypertensive.\nShe was given Nebs, decadron and levo/falgyl with some\nimprovement in her sx and vitals.\n.\nOn the floor she did well. Tube feeds were continued. She\ndeveloped worsening hyponatremia with "
+    },
+    {
+      "entity": "ALS",
+      "document_id": "3390",
+      "orpha_code": "Orphanet_803",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-09T21:20:59.222Z",
+      "context": "3-95% oxygen sats. She was\ntransfered to the ICU for further monitoring.\n\n\nPast Medical History:\n1. ALS - diagnosed in [**2103-5-30**]. Seen recently in neuro clinic\nand felt to have a grave prognosis. N"
+    },
+    {
+      "entity": "ALS",
+      "document_id": "3390",
+      "orpha_code": "Orphanet_803",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-09T21:21:01.979Z",
+      "context": "ardial effusion\nwithout evidence for tamponade physiology.\n\nBrief Hospital Course:\nA/P: 70yo F with ALS and RA who presented with difficulty\nclearing secretions and coughing. Given her known ALS, previou"
+    },
+    {
+      "entity": "ALS",
+      "document_id": "3390",
+      "orpha_code": "Orphanet_803",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-09T21:21:04.847Z",
+      "context": "o F with ALS and RA who presented with difficulty\nclearing secretions and coughing. Given her known ALS, previous\nhx of aspiration PNA, and elevated WBC count, this is most\nlikely was a repeat aspiration"
+    },
+    {
+      "entity": "ALS",
+      "document_id": "3390",
+      "orpha_code": "Orphanet_803",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-09T21:21:07.601Z",
+      "context": ".  Likely colonizer;\nsensitivities pending.  Please follow-up on speciation and\nsensitivities.\n.\n2. ALS: The pt was diagnosed in [**2103-5-30**] and progression of ALS\nis most likely contributing to her "
+    },
+    {
+      "entity": "ALS",
+      "document_id": "3390",
+      "orpha_code": "Orphanet_803",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-09T21:21:08.761Z",
+      "context": " speciation and\nsensitivities.\n.\n2. ALS: The pt was diagnosed in [**2103-5-30**] and progression of ALS\nis most likely contributing to her repeated aspiration PNA.\nUnderwent placement of a tracheostomy ["
+    },
+    {
+      "entity": "seizure disorder",
+      "document_id": "4043",
+      "orpha_code": "Orphanet_101998",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-09T21:21:11.843Z",
+      "context": " temporal lobectomy; however, subsequently decided not\nto have the surgery.\n\nPast Medical History:\n-Seizure disorder-see above\n-? Meningitis: presented on [**2116-10-20**] with 7 seizures.  LP was\nperformed and showe"
+    },
+    {
+      "entity": "seizure disorder",
+      "document_id": "4043",
+      "orpha_code": "Orphanet_101998",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-09T21:21:13.758Z",
+      "context": "es with his wife, works in IT at [**Name (NI) 1926**], but has been on\nmedical leave related to his seizure disorder. He denies\ncigarette and EtOH use. He has a history daily marijuana use.\n\n\nFamily History:\nHe is ad"
+    },
+    {
+      "entity": "epilepsy",
+      "document_id": "4043",
+      "orpha_code": "Orphanet_101998",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-09T21:21:15.317Z",
+      "context": "\nNone\n\n\nHistory of Present Illness:\nThe patient is a 42 year old right handed man with a history of\nepilepsy since [**5-11**] with known left temporal spikes on EEG and\nadmissions q4-6 weeks for seizure clust"
+    },
+    {
+      "entity": "rheumatic fever",
+      "document_id": "4806",
+      "orpha_code": "Orphanet_3099",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-09T21:21:17.177Z",
+      "context": "ic Aortic Aneursym\ncoronary artery disease\nHypertension\nHistory of mitral valve prolapse\nHistory of Rheumatic Fever\ndiabetes mellitus\n\nSocial History:\nCurrent smoker, 1ppd for last 16 years.\nAdmits to infrequent ETO"
+    },
+    {
+      "entity": "sarcoid",
+      "document_id": "4938",
+      "orpha_code": "Orphanet_797",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-09T21:21:30.006Z",
+      "context": "etes Mellitus-type I c/b retinopathy (legally blind) and\nneuropathy, gastroparesis\n# osteoporosis\n# Sarcoid, reported lung nodule\n# depression\n# s/p right tibial fracture\n# s/p right leg fracture (cast), [**"
+    },
+    {
+      "entity": "legionella",
+      "document_id": "4938",
+      "orpha_code": "Orphanet_549",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-09T21:21:33.332Z",
+      "context": "ofloxacin 750mg QD and\ndiuresis with IV lasix 20mg. Notable OSH labs: influenza A and\nB: neg, urine legionella neg, urine strep pneum antigen neg.\nUrine cx neg. Blood cx positive 2/4 bottles for gram + cocci in"
+    },
+    {
+      "entity": "tetanus",
+      "document_id": "5873",
+      "orpha_code": "Orphanet_3299",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-09T21:21:35.294Z",
+      "context": " with Keflex 500 mg TID x 10 days by the ED at\n[**Hospital6 33**] where she also had stitches done (tetanus\nbooster was also given). On [**2-28**] she was seen at [**Company 191**] for removal\nof the stitche"
+    },
+    {
+      "entity": "HIT",
+      "document_id": "10406",
+      "orpha_code": "Orphanet_3325",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-09T21:21:41.289Z",
+      "context": "ent had transient thrombocytopenia\nwhile in the ICU that resolved prior to transfer to the floor.\nA HIT-Ab was sent which was negative.  He had no evidence of\npetechiae or easy bruising.\n\n4. Skin lesions"
+    },
+    {
+      "entity": "Medullary sponge kidney",
+      "document_id": "10406",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-09T21:21:43.551Z",
+      "context": "hanges, septic shock on\nlevophed and dopamine gtt prior to transfer.\n\n\nPast Medical History:\n-IDDM\n-Medullary sponge kidney\n-Nephrolithiasis\n-nueropathy\n-chronic back pain\n\n\nSocial History:\n-Divorced, lives at home with par"
+    },
+    {
+      "entity": "nph",
+      "document_id": "5738",
+      "orpha_code": "Orphanet_314928",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-09T21:21:46.084Z",
+      "context": "-20**]. Her\ncalcium acetate needs to be held on the day of the BMD.\n\n# DM - continued on fixed dose NPH (16 units q AM, 3 units qPM)\nand sliding scale coverage.\n\n# Pressure ulcer - patient noted to have "
+    },
+    {
+      "entity": "HIT",
+      "document_id": "6465",
+      "orpha_code": "Orphanet_3325",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-09T21:24:12.756Z",
+      "context": "0*\n[**2189-11-24**] 09:30PM   CREAT-4.5*#\n[**2189-11-24**] 09:36PM   LACTATE-7.3*\n.\nPertinent Labs:\nHIT positive\nSerotonin releasing assay - negative\n[**2189-12-12**] 03:54AM BLOOD calTIBC-220* Ferritn-1"
+    },
+    {
+      "entity": "nph",
+      "document_id": "5811",
+      "orpha_code": "Orphanet_314928",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-09T21:24:14.468Z",
+      "context": ".  Status post ICD placement in [**2140**].\n\nALLERGIES:  No known drug allergies.\n\nMEDICATIONS:\n1.  NPH 25 in the morning, 15 units q P.M., 6 units of\nregular q A.M.\n2.  Protonix 40 milligrams po q day.\n"
+    },
+    {
+      "entity": "nph",
+      "document_id": "7363",
+      "orpha_code": "Orphanet_314928",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-09T21:24:15.604Z",
+      "context": ".d., Actigall 300 mg p.o. t.i.d.,\nLopressor 100 mg p.o. b.i.d., magnesium oxide 400 mg p.o.\nb.i.d., NPH insulin 45 units q.a.m., regular insulin\nsliding-scale, ganciclovir 500 mg p.o. t.i.d.\n\nSOCIAL HIST"
+    },
+    {
+      "entity": "nph",
+      "document_id": "7363",
+      "orpha_code": "Orphanet_314928",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-09T21:24:16.593Z",
+      "context": " on regular\ninsulin sliding-scale and b.i.d. fingersticks throughout her\nstay.  Her morning dose of NPH was reduced to 10 units given\nher initial poor p.o. intake.  However, as her p.o. intake\nincreased,"
+    },
+    {
+      "entity": "nph",
+      "document_id": "7363",
+      "orpha_code": "Orphanet_314928",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-09T21:24:36.711Z",
+      "context": "reased, her evening blood sugars were found to be in the\nlow to mid 200 range.  Therefore, her a.m. NPH was increased\nto 20 units.  She will need close outpatient followup for her\nhyperglycemia.\n\nThe pat"
+    },
+    {
+      "entity": "nph",
+      "document_id": "13231",
+      "orpha_code": "Orphanet_314928",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-09T21:24:39.889Z",
+      "context": "o be secondary to dehydration\ncoupled with hypoperfusion w/ bradycardia/hypotension.\n.\n# DM2\n- SSI, NPH\n\n\nMedications on Admission:\nASA 81mg daily\nToprol XL 50mg daily\nVerapamil 240mg [**Hospital1 **]\nLa"
+    },
+    {
+      "entity": "nph",
+      "document_id": "13231",
+      "orpha_code": "Orphanet_314928",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-09T21:24:41.097Z",
+      "context": "her day\nCoumadin 10.5mg every other day--increased from 10mg on [**8-4**]\nNovolin 70/30 44units QAM\nNPH 12 units QPM\nSynthroid 25mcg daily\nPotassium Cl 10mEq daily\nZoloft 100mg daily\nSingulair 10mg daily"
+    },
+    {
+      "entity": "nph",
+      "document_id": "13231",
+      "orpha_code": "Orphanet_314928",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-09T21:24:41.854Z",
+      "context": "/0.4 mL Syringe Sig: One (1)  Subcutaneous once\na day: please d/c when therapeutic on coumadin.\n15. NPH 18U qam, 6U qpm + ISS\n\nDischarge Disposition:\nExtended Care\n\nFacility:\n[**Hospital3 5277**] - [**Lo"
+    },
+    {
+      "entity": "epilepsy",
+      "document_id": "13231",
+      "orpha_code": "Orphanet_101998",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-09T21:24:43.935Z",
+      "context": "bation, impaired mental status.  Per chart review, pt had\ndenied chest pain.\n\nPast Medical History:\nEpilepsy\nHTN\nDM\nCAD\nAFib\nCVA-?right side stroke\nHyperthyroidism\nAsthma\nPE\nCOPD\nDepression with Anxiety\nDemen"
+    },
+    {
+      "entity": "hyperthyroidism",
+      "document_id": "13231",
+      "orpha_code": "Orphanet_181399",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-09T21:26:35.724Z",
+      "context": "w, pt had\ndenied chest pain.\n\nPast Medical History:\nEpilepsy\nHTN\nDM\nCAD\nAFib\nCVA-?right side stroke\nHyperthyroidism\nAsthma\nPE\nCOPD\nDepression with Anxiety\nDementia\n\nSocial History:\nPatient lives in [**Hospital3 5277"
+    },
+    {
+      "entity": "amyotrophic lateral sclerosis",
+      "document_id": "7688",
+      "orpha_code": "Orphanet_803",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-09T21:26:38.128Z",
+      "context": "ion:\nExtended Care\n\nFacility:\n[**Hospital1 **] [**Location (un) **]\n\nDischarge Diagnosis:\n Primary:\namyotrophic lateral sclerosis\ns/p cervical laminectomy\nlabile hypertension\nSecondary:\nbenign prostatic hypertrophy\n\n\nDischarge Co"
+    },
+    {
+      "entity": "ALS",
+      "document_id": "7688",
+      "orpha_code": "Orphanet_803",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-09T21:26:40.451Z",
+      "context": "ted feeling\nlightheaded. He has been feeling weak and was complaining of SOB\nfor several days. They also report that he has not been able to\neat due to shortness of breath. Family reports minimal po\ninta"
+    },
+    {
+      "entity": "ALS",
+      "document_id": "7688",
+      "orpha_code": "Orphanet_803",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-09T21:26:41.733Z",
+      "context": "s not been able to\neat due to shortness of breath. Family reports minimal po\nintake. Per family, he also has been more listless over the last\nseveral days. Per nursing home notes, the patient has not had"
+    },
+    {
+      "entity": "ALS",
+      "document_id": "7688",
+      "orpha_code": "Orphanet_803",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-09T21:26:43.003Z",
+      "context": "P 15/5 FiO2 0.5\nin the ED for hypercapnea. Narcan was not given.\n.\nWhile in the ED, the patient was also evaluated by orthopedics.\nThe wound was examined and cleared. Orthopedics recommended C\nspine film"
+    },
+    {
+      "entity": "cervical stenosis",
+      "document_id": "7688",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-09T21:26:47.053Z",
+      "context": "lness:\n74 yo M with history of BPH, HTN, s/p recent cervical\nlaminectomy fusion [**2176-8-24**] for cervical stenosis who presented\nto the ED from rehabilitation facility when he was noted to be\nfebrile to 102.2, tach"
+    },
+    {
+      "entity": "pml",
+      "document_id": "6188",
+      "orpha_code": "Orphanet_217260",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-09T21:27:10.072Z",
+      "context": " for which she has been noncompliant\nwith treatment( biaxin/ethambutol), recent diagnosis of likely\nPML (T2 hyperintensity in the left frontal white matter on head\nMRI [**2144-12-19**]), recent dx HSV-2 "
+    },
+    {
+      "entity": "pml",
+      "document_id": "6188",
+      "orpha_code": "Orphanet_217260",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-09T21:27:11.846Z",
+      "context": "ever 102F, dehydration with very\nconc urine, clear CXR, head CT with unchanged appearance of\nlikely PML, WBC 1.9k with 73% PMNs (no bands), nl lactate. She\nwas started empirically on Vanc and CTX in the "
+    },
+    {
+      "entity": "hyperthyroidism",
+      "document_id": "6188",
+      "orpha_code": "Orphanet_181399",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-09T21:27:13.574Z",
+      "context": " the\n140's of unclear etiology. Differential includes dehydration,\ninfection, heart failure, fever, hyperthyroidism. The patient\nhas a known infection but was afebrile with good pressures. She\nhad normal thyroid stu"
+    },
+    {
+      "entity": "heparin induced thrombocytopenia",
+      "document_id": "8979",
+      "orpha_code": "Orphanet_3325",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-09T21:27:14.580Z",
+      "context": "ssociated pericardial effusion. Pt also had posterior\nannular abscess s/p debridement and patch.\n7. Heparin induced thrombocytopenia in [**9-/2128**]\n8. H/O acute renal failure requiring CVVH in 10/[**2127**]. Renal\nfunction subsequ"
+    },
+    {
+      "entity": "heparin induced thrombocytopenia",
+      "document_id": "8979",
+      "orpha_code": "Orphanet_3325",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-09T21:27:15.981Z",
+      "context": ".\n\nMedications on Admission:\nAllergies:\n1. IV contrast\n2. [**Name (NI) 31150**] Pt has a history of heparin induced thrombocytopenia\n.\nMedications on transfer:\n1. Ampicillin 2 gm IV Q6H\n2. Spironolactone 100 mg daily\n3. Lasix 20 mg "
+    },
+    {
+      "entity": "heparin induced thrombocytopenia",
+      "document_id": "8979",
+      "orpha_code": "Orphanet_3325",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-09T21:27:16.931Z",
+      "context": "]\n\n6) Depression\n7) Liver Mass - unknown significance\n8) Cirrhosis with mild hepatic dysfunction\n9) Heparin Induced Thrombocytopenia, Antibody positive\n10) Chronic renal insufficiency/failure, with history of ARF\nrequiring CVVHD in "
+    },
+    {
+      "entity": "heparin induced thrombocytopenia",
+      "document_id": "8979",
+      "orpha_code": "Orphanet_3325",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-09T21:27:22.441Z",
+      "context": "[Entity 'heparin induced thrombocytopenia' occurrence #4 (index 3) not found by string search or overlaps with previously used positions in document 8979 ORPHA:Orphanet_3325]"
+    },
+    {
+      "entity": "HIT",
+      "document_id": "8979",
+      "orpha_code": "Orphanet_3325",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-09T21:27:24.334Z",
+      "context": ".2 on transfer.  Due to her history of St.\nJude's valve, atrial fibrillation, and also a history of HIT,\ndecision was made to start renally dosed Lepirudin while\ncoumadin was held and INR was reversed.  "
+    },
+    {
+      "entity": "sclerosis cholangitis",
+      "document_id": "8979",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-09T21:28:01.075Z",
+      "context": "ransferred to [**Hospital1 18**] to receive an ERCP to evaluate for\nstrictures given her history of sclerosis cholangitis and\npositive bacteremia.\n\nIn ROS, pt reports that she is feeling well at this time. No CP\nor palpia"
+    },
+    {
+      "entity": "endometriosis",
+      "document_id": "7699",
+      "orpha_code": "Orphanet_137820",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-10T19:05:18.345Z",
+      "context": "istory:\nPast Medical History:\nTension HA\nPUD (30 year ago and in setting of NSAID use)\nOsteoporosis\nEndometriosis s/p menopause\n\nPast Surgical History:\n13 procedures for endometriosis\n\nSocial History:\nRetired Prob"
+    },
+    {
+      "entity": "nph",
+      "document_id": "6206",
+      "orpha_code": "Orphanet_314928",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-10T19:05:21.011Z",
+      "context": "Atenolol 50mg daily\nCozaar 100mg daily\nAmlodipine 10mg daily\nLipitor 40mg daily\nZetia 10mg\nWarfarin\nNPH 70/30, 15 units AM, 16 units PM.\n\n\nDischarge Medications:\n1. Aspirin 325 mg Tablet Sig: One (1) Tab"
+    },
+    {
+      "entity": "nph",
+      "document_id": "6206",
+      "orpha_code": "Orphanet_314928",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-10T19:05:22.521Z",
+      "context": " Capsule(s)* Refills:*0*\n7. Insulin Therapy\nPlease continue your usual home insulin regimen.\n--Take NPH 70/30 insulin 15 units every AM\n--Take NPH 70/30 insulin 16 units every PM\n8. Lasix 40 mg Tablet Si"
+    },
+    {
+      "entity": "nph",
+      "document_id": "6206",
+      "orpha_code": "Orphanet_314928",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-10T19:05:26.104Z",
+      "context": "\nPlease continue your usual home insulin regimen.\n--Take NPH 70/30 insulin 15 units every AM\n--Take NPH 70/30 insulin 16 units every PM\n8. Lasix 40 mg Tablet Sig: One (1) Tablet PO twice a day.\nDisp:*60 "
+    },
+    {
+      "entity": "dilated cardiomyopathy",
+      "document_id": "10004",
+      "orpha_code": "Orphanet_217604",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-10T19:06:00.634Z",
+      "context": "cts.\n\nPast Medical History:\n1. Paroxysmal atrial fibrillation\n2. Dementia: hallucinates at night\n3. Dilated cardiomyopathy with EF 55%\n4. Hypertension\n5. Ventricular fibrillation w/ AICD\n6. Psoriasis\n7. Diabetes, diet cont"
+    },
+    {
+      "entity": "dilated cardiomyopathy",
+      "document_id": "10004",
+      "orpha_code": "Orphanet_217604",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-10T19:06:01.999Z",
+      "context": "\nHypercarbic respiratory failure\n\nSecondary:\nhypertension\nDiabetes Mellitus Type 2, diet controlled\nDilated cardiomyopathy with EF 55% (echo [**6-9**])\nValvular heart disease (severe MR [**First Name (Titles) **] [**Last N"
+    },
+    {
+      "entity": "asbestosis",
+      "document_id": "10004",
+      "orpha_code": "Orphanet_2302",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-10T19:06:16.223Z",
+      "context": "5**] gastritis\n15. Recurrent pleural effusion- unclear etiology, cytology\nnegative in the past.\n16. Asbestosis exposure.\n\n\nSocial History:\nDenies tobacco, EtOH, illicits. Recently at [**Hospital3 **], but\nprevi"
+    },
+    {
+      "entity": "asbestosis",
+      "document_id": "10004",
+      "orpha_code": "Orphanet_2302",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-10T19:06:18.251Z",
+      "context": "s w/ decreased mobility from pain\nBasal cell carcinoma\nPsoriasis\nMacular degeneration\nVaricose vein\nAsbestosis exposure\n\n\nDischarge Condition:\nGood. Not short of breath. on 2L oxygen\n\n\nDischarge Instructions:\nW"
+    },
+    {
+      "entity": "heparin induced thrombocytopenia",
+      "document_id": "10715",
+      "orpha_code": "Orphanet_3325",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-10T19:06:19.756Z",
+      "context": "].  Her postoperative course\nis complicated by failure to extubate, hypotension requiring\npressors, Heparin induced thrombocytopenia, atrial\nfibrillation requiring amiodarone.\n\nWas transferred to rehabilitation facility on [**4-6**]"
+    },
+    {
+      "entity": "pulmonary arterial hypertension",
+      "document_id": "8877",
+      "orpha_code": "Orphanet_275766",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-10T19:15:37.452Z",
+      "context": "[Entity 'pulmonary arterial hypertension' occurrence #1 (index 0) not found by string search or overlaps with previously used positions in document 8877 ORPHA:Orphanet_275766]"
+    },
+    {
+      "entity": "endometriosis",
+      "document_id": "9512",
+      "orpha_code": "Orphanet_137820",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-10T19:15:39.399Z",
+      "context": "dical History:\nHL\nArthritis, + [**Doctor First Name **], treated with hydroxychloroquine\nAsthma\nIBS\nEndometriosis\nChronic hip/back pain, treated with oxycodone\n\nSocial History:\nShe lives at home with her husband o"
+    },
+    {
+      "entity": "mediastinitis",
+      "document_id": "9512",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-10T19:15:53.016Z",
+      "context": "hanced study of the neck and chest could be ordered\nto assess for possible abscess, fistula, and/or mediastinitis.\nThis was paged to nurse [**First Name8 (NamePattern2) 3639**] [**First Name4 (NamePattern1) 951**]"
+    },
+    {
+      "entity": "thrombotic thrombocytopenic purpura",
+      "document_id": "8001",
+      "orpha_code": "Orphanet_54057",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-10T19:15:55.751Z",
+      "context": "[Entity 'thrombotic thrombocytopenic purpura' occurrence #1 (index 0) not found by string search or overlaps with previously used positions in document 8001 ORPHA:Orphanet_54057]"
+    },
+    {
+      "entity": "sarcoid",
+      "document_id": "8960",
+      "orpha_code": "Orphanet_797",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-10T19:19:38.954Z",
+      "context": " years with bilateral uveitis,\nclinically had bilateral uveitis significant with loss of vision\nand sarcoid floaters in both eyes. He was seen in follow-up by\nDr. [**Last Name (STitle) 31107**] and, later, D"
+    },
+    {
+      "entity": "sick sinus syndrome",
+      "document_id": "8960",
+      "orpha_code": "Orphanet_166282",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-10T19:21:05.501Z",
+      "context": "shift.\n\nHe was started on ASA and lipitor for stroke prophylaxis.\n\n2. Bradycardia - The patient had sick sinus syndrome and a\npacemaker was placed on [**6-30**]. He will follow up with cardiology\npacer clinic next week."
+    },
+    {
+      "entity": "Bechet's disease",
+      "document_id": "8960",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-10T19:22:56.739Z",
+      "context": "2.7. Erythrocyte\nsedimentation rate was between 40 and 50. At this point, the\nworking diagnosis was Bechet's disease versus\nVogt-Koyanagi-[**Doctor Last Name 31108**] syndrome. Uveomeningioencephalitic\nsyndrome. He w"
+    },
+    {
+      "entity": "seizure disorder",
+      "document_id": "13600",
+      "orpha_code": "Orphanet_101998",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-10T19:22:58.017Z",
+      "context": "  Cardiothoracic Surgery\n\nHISTORY OF PRESENT ILLNESS:  This is a 57-year-old male with\na history of seizure disorder and coronary artery disease,\nwho was brought into the [**Hospital1 69**]\nEmergency Room on [**2189-"
+    },
+    {
+      "entity": "seizure disorder",
+      "document_id": "13600",
+      "orpha_code": "Orphanet_101998",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-10T19:22:59.918Z",
+      "context": "e Medical Intensive Care Unit\nteam for further evaluation and management.\n\nPAST MEDICAL HISTORY:\n1. Seizure disorder.\n2. Parkinson's.\n3. Coronary artery disease.\n4. Depression.\n5. Anxiety.\n\nHOME MEDICATIONS:\n1. Carbi"
+    },
+    {
+      "entity": "nph",
+      "document_id": "16328",
+      "orpha_code": "Orphanet_314928",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-10T19:26:19.370Z",
+      "context": "lcolax 10 mg PR p.r.n.\n6.  Tylenol p.r.n.\n7.  Eucerin cream.\n8.  Regular insulin sliding scale.\n9.  NPH 4 units subcutaneous twice a day.\n10. Ritalin 5 mg p.o. twice a day.\n11. Lasix 20 mg p.o. once dail"
+    },
+    {
+      "entity": "HIT",
+      "document_id": "16334",
+      "orpha_code": "Orphanet_3325",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-10T19:26:51.589Z",
+      "context": "ommends dry dressings,\nchanges daily, clean regularly, keep dry.\n.\n# Hyperlipidemia - On statin\n.\n# HIT history - Avoided heparin products, not anticoagulation\ncandidate. To maintain pneumoboots and comp"
+    },
+    {
+      "entity": "Cervical stenosis",
+      "document_id": "16334",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-10T19:26:57.862Z",
+      "context": "bilateral pulmonary emboli and emboli in spleen\n-Hypertension\n-Hyperhomocysteinemia\n-Alcohol abuse\n-Cervical stenosis\n-Neuropathy\n-ETOH abuse\n\nSocial History:\nWorks as a personal consultant. Lives with 27 year old dau"
+    },
+    {
+      "entity": "hypothyroidism secondary",
+      "document_id": "16347",
+      "orpha_code": "Orphanet_226298",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-10T19:27:08.373Z",
+      "context": "imately 30 years ago.\n4. Type 2 diabetes mellitus.\n5. Family history of coronary artery disease.\n6. Hypothyroidism secondary to thyroidectomy for thyroid\ncancer.\n7. Chronic atrial fibrillation.\n\nMEDICATIONS:\n1. Glucophage 1,"
+    },
+    {
+      "entity": "seizure disorder",
+      "document_id": "13666",
+      "orpha_code": "Orphanet_101998",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-10T19:27:09.928Z",
+      "context": " status post XRT and intrathecal chemotherapy\ncomplicated by meningitis requiring shunt removal.\n3. Seizure disorder status post left frontal craniotomy with\nresidual left frontal lymphoma.\n4. Hypertension.\n5. Clostr"
+    },
+    {
+      "entity": "Central nervous system and systemic lymphoma",
+      "document_id": "13666",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-10T19:27:13.669Z",
+      "context": "as discharged in good\ncondition to home.\n\nDISCHARGE DIAGNOSES:\n1. Pulmonary embolism.\n2. Seizure\n3. Central nervous system and systemic lymphoma.\n\nDISCHARGE MEDICATIONS:\n1. Keppra 1500 mg p.o. b.i.d.\n2. Lamotrigine 12.5 mg p.o. q.d.\n3. Dexameth"
+    },
+    {
+      "entity": "bullous pemphigoid",
+      "document_id": "14936",
+      "orpha_code": "Orphanet_703",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-10T19:30:45.752Z",
+      "context": "oporosis with back pain and multiple compression\nfractures at L1 and T11.\n3.  Peripheral edema.\n4.  Bullous pemphigoid, for which she was treated with\ndapsone and prednisone for many years.\n5.  Chronic anemia.\n6.  Echo"
+    },
+    {
+      "entity": "methemoglobinemia",
+      "document_id": "14936",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-10T19:31:01.045Z",
+      "context": "s\naccompanied by acute-on-chronic renal failure, culminating in\nanuria.  She was also found to have methemoglobinemia to 18%,\npresumably as an adverse drug effect related to dapsone.  She\nrequired intubation and was t"
+    },
+    {
+      "entity": "hyperthyroidism",
+      "document_id": "11052",
+      "orpha_code": "Orphanet_181399",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-10T19:31:29.565Z",
+      "context": "e outside\nhospital, which were negative for any growth.\n\nPAST MEDICAL HISTORY:  Migraine headaches, hyperthyroidism,\nvitamin B-12 deficiency, anemia, Pancoast tumor.\n\nPAST SURGICAL HISTORY:  Spine surgery, cholecyst"
+    },
+    {
+      "entity": "retinopathy of prematurity",
+      "document_id": "11938",
+      "orpha_code": "Orphanet_90050",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-10T19:31:33.174Z",
+      "context": "been performed.\n[**Known lastname 1104**] will also need screening ophthalmological examination\nfor retinopathy of prematurity.\n\nCONDITION AT DISCHARGE:  Good,stable.\n\nDISCHARGE DISPOSITION:  Transferred to [**Hospital6 1597**"
+    },
+    {
+      "entity": "hemochromatosis",
+      "document_id": "11604",
+      "orpha_code": "Orphanet_220489",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-10T19:32:37.780Z",
+      "context": " w/ h/o SMA thrombosis s/p partial small bowel\nresection, possible protein C deficiency, asthma and\nhemochromatosis who presents with a 4 day history of persistent\nL leg pain and swelling. The patient has also exper"
+    },
+    {
+      "entity": "hemochromatosis",
+      "document_id": "11604",
+      "orpha_code": "Orphanet_220489",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-10T19:32:45.122Z",
+      "context": "r urgency. Denies arthralgias. Denies rashes or skin\nchanges.\n\n\nPast Medical History:\nHCV cirrhosis\nHemochromatosis\nH/o SMA thrombosis requiring small bowel resection, s/p 6 months\nof Coumadin\nCAD s/p 2 stents ([**2"
+    },
+    {
+      "entity": "hemochromatosis",
+      "document_id": "11604",
+      "orpha_code": "Orphanet_220489",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-10T19:32:47.148Z",
+      "context": " w/ h/o SMA thrombosis s/p partial small bowel resection,\npossible protein C deficiency, asthma and hemochromatosis who\npresents with a 2 day history of persistent left leg pain and\nswelling, now found to have DVT o"
+    },
+    {
+      "entity": "hemochromatosis",
+      "document_id": "11604",
+      "orpha_code": "Orphanet_220489",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-10T19:32:57.958Z",
+      "context": "octor First Name **]\n\n#MICROCYTIC ANEMIA, stable at Hgb ~ 9. likely Fe deficient,\ninconsistent with hemochromatosis. However, labs at admission\nshow an MCV of 80 and a Hct of 33.5.  Fe low at 18, ferritin low\nat 18,"
+    },
+    {
+      "entity": "hemochromatosis",
+      "document_id": "11604",
+      "orpha_code": "Orphanet_220489",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-10T19:32:58.980Z",
+      "context": "leed.  We held on Fe replacement\ngiven therapeutic phlebotomy in [**2174**] and recorded history of\nhemochromatosis.\n\n#Pulmonary hypertension: TR gradient 69mmHg per echo, likely\nacute on chronic given RV strength. "
+    },
+    {
+      "entity": "hemochromatosis",
+      "document_id": "11604",
+      "orpha_code": "Orphanet_220489",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-10T19:33:00.539Z",
+      "context": "me\n\nDischarge Diagnosis:\nPrimary:\ndeep vein thrombosis\npulmonary embolism\n\nSecondary:\nHCV cirrhosis\nHemochromatosis\nCAD\nType II diabetes\nAsthma\n\n\nDischarge Condition:\nMental Status: Clear and coherent.\nLevel of Cons"
+    },
+    {
+      "entity": "protein c deficiency",
+      "document_id": "11604",
+      "orpha_code": "Orphanet_745",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-10T19:33:02.997Z",
+      "context": "of Present Illness:\nPt is a 53yoM w/ h/o SMA thrombosis s/p partial small bowel\nresection, possible protein C deficiency, asthma and\nhemochromatosis who presents with a 4 day history of persistent\nL leg pain and swelling"
+    },
+    {
+      "entity": "protein c deficiency",
+      "document_id": "11604",
+      "orpha_code": "Orphanet_745",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-10T19:33:03.831Z",
+      "context": "is.\n\nBrief Hospital Course:\n53yoM w/ h/o SMA thrombosis s/p partial small bowel resection,\npossible protein C deficiency, asthma and hemochromatosis who\npresents with a 2 day history of persistent left leg pain and\nswell"
+    },
+    {
+      "entity": "microcytic anemia",
+      "document_id": "11604",
+      "orpha_code": "Orphanet_209981",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-10T19:33:08.797Z",
+      "context": "r IgG and IgM anti-??????2-glycoprotein I (anti-beta2-GPI)\nantibodies by [**Doctor First Name **]\n\n#MICROCYTIC ANEMIA, stable at Hgb ~ 9. likely Fe deficient,\ninconsistent with hemochromatosis. However, labs at admiss"
+    },
+    {
+      "entity": "Protein S",
+      "document_id": "11604",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-10T19:33:15.688Z",
+      "context": "2175**] including tests for lupus\nanticoagulant, antithrombin III, Protein C, anti-cardiolipin,\nand Protein S of which Protein C studies returned borderline\npositive. Patient received 6 months of Coumadin for "
+    },
+    {
+      "entity": "Protein S",
+      "document_id": "11604",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-10T19:33:17.272Z",
+      "context": "thrombin: 71* (normal 80-120) -> recheck 108\nAntithrombin Ag: WNL\nAnti-cardiolipin IgG and IgM: WNL\nProtein S: WNL\nProtein S, functional: WNL\n\n[**2183-7-3**] 07:00PM BLOOD WBC-10.3 RBC-4.17* Hgb-9.9* Hct-33.5*"
+    },
+    {
+      "entity": "Protein S",
+      "document_id": "11604",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-10T19:33:18.318Z",
+      "context": "normal 80-120) -> recheck 108\nAntithrombin Ag: WNL\nAnti-cardiolipin IgG and IgM: WNL\nProtein S: WNL\nProtein S, functional: WNL\n\n[**2183-7-3**] 07:00PM BLOOD WBC-10.3 RBC-4.17* Hgb-9.9* Hct-33.5*\nMCV-80* MCH-23"
+    },
+    {
+      "entity": "antiphospholipid antibody syndrome",
+      "document_id": "11604",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-10T19:33:20.718Z",
+      "context": "is h/o SMA\nthrombosis, clots in both arterial and venous systems suggest\nconsidering Protein C def/ antiphospholipid antibody syndrome as\na unify etiology of his emboli. Has had negative\nanti-cardiolipin antibody, will f/u with B2-GPI"
+    },
+    {
+      "entity": "protein C",
+      "document_id": "11604",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-10T19:34:43.810Z",
+      "context": "able\nstate by his PCP back in [**2175**] including tests for lupus\nanticoagulant, antithrombin III, Protein C, anti-cardiolipin,\nand Protein S of which Protein C studies returned borderline\npositive. Patient r"
+    },
+    {
+      "entity": "protein C",
+      "document_id": "11604",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-10T19:34:45.239Z",
+      "context": "[Entity 'protein C' occurrence #2 (index 1) not found by string search or overlaps with previously used positions in document 11604 ORPHA:]"
+    },
+    {
+      "entity": "Protein C",
+      "document_id": "11604",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-10T19:34:46.302Z",
+      "context": "ests for lupus\nanticoagulant, antithrombin III, Protein C, anti-cardiolipin,\nand Protein S of which Protein C studies returned borderline\npositive. Patient received 6 months of Coumadin for his SMA\nthrombosis."
+    },
+    {
+      "entity": "Protein C",
+      "document_id": "11604",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-10T19:35:06.852Z",
+      "context": "or lesions\n\n\nPertinent Results:\nHYPERCOAGULABILITY WORKUP ([**5-/2175**]):\nLupus anticoagulant: WNL\nProtein C: 63* (normal 67-103)\nProtein C Ag: 46* (normal 70-140%)\nAntithrombin: 71* (normal 80-120) -> rechec"
+    },
+    {
+      "entity": "Protein C",
+      "document_id": "11604",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-10T19:35:08.063Z",
+      "context": "\nHYPERCOAGULABILITY WORKUP ([**5-/2175**]):\nLupus anticoagulant: WNL\nProtein C: 63* (normal 67-103)\nProtein C Ag: 46* (normal 70-140%)\nAntithrombin: 71* (normal 80-120) -> recheck 108\nAntithrombin Ag: WNL\nAnti"
+    },
+    {
+      "entity": "Protein C",
+      "document_id": "11604",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-10T19:35:12.442Z",
+      "context": "] sign. Given his h/o SMA\nthrombosis, clots in both arterial and venous systems suggest\nconsidering Protein C def/ antiphospholipid antibody syndrome as\na unify etiology of his emboli. Has had negative\nanti-ca"
+    },
+    {
+      "entity": "Protein C",
+      "document_id": "11604",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-10T19:35:13.520Z",
+      "context": "[Entity 'Protein C' occurrence #5 (index 4) not found by string search or overlaps with previously used positions in document 11604 ORPHA:]"
+    },
+    {
+      "entity": "HIT",
+      "document_id": "22297",
+      "orpha_code": "Orphanet_3325",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-10T19:36:30.106Z",
+      "context": "astric tube placement\n\n\nHistory of Present Illness:\n48 yo M with h/o hepatitis C, h/o pancreatitis, HIT, HTN, T2DM,\nfound by his girlfriend at home with possible seizures.  He had\nalso been having visual"
+    },
+    {
+      "entity": "HIT",
+      "document_id": "22297",
+      "orpha_code": "Orphanet_3325",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-10T19:36:31.345Z",
+      "context": " sinus tachycardia.  Most recent vitals 99.1\n102 147/92 20 100.  Has 3 PIV.\n\n\nPast Medical History:\nHIT\nHepatitis C\nSeizure d/o\nHypertension\nT2DM with microalbuminuria\nPyogenic arthritis, ?Charcot joint "
+    },
+    {
+      "entity": "HIT",
+      "document_id": "22297",
+      "orpha_code": "Orphanet_3325",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-10T19:36:32.999Z",
+      "context": "torial infarction. There is no shift of normally\nmidline\nstructures and [**Doctor Last Name 352**]-white matter differentiation is preserved.\nThere is\nminimal prominence of the ventricles and sulci, comp"
+    },
+    {
+      "entity": "HIT",
+      "document_id": "22297",
+      "orpha_code": "Orphanet_3325",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-10T19:36:34.965Z",
+      "context": "out gross\nhydronephrosis.\n\n\n\nBrief Hospital Course:\n48 yo M with h/o hepatitis C, h/o pancreatitis, HIT, HTN, T2DM,\nfound by his girlfriend at home with possible seizures and\nhallucinations. Found to hav"
+    },
+    {
+      "entity": "amyotrophic lateral sclerosis",
+      "document_id": "17850",
+      "orpha_code": "Orphanet_803",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-10T19:36:36.372Z",
+      "context": "Service:  GENERAL SURGERY/GREEN\n\nHISTORY OF PRESENT ILLNESS:  The patient is a 57 year old man\nwith amyotrophic lateral sclerosis which has rendered him\nventilator dependent and requiring chronic care.  He has a\ngastric tube whic"
+    },
+    {
+      "entity": "amyotrophic lateral sclerosis",
+      "document_id": "17850",
+      "orpha_code": "Orphanet_803",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-10T22:02:46.081Z",
+      "context": " in the sigmoid colon.  Biopsies would later prove\nto be adenocarcinoma.\n\nPAST MEDICAL HISTORY:\n1.  Amyotrophic lateral sclerosis, ventilator dependent.\n2.  Pulmonary embolus, [**2103-12-15**].\n3.  Placement of inferior vena cava"
+    },
+    {
+      "entity": "amyotrophic lateral sclerosis",
+      "document_id": "17850",
+      "orpha_code": "Orphanet_803",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-10T22:02:47.181Z",
+      "context": ".n.\n8.  Albuterol two to four puffs q4hours p.r.n.\n\nDISCHARGE DIAGNOSES:\n1.  Colorectal cancer.\n2.  Amyotrophic lateral sclerosis, chronic ventilator\ndependence.\n3.  Hypertension.\n4.  Urinary retention.\n5.  Lower gastrointestinal"
+    },
+    {
+      "entity": "amyotrophic lateral sclerosis",
+      "document_id": "17850",
+      "orpha_code": "Orphanet_803",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-10T22:02:48.987Z",
+      "context": "[Entity 'amyotrophic lateral sclerosis' occurrence #4 (index 3) not found by string search or overlaps with previously used positions in document 17850 ORPHA:Orphanet_803]"
+    },
+    {
+      "entity": "NPH",
+      "document_id": "15908",
+      "orpha_code": "Orphanet_314928",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-10T22:02:51.418Z",
+      "context": "s.\n8.  Percocet one to two tablets p.o. q. four to six hours\np.r.n. pain.\n9.  Insulin sliding scale/NPH 35 units q. a.m., 32 units q.\nh.s.\n\nDISCHARGE INSTRUCTIONS:\n1.  The patient is to follow-up with he"
+    },
+    {
+      "entity": "NPH",
+      "document_id": "15908",
+      "orpha_code": "Orphanet_314928",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-10T22:02:52.767Z",
+      "context": "[Entity 'NPH' occurrence #2 (index 1) not found by string search or overlaps with previously used positions in document 15908 ORPHA:Orphanet_314928]"
+    },
+    {
+      "entity": "heparin-induced thrombocytopenia",
+      "document_id": "17640",
+      "orpha_code": "Orphanet_3325",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-10T22:02:57.982Z",
+      "context": "ed\non postoperative day number ten, [**2181-6-10**].\n8. Blood loss anemia; multiple transfusion.\n9. Heparin-induced thrombocytopenia; transient.\n10. Postoperative malnutrition; short-term TPN.\n11. Left arm thrombophlebitis; treated."
+    },
+    {
+      "entity": "portal vein thrombosis",
+      "document_id": "20208",
+      "orpha_code": "Orphanet_854",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-10T22:03:01.235Z",
+      "context": "ia\nwith occasional [**Month/Day (1) 6059**], bilateral pleural effusions, acalculous\ncholecystitis, portal vein thrombosis, DIC and hemorrhoids.\n.\n.\n* AML  - pt was started on syngeneic transplant protocol upon\nadmission o"
+    },
+    {
+      "entity": "portal vein thrombosis",
+      "document_id": "20208",
+      "orpha_code": "Orphanet_854",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-10T22:03:02.179Z",
+      "context": "erity, worse with palpation, often\nabsent at rest, during her MICU stay. This was attributed to her\nportal vein thrombosis initially, however patient described\nearly satiety. EGD was unremarkable (some linear gastritis\nonl"
+    },
+    {
+      "entity": "portal vein thrombosis",
+      "document_id": "20208",
+      "orpha_code": "Orphanet_854",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-10T22:03:02.678Z",
+      "context": "nt's symptoms. The\npatient was placed on a PPI. A CT w/ contrast on [**10-24**] revealed\ncontracted portal vein thrombosis, cecal wall thickening,\npossibly secondary to ascites and a question of free air, which\nwas further"
+    },
+    {
+      "entity": "portal vein thrombosis",
+      "document_id": "20208",
+      "orpha_code": "Orphanet_854",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-10T22:03:03.375Z",
+      "context": "gy service, LFTs began to normalize\nexcept for her T. Bili and D. Bili which continued to rise.\n.\n* Portal vein thrombosis - patient was started on a heparin drip\nand continued with a goal PTT 60-80.  Her liver abdnormalit"
+    },
+    {
+      "entity": "portal vein thrombosis",
+      "document_id": "20208",
+      "orpha_code": "Orphanet_854",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-10T22:03:04.284Z",
+      "context": "tracted portal\nvein thrombosis.  A RUQ ultrasound on [**2168-11-6**] demonstrated\nresolution of her portal vein thrombosis.\n.\n* RUE swelling, labial swelling - the pt was noted to have a\nswollen R arm. An US obtained while"
+    },
+    {
+      "entity": "portal vein thrombosis",
+      "document_id": "20208",
+      "orpha_code": "Orphanet_854",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-10T22:03:05.175Z",
+      "context": "from\nID.  Her DIC resolved, but this was postulated as a possible\nunifying diagnosis to explain the portal vein thrombosis.  On\n[**11-9**], her fibrinogen was noted to drop, and she was transfused\n1 bag of cryoprecipitate."
+    },
+    {
+      "entity": "portal vein thrombosis",
+      "document_id": "20208",
+      "orpha_code": "Orphanet_854",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-10T22:03:07.051Z",
+      "context": "hy.\nCongestive heart failure.\nEndocarditis (culture positive).\nAbdominal pain.\nAcute renal failure.\nPortal vein thrombosis.\nThrombocytopenia.\nAcalculous cholecystitis.\nAcute myelogenous leukemia.\nAnxiety.\n\nDischarge Condit"
+    },
+    {
+      "entity": "portal vein thrombosis",
+      "document_id": "20208",
+      "orpha_code": "Orphanet_854",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-10T22:03:08.336Z",
+      "context": "[Entity 'portal vein thrombosis' occurrence #8 (index 7) not found by string search or overlaps with previously used positions in document 20208 ORPHA:Orphanet_854]"
+    },
+    {
+      "entity": "HIT",
+      "document_id": "20208",
+      "orpha_code": "Orphanet_3325",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-10T22:03:10.710Z",
+      "context": " diagnosed with AML in [**2166-11-11**]\nafter presenting for a routine physical exam, CBC revealed white\ncount of 5300 with 40% blasts.  Pt noted generalized fatigue at\nthat time. Patient found to have n"
+    },
+    {
+      "entity": "HIT",
+      "document_id": "20208",
+      "orpha_code": "Orphanet_3325",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-10T22:03:11.793Z",
+      "context": "english, thin but not\ncachetic\nHEENT:atraumatic, sclerae anicteric, no pharyngeal exudate but\nsome whitish coating on tongue. No ulcerations or lesions.\nNECK:NO LAD, no JVD, no carotid bruits\nSKIN:warm/d"
+    },
+    {
+      "entity": "HIT",
+      "document_id": "20208",
+      "orpha_code": "Orphanet_3325",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-10T22:03:13.786Z",
+      "context": "d and\nmilronone drip was initiated. Upon presentation to the CCU, the\npatient was afebrile without white blood cell count or clear\nsouce of infection. However, repeat ECHO showed persistent\nvegetations a"
+    },
+    {
+      "entity": "HIT",
+      "document_id": "20208",
+      "orpha_code": "Orphanet_3325",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-10T22:03:19.135Z",
+      "context": "ent thrombus. The\nheparin drip was d/c at the recommendation of the heme/onc\nservice for concern of HIT. Multiple HIT Ab tests were negative\nand a serotoninin assay that was reported to be more sensitive"
+    },
+    {
+      "entity": "HIT",
+      "document_id": "20208",
+      "orpha_code": "Orphanet_3325",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-10T22:03:23.111Z",
+      "context": "The\nheparin drip was d/c at the recommendation of the heme/onc\nservice for concern of HIT. Multiple HIT Ab tests were negative\nand a serotoninin assay that was reported to be more sensitive\nfor HIT was n"
+    },
+    {
+      "entity": "Acute myelogenous leukemia",
+      "document_id": "20208",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-10T22:03:52.091Z",
+      "context": "inal pain.\nAcute renal failure.\nPortal vein thrombosis.\nThrombocytopenia.\nAcalculous cholecystitis.\nAcute myelogenous leukemia.\nAnxiety.\n\nDischarge Condition:\nexpired\n\n\nCompleted by:[**2169-4-26**]"
+    },
+    {
+      "entity": "hyperthyroidism",
+      "document_id": "31392",
+      "orpha_code": "Orphanet_181399",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-10T22:04:21.110Z",
+      "context": "ave\nbilateral choroid plexus cysts on early scan, followup scan\nreported as negative.\nMat PMH: mild hyperthyroidism ( not treated), asthma (Rx\nalbuterol MDI)\nMat Ob Hx: admitted to [**Hospital **] Hospital [**2156-8"
+    },
+    {
+      "entity": "iron storage disease",
+      "document_id": "24716",
+      "orpha_code": "Orphanet_220489",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-10T22:04:23.085Z",
+      "context": "bolic syndrome.  The\namount and distribution of iron deposition raises the\npossibility of a genetic iron storage disease.\n\n3.  Pancreatic neck margin (D):\n\nChronic pancreatitis with marked fibrosis and no malignancy\niden"
+    },
+    {
+      "entity": "intraductal papillary mucinous tumor",
+      "document_id": "24716",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T02:11:30.931Z",
+      "context": "duct distally as well with\nlymphadenopathy. All these features put together were very\nsuggestive of intraductal papillary mucinous tumor.\n\n\nPast Medical History:\npancreatic cystic dz., pancreatitis, GERD, multiple fractures,\ncataracts. "
+    },
+    {
+      "entity": "seizure disorder",
+      "document_id": "30442",
+      "orpha_code": "Orphanet_101998",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T02:13:12.435Z",
+      "context": "tory:\naortic dissection, systolic heart failure - EF 35% ([**2-9**],\nhypercholesterolemia, HTN, h/o seizure disorder, polysubstance\nabuse(cociaine, marijuana, etoh), h/o suicide attempt,\ndepression, sociopathic perso"
+    },
+    {
+      "entity": "familial mediterranean fever",
+      "document_id": "31210",
+      "orpha_code": "Orphanet_342",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T02:13:14.518Z",
+      "context": " History:\nper pt, normal ECHO and stress test in [**2198**].\npreviously documented RBBB per patient\nfamilial mediterranean fever: longstanding. dx 5yrs ago. c/b\nserositis, peritonitis, appendicitis, depression. rx with\ncolchicin"
+    },
+    {
+      "entity": "familial mediterranean fever",
+      "document_id": "31210",
+      "orpha_code": "Orphanet_342",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T02:13:15.814Z",
+      "context": "ven his CAD.\n\nRenal impairment: Creatinine at 1.2-1.4.  It remained stable.\nWe renally dosed meds.\n\nFamilial mediterranean fever: adequately treated with colchicine\nfor 5yrs. This was initially held given renal impairment but\nre"
+    },
+    {
+      "entity": "necrotizing enterocolitis",
+      "document_id": "20162",
+      "orpha_code": "Orphanet_391673",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T02:13:18.513Z",
+      "context": "n antibiotics\nand received 14 days of antibiotics and 14 days of bowel\nrest for medical evidence of necrotizing enterocolitis.\nFeedings were reintroduced on day of life #54 and the\ninfant advanced to 140 cc/kg/day by day of l"
+    },
+    {
+      "entity": "necrotizing enterocolitis",
+      "document_id": "20162",
+      "orpha_code": "Orphanet_391673",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T17:36:31.080Z",
+      "context": "e discontinued\nafter 48 hours.  The infant received 14 days of antibiotics\nfor treatment of medical necrotizing enterocolitis;  as noted\nabove, the infant was started on vancomycin, gentamicin and\nclindamycin and was changed "
+    },
+    {
+      "entity": "necrotizing enterocolitis",
+      "document_id": "20162",
+      "orpha_code": "Orphanet_391673",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T17:36:33.405Z",
+      "context": "e.\n3.  Status rule out sepsis.\n4.  Status post indirect hyperbilirubinemia.\n5.  Status post medical necrotizing enterocolitis.\n6.  Status post apnea of prematurity,\n7.  Anemia of prematurity.\n8.  Status post retinopathy of pr"
+    },
+    {
+      "entity": "retinopathy of prematurity",
+      "document_id": "20162",
+      "orpha_code": "Orphanet_90050",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T17:37:29.473Z",
+      "context": "ing enterocolitis.\n6.  Status post apnea of prematurity,\n7.  Anemia of prematurity.\n8.  Status post retinopathy of prematurity\n9.  Chronic lung disease on oxygen and diuretics.\n\n\n\n                            [**First Name8 (Na"
+    },
+    {
+      "entity": "autoimmune hepatitis",
+      "document_id": "25095",
+      "orpha_code": "Orphanet_2137",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T17:38:33.548Z",
+      "context": "ce antigen, GBS negative, normal\namniocentesis and ultrasound. Past medical history was\nnotable for autoimmune hepatitis. Social history notable for\nfamily currently in process of relocating to [**Country 12603**] for\nfa"
+    },
+    {
+      "entity": "rheumatic fever",
+      "document_id": "20589",
+      "orpha_code": "Orphanet_3099",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T17:38:35.895Z",
+      "context": "13**].\n# Hypertension: +fluctuations in BP with spells of anxiety\n# Spinal stenosis\n# Anxiety\n# S/p rheumatic fever as a child\n# Congestive heart failure\n# Depression and Anxiety\n# s/p stroke [**2-/2133**]\n#. COPD?\n"
+    },
+    {
+      "entity": "lyme's disease",
+      "document_id": "20617",
+      "orpha_code": "Orphanet_91546",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T17:42:34.821Z",
+      "context": "low.\nHe has no known complications, although he does complain of\nerectile dysfunction currently.\n2. Lyme's disease:  Diagnosed six years ago and treated.\nPatient presented with arthritis symptoms.\n3. Attention-defi"
+    },
+    {
+      "entity": "NPH",
+      "document_id": "20617",
+      "orpha_code": "Orphanet_314928",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T17:42:36.966Z",
+      "context": "icit disorder.\n4. History of oral herpes ulcers.\n\nMEDICATIONS ON ADMISSION:\n1. Insulin:  8 units of NPH and 8 units of regular before\nbreakfast and before dinner.\n2. Ritalin 20 mg q.d.\n\nALLERGIES:  No kn"
+    },
+    {
+      "entity": "NPH",
+      "document_id": "20617",
+      "orpha_code": "Orphanet_314928",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T17:42:39.276Z",
+      "context": "was shut off, and the patient was\nplaced on a standing regimen of insulin.  The initial regimen\nwas NPH in the morning and evening with the sliding scale of\nregular insulin.  This was suggested after the"
+    },
+    {
+      "entity": "NPH",
+      "document_id": "20617",
+      "orpha_code": "Orphanet_314928",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T17:42:43.943Z",
+      "context": "levated blood sugars in the 200s.\nHowever, his insulin regimen was increased giving him 34\nunits of NPH in the morning with 10 units of regular and 15\nunits of NPH with 8 units of regular before dinner. "
+    },
+    {
+      "entity": "NPH",
+      "document_id": "20617",
+      "orpha_code": "Orphanet_314928",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T17:42:46.668Z",
+      "context": "en was increased giving him 34\nunits of NPH in the morning with 10 units of regular and 15\nunits of NPH with 8 units of regular before dinner.  On this\nregimen, the patient's blood sugars were well contr"
+    },
+    {
+      "entity": "epilepsy",
+      "document_id": "22133",
+      "orpha_code": "Orphanet_101998",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T17:42:48.322Z",
+      "context": "] CT torso: No hematoma or suspicious free fluid\nconcerning for bleeding.\n\nBrief Hospital Course:\n# Epilepsy - Patient had seizure in setting of marked\nelectrolyte abnormalities and after being off dilantin f"
+    },
+    {
+      "entity": "portal vein thrombosis",
+      "document_id": "20387",
+      "orpha_code": "Orphanet_854",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T17:43:40.828Z",
+      "context": "tal with hypoxemia, right pleural\neffusion, and mesenteric ischemia with mesenteric vein\nthrombosis/portal vein thrombosis.\n\nHISTORY OF THE PRESENT ILLNESS:  The patient presented to the\noutside hospital on [**2146-4-7**] "
+    },
+    {
+      "entity": "mesenteric vein thrombosis",
+      "document_id": "20387",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T17:43:40.915Z",
+      "context": "3, albumin 1.8.\n\nHOSPITAL COURSE:  The patient was thought to have mesenteric\nischemia secondary to mesenteric vein thrombosis.  CTA of the\nabdomen was performed which showed a thrombus in the\nmesenteric vein and posterior por"
+    },
+    {
+      "entity": "mesenteric vein thrombosis",
+      "document_id": "20387",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T17:46:08.424Z",
+      "context": " a repeat abdominal\nultrasound was performed to visualize flow.  There was no\nevidence of portal or mesenteric vein thrombosis.  The\npatient was kept n.p.o. during the hospitalization and given\nintravenous fluids.  The patient"
+    },
+    {
+      "entity": "arachnoid cyst",
+      "document_id": "39676",
+      "orpha_code": "Orphanet_2356",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T17:46:09.443Z",
+      "context": " unchanged large CSF hypodensity in the anterior left\nmiddle cranial\nfossa is compatible with large arachnoid cyst. Prominent\nanterior falcine\ncalcifications are present. There is no evidence of acute\nfracture. The"
+    },
+    {
+      "entity": "babesiosis",
+      "document_id": "38775",
+      "orpha_code": "Orphanet_108",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T17:51:38.946Z",
+      "context": "ection, tick-borne diseases should also be\nconsidered given his possible exposure history (consider\nbabesiosis or Lyme disease). Other considerations include\nautonomic dysfunction causing neurogenic hypotension"
+    },
+    {
+      "entity": "lyme disease",
+      "document_id": "38775",
+      "orpha_code": "Orphanet_91546",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T17:55:12.104Z",
+      "context": "orne diseases should also be\nconsidered given his possible exposure history (consider\nbabesiosis or Lyme disease). Other considerations include\nautonomic dysfunction causing neurogenic hypotension, less\nlikely ca"
+    },
+    {
+      "entity": "alkaptonuria",
+      "document_id": "39348",
+      "orpha_code": "Orphanet_56",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T17:55:23.206Z",
+      "context": "ne, and [**Doctor Last Name 352**]/blue\npatches of skin discoloration. There was high suspicion for\nalkaptonuria, especially given history of heart valve disease\nand repair. Urine/serum homogentisic acid could no"
+    },
+    {
+      "entity": "autoimmune pancreatitis",
+      "document_id": "37217",
+      "orpha_code": "Orphanet_103919",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T17:55:33.195Z",
+      "context": "or carcinoma.\n2. Superior mesenteric vein occlusion with visceral portal\nhypertension.\n3. Potential autoimmune pancreatitis.\n\n\nDischarge Condition:\nMental Status: Clear and coherent.\nLevel of Consciousness: Alert and intera"
+    },
+    {
+      "entity": "sarcoid",
+      "document_id": "40196",
+      "orpha_code": "Orphanet_797",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T17:55:34.658Z",
+      "context": "areas of\nmediastinal lymphadenopathy thought to be less consistent with\nreactive process.  Could be sarcoid vs. malignancy.  Should be\nfollowed up with an outpatient biopsy to assess for malignancy.\nPatient "
+    },
+    {
+      "entity": "sarcoidosis",
+      "document_id": "40196",
+      "orpha_code": "Orphanet_797",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T17:55:36.397Z",
+      "context": "pathy - size is less compatible with\nreactive nodes, and may be compatible with metastatic nodes or\nsarcoidosis.\n2) Left adrenal nodule, incompletely characterized - a dedicated\nadrenal CT\n\nPlease follow up with"
+    },
+    {
+      "entity": "scds",
+      "document_id": "25829",
+      "orpha_code": "Orphanet_232",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T17:58:29.105Z",
+      "context": " Likely due to infectious process.\n- Trend WBC\n.\nFEN: NPO, replete as necessary, IVF as above.\nPPx: SCDs\nAccess: RIJ CVL, PIV (18, 20g)\nCode: Full (confirmed)\nCommunication: [**Known lastname **],[**Name "
+    },
+    {
+      "entity": "tetanus",
+      "document_id": "28965",
+      "orpha_code": "Orphanet_3299",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T17:58:30.865Z",
+      "context": "lly elevated CK 185 with negative\ntroponin I and WBC 11.2 with 3% bandemia. The patient was a\ngiven tetanus booster and then transferred to [**Hospital1 18**] ED.\n.\nIn the ED, VS 98.4 96 198/101 20 98%2L. Th"
+    },
+    {
+      "entity": "necrotizing enterocolitis",
+      "document_id": "26976",
+      "orpha_code": "Orphanet_391673",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:00:40.239Z",
+      "context": "ral feeds were begun on\nday of life 6, reaching full volume on day of life 14. She\nthen was NPO for necrotizing enterocolitis from day of life\n22 until day of life 35. Feedings were reinitiated on day of\nlife 36 and advanced "
+    },
+    {
+      "entity": "necrotizing enterocolitis",
+      "document_id": "26976",
+      "orpha_code": "Orphanet_391673",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:00:41.643Z",
+      "context": " to full volume\nfeedings by day of life 43. Again, on day of life 59, she had\nanother occurrence of necrotizing enterocolitis and a\nsurgical abdomen. She then had feedings restarted after her\nsurgery on her 4th postoperative "
+    },
+    {
+      "entity": "necrotizing enterocolitis",
+      "document_id": "26976",
+      "orpha_code": "Orphanet_391673",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:00:43.306Z",
+      "context": "on day of life 10 was\ntotal of 4.6 and direct of 0.7. On day of life #22, she had a\npresentation of necrotizing enterocolitis. She was treated\nwith 14 days of antibiotics and bowel rest and then feedings\nwere resumed. On day "
+    },
+    {
+      "entity": "necrotizing enterocolitis",
+      "document_id": "26976",
+      "orpha_code": "Orphanet_391673",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:00:44.040Z",
+      "context": "tibiotics and bowel rest and then feedings\nwere resumed. On day of life 59, she had a recurrence of\nnecrotizing enterocolitis. She did complete another course of\nbowel rest and antibiotics for 14 days after which a contrast\ne"
+    },
+    {
+      "entity": "necrotizing enterocolitis",
+      "document_id": "26976",
+      "orpha_code": "Orphanet_391673",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:00:44.532Z",
+      "context": "n, gentamicin and clindamycin for necrotizing\nenterocolitis, and another 14-day course of Zosyn for\nnecrotizing enterocolitis. All [**Known lastname **] cultures and\ncerebrospinal fluid cultures remain negative except for one"
+    },
+    {
+      "entity": "necrotizing enterocolitis",
+      "document_id": "26976",
+      "orpha_code": "Orphanet_391673",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:00:46.953Z",
+      "context": "patent ductus arteriosus.\n5.  Status post indirect hyperbilirubinemia.\n6.  Status post 2 courses of necrotizing enterocolitis.\n7.  Status post colonic stricture.\n8.  Status post colostomy for repair of colonic stricture.\n9.  "
+    },
+    {
+      "entity": "necrotizing enterocolitis",
+      "document_id": "26976",
+      "orpha_code": "Orphanet_391673",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:00:48.705Z",
+      "context": "[Entity 'necrotizing enterocolitis' occurrence #7 (index 6) not found by string search or overlaps with previously used positions in document 26976 ORPHA:Orphanet_391673]"
+    },
+    {
+      "entity": "retinopathy of prematurity",
+      "document_id": "26976",
+      "orpha_code": "Orphanet_90050",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:03:15.504Z",
+      "context": ".  Small umbilical hernia.\n10. Resolving direct hyperbilirubinemia. NEEDS FOLOW-UP BILI\nTESTING\n11. Retinopathy of prematurity.\n12. Anemia of prematurity.\n13. Status post right shoulder laceration.\n14.\n    Status post chronic "
+    },
+    {
+      "entity": "retinopathy of prematurity",
+      "document_id": "26976",
+      "orpha_code": "Orphanet_90050",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:03:16.921Z",
+      "context": "[Entity 'retinopathy of prematurity' occurrence #2 (index 1) not found by string search or overlaps with previously used positions in document 26976 ORPHA:Orphanet_90050]"
+    },
+    {
+      "entity": "portal vein thrombosis",
+      "document_id": "27335",
+      "orpha_code": "Orphanet_854",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:03:24.502Z",
+      "context": "athy\nand recurrent ascites, esophageal varices (grade III\n[**2168**]),portal hypertension and known portal vein thrombosis not\non anticoagulation.\n3. History of tuberculosis s/p 6 months INH\n4. GERD\n5. HTN\n6. History of E."
+    },
+    {
+      "entity": "papillary carcinoma",
+      "document_id": "27335",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:03:51.618Z",
+      "context": "ring admission.  Notably, the patient has a left thyroid\nnodule that was biopsied and suggestive of papillary carcinoma\nbeing followed by Dr [**Last Name (STitle) 5182**] (please refer to his OMR notes\nfor details) and "
+    },
+    {
+      "entity": "hepatocellular carcinoma",
+      "document_id": "27335",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:03:56.043Z",
+      "context": "4 children. He does not smoke, drink, or use illicit drugs.\n\n\n\nFamily History:\nNo family history of hepatocellular carcinoma or cirrhosis. 4\nadult children, all in good health.\n\n\nPhysical Exam:\n97.7  77  118/70  20  100RA\nGe"
+    },
+    {
+      "entity": "ema",
+      "document_id": "26825",
+      "orpha_code": "Orphanet_26791",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:03:59.378Z",
+      "context": " no m/g/r\nLungs: transmitted upper airway stridor; otherwise clear\nAbd: soft, NT, ND, +BS\nExt: no edema\nNeuro: CN 2-12 intact, [**6-7**] bilateral upper and lower extremity\nstrength.\n\n\nPertinent Results:"
+    },
+    {
+      "entity": "anaplastic thyroid carcinoma",
+      "document_id": "26825",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:04:15.962Z",
+      "context": "ed to [**Hospital6 **] [**2120-3-24**] with\nhemoptysis and respiratory distress, now diagnosed with\nanaplastic thyroid carcinoma.\n.\nPt reports that he noticed a right neck mass last [**Month (only) 359**]. The\nmass grew larger, "
+    },
+    {
+      "entity": "anaplastic thyroid carcinoma",
+      "document_id": "26825",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:04:17.317Z",
+      "context": "ed to, sarcoma, spindle cell\ncarcinomas (sarcomatoid carcinoma of the upper aerodigestive\ntract and anaplastic thyroid carcinoma), and malignant salivary\ngland neoplasms.\n\n\nBrief Hospital Course:\nPt was transferred here for furt"
+    },
+    {
+      "entity": "polymyalgia rheumatica",
+      "document_id": "30504",
+      "orpha_code": "Orphanet_397",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:06:57.416Z",
+      "context": ", and gross\nperitonitis. Surgical intervention was required.\n\n\nPast Medical History:\nH/o pneumonia, Polymyalgia rheumatica, HTN\n\nSurgical Hx: TAH (benign disease)\n\n\nSocial History:\nLives with husband, former school teacher"
+    },
+    {
+      "entity": "retinopathy of prematurity",
+      "document_id": "32261",
+      "orpha_code": "Orphanet_90050",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:06:58.757Z",
+      "context": " septal defect, ongoing.\n7. Left pneumothorax, resolved.\n8. Right vocal cord granuloma, ongoing.\n9. Retinopathy of prematurity, ongoing.\n10.Hyperbilirubinemia, resolved.\n11.Hypotension, resolved.\n12.Apnea of prematurity, resol"
+    },
+    {
+      "entity": "retinopathy of prematurity",
+      "document_id": "32261",
+      "orpha_code": "Orphanet_90050",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:06:59.722Z",
+      "context": "[Entity 'retinopathy of prematurity' occurrence #2 (index 1) not found by string search or overlaps with previously used positions in document 32261 ORPHA:Orphanet_90050]"
+    },
+    {
+      "entity": "congenital bleeding disorder",
+      "document_id": "32261",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:08:38.068Z",
+      "context": "er medicated with citalopram and lorazepam. She\nhad mild asthma treated with albuterol. There was a\ncongenital bleeding disorder. She is unaware of the specific\ndiagnosis, but did have bleeding following a tooth\nextraction.\n\nPRE"
+    },
+    {
+      "entity": "legionella",
+      "document_id": "28690",
+      "orpha_code": "Orphanet_549",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:08:53.190Z",
+      "context": "G RBC-5* WBC-1 Bacteri-FEW Yeast-NONE Epi-<1\n\nMicrobiology\n=============\nBlood Cultures *4 are NGTD\nLegionella urinary antigen negative\nUrine culture *2 finalized as negative for growth.\n\nOTHER RESULTS\n========"
+    },
+    {
+      "entity": "seizure disorder",
+      "document_id": "47026",
+      "orpha_code": "Orphanet_101998",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:08:55.194Z",
+      "context": "eter had excellent\nUOP (no evidence for obstruction), and was removed on transfer\nto the floor.\n.\n# Seizure disorder: The patient has not had seizure activity\nrecently per primary oncologist Dr. [**Last Name (STitle)"
+    },
+    {
+      "entity": "hyperparathyroidism",
+      "document_id": "47026",
+      "orpha_code": "Orphanet_181408",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:16:45.607Z",
+      "context": "thyroid replacement given atrial fibrillation.\n.\n# Hypercalcemia: The patient has a long history of\nhyperparathyroidism, and was noted to have calcium of 11.0 on\nadmission; elevated PTH was confirmed on hospital day 3. "
+    },
+    {
+      "entity": "central retinal vein occlusion",
+      "document_id": "47026",
+      "orpha_code": "Orphanet_411527",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:18:12.505Z",
+      "context": "edication does\nnot cause confusion.\n.\n# Neovascular glaucoma angle closure: The patient has a right\ncentral retinal vein occlusion and branch retinal artery\nocclusion with accompanying neovascular glaucoma, seen by Drs.\n[**Last Na"
+    },
+    {
+      "entity": "Primary CNS lymphoma",
+      "document_id": "47026",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:18:21.526Z",
+      "context": "n P 0.15 % drops one twice a day for 7\ndays. She was also given percocet.\n\nPast Medical History:\n1. Primary CNS lymphoma in cerebellum, frontal lobes, left\ntemporal lobe, and right occipital lobe; dx in [**7-17**]. S/p 6"
+    },
+    {
+      "entity": "Primary CNS lymphoma",
+      "document_id": "47026",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:18:22.594Z",
+      "context": "l status, resolved\n- Acute renal failure, resolved\n- Hypotension, resolved\n.\nSecondary diagnoses:\n- Primary CNS lymphoma in cerebellum, frontal lobes, left\ntemporal lobe, and right occipital lobe; dx in [**7-17**]. S/p 6"
+    },
+    {
+      "entity": "neovascular glaucoma",
+      "document_id": "47026",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:19:28.885Z",
+      "context": "ics.\n.\nPatient had optho evaluation in the ER on [**2203-9-17**] for eye pain\nand was found to have neovascular glaucoma angle closure of her\nright eye, for which she was started on acetazolimide 250mg po\nqid for 7 days,"
+    },
+    {
+      "entity": "neovascular glaucoma",
+      "document_id": "47026",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:19:33.723Z",
+      "context": "nt has a right\ncentral retinal vein occlusion and branch retinal artery\nocclusion with accompanying neovascular glaucoma, seen by Drs.\n[**Last Name (STitle) **] and [**Name5 (PTitle) **] on [**2203-9-15**].  Patient is b"
+    },
+    {
+      "entity": "Neovascular glaucoma",
+      "document_id": "47026",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:19:35.680Z",
+      "context": "e can take\ntramadol as needed for pain, provided that this medication does\nnot cause confusion.\n.\n# Neovascular glaucoma angle closure: The patient has a right\ncentral retinal vein occlusion and branch retinal artery\nocc"
+    },
+    {
+      "entity": "neovascular glaucoma angle closure",
+      "document_id": "47026",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:19:37.108Z",
+      "context": "[Entity 'neovascular glaucoma angle closure' occurrence #1 (index 0) not found by string search or overlaps with previously used positions in document 47026 ORPHA:]"
+    },
+    {
+      "entity": "Neovascular glaucoma angle closure",
+      "document_id": "47026",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:19:37.780Z",
+      "context": "[Entity 'Neovascular glaucoma angle closure' occurrence #1 (index 0) not found by string search or overlaps with previously used positions in document 47026 ORPHA:]"
+    },
+    {
+      "entity": "portal vein thrombosis",
+      "document_id": "47035",
+      "orpha_code": "Orphanet_854",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:20:12.012Z",
+      "context": "ning status with\nmultisystem failure and limited therapeutic options, the patient\nwas made CMO.\n.\n# Portal vein thrombosis - known, chronic. Not a candidate for\ntreatment.\n.\n# Guiaic positive stools/h/o melena - was schedu"
+    },
+    {
+      "entity": "hepatocellular carcinoma",
+      "document_id": "47035",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:20:27.880Z",
+      "context": "biopsy returned with\nadenocarcinoma with a staining profile c/w colon cancer. Concern\nfor a primary hepatocellular carcinoma along with another\nprimary cancer metastatic to the liver, likely colon. His\nprognosis is poor per "
+    },
+    {
+      "entity": "hepatocellular carcinoma",
+      "document_id": "47035",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:20:29.456Z",
+      "context": "ndition:\nAfebrile.  Tachypnic.  Not in pain.\n\nDischarge Instructions:\nYou have cancer of the liver (hepatocellular carcinoma) and\ncancer of the colon.  Based on the overall poor prognosis, you\nhave chosen to pursue purely pa"
+    },
+    {
+      "entity": "Hepatocellular carcinoma",
+      "document_id": "47035",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:20:31.250Z",
+      "context": "ition:\nExtended Care\n\nFacility:\n[**Hospital1 599**] of [**Location (un) 55**]\n\nDischarge Diagnosis:\nHepatocellular carcinoma\nColon Cancer\nHypoxemia\nNSTEMI\nAcute Renal Failure\nHypoglycemia\nHypotension\nHypothyroid\nDM-II\n\nDisch"
+    },
+    {
+      "entity": "beta-thalassemia",
+      "document_id": "45138",
+      "orpha_code": "Orphanet_848",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:21:37.212Z",
+      "context": "surgery\nclinic.\n.\n#. Cirrhosis/HCC: Secondary to hemachromatosis from multiple\ntransfusions for his beta-thalassemia. His HCC is s/p cyberknife\ntherapy in [**10-29**] and his last MRI [**1-31**] inidcated interval\nst"
+    },
+    {
+      "entity": "beta thalassemia",
+      "document_id": "45138",
+      "orpha_code": "Orphanet_848",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:21:40.459Z",
+      "context": "\nPast Medical History:\n- Cirrhosis [**1-23**] hemachromatosis\n- HCC s/p cyberknife in [**10-29**]\n- Beta Thalassemia (baseline Hct 23-25) with splenomegaly and\ndestruction of RBCs (per Dr [**Last Name (STitle) 96482*"
+    },
+    {
+      "entity": "hemochromatosis",
+      "document_id": "45138",
+      "orpha_code": "Orphanet_220489",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:23:28.696Z",
+      "context": "his admission\n\n\nHistory of Present Illness:\nThis is an 81 year old male with a PHMx consistent with\nhemochromatosis, HCC s/p cyberknife, thalassemia, and cirrhosis,\nwho reports a 6 day history of generalized weaknes"
+    },
+    {
+      "entity": "Hepatocellular Carcinoma",
+      "document_id": "45138",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:23:30.954Z",
+      "context": "tal6 85**] - [**Location (un) 86**]\n\nDischarge Diagnosis:\nLeft Subdural Hematoma s/p fall\nCirrhosis\nHepatocellular Carcinoma\nCHF\nThalassemia\n\n\nDischarge Condition:\nMental Status: Clear and coherent\nLevel of Consciousness: Al"
+    },
+    {
+      "entity": "sick sinus syndrome",
+      "document_id": "42584",
+      "orpha_code": "Orphanet_166282",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:23:51.540Z",
+      "context": "cath, her home flecainide was restarted. Heart rate\nwell-controlled throughout hospitalization.\n.\n#.Sick Sinus Syndrome: patient has pacemaker, and is sinus paced\non EKG. Pacer interrogation was normal.\n.\n#.HTN: patient"
+    },
+    {
+      "entity": "ALS",
+      "document_id": "44132",
+      "orpha_code": "Orphanet_803",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:23:54.770Z",
+      "context": "asive Procedure:\nPEG replaced using endoscopy\n\n\nHistory of Present Illness:\n74-year-old female with ALS, PEG/Trach, and PAF who was brought\nto the ER because her PEG was pulled and could not be replaced."
+    },
+    {
+      "entity": "ALS",
+      "document_id": "44132",
+      "orpha_code": "Orphanet_803",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:23:56.533Z",
+      "context": " an outpatient) and she spontaneously\nconverted back to NSR with SBP's in the 90-100 range. She was\nalso started empirically on Levofloxacin, Flagyl and Vancomycin\n(h/o MRSA) in the ER given her persiste"
+    },
+    {
+      "entity": "ALS",
+      "document_id": "44132",
+      "orpha_code": "Orphanet_803",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:23:58.156Z",
+      "context": "pital 100**] Rehab were AC/10/5/550/0.40\n\n\nPast Medical History:\n- Paroxysmal atrial fibrillation\n- ALS diagnosed 3y ago - has Gtube with tube feeds, has\ndifficulty with speech\n- hypercholesterolemia\n- ?"
+    },
+    {
+      "entity": "ALS",
+      "document_id": "44132",
+      "orpha_code": "Orphanet_803",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:23:59.654Z",
+      "context": "\n\nFamily History:\nfather MI age 52, mother deceased at age [**Age over 90 **]\n\nPhysical Exam:\nED VITALS: T 99.8 rectal, HR 88 (NSR), BP 177/68, RR 17, O2 94%\n\nVITALS: T 98.2, HR 97, BP 141/77\nVENT: AC 12"
+    },
+    {
+      "entity": "her disease",
+      "document_id": "44150",
+      "orpha_code": "Orphanet_369",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:24:02.877Z",
+      "context": "[Entity 'her disease' occurrence #1 (index 0) not found by string search or overlaps with previously used positions in document 44150 ORPHA:Orphanet_369]"
+    },
+    {
+      "entity": "sick sinus syndrome",
+      "document_id": "44472",
+      "orpha_code": "Orphanet_166282",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:24:04.093Z",
+      "context": "[Entity 'sick sinus syndrome' occurrence #1 (index 0) not found by string search or overlaps with previously used positions in document 44472 ORPHA:Orphanet_166282]"
+    },
+    {
+      "entity": "glioblastoma multiforme",
+      "document_id": "44472",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:26:47.629Z",
+      "context": "Coumadin dose to be determined with an INR goal of 2 to 3\n13. Heparin sliding scale\n14. Aspirin 325 glioblastoma multiforme po q day, currently\non hold for possible PEG placement.  It has been on hold\nsince [**5-8**].\n15. L"
+    },
+    {
+      "entity": "hyperthyroidism",
+      "document_id": "46706",
+      "orpha_code": "Orphanet_181399",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:26:54.425Z",
+      "context": "aneurysm and\nstent re-coiling of the L ICA aneurysm.\n\nPast Medical History:\nDepression\nHypertension\nHyperthyroidism with multinodular goiter\n\nPSurgHx:\nThoracic surgery on [**2197-10-13**] as above\nPrevious excision "
+    },
+    {
+      "entity": "seizure disorder",
+      "document_id": "45078",
+      "orpha_code": "Orphanet_101998",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:26:55.613Z",
+      "context": "ary to longterm neuroleptic use\nDementia\nInstitutionalized for at least 11 years\nRemote symptomatic seizure disorder\n\nBaseline functioning level unknown. Multiple attempts made to\nreach Nursing Home, but only single "
+    },
+    {
+      "entity": "seizure disorder",
+      "document_id": "45078",
+      "orpha_code": "Orphanet_101998",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:26:56.465Z",
+      "context": "ls back to date from her PCP\n[**Name Initial (PRE) **] will attempt again. Known remote symptomatic seizure disorder,\nbut no semiological detail available - last admission for\n\"increased seizure activity\" was in [**M"
+    },
+    {
+      "entity": "tracheobronchomalacia",
+      "document_id": "46361",
+      "orpha_code": "Orphanet_411501",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:27:17.084Z",
+      "context": "pensation. Heart size normal. Of note prior chest CT scans\nhave findings suggesting a propensity to tracheobronchomalacia,\nas well as moderately severe emphysema.\nLeft PIC catheter ends in the upper SVC. No pneumothorax o"
+    },
+    {
+      "entity": "pmr",
+      "document_id": "46820",
+      "orpha_code": "Orphanet_93569",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:27:50.742Z",
+      "context": "cation:\nROS: Per HPI and otherwise negative except for hip pain.\n\n\nPast Medical History:\nDM\nHTN\nCKD\nPMR\nGERD\nDementia\nCholecystectomy\nCystoscopy\nAtrial fibrillation\nRespiratory Insufficiency NOS\n\nSocial "
+    },
+    {
+      "entity": "thymoma",
+      "document_id": "46820",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:28:03.482Z",
+      "context": "st cage as well as a dilated ascending aorta\nonly to exclude an anterior mediastinal mass such as a thymoma\nwould be with chest CT scanning, which would not necessarily\nrequire intravenous contrast infusion."
+    },
+    {
+      "entity": "epilepsy",
+      "document_id": "32946",
+      "orpha_code": "Orphanet_101998",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:28:04.846Z",
+      "context": "s\ndischarge.  The Dilantin level was therapeutic at 20.\n\nPatient was found to have a history of GTC epilepsy.  Patient\nwas found to be on a dilantin [**Doctor Last Name 2949**].  Initially on 400 mg [**Hospit"
+    },
+    {
+      "entity": "seizure disorder",
+      "document_id": "32946",
+      "orpha_code": "Orphanet_101998",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:28:11.752Z",
+      "context": "tory of Present Illness:\nThe pt is a 25 year-old male with a past medical history\nsignificant for a seizure disorder and by report on phenytoin\nand\nhas issues with medication compliance presents with an episode\nof\nst"
+    },
+    {
+      "entity": "tracheobronchomalacia",
+      "document_id": "35397",
+      "orpha_code": "Orphanet_411501",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:28:13.344Z",
+      "context": "\nmultinodular goiter\nMorbid obesity\nHTN\nC difficile colitis\nperipheral neuropathy\nleft leg weakness\ntracheobronchomalacia\nChronic leg ulcers\nRecurrent UTI\nurinary stress incontinence\niron deficiency anemia\nnephrolithiasis"
+    },
+    {
+      "entity": "complex tracheal stenosis",
+      "document_id": "35397",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:29:12.560Z",
+      "context": "drenergic Blocking Agts)\n\nAttending:[**First Name3 (LF) 492**]\nChief Complaint:\nmigrated stent with complex tracheal stenosis\n\nMajor Surgical or Invasive Procedure:\n[**2120-2-14**]: Flexible bronchoscopy with trach sutured to"
+    },
+    {
+      "entity": "complex tracheal stenosis",
+      "document_id": "35397",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:29:14.026Z",
+      "context": "ailure s/p\nendotracheal intubation and tracheostomy tube placement\ncomplicated by post-tracheostomy complex tracheal stenosis\n(location: 1 cm from cricoid /length 2cm / narrowing with\nassociated TM). Underwent rigid bronch an"
+    },
+    {
+      "entity": "complex tracheal stenosis",
+      "document_id": "35397",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:29:14.790Z",
+      "context": " site. The patient proceeded with\nstent removal, but due to central airway obstruction secondary\nto complex tracheal stenosis and malacia a #7 Per Fit\ntracheostomy was placed.\n\nThe patient had bursts of atrial fibrillation wi"
+    },
+    {
+      "entity": "Complex tracheal stenosis",
+      "document_id": "35397",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:29:16.564Z",
+      "context": "n:\nExtended Care\n\nFacility:\n[**Hospital 5503**] [**Hospital 80686**] hospital\n\nDischarge Diagnosis:\nComplex tracheal stenosis, with stent migration, retrieval and\ntracheostomy\nAtrial fibrillation on warfarin\nESRD on HD MWF ha"
+    },
+    {
+      "entity": "tracheal stenosis",
+      "document_id": "35397",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:29:59.397Z",
+      "context": "Speech commented that this may not improve until the patient\nundergoes further intervention for her tracheal stenosis.\n\nIR changed the HD catheter from the right SC to the left SC on\n[**2120-2-13**]. Coumadin was star"
+    },
+    {
+      "entity": "tracheal stenosis",
+      "document_id": "35397",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:30:00.577Z",
+      "context": "[Entity 'tracheal stenosis' occurrence #2 (index 1) not found by string search or overlaps with previously used positions in document 35397 ORPHA:]"
+    },
+    {
+      "entity": "tracheal stenosis",
+      "document_id": "35397",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:30:01.205Z",
+      "context": "[Entity 'tracheal stenosis' occurrence #3 (index 2) not found by string search or overlaps with previously used positions in document 35397 ORPHA:]"
+    },
+    {
+      "entity": "tracheal stenosis",
+      "document_id": "35397",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:30:01.655Z",
+      "context": "[Entity 'tracheal stenosis' occurrence #4 (index 3) not found by string search or overlaps with previously used positions in document 35397 ORPHA:]"
+    },
+    {
+      "entity": "tracheal stenosis",
+      "document_id": "35397",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:30:02.305Z",
+      "context": "[Entity 'tracheal stenosis' occurrence #5 (index 4) not found by string search or overlaps with previously used positions in document 35397 ORPHA:]"
+    },
+    {
+      "entity": "dilated cardiomyopathy",
+      "document_id": "34416",
+      "orpha_code": "Orphanet_217604",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:30:18.523Z",
+      "context": "e\nsecondary to viral myocarditis, as his history was consistent\nwith this, and other etiologies for dilated cardiomyopathy,\nincluding hemochromatosis, HIV, and doxorubicin exposure, were\nexcluded. He was diuresed and his s"
+    },
+    {
+      "entity": "dilated cardiomyopathy",
+      "document_id": "34416",
+      "orpha_code": "Orphanet_217604",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:30:20.354Z",
+      "context": "lused 250mL x4 and his target\nsystolic pressure based on heart function remained above 80mmHg.\n\n\n2. Dilated cardiomyopathy: Patient with recent admission for\nheart failure found to have a dilated cardiomyopathy with EF 25%"
+    },
+    {
+      "entity": "dilated cardiomyopathy",
+      "document_id": "34416",
+      "orpha_code": "Orphanet_217604",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:31:07.461Z",
+      "context": "0mmHg.\n\n\n2. Dilated cardiomyopathy: Patient with recent admission for\nheart failure found to have a dilated cardiomyopathy with EF 25%\nand 4+ TR/MR.  During this admission, a repeat TTE demonstrated\na EF 20%, 4+ TR/MR, and"
+    },
+    {
+      "entity": "dilated cardiomyopathy",
+      "document_id": "34416",
+      "orpha_code": "Orphanet_217604",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:31:09.392Z",
+      "context": "ls:*2*\n\n\nDischarge Disposition:\nHome\n\nDischarge Diagnosis:\nPrimary diagnoses:\n1) Gastroenteritis\n2) Dilated Cardiomyopathy\n3) Atrial Fibrillation\n4) Systolic Heart Failure\n\n\nDischarge Condition:\nStable\n\n\nDischarge Instruct"
+    },
+    {
+      "entity": "dilated cardiomyopathy",
+      "document_id": "34416",
+      "orpha_code": "Orphanet_217604",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:31:11.673Z",
+      "context": "omiting due to\ndehydration. While you were here, the fluid used to resuscitate\nyou compromised your dilated cardiomyopathy which explains why\nyou became overfilled with fluid during your stay. In addition,\nyou have been fo"
+    },
+    {
+      "entity": "hemochromatosis",
+      "document_id": "34416",
+      "orpha_code": "Orphanet_220489",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:31:14.561Z",
+      "context": "as his history was consistent\nwith this, and other etiologies for dilated cardiomyopathy,\nincluding hemochromatosis, HIV, and doxorubicin exposure, were\nexcluded. He was diuresed and his symptoms improved.\n\n\nPast Me"
+    },
+    {
+      "entity": "amyloidosis",
+      "document_id": "35579",
+      "orpha_code": "Orphanet_69",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:31:30.304Z",
+      "context": " History:\nOncology History:\n- Multiple Myeloma, s/p autologous stem cell transplant in [**2149**]\n- Amyloidosis\n\nOther Medical History:\n- ESRD [**2-10**] amyloidosis\n- Hyperlipidemia\n- Restless leg syndrome\n- H/"
+    },
+    {
+      "entity": "multiple myeloma",
+      "document_id": "35579",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:31:41.597Z",
+      "context": "on [**2151-2-15**]\nBronchoscopy\nExtubation on [**2151-2-17**]\n\n\nHistory of Present Illness:\n65M h/o multiple myeloma, amyloid, s/p autologous stem cell\ntransplant [**2149**], on HD for renal failure with hemoptysis x"
+    },
+    {
+      "entity": "multiple myeloma",
+      "document_id": "35579",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:31:42.375Z",
+      "context": "onal biventricular systolic function. Mild pulmonary\nhypertension.\n\n\nBrief Hospital Course:\n65M h/o multiple myeloma, amyloid, s/p autologous stem cell\ntransplant [**2149**], on HD for renal failure with hemoptysis\na"
+    },
+    {
+      "entity": "Multiple Myeloma",
+      "document_id": "35579",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:31:43.307Z",
+      "context": "ew of systems: Unable to obtain secondary to intubation\n\n\nPast Medical History:\nOncology History:\n- Multiple Myeloma, s/p autologous stem cell transplant in [**2149**]\n- Amyloidosis\n\nOther Medical History:\n- ESRD [**"
+    },
+    {
+      "entity": "Multiple Myeloma",
+      "document_id": "35579",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:31:44.051Z",
+      "context": "se pulmonary hemorrhage\n\nSecondary diagnoses:\n- End stage renal disease\n- Hypertension\n- History of Multiple Myeloma\n- Restless leg syndrome\n- Left ear cerum impaction\n- Left knee prepatellar bursitis\n\n\nDischarge Con"
+    },
+    {
+      "entity": "pmr",
+      "document_id": "35658",
+      "orpha_code": "Orphanet_93569",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:31:49.936Z",
+      "context": "f Present Illness:\n[**Age over 90 **] yo M w/ CAD s/p PCI x2 (LAD 80%, First Diag 80%, [**2159**]), PMR,\nCOPD, B/L Pulm Embolism ([**2159**]), developed acute onset of\nsubsternal chest pain at 8am on the"
+    },
+    {
+      "entity": "pmr",
+      "document_id": "35658",
+      "orpha_code": "Orphanet_93569",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:31:53.544Z",
+      "context": " **] yo with known CAD s/p PCI with DES x2 in [**2159**], h/o\nadrenal insufficiency, Type II DM, ho PMR, who presented with\nhypotension and sepsis and RLL aspiration pneumonia. Admitted to\nICU for < 24hr"
+    },
+    {
+      "entity": "polymyalgia rheumatica",
+      "document_id": "35658",
+      "orpha_code": "Orphanet_397",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:31:54.631Z",
+      "context": " - Both the patient and his family stated\nthat he regularly takes 7mg prednisone daily for both his\npolymyalgia rheumatica and for primary adrenal insufficiency.\nOn lab testing, he had an equivocal random cortisol level.  "
+    },
+    {
+      "entity": "primary adrenal insufficiency",
+      "document_id": "35658",
+      "orpha_code": "Orphanet_85138",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:32:45.447Z",
+      "context": "ily stated\nthat he regularly takes 7mg prednisone daily for both his\npolymyalgia rheumatica and for primary adrenal insufficiency.\nOn lab testing, he had an equivocal random cortisol level.  The\nMICU decided to treat him with str"
+    },
+    {
+      "entity": "post polio syndrome",
+      "document_id": "35228",
+      "orpha_code": "Orphanet_2942",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:32:55.310Z",
+      "context": "l History:\ntransitional cell carcinoma - Pathology is pending from right\ndistal ureter\nHypertension\npost polio syndrome\nhyperlipidemia\nDM2\nmonoclonal gammopathy\nperipheral vascular disease s/p left common iliac arterial"
+    },
+    {
+      "entity": "transitional cell carcinoma",
+      "document_id": "35228",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:33:15.146Z",
+      "context": "This is a 73-year-old Portuguese speaking male w/h/o CAD, COPD,\nPVDz s/p ileal stent w/recent dx of transitional cell carcinoma\nwho is admitted to [**Hospital Unit Name 153**] after scheduled bladder cystectomy\nw/ileal conduits"
+    },
+    {
+      "entity": "transitional cell carcinoma",
+      "document_id": "35228",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:33:19.456Z",
+      "context": "ssors.\n.\nUnable to complete ROS at this time due to pt sedated/intubated.\n.\n\n\nPast Medical History:\ntransitional cell carcinoma - Pathology is pending from right\ndistal ureter\nHypertension\npost polio syndrome\nhyperlipidemia\nDM2"
+    },
+    {
+      "entity": "her disease",
+      "document_id": "34689",
+      "orpha_code": "Orphanet_369",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:33:20.873Z",
+      "context": "[Entity 'her disease' occurrence #1 (index 0) not found by string search or overlaps with previously used positions in document 34689 ORPHA:Orphanet_369]"
+    },
+    {
+      "entity": "hypogammaglobulinemia",
+      "document_id": "33893",
+      "orpha_code": "Orphanet_229717",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:35:47.945Z",
+      "context": "ents for osteonecrosis [**2-26**] long term\nprednisione use (R knee [**9-1**], left knee [**1-1**])\nhypogammaglobulinemia\nhepatitis c\ntobacco abuse\n-spontaneous PTX in [**5-2**]\n-s/p R VATS/bleb resection and pleurectomy "
+    },
+    {
+      "entity": "bronchiectasis",
+      "document_id": "33893",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:35:58.357Z",
+      "context": "concerning for\ndeveloping consolidation. Additionally, there is perihilar\nopacity\nbilaterally, with bronchiectasis. The heart size is normal.\nThere is no\nmediastinal enlargement. Blunting of the right costophrenic\n"
+    },
+    {
+      "entity": "bronchiectasis",
+      "document_id": "33893",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:35:59.522Z",
+      "context": "rally, old, remodeled rib fractures are present.\n\nIMPRESSION: Perihilar ground-glass opacities with\nbronchiectasis, and a more focal area of opacification in the\nright lower lobe. Findings could reflect multifocal "
+    },
+    {
+      "entity": "hyperparathyroidism",
+      "document_id": "40395",
+      "orpha_code": "Orphanet_181408",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:36:08.487Z",
+      "context": "tage 4, Cr last 3.4 as outpt\nAnemia\nGout\nPruritis\nDiverticulitis\nBPPV\nTubular adenoma [**7-/2116**]\nHyperparathyroidism (secondary)\nR inguinal hernia repair\nBPH\n\nSocial History:\nLives at home with wife, no home O2, ques"
+    },
+    {
+      "entity": "HIT",
+      "document_id": "33909",
+      "orpha_code": "Orphanet_3325",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:36:14.724Z",
+      "context": "-1**] without complication. The hematology service was\nconsulted for thrombocytopenia. Although his HIT assay was\nnegative, it was recommended to treat as if he was HIT positive.\nThus, all heparin produc"
+    },
+    {
+      "entity": "HIT",
+      "document_id": "33909",
+      "orpha_code": "Orphanet_3325",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:36:32.262Z",
+      "context": "for thrombocytopenia. Although his HIT assay was\nnegative, it was recommended to treat as if he was HIT positive.\nThus, all heparin products were avoided and a serotonin release\nHIT assay was sent and if"
+    },
+    {
+      "entity": "HIT",
+      "document_id": "33909",
+      "orpha_code": "Orphanet_3325",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:36:36.085Z",
+      "context": "to treat as if he was HIT positive.\nThus, all heparin products were avoided and a serotonin release\nHIT assay was sent and if positive, it is recommended he be\ntreated with argatroban and coumadin. His p"
+    },
+    {
+      "entity": "HIT",
+      "document_id": "33909",
+      "orpha_code": "Orphanet_3325",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:36:39.199Z",
+      "context": "avix\nwas resumed. He required agressive diuresis and remained in the\nhospital for diuresis.  Repeat HIT antibody was negative. SRA is\nstill pending. His pacemaker was interrogated on [**8-8**], adn wsa\nf"
+    },
+    {
+      "entity": "calciphylaxis",
+      "document_id": "34305",
+      "orpha_code": "Orphanet_280062",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:36:53.502Z",
+      "context": "on HD, DM2, CAD s/p stents\nx 8 at [**Hospital1 112**], severe AS, now healed ulcer of RLE [**1-6**] calciphylaxis\nrecently admitted [**9-/2189**] with altered mental status now\nadmitted with substernal CP. Pt deve"
+    },
+    {
+      "entity": "calciphylaxis",
+      "document_id": "34305",
+      "orpha_code": "Orphanet_280062",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:36:55.721Z",
+      "context": "mpicillin/gentamycin then\nclindamycin\n- chronic ulcer of RLE with biopsy at [**Hospital1 756**] c/w\ncalciphylaxis now healed s/p sodium thiosulfate\n- depression\n\n\nSocial History:\nPatient was a secretary at [**Hosp"
+    },
+    {
+      "entity": "calciphylaxis",
+      "document_id": "34305",
+      "orpha_code": "Orphanet_280062",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:36:57.375Z",
+      "context": "on HD, DM2, CAD s/p stents x 8 at\n[**Hospital1 112**], severe AS, now healed ulcer of RLE [**1-6**] calciphylaxis\npresented initially with substernal CP, elevated trop, CK/MB\nwnl, likely from worsening AS\n.\n# Ches"
+    },
+    {
+      "entity": "pulmonary arterial hypertension",
+      "document_id": "34305",
+      "orpha_code": "Orphanet_275766",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:38:49.367Z",
+      "context": "nd RCA.\n2. Mildly elevated PCW consistent with mild left ventricular\ndiastolic\ndysfunction.\n3. Mild pulmonary arterial hypertension.\n4. Peripheral arterial disease.\n\n\nBrief Hospital Course:\n 54 yo female with h/o ESRD on HD, DM2, C"
+    },
+    {
+      "entity": "Pyoderma gangrenosum",
+      "document_id": "34305",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:39:00.692Z",
+      "context": "us MI >20\nyrs ago\n-Severe AS- [**Location (un) 109**] 0.8-1.0 cm2\n- DM x >20 years  w/ neuropathy\n- Pyoderma gangrenosum\n- HTN\n- CVA (by imaging, not recognized and no residual deficits)\n- GERD not currently active.\n- Mo"
+    },
+    {
+      "entity": "tracheobronchomalacia",
+      "document_id": "34316",
+      "orpha_code": "Orphanet_411501",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:39:02.391Z",
+      "context": "woman with severe dyspnea. She\nhas emphysema but on further workup was noted to have severe\ndiffuse tracheobronchomalacia. She underwent a tracheobronchial\nsilicone Y stent trial and had marked improvement of her\nsymptoms"
+    },
+    {
+      "entity": "tracheobronchomalacia",
+      "document_id": "34316",
+      "orpha_code": "Orphanet_411501",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:39:03.885Z",
+      "context": "osition:\nExtended Care\n\nFacility:\n[**Hospital1 2670**] - [**Location (un) **]\n\nDischarge Diagnosis:\ntracheobronchomalacia\nCOPD on home 02\n\n\nDischarge Condition:\nDeconditioned\n\n\nDischarge Instructions:\nCall Dr. [**Last Nam"
+    },
+    {
+      "entity": "hyperthyroidism",
+      "document_id": "36547",
+      "orpha_code": "Orphanet_181399",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:39:16.464Z",
+      "context": "epam IV given somnolence. Restarted prior to\ndischarge.\n\n# Hyperlipidemia: held statin while NPO\n\n# Hyperthyroidism: restarted Levothyroxine\n\n\nMedications on Admission:\nMEDICATIONS (at home):\nFosamax 70mg once weekl"
+    },
+    {
+      "entity": "mediastinitis",
+      "document_id": "36547",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:39:29.693Z",
+      "context": "3**]\nbleeding.  She was transferred to [**Hospital1 18**] for furhter management\nout of concern for mediastinitis and ?need for tracheal surgery.\nOf note, per c.cath note from OSH, LBBB was later found to be\nold s"
+    },
+    {
+      "entity": "mediastinitis",
+      "document_id": "36547",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:39:30.950Z",
+      "context": "-2-23**] showed no evidence of tear.  She has been treated with\nVancomycin, CTX and fluconazole for mediastinitis.  Vanco then\ndiscontinued per ID recommendation.  Today, the patient\ndeveloped wide complex tachyca"
+    },
+    {
+      "entity": "mediastinitis",
+      "document_id": "36547",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:39:31.810Z",
+      "context": "d oral contrast from the recent video swallow\nexamination\nand suggestive of abscesses with evolving mediastinitis. As seen\non the same\nday neck CT this is likely secondary to esophageal perforation.\nNo definite\ntr"
+    },
+    {
+      "entity": "mediastinitis",
+      "document_id": "36547",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:39:32.694Z",
+      "context": "\nthickening of the soft tissues at the area is still present, but\nno obvious\nevidence of abscess or mediastinitis is currently seen.\n\n2. Patchy ground-glass opacities unchanged since [**2194-2-26**],\nconsistent\nwi"
+    },
+    {
+      "entity": "mediastinitis",
+      "document_id": "36547",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:39:34.150Z",
+      "context": "ycardia: ECG consistent with afib with RVR in\nsetting of known LBBB. Afib likely exacerbated by\nCHF/mediastinitis. Rate and rythm control with  Amiodarone. He\nwas started on Heparin for anticoagulation with plan t"
+    },
+    {
+      "entity": "mediastinitis",
+      "document_id": "36547",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:39:34.923Z",
+      "context": "\nhealed and subQ emphysema now resolved.  She was started on CTX\nand Fluc for treatment of possible mediastinitis as she was\nfebrile at OSH and cont with WBC of 20. Thoracic surgery was\nconsulted and did not feel "
+    },
+    {
+      "entity": "fulminant hepatic failure",
+      "document_id": "35323",
+      "orpha_code": "Orphanet_90062",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:39:45.865Z",
+      "context": "vasive Procedure:\n[**2187-8-23**]: ERCP\n[**2187-8-27**]: ERCP\n\nHistory of Present Illness:\n46M with fulminant hepatic failure c/b HRS likely secondary\nto Hepatitis E, s/p ABO mismatch OLTx with splenectomy [**4-/2187**]\ncompl"
+    },
+    {
+      "entity": "HIT",
+      "document_id": "52501",
+      "orpha_code": "Orphanet_3325",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:39:47.439Z",
+      "context": "educed in number hypochromic with anisopoikilocytosis including\noccasional elliptocytes seen.  The white blood cell count\nappears markedly decreased, and neutrophils are absent.\nPlatelet count appears mi"
+    },
+    {
+      "entity": "HIT",
+      "document_id": "52501",
+      "orpha_code": "Orphanet_3325",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:39:50.106Z",
+      "context": "rdiocentesis, persistent fevers, tachycardia, splenic\nlesions, intrabdominal fluid collections, and HIT+ antibody with\nsubsequently negative SRA.\n\nShe was initially admitted to BMT but was transferred fr"
+    },
+    {
+      "entity": "legionella",
+      "document_id": "52501",
+      "orpha_code": "Orphanet_549",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:39:52.248Z",
+      "context": "howed no acute bleeding or ischemia.\n.\nID: Swab from tongue and perianal area are negative for HSV.\nLegionella urine antigen was negative.  Patient's EBV negative,\nCMV viral load and Parvo B19 were still pendin"
+    },
+    {
+      "entity": "HIT",
+      "document_id": "52528",
+      "orpha_code": "Orphanet_3325",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:39:57.675Z",
+      "context": "-4-14**] 07:20AM BLOOD calTIBC-182* Ferritn-649* TRF-140*\n[**2155-4-7**] 08:35PM BLOOD Lactate-6.1*\nHIT AB: negative\n\nBrief Hospital Course:\n#Biliary Sepsis/GNR bacteremia:  underwent ERCP which showed\nb"
+    },
+    {
+      "entity": "recurrent fever",
+      "document_id": "51061",
+      "orpha_code": "Orphanet_91547",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:41:09.417Z",
+      "context": "\n\nDischarge Disposition:\nHome With Service\n\nFacility:\nHome Solutions\n\nDischarge Diagnosis:\nPrimary: recurrent fever\nSecondary: rash, leukopenia, elevated LFTs\n\nDischarge Condition:\nMental Status: Clear and coherent."
+    },
+    {
+      "entity": "sick sinus syndrome",
+      "document_id": "52206",
+      "orpha_code": "Orphanet_166282",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:41:10.735Z",
+      "context": "First Name (Titles) 213**] [**Last Name (Titles) **].\n3. HTN\n4. Hypercholesterolemia\n5. s/p PPM for sick sinus syndrome\n6. Hemorrhoids\n7. Diverticulosis\n8. Chronic Low Back Pain\n9. Sicca syndrome\n10. Pulmonary embolus ("
+    },
+    {
+      "entity": "fulminant liver failure",
+      "document_id": "49795",
+      "orpha_code": "Orphanet_90062",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:41:42.165Z",
+      "context": "is. Correlate clinically and\nwith follow up\nif indicated.\n\nLiver ultrasound [**7-18**]:\nINDICATION: Fulminant liver failure with new fever.\n\nComparison is made to the prior ultrasound dated [**2111-7-13**].\n\nFINDINGS: The l"
+    },
+    {
+      "entity": "fulminant hepatic failure",
+      "document_id": "49795",
+      "orpha_code": "Orphanet_90062",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:42:00.192Z",
+      "context": "ught to require liver transplant,\nextubated and with clinical improvement with decreasing LFTs.\n\n1. Fulminant hepatic failure. Patient's fulminant hepatic\nfailure was likely secondary to alcohol and acetominophen\noverdose. Pa"
+    },
+    {
+      "entity": "fulminant hepatic failure",
+      "document_id": "49795",
+      "orpha_code": "Orphanet_90062",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:42:01.626Z",
+      "context": " every six (6) hours.\nDisp:*1 1* Refills:*2*\n\n\nDischarge Disposition:\nExpired\n\nDischarge Diagnosis:\nFulminant hepatic failure\nAlcohol/acetaminophen overdose\nEsophagitis\nDepression with suicide attempt\nAsthma\nPneumonia\n\n\nDisch"
+    },
+    {
+      "entity": "fulminant hepatic failure",
+      "document_id": "49795",
+      "orpha_code": "Orphanet_90062",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:42:02.799Z",
+      "context": "[Entity 'fulminant hepatic failure' occurrence #3 (index 2) not found by string search or overlaps with previously used positions in document 49795 ORPHA:Orphanet_90062]"
+    },
+    {
+      "entity": "fulminant hepatic failure",
+      "document_id": "49795",
+      "orpha_code": "Orphanet_90062",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:42:03.482Z",
+      "context": "[Entity 'fulminant hepatic failure' occurrence #4 (index 3) not found by string search or overlaps with previously used positions in document 49795 ORPHA:Orphanet_90062]"
+    },
+    {
+      "entity": "acute hepatic failure",
+      "document_id": "49795",
+      "orpha_code": "Orphanet_90062",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:42:06.635Z",
+      "context": "[Entity 'acute hepatic failure' occurrence #1 (index 0) not found by string search or overlaps with previously used positions in document 49795 ORPHA:Orphanet_90062]"
+    },
+    {
+      "entity": "alport's syndrome",
+      "document_id": "49021",
+      "orpha_code": "Orphanet_63",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:42:17.423Z",
+      "context": "ol, and fentanyl.  He was then\ntransferred to the MICU for further care.\n\n\nPast Medical History:\n1. Alport's syndrome with ESRD, s/p 2 failed renal transplants\n([**2152**] and [**2168**]), now on MWF HD.\n2. CHF w/EF >"
+    },
+    {
+      "entity": "alport syndrome",
+      "document_id": "49021",
+      "orpha_code": "Orphanet_63",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:42:19.368Z",
+      "context": "distress\n\nMajor Surgical or Invasive Procedure:\nIntubation\n\n\nHistory of Present Illness:\n50 y/o M w/Alport syndrome, ESRD on HD, CHF, HTN, who presented\nto the ED last pm c/o left sided chest pain.  Per the notes, t"
+    },
+    {
+      "entity": "epilepsy",
+      "document_id": "41073",
+      "orpha_code": "Orphanet_101998",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:42:20.561Z",
+      "context": "sive Procedure:\nNone\n\n\nHistory of Present Illness:\n25 year old right handed woman with a history of\nepilepsy who presents for evaluation in the setting of seizure\ntoday.\n\nThe patient was seen emergency [**Apa"
+    },
+    {
+      "entity": "epilepsy",
+      "document_id": "41073",
+      "orpha_code": "Orphanet_101998",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:45:42.277Z",
+      "context": "] 10:19PM   PLT COUNT-345\n\nBrief Hospital Course:\n25W h/o nonepileptic psychogenic events, possibly epilepsy and\ndepression initially presented with seizure cluster on [**6-23**] in\nthe context of missing dos"
+    },
+    {
+      "entity": "epilepsy",
+      "document_id": "41073",
+      "orpha_code": "Orphanet_101998",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:45:43.979Z",
+      "context": " She was\nthen loaded back on Keppra and her Lamictal was restarted and\ndischarged to follow up with epilepsy.  She will need to have\noutpatient psychiatry arranged.\n\n\nMedications on Admission:\nDepakote 500mg "
+    },
+    {
+      "entity": "epileptic",
+      "document_id": "41073",
+      "orpha_code": "Orphanet_101998",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:46:02.179Z",
+      "context": "OS-3.7 EOS-2.1\nBASOS-0.9\n[**2171-6-22**] 10:19PM   PLT COUNT-345\n\nBrief Hospital Course:\n25W h/o nonepileptic psychogenic events, possibly epilepsy and\ndepression initially presented with seizure cluster on [*"
+    },
+    {
+      "entity": "epileptic seizures",
+      "document_id": "41073",
+      "orpha_code": "Orphanet_101998",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:46:27.611Z",
+      "context": "th the plans to wean Keppra and Lamictal off to try and\ncapture more events to determine if she has epileptic seizures\nin addition to nonepileptic seizures.\n\nOn the floor, her medications were weaned while on monitorin"
+    },
+    {
+      "entity": "seizure disorder",
+      "document_id": "41300",
+      "orpha_code": "Orphanet_101998",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:46:28.968Z",
+      "context": "as most likely\ndue to ETOH withdrawal based on history. He also has a history\nof TBI with resulting seizure disorder which likely contributes\nas well. He has not taken his prescribed Keppra in 2 years.\nPatient did no"
+    },
+    {
+      "entity": "epilepsy",
+      "document_id": "41300",
+      "orpha_code": "Orphanet_101998",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:46:29.840Z",
+      "context": "entleman with a history of\nalcoholism, traumatic brain injury, frequent EtOH withdrawal\nseizures, ? epilepsy who is presenting after he was witnessed to\nbe having a seizure outside the [**Hospital Ward Name 2"
+    },
+    {
+      "entity": "nph",
+      "document_id": "41466",
+      "orpha_code": "Orphanet_314928",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:46:31.936Z",
+      "context": "675**] was on an insulin sliding scale for the\nmanagement of her diabetes.  She received 7 units of NPH in the\nAM with a sliding scale starting at a glucose level of 120 with\n2 units and increasing by 2 "
+    },
+    {
+      "entity": "NPH",
+      "document_id": "41466",
+      "orpha_code": "Orphanet_314928",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:46:32.965Z",
+      "context": "sion:\nAspirin 81', Lisinopril 40 QOD non-dialysis days, Lasix 100',\nLipitor 20 QHS, Synthroid 175', NPH insulin 15', Humalog 8',\ncompazine unknown dose Q8H PRN, Prozac 60', Xanax 2 QID,\n\nDischarge Medica"
+    },
+    {
+      "entity": "NPH",
+      "document_id": "44246",
+      "orpha_code": "Orphanet_314928",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:46:34.881Z",
+      "context": "stolic\ndysfunction.\n.\nINACTIVE ISSUES\n.\n#  DM1. Poorly controlled at baseline.  He was continued on NPH\nat home regimen and SSI.\n.\n#  BPH: He was continued on finasteride and terazosin at home\ndoses.\n.\n#"
+    },
+    {
+      "entity": "epilepsy",
+      "document_id": "41991",
+      "orpha_code": "Orphanet_101998",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:46:35.813Z",
+      "context": " Diagnosis:\nMetastatic Lung Cancer\nDeep Vein Thrombosis\nPulmonary Embolism\nSpontaneous Pneumothorax\nEpilepsy secondary to metastastatic brain lesions\n\n\nDischarge Condition:\nPatient passed away on [**2185-12-1"
+    },
+    {
+      "entity": "hemochromatosis",
+      "document_id": "41739",
+      "orpha_code": "Orphanet_220489",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:47:46.886Z",
+      "context": "n drinking heavily lately\ndespite knowing that it could kill him.\n\nPast Medical History:\n- EtOH and hemochromatosis cirrhosis, c/b varices w/ variceal\nbleeds, ascites\n- Non-insulin dependent diabetes\n- Hypertension\n"
+    },
+    {
+      "entity": "ttp",
+      "document_id": "54937",
+      "orpha_code": "Orphanet_54057",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:48:31.606Z",
+      "context": "right lateral low rib post axillary line\nCardiovascular: Normal\nAbdominal: Normal\nExtr/Back: pelvis ttp R side, spine ttp low t spine and\nupper/mid L spine without palpable deformities\nNeuro: distal puls"
+    },
+    {
+      "entity": "ttp",
+      "document_id": "54937",
+      "orpha_code": "Orphanet_54057",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:48:32.326Z",
+      "context": "rib post axillary line\nCardiovascular: Normal\nAbdominal: Normal\nExtr/Back: pelvis ttp R side, spine ttp low t spine and\nupper/mid L spine without palpable deformities\nNeuro: distal pulses 2+ bilaterally,"
+    },
+    {
+      "entity": "primary sclerosing cholangitis",
+      "document_id": "49532",
+      "orpha_code": "Orphanet_171",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:48:41.509Z",
+      "context": "LLNESS:  This is a 75 year old woman\nstatus post orthotopic liver transplant on [**2130-12-5**]\nfor primary sclerosing cholangitis who has been undergoing\nchemotherapy for a Stage 3 [**Year (4 digits) 499**] cancer.  The patient\nd"
+    },
+    {
+      "entity": "primary sclerosing cholangitis",
+      "document_id": "49532",
+      "orpha_code": "Orphanet_171",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:48:42.477Z",
+      "context": "gh, chest pain, shortness of breath or diarrhea.\n\nPAST MEDICAL HISTORY:\n1.  Ulcerative colitis.\n2.  Primary sclerosing cholangitis.\n3.  Hepatitis C.\n4.  Stage 3 [**Year (4 digits) 499**] cancer.\n5.  Anemia.\n6.  Anxiety.\n7.  Status"
+    },
+    {
+      "entity": "primary sclerosing cholangitis",
+      "document_id": "49532",
+      "orpha_code": "Orphanet_171",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:48:43.738Z",
+      "context": "ant Enterococcus abscess in liver.\n2.  Status post orthotopic liver transplant [**2130-12-5**].\n3.  Primary sclerosing cholangitis.\n4.  Hepatitis B.\n5.  [**Year (4 digits) **] cancer, Stage 3.\n6.  Anemia.\n7.  Anxiety.\n\nDISCHARGE M"
+    },
+    {
+      "entity": "pulmonary arterial hypertension",
+      "document_id": "49955",
+      "orpha_code": "Orphanet_275766",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:48:45.136Z",
+      "context": "[Entity 'pulmonary arterial hypertension' occurrence #1 (index 0) not found by string search or overlaps with previously used positions in document 49955 ORPHA:Orphanet_275766]"
+    },
+    {
+      "entity": "primary adrenal insufficiency",
+      "document_id": "49955",
+      "orpha_code": "Orphanet_85138",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:48:46.437Z",
+      "context": "DH as well.  She had FSH and LH levels\nthat were low for her age, and so there was some concern for\nprimary adrenal insufficiency, although her degree of\nhyperkalemia is not commonly seen in primary adrenal\ninsufficiency.  At dis"
+    },
+    {
+      "entity": "pulmonary arterial hypertension",
+      "document_id": "47713",
+      "orpha_code": "Orphanet_275766",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:48:47.599Z",
+      "context": "ory:\n- Type 2 Diabetes Mellitus\n- Atrial Fibrillation on Coumadin\n- Hypertension\n- Hyperlipidemia\n- Pulmonary arterial hypertension\n- Chronic kidney disease\n- Anemia\n- Hyperparathyroidism s/p parathyroidectomy [**6-21**]\n- Pelvic f"
+    },
+    {
+      "entity": "hyperparathyroidism",
+      "document_id": "47713",
+      "orpha_code": "Orphanet_181408",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:48:50.427Z",
+      "context": "Hypertension\n- Hyperlipidemia\n- Pulmonary arterial hypertension\n- Chronic kidney disease\n- Anemia\n- Hyperparathyroidism s/p parathyroidectomy [**6-21**]\n- Pelvic fracture lateral compression type I and a left proximal\n\n"
+    },
+    {
+      "entity": "hyperparathyroidism",
+      "document_id": "47713",
+      "orpha_code": "Orphanet_181408",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:48:51.454Z",
+      "context": "his was not an acute issue\nwhile on the floor.\n\n8. Hyperlipidemia--Continued home atorvastatin.\n\n9. Hyperparathyroidism--Followed by Dr. [**Last Name (STitle) 13059**] at [**Hospital1 18**].\nContinued Calcium and Vitami"
+    },
+    {
+      "entity": "NPH",
+      "document_id": "47713",
+      "orpha_code": "Orphanet_314928",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:48:52.848Z",
+      "context": "crackers. Her insulin\nregimen was made less aggressive on admission to the floor with\nan regimen of NPH [**12-2**] in the am/pm and sliding scale insulin\nas well. She felt that she was not eating as much"
+    },
+    {
+      "entity": "crest syndrome",
+      "document_id": "49482",
+      "orpha_code": "Orphanet_90290",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:49:00.956Z",
+      "context": "vice:  [**Location (un) 259**]\n\nHISTORY OF PRESENT ILLNESS:  The patient is a 49 year-old\nmale with Crest syndrome who presents with worsening\nshortness of breath and a Hickman catheter infection.  The\ncatheter was"
+    },
+    {
+      "entity": "crest syndrome",
+      "document_id": "49482",
+      "orpha_code": "Orphanet_90290",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:49:01.784Z",
+      "context": "me beet\nred. The patient thus represented for evaluation of Flolan\ndose.\n\nPAST MEDICAL HISTORY:\n1.  Crest syndrome with pulmonary hypertension.\n2.  Bacteremia staph aureus.\n3.  Cellulitis.\n4.  Hypokalemia.\n5.  Acut"
+    },
+    {
+      "entity": "crest syndrome",
+      "document_id": "49482",
+      "orpha_code": "Orphanet_90290",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:49:02.700Z",
+      "context": "139-10-17**].\n\nCONDITION ON DISCHARGE:  Stable.\n\nDISCHARGE STATUS:  Home.\n\nDISCHARGE DIAGNOSES:\n1.  Crest syndrome.\n2.  Pulmonary hypertension.\n\nDISCHARGE MEDICATIONS:\n1.  Furosemide 80 mg b.i.d.\n2.  Metolazone 2.5"
+    },
+    {
+      "entity": "multifocal atrial tachycardia",
+      "document_id": "48386",
+      "orpha_code": "Orphanet_3282",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:49:10.460Z",
+      "context": "tomy and cholecystectomy.\n5.  Non-insulin dependent diabetes mellitus secondary to\nsteroid use.\n6.  Multifocal atrial tachycardia.\n7.  Depression.\n\nALLERGIES:   She has an allergy to percocet which causes GI\nupset.\n\nMEDICATIONS O"
+    },
+    {
+      "entity": "legionella",
+      "document_id": "48652",
+      "orpha_code": "Orphanet_549",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:49:15.075Z",
+      "context": "LTURE-FINAL INPATIENT (negative)\n[**2151-7-6**] SPUTUM GRAM STAIN-FINAL; RESPIRATORY CULTURE-FINAL;\nLEGIONELLA CULTURE-FINAL INPATIENT (contaminant)\n[**2151-7-6**] MRSA SCREEN MRSA SCREEN-FINAL INPATIENT (negat"
+    },
+    {
+      "entity": "legionella",
+      "document_id": "48652",
+      "orpha_code": "Orphanet_549",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:49:16.714Z",
+      "context": "as transferred to the\nSICU for worsening respiratory status, however he did not\nrequire intubation. Legionella culture was negative. Bubble\nstudy was negative for intracardiac shunt\nA wound VAC was placed to th"
+    },
+    {
+      "entity": "Hepatocellular Carcinoma",
+      "document_id": "48652",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:49:18.204Z",
+      "context": "sposition:\n[**Date Range **]\n\nDischarge Diagnosis:\n1. Respiratory Failure\n2. Acute Renal Failure\n3. Hepatocellular Carcinoma\n4. Cirrhosis\n5. Spontaneous Bacterial Peritonitis\n6. Cellulitis\n\n\nDischarge Condition:\n[**Date Rang"
+    },
+    {
+      "entity": "polymyalgia rheumatica",
+      "document_id": "49514",
+      "orpha_code": "Orphanet_397",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:49:28.398Z",
+      "context": "tatus post coronary artery bypass graft x 5 for severe\ncoronary artery disease\n2.  Osteoporosis\n3.  Polymyalgia rheumatica\n\n\n\n\n                            [**First Name11 (Name Pattern1) 1112**] [**Last Name (NamePattern1)"
+    },
+    {
+      "entity": "polymyalgia rheumatica",
+      "document_id": "49514",
+      "orpha_code": "Orphanet_397",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:49:29.524Z",
+      "context": "[Entity 'polymyalgia rheumatica' occurrence #2 (index 1) not found by string search or overlaps with previously used positions in document 49514 ORPHA:Orphanet_397]"
+    },
+    {
+      "entity": "her disease",
+      "document_id": "49514",
+      "orpha_code": "Orphanet_369",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:49:30.794Z",
+      "context": "[Entity 'her disease' occurrence #1 (index 0) not found by string search or overlaps with previously used positions in document 49514 ORPHA:Orphanet_369]"
+    },
+    {
+      "entity": "budd-chiari syndrome",
+      "document_id": "53382",
+      "orpha_code": "Orphanet_131",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:49:40.008Z",
+      "context": "blet PO twice a day as\nneeded for constipation.\n\n\nDischarge Disposition:\nHome\n\nDischarge Diagnosis:\nBudd-Chiari syndrome\nEssential Thrombocythemia\n\nDischarge Condition:\nStable\n\nDischarge Instructions:\nYou were admitted f"
+    },
+    {
+      "entity": "essential thrombocythemia",
+      "document_id": "53382",
+      "orpha_code": "Orphanet_3318",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:49:49.348Z",
+      "context": "Moderate amount of\nascites in bilateral lower quadrants.\n.\n\nBrief Hospital Course:\n39 yo F with h/o essential thrombocythemia c/b bilateral LE\nDVTs, infrahepatic IVC clot, and L renal vein clot on coumadin\npresented with incr"
+    },
+    {
+      "entity": "essential thrombocythemia",
+      "document_id": "53382",
+      "orpha_code": "Orphanet_3318",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:49:50.807Z",
+      "context": "ith a slight increase in Amylase to 161 on\nadmission, 141 on discharge.  ALT and AST were WNL.\n.\n#) Essential thrombocythemia - hx of multiple thrombi.  She was\ntransitioned to Lovenox from Heparin on the day of discharge\nwit"
+    },
+    {
+      "entity": "essential thrombocythemia",
+      "document_id": "53382",
+      "orpha_code": "Orphanet_3318",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:49:52.092Z",
+      "context": "s\nneeded for constipation.\n\n\nDischarge Disposition:\nHome\n\nDischarge Diagnosis:\nBudd-Chiari syndrome\nEssential Thrombocythemia\n\nDischarge Condition:\nStable\n\nDischarge Instructions:\nYou were admitted for swelling secondary to y"
+    },
+    {
+      "entity": "essential thrombocythemia",
+      "document_id": "53382",
+      "orpha_code": "Orphanet_3318",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:49:53.136Z",
+      "context": "eins (Budd-Chiari syndrome) and your symptoms have improved.\nYou will need close follow up for your Essential Thrombocythemia\nand your liver disease as well.\n.\nTake all medications as prescribed.\n.\nFollow up per below.\n.\nSeek"
+    },
+    {
+      "entity": "essential thrombocytosis",
+      "document_id": "53382",
+      "orpha_code": "Orphanet_3318",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:49:54.615Z",
+      "context": "was noted, in addition\nto splenomegaly, prompting referral to [**Date Range 1978**]. A diagnosis\nof essential thrombocytosis was made via bone marrow biopsy in\n[**1-10**] demonstrating increased large atypical megakaryocytes"
+    },
+    {
+      "entity": "essential thrombocytosis",
+      "document_id": "53382",
+      "orpha_code": "Orphanet_3318",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:49:55.503Z",
+      "context": "in\n[**1-10**] demonstrating increased large atypical megakaryocytes\nconstent with the diagnosis.\n2) Essential thrombocytosis: See above, diagnosed in [**1-10**] via\nbone marrow biopsy demonstrating increased large atypical\nm"
+    },
+    {
+      "entity": "budd chiari syndrome",
+      "document_id": "53382",
+      "orpha_code": "Orphanet_131",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:49:56.675Z",
+      "context": "til [**1-26**] that\nshowed extensive hepatic venous thrombosis and ascites that was\ncompatible with Budd Chiari syndrome. The pt states her abdomen\nhas since appeared larger and more swollen since she saw her\nPCP.\n\nPast "
+    },
+    {
+      "entity": "Budd-Chiari",
+      "document_id": "53382",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:49:58.661Z",
+      "context": " a peripheral arterial enhancement\npattern of the liver compatible with the interval development of\nBudd-Chiari.  Again seen is extensive nonocclusive thrombus\nwithin the infra-hepatic IVC, extending to the leve"
+    },
+    {
+      "entity": "Budd-Chiari",
+      "document_id": "53382",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:49:59.701Z",
+      "context": "\nextensive hepatic venous thrombosis, intrahepatic venous\ncollaterals, and ascites, compatible with Budd-Chiari. There is\npatent venous drainage from the liver through an accessory\nsegment VI vein. The intra- he"
+    },
+    {
+      "entity": "Budd-Chiari",
+      "document_id": "53382",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:50:01.034Z",
+      "context": "age of\nthe vessels via an accessory vein into the IVC switched to\nLovenox for anticoagulation.\n.\n#) Budd-Chiari - She went to IR on [**1-29**] to have a venogram. IR\nvisualized extensive hepatic venous clots, wi"
+    },
+    {
+      "entity": "Budd-Chiari",
+      "document_id": "53382",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:50:03.204Z",
+      "context": "le\n\nDischarge Instructions:\nYou were admitted for swelling secondary to your occludied liver\nveins (Budd-Chiari syndrome) and your symptoms have improved.\nYou will need close follow up for your Essential Thrombo"
+    },
+    {
+      "entity": "Budd-Chiari",
+      "document_id": "53382",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:50:04.437Z",
+      "context": "[Entity 'Budd-Chiari' occurrence #2 (index 1) not found by string search or overlaps with previously used positions in document 53382 ORPHA:]"
+    },
+    {
+      "entity": "epileptic seizure",
+      "document_id": "53406",
+      "orpha_code": "Orphanet_101998",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:50:20.068Z",
+      "context": " be started on meropenem.\n.\n(4)  ASTHMA/COPD: Continued on montelukast per home regimen.\n.\n(5)  NON-EPILEPTIC SEIZURE DISORDER:  No concerning seizure\nactivity during this hospital stay.  Continued on divalproex\n250mg"
+    },
+    {
+      "entity": "seizure disorder",
+      "document_id": "53406",
+      "orpha_code": "Orphanet_101998",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:50:21.111Z",
+      "context": "[Entity 'seizure disorder' occurrence #1 (index 0) not found by string search or overlaps with previously used positions in document 53406 ORPHA:Orphanet_101998]"
+    },
+    {
+      "entity": "epileptic",
+      "document_id": "53406",
+      "orpha_code": "Orphanet_101998",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:50:22.821Z",
+      "context": " Present Illness:\nThis is a 48-year-old female with PMHx of spina bifida, HTN, MR,\nparaperesis, non-epileptic [**First Name3 (LF) 54422**], and urostomy with chief\ncomplaint of abdominal pain.  This occured 2 "
+    },
+    {
+      "entity": "epileptic",
+      "document_id": "53406",
+      "orpha_code": "Orphanet_101998",
+      "category": "false_negatives",
+      "is_rare_disease": false,
+      "decision_timestamp": "2025-05-11T18:50:24.745Z",
+      "context": "ast week with spastic movements in\nrenal ultrasound that neurology felt were consitent with her\nnon-epileptic [**Month (only) 54422**]. In the neurology consult note from this\nED visit her abdomen was noted to"
+    },
+    {
+      "entity": "meningocele",
+      "document_id": "53406",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:50:48.091Z",
+      "context": "or\nstudy. Stable bilateral renal\ncortical scarring, stable.\n3. Fibroid uterus.\n4. Spina bifida with meningocele, unchanged.\n.\nRecent labs from [**2178-1-13**] at 1400:\n.\n135  107  8  100   AGap=11\n.\n4.4  21  0.8"
+    },
+    {
+      "entity": "calciphylaxis",
+      "document_id": "53691",
+      "orpha_code": "Orphanet_280062",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:50:58.628Z",
+      "context": "ia.\n\nAcute renal failure in [**2152**] secondary to AIN/ATN from\nimipenem, gentamicin and Bactrim.\n\nCalciphylaxis of the lower extremities in [**2153-9-17**].\n\nProteus bacteremia in [**2156-2-16**].\n\nHistory of at"
+    },
+    {
+      "entity": "Alopecia",
+      "document_id": "53691",
+      "orpha_code": "",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:51:05.520Z",
+      "context": "al vascular disease status post cerebrovascular\naccident.\n\nAnemia of chronic disease.\n\nDepression.\n\nAlopecia.\n\nAcute renal failure in [**2152**] secondary to AIN/ATN from\nimipenem, gentamicin and Bactrim.\n\nCa"
+    },
+    {
+      "entity": "multifocal atrial tachycardia",
+      "document_id": "59366",
+      "orpha_code": "Orphanet_3282",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:51:08.422Z",
+      "context": "te a 14-day course of p.o.\nVancomycin and Flagyl p.o.  She has remained hemodynamically\nstable.\n\n2. Multifocal atrial tachycardia (MAT):  Patient's heart rate\nhas improved and her heart rate less in the 80s to low 100s\ncurrently."
+    },
+    {
+      "entity": "multifocal atrial tachycardia",
+      "document_id": "59366",
+      "orpha_code": "Orphanet_3282",
+      "category": "false_negatives",
+      "is_rare_disease": true,
+      "decision_timestamp": "2025-05-11T18:51:10.039Z",
+      "context": "0% ointment one application\ntopical prn.\n\nDISCHARGE DIAGNOSES:\n1. Clostridium difficile colitis.\n2. Multifocal atrial tachycardia.\n3. End-stage renal disease.\n\nFOLLOW-UP PLANS:  The patient should likely follow up with\nher PCP in"
+    }
+  ]
+}

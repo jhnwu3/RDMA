@@ -569,7 +569,7 @@ class MultiStageRDVerifier:
             f"Context around entity:"
             f"{context_part}\n\n"
             f"First, determine if '{entity}' is actually a disease or medical condition (not a lab measurement, protein, enzyme, etc.)."
-            f"\nThen, determine if it's a disease (better if a rare disease typically affecting fewer than 1 in 2,000 people)."
+            # f"\nThen, determine if it's a disease (better if a rare disease typically affecting fewer than 1 in 2,000 people)."
             f"\n\nIs '{entity}' a disease?"
             f"\nRespond with ONLY 'YES' or 'NO'."
         )

@@ -263,6 +263,7 @@ def extract_entities_with_context(
             gt_context = None
 
             # Look up the sample in ground truth
+            document_text = ""
             if sample_id in ground_truth_data:
                 gt_sample = ground_truth_data[sample_id]
 
@@ -270,24 +271,29 @@ def extract_entities_with_context(
                 if isinstance(gt_sample, dict) and "annotations" in gt_sample:
                     for ann in gt_sample["annotations"]:
 
-                        gt_entity = ann.get("mention", "")
+                        # gt_entity = ann.get("mention", "")
                         # Get context if available
                         document_text = gt_sample.get("note_details", {}).get(
                             "text", ""
                         )
 
                         # Extract context around the entity if possible
-                        if (
-                            document_text
-                            and gt_entity
-                            and gt_entity.lower() in document_text.lower()
-                        ):
-                            gt_context = context_extractor.extract_contexts(
+                        # if (
+                        #     document_text
+                        #     and gt_entity
+                        #     and gt_entity.lower() in document_text.lower()
+                        # ):
+                        #     gt_context = context_extractor.extract_contexts(
+                        #         [gt_entity.lower()],
+                        #         document_text.lower(),
+                        #         window_size=2,
+                        #     )[0]["context"]
+            gt_entity = fn.get("name")
+            gt_context = context_extractor.extract_contexts(
                                 [gt_entity.lower()],
                                 document_text.lower(),
                                 window_size=2,
                             )[0]["context"]
-
             # Only include entities with context
             if gt_entity and gt_context:
                 entities["false_negatives"].append(
@@ -353,7 +359,7 @@ def extract_entities_with_context(
                                 if (
                                     clinical_text
                                     and pred_entity
-                                    and pred_entity in clinical_text
+                                    and pred_entity.lower() in clinical_text.lower()
                                 ):
                                     pos = clinical_text.find(pred_entity)
                                     start = max(0, pos - 100)
@@ -362,7 +368,7 @@ def extract_entities_with_context(
                                     )
                                     pred_context = clinical_text[start:end]
                                 # If entity not found in clinical text but context is available in match
-                                elif "context" in match:
+                                if "context" in match:
                                     pred_context = match["context"]
                                 break
 

@@ -7,5 +7,5 @@ data/
 # Ignore all log files
 *.log
 *.pyc
-*.txt
+# *.txt
 # *.json
