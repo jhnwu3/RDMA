@@ -1,0 +1,33 @@
+{
+  "total_documents": 115,
+  "length_stats": {
+    "min": 477,
+    "max": 4432,
+    "mean": 1876.5739130434783,
+    "median": 1740.0
+  },
+  "phenotype_stats": {
+    "total_phenotypes": 1813,
+    "avg_per_document": 15.765217391304347,
+    "overall_direct_pct": 72.80750137892996,
+    "overall_implied_pct": 27.19249862107005
+  },
+  "quartile_analysis": {
+    "short": {
+      "count": 29,
+      "direct_pct": 70.73666160764853
+    },
+    "medium_short": {
+      "count": 29,
+      "direct_pct": 72.62102159788185
+    },
+    "medium_long": {
+      "count": 28,
+      "direct_pct": 73.2738075416647
+    },
+    "long": {
+      "count": 29,
+      "direct_pct": 72.97406369494551
+    }
+  }
+}

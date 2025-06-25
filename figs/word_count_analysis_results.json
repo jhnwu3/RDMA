@@ -1,0 +1,33 @@
+{
+  "total_documents": 115,
+  "word_count_stats": {
+    "min": 71,
+    "max": 675,
+    "mean": 280.0869565217391,
+    "median": 254.0
+  },
+  "phenotype_stats": {
+    "total_phenotypes": 1813,
+    "total_direct": 1320,
+    "total_implied": 493,
+    "avg_per_document": 15.765217391304347
+  },
+  "quartile_analysis": {
+    "short": {
+      "count": 29,
+      "avg_phenotypes": 10.482758620689655
+    },
+    "medium_short": {
+      "count": 29,
+      "avg_phenotypes": 14.275862068965518
+    },
+    "medium_long": {
+      "count": 28,
+      "avg_phenotypes": 16.642857142857142
+    },
+    "long": {
+      "count": 29,
+      "avg_phenotypes": 21.689655172413794
+    }
+  }
+}
