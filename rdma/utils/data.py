@@ -375,3 +375,120 @@ def evaluate_predictions(
     print(metrics)
 
     return metrics["entity_metrics"]
+
+
+def save_json_structure(
+    data: Union[Dict, List, Any], output_path: str = None
+) -> Union[Dict, List, Any]:
+    """
+    Recursively convert all sets in a data structure to lists to make it JSON-serializable.
+
+    Args:
+        data: The data structure to process (dict, list, or any other type)
+        output_path: Optional path to save the JSON file. If None, returns the processed data.
+
+    Returns:
+        The processed data structure with sets converted to lists, or None if saved to file.
+
+    Raises:
+        IOError: If there's an error writing to the output file.
+    """
+
+    def convert_sets_to_lists(obj):
+        """Recursively convert sets to lists in nested data structures."""
+        if isinstance(obj, set):
+            # Convert set to list
+            return list(obj)
+        elif isinstance(obj, dict):
+            # Recursively process dictionary values
+            return {key: convert_sets_to_lists(value) for key, value in obj.items()}
+        elif isinstance(obj, list):
+            # Recursively process list items
+            return [convert_sets_to_lists(item) for item in obj]
+        elif isinstance(obj, tuple):
+            # Convert tuple to list and process items
+            return [convert_sets_to_lists(item) for item in obj]
+        else:
+            # Return primitive types as-is
+            return obj
+
+    # Convert the data structure
+    processed_data = convert_sets_to_lists(data)
+
+    # If output path is provided, save to file
+    if output_path:
+        try:
+            with open(output_path, "w") as f:
+                json.dump(processed_data, f, indent=2, cls=NumpyJSONEncoder)
+            print(f"JSON structure saved to {output_path}")
+            return None
+        except IOError as e:
+            print(f"Error saving JSON file to {output_path}: {str(e)}")
+            raise
+
+    # Otherwise, return the processed data
+    return processed_data
+
+
+# Example usage and test function
+def test_save_json_structure():
+    """Test the save_json_structure function with various data types."""
+
+    # Create test data with sets at various levels
+    test_data = {
+        "simple_set": {1, 2, 3, 4},
+        "nested_dict": {
+            "inner_set": {"a", "b", "c"},
+            "mixed_list": [1, {5, 6, 7}, "string", {"nested": {"deep_set": {8, 9}}}],
+        },
+        "list_with_sets": [
+            {"set1": {10, 11}},
+            {"set2": {12, 13, 14}},
+            [15, {16, 17}, {"final_set": {18, 19, 20}}],
+        ],
+        "tuple_with_set": ({21, 22}, "text", {23, 24}),
+        "regular_data": {
+            "string": "hello",
+            "number": 42,
+            "boolean": True,
+            "null": None,
+            "regular_list": [1, 2, 3],
+        },
+    }
+
+    print("Original data structure:")
+    print_json_structure(test_data)
+
+    # Convert sets to lists
+    converted_data = save_json_structure(test_data)
+
+    print("\nConverted data structure:")
+    print_json_structure(converted_data)
+
+    # Verify all sets are converted
+    def check_no_sets(obj, path="root"):
+        """Recursively check that no sets remain in the structure."""
+        if isinstance(obj, set):
+            print(f"ERROR: Set found at {path}")
+            return False
+        elif isinstance(obj, dict):
+            return all(check_no_sets(v, f"{path}.{k}") for k, v in obj.items())
+        elif isinstance(obj, (list, tuple)):
+            return all(
+                check_no_sets(item, f"{path}[{i}]") for i, item in enumerate(obj)
+            )
+        return True
+
+    if check_no_sets(converted_data):
+        print("\n✅ All sets successfully converted to lists!")
+
+    # Test saving to file
+    try:
+        save_json_structure(test_data, "test_output.json")
+        print("✅ File save test passed!")
+    except Exception as e:
+        print(f"❌ File save test failed: {e}")
+
+
+if __name__ == "__main__":
+    test_save_json_structure()
