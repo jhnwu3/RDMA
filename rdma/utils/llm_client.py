@@ -1,5 +1,6 @@
 import time
 from rdma.utils.llm import ModelLoader
+from rdma.utils.qwen_pipeline import QwenPipeline
 import sys
 from typing import List
 import torch
@@ -81,6 +82,7 @@ class LocalLLMClient:
             self.pipeline.tokenizer.eos_token_id,
             self.pipeline.tokenizer.convert_tokens_to_ids("<|eot_id|>"),
         ]
+
         with torch.no_grad():
             outputs = self.pipeline(
                 full_prompt,
@@ -90,6 +92,9 @@ class LocalLLMClient:
                 temperature=self.temperature,
                 top_p=1.0,
             )
+
+        if isinstance(self.pipeline, QwenPipeline):
+            return outputs[0]["generated_text"]
 
         return outputs[0]["generated_text"][len(full_prompt) :]
 

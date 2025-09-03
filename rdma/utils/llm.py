@@ -392,7 +392,7 @@ class ModelLoader:
         task = "text-generation"
         # Check if this is a Qwen model that needs special handling
         is_qwen_model = False
-        if model_arg and "qwen" in model_arg.lower():
+        if model_arg and ("qwen" in model_arg.lower() or "gpt" in model_arg.lower()):
             is_qwen_model = True
 
         if is_qwen_model:
@@ -431,7 +431,9 @@ class ModelLoader:
                     top_p=0.9,
                     do_sample=True,
                 )
-                print("QwenPipeline test output:", outputs[0]["generated_text"][:100])
+                print(
+                    "QwenPipeline test output:", outputs[0]["generated_text"][:100000]
+                )
             else:
                 # Test standard pipeline
                 prompt = pipeline_instance.tokenizer.apply_chat_template(
@@ -451,7 +453,7 @@ class ModelLoader:
                     top_p=0.9,
                 )
                 print(
-                    "Standard pipeline test output:",
+                    "pipeline test output:",
                     outputs[0]["generated_text"][len(prompt) :],
                 )
         except Exception as e:
