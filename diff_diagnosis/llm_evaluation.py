@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
-LLM-based Evaluation Script for Rare Disease Diagnosis Benchmark Results
+Command Line LLM-based Evaluation Script for Rare Disease Diagnosis Benchmark Results
 Uses an LLM as a judge to evaluate disease matches more robustly than string matching.
+Supports processing multiple benchmark files.
 """
 
 import argparse
@@ -11,13 +12,16 @@ import sys
 from typing import Dict, Any, List, Tuple, Optional
 from pathlib import Path
 import re
+import glob
+import os
+import sys
 
-# Add parent directory to path for imports
 current_dir = os.path.dirname(os.path.abspath(__file__))
 parent_dir = os.path.dirname(current_dir)
 sys.path.insert(0, parent_dir)
 
 from rdma.utils.llm_client import LocalLLMClient
+from rdma.utils.abbreviation_detector import AbbreviationDetector
 
 
 class LLMEvaluator:
@@ -172,7 +176,21 @@ def load_benchmark_results(filepath: str) -> Dict[str, Any]:
             data = json.load(f)
         return data
     except Exception as e:
-        raise Exception(f"Error loading benchmark results: {e}")
+        raise Exception(f"Error loading benchmark results from {filepath}: {e}")
+
+
+def expand_all_abbreviation_terms(
+    abbreviation_detector: AbbreviationDetector, disease_list: List[str]
+):
+    """Expand abbreviations in disease list"""
+    new_dis_list = []
+    for dis in disease_list:
+        abbr_res = abbreviation_detector.check_abbreviation(dis)
+        if abbr_res["is_abbreviation"]:
+            new_dis_list.append(abbr_res["expanded_term"])
+        else:
+            new_dis_list.append(dis)
+    return new_dis_list
 
 
 def evaluate_benchmark_with_llm(
@@ -180,6 +198,7 @@ def evaluate_benchmark_with_llm(
     llm_client,
     k_values: List[int] = [1, 5, 10],
     verbose: bool = False,
+    abbreviation_detector: AbbreviationDetector = None,
 ) -> Dict[str, Any]:
     """
     Evaluate benchmark results using LLM as judge
@@ -223,6 +242,11 @@ def evaluate_benchmark_with_llm(
         results["total_patients"] += 1
 
         observed_diseases = patient_data.get("observed_diseases", [])
+        if abbreviation_detector:
+            observed_diseases = expand_all_abbreviation_terms(
+                abbreviation_detector, observed_diseases
+            )
+
         if not observed_diseases:
             if verbose:
                 print(f"Patient {patient_id}: No observed diseases, skipping")
@@ -256,6 +280,11 @@ def evaluate_benchmark_with_llm(
                     f"Patient {patient_id}: No predicted diseases available, skipping"
                 )
             continue
+
+        if abbreviation_detector:
+            predicted_diseases = expand_all_abbreviation_terms(
+                abbreviation_detector, predicted_diseases
+            )
 
         if verbose:
             print(f"\nPatient {patient_id}:")
@@ -334,19 +363,32 @@ def evaluate_benchmark_with_llm(
     return results
 
 
-def print_evaluation_results(results: Dict[str, Any], model_type: str) -> None:
+def print_evaluation_results(
+    results: Dict[str, Any], model_type: str, filename: str = None
+) -> None:
     """Print evaluation results in a formatted way"""
 
     print("\n" + "=" * 80)
-    print(f"LLM-BASED EVALUATION RESULTS - {model_type.upper()}")
+    if filename:
+        print(f"LLM-BASED EVALUATION RESULTS - {model_type.upper()} ({filename})")
+    else:
+        print(f"LLM-BASED EVALUATION RESULTS - {model_type.upper()}")
     print("=" * 80)
     print(f"Total patients evaluated: {results['total_patients']}")
     print(f"Cases requiring extraction: {results['extraction_needed']}")
     print(f"Extraction success rate: {results['extraction_success_rate']:.2%}")
     print("-" * 80)
 
+    # Get k values from results
+    k_values = []
+    for key in results.keys():
+        if key.startswith("hit_at_") and key.endswith("_rate"):
+            k = key.replace("hit_at_", "").replace("_rate", "")
+            if k.isdigit():
+                k_values.append(int(k))
+    k_values.sort()
+
     # Print hit rates for each k
-    k_values = [1, 5, 10]  # Assuming these are the k values used
     for k in k_values:
         if f"hit_at_{k}_rate" in results:
             disease_hits = results[f"hit_at_{k}"]
@@ -404,152 +446,207 @@ def save_evaluation_results(
     return filepath
 
 
-def main():
-    """Main function to run LLM-based evaluation"""
+def find_benchmark_files(input_path: str) -> List[str]:
+    """Find benchmark files from input path (file, directory, or glob pattern)"""
+    files = []
 
+    if os.path.isfile(input_path):
+        # Single file
+        files.append(input_path)
+    elif os.path.isdir(input_path):
+        # Directory - find all JSON files
+        files.extend(glob.glob(os.path.join(input_path, "*.json")))
+    else:
+        # Glob pattern
+        files.extend(glob.glob(input_path))
+
+    # Filter out evaluation result files to avoid processing them
+    files = [f for f in files if "llm_evaluation" not in os.path.basename(f)]
+
+    if not files:
+        raise Exception(f"No benchmark files found at: {input_path}")
+
+    return sorted(files)
+
+
+def parse_args():
+    """Parse command line arguments"""
     parser = argparse.ArgumentParser(
-        description="Evaluate rare disease diagnosis benchmark results using LLM as judge",
-        formatter_class=argparse.RawDescriptionHelpFormatter,
-        epilog="""
-This script takes benchmark results from the benchmarking script and uses an LLM
-to evaluate whether predicted diseases match observed diseases. This approach is
-more robust than exact string matching as it can identify semantic matches.
-
-Examples:
-  python llm_evaluation.py --results_file benchmark_results/llama3_8b_benchmark_20241201_123456.json --evaluator_model llama3_70b --verbose
-  python llm_evaluation.py --results_file results.json --evaluator_model qwen_70b --k_values 1 5 10 --save_results
-        """,
+        description="LLM-based evaluation of rare disease diagnosis benchmark results",
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter,
     )
 
-    # Required arguments
+    # Input arguments
     parser.add_argument(
-        "--results_file",
-        type=str,
-        required=True,
-        help="Path to the benchmark results JSON file",
-    )
-
-    parser.add_argument(
-        "--evaluator_model",
-        type=str,
-        required=True,
-        help="Model type to use as evaluator/judge",
-    )
-
-    # Evaluation parameters
-    parser.add_argument(
-        "--k_values",
-        type=int,
-        nargs="+",
-        default=[1, 5, 10],
-        help="K values to evaluate (e.g., --k_values 1 5 10)",
+        "input",
+        help="Benchmark results file, directory, or glob pattern (e.g., 'data/*.json')",
     )
 
     # Model configuration
     parser.add_argument(
-        "--device",
-        type=str,
-        default="cuda:0",
-        help="Device to run the evaluator model on",
+        "--evaluator-model", default="mistral_24b", help="Model to use for evaluation"
     )
-
-    parser.add_argument(
-        "--cache_dir",
-        type=str,
-        default="/shared/rsaas/jw3/rare_disease/model_cache",
-        help="Directory to cache models",
-    )
-
+    parser.add_argument("--device", default="cuda:0", help="Device to run the model on")
     parser.add_argument(
         "--temperature",
         type=float,
         default=0.0001,
-        help="Temperature for evaluator model",
+        help="Temperature for model inference",
     )
 
-    # Output options
+    # Evaluation configuration
     parser.add_argument(
-        "--verbose",
-        action="store_true",
-        help="Print detailed evaluation for each patient",
+        "--k-values",
+        nargs="+",
+        type=int,
+        default=[1, 5, 10],
+        help="K values to evaluate (e.g., --k-values 1 5 10)",
     )
 
+    # Output configuration
     parser.add_argument(
-        "--save_results",
-        action="store_true",
-        help="Save evaluation results to JSON file",
-    )
-
-    parser.add_argument(
-        "--output_dir",
-        type=str,
-        default="llm_evaluation_results",
+        "--output-dir",
+        default="data/differential_diagnosis/eval",
         help="Directory to save evaluation results",
     )
+    parser.add_argument(
+        "--no-save", action="store_true", help="Don't save evaluation results to file"
+    )
 
-    args = parser.parse_args()
+    # Debugging options
+    parser.add_argument(
+        "--verbose", "-v", action="store_true", help="Enable verbose output"
+    )
+    parser.add_argument(
+        "--no-abbreviation-expansion",
+        action="store_true",
+        help="Disable abbreviation expansion",
+    )
 
-    # Validate results file exists
-    if not os.path.exists(args.results_file):
-        print(f"Error: Results file '{args.results_file}' not found.")
-        sys.exit(1)
+    return parser.parse_args()
 
-    # Load benchmark results
-    print(f"Loading benchmark results from {args.results_file}...")
+
+def main():
+    """Main function"""
+    args = parse_args()
+
+    # Find all benchmark files to process
     try:
-        benchmark_data = load_benchmark_results(args.results_file)
-        patient_count = len(benchmark_data.get("patient_results", {}))
-        original_model = benchmark_data.get("model_type", "unknown")
-        print(
-            f"Loaded results for {patient_count} patients (original model: {original_model})"
-        )
+        benchmark_files = find_benchmark_files(args.input)
+        print(f"Found {len(benchmark_files)} benchmark files to process:")
+        for f in benchmark_files:
+            print(f"  - {f}")
+        print()
     except Exception as e:
-        print(f"Error loading results: {e}")
+        print(f"Error finding benchmark files: {e}")
         sys.exit(1)
 
-    # Initialize evaluator LLM
-    print(f"Initializing evaluator model {args.evaluator_model} on {args.device}...")
+    # Initialize LLM client
+    print(f"Initializing LLM client with model: {args.evaluator_model}")
     try:
         llm_client = LocalLLMClient(
             model_type=args.evaluator_model,
             device=args.device,
-            cache_dir=args.cache_dir,
             temperature=args.temperature,
         )
-        print("Evaluator model initialized successfully!")
+        print("LLM client initialized successfully\n")
     except Exception as e:
-        print(f"Error initializing evaluator model: {e}")
+        print(f"Error initializing LLM client: {e}")
         sys.exit(1)
 
-    # Run LLM-based evaluation
-    print(f"\nStarting LLM-based evaluation with k values: {args.k_values}...")
-    try:
-        results = evaluate_benchmark_with_llm(
-            benchmark_data=benchmark_data,
-            llm_client=llm_client,
-            k_values=args.k_values,
-            verbose=args.verbose,
-        )
-    except Exception as e:
-        print(f"Error during evaluation: {e}")
-        sys.exit(1)
-
-    # Print results
-    print_evaluation_results(
-        results, f"{original_model}_evaluated_by_{args.evaluator_model}"
-    )
-
-    # Save results if requested
-    if args.save_results:
+    # Initialize abbreviation detector if needed
+    abbreviation_detector = None
+    if not args.no_abbreviation_expansion:
         try:
-            filepath = save_evaluation_results(
-                results,
-                f"{original_model}_evaluated_by_{args.evaluator_model}",
-                args.output_dir,
-            )
-            print(f"\nEvaluation results saved to: {filepath}")
+            abbreviation_detector = AbbreviationDetector(debug=args.verbose)
+            if args.verbose:
+                print("Abbreviation detector initialized")
         except Exception as e:
-            print(f"Warning: Could not save results: {e}")
+            print(f"Warning: Could not initialize abbreviation detector: {e}")
+            print("Continuing without abbreviation expansion...")
+
+    # Process each benchmark file
+    all_results = []
+
+    for benchmark_file in benchmark_files:
+        print(f"Processing: {benchmark_file}")
+        print("-" * 60)
+
+        try:
+            # Load benchmark results
+            benchmark_data = load_benchmark_results(benchmark_file)
+            patient_count = len(benchmark_data.get("patient_results", {}))
+            original_model = benchmark_data.get("model_type", "unknown")
+
+            if args.verbose:
+                print(
+                    f"Loaded results for {patient_count} patients (original model: {original_model})"
+                )
+
+            # Run evaluation
+            print(f"Starting LLM-based evaluation with k values: {args.k_values}...")
+            results = evaluate_benchmark_with_llm(
+                benchmark_data=benchmark_data,
+                llm_client=llm_client,
+                k_values=args.k_values,
+                verbose=args.verbose,
+                abbreviation_detector=abbreviation_detector,
+            )
+
+            # Print results
+            model_identifier = f"{original_model}_evaluated_by_{args.evaluator_model}"
+            filename = os.path.basename(benchmark_file)
+            print_evaluation_results(results, model_identifier, filename)
+
+            # Save results if requested
+            if not args.no_save:
+                try:
+                    filepath = save_evaluation_results(
+                        results,
+                        model_identifier,
+                        args.output_dir,
+                    )
+                    print(f"Evaluation results saved to: {filepath}")
+                except Exception as e:
+                    print(f"Warning: Could not save results: {e}")
+
+            # Store results for summary
+            all_results.append(
+                {
+                    "file": benchmark_file,
+                    "original_model": original_model,
+                    "results": results,
+                }
+            )
+
+        except Exception as e:
+            print(f"Error processing {benchmark_file}: {e}")
+            continue
+
+        print("\n" + "=" * 80 + "\n")
+
+    # Print summary if multiple files were processed
+    if len(all_results) > 1:
+        print("SUMMARY OF ALL EVALUATIONS")
+        print("=" * 80)
+
+        for result_data in all_results:
+            filename = os.path.basename(result_data["file"])
+            results = result_data["results"]
+            original_model = result_data["original_model"]
+
+            print(f"File: {filename} (Model: {original_model})")
+            print(f"  Patients: {results['total_patients']}")
+
+            for k in args.k_values:
+                if f"patient_hit_at_{k}_rate" in results:
+                    rate = results[f"patient_hit_at_{k}_rate"]
+                    print(f"  Hit@{k} (Patient-level): {rate:.2%}")
+            print("-" * 60)
+
+        print("=" * 80)
+
+    print(f"Evaluation complete! Processed {len(all_results)} files successfully.")
 
 
 if __name__ == "__main__":
