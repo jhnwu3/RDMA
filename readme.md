@@ -1,5 +1,5 @@
 # RDMA - Rare Disease Mining Agents
-
+Paper [here](https://arxiv.org/pdf/2507.15867)
 
 For people who know how to use Git:
 
