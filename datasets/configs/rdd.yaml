@@ -1,0 +1,46 @@
+version: "1.0"
+tables:
+  texts:
+    file_path: "texts.csv"
+    patient_id: "id"
+    timestamp: null
+    attributes:
+      - "text"
+
+  annotations:
+    file_path: "annotations.csv"
+    patient_id: "id"
+    timestamp: null
+    attributes:
+      - "ann_id"
+      - "annotation_type"
+      - "start"
+      - "end"
+      - "annotation"
+
+  relations:
+    file_path: "relations.csv"
+    patient_id: "id"
+    timestamp: null
+    attributes:
+      - "rel_id"
+      - "relation_type"
+      - "arg1"
+      - "arg2"
+
+  relationships:
+    file_path: "relationships.csv"
+    patient_id: "id"
+    timestamp: null
+    attributes:
+      - "pubmed_id"
+      - "sentence"
+      - "rare_disease"
+      - "rd_start"
+      - "rd_end"
+      - "disability"
+      - "dis_start"
+      - "dis_end"
+      - "speculative"
+      - "orphanet_id"
+      - "polarity"
