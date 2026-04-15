@@ -33,7 +33,28 @@ class FastEmbedModel(EmbeddingModel):
     """FastEmbed implementation."""  # no device needed surprisingly.
 
     def __init__(self, model_name: str, device: str = None):
-        self.model = TextEmbedding(model_name=model_name)
+        self.device = device or "cpu"
+        self.using_gpu = False
+
+        # Try to honor CUDA requests explicitly for Condor/GPU jobs.
+        if self.device and "cuda" in self.device.lower():
+            try:
+                self.model = TextEmbedding(
+                    model_name=model_name,
+                    providers=["CUDAExecutionProvider", "CPUExecutionProvider"],
+                )
+                self.using_gpu = True
+                print(
+                    f"FastEmbed initialized with CUDA provider on device request: {self.device}"
+                )
+            except Exception as e:
+                print(
+                    f"Warning: FastEmbed CUDA provider init failed ({e}). Falling back to CPU provider."
+                )
+                self.model = TextEmbedding(model_name=model_name)
+        else:
+            self.model = TextEmbedding(model_name=model_name)
+
         # Get dimensions by embedding a sample text
         sample_embedding = list(self.model.embed(["sample text"]))[0]
         self._dimension = len(sample_embedding)
@@ -370,9 +391,32 @@ class EmbeddingsManager:
     def create_index(self, embeddings_array: np.ndarray) -> faiss.Index:
         """Create a FAISS index for the embeddings."""
         dimension = embeddings_array.shape[1]
-        index = faiss.IndexFlatL2(dimension)
-        index.add(embeddings_array)
-        return index
+        cpu_index = faiss.IndexFlatL2(dimension)
+        cpu_index.add(embeddings_array)
+
+        # If CUDA is requested and supported by installed FAISS, move index to GPU.
+        if self.device and "cuda" in self.device.lower():
+            try:
+                if not hasattr(faiss, "StandardGpuResources"):
+                    print(
+                        "Warning: FAISS GPU resources are unavailable in this build. Using CPU FAISS index."
+                    )
+                    return cpu_index
+
+                gpu_id = 0
+                if ":" in self.device:
+                    gpu_id = int(self.device.split(":")[-1])
+
+                res = faiss.StandardGpuResources()
+                gpu_index = faiss.index_cpu_to_gpu(res, gpu_id, cpu_index)
+                print(f"Using FAISS GPU index on cuda:{gpu_id}")
+                return gpu_index
+            except Exception as e:
+                print(
+                    f"Warning: Failed to create FAISS GPU index ({e}). Using CPU FAISS index."
+                )
+
+        return cpu_index
 
     def batch_embed_documents(self, texts: List[str]) -> np.ndarray:
         """Batch embed multiple documents."""

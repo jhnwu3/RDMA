@@ -138,21 +138,32 @@ class QwenPipeline:
 
         print(f"DEBUG: Generation parameters: {generation_params}")
 
+        # Use Qwen's proper EOS tokens so generation stops naturally
+        generation_params["eos_token_id"] = [
+            self.tokenizer.eos_token_id,
+            self.tokenizer.convert_tokens_to_ids("<|im_end|>"),
+        ]
+
         try:
-            # Generate text - Fix: Use the working pattern from QwenChatbot
             with torch.no_grad():
                 generated_ids = self.model.generate(**inputs, **generation_params)
 
-                # Extract only the newly generated tokens (same as working example)
-                response_ids = generated_ids[0][len(inputs.input_ids[0]) :].tolist()
+            # Extract only newly generated token IDs
+            output_ids = generated_ids[0][len(inputs.input_ids[0]):].tolist()
 
-                # Decode the response (simplified, no special thinking parsing needed)
-                content = self.tokenizer.decode(response_ids, skip_special_tokens=True)
+            # Strip thinking block using token ID 151668 (</think>), per HF Qwen3 docs
+            think_end_token = self.tokenizer.convert_tokens_to_ids("</think>")
+            try:
+                index = len(output_ids) - output_ids[::-1].index(think_end_token)
+            except ValueError:
+                index = 0  # no thinking block present
 
-            # Prepare output in same format as transformers.pipeline
+            content = self.tokenizer.decode(
+                output_ids[index:], skip_special_tokens=True
+            ).strip()
+
             if return_full_text:
-                full_text = text + content
-                result = {"generated_text": full_text}
+                result = {"generated_text": text + content}
             else:
                 result = {"generated_text": content}
 
@@ -160,7 +171,6 @@ class QwenPipeline:
 
         except Exception as e:
             print(f"Generation error: {e}")
-            # Return empty result on error
             return [{"generated_text": ""}]
 
 

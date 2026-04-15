@@ -1,7 +1,9 @@
 faiss_cpu==1.10.0
+python-dotenv>=1.0.0
 fastembed==0.6.1
 fuzzywuzzy==0.18.0
 groq==0.24.0
+openai>=1.0.0
 joblib==1.4.2
 negspacy
 nltk==3.9.1

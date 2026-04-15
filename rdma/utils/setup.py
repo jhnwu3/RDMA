@@ -7,7 +7,7 @@ from datetime import datetime
 from typing import Dict, Any, List
 from pathlib import Path
 from tqdm import tqdm
-from rdma.utils.llm_client import LocalLLMClient, APILLMClient
+from rdma.utils.llm_client import LocalLLMClient, APILLMClient, OpenRouterLLMClient
 def timestamp_print(message: str) -> None:
     """Print message with timestamp."""
     print(f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} - {message}")
@@ -85,6 +85,11 @@ def initialize_llm_client(args: argparse.Namespace, device_info: Dict[str, str])
             return APILLMClient.from_config(args.api_config)
         else:
             return APILLMClient.initialize_from_input()
+    elif args.llm_type == "openrouter":
+        if args.api_config:
+            return OpenRouterLLMClient.from_config(args.api_config)
+        else:
+            return OpenRouterLLMClient.initialize_from_input()
     else:  # local
         return LocalLLMClient(
             model_type=args.model_type,

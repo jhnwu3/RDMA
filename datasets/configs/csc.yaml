@@ -1,0 +1,16 @@
+version: "1.0"
+tables:
+  texts:
+    file_path: "texts.csv"
+    patient_id: "id"
+    timestamp: null
+    attributes:
+      - "text"
+
+  phenotypes:
+    file_path: "phenotypes.csv"
+    patient_id: "id"
+    timestamp: null
+    attributes:
+      - "phenotype_name"
+      - "hpo_id"

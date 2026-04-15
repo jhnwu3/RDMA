@@ -31,6 +31,7 @@ class RareDisNER(BaseTask):
 
     Output schema:
         annotations (RawProcessor): List of disease-mention strings.
+        split (RawProcessor): Document split (train/dev/test).
 
     Examples:
         >>> from datasets.raredis import RareDisDataset
@@ -41,7 +42,10 @@ class RareDisNER(BaseTask):
 
     task_name: str = "raredis_ner"
     input_schema: Dict[str, Union[str, Type]] = {"text": TextProcessor}
-    output_schema: Dict[str, Union[str, Type]] = {"annotations": RawProcessor}
+    output_schema: Dict[str, Union[str, Type]] = {
+        "annotations": RawProcessor,
+        "split": RawProcessor,
+    }
 
     def __call__(self, patient: Patient) -> List[Dict]:
         """Produce one NER sample per document.
@@ -56,7 +60,9 @@ class RareDisNER(BaseTask):
         texts = patient.get_events(event_type="texts")
         if not texts:
             return []
-        text = texts[0].text
+        text_event = texts[0]
+        text = text_event.text
+        split = getattr(text_event, "split", None)
 
         ann_events = patient.get_events(event_type="annotations")
         annotations = [
@@ -71,5 +77,6 @@ class RareDisNER(BaseTask):
                 "patient_id": patient.patient_id,
                 "text": pickle.dumps(text),
                 "annotations": pickle.dumps(annotations),
+                "split": split,
             }
         ]

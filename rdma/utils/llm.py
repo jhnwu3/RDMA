@@ -25,7 +25,7 @@ class ModelLoader:
         model_name = model_id.split("/")[-1]
 
         cache_path = self.cache_dir / f"{model_name}_{quantization_type}"
-        if "gemma" in model_id:
+        if "gemma" in model_id or "Nemotron" in model_id:
             cache_path = self.cache_dir / f"{model_name}"
 
         print(f"Generated cache path: {cache_path}")
@@ -102,6 +102,9 @@ class ModelLoader:
             if model == "llama3_70b_full":
                 print("Loading full 70B model without quantization")
                 return self.load_full_70b_model(device_map)
+            elif model == "nemotron_120b":
+                print("Loading pre-quantized Nemotron 120B NVFP4 model")
+                return self.load_nemotron_120b_model(device_map)
             elif (
                 "70b" in model.lower()
                 or "24b" in model.lower()
@@ -207,6 +210,42 @@ class ModelLoader:
 
         return self._create_pipeline(model, tokenizer)
 
+    def load_nemotron_120b_model(self, device_map):
+        """Load the pre-quantized NVFP4 Nemotron 120B model."""
+        model_id = "nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4"
+        cache_path = self.get_cache_path(model_id, "nvfp4")  # suffix ignored for Nemotron
+
+        if self.is_cached(cache_path):
+            print(f"Loading cached Nemotron 120B model from {cache_path}")
+            model = transformers.AutoModelForCausalLM.from_pretrained(
+                str(cache_path),
+                device_map=device_map,
+                torch_dtype="auto",
+                trust_remote_code=True,
+                local_files_only=True,
+            )
+            tokenizer = AutoTokenizer.from_pretrained(
+                str(cache_path), trust_remote_code=True
+            )
+        else:
+            print(f"Model not cached. Downloading Nemotron 120B to {cache_path}")
+            model = transformers.AutoModelForCausalLM.from_pretrained(
+                model_id,
+                device_map=device_map,
+                cache_dir=str(self.cache_dir),
+                torch_dtype="auto",
+                trust_remote_code=True,
+            )
+            model.save_pretrained(str(cache_path))
+            tokenizer = AutoTokenizer.from_pretrained(
+                model_id, cache_dir=str(self.cache_dir), trust_remote_code=True
+            )
+            tokenizer.pad_token = tokenizer.eos_token
+            tokenizer.save_pretrained(str(cache_path))
+
+        self._setup_chat_template(tokenizer)
+        return self._create_pipeline(model, tokenizer)
+
     def load_gemma_27b_model(self, device_map, model_type="gptq"):
         """Load pre-quantized Gemma 3 27B model."""
         if model_type == "gptq":
@@ -269,7 +308,7 @@ class ModelLoader:
             model_id = "mistralai/Mistral-Small-24B-Instruct-2501"
         elif model == "gemma_24b":
             model_id = "google/gemma-3-27b-it"
-        elif model == "qwen_32b":
+        elif model == "qwen_32b" or model == "qwen3_32b":
             model_id = "Qwen/Qwen3-32B"
         cache_path = self.get_cache_path(model_id, "4bit_nf4")
 

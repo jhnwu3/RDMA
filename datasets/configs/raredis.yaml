@@ -5,6 +5,7 @@ tables:
     patient_id: "id"
     timestamp: null
     attributes:
+      - "split"
       - "text"
 
   annotations:

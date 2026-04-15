@@ -22,17 +22,28 @@ _DISEASE_TYPES = {"RAREDISEASE", "SKINRAREDISEASE"}
 _SPLIT_DIRS = ["train", "dev", "test"]
 
 
+def _texts_csv_has_split_column(texts_csv: Path) -> bool:
+    """Return True if ``texts.csv`` exists and contains a ``split`` column."""
+    if not texts_csv.exists():
+        return False
+    try:
+        columns = pd.read_csv(texts_csv, nrows=0).columns
+    except Exception:
+        return False
+    return "split" in columns
+
+
 class RareDisDataset(BaseDataset):
     """Dataset class for the RareDis benchmark.
 
     RareDis is a rare-disease NER corpus drawn from NORD disease
     descriptions.  Raw data is BRAT standoff files (.txt / .ann pairs)
-    in ``train/`` and ``test/`` subdirectories of *root*.
+    in ``train/``, ``dev/``, and ``test/`` subdirectories of *root*.
 
     On first use :meth:`prepare_metadata` is called automatically.  It
     writes three CSV files into *root*:
 
-    * **texts.csv** – one row per document: ``id``, ``text``.
+    * **texts.csv** – one row per document: ``id``, ``split``, ``text``.
     * **annotations.csv** – one row per entity span: ``id``,
       ``ann_id``, ``annotation_type``, ``start``, ``end``,
       ``annotation``.
@@ -50,7 +61,7 @@ class RareDisDataset(BaseDataset):
     * **relations** – binary relations between entity spans.
 
     Args:
-        root (str): Directory with ``train/`` and ``test/`` BRAT dirs.
+        root (str): Directory with ``train/``, ``dev/``, ``test/`` BRAT dirs.
             CSVs are also written here.  Defaults to the RareDis checkout.
         tables (List[str]): Tables to load.  Defaults to all three.
         dataset_name (Optional[str]): Override the dataset name string.
@@ -79,12 +90,21 @@ class RareDisDataset(BaseDataset):
             tables = ["texts", "annotations", "relations"]
 
         root_path = Path(root)
-        if not all(
+        has_all_csvs = all(
             (root_path / f).exists()
             for f in ("texts.csv", "annotations.csv", "relations.csv")
-        ):
+        )
+        texts_csv = root_path / "texts.csv"
+
+        if not has_all_csvs:
             logger.info(
                 "RareDis CSVs not found in %s — running prepare_metadata",
+                root,
+            )
+            self.prepare_metadata(root)
+        elif not _texts_csv_has_split_column(texts_csv):
+            logger.info(
+                "RareDis texts.csv in %s is missing 'split' — regenerating metadata",
                 root,
             )
             self.prepare_metadata(root)
@@ -100,7 +120,7 @@ class RareDisDataset(BaseDataset):
     def prepare_metadata(self, root: str) -> None:
         """Parse raw BRAT files and write texts/annotations/relations CSVs.
 
-        Reads all .txt / .ann pairs from the ``train/`` and ``test/``
+        Reads all .txt / .ann pairs from the ``train/``, ``dev/``, and ``test/``
         subdirectories of *root*.  All entity types are written with their
         BRAT identifiers and character offsets.  Documents are only
         included if they contain at least one annotation whose type is in
@@ -134,7 +154,7 @@ class RareDisDataset(BaseDataset):
                 if not any(e["annotation_type"] in _DISEASE_TYPES for e in entities):
                     continue
 
-                texts_rows.append({"id": doc_id, "text": text})
+                texts_rows.append({"id": doc_id, "split": split, "text": text})
                 for e in entities:
                     ann_rows.append({"id": doc_id, **e})
                 for r in relations:

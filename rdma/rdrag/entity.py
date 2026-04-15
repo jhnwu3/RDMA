@@ -32,7 +32,7 @@ class LLMRDExtractor(BaseRDExtractor):
 
     def extract_entities(self, text: str) -> List[str]:
         """Extract rare disease mentions using LLM."""
-        prompt = f"""Extract all rare diseases and conditions that are NOT 
+        prompt = f"""Extract all rare disease entities that are NOT 
         negated (i.e., don't include terms that are preceded by 'no', 'not', 
         'without', etc.) from the text below.
 
@@ -98,6 +98,7 @@ class RetrievalEnhancedRDExtractor(BaseRDExtractor):
         system_message: str,
         top_k: int = 10,
         min_sentence_size: Optional[int] = None,
+        strict: bool = True,
     ):
         """
         Initialize the retrieval-enhanced rare disease extractor.
@@ -109,6 +110,10 @@ class RetrievalEnhancedRDExtractor(BaseRDExtractor):
             system_message: System message for LLM extraction
             top_k: Number of top candidates to retrieve per sentence
             min_sentence_size: Minimum character length for sentences (smaller ones will be merged)
+            strict: If True (default), extract clearly identified rare disease terms only.
+                If False, cast a wide net — extract any entity that could possibly be a
+                rare disease, genetic condition, syndrome, or uncommon disorder, erring on
+                the side of inclusion.  The verifier stage filters false positives.
         """
         self.llm_client = llm_client
         self.embedding_manager = embedding_manager
@@ -117,6 +122,7 @@ class RetrievalEnhancedRDExtractor(BaseRDExtractor):
         self.system_message = system_message
         self.top_k = top_k
         self.min_sentence_size = min_sentence_size
+        self.strict = strict
         self.context_extractor = ContextExtractor()
 
     def prepare_index(self):
@@ -217,16 +223,32 @@ class RetrievalEnhancedRDExtractor(BaseRDExtractor):
         #     f"Return only a Python list of strings, with each entity extracted exactly as it appears in the CLINICAL TEXT. "
         #     f"Ensure the output is concise without any additional notes, commentary, or meta explanations."
         # )
-        prompt = (
-            f'I have CLINICAL TEXT: "{sentence}"\n\n'
-            f"Here are some relevant ORPHA rare disease terms for reference that may help you find rare disease mentions in the sentence:\n\n"
-            f"{context_text}\n\n"
-            f"Based on this sentence and the provided rare disease terms as reference, extract all medically relevant conditions "
-            f"that are NOT negated (i.e., NOT preceded by 'no', 'not', 'without', 'ruled out', etc.). "
-            f"Please also include any potential abbreviations that might be referring to rare diseases in the CLINICAL TEXT."
-            f"\n\nReturn only a Python list of strings, with each disease exactly as it appears in the CLINICAL TEXT. "
-            f"Ensure the output is concise without any additional notes, commentary, or meta explanations."
-        )
+        if self.strict:
+            prompt = (
+                f'I have CLINICAL TEXT: "{sentence}"\n\n'
+                f"Here are some relevant ORPHA rare disease terms for reference that may help you find rare disease mentions in the sentence:\n\n"
+                f"{context_text}\n\n"
+                f"Based on this sentence and the provided rare disease terms as reference, extract all medically relevant conditions "
+                f"that are NOT negated (i.e., NOT preceded by 'no', 'not', 'without', 'ruled out', etc.). "
+                f"Please also include any potential abbreviations that might be referring to rare diseases in the CLINICAL TEXT."
+                f"\n\nReturn only a Python list of strings, with each disease exactly as it appears in the CLINICAL TEXT. "
+                f"Ensure the output is concise without any additional notes, commentary, or meta explanations."
+            )
+        else:
+            prompt = (
+                f'I have CLINICAL TEXT: "{sentence}"\n\n'
+                f"Here are some relevant ORPHA rare disease terms for reference:\n\n"
+                f"{context_text}\n\n"
+                f"Your goal is maximum recall. Extract ANY entity from the clinical text that could possibly be "
+                f"a rare disease, genetic condition, syndrome, uncommon disorder, or rare variant of a common condition — "
+                f"even if you are uncertain. When in doubt, include it. "
+                f"Also include abbreviations or acronyms that might refer to rare diseases. "
+                f"Only exclude entities that are clearly common conditions (e.g. hypertension, type 2 diabetes, COPD) "
+                f"with no rare-disease qualifier, and exclude any entity that is explicitly negated "
+                f"(preceded by 'no', 'not', 'without', 'ruled out', 'denies', etc.)."
+                f"\n\nReturn only a Python list of strings, with each entity exactly as it appears in the CLINICAL TEXT. "
+                f"Ensure the output is concise without any additional notes, commentary, or meta explanations."
+            )
         return prompt
 
     def _merge_small_sentences(self, sentences: List[str], min_size: int) -> List[str]:

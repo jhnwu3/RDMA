@@ -38,6 +38,9 @@ class RDMAVerifier:
         system_prompt: str = "You are a medical expert specializing in rare diseases.",
         abbreviations_file: Optional[str] = None,
         use_abbreviations: bool = False,
+        strict: bool = True,
+        exact_match: bool = False,
+        disease_check: bool = False,
         min_context_length: int = 1,
         top_k: int = 5,
         debug: bool = False,
@@ -53,6 +56,14 @@ class RDMAVerifier:
             system_prompt: System prompt for LLM
             abbreviations_file: Path to abbreviations embeddings file (optional)
             use_abbreviations: Whether to use abbreviation resolution
+            strict: If True, the multi-stage verifier requires ORPHA semantic
+                matching before passing an entity.  If False (lax), the LLM
+                uses ORPHA candidates as contextual reference and decides on
+                best clinical judgement, yielding higher recall.
+            exact_match: If True, entities with an exact or high-similarity
+                ORPHA string match are immediately accepted as rare diseases,
+                skipping all LLM calls.  Faster but relies entirely on string
+                matching quality.
             min_context_length: Minimum context length to consider valid
             top_k: Number of top candidates to include in verification
             debug: Whether to print debug information
@@ -64,6 +75,9 @@ class RDMAVerifier:
         self.system_prompt = system_prompt
         self.abbreviations_file = abbreviations_file
         self.use_abbreviations = use_abbreviations
+        self.strict = strict
+        self.exact_match = exact_match
+        self.disease_check = disease_check
         self.min_context_length = min_context_length
         self.top_k = top_k
         self.debug = debug
@@ -88,6 +102,9 @@ class RDMAVerifier:
                 debug=self.debug,
                 abbreviations_file=self.abbreviations_file,
                 use_abbreviations=self.use_abbreviations,
+                strict=self.strict,
+                exact_match=self.exact_match,
+                disease_check=self.disease_check,
             )
             # Prepare verifier index
             self.verifier.prepare_index(self.embedded_documents)
@@ -118,13 +135,15 @@ class RDMAVerifier:
         """
         initial_count = len(entities_with_contexts)
 
-        # Keep only entities with non-empty context
+        # Keep only entities with non-empty context where the entity surface
+        # form appears verbatim in the context (case-insensitive to stay
+        # consistent with the upstream text-membership filter).
         filtered_entities = [
             entity
             for entity in entities_with_contexts
             if entity.get("context")
             and len(entity.get("context", "").strip()) >= self.min_context_length
-            and entity.get("entity", "") in entity.get("context", "")
+            and entity.get("entity", "").lower() in entity.get("context", "").lower()
         ]
 
         removed_count = initial_count - len(filtered_entities)

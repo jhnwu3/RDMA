@@ -1,0 +1,4198 @@
+{
+  "287": {
+    "note_details": {
+      "subject_id": "5039",
+      "hadm_id": "198624.0",
+      "category": "Discharge summary",
+      "chartdate": "2130-12-06",
+      "charttime": null
+    },
+    "annotations": []
+  },
+  "869": {
+    "note_details": {
+      "subject_id": "41795",
+      "hadm_id": "138132.0",
+      "category": "Discharge summary",
+      "chartdate": "2145-07-20",
+      "charttime": null
+    },
+    "annotations": []
+  },
+  "1208": {
+    "note_details": {
+      "subject_id": "9936",
+      "hadm_id": "147105.0",
+      "category": "Discharge summary",
+      "chartdate": "2102-11-07",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "nocardiosis",
+        "umls_with_desc": "C0028242 Nocardioses",
+        "ordo_with_desc": "Orphanet_31204",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Discharge_Diagnosis",
+        "semehr_label": 1,
+        "context": "he was stabilized with NIPPV. Etiology was likely\nmultifactorial, including advanced lung ca, COPD, Nocardiosis.\nAfter a couple of days, he returned to the medicine floor, where\nhe again had severe respiratory c",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_31204"
+      },
+      {
+        "mention": "nocardiosis",
+        "umls_with_desc": "C0028242 Nocardioses",
+        "ordo_with_desc": "Orphanet_31204  Nocardiosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "950": {
+    "note_details": {
+      "subject_id": "70642",
+      "hadm_id": "119768.0",
+      "category": "Discharge summary",
+      "chartdate": "2151-06-01",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "retinitis pigmentosa",
+        "umls_with_desc": "C0035334 Cone Rod Dystrophy",
+        "ordo_with_desc": "Orphanet_791",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1,
+        "context": "d fentanyl on arrival for better sedation. FAST was\nnegative in the ED.\n\nPast Medical History:\nPMH: Retinitis Pigmentosa, R radial head fxr tx'ed\nnonoperatively\n\nPSH: R shoulder reconstruction [**4-/2150**]\n\nSocial Histo",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_791"
+      }
+    ]
+  },
+  "977": {
+    "note_details": {
+      "subject_id": "71709",
+      "hadm_id": "164940.0",
+      "category": "Discharge summary",
+      "chartdate": "2137-04-25",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "rheumatic fever",
+        "umls_with_desc": "C0035436 Rheumatic Fever",
+        "ordo_with_desc": "Orphanet_3099",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1,
+        "context": "s disease\nHypertension\nBasal cell carcinoma left ear\nAmiodarone induced subclinical hyperthyroidism\nRheumatic fever at age 9\ns/p Aortic valve replacement in [**2105**]\ns/p Redo AVR in [**2115**] with placement of a ",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_3099"
+      }
+    ]
+  },
+  "1552": {
+    "note_details": {
+      "subject_id": "12026",
+      "hadm_id": "153758.0",
+      "category": "Discharge summary",
+      "chartdate": "2128-01-05",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "HIT",
+        "umls_with_desc": "C0272285 HIT",
+        "ordo_with_desc": "Orphanet_3325",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1,
+        "context": "**] she was started on Heparin and\nCoumadin for DVT prophylaxis with a goal INR of 2. Following day\nHIT panel was positive and Heparin was stopped. ID and\ndermatology were consulted for rash and fevers. ",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_3325"
+      },
+      {
+        "mention": "HIT",
+        "umls_with_desc": "C0272285 HIT",
+        "ordo_with_desc": "Orphanet_3325  Heparin-induced thrombocytopenia",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "1790": {
+    "note_details": {
+      "subject_id": "13330",
+      "hadm_id": "177542.0",
+      "category": "Discharge summary",
+      "chartdate": "2105-08-12",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "tracheobronchomalacia",
+        "umls_with_desc": "C0340231 Tracheobronchomalacia",
+        "ordo_with_desc": "Orphanet_411501",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_Discharge_Studies",
+        "semehr_label": 1,
+        "context": "nt in [**2097**]\n5. Bipolar disorder\n6. ADD\n7. OSA - on BIPAP at home but has not been using it.\n8. Tracheobronchomalacia s/p tracheal bronchoplasty [**2104-6-5**]\n9. Right pleural effusion s/p pleurodesis(FEVI 1.95, FVC\n",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_411501"
+      },
+      {
+        "mention": "tracheobronchomalacia",
+        "umls_with_desc": "C0340231 Tracheobronchomalacia",
+        "ordo_with_desc": "Orphanet_411501  Williams-Campbell syndrome",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "2452": {
+    "note_details": {
+      "subject_id": "11341",
+      "hadm_id": "137194.0",
+      "category": "Discharge summary",
+      "chartdate": "2144-05-04",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "sarcoidosis",
+        "umls_with_desc": "C0036202 Sarcoid NOS",
+        "ordo_with_desc": "Orphanet_797",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1,
+        "context": ":   Mrs. [**Known lastname **] is a 62-year-old\nfemale with a complicated medical history including\nsarcoidosis, hepatic cirrhosis, Grade II esophageal varices,\nhypertension, multiple orthopaedic procedures to h",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_797"
+      },
+      {
+        "mention": "sarcoidosis",
+        "umls_with_desc": "C0036202 Sarcoid NOS",
+        "ordo_with_desc": "Orphanet_797  Sarcoidosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1
+      },
+      {
+        "mention": "sarcoidosis",
+        "umls_with_desc": "C0036202 Sarcoid NOS",
+        "ordo_with_desc": "Orphanet_797  Sarcoidosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "basic",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "2541": {
+    "note_details": {
+      "subject_id": "4787",
+      "hadm_id": "165271.0",
+      "category": "Discharge summary",
+      "chartdate": "2125-09-17",
+      "charttime": null
+    },
+    "annotations": []
+  },
+  "3390": {
+    "note_details": {
+      "subject_id": "509",
+      "hadm_id": "161218.0",
+      "category": "Discharge summary",
+      "chartdate": "2104-05-19",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "ALS",
+        "umls_with_desc": "C0002736 GEHRIGS DIS",
+        "ordo_with_desc": "Orphanet_803",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Discharge_Diagnosis",
+        "semehr_label": 1,
+        "context": "nvasive Procedure:\nTracheostomy\nConversion PEG to PEJ tube\n\nHistory of Present Illness:\n70yo F with ALS (nonverbal at baseline but hearing is OK and\ncommunicates via keypad), RA, and G-tube, with multipl",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_803"
+      },
+      {
+        "mention": "ALS",
+        "umls_with_desc": "C0002736 GEHRIGS DIS",
+        "ordo_with_desc": "Orphanet_803  Amyotrophic lateral sclerosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1
+      },
+      {
+        "mention": "ALS",
+        "umls_with_desc": "C0002736 GEHRIGS DIS",
+        "ordo_with_desc": "Orphanet_803  Amyotrophic lateral sclerosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "ALS",
+        "umls_with_desc": "C0002736 GEHRIGS DIS",
+        "ordo_with_desc": "Orphanet_803  Amyotrophic lateral sclerosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "ALS",
+        "umls_with_desc": "C0002736 GEHRIGS DIS",
+        "ordo_with_desc": "Orphanet_803  Amyotrophic lateral sclerosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "ALS",
+        "umls_with_desc": "C0002736 GEHRIGS DIS",
+        "ordo_with_desc": "Orphanet_803  Amyotrophic lateral sclerosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "ALS",
+        "umls_with_desc": "C0002736 GEHRIGS DIS",
+        "ordo_with_desc": "Orphanet_803  Amyotrophic lateral sclerosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Present_Illness",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "4043": {
+    "note_details": {
+      "subject_id": "27247",
+      "hadm_id": "124530.0",
+      "category": "Discharge summary",
+      "chartdate": "2118-03-09",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "seizure disorder",
+        "umls_with_desc": "C0014544 Epilepsy",
+        "ordo_with_desc": "Orphanet_101998  Rare epilepsy",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "Social_History",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "4806": {
+    "note_details": {
+      "subject_id": "94962",
+      "hadm_id": "164132.0",
+      "category": "Discharge summary",
+      "chartdate": "2144-03-21",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "rheumatic fever",
+        "umls_with_desc": "C0035436 Rheumatic Fever",
+        "ordo_with_desc": "Orphanet_3099",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Discharge_Diagnosis",
+        "semehr_label": 1,
+        "context": "ic Aortic Aneursym\ncoronary artery disease\nHypertension\nHistory of mitral valve prolapse\nHistory of Rheumatic Fever\ndiabetes mellitus\n\nSocial History:\nCurrent smoker, 1ppd for last 16 years.\nAdmits to infrequent ETO",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_3099"
+      }
+    ]
+  },
+  "4938": {
+    "note_details": {
+      "subject_id": "4113",
+      "hadm_id": "103203.0",
+      "category": "Discharge summary",
+      "chartdate": "2149-10-20",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "sarcoid",
+        "umls_with_desc": "C0036202 Sarcoid NOS",
+        "ordo_with_desc": "Orphanet_797",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1,
+        "context": "etes Mellitus-type I c/b retinopathy (legally blind) and\nneuropathy, gastroparesis\n# osteoporosis\n# Sarcoid, reported lung nodule\n# depression\n# s/p right tibial fracture\n# s/p right leg fracture (cast), [**",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_797"
+      }
+    ]
+  },
+  "5873": {
+    "note_details": {
+      "subject_id": "70872",
+      "hadm_id": "186292.0",
+      "category": "Discharge summary",
+      "chartdate": "2169-03-07",
+      "charttime": null
+    },
+    "annotations": []
+  },
+  "10406": {
+    "note_details": {
+      "subject_id": "27574",
+      "hadm_id": "114529.0",
+      "category": "Discharge summary",
+      "chartdate": "2126-08-16",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "Medullary sponge kidney",
+        "start": 1330,
+        "end": 1353,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "ORPHA:1309 medullary sponge kidney",
+        "auto_enriched": true,
+        "similarity_score": 0.7615550948194698,
+        "context": "hanges, septic shock on\nlevophed and dopamine gtt prior to transfer.\n\n\nPast Medical History:\n-IDDM\n-Medullary sponge kidney\n-Nephrolithiasis\n-nueropathy\n-chronic back pain\n\n\nSocial History:\n-Divorced, lives at home with par",
+        "is_rare_disease": true
+      }
+    ]
+  },
+  "5738": {
+    "note_details": {
+      "subject_id": "5689",
+      "hadm_id": "121702.0",
+      "category": "Discharge summary",
+      "chartdate": "2124-09-08",
+      "charttime": null
+    },
+    "annotations": []
+  },
+  "6465": {
+    "note_details": {
+      "subject_id": "30757",
+      "hadm_id": "187159.0",
+      "category": "Discharge summary",
+      "chartdate": "2189-12-24",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "HIT",
+        "umls_with_desc": "C0272285 HIT",
+        "ordo_with_desc": "Orphanet_3325",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1,
+        "context": "0*\n[**2189-11-24**] 09:30PM   CREAT-4.5*#\n[**2189-11-24**] 09:36PM   LACTATE-7.3*\n.\nPertinent Labs:\nHIT positive\nSerotonin releasing assay - negative\n[**2189-12-12**] 03:54AM BLOOD calTIBC-220* Ferritn-1",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_3325"
+      },
+      {
+        "mention": "carcinoma of the ampulla of vater",
+        "context": "(given the other calculi), an ampullary carcinoma is a distinct",
+        "is_rare_disease": true,
+        "orpha_code": "300557",
+        "ordo_with_desc": "300557"
+      }
+    ]
+  },
+  "5811": {
+    "note_details": {
+      "subject_id": "26563",
+      "hadm_id": "172668.0",
+      "category": "Discharge summary",
+      "chartdate": "2143-02-14",
+      "charttime": null
+    },
+    "annotations": []
+  },
+  "7363": {
+    "note_details": {
+      "subject_id": "14607",
+      "hadm_id": "168786.0",
+      "category": "Discharge summary",
+      "chartdate": "2200-02-22",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "nph",
+        "umls_with_desc": "C0020258 Nph",
+        "ordo_with_desc": "Orphanet_314928  Normal pressure hydrocephalus",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "nph",
+        "umls_with_desc": "C0020258 Nph",
+        "ordo_with_desc": "Orphanet_314928  Normal pressure hydrocephalus",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "13231": {
+    "note_details": {
+      "subject_id": "28588",
+      "hadm_id": "141664.0",
+      "category": "Discharge summary",
+      "chartdate": "2150-08-28",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "nph",
+        "umls_with_desc": "C0020258 Nph",
+        "ordo_with_desc": "Orphanet_314928  Normal pressure hydrocephalus",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Admission_Medications",
+        "semehr_label": 1
+      },
+      {
+        "mention": "hyperthyroidism",
+        "umls_with_desc": "C0020550 hyperthyroid",
+        "ordo_with_desc": "Orphanet_181399",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1,
+        "context": "w, pt had\ndenied chest pain.\n\nPast Medical History:\nEpilepsy\nHTN\nDM\nCAD\nAFib\nCVA-?right side stroke\nHyperthyroidism\nAsthma\nPE\nCOPD\nDepression with Anxiety\nDementia\n\nSocial History:\nPatient lives in [**Hospital3 5277",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_181399"
+      },
+      {
+        "mention": "nph",
+        "umls_with_desc": "C0020258 Nph",
+        "ordo_with_desc": "Orphanet_314928  Normal pressure hydrocephalus",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "7688": {
+    "note_details": {
+      "subject_id": "94",
+      "hadm_id": "140037.0",
+      "category": "Discharge summary",
+      "chartdate": "2176-09-25",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "amyotrophic lateral sclerosis",
+        "umls_with_desc": "C0002736 GEHRIGS DIS",
+        "ordo_with_desc": "Orphanet_803",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_Discharge_Instructions",
+        "semehr_label": 1,
+        "context": "ion:\nExtended Care\n\nFacility:\n[**Hospital1 **] [**Location (un) **]\n\nDischarge Diagnosis:\n Primary:\namyotrophic lateral sclerosis\ns/p cervical laminectomy\nlabile hypertension\nSecondary:\nbenign prostatic hypertrophy\n\n\nDischarge Co",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_803"
+      },
+      {
+        "mention": "ALS",
+        "umls_with_desc": "C0002736 GEHRIGS DIS",
+        "ordo_with_desc": "Orphanet_803  Amyotrophic lateral sclerosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "ALS",
+        "umls_with_desc": "C0002736 GEHRIGS DIS",
+        "ordo_with_desc": "Orphanet_803  Amyotrophic lateral sclerosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "cervical stenosis",
+        "start": 531,
+        "end": 548,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "831",
+        "auto_enriched": true,
+        "similarity_score": 0.7484422078854556,
+        "context": "history of present illness: 74 yo m with history of bph, htn, s/p recent cervical laminectomy fusion [**2176-8-24**] for cervical stenosis who presented to the ed from rehabilitation facility when he was noted to be febrile to 102.",
+        "is_rare_disease": true,
+        "orpha_code": "831"
+      }
+    ]
+  },
+  "6188": {
+    "note_details": {
+      "subject_id": "10370",
+      "hadm_id": "122936.0",
+      "category": "Discharge summary",
+      "chartdate": "2145-01-26",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "pml",
+        "umls_with_desc": "C0023524 Prog multifoc leukoencep",
+        "ordo_with_desc": "Orphanet_217260",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "pertinent_results",
+        "semehr_label": 1,
+        "context": " for which she has been noncompliant\nwith treatment( biaxin/ethambutol), recent diagnosis of likely\nPML (T2 hyperintensity in the left frontal white matter on head\nMRI [**2144-12-19**]), recent dx HSV-2 ",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_217260"
+      },
+      {
+        "mention": "pml",
+        "umls_with_desc": "C0023524 Prog multifoc leukoencep",
+        "ordo_with_desc": "Orphanet_217260  Progressive multifocal leukoencephalopathy",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "hyperthyroidism",
+        "umls_with_desc": "C0020550 hyperthyroid",
+        "ordo_with_desc": "Orphanet_181399",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1,
+        "context": " the\n140's of unclear etiology. Differential includes dehydration,\ninfection, heart failure, fever, hyperthyroidism. The patient\nhas a known infection but was afebrile with good pressures. She\nhad normal thyroid stu",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_181399"
+      },
+      {
+        "mention": "lymphoma",
+        "context": "lymphoma or active infection.",
+        "is_rare_disease": true,
+        "orpha_code": "223735",
+        "ordo_with_desc": "223735"
+      }
+    ]
+  },
+  "8979": {
+    "note_details": {
+      "subject_id": "12051",
+      "hadm_id": "132432.0",
+      "category": "Discharge summary",
+      "chartdate": "2129-03-05",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "heparin induced thrombocytopenia",
+        "umls_with_desc": "C0272285 HIT",
+        "ordo_with_desc": "Orphanet_3325",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Allergies_and_Intolerances",
+        "semehr_label": 1,
+        "context": "ssociated pericardial effusion. Pt also had posterior\nannular abscess s/p debridement and patch.\n7. Heparin induced thrombocytopenia in [**9-/2128**]\n8. H/O acute renal failure requiring CVVH in 10/[**2127**]. Renal\nfunction subsequ",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_3325"
+      },
+      {
+        "mention": "heparin induced thrombocytopenia",
+        "umls_with_desc": "C0272285 HIT",
+        "ordo_with_desc": "Orphanet_3325  Heparin-induced thrombocytopenia",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Discharge_Diagnosis",
+        "semehr_label": 1
+      },
+      {
+        "mention": "heparin induced thrombocytopenia",
+        "umls_with_desc": "C0272285 HIT",
+        "ordo_with_desc": "Orphanet_3325  Heparin-induced thrombocytopenia",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1
+      },
+      {
+        "mention": "heparin induced thrombocytopenia",
+        "umls_with_desc": "C0272285 HIT",
+        "ordo_with_desc": "Orphanet_3325  Heparin-induced thrombocytopenia",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "HIT",
+        "umls_with_desc": "C0272285 HIT",
+        "ordo_with_desc": "Orphanet_3325  Heparin-induced thrombocytopenia",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "sclerosis cholangitis",
+        "start": 2121,
+        "end": 2142,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "447771",
+        "auto_enriched": true,
+        "similarity_score": 0.8249670351803073,
+        "context": "pt is now transferred to [**hospital1 18**] to receive an ercp to evaluate for strictures given her history of sclerosis cholangitis and positive bacteremia. in ros, pt reports that she is feeling well at this time.",
+        "is_rare_disease": true,
+        "orpha_code": "447771"
+      }
+    ]
+  },
+  "7699": {
+    "note_details": {
+      "subject_id": "31574",
+      "hadm_id": "131751.0",
+      "category": "Discharge summary",
+      "chartdate": "2112-02-16",
+      "charttime": null
+    },
+    "annotations": []
+  },
+  "6206": {
+    "note_details": {
+      "subject_id": "79814",
+      "hadm_id": "178365.0",
+      "category": "Discharge summary",
+      "chartdate": "2174-03-11",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "nph",
+        "umls_with_desc": "C0020258 Nph",
+        "ordo_with_desc": "Orphanet_314928  Normal pressure hydrocephalus",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Discharge_Medications",
+        "semehr_label": 1
+      },
+      {
+        "mention": "nph",
+        "umls_with_desc": "C0020258 Nph",
+        "ordo_with_desc": "Orphanet_314928  Normal pressure hydrocephalus",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Admission_Medications",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "10004": {
+    "note_details": {
+      "subject_id": "6116",
+      "hadm_id": "141655.0",
+      "category": "Discharge summary",
+      "chartdate": "2112-10-03",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "dilated cardiomyopathy",
+        "umls_with_desc": "C0007193 Dilated Cardiomyopathy",
+        "ordo_with_desc": "Orphanet_217604",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1,
+        "context": "cts.\n\nPast Medical History:\n1. Paroxysmal atrial fibrillation\n2. Dementia: hallucinates at night\n3. Dilated cardiomyopathy with EF 55%\n4. Hypertension\n5. Ventricular fibrillation w/ AICD\n6. Psoriasis\n7. Diabetes, diet cont",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_217604"
+      },
+      {
+        "mention": "asbestosis",
+        "umls_with_desc": "C0003949 Asbestoses",
+        "ordo_with_desc": "Orphanet_2302",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1,
+        "context": "5**] gastritis\n15. Recurrent pleural effusion- unclear etiology, cytology\nnegative in the past.\n16. Asbestosis exposure.\n\n\nSocial History:\nDenies tobacco, EtOH, illicits. Recently at [**Hospital3 **], but\nprevi",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_2302"
+      },
+      {
+        "mention": "dilated cardiomyopathy",
+        "umls_with_desc": "C0007193 Dilated Cardiomyopathy",
+        "ordo_with_desc": "Orphanet_217604  Dilated cardiomyopathy",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Discharge_Diagnosis",
+        "semehr_label": 1
+      },
+      {
+        "mention": "asbestosis",
+        "umls_with_desc": "C0003949 Asbestoses",
+        "ordo_with_desc": "Orphanet_2302  Asbestos intoxication",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Discharge_Diagnosis",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "10715": {
+    "note_details": {
+      "subject_id": "12586",
+      "hadm_id": "128300.0",
+      "category": "Discharge summary",
+      "chartdate": "2182-05-03",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "heparin induced thrombocytopenia",
+        "umls_with_desc": "C0272285 HIT",
+        "ordo_with_desc": "Orphanet_3325",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "facility",
+        "semehr_label": 1,
+        "context": "].  Her postoperative course\nis complicated by failure to extubate, hypotension requiring\npressors, Heparin induced thrombocytopenia, atrial\nfibrillation requiring amiodarone.\n\nWas transferred to rehabilitation facility on [**4-6**]",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_3325"
+      }
+    ]
+  },
+  "8877": {
+    "note_details": {
+      "subject_id": "7107",
+      "hadm_id": "162930.0",
+      "category": "Discharge summary",
+      "chartdate": "2151-01-01",
+      "charttime": null
+    },
+    "annotations": []
+  },
+  "9512": {
+    "note_details": {
+      "subject_id": "70425",
+      "hadm_id": "150284.0",
+      "category": "Discharge summary",
+      "chartdate": "2125-03-06",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "mediastinitis",
+        "start": 8535,
+        "end": 8548,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "63999",
+        "auto_enriched": true,
+        "similarity_score": 0.677284615758963,
+        "context": "if clinically indicated, contrast-enhanced study of the neck and chest could be ordered to assess for possible abscess, fistula, and/or mediastinitis. this was paged to nurse [**first name8 (namepattern2) 3639**] [**first name4 (namepattern1) 951**] [**last name (namepattern1) **] on [**2125-2-1**] at 12:50 a.",
+        "is_rare_disease": true,
+        "orpha_code": "63999"
+      }
+    ]
+  },
+  "8001": {
+    "note_details": {
+      "subject_id": "8337",
+      "hadm_id": "178592.0",
+      "category": "Discharge summary",
+      "chartdate": "2174-08-19",
+      "charttime": null
+    },
+    "annotations": []
+  },
+  "8960": {
+    "note_details": {
+      "subject_id": "454",
+      "hadm_id": "182153.0",
+      "category": "Discharge summary",
+      "chartdate": "2127-07-03",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "sarcoid",
+        "umls_with_desc": "C0036202 Sarcoid NOS",
+        "ordo_with_desc": "Orphanet_797",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1,
+        "context": " years with bilateral uveitis,\nclinically had bilateral uveitis significant with loss of vision\nand sarcoid floaters in both eyes. He was seen in follow-up by\nDr. [**Last Name (STitle) 31107**] and, later, D",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_797"
+      },
+      {
+        "mention": "sick sinus syndrome",
+        "umls_with_desc": "C0037052 Sick Sinus Syndrome",
+        "ordo_with_desc": "Orphanet_166282",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1,
+        "context": "shift.\n\nHe was started on ASA and lipitor for stroke prophylaxis.\n\n2. Bradycardia - The patient had sick sinus syndrome and a\npacemaker was placed on [**6-30**]. He will follow up with cardiology\npacer clinic next week.",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_166282"
+      },
+      {
+        "mention": "Bechet's disease",
+        "start": 3194,
+        "end": 3210,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "321",
+        "auto_enriched": true,
+        "similarity_score": 0.6418899641756017,
+        "context": "sedimentation rate was between 40 and 50. at this point, the working diagnosis was bechet's disease versus vogt-koyanagi-[**doctor last name 31108**] syndrome. uveomeningioencephalitic",
+        "is_rare_disease": true,
+        "orpha_code": "321"
+      }
+    ]
+  },
+  "13600": {
+    "note_details": {
+      "subject_id": "2398",
+      "hadm_id": "138345.0",
+      "category": "Discharge summary",
+      "chartdate": "2189-04-15",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "seizure disorder",
+        "umls_with_desc": "C0014544 Epilepsy",
+        "ordo_with_desc": "Orphanet_101998  Rare epilepsy",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "basic",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "16328": {
+    "note_details": {
+      "subject_id": "11817",
+      "hadm_id": "172085.0",
+      "category": "Discharge summary",
+      "chartdate": "2129-12-16",
+      "charttime": null
+    },
+    "annotations": []
+  },
+  "16334": {
+    "note_details": {
+      "subject_id": "20816",
+      "hadm_id": "186333.0",
+      "category": "Discharge summary",
+      "chartdate": "2208-01-07",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "HIT",
+        "umls_with_desc": "C0272285 HIT",
+        "ordo_with_desc": "Orphanet_3325",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1,
+        "context": "ommends dry dressings,\nchanges daily, clean regularly, keep dry.\n.\n# Hyperlipidemia - On statin\n.\n# HIT history - Avoided heparin products, not anticoagulation\ncandidate. To maintain pneumoboots and comp",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_3325"
+      },
+      {
+        "mention": "Cervical stenosis",
+        "start": 1805,
+        "end": 1822,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "831",
+        "auto_enriched": true,
+        "similarity_score": 0.7484422078854556,
+        "context": "-hyperhomocysteinemia -alcohol abuse -cervical stenosis -neuropathy -etoh abuse",
+        "is_rare_disease": true,
+        "orpha_code": "831"
+      }
+    ]
+  },
+  "16347": {
+    "note_details": {
+      "subject_id": "20756",
+      "hadm_id": "112319.0",
+      "category": "Discharge summary",
+      "chartdate": "2162-02-02",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "hypothyroidism secondary",
+        "umls_with_desc": "C3665349 Tsh Deficiency",
+        "ordo_with_desc": "Orphanet_226298",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1,
+        "context": "imately 30 years ago.\n4. Type 2 diabetes mellitus.\n5. Family history of coronary artery disease.\n6. Hypothyroidism secondary to thyroidectomy for thyroid\ncancer.\n7. Chronic atrial fibrillation.\n\nMEDICATIONS:\n1. Glucophage 1,",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_226298"
+      }
+    ]
+  },
+  "13666": {
+    "note_details": {
+      "subject_id": "14037",
+      "hadm_id": "185837.0",
+      "category": "Discharge summary",
+      "chartdate": "2196-08-24",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "Central nervous system and systemic lymphoma",
+        "start": 11099,
+        "end": 11143,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "300849",
+        "auto_enriched": true,
+        "similarity_score": 0.7607524273809216,
+        "context": "seizure 3. central nervous system and systemic lymphoma. discharge medications: 1.",
+        "is_rare_disease": true,
+        "orpha_code": "300849"
+      },
+      {
+        "mention": "lymphoma",
+        "context": "a history of systemic and CNS lymphoma, who was transferred",
+        "is_rare_disease": true,
+        "orpha_code": "223735",
+        "ordo_with_desc": "223735"
+      }
+    ]
+  },
+  "14936": {
+    "note_details": {
+      "subject_id": "5927",
+      "hadm_id": "117783.0",
+      "category": "Discharge summary",
+      "chartdate": "2192-08-15",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "bullous pemphigoid",
+        "umls_with_desc": "C0030805 Pemphigoid",
+        "ordo_with_desc": "Orphanet_703",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1,
+        "context": "oporosis with back pain and multiple compression\nfractures at L1 and T11.\n3.  Peripheral edema.\n4.  Bullous pemphigoid, for which she was treated with\ndapsone and prednisone for many years.\n5.  Chronic anemia.\n6.  Echo",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_703"
+      },
+      {
+        "mention": "methemoglobinemia",
+        "start": 1882,
+        "end": 1899,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "464453",
+        "auto_enriched": true,
+        "similarity_score": 0.7702748354079264,
+        "context": "accompanied by acute-on-chronic renal failure, culminating in anuria. she was also found to have methemoglobinemia to 18%, presumably as an adverse drug effect related to dapsone. she",
+        "is_rare_disease": true,
+        "orpha_code": "464453"
+      }
+    ]
+  },
+  "11052": {
+    "note_details": {
+      "subject_id": "9671",
+      "hadm_id": "175582.0",
+      "category": "Discharge summary",
+      "chartdate": "2194-12-26",
+      "charttime": null
+    },
+    "annotations": []
+  },
+  "11938": {
+    "note_details": {
+      "subject_id": "20161",
+      "hadm_id": "149342.0",
+      "category": "Discharge summary",
+      "chartdate": "2200-01-13",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "retinopathy of prematurity",
+        "umls_with_desc": "C0035344 Terry Syndrome",
+        "ordo_with_desc": "Orphanet_90050",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1,
+        "context": "been performed.\n[**Known lastname 1104**] will also need screening ophthalmological examination\nfor retinopathy of prematurity.\n\nCONDITION AT DISCHARGE:  Good,stable.\n\nDISCHARGE DISPOSITION:  Transferred to [**Hospital6 1597**",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_90050"
+      },
+      {
+        "mention": "apnea of prematurity",
+        "context": "Apnea of prematurity",
+        "is_rare_disease": true,
+        "orpha_code": "99981",
+        "ordo_with_desc": "99981"
+      }
+    ]
+  },
+  "11604": {
+    "note_details": {
+      "subject_id": "92107",
+      "hadm_id": "192789.0",
+      "category": "Discharge summary",
+      "chartdate": "2183-07-07",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "hemochromatosis",
+        "umls_with_desc": "C0018995 Hemochromatose",
+        "ordo_with_desc": "Orphanet_220489",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "Discharge_Diagnosis",
+        "semehr_label": 1,
+        "context": " w/ h/o SMA thrombosis s/p partial small bowel\nresection, possible protein C deficiency, asthma and\nhemochromatosis who presents with a 4 day history of persistent\nL leg pain and swelling. The patient has also exper",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_220489"
+      },
+      {
+        "mention": "hemochromatosis",
+        "umls_with_desc": "C0018995 Hemochromatose",
+        "ordo_with_desc": "Orphanet_220489  Rare hereditary hemochromatosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1
+      },
+      {
+        "mention": "protein c deficiency",
+        "umls_with_desc": "C0398625 Protein C Deficiency",
+        "ordo_with_desc": "Orphanet_745",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1,
+        "context": "of Present Illness:\nPt is a 53yoM w/ h/o SMA thrombosis s/p partial small bowel\nresection, possible protein C deficiency, asthma and\nhemochromatosis who presents with a 4 day history of persistent\nL leg pain and swelling",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_745"
+      },
+      {
+        "mention": "hemochromatosis",
+        "umls_with_desc": "C0018995 Hemochromatose",
+        "ordo_with_desc": "Orphanet_220489  Rare hereditary hemochromatosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "microcytic anemia",
+        "umls_with_desc": "C0085576 Microcytic Anemia",
+        "ordo_with_desc": "Orphanet_209981",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1,
+        "context": "r IgG and IgM anti-??????2-glycoprotein I (anti-beta2-GPI)\nantibodies by [**Doctor First Name **]\n\n#MICROCYTIC ANEMIA, stable at Hgb ~ 9. likely Fe deficient,\ninconsistent with hemochromatosis. However, labs at admiss",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_209981"
+      },
+      {
+        "mention": "hemochromatosis",
+        "umls_with_desc": "C0018995 Hemochromatose",
+        "ordo_with_desc": "Orphanet_220489  Rare hereditary hemochromatosis",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "hemochromatosis",
+        "umls_with_desc": "C0018995 Hemochromatose",
+        "ordo_with_desc": "Orphanet_220489  Rare hereditary hemochromatosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "protein c deficiency",
+        "umls_with_desc": "C0398625 Protein C Deficiency",
+        "ordo_with_desc": "Orphanet_745  Severe hereditary thrombophilia due to congenital protein C deficiency",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "History_of_Present_Illness",
+        "semehr_label": 1
+      },
+      {
+        "mention": "hemochromatosis",
+        "umls_with_desc": "C0018995 Hemochromatose",
+        "ordo_with_desc": "Orphanet_220489  Rare hereditary hemochromatosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "History_of_Present_Illness",
+        "semehr_label": 1
+      },
+      {
+        "mention": "Protein S",
+        "start": 2314,
+        "end": 2323,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "118053",
+        "auto_enriched": true,
+        "similarity_score": 1.0,
+        "context": "state by his pcp back in [**2175**] including tests for lupus anticoagulant, antithrombin iii, protein c, anti-cardiolipin, and protein s of which protein c studies returned borderline positive. patient received 6 months of coumadin for his sma",
+        "is_rare_disease": true,
+        "orpha_code": "118053"
+      },
+      {
+        "mention": "Protein S",
+        "start": 4738,
+        "end": 4747,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "ORPHA:118053 protein s",
+        "auto_enriched": true,
+        "similarity_score": 1.0
+      },
+      {
+        "mention": "Protein S",
+        "start": 4753,
+        "end": 4762,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "ORPHA:118053 protein s",
+        "auto_enriched": true,
+        "similarity_score": 1.0
+      },
+      {
+        "mention": "antiphospholipid antibody syndrome",
+        "start": 13576,
+        "end": 13610,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "ORPHA:80 antiphospholipid syndrome",
+        "auto_enriched": true,
+        "similarity_score": 0.7857888931806889,
+        "context": "is h/o SMA\nthrombosis, clots in both arterial and venous systems suggest\nconsidering Protein C def/ antiphospholipid antibody syndrome as\na unify etiology of his emboli. Has had negative\nanti-cardiolipin antibody, will f/u with B2-GPI",
+        "is_rare_disease": true
+      },
+      {
+        "mention": "Protein C",
+        "start": 443,
+        "end": 452,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "118643",
+        "auto_enriched": true,
+        "similarity_score": 0.8059045812998439,
+        "context": "history of present illness: pt is a 53yom w/ h/o sma thrombosis s/p partial small bowel resection, possible protein c deficiency, asthma and hemochromatosis who presents with a 4 day history of persistent l leg pain and swelling.",
+        "is_rare_disease": true,
+        "orpha_code": "118643"
+      },
+      {
+        "mention": "Protein C",
+        "start": 2281,
+        "end": 2290,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "ORPHA:118643 surfactant protein c",
+        "auto_enriched": true,
+        "similarity_score": 0.8059045812998439
+      },
+      {
+        "mention": "Protein C",
+        "start": 2333,
+        "end": 2342,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "ORPHA:118643 surfactant protein c",
+        "auto_enriched": true,
+        "similarity_score": 0.8059045812998439
+      },
+      {
+        "mention": "Protein C",
+        "start": 4568,
+        "end": 4577,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "ORPHA:118643 surfactant protein c",
+        "auto_enriched": true,
+        "similarity_score": 0.8059045812998439
+      },
+      {
+        "mention": "Protein C",
+        "start": 4599,
+        "end": 4608,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "ORPHA:118643 surfactant protein c",
+        "auto_enriched": true,
+        "similarity_score": 0.8059045812998439
+      },
+      {
+        "mention": "protein C",
+        "start": 13099,
+        "end": 13108,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "ORPHA:118643 surfactant protein c",
+        "auto_enriched": true,
+        "similarity_score": 0.8059045812998439
+      },
+      {
+        "mention": "Protein C",
+        "start": 13561,
+        "end": 13570,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "ORPHA:118643 surfactant protein c",
+        "auto_enriched": true,
+        "similarity_score": 0.8059045812998439
+      }
+    ]
+  },
+  "22297": {
+    "note_details": {
+      "subject_id": "40496",
+      "hadm_id": "159938.0",
+      "category": "Discharge summary",
+      "chartdate": "2189-10-17",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "HIT",
+        "umls_with_desc": "C0272285 HIT",
+        "ordo_with_desc": "Orphanet_3325",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1,
+        "context": "astric tube placement\n\n\nHistory of Present Illness:\n48 yo M with h/o hepatitis C, h/o pancreatitis, HIT, HTN, T2DM,\nfound by his girlfriend at home with possible seizures.  He had\nalso been having visual",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_3325"
+      },
+      {
+        "mention": "HIT",
+        "umls_with_desc": "C0272285 HIT",
+        "ordo_with_desc": "Orphanet_3325  Heparin-induced thrombocytopenia",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "HIT",
+        "umls_with_desc": "C0272285 HIT",
+        "ordo_with_desc": "Orphanet_3325  Heparin-induced thrombocytopenia",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "HIT",
+        "umls_with_desc": "C0272285 HIT",
+        "ordo_with_desc": "Orphanet_3325  Heparin-induced thrombocytopenia",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Present_Illness",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "17850": {
+    "note_details": {
+      "subject_id": "21072",
+      "hadm_id": "152181.0",
+      "category": "Discharge summary",
+      "chartdate": "2104-03-17",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "amyotrophic lateral sclerosis",
+        "umls_with_desc": "C0002736 GEHRIGS DIS",
+        "ordo_with_desc": "Orphanet_803",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1,
+        "context": "Service:  GENERAL SURGERY/GREEN\n\nHISTORY OF PRESENT ILLNESS:  The patient is a 57 year old man\nwith amyotrophic lateral sclerosis which has rendered him\nventilator dependent and requiring chronic care.  He has a\ngastric tube whic",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_803"
+      },
+      {
+        "mention": "amyotrophic lateral sclerosis",
+        "umls_with_desc": "C0002736 GEHRIGS DIS",
+        "ordo_with_desc": "Orphanet_803  Amyotrophic lateral sclerosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1
+      },
+      {
+        "mention": "amyotrophic lateral sclerosis",
+        "umls_with_desc": "C0002736 GEHRIGS DIS",
+        "ordo_with_desc": "Orphanet_803  Amyotrophic lateral sclerosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Discharge_Medications",
+        "semehr_label": 1
+      },
+      {
+        "mention": "amyotrophic lateral sclerosis",
+        "umls_with_desc": "C0002736 GEHRIGS DIS",
+        "ordo_with_desc": "Orphanet_803  Amyotrophic lateral sclerosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "basic",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "15908": {
+    "note_details": {
+      "subject_id": "5023",
+      "hadm_id": "196051.0",
+      "category": "Discharge summary",
+      "chartdate": "2196-11-04",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "NPH",
+        "umls_with_desc": "C0020258 Nph",
+        "ordo_with_desc": "Orphanet_314928  Normal pressure hydrocephalus",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Discharge_Medications",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "17640": {
+    "note_details": {
+      "subject_id": "13954",
+      "hadm_id": "178769.0",
+      "category": "Discharge summary",
+      "chartdate": "2181-07-04",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "heparin-induced thrombocytopenia",
+        "umls_with_desc": "C0272285 HIT",
+        "ordo_with_desc": "Orphanet_3325",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Discharge_Medications",
+        "semehr_label": 1,
+        "context": "ed\non postoperative day number ten, [**2181-6-10**].\n8. Blood loss anemia; multiple transfusion.\n9. Heparin-induced thrombocytopenia; transient.\n10. Postoperative malnutrition; short-term TPN.\n11. Left arm thrombophlebitis; treated.",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_3325"
+      }
+    ]
+  },
+  "20208": {
+    "note_details": {
+      "subject_id": "14432",
+      "hadm_id": "109007.0",
+      "category": "Discharge summary",
+      "chartdate": "2168-11-19",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "portal vein thrombosis",
+        "umls_with_desc": "C0155773 Portal Vein Thrombosis",
+        "ordo_with_desc": "Orphanet_854",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "Discharge_Diagnosis",
+        "semehr_label": 1,
+        "context": "ia\nwith occasional [**Month/Day (1) 6059**], bilateral pleural effusions, acalculous\ncholecystitis, portal vein thrombosis, DIC and hemorrhoids.\n.\n.\n* AML  - pt was started on syngeneic transplant protocol upon\nadmission o",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_854"
+      },
+      {
+        "mention": "portal vein thrombosis",
+        "umls_with_desc": "C0155773 Portal Vein Thrombosis",
+        "ordo_with_desc": "Orphanet_854  Primitive portal vein thrombosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "portal vein thrombosis",
+        "umls_with_desc": "C0155773 Portal Vein Thrombosis",
+        "ordo_with_desc": "Orphanet_854  Primitive portal vein thrombosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "portal vein thrombosis",
+        "umls_with_desc": "C0155773 Portal Vein Thrombosis",
+        "ordo_with_desc": "Orphanet_854  Primitive portal vein thrombosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "portal vein thrombosis",
+        "umls_with_desc": "C0155773 Portal Vein Thrombosis",
+        "ordo_with_desc": "Orphanet_854  Primitive portal vein thrombosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "HIT",
+        "umls_with_desc": "C0272285 HIT",
+        "ordo_with_desc": "Orphanet_3325",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1,
+        "context": " diagnosed with AML in [**2166-11-11**]\nafter presenting for a routine physical exam, CBC revealed white\ncount of 5300 with 40% blasts.  Pt noted generalized fatigue at\nthat time. Patient found to have n",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_3325"
+      },
+      {
+        "mention": "HIT",
+        "umls_with_desc": "C0272285 HIT",
+        "ordo_with_desc": "Orphanet_3325  Heparin-induced thrombocytopenia",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "HIT",
+        "umls_with_desc": "C0272285 HIT",
+        "ordo_with_desc": "Orphanet_3325  Heparin-induced thrombocytopenia",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "portal vein thrombosis",
+        "umls_with_desc": "C0155773 Portal Vein Thrombosis",
+        "ordo_with_desc": "Orphanet_854  Primitive portal vein thrombosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "portal vein thrombosis",
+        "umls_with_desc": "C0155773 Portal Vein Thrombosis",
+        "ordo_with_desc": "Orphanet_854  Primitive portal vein thrombosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "portal vein thrombosis",
+        "umls_with_desc": "C0155773 Portal Vein Thrombosis",
+        "ordo_with_desc": "Orphanet_854  Primitive portal vein thrombosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "HIT",
+        "umls_with_desc": "C0272285 HIT",
+        "ordo_with_desc": "Orphanet_3325  Heparin-induced thrombocytopenia",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "HIT",
+        "umls_with_desc": "C0272285 HIT",
+        "ordo_with_desc": "Orphanet_3325  Heparin-induced thrombocytopenia",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "Acute myelogenous leukemia",
+        "start": 28714,
+        "end": 28740,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "167714",
+        "auto_enriched": true,
+        "similarity_score": 0.741535769004836,
+        "context": "thrombocytopenia. acalculous cholecystitis. acute myelogenous leukemia. anxiety. discharge condition:",
+        "is_rare_disease": true,
+        "orpha_code": "167714"
+      }
+    ]
+  },
+  "31392": {
+    "note_details": {
+      "subject_id": "28316",
+      "hadm_id": "186478.0",
+      "category": "Discharge summary",
+      "chartdate": "2156-08-25",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "hemolytic uremic syndrome",
+        "context": "HUS [**8-20**] and [**8-25**] were both wnl.",
+        "is_rare_disease": true,
+        "orpha_code": "544458",
+        "ordo_with_desc": "544458"
+      },
+      {
+        "mention": "apnea of prematurity",
+        "context": "required treatment for apnea prematurity with caffeine.",
+        "is_rare_disease": true,
+        "orpha_code": "99981",
+        "ordo_with_desc": "99981"
+      }
+    ]
+  },
+  "24716": {
+    "note_details": {
+      "subject_id": "20247",
+      "hadm_id": "148030.0",
+      "category": "Discharge summary",
+      "chartdate": "2124-03-15",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "iron storage disease",
+        "umls_with_desc": "C0018995 Hemochromatose",
+        "ordo_with_desc": "Orphanet_220489",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "pertinent_results",
+        "semehr_label": 1,
+        "context": "bolic syndrome.  The\namount and distribution of iron deposition raises the\npossibility of a genetic iron storage disease.\n\n3.  Pancreatic neck margin (D):\n\nChronic pancreatitis with marked fibrosis and no malignancy\niden",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_220489"
+      },
+      {
+        "mention": "intraductal papillary mucinous tumor",
+        "start": 1191,
+        "end": 1227,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "424058",
+        "auto_enriched": true,
+        "similarity_score": 0.7985016519066891,
+        "context": "lymphadenopathy. all these features put together were very suggestive of intraductal papillary mucinous tumor. past medical history: pancreatic cystic dz.",
+        "is_rare_disease": true,
+        "orpha_code": "424058"
+      }
+    ]
+  },
+  "30442": {
+    "note_details": {
+      "subject_id": "1986",
+      "hadm_id": "160127.0",
+      "category": "Discharge summary",
+      "chartdate": "2198-08-28",
+      "charttime": null
+    },
+    "annotations": []
+  },
+  "31210": {
+    "note_details": {
+      "subject_id": "32226",
+      "hadm_id": "148721.0",
+      "category": "Discharge summary",
+      "chartdate": "2201-05-20",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "familial mediterranean fever",
+        "umls_with_desc": "C0031069 PERIODIC DIS",
+        "ordo_with_desc": "Orphanet_342",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1,
+        "context": " History:\nper pt, normal ECHO and stress test in [**2198**].\npreviously documented RBBB per patient\nfamilial mediterranean fever: longstanding. dx 5yrs ago. c/b\nserositis, peritonitis, appendicitis, depression. rx with\ncolchicin",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_342"
+      },
+      {
+        "mention": "familial mediterranean fever",
+        "umls_with_desc": "C0031069 PERIODIC DIS",
+        "ordo_with_desc": "Orphanet_342  Familial Mediterranean fever",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "20162": {
+    "note_details": {
+      "subject_id": "2218",
+      "hadm_id": "153622.0",
+      "category": "Discharge summary",
+      "chartdate": "2136-03-09",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "necrotizing enterocolitis",
+        "umls_with_desc": "C0520459 Necrotising enterocolitis",
+        "ordo_with_desc": "Orphanet_391673",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Discharge_Diagnosis",
+        "semehr_label": 1,
+        "context": "n antibiotics\nand received 14 days of antibiotics and 14 days of bowel\nrest for medical evidence of necrotizing enterocolitis.\nFeedings were reintroduced on day of life #54 and the\ninfant advanced to 140 cc/kg/day by day of l",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_391673"
+      },
+      {
+        "mention": "retinopathy of prematurity",
+        "umls_with_desc": "C0035344 Terry Syndrome",
+        "ordo_with_desc": "Orphanet_90050",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Discharge_Diagnosis",
+        "semehr_label": 1,
+        "context": "ing enterocolitis.\n6.  Status post apnea of prematurity,\n7.  Anemia of prematurity.\n8.  Status post retinopathy of prematurity\n9.  Chronic lung disease on oxygen and diuretics.\n\n\n\n                            [**First Name8 (Na",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_90050"
+      },
+      {
+        "mention": "necrotizing enterocolitis",
+        "umls_with_desc": "C0520459 Necrotising enterocolitis",
+        "ordo_with_desc": "Orphanet_391673  Necrotizing enterocolitis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "basic",
+        "semehr_label": 1
+      },
+      {
+        "mention": "necrotizing enterocolitis",
+        "umls_with_desc": "C0520459 Necrotising enterocolitis",
+        "ordo_with_desc": "Orphanet_391673  Necrotizing enterocolitis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "basic",
+        "semehr_label": 1
+      },
+      {
+        "mention": "apnea of prematurity",
+        "context": "Status post apnea of prematurity,",
+        "is_rare_disease": true,
+        "orpha_code": "99981",
+        "ordo_with_desc": "99981"
+      }
+    ]
+  },
+  "25095": {
+    "note_details": {
+      "subject_id": "1633",
+      "hadm_id": "129770.0",
+      "category": "Discharge summary",
+      "chartdate": "2155-10-24",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "autoimmune hepatitis",
+        "umls_with_desc": "C0241910 Autoimmune Hepatitis",
+        "ordo_with_desc": "Orphanet_2137",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "basic",
+        "semehr_label": 1,
+        "context": "ce antigen, GBS negative, normal\namniocentesis and ultrasound. Past medical history was\nnotable for autoimmune hepatitis. Social history notable for\nfamily currently in process of relocating to [**Country 12603**] for\nfa",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_2137"
+      }
+    ]
+  },
+  "20589": {
+    "note_details": {
+      "subject_id": "47775",
+      "hadm_id": "133249.0",
+      "category": "Discharge summary",
+      "chartdate": "2133-03-24",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "rheumatic fever",
+        "umls_with_desc": "C0035436 Rheumatic Fever",
+        "ordo_with_desc": "Orphanet_3099",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1,
+        "context": "13**].\n# Hypertension: +fluctuations in BP with spells of anxiety\n# Spinal stenosis\n# Anxiety\n# S/p rheumatic fever as a child\n# Congestive heart failure\n# Depression and Anxiety\n# s/p stroke [**2-/2133**]\n#. COPD?\n",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_3099"
+      }
+    ]
+  },
+  "20617": {
+    "note_details": {
+      "subject_id": "741",
+      "hadm_id": "133898.0",
+      "category": "Discharge summary",
+      "chartdate": "2104-04-29",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "lyme's disease",
+        "umls_with_desc": "C0024198 Borrelia",
+        "ordo_with_desc": "Orphanet_91546",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1,
+        "context": "low.\nHe has no known complications, although he does complain of\nerectile dysfunction currently.\n2. Lyme's disease:  Diagnosed six years ago and treated.\nPatient presented with arthritis symptoms.\n3. Attention-defi",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_91546"
+      },
+      {
+        "mention": "NPH",
+        "umls_with_desc": "C0020258 Nph",
+        "ordo_with_desc": "Orphanet_314928  Normal pressure hydrocephalus",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Admission_Medications",
+        "semehr_label": 1
+      },
+      {
+        "mention": "NPH",
+        "umls_with_desc": "C0020258 Nph",
+        "ordo_with_desc": "Orphanet_314928  Normal pressure hydrocephalus",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Admission_Medications",
+        "semehr_label": 1
+      },
+      {
+        "mention": "NPH",
+        "umls_with_desc": "C0020258 Nph",
+        "ordo_with_desc": "Orphanet_314928  Normal pressure hydrocephalus",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Admission_Medications",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "22133": {
+    "note_details": {
+      "subject_id": "85784",
+      "hadm_id": "117613.0",
+      "category": "Discharge summary",
+      "chartdate": "2139-08-28",
+      "charttime": null
+    },
+    "annotations": []
+  },
+  "20387": {
+    "note_details": {
+      "subject_id": "15930",
+      "hadm_id": "184061.0",
+      "category": "Discharge summary",
+      "chartdate": "2146-04-19",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "portal vein thrombosis",
+        "umls_with_desc": "C0155773 Portal Vein Thrombosis",
+        "ordo_with_desc": "Orphanet_854",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "facility",
+        "semehr_label": 1,
+        "context": "tal with hypoxemia, right pleural\neffusion, and mesenteric ischemia with mesenteric vein\nthrombosis/portal vein thrombosis.\n\nHISTORY OF THE PRESENT ILLNESS:  The patient presented to the\noutside hospital on [**2146-4-7**] ",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_854"
+      },
+      {
+        "mention": "mesenteric vein thrombosis",
+        "start": 2826,
+        "end": 2852,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "583861",
+        "auto_enriched": true,
+        "similarity_score": 0.803156228821946,
+        "context": "8. hospital course:  the patient was thought to have mesenteric ischemia secondary to mesenteric vein thrombosis. cta of the abdomen was performed which showed a thrombus in the",
+        "is_rare_disease": true,
+        "orpha_code": "583861"
+      },
+      {
+        "mention": "mesenteric vein thrombosis",
+        "start": 3420,
+        "end": 3446,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "ORPHA:583861 isolated mesenteric vein thrombosis",
+        "auto_enriched": true,
+        "similarity_score": 0.803156228821946
+      }
+    ]
+  },
+  "39676": {
+    "note_details": {
+      "subject_id": "75159",
+      "hadm_id": "109611.0",
+      "category": "Discharge summary",
+      "chartdate": "2102-09-13",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "arachnoid cyst",
+        "umls_with_desc": "C0078981 Arachnoid Cyst",
+        "ordo_with_desc": "Orphanet_2356",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "pertinent_results",
+        "semehr_label": 1,
+        "context": " unchanged large CSF hypodensity in the anterior left\nmiddle cranial\nfossa is compatible with large arachnoid cyst. Prominent\nanterior falcine\ncalcifications are present. There is no evidence of acute\nfracture. The",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_2356"
+      }
+    ]
+  },
+  "38775": {
+    "note_details": {
+      "subject_id": "42757",
+      "hadm_id": "167098.0",
+      "category": "Discharge summary",
+      "chartdate": "2154-10-28",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "babesiosis",
+        "umls_with_desc": "C0004576 Babesiases",
+        "ordo_with_desc": "Orphanet_108",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1,
+        "context": "ection, tick-borne diseases should also be\nconsidered given his possible exposure history (consider\nbabesiosis or Lyme disease). Other considerations include\nautonomic dysfunction causing neurogenic hypotension",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_108"
+      },
+      {
+        "mention": "lyme disease",
+        "umls_with_desc": "C0024198 Borrelia",
+        "ordo_with_desc": "Orphanet_91546",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1,
+        "context": "orne diseases should also be\nconsidered given his possible exposure history (consider\nbabesiosis or Lyme disease). Other considerations include\nautonomic dysfunction causing neurogenic hypotension, less\nlikely ca",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_91546"
+      },
+      {
+        "mention": "inherited isolated arrhythmogenic ventricular dysplasia, biventricular variant",
+        "context": "-Arrhythmogenic Right Ventricular Dysplasia c/b sustained",
+        "is_rare_disease": true,
+        "orpha_code": "293899",
+        "ordo_with_desc": "293899"
+      }
+    ]
+  },
+  "39348": {
+    "note_details": {
+      "subject_id": "44288",
+      "hadm_id": "125243.0",
+      "category": "Discharge summary",
+      "chartdate": "2106-09-17",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "alkaptonuria",
+        "umls_with_desc": "C0002066 Alcaptonuria",
+        "ordo_with_desc": "Orphanet_56",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_Discharge_Studies",
+        "semehr_label": 1,
+        "context": "ne, and [**Doctor Last Name 352**]/blue\npatches of skin discoloration. There was high suspicion for\nalkaptonuria, especially given history of heart valve disease\nand repair. Urine/serum homogentisic acid could no",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_56"
+      }
+    ]
+  },
+  "37217": {
+    "note_details": {
+      "subject_id": "90317",
+      "hadm_id": "142551.0",
+      "category": "Discharge summary",
+      "chartdate": "2155-05-30",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "autoimmune pancreatitis",
+        "umls_with_desc": "C2609129 Autoimmune pancreatitis",
+        "ordo_with_desc": "Orphanet_103919",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Discharge_Diagnosis",
+        "semehr_label": 1,
+        "context": "or carcinoma.\n2. Superior mesenteric vein occlusion with visceral portal\nhypertension.\n3. Potential autoimmune pancreatitis.\n\n\nDischarge Condition:\nMental Status: Clear and coherent.\nLevel of Consciousness: Alert and intera",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_103919"
+      }
+    ]
+  },
+  "40196": {
+    "note_details": {
+      "subject_id": "66133",
+      "hadm_id": "116011.0",
+      "category": "Discharge summary",
+      "chartdate": "2154-02-07",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "sarcoid",
+        "umls_with_desc": "C0036202 Sarcoid NOS",
+        "ordo_with_desc": "Orphanet_797",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1,
+        "context": "areas of\nmediastinal lymphadenopathy thought to be less consistent with\nreactive process.  Could be sarcoid vs. malignancy.  Should be\nfollowed up with an outpatient biopsy to assess for malignancy.\nPatient ",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_797"
+      },
+      {
+        "mention": "sarcoidosis",
+        "start": 12464,
+        "end": 12475,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "Orphanet_797",
+        "auto_enriched": true,
+        "similarity_score": 0.732423161823577,
+        "context": "pathy - size is less compatible with\nreactive nodes, and may be compatible with metastatic nodes or\nsarcoidosis.\n2) Left adrenal nodule, incompletely characterized - a dedicated\nadrenal CT\n\nPlease follow up with",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_797"
+      }
+    ]
+  },
+  "25829": {
+    "note_details": {
+      "subject_id": "58441",
+      "hadm_id": "133224.0",
+      "category": "Discharge summary",
+      "chartdate": "2160-01-06",
+      "charttime": null
+    },
+    "annotations": []
+  },
+  "28965": {
+    "note_details": {
+      "subject_id": "12736",
+      "hadm_id": "159404.0",
+      "category": "Discharge summary",
+      "chartdate": "2121-08-27",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "squamous cell carcinoma of the larynx",
+        "context": "Laryngectomy for squamous cell laryngeal cancer in [**2105**] with",
+        "is_rare_disease": true,
+        "orpha_code": "494550",
+        "ordo_with_desc": "494550"
+      }
+    ]
+  },
+  "26976": {
+    "note_details": {
+      "subject_id": "25397",
+      "hadm_id": "136124.0",
+      "category": "Discharge summary",
+      "chartdate": "2187-02-25",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "necrotizing enterocolitis",
+        "umls_with_desc": "C0520459 Necrotising enterocolitis",
+        "ordo_with_desc": "Orphanet_391673",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "facility",
+        "semehr_label": 1,
+        "context": "ral feeds were begun on\nday of life 6, reaching full volume on day of life 14. She\nthen was NPO for necrotizing enterocolitis from day of life\n22 until day of life 35. Feedings were reinitiated on day of\nlife 36 and advanced ",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_391673"
+      },
+      {
+        "mention": "necrotizing enterocolitis",
+        "umls_with_desc": "C0520459 Necrotising enterocolitis",
+        "ordo_with_desc": "Orphanet_391673  Necrotizing enterocolitis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "facility",
+        "semehr_label": 1
+      },
+      {
+        "mention": "necrotizing enterocolitis",
+        "umls_with_desc": "C0520459 Necrotising enterocolitis",
+        "ordo_with_desc": "Orphanet_391673  Necrotizing enterocolitis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "facility",
+        "semehr_label": 1
+      },
+      {
+        "mention": "necrotizing enterocolitis",
+        "umls_with_desc": "C0520459 Necrotising enterocolitis",
+        "ordo_with_desc": "Orphanet_391673  Necrotizing enterocolitis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "facility",
+        "semehr_label": 1
+      },
+      {
+        "mention": "necrotizing enterocolitis",
+        "umls_with_desc": "C0520459 Necrotising enterocolitis",
+        "ordo_with_desc": "Orphanet_391673  Necrotizing enterocolitis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "facility",
+        "semehr_label": 1
+      },
+      {
+        "mention": "necrotizing enterocolitis",
+        "umls_with_desc": "C0520459 Necrotising enterocolitis",
+        "ordo_with_desc": "Orphanet_391673  Necrotizing enterocolitis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "facility",
+        "semehr_label": 1
+      },
+      {
+        "mention": "retinopathy of prematurity",
+        "umls_with_desc": "C0035344 Terry Syndrome",
+        "ordo_with_desc": "Orphanet_90050",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "facility",
+        "semehr_label": 1,
+        "context": ".  Small umbilical hernia.\n10. Resolving direct hyperbilirubinemia. NEEDS FOLOW-UP BILI\nTESTING\n11. Retinopathy of prematurity.\n12. Anemia of prematurity.\n13. Status post right shoulder laceration.\n14.\n    Status post chronic ",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_90050"
+      },
+      {
+        "mention": "necrotizing enterocolitis",
+        "umls_with_desc": "C0520459 Necrotising enterocolitis",
+        "ordo_with_desc": "Orphanet_391673  Necrotizing enterocolitis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Immunizations",
+        "semehr_label": 1
+      },
+      {
+        "mention": "retinopathy of prematurity",
+        "umls_with_desc": "C0035344 Terry Syndrome",
+        "ordo_with_desc": "Orphanet_90050  Retinopathy of prematurity",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Immunizations",
+        "semehr_label": 1
+      },
+      {
+        "mention": "apnea of prematurity",
+        "context": "Status post apnea of prematurity.",
+        "is_rare_disease": true,
+        "orpha_code": "99981",
+        "ordo_with_desc": "99981"
+      }
+    ]
+  },
+  "27335": {
+    "note_details": {
+      "subject_id": "29629",
+      "hadm_id": "132678.0",
+      "category": "Discharge summary",
+      "chartdate": "2171-06-03",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "portal vein thrombosis",
+        "umls_with_desc": "C0155773 Portal Vein Thrombosis",
+        "ordo_with_desc": "Orphanet_854",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1,
+        "context": "athy\nand recurrent ascites, esophageal varices (grade III\n[**2168**]),portal hypertension and known portal vein thrombosis not\non anticoagulation.\n3. History of tuberculosis s/p 6 months INH\n4. GERD\n5. HTN\n6. History of E.",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_854"
+      },
+      {
+        "mention": "papillary carcinoma",
+        "start": 735,
+        "end": 754,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "319298",
+        "auto_enriched": true,
+        "similarity_score": 0.7137847148440825,
+        "context": "requiring admission. notably, the patient has a left thyroid nodule that was biopsied and suggestive of papillary carcinoma being followed by dr [**last name (stitle) 5182**] (please refer to his omr notes for details) and a cardiac evaluation in [**2171-3-28**], that",
+        "is_rare_disease": true,
+        "orpha_code": "319298"
+      },
+      {
+        "mention": "hepatocellular carcinoma",
+        "start": 2076,
+        "end": 2100,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "88673",
+        "auto_enriched": true,
+        "similarity_score": 0.7755728530529565,
+        "context": "he does not smoke, drink, or use illicit drugs. family history: no family history of hepatocellular carcinoma or cirrhosis. 4 adult children, all in good health.",
+        "is_rare_disease": true,
+        "orpha_code": "88673"
+      }
+    ]
+  },
+  "26825": {
+    "note_details": {
+      "subject_id": "14358",
+      "hadm_id": "143701.0",
+      "category": "Discharge summary",
+      "chartdate": "2120-04-02",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "anaplastic thyroid carcinoma",
+        "start": 571,
+        "end": 599,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "ORPHA:142 anaplastic thyroid carcinoma",
+        "auto_enriched": true,
+        "similarity_score": 0.7727666837520354,
+        "context": "ed to [**Hospital6 **] [**2120-3-24**] with\nhemoptysis and respiratory distress, now diagnosed with\nanaplastic thyroid carcinoma.\n.\nPt reports that he noticed a right neck mass last [**Month (only) 359**]. The\nmass grew larger, ",
+        "is_rare_disease": true
+      },
+      {
+        "mention": "anaplastic thyroid carcinoma",
+        "start": 4449,
+        "end": 4477,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "ORPHA:142 anaplastic thyroid carcinoma",
+        "auto_enriched": true,
+        "similarity_score": 0.7727666837520354
+      },
+      {
+        "mention": "lymphoma",
+        "context": "primary head/neck cancer and lymphoma.",
+        "is_rare_disease": true,
+        "orpha_code": "223735",
+        "ordo_with_desc": "223735"
+      }
+    ]
+  },
+  "30504": {
+    "note_details": {
+      "subject_id": "16087",
+      "hadm_id": "116851.0",
+      "category": "Discharge summary",
+      "chartdate": "2163-02-02",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "polymyalgia rheumatica",
+        "umls_with_desc": "C0039483 HORTON DIS",
+        "ordo_with_desc": "Orphanet_397",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1,
+        "context": ", and gross\nperitonitis. Surgical intervention was required.\n\n\nPast Medical History:\nH/o pneumonia, Polymyalgia rheumatica, HTN\n\nSurgical Hx: TAH (benign disease)\n\n\nSocial History:\nLives with husband, former school teacher",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_397"
+      }
+    ]
+  },
+  "32261": {
+    "note_details": {
+      "subject_id": "28983",
+      "hadm_id": "135893.0",
+      "category": "Discharge summary",
+      "chartdate": "2178-02-19",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "retinopathy of prematurity",
+        "umls_with_desc": "C0035344 Terry Syndrome",
+        "ordo_with_desc": "Orphanet_90050",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Nutrition",
+        "semehr_label": 1,
+        "context": " septal defect, ongoing.\n7. Left pneumothorax, resolved.\n8. Right vocal cord granuloma, ongoing.\n9. Retinopathy of prematurity, ongoing.\n10.Hyperbilirubinemia, resolved.\n11.Hypotension, resolved.\n12.Apnea of prematurity, resol",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_90050"
+      },
+      {
+        "mention": "retinopathy of prematurity",
+        "umls_with_desc": "C0035344 Terry Syndrome",
+        "ordo_with_desc": "Orphanet_90050  Retinopathy of prematurity",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Nutrition",
+        "semehr_label": 1
+      },
+      {
+        "mention": "congenital bleeding disorder",
+        "start": 563,
+        "end": 591,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "326",
+        "auto_enriched": true,
+        "similarity_score": 0.7455602032668599,
+        "context": "had mild asthma treated with albuterol. there was a congenital bleeding disorder. she is unaware of the specific diagnosis, but did have bleeding following a tooth",
+        "is_rare_disease": true,
+        "orpha_code": "326"
+      }
+    ]
+  },
+  "28690": {
+    "note_details": {
+      "subject_id": "40213",
+      "hadm_id": "143496.0",
+      "category": "Discharge summary",
+      "chartdate": "2125-05-07",
+      "charttime": null
+    },
+    "annotations": []
+  },
+  "47026": {
+    "note_details": {
+      "subject_id": "18250",
+      "hadm_id": "184039.0",
+      "category": "Discharge summary",
+      "chartdate": "2203-09-23",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "central retinal vein occlusion",
+        "umls_with_desc": "C0154841 Cent retinal vein occlus",
+        "ordo_with_desc": "Orphanet_411527",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1,
+        "context": "edication does\nnot cause confusion.\n.\n# Neovascular glaucoma angle closure: The patient has a right\ncentral retinal vein occlusion and branch retinal artery\nocclusion with accompanying neovascular glaucoma, seen by Drs.\n[**Last Na",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_411527"
+      },
+      {
+        "mention": "Primary CNS lymphoma",
+        "start": 2120,
+        "end": 2140,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "ORPHA:46135 primary central nervous system lymphoma",
+        "auto_enriched": true,
+        "similarity_score": 0.790254870282725,
+        "context": "n P 0.15 % drops one twice a day for 7\ndays. She was also given percocet.\n\nPast Medical History:\n1. Primary CNS lymphoma in cerebellum, frontal lobes, left\ntemporal lobe, and right occipital lobe; dx in [**7-17**]. S/p 6",
+        "is_rare_disease": true
+      },
+      {
+        "mention": "Primary CNS lymphoma",
+        "start": 14802,
+        "end": 14822,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "ORPHA:46135 primary central nervous system lymphoma",
+        "auto_enriched": true,
+        "similarity_score": 0.790254870282725
+      },
+      {
+        "mention": "neovascular glaucoma",
+        "start": 1822,
+        "end": 1842,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "ORPHA:94058 neovascular glaucoma",
+        "auto_enriched": true,
+        "similarity_score": 0.8271933413198511,
+        "context": "ics.\n.\nPatient had optho evaluation in the ER on [**2203-9-17**] for eye pain\nand was found to have neovascular glaucoma angle closure of her\nright eye, for which she was started on acetazolimide 250mg po\nqid for 7 days,",
+        "is_rare_disease": true
+      },
+      {
+        "mention": "Neovascular glaucoma",
+        "start": 11348,
+        "end": 11368,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "ORPHA:94058 neovascular glaucoma",
+        "auto_enriched": true,
+        "similarity_score": 0.8271933413198511
+      },
+      {
+        "mention": "neovascular glaucoma",
+        "start": 11493,
+        "end": 11513,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "ORPHA:94058 neovascular glaucoma",
+        "auto_enriched": true,
+        "similarity_score": 0.8271933413198511
+      },
+      {
+        "mention": "Neovascular glaucoma angle closure",
+        "start": 11348,
+        "end": 11382,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "ORPHA:94058 neovascular glaucoma",
+        "auto_enriched": true,
+        "similarity_score": 0.689631280354669
+      },
+      {
+        "mention": "lymphoma",
+        "context": "This is a 71 year woman with h/o CNS lymphoma on maintance",
+        "is_rare_disease": true,
+        "orpha_code": "223735",
+        "ordo_with_desc": "223735"
+      }
+    ]
+  },
+  "47035": {
+    "note_details": {
+      "subject_id": "27171",
+      "hadm_id": "129780.0",
+      "category": "Discharge summary",
+      "chartdate": "2105-02-05",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "portal vein thrombosis",
+        "umls_with_desc": "C0155773 Portal Vein Thrombosis",
+        "ordo_with_desc": "Orphanet_854",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1,
+        "context": "ning status with\nmultisystem failure and limited therapeutic options, the patient\nwas made CMO.\n.\n# Portal vein thrombosis - known, chronic. Not a candidate for\ntreatment.\n.\n# Guiaic positive stools/h/o melena - was schedu",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_854"
+      },
+      {
+        "mention": "hepatocellular carcinoma",
+        "start": 2111,
+        "end": 2135,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "88673",
+        "auto_enriched": true,
+        "similarity_score": 0.7755728530529565,
+        "context": "adenocarcinoma with a staining profile c/w colon cancer. concern for a primary hepatocellular carcinoma along with another primary cancer metastatic to the liver, likely colon. his",
+        "is_rare_disease": true,
+        "orpha_code": "88673"
+      },
+      {
+        "mention": "Hepatocellular carcinoma",
+        "start": 11650,
+        "end": 11674,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "ORPHA:88673 hepatocellular carcinoma",
+        "auto_enriched": true,
+        "similarity_score": 0.7755728530529565
+      },
+      {
+        "mention": "hepatocellular carcinoma",
+        "start": 11881,
+        "end": 11905,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "ORPHA:88673 hepatocellular carcinoma",
+        "auto_enriched": true,
+        "similarity_score": 0.7755728530529565
+      }
+    ]
+  },
+  "45138": {
+    "note_details": {
+      "subject_id": "67536",
+      "hadm_id": "120346.0",
+      "category": "Discharge summary",
+      "chartdate": "2120-03-09",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "beta-thalassemia",
+        "umls_with_desc": "C0005283 Beta Thalassemia",
+        "ordo_with_desc": "Orphanet_848",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1,
+        "context": "surgery\nclinic.\n.\n#. Cirrhosis/HCC: Secondary to hemachromatosis from multiple\ntransfusions for his beta-thalassemia. His HCC is s/p cyberknife\ntherapy in [**10-29**] and his last MRI [**1-31**] inidcated interval\nst",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_848"
+      },
+      {
+        "mention": "beta thalassemia",
+        "umls_with_desc": "C0005283 Beta Thalassemia",
+        "ordo_with_desc": "Orphanet_848  Beta-thalassemia",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "Hepatocellular Carcinoma",
+        "start": 10938,
+        "end": 10962,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "88673",
+        "auto_enriched": true,
+        "similarity_score": 0.7755728530529565,
+        "context": "left subdural hematoma s/p fall cirrhosis hepatocellular carcinoma chf thalassemia",
+        "is_rare_disease": true,
+        "orpha_code": "88673"
+      },
+      {
+        "mention": "beta-thalassemia and related diseases",
+        "context": "- Beta Thalassemia (baseline Hct 23-25) with splenomegaly and",
+        "is_rare_disease": true,
+        "orpha_code": "275749",
+        "ordo_with_desc": "275749"
+      }
+    ]
+  },
+  "42584": {
+    "note_details": {
+      "subject_id": "44191",
+      "hadm_id": "175521.0",
+      "category": "Discharge summary",
+      "chartdate": "2179-02-05",
+      "charttime": null
+    },
+    "annotations": []
+  },
+  "44132": {
+    "note_details": {
+      "subject_id": "19984",
+      "hadm_id": "137446.0",
+      "category": "Discharge summary",
+      "chartdate": "2179-04-02",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "ALS",
+        "umls_with_desc": "C0002736 GEHRIGS DIS",
+        "ordo_with_desc": "Orphanet_803",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Discharge_Diagnosis",
+        "semehr_label": 1,
+        "context": "asive Procedure:\nPEG replaced using endoscopy\n\n\nHistory of Present Illness:\n74-year-old female with ALS, PEG/Trach, and PAF who was brought\nto the ER because her PEG was pulled and could not be replaced.",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_803"
+      },
+      {
+        "mention": "ALS",
+        "umls_with_desc": "C0002736 GEHRIGS DIS",
+        "ordo_with_desc": "Orphanet_803  Amyotrophic lateral sclerosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1
+      },
+      {
+        "mention": "ALS",
+        "umls_with_desc": "C0002736 GEHRIGS DIS",
+        "ordo_with_desc": "Orphanet_803  Amyotrophic lateral sclerosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "ALS",
+        "umls_with_desc": "C0002736 GEHRIGS DIS",
+        "ordo_with_desc": "Orphanet_803  Amyotrophic lateral sclerosis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Present_Illness",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "44150": {
+    "note_details": {
+      "subject_id": "53735",
+      "hadm_id": "191928.0",
+      "category": "Discharge summary",
+      "chartdate": "2157-02-05",
+      "charttime": null
+    },
+    "annotations": []
+  },
+  "44472": {
+    "note_details": {
+      "subject_id": "1226",
+      "hadm_id": "103915.0",
+      "category": "Discharge summary",
+      "chartdate": "2153-05-10",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "glioblastoma multiforme",
+        "start": 14858,
+        "end": 14881,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "Orpha:360 glioblastoma multiforme",
+        "auto_enriched": true,
+        "similarity_score": 0.8416054858908616,
+        "context": "Coumadin dose to be determined with an INR goal of 2 to 3\n13. Heparin sliding scale\n14. Aspirin 325 glioblastoma multiforme po q day, currently\non hold for possible PEG placement.  It has been on hold\nsince [**5-8**].\n15. L",
+        "is_rare_disease": true
+      }
+    ]
+  },
+  "46706": {
+    "note_details": {
+      "subject_id": "83393",
+      "hadm_id": "144741.0",
+      "category": "Discharge summary",
+      "chartdate": "2198-09-22",
+      "charttime": null
+    },
+    "annotations": []
+  },
+  "45078": {
+    "note_details": {
+      "subject_id": "86276",
+      "hadm_id": "173367.0",
+      "category": "Discharge summary",
+      "chartdate": "2171-06-04",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "seizure disorder",
+        "umls_with_desc": "C0014544 Epilepsy",
+        "ordo_with_desc": "Orphanet_101998  Rare epilepsy",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "46361": {
+    "note_details": {
+      "subject_id": "27800",
+      "hadm_id": "104090.0",
+      "category": "Discharge summary",
+      "chartdate": "2161-12-10",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "tracheobronchomalacia",
+        "umls_with_desc": "C0340231 Tracheobronchomalacia",
+        "ordo_with_desc": "Orphanet_411501",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "pertinent_results",
+        "semehr_label": 1,
+        "context": "pensation. Heart size normal. Of note prior chest CT scans\nhave findings suggesting a propensity to tracheobronchomalacia,\nas well as moderately severe emphysema.\nLeft PIC catheter ends in the upper SVC. No pneumothorax o",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_411501"
+      }
+    ]
+  },
+  "46820": {
+    "note_details": {
+      "subject_id": "86455",
+      "hadm_id": "187756.0",
+      "category": "Discharge summary",
+      "chartdate": "2143-05-01",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "pmr",
+        "umls_with_desc": "C0032533 Senile arthritis",
+        "ordo_with_desc": "Orphanet_93569",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1,
+        "context": "cation:\nROS: Per HPI and otherwise negative except for hip pain.\n\n\nPast Medical History:\nDM\nHTN\nCKD\nPMR\nGERD\nDementia\nCholecystectomy\nCystoscopy\nAtrial fibrillation\nRespiratory Insufficiency NOS\n\nSocial ",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_93569"
+      },
+      {
+        "mention": "thymoma",
+        "start": 8643,
+        "end": 8650,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "ORPHA:99867 thymoma",
+        "auto_enriched": true,
+        "similarity_score": 0.8162327468634409,
+        "context": "st cage as well as a dilated ascending aorta\nonly to exclude an anterior mediastinal mass such as a thymoma\nwould be with chest CT scanning, which would not necessarily\nrequire intravenous contrast infusion.",
+        "is_rare_disease": true
+      },
+      {
+        "mention": "avascular necrosis",
+        "context": "right humeral head which can be seen in avascular necrosis.",
+        "is_rare_disease": true,
+        "orpha_code": "399164",
+        "ordo_with_desc": "399164"
+      }
+    ]
+  },
+  "32946": {
+    "note_details": {
+      "subject_id": "28775",
+      "hadm_id": "137169.0",
+      "category": "Discharge summary",
+      "chartdate": "2119-01-11",
+      "charttime": null
+    },
+    "annotations": []
+  },
+  "35397": {
+    "note_details": {
+      "subject_id": "81349",
+      "hadm_id": "119516.0",
+      "category": "Discharge summary",
+      "chartdate": "2120-02-15",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "tracheobronchomalacia",
+        "umls_with_desc": "C0340231 Tracheobronchomalacia",
+        "ordo_with_desc": "Orphanet_411501",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Discharge_Diagnosis",
+        "semehr_label": 1,
+        "context": "\nmultinodular goiter\nMorbid obesity\nHTN\nC difficile colitis\nperipheral neuropathy\nleft leg weakness\ntracheobronchomalacia\nChronic leg ulcers\nRecurrent UTI\nurinary stress incontinence\niron deficiency anemia\nnephrolithiasis",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_411501"
+      },
+      {
+        "mention": "complex tracheal stenosis",
+        "start": 298,
+        "end": 323,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "ORPHA:141127 congenital tracheal stenosis",
+        "auto_enriched": true,
+        "similarity_score": 0.703914141453873,
+        "context": "drenergic Blocking Agts)\n\nAttending:[**First Name3 (LF) 492**]\nChief Complaint:\nmigrated stent with complex tracheal stenosis\n\nMajor Surgical or Invasive Procedure:\n[**2120-2-14**]: Flexible bronchoscopy with trach sutured to",
+        "is_rare_disease": true
+      },
+      {
+        "mention": "complex tracheal stenosis",
+        "start": 1056,
+        "end": 1081,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "ORPHA:141127 congenital tracheal stenosis",
+        "auto_enriched": true,
+        "similarity_score": 0.703914141453873
+      },
+      {
+        "mention": "complex tracheal stenosis",
+        "start": 4309,
+        "end": 4334,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "ORPHA:141127 congenital tracheal stenosis",
+        "auto_enriched": true,
+        "similarity_score": 0.703914141453873
+      },
+      {
+        "mention": "Complex tracheal stenosis",
+        "start": 7938,
+        "end": 7963,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "ORPHA:141127 congenital tracheal stenosis",
+        "auto_enriched": true,
+        "similarity_score": 0.703914141453873
+      },
+      {
+        "mention": "tracheal stenosis",
+        "start": 306,
+        "end": 323,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "141127",
+        "auto_enriched": true,
+        "similarity_score": 0.7525426864104795,
+        "context": "attending:[**first name3 (lf) 492**] chief complaint: migrated stent with complex tracheal stenosis major surgical or invasive procedure: [**2120-2-14**]: flexible bronchoscopy with trach sutured to secure",
+        "is_rare_disease": true,
+        "orpha_code": "141127"
+      },
+      {
+        "mention": "tracheal stenosis",
+        "start": 1064,
+        "end": 1081,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "ORPHA:141127 congenital tracheal stenosis",
+        "auto_enriched": true,
+        "similarity_score": 0.7525426864104795
+      },
+      {
+        "mention": "tracheal stenosis",
+        "start": 4317,
+        "end": 4334,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "ORPHA:141127 congenital tracheal stenosis",
+        "auto_enriched": true,
+        "similarity_score": 0.7525426864104795
+      },
+      {
+        "mention": "tracheal stenosis",
+        "start": 5095,
+        "end": 5112,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "ORPHA:141127 congenital tracheal stenosis",
+        "auto_enriched": true,
+        "similarity_score": 0.7525426864104795
+      },
+      {
+        "mention": "tracheal stenosis",
+        "start": 7946,
+        "end": 7963,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "ORPHA:141127 congenital tracheal stenosis",
+        "auto_enriched": true,
+        "similarity_score": 0.7525426864104795
+      }
+    ]
+  },
+  "34416": {
+    "note_details": {
+      "subject_id": "75493",
+      "hadm_id": "152863.0",
+      "category": "Discharge summary",
+      "chartdate": "2187-09-14",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "dilated cardiomyopathy",
+        "umls_with_desc": "C0007193 Dilated Cardiomyopathy",
+        "ordo_with_desc": "Orphanet_217604",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Discharge_Diagnosis",
+        "semehr_label": 1,
+        "context": "e\nsecondary to viral myocarditis, as his history was consistent\nwith this, and other etiologies for dilated cardiomyopathy,\nincluding hemochromatosis, HIV, and doxorubicin exposure, were\nexcluded. He was diuresed and his s",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_217604"
+      },
+      {
+        "mention": "dilated cardiomyopathy",
+        "umls_with_desc": "C0007193 Dilated Cardiomyopathy",
+        "ordo_with_desc": "Orphanet_217604  Dilated cardiomyopathy",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "dilated cardiomyopathy",
+        "umls_with_desc": "C0007193 Dilated Cardiomyopathy",
+        "ordo_with_desc": "Orphanet_217604  Dilated cardiomyopathy",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "dilated cardiomyopathy",
+        "umls_with_desc": "C0007193 Dilated Cardiomyopathy",
+        "ordo_with_desc": "Orphanet_217604  Dilated cardiomyopathy",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "dilated cardiomyopathy",
+        "umls_with_desc": "C0007193 Dilated Cardiomyopathy",
+        "ordo_with_desc": "Orphanet_217604  Dilated cardiomyopathy",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Present_Illness",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "35579": {
+    "note_details": {
+      "subject_id": "87055",
+      "hadm_id": "134482.0",
+      "category": "Discharge summary",
+      "chartdate": "2151-02-20",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "amyloidosis",
+        "umls_with_desc": "C0002726 Amyloidoses",
+        "ordo_with_desc": "Orphanet_69",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1,
+        "context": " History:\nOncology History:\n- Multiple Myeloma, s/p autologous stem cell transplant in [**2149**]\n- Amyloidosis\n\nOther Medical History:\n- ESRD [**2-10**] amyloidosis\n- Hyperlipidemia\n- Restless leg syndrome\n- H/",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_69"
+      },
+      {
+        "mention": "multiple myeloma",
+        "start": 403,
+        "end": 419,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "ORPHA:29073 multiple myeloma",
+        "auto_enriched": true,
+        "similarity_score": 0.8098550321678754,
+        "context": "on [**2151-2-15**]\nBronchoscopy\nExtubation on [**2151-2-17**]\n\n\nHistory of Present Illness:\n65M h/o multiple myeloma, amyloid, s/p autologous stem cell\ntransplant [**2149**], on HD for renal failure with hemoptysis x",
+        "is_rare_disease": true
+      },
+      {
+        "mention": "Multiple Myeloma",
+        "start": 2645,
+        "end": 2661,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "ORPHA:29073 multiple myeloma",
+        "auto_enriched": true,
+        "similarity_score": 0.8098550321678754
+      },
+      {
+        "mention": "multiple myeloma",
+        "start": 10308,
+        "end": 10324,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "ORPHA:29073 multiple myeloma",
+        "auto_enriched": true,
+        "similarity_score": 0.8098550321678754
+      },
+      {
+        "mention": "Multiple Myeloma",
+        "start": 16840,
+        "end": 16856,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "ORPHA:29073 multiple myeloma",
+        "auto_enriched": true,
+        "similarity_score": 0.8098550321678754
+      }
+    ]
+  },
+  "35658": {
+    "note_details": {
+      "subject_id": "96638",
+      "hadm_id": "169767.0",
+      "category": "Discharge summary",
+      "chartdate": "2164-08-01",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "pmr",
+        "umls_with_desc": "C0032533 Senile arthritis",
+        "ordo_with_desc": "Orphanet_93569",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1,
+        "context": "f Present Illness:\n[**Age over 90 **] yo M w/ CAD s/p PCI x2 (LAD 80%, First Diag 80%, [**2159**]), PMR,\nCOPD, B/L Pulm Embolism ([**2159**]), developed acute onset of\nsubsternal chest pain at 8am on the",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_93569"
+      },
+      {
+        "mention": "polymyalgia rheumatica",
+        "umls_with_desc": "C0039483 HORTON DIS",
+        "ordo_with_desc": "Orphanet_397",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1,
+        "context": " - Both the patient and his family stated\nthat he regularly takes 7mg prednisone daily for both his\npolymyalgia rheumatica and for primary adrenal insufficiency.\nOn lab testing, he had an equivocal random cortisol level.  ",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_397"
+      },
+      {
+        "mention": "primary adrenal insufficiency",
+        "umls_with_desc": "C0001403 ADDISON DIS",
+        "ordo_with_desc": "Orphanet_85138",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1,
+        "context": "ily stated\nthat he regularly takes 7mg prednisone daily for both his\npolymyalgia rheumatica and for primary adrenal insufficiency.\nOn lab testing, he had an equivocal random cortisol level.  The\nMICU decided to treat him with str",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_85138"
+      },
+      {
+        "mention": "pmr",
+        "umls_with_desc": "C0032533 Senile arthritis",
+        "ordo_with_desc": "Orphanet_93569  Polymyalgia rheumatica",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Present_Illness",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "35228": {
+    "note_details": {
+      "subject_id": "54345",
+      "hadm_id": "128084.0",
+      "category": "Discharge summary",
+      "chartdate": "2145-11-01",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "post polio syndrome",
+        "umls_with_desc": "C0080040 Postpolio syndrome",
+        "ordo_with_desc": "Orphanet_2942",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1,
+        "context": "l History:\ntransitional cell carcinoma - Pathology is pending from right\ndistal ureter\nHypertension\npost polio syndrome\nhyperlipidemia\nDM2\nmonoclonal gammopathy\nperipheral vascular disease s/p left common iliac arterial",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_2942"
+      },
+      {
+        "mention": "transitional cell carcinoma",
+        "start": 1237,
+        "end": 1264,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "ORPHA:217071 renal cell carcinoma",
+        "auto_enriched": true,
+        "similarity_score": 0.8001565190353495
+      }
+    ]
+  },
+  "34689": {
+    "note_details": {
+      "subject_id": "27607",
+      "hadm_id": "154096.0",
+      "category": "Discharge summary",
+      "chartdate": "2196-08-18",
+      "charttime": null
+    },
+    "annotations": []
+  },
+  "33893": {
+    "note_details": {
+      "subject_id": "43305",
+      "hadm_id": "192925.0",
+      "category": "Discharge summary",
+      "chartdate": "2143-01-09",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "hypogammaglobulinemia",
+        "umls_with_desc": "C0086438 Hypogammaglobulinemia",
+        "ordo_with_desc": "Orphanet_229717",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1,
+        "context": "ents for osteonecrosis [**2-26**] long term\nprednisione use (R knee [**9-1**], left knee [**1-1**])\nhypogammaglobulinemia\nhepatitis c\ntobacco abuse\n-spontaneous PTX in [**5-2**]\n-s/p R VATS/bleb resection and pleurectomy ",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_229717"
+      },
+      {
+        "mention": "bronchiectasis",
+        "start": 5302,
+        "end": 5316,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "60033",
+        "auto_enriched": true,
+        "similarity_score": 0.7567904172449823,
+        "context": "additionally, there is perihilar opacity bilaterally, with bronchiectasis. the heart size is normal. there is no",
+        "is_rare_disease": true,
+        "orpha_code": "60033"
+      },
+      {
+        "mention": "bronchiectasis",
+        "start": 5605,
+        "end": 5619,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "ORPHA:60033 idiopathic bronchiectasis",
+        "auto_enriched": true,
+        "similarity_score": 0.7567904172449823
+      },
+      {
+        "mention": "osteonecrosis",
+        "context": "s/p bilateral knee replacements for osteonecrosis [**2-26**] long term",
+        "is_rare_disease": true,
+        "orpha_code": "399158",
+        "ordo_with_desc": "399158"
+      }
+    ]
+  },
+  "40395": {
+    "note_details": {
+      "subject_id": "60424",
+      "hadm_id": "155222.0",
+      "category": "Discharge summary",
+      "chartdate": "2119-05-02",
+      "charttime": null
+    },
+    "annotations": []
+  },
+  "33909": {
+    "note_details": {
+      "subject_id": "29560",
+      "hadm_id": "182407.0",
+      "category": "Discharge summary",
+      "chartdate": "2124-08-08",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "HIT",
+        "umls_with_desc": "C0272285 HIT",
+        "ordo_with_desc": "Orphanet_3325",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1,
+        "context": "-1**] without complication. The hematology service was\nconsulted for thrombocytopenia. Although his HIT assay was\nnegative, it was recommended to treat as if he was HIT positive.\nThus, all heparin produc",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_3325"
+      },
+      {
+        "mention": "HIT",
+        "umls_with_desc": "C0272285 HIT",
+        "ordo_with_desc": "Orphanet_3325  Heparin-induced thrombocytopenia",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "HIT",
+        "umls_with_desc": "C0272285 HIT",
+        "ordo_with_desc": "Orphanet_3325  Heparin-induced thrombocytopenia",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "HIT",
+        "umls_with_desc": "C0272285 HIT",
+        "ordo_with_desc": "Orphanet_3325  Heparin-induced thrombocytopenia",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "34305": {
+    "note_details": {
+      "subject_id": "28270",
+      "hadm_id": "153773.0",
+      "category": "Discharge summary",
+      "chartdate": "2189-11-23",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "calciphylaxis",
+        "umls_with_desc": "C0006666 Calciphylaxes",
+        "ordo_with_desc": "Orphanet_280062",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1,
+        "context": "on HD, DM2, CAD s/p stents\nx 8 at [**Hospital1 112**], severe AS, now healed ulcer of RLE [**1-6**] calciphylaxis\nrecently admitted [**9-/2189**] with altered mental status now\nadmitted with substernal CP. Pt deve",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_280062"
+      },
+      {
+        "mention": "pulmonary arterial hypertension",
+        "umls_with_desc": "C0152171 Prim pulm hypertension",
+        "ordo_with_desc": "Orphanet_275766",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "pertinent_results",
+        "semehr_label": 1,
+        "context": "nd RCA.\n2. Mildly elevated PCW consistent with mild left ventricular\ndiastolic\ndysfunction.\n3. Mild pulmonary arterial hypertension.\n4. Peripheral arterial disease.\n\n\nBrief Hospital Course:\n 54 yo female with h/o ESRD on HD, DM2, C",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_275766"
+      },
+      {
+        "mention": "calciphylaxis",
+        "umls_with_desc": "C0006666 Calciphylaxes",
+        "ordo_with_desc": "Orphanet_280062  Calciphylaxis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "calciphylaxis",
+        "umls_with_desc": "C0006666 Calciphylaxes",
+        "ordo_with_desc": "Orphanet_280062  Calciphylaxis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Present_Illness",
+        "semehr_label": 1
+      },
+      {
+        "mention": "Pyoderma gangrenosum",
+        "start": 2530,
+        "end": 2550,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "Orpha:48104 pyoderma gangrenosum",
+        "auto_enriched": true,
+        "similarity_score": 0.785157664574219,
+        "context": "us MI >20\nyrs ago\n-Severe AS- [**Location (un) 109**] 0.8-1.0 cm2\n- DM x >20 years  w/ neuropathy\n- Pyoderma gangrenosum\n- HTN\n- CVA (by imaging, not recognized and no residual deficits)\n- GERD not currently active.\n- Mo",
+        "is_rare_disease": true
+      }
+    ]
+  },
+  "34316": {
+    "note_details": {
+      "subject_id": "29433",
+      "hadm_id": "146826.0",
+      "category": "Discharge summary",
+      "chartdate": "2180-10-11",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "tracheobronchomalacia",
+        "umls_with_desc": "C0340231 Tracheobronchomalacia",
+        "ordo_with_desc": "Orphanet_411501",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Discharge_Diagnosis",
+        "semehr_label": 1,
+        "context": "woman with severe dyspnea. She\nhas emphysema but on further workup was noted to have severe\ndiffuse tracheobronchomalacia. She underwent a tracheobronchial\nsilicone Y stent trial and had marked improvement of her\nsymptoms",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_411501"
+      },
+      {
+        "mention": "tracheobronchomalacia",
+        "umls_with_desc": "C0340231 Tracheobronchomalacia",
+        "ordo_with_desc": "Orphanet_411501  Williams-Campbell syndrome",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Present_Illness",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "36547": {
+    "note_details": {
+      "subject_id": "64145",
+      "hadm_id": "109844.0",
+      "category": "Discharge summary",
+      "chartdate": "2194-03-07",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "mediastinitis",
+        "start": 2158,
+        "end": 2171,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "63999",
+        "auto_enriched": true,
+        "similarity_score": 0.677284615758963,
+        "context": "bleeding. she was transferred to [**hospital1 18**] for furhter management out of concern for mediastinitis and? need for tracheal surgery. of note, per c.",
+        "is_rare_disease": true,
+        "orpha_code": "63999"
+      },
+      {
+        "mention": "mediastinitis",
+        "start": 2608,
+        "end": 2621,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "ORPHA:63999 igg4-related mediastinitis",
+        "auto_enriched": true,
+        "similarity_score": 0.677284615758963
+      },
+      {
+        "mention": "mediastinitis",
+        "start": 8248,
+        "end": 8261,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "ORPHA:63999 igg4-related mediastinitis",
+        "auto_enriched": true,
+        "similarity_score": 0.677284615758963
+      },
+      {
+        "mention": "mediastinitis",
+        "start": 9179,
+        "end": 9192,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "ORPHA:63999 igg4-related mediastinitis",
+        "auto_enriched": true,
+        "similarity_score": 0.677284615758963
+      },
+      {
+        "mention": "mediastinitis",
+        "start": 9818,
+        "end": 9831,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "ORPHA:63999 igg4-related mediastinitis",
+        "auto_enriched": true,
+        "similarity_score": 0.677284615758963
+      },
+      {
+        "mention": "mediastinitis",
+        "start": 10674,
+        "end": 10687,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "ORPHA:63999 igg4-related mediastinitis",
+        "auto_enriched": true,
+        "similarity_score": 0.677284615758963
+      }
+    ]
+  },
+  "35323": {
+    "note_details": {
+      "subject_id": "64277",
+      "hadm_id": "161558.0",
+      "category": "Discharge summary",
+      "chartdate": "2187-11-09",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "fulminant hepatic failure",
+        "umls_with_desc": "C0162557 Acute Liver Failure",
+        "ordo_with_desc": "Orphanet_90062",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Present_Illness",
+        "semehr_label": 1,
+        "context": "vasive Procedure:\n[**2187-8-23**]: ERCP\n[**2187-8-27**]: ERCP\n\nHistory of Present Illness:\n46M with fulminant hepatic failure c/b HRS likely secondary\nto Hepatitis E, s/p ABO mismatch OLTx with splenectomy [**4-/2187**]\ncompl",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_90062"
+      }
+    ]
+  },
+  "52501": {
+    "note_details": {
+      "subject_id": "95676",
+      "hadm_id": "146292.0",
+      "category": "Discharge summary",
+      "chartdate": "2156-01-22",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "HIT",
+        "umls_with_desc": "C0272285 HIT",
+        "ordo_with_desc": "Orphanet_3325",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1,
+        "context": "educed in number hypochromic with anisopoikilocytosis including\noccasional elliptocytes seen.  The white blood cell count\nappears markedly decreased, and neutrophils are absent.\nPlatelet count appears mi",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_3325"
+      },
+      {
+        "mention": "HIT",
+        "umls_with_desc": "C0272285 HIT",
+        "ordo_with_desc": "Orphanet_3325  Heparin-induced thrombocytopenia",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "52528": {
+    "note_details": {
+      "subject_id": "25367",
+      "hadm_id": "151193.0",
+      "category": "Discharge summary",
+      "chartdate": "2155-04-17",
+      "charttime": null
+    },
+    "annotations": []
+  },
+  "51061": {
+    "note_details": {
+      "subject_id": "6891",
+      "hadm_id": "145953.0",
+      "category": "Discharge summary",
+      "chartdate": "2146-07-11",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "recurrent fever",
+        "umls_with_desc": "C0035021 Recurrent fever",
+        "ordo_with_desc": "Orphanet_91547",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Discharge_Diagnosis",
+        "semehr_label": 1,
+        "context": "\n\nDischarge Disposition:\nHome With Service\n\nFacility:\nHome Solutions\n\nDischarge Diagnosis:\nPrimary: recurrent fever\nSecondary: rash, leukopenia, elevated LFTs\n\nDischarge Condition:\nMental Status: Clear and coherent.",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_91547"
+      }
+    ]
+  },
+  "52206": {
+    "note_details": {
+      "subject_id": "20720",
+      "hadm_id": "193253.0",
+      "category": "Discharge summary",
+      "chartdate": "2101-02-19",
+      "charttime": null
+    },
+    "annotations": []
+  },
+  "49795": {
+    "note_details": {
+      "subject_id": "22681",
+      "hadm_id": "125806.0",
+      "category": "Discharge summary",
+      "chartdate": "2111-07-21",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "fulminant liver failure",
+        "umls_with_desc": "C0162557 Acute Liver Failure",
+        "ordo_with_desc": "Orphanet_90062",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "impression",
+        "semehr_label": 1,
+        "context": "is. Correlate clinically and\nwith follow up\nif indicated.\n\nLiver ultrasound [**7-18**]:\nINDICATION: Fulminant liver failure with new fever.\n\nComparison is made to the prior ultrasound dated [**2111-7-13**].\n\nFINDINGS: The l",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_90062"
+      },
+      {
+        "mention": "fulminant hepatic failure",
+        "umls_with_desc": "C0162557 Acute Liver Failure",
+        "ordo_with_desc": "Orphanet_90062",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Discharge_Diagnosis",
+        "semehr_label": 1,
+        "context": "ught to require liver transplant,\nextubated and with clinical improvement with decreasing LFTs.\n\n1. Fulminant hepatic failure. Patient's fulminant hepatic\nfailure was likely secondary to alcohol and acetominophen\noverdose. Pa",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_90062"
+      },
+      {
+        "mention": "fulminant hepatic failure",
+        "umls_with_desc": "C0162557 Acute Liver Failure",
+        "ordo_with_desc": "Orphanet_90062  Acute liver failure",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "fulminant hepatic failure",
+        "umls_with_desc": "C0162557 Acute Liver Failure",
+        "ordo_with_desc": "Orphanet_90062  Acute liver failure",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "fulminant hepatic failure",
+        "umls_with_desc": "C0162557 Acute Liver Failure",
+        "ordo_with_desc": "Orphanet_90062  Acute liver failure",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Present_Illness",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "49021": {
+    "note_details": {
+      "subject_id": "9256",
+      "hadm_id": "170652.0",
+      "category": "Discharge summary",
+      "chartdate": "2187-10-02",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "alport's syndrome",
+        "umls_with_desc": "C1567741 Alport Syndrome",
+        "ordo_with_desc": "Orphanet_63",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1,
+        "context": "ol, and fentanyl.  He was then\ntransferred to the MICU for further care.\n\n\nPast Medical History:\n1. Alport's syndrome with ESRD, s/p 2 failed renal transplants\n([**2152**] and [**2168**]), now on MWF HD.\n2. CHF w/EF >",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_63"
+      },
+      {
+        "mention": "alport syndrome",
+        "umls_with_desc": "C1567741 Alport Syndrome",
+        "ordo_with_desc": "Orphanet_63",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Present_Illness",
+        "semehr_label": 1,
+        "context": "distress\n\nMajor Surgical or Invasive Procedure:\nIntubation\n\n\nHistory of Present Illness:\n50 y/o M w/Alport syndrome, ESRD on HD, CHF, HTN, who presented\nto the ED last pm c/o left sided chest pain.  Per the notes, t",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_63"
+      },
+      {
+        "mention": "autosomal dominant alport syndrome",
+        "context": "Alport's syndrome with ESRD, s/p 2 failed renal transplants",
+        "is_rare_disease": true,
+        "orpha_code": "88918",
+        "ordo_with_desc": "88918"
+      }
+    ]
+  },
+  "41073": {
+    "note_details": {
+      "subject_id": "82083",
+      "hadm_id": "128465.0",
+      "category": "Discharge summary",
+      "chartdate": "2171-06-29",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "epilepsy",
+        "umls_with_desc": "C0014544 Epilepsy",
+        "ordo_with_desc": "Orphanet_101998  Rare epilepsy",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "epilepsy",
+        "umls_with_desc": "C0014544 Epilepsy",
+        "ordo_with_desc": "Orphanet_101998  Rare epilepsy",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "41300": {
+    "note_details": {
+      "subject_id": "46077",
+      "hadm_id": "104395.0",
+      "category": "Discharge summary",
+      "chartdate": "2113-07-20",
+      "charttime": null
+    },
+    "annotations": []
+  },
+  "41466": {
+    "note_details": {
+      "subject_id": "76084",
+      "hadm_id": "134653.0",
+      "category": "Discharge summary",
+      "chartdate": "2180-01-11",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "NPH",
+        "umls_with_desc": "C0020258 Nph",
+        "ordo_with_desc": "Orphanet_314928  Normal pressure hydrocephalus",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "44246": {
+    "note_details": {
+      "subject_id": "44166",
+      "hadm_id": "149440.0",
+      "category": "Discharge summary",
+      "chartdate": "2158-04-28",
+      "charttime": null
+    },
+    "annotations": []
+  },
+  "41991": {
+    "note_details": {
+      "subject_id": "85700",
+      "hadm_id": "167988.0",
+      "category": "Discharge summary",
+      "chartdate": "2185-12-11",
+      "charttime": null
+    },
+    "annotations": []
+  },
+  "41739": {
+    "note_details": {
+      "subject_id": "65956",
+      "hadm_id": "189248.0",
+      "category": "Discharge summary",
+      "chartdate": "2158-11-15",
+      "charttime": null
+    },
+    "annotations": []
+  },
+  "54937": {
+    "note_details": {
+      "subject_id": "78515",
+      "hadm_id": "196984.0",
+      "category": "Discharge summary",
+      "chartdate": "2156-09-08",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "ttp",
+        "umls_with_desc": "C0034155 Moschowitz Disease",
+        "ordo_with_desc": "Orphanet_54057",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Chief_Complaint_and_Reason_for_Visit",
+        "semehr_label": 1,
+        "context": "right lateral low rib post axillary line\nCardiovascular: Normal\nAbdominal: Normal\nExtr/Back: pelvis ttp R side, spine ttp low t spine and\nupper/mid L spine without palpable deformities\nNeuro: distal puls",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_54057"
+      },
+      {
+        "mention": "ttp",
+        "umls_with_desc": "C0034155 Moschowitz Disease",
+        "ordo_with_desc": "Orphanet_54057  Thrombotic thrombocytopenic purpura",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Chief_Complaint_and_Reason_for_Visit",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "49532": {
+    "note_details": {
+      "subject_id": "7142",
+      "hadm_id": "119817.0",
+      "category": "Discharge summary",
+      "chartdate": "2131-12-06",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "primary sclerosing cholangitis",
+        "umls_with_desc": "C0566602 Sclerosing Cholangitis",
+        "ordo_with_desc": "Orphanet_171",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Discharge_Diagnosis",
+        "semehr_label": 1,
+        "context": "LLNESS:  This is a 75 year old woman\nstatus post orthotopic liver transplant on [**2130-12-5**]\nfor primary sclerosing cholangitis who has been undergoing\nchemotherapy for a Stage 3 [**Year (4 digits) 499**] cancer.  The patient\nd",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_171"
+      },
+      {
+        "mention": "primary sclerosing cholangitis",
+        "umls_with_desc": "C0566602 Sclerosing Cholangitis",
+        "ordo_with_desc": "Orphanet_171  Primary sclerosing cholangitis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "facility",
+        "semehr_label": 1
+      },
+      {
+        "mention": "primary sclerosing cholangitis",
+        "umls_with_desc": "C0566602 Sclerosing Cholangitis",
+        "ordo_with_desc": "Orphanet_171  Primary sclerosing cholangitis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "49955": {
+    "note_details": {
+      "subject_id": "61348",
+      "hadm_id": "173407.0",
+      "category": "Discharge summary",
+      "chartdate": "2165-09-09",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "primary adrenal insufficiency",
+        "umls_with_desc": "C0001403 ADDISON DIS",
+        "ordo_with_desc": "Orphanet_85138",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1,
+        "context": "DH as well.  She had FSH and LH levels\nthat were low for her age, and so there was some concern for\nprimary adrenal insufficiency, although her degree of\nhyperkalemia is not commonly seen in primary adrenal\ninsufficiency.  At dis",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_85138"
+      }
+    ]
+  },
+  "47713": {
+    "note_details": {
+      "subject_id": "69433",
+      "hadm_id": "174646.0",
+      "category": "Discharge summary",
+      "chartdate": "2138-11-20",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "pulmonary arterial hypertension",
+        "umls_with_desc": "C0152171 Prim pulm hypertension",
+        "ordo_with_desc": "Orphanet_275766",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1,
+        "context": "ory:\n- Type 2 Diabetes Mellitus\n- Atrial Fibrillation on Coumadin\n- Hypertension\n- Hyperlipidemia\n- Pulmonary arterial hypertension\n- Chronic kidney disease\n- Anemia\n- Hyperparathyroidism s/p parathyroidectomy [**6-21**]\n- Pelvic f",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_275766"
+      },
+      {
+        "mention": "hyperparathyroidism",
+        "umls_with_desc": "C0020502 Hyperparathyroidism",
+        "ordo_with_desc": "Orphanet_181408  Rare hyperparathyroidism",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "49482": {
+    "note_details": {
+      "subject_id": "12849",
+      "hadm_id": "142517.0",
+      "category": "Discharge summary",
+      "chartdate": "2139-10-17",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "crest syndrome",
+        "umls_with_desc": "C0206138 Syndrome, CREST",
+        "ordo_with_desc": "Orphanet_90290",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1,
+        "context": "vice:  [**Location (un) 259**]\n\nHISTORY OF PRESENT ILLNESS:  The patient is a 49 year-old\nmale with Crest syndrome who presents with worsening\nshortness of breath and a Hickman catheter infection.  The\ncatheter was",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_90290"
+      },
+      {
+        "mention": "crest syndrome",
+        "umls_with_desc": "C0206138 Syndrome, CREST",
+        "ordo_with_desc": "Orphanet_90290  CREST syndrome",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1
+      },
+      {
+        "mention": "crest syndrome",
+        "umls_with_desc": "C0206138 Syndrome, CREST",
+        "ordo_with_desc": "Orphanet_90290  CREST syndrome",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "basic",
+        "semehr_label": 1
+      },
+      {
+        "mention": "scleroderma",
+        "context": "Extremities sclerodermal changes",
+        "is_rare_disease": true,
+        "orpha_code": "801",
+        "ordo_with_desc": "801"
+      }
+    ]
+  },
+  "48386": {
+    "note_details": {
+      "subject_id": "2116",
+      "hadm_id": "170769.0",
+      "category": "Discharge summary",
+      "chartdate": "2138-02-06",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "multifocal atrial tachycardia",
+        "umls_with_desc": "C0221158 Ectopic atrial tachycardia",
+        "ordo_with_desc": "Orphanet_3282",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1,
+        "context": "tomy and cholecystectomy.\n5.  Non-insulin dependent diabetes mellitus secondary to\nsteroid use.\n6.  Multifocal atrial tachycardia.\n7.  Depression.\n\nALLERGIES:   She has an allergy to percocet which causes GI\nupset.\n\nMEDICATIONS O",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_3282"
+      }
+    ]
+  },
+  "48652": {
+    "note_details": {
+      "subject_id": "52593",
+      "hadm_id": "148720.0",
+      "category": "Discharge summary",
+      "chartdate": "2151-07-18",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "legionella",
+        "umls_with_desc": "C0023241 Legionella",
+        "ordo_with_desc": "Orphanet_549",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "pertinent_results",
+        "semehr_label": 1,
+        "context": "LTURE-FINAL INPATIENT (negative)\n[**2151-7-6**] SPUTUM GRAM STAIN-FINAL; RESPIRATORY CULTURE-FINAL;\nLEGIONELLA CULTURE-FINAL INPATIENT (contaminant)\n[**2151-7-6**] MRSA SCREEN MRSA SCREEN-FINAL INPATIENT (negat",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_549"
+      },
+      {
+        "mention": "legionella",
+        "umls_with_desc": "C0023241 Legionella",
+        "ordo_with_desc": "Orphanet_549  Legionellosis",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "Hepatocellular Carcinoma",
+        "start": 7198,
+        "end": 7222,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "88673",
+        "auto_enriched": true,
+        "similarity_score": 0.7755728530529565,
+        "context": "acute renal failure 3. hepatocellular carcinoma 4. cirrhosis",
+        "is_rare_disease": true,
+        "orpha_code": "88673"
+      }
+    ]
+  },
+  "49514": {
+    "note_details": {
+      "subject_id": "18544",
+      "hadm_id": "125442.0",
+      "category": "Discharge summary",
+      "chartdate": "2139-01-23",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "polymyalgia rheumatica",
+        "umls_with_desc": "C0039483 HORTON DIS",
+        "ordo_with_desc": "Orphanet_397",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Discharge_Diagnosis",
+        "semehr_label": 1,
+        "context": "tatus post coronary artery bypass graft x 5 for severe\ncoronary artery disease\n2.  Osteoporosis\n3.  Polymyalgia rheumatica\n\n\n\n\n                            [**First Name11 (Name Pattern1) 1112**] [**Last Name (NamePattern1)",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_397"
+      },
+      {
+        "mention": "polymyalgia rheumatica",
+        "umls_with_desc": "C0039483 HORTON DIS",
+        "ordo_with_desc": "Orphanet_397  Giant cell arteritis",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "basic",
+        "semehr_label": 1
+      }
+    ]
+  },
+  "53382": {
+    "note_details": {
+      "subject_id": "13877",
+      "hadm_id": "172753.0",
+      "category": "Discharge summary",
+      "chartdate": "2175-01-30",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "budd-chiari syndrome",
+        "umls_with_desc": "C0019154 Hepatic Vein Thromboses",
+        "ordo_with_desc": "Orphanet_131",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "Discharge_Diagnosis",
+        "semehr_label": 1,
+        "context": "blet PO twice a day as\nneeded for constipation.\n\n\nDischarge Disposition:\nHome\n\nDischarge Diagnosis:\nBudd-Chiari syndrome\nEssential Thrombocythemia\n\nDischarge Condition:\nStable\n\nDischarge Instructions:\nYou were admitted f",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_131"
+      },
+      {
+        "mention": "essential thrombocythemia",
+        "umls_with_desc": "C0040028 Primary Thrombocytoses",
+        "ordo_with_desc": "Orphanet_3318",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Discharge_Diagnosis",
+        "semehr_label": 1,
+        "context": "Moderate amount of\nascites in bilateral lower quadrants.\n.\n\nBrief Hospital Course:\n39 yo F with h/o essential thrombocythemia c/b bilateral LE\nDVTs, infrahepatic IVC clot, and L renal vein clot on coumadin\npresented with incr",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_3318"
+      },
+      {
+        "mention": "essential thrombocytosis",
+        "umls_with_desc": "C0040028 Primary Thrombocytoses",
+        "ordo_with_desc": "Orphanet_3318",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1,
+        "context": "was noted, in addition\nto splenomegaly, prompting referral to [**Date Range 1978**]. A diagnosis\nof essential thrombocytosis was made via bone marrow biopsy in\n[**1-10**] demonstrating increased large atypical megakaryocytes",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_3318"
+      },
+      {
+        "mention": "essential thrombocytosis",
+        "umls_with_desc": "C0040028 Primary Thrombocytoses",
+        "ordo_with_desc": "Orphanet_3318  Essential thrombocythemia",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Past_Illness",
+        "semehr_label": 1
+      },
+      {
+        "mention": "essential thrombocythemia",
+        "umls_with_desc": "C0040028 Primary Thrombocytoses",
+        "ordo_with_desc": "Orphanet_3318  Essential thrombocythemia",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "essential thrombocythemia",
+        "umls_with_desc": "C0040028 Primary Thrombocytoses",
+        "ordo_with_desc": "Orphanet_3318  Essential thrombocythemia",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "budd chiari syndrome",
+        "umls_with_desc": "C0019154 Hepatic Vein Thromboses",
+        "ordo_with_desc": "Orphanet_131  Budd-Chiari syndrome",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "Hospital_course",
+        "semehr_label": 1
+      },
+      {
+        "mention": "essential thrombocythemia",
+        "umls_with_desc": "C0040028 Primary Thrombocytoses",
+        "ordo_with_desc": "Orphanet_3318  Essential thrombocythemia",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "History_of_Present_Illness",
+        "semehr_label": 1
+      },
+      {
+        "mention": "Budd-Chiari",
+        "start": 4550,
+        "end": 4561,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "ORPHA:131 budd-chiari syndrome",
+        "auto_enriched": true,
+        "similarity_score": 0.6952261983816111,
+        "context": " a peripheral arterial enhancement\npattern of the liver compatible with the interval development of\nBudd-Chiari.  Again seen is extensive nonocclusive thrombus\nwithin the infra-hepatic IVC, extending to the leve",
+        "is_rare_disease": true
+      },
+      {
+        "mention": "Budd-Chiari",
+        "start": 5192,
+        "end": 5203,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "ORPHA:131 budd-chiari syndrome",
+        "auto_enriched": true,
+        "similarity_score": 0.6952261983816111
+      },
+      {
+        "mention": "Budd-Chiari",
+        "start": 6470,
+        "end": 6481,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "ORPHA:131 budd-chiari syndrome",
+        "auto_enriched": true,
+        "similarity_score": 0.6952261983816111
+      },
+      {
+        "mention": "Budd-Chiari",
+        "start": 8406,
+        "end": 8417,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "ORPHA:131 budd-chiari syndrome",
+        "auto_enriched": true,
+        "similarity_score": 0.6952261983816111
+      },
+      {
+        "mention": "Budd-Chiari",
+        "start": 8579,
+        "end": 8590,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "ORPHA:131 budd-chiari syndrome",
+        "auto_enriched": true,
+        "similarity_score": 0.6952261983816111
+      }
+    ]
+  },
+  "53406": {
+    "note_details": {
+      "subject_id": "58433",
+      "hadm_id": "100415.0",
+      "category": "Discharge summary",
+      "chartdate": "2178-01-23",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "epileptic",
+        "umls_with_desc": "C0014544 Epilepsy",
+        "ordo_with_desc": "Orphanet_101998  Rare epilepsy",
+        "gold_text_to_umls_label": 0,
+        "gold_text_to_ordo_label": 0,
+        "document_structure": "History_of_Present_Illness",
+        "semehr_label": 1
+      },
+      {
+        "mention": "meningocele",
+        "start": 5247,
+        "end": 5258,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "ORPHA:93968 meningocele",
+        "auto_enriched": true,
+        "similarity_score": 1.0,
+        "context": "or\nstudy. Stable bilateral renal\ncortical scarring, stable.\n3. Fibroid uterus.\n4. Spina bifida with meningocele, unchanged.\n.\nRecent labs from [**2178-1-13**] at 1400:\n.\n135  107  8  100   AGap=11\n.\n4.4  21  0.8",
+        "is_rare_disease": true
+      }
+    ]
+  },
+  "53691": {
+    "note_details": {
+      "subject_id": "4397",
+      "hadm_id": "148677.0",
+      "category": "Discharge summary",
+      "chartdate": "2156-05-21",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "calciphylaxis",
+        "umls_with_desc": "C0006666 Calciphylaxes",
+        "ordo_with_desc": "Orphanet_280062",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "basic",
+        "semehr_label": 1,
+        "context": "ia.\n\nAcute renal failure in [**2152**] secondary to AIN/ATN from\nimipenem, gentamicin and Bactrim.\n\nCalciphylaxis of the lower extremities in [**2153-9-17**].\n\nProteus bacteremia in [**2156-2-16**].\n\nHistory of at",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_280062"
+      },
+      {
+        "mention": "Alopecia",
+        "start": 1912,
+        "end": 1920,
+        "type": "RARE_DISEASE",
+        "validated_false_positive": true,
+        "ordo_with_desc": "79364",
+        "auto_enriched": true,
+        "similarity_score": 1.0,
+        "context": "anemia of chronic disease. depression. alopecia. acute renal failure in [**2152**] secondary to ain/atn from imipenem, gentamicin and bactrim.",
+        "is_rare_disease": true,
+        "orpha_code": "79364"
+      }
+    ]
+  },
+  "59366": {
+    "note_details": {
+      "subject_id": "4910",
+      "hadm_id": "151003.0",
+      "category": "Discharge summary",
+      "chartdate": "2173-05-04",
+      "charttime": null
+    },
+    "annotations": [
+      {
+        "mention": "multifocal atrial tachycardia",
+        "umls_with_desc": "C0221158 Ectopic atrial tachycardia",
+        "ordo_with_desc": "Orphanet_3282",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "Discharge_Medications",
+        "semehr_label": 1,
+        "context": "te a 14-day course of p.o.\nVancomycin and Flagyl p.o.  She has remained hemodynamically\nstable.\n\n2. Multifocal atrial tachycardia (MAT):  Patient's heart rate\nhas improved and her heart rate less in the 80s to low 100s\ncurrently.",
+        "is_rare_disease": true,
+        "orpha_code": "Orphanet_3282"
+      },
+      {
+        "mention": "multifocal atrial tachycardia",
+        "umls_with_desc": "C0221158 Ectopic atrial tachycardia",
+        "ordo_with_desc": "Orphanet_3282  Multifocal atrial tachycardia",
+        "gold_text_to_umls_label": 1,
+        "gold_text_to_ordo_label": 1,
+        "document_structure": "basic",
+        "semehr_label": 1
+      }
+    ]
+  }
+}

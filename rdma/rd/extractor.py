@@ -52,6 +52,7 @@ class RDMAExtractor:
         temperatures: Optional[List[float]] = None,
         aggregation_type: str = "hybrid",
         hybrid_threshold: int = 2,
+        strict: bool = True,
         debug: bool = False,
     ):
         """
@@ -70,6 +71,8 @@ class RDMAExtractor:
             temperatures: List of temperatures for multi-temperature extraction
             aggregation_type: Method to aggregate multi-temperature results ("union", "intersection", or "hybrid")
             hybrid_threshold: Threshold for hybrid aggregation
+            strict: If True (default), extract only clearly identified rare disease terms.
+                If False, cast a wide net for maximum recall — the verifier filters FPs.
             debug: Whether to print debug information
         """
         self.llm_client = llm_client
@@ -84,6 +87,7 @@ class RDMAExtractor:
         self.temperatures = temperatures or [0.01, 0.1, 0.3, 0.7, 0.9]
         self.aggregation_type = aggregation_type
         self.hybrid_threshold = hybrid_threshold
+        self.strict = strict
         self.debug = debug
 
         # Initialize context extractor
@@ -119,6 +123,7 @@ class RDMAExtractor:
                 system_message=self.system_prompt,
                 top_k=self.top_k,
                 min_sentence_size=self.min_sentence_size,
+                strict=self.strict,
             )
 
         elif self.extraction_method == "iterative":
@@ -161,10 +166,35 @@ class RDMAExtractor:
                 f"Extracted {len(entities)} potential rare disease entities"
             )
 
+        # ── Text-membership filter ────────────────────────────────────────
+        # The LLM may return normalised, rephrased, or hallucinated strings
+        # that do not literally appear in the source text.  Only keep
+        # entities whose surface form is a case-insensitive substring of
+        # the full text.  This is applied before context extraction so that
+        # no downstream work is wasted on spurious mentions.
+        text_lower = text.lower()
+        entities_in_text = [e for e in entities if e.lower() in text_lower]
+
+        if self.debug:
+            dropped = len(entities) - len(entities_in_text)
+            if dropped:
+                self._debug_print(
+                    f"Text-membership filter: dropped {dropped} entity/entities "
+                    f"not found in source text"
+                )
+            self._debug_print(
+                f"{len(entities_in_text)} entities remain after text-membership filter"
+            )
+
         # Find contexts for entities
         entity_contexts = self.context_extractor.extract_contexts(
-            entities, text, window_size=self.window_size
+            entities_in_text, text, window_size=self.window_size
         )
+
+        # Belt-and-suspenders: drop any entry whose context is empty, which
+        # would mean find_entity_context also failed to locate it (shouldn't
+        # happen after the filter above, but guards against edge cases).
+        entity_contexts = [ec for ec in entity_contexts if ec.get("context")]
 
         # Return structured output
         return entity_contexts

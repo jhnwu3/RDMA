@@ -167,7 +167,7 @@ class HPOMatcher:
 
         for phenotype in verified_phenotypes:
             # Extract entity and context
-            entity_text = phenotype.get("phenotype", "")
+            entity_text = phenotype.get("phenotype") or phenotype.get("entity", "")
             context = phenotype.get("context", "")
 
             if entity_text:  # Skip empty entities

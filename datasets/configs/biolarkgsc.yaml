@@ -1,0 +1,20 @@
+version: "1.0"
+tables:
+  texts:
+    file_path: "texts.csv"
+    patient_id: "id"
+    timestamp: null
+    attributes:
+      - "text"
+
+  annotations:
+    file_path: "annotations.csv"
+    patient_id: "id"
+    timestamp: null
+    attributes:
+      - "ann_id"
+      - "annotation_type"
+      - "hpo_id"
+      - "start"
+      - "end"
+      - "annotation"
