@@ -18,6 +18,20 @@ from pathlib import Path
 _RDMA_ROOT = Path("/home/johnwu3/projects/rare_disease/workspace/repos/RDMA")
 sys.path.insert(0, str(_RDMA_ROOT))
 
+_DEFAULT_ONTOLOGY = _RDMA_ROOT / "data" / "ontology" / "hpo_data_with_lineage.json"
+
+
+def _build_hpo_lookup(ontology_path: Path) -> dict:
+    """Return a dict mapping HP:XXXXXXX → human-readable label."""
+    with open(ontology_path, encoding="utf-8") as f:
+        data = json.load(f)
+    return {k.replace("_", ":", 1): v.get("label", k) for k, v in data.items()}
+
+
+def _resolve(ids: set, lookup: dict) -> list:
+    """Return sorted list of (hp_id, label) pairs for a set of HP IDs."""
+    return sorted((hid, lookup.get(hid, hid)) for hid in ids)
+
 
 def compute_metrics(records: list, strict: bool = False) -> dict:
     """Compute micro-averaged P/R/F1 across all documents.
@@ -78,6 +92,17 @@ def main():
         default=None,
         help="Optional CSV path to write per-document results",
     )
+    parser.add_argument(
+        "--hpo_ontology",
+        type=Path,
+        default=_DEFAULT_ONTOLOGY,
+        help="Path to hpo_data_with_lineage.json for resolving term labels (default: %(default)s)",
+    )
+    parser.add_argument(
+        "--inspect",
+        action="store_true",
+        help="Print per-sample breakdown with term names to stdout (worst F1 first)",
+    )
     args = parser.parse_args()
 
     records = []
@@ -88,6 +113,10 @@ def main():
                 records.append(json.loads(line))
 
     print(f"Loaded {len(records)} prediction records from {args.predictions}")
+
+    hpo_lookup: dict = {}
+    if args.hpo_ontology and args.hpo_ontology.exists():
+        hpo_lookup = _build_hpo_lookup(args.hpo_ontology)
 
     # Lenient and strict micro-averaged metrics (identical for CSC since
     # ground truth HPO IDs are already unique per phenotype name, but we

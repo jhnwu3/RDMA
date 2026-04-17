@@ -18,7 +18,7 @@ import traceback
 
 from rdma.utils.embedding import EmbeddingsManager
 from rdma.utils.llm_client import LocalLLMClient
-from rdrag.verify import MultiStageRDVerifier
+from rdma.rdrag.verify import MultiStageRDVerifier
 
 
 class RDMASupervisor:

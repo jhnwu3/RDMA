@@ -169,13 +169,13 @@ def main():
     parser.add_argument(
         "--retriever",
         type=str,
-        default="fastembed",
+        default="sentence_transformer",
         help="Retriever type (default: %(default)s)",
     )
     parser.add_argument(
         "--retriever_model",
         type=str,
-        default="BAAI/bge-small-en-v1.5",
+        default="abhinand/MedEmbed-small-v0.1",
         help="Retriever model name (default: %(default)s)",
     )
     parser.add_argument(
@@ -205,8 +205,12 @@ def main():
     )
     parser.add_argument(
         "--use_demographics",
-        action="store_true",
-        help="Enable demographic extraction in the verifier",
+        action=argparse.BooleanOptionalAction,
+        default=True,
+        help=(
+            "Enable demographic extraction for v4 implied"
+            " lab-test reasoning (default: %(default)s)"
+        ),
     )
     parser.add_argument(
         "--output",
