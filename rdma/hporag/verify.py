@@ -101,6 +101,7 @@ class MultiStageHPOVerifierV4:
         config=None,
         debug=False,
         lab_embeddings_file=None,
+        allow_inheritance: bool = False,
     ):
         """Initialize with specific configuration and optional lab embeddings file."""
         self.embedding_manager = embedding_manager
@@ -110,6 +111,7 @@ class MultiStageHPOVerifierV4:
         self.embedded_documents = None
         self.config = config or HPOVerifierConfig()
         self.candidate_count = 20
+        self.allow_inheritance = allow_inheritance
 
         # Lab test tools
         self.lab_embeddings_file = lab_embeddings_file
@@ -118,12 +120,22 @@ class MultiStageHPOVerifierV4:
             self.initialize_lab_searcher()
 
         # Direct verification with binary matching
+        _inheritance_clause = (
+            "\n\nException: also accept terms describing inheritance patterns "
+            "(e.g., autosomal dominant, autosomal recessive, X-linked), "
+            "penetrance/expressivity modifiers (e.g., variable expressivity, "
+            "incomplete penetrance), and onset modifiers (e.g., infantile onset, "
+            "congenital) — these are valid HPO phenotype descriptors."
+            if allow_inheritance
+            else ""
+        )
         self.direct_verification_system_message = (
             "You are a clinical expert specializing in phenotype identification for Human Phenotype Ontology (HPO) mapping. "
             "Your task is to determine if the given entity represents a valid human phenotype based on the provided HPO candidates."
             "\n\nA valid phenotype must describe an abnormal characteristic or trait, not just a normal "
             "anatomical structure, physiological process, laboratory test, or medication."
-            "\n\nAFTER REVIEWING THE CANDIDATES, respond with ONLY 'YES' if:"
+            + _inheritance_clause
+            + "\n\nAFTER REVIEWING THE CANDIDATES, respond with ONLY 'YES' if:"
             "\n- The entity EXACTLY or CLOSELY matches any HPO candidate, OR"
             "\n- The entity clearly describes a phenotype even if not in the candidates"
             "\n\nRespond with ONLY 'NO' if:"

@@ -174,7 +174,7 @@ def main():
     parser.add_argument(
         "--entity_extractor",
         type=str,
-        default="retrieval",
+        default="simple",
         help="Entity extraction method (default: %(default)s)",
     )
     parser.add_argument(

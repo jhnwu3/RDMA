@@ -41,6 +41,7 @@ class HPOVerifier:
         verifier_config: Optional[Dict] = None,
         debug: bool = False,
         use_demographics: bool = False,  # Flag to enable demographic extraction and use
+        allow_inheritance: bool = False,
     ):
         """
         Initialize the phenotype verifier wrapper.
@@ -62,6 +63,7 @@ class HPOVerifier:
         self.min_context_length = min_context_length
         self.debug = debug
         self.use_demographics = use_demographics
+        self.allow_inheritance = allow_inheritance
         self.llm_client = llm_client
 
         # Auto-detect device if not specified
@@ -176,6 +178,7 @@ class HPOVerifier:
                 llm_client=self.llm_client,
                 config=self.verifier_config,
                 debug=self.debug,
+                allow_inheritance=self.allow_inheritance,
             )
         elif verifier_version == "v4":
             return MultiStageHPOVerifierV4(
@@ -184,6 +187,7 @@ class HPOVerifier:
                 config=self.verifier_config,
                 debug=self.debug,
                 lab_embeddings_file=lab_embeddings_file,
+                allow_inheritance=self.allow_inheritance,
             )
         else:  # Default to v3
             return MultiStageHPOVerifierV3(
@@ -191,6 +195,7 @@ class HPOVerifier:
                 llm_client=self.llm_client,
                 config=self.verifier_config,
                 debug=self.debug,
+                allow_inheritance=self.allow_inheritance,
             )
 
     def filter_hallucinated_entities(

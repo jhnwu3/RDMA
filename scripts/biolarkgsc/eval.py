@@ -12,6 +12,7 @@ Usage (from RDMA repo root):
 
 import argparse
 import json
+import pickle
 import sys
 from pathlib import Path
 
@@ -19,6 +20,8 @@ _RDMA_ROOT = Path("/home/johnwu3/projects/rare_disease/workspace/repos/RDMA")
 sys.path.insert(0, str(_RDMA_ROOT))
 
 _DEFAULT_ONTOLOGY = _RDMA_ROOT / "data" / "ontology" / "hpo_data_with_lineage.json"
+_DEFAULT_DATASET_CACHE_DIR = "/shared/eng/pyhealth/biolarkgsc"
+_SNIPPET_LEN = 300
 
 
 def _normalize_hpo(hpo_id: str) -> str:
@@ -36,6 +39,17 @@ def _build_hpo_lookup(ontology_path: Path) -> dict:
 def _resolve(ids: set, lookup: dict) -> list:
     """Return sorted list of (hp_id, label) pairs for a set of HP IDs."""
     return sorted((hid, lookup.get(hid, hid)) for hid in ids)
+
+
+def _truncate_text(text: str, max_chars: int | None) -> str:
+    """Return text truncated to max_chars, or full text when max_chars is None."""
+    if not text:
+        return ""
+    if max_chars is None:
+        return text
+    if max_chars <= 0:
+        return ""
+    return text[:max_chars] + ("…" if len(text) > max_chars else "")
 
 
 def compute_metrics(records: list, strict: bool = False) -> dict:
@@ -56,9 +70,11 @@ def compute_metrics(records: list, strict: bool = False) -> dict:
     for rec in records:
         predicted = set(_normalize_hpo(h) for h in rec.get("predicted", []) if h)
         gold_raw = rec.get("ground_truth", [])
-        gold = set(_normalize_hpo(h) for h in gold_raw if h) if strict else [
-            _normalize_hpo(h) for h in gold_raw if h
-        ]
+        gold = (
+            set(_normalize_hpo(h) for h in gold_raw if h)
+            if strict
+            else [_normalize_hpo(h) for h in gold_raw if h]
+        )
 
         if strict:
             gold_list = list(gold)
@@ -91,9 +107,7 @@ def compute_metrics(records: list, strict: bool = False) -> dict:
 
 
 def main():
-    parser = argparse.ArgumentParser(
-        description="Evaluate BioLark GSC HPO predictions"
-    )
+    parser = argparse.ArgumentParser(description="Evaluate BioLark GSC HPO predictions")
     parser.add_argument(
         "--predictions",
         type=Path,
@@ -117,6 +131,30 @@ def main():
         action="store_true",
         help="Print per-sample breakdown with term names to stdout (worst F1 first)",
     )
+    parser.add_argument(
+        "--dataset_cache_dir",
+        type=str,
+        default=_DEFAULT_DATASET_CACHE_DIR,
+        help="PyHealth dataset cache directory for loading text snippets (default: %(default)s)",
+    )
+    parser.add_argument(
+        "--inspect_text_chars",
+        type=int,
+        default=None,
+        help=(
+            "Characters of text to print per sample in --inspect. " "Default: full text"
+        ),
+    )
+    parser.add_argument(
+        "--output_text_chars",
+        type=int,
+        default=_SNIPPET_LEN,
+        help=(
+            "Characters of text to store in CSV text_snippet. "
+            "Set to -1 for empty, or use a large value for near-full text "
+            "(default: %(default)s)"
+        ),
+    )
     args = parser.parse_args()
 
     records = []
@@ -131,6 +169,18 @@ def main():
     hpo_lookup: dict = {}
     if args.hpo_ontology and args.hpo_ontology.exists():
         hpo_lookup = _build_hpo_lookup(args.hpo_ontology)
+
+    text_lookup: dict = {}
+    try:
+        from datasets.biolarkgsc import BioLarkGSCDataset
+        from tasks.biolarkgsc import BioLarkGSCNER
+
+        dataset = BioLarkGSCDataset(cache_dir=args.dataset_cache_dir)
+        samples = dataset.set_task(BioLarkGSCNER())
+        text_lookup = {s["patient_id"]: pickle.loads(s["text"]) for s in samples}
+        print(f"Loaded text for {len(text_lookup)} samples from dataset")
+    except Exception as e:
+        print(f"Warning: could not load dataset text ({e}); snippets will be omitted")
 
     # Lenient micro-averaged metrics (multi-set gold)
     lenient = compute_metrics(records, strict=False)
@@ -155,6 +205,7 @@ def main():
     # Build per-sample rows (used by both --output and --inspect)
     per_sample = []
     for rec in records:
+        doc_id = rec.get("id", "")
         predicted = set(_normalize_hpo(h) for h in rec.get("predicted", []) if h)
         gold = set(_normalize_hpo(h) for h in rec.get("ground_truth", []) if h)
         tp_ids = predicted & gold
@@ -166,9 +217,12 @@ def main():
         p = tp_doc / (tp_doc + fp_doc) if (tp_doc + fp_doc) > 0 else 0.0
         r = tp_doc / (tp_doc + fn_doc) if (tp_doc + fn_doc) > 0 else 0.0
         f = 2 * p * r / (p + r) if (p + r) > 0 else 0.0
+        full_text = text_lookup.get(doc_id, "")
+        inspect_text = _truncate_text(full_text, args.inspect_text_chars)
+        snippet = _truncate_text(full_text, args.output_text_chars)
         per_sample.append(
             {
-                "id": rec.get("id", ""),
+                "id": doc_id,
                 "precision": round(p, 4),
                 "recall": round(r, 4),
                 "f1": round(f, 4),
@@ -180,6 +234,8 @@ def main():
                 "tp_ids": tp_ids,
                 "fp_ids": fp_ids,
                 "fn_ids": fn_ids,
+                "inspect_text": inspect_text,
+                "snippet": snippet,
             }
         )
 
@@ -193,7 +249,13 @@ def main():
                 f"F1={row['f1']:.4f}  P={row['precision']:.4f}  R={row['recall']:.4f}  "
                 f"TP={row['tp']}  FP={row['fp']}  FN={row['fn']}"
             )
-            for label, ids in [("  TP", row["tp_ids"]), ("  FP", row["fp_ids"]), ("  FN", row["fn_ids"])]:
+            if row["inspect_text"]:
+                print(f"    TEXT: {row['inspect_text']}")
+            for label, ids in [
+                ("TP", row["tp_ids"]),
+                ("FP", row["fp_ids"]),
+                ("FN", row["fn_ids"]),
+            ]:
                 if ids:
                     terms = _resolve(ids, hpo_lookup)
                     for hid, name in terms:
@@ -225,6 +287,7 @@ def main():
                 "fp_names": _join_names(row["fp_ids"]),
                 "fn_ids": _join_ids(row["fn_ids"]),
                 "fn_names": _join_names(row["fn_ids"]),
+                "text_snippet": row["snippet"],
             }
             for row in per_sample
         ]
@@ -249,6 +312,7 @@ def main():
                     "fp_names",
                     "fn_ids",
                     "fn_names",
+                    "text_snippet",
                 ],
             )
             writer.writeheader()

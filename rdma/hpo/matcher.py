@@ -1,10 +1,7 @@
 #!/usr/bin/env python3
-import os
-import sys
 import torch
 import numpy as np
-import json
-from typing import List, Dict, Any, Optional, Union
+from typing import List, Dict, Any
 
 
 from rdma.hporag.hpo_match import RAGHPOMatcher, OptimizedRAGHPOMatcher
@@ -28,7 +25,7 @@ class HPOMatcher:
         retriever: str = "fastembed",
         retriever_model: str = "BAAI/bge-small-en-v1.5",
         top_k: int = 5,
-        system_prompt_file: str = None,
+        multi_match: bool = False,
         debug: bool = False,
     ):
         """
@@ -42,11 +39,12 @@ class HPOMatcher:
             retriever: Type of retriever/embedding model to use
             retriever_model: Model name for retriever
             top_k: Number of top candidates to include in results
-            system_prompt_file: File containing system prompts
+            multi_match: If True, return multiple valid HPO IDs per entity
             debug: Enable debug output
         """
         self.optimizer_version = optimizer_version
         self.top_k = top_k
+        self.multi_match = multi_match
         self.debug = debug
         self.llm_client = llm_client
 
@@ -62,8 +60,8 @@ class HPOMatcher:
         if embeddings_file is None:
             raise ValueError("embeddings_file is required for HPO matching")
 
-        # Load system prompt
-        self.system_prompt = self._load_system_prompt(system_prompt_file)
+        # Build a mode-specific prompt directly in code.
+        self.system_prompt = self._build_matching_prompt()
 
         # Initialize embedding manager
         self.embedding_manager = self._initialize_embedding_manager(
@@ -79,29 +77,33 @@ class HPOMatcher:
         # Prepare matcher index
         self.matcher.prepare_index(self.embedded_documents)
 
-    def _load_system_prompt(self, system_prompt_file: Optional[str]) -> str:
-        """Load system prompt from file or use default."""
-        default_prompt = """You are a clinical expert specialized in Human Phenotype Ontology (HPO) coding. 
-        Your task is to analyze a phenotype term and its context, then determine the most appropriate HPO code.
-        Consider both the entity and its context. Respond with only the HPO ID (e.g., HP:0001250)."""
+    def _build_matching_prompt(self) -> str:
+        """Compose mode-specific matching instructions in code."""
+        base_prompt = (
+            "You are a rare disease expert with extensive medical knowledge. "
+            "Identify the most clinically appropriate and context-supported "
+            "Human Phenotype Ontology (HPO) term(s) for the given patient data "
+            "and provided candidate context. Prioritize specificity and clinical "
+            "relevance while avoiding tangential or weakly related terms. Do not "
+            "invent findings that are not supported by the text and context."
+        )
 
-        if system_prompt_file is None:
-            if self.debug:
-                print("Using default system prompt")
-            return default_prompt
+        if self.multi_match:
+            mode_clause = (
+                "MODE: multi_match=true. Return all applicable HPO IDs that are "
+                "well-supported by the entity and context. Include only clinically "
+                "relevant matches and exclude weak, tangential, or speculative "
+                "matches. Output only HPO IDs (e.g., HP:0001250, HP:...), with no extra "
+                "commentary."
+            )
+        else:
+            mode_clause = (
+                "MODE: multi_match=false. Return exactly one HPO ID: the single "
+                "best-supported and most clinically relevant match. Output only the "
+                "HPO ID (e.g., HP:0001250), with no extra commentary."
+            )
 
-        try:
-            with open(system_prompt_file, "r") as f:
-                prompts = json.load(f)
-                system_message = prompts.get("system_message_II", default_prompt)
-                if self.debug:
-                    print(f"Loaded system prompt from {system_prompt_file}")
-                return system_message
-        except Exception as e:
-            if self.debug:
-                print(f"Error loading system prompt: {e}")
-                print("Using default system prompt")
-            return default_prompt
+        return f"{base_prompt}\n\n{mode_clause}"
 
     def _initialize_embedding_manager(self, retriever: str, retriever_model: str):
         """Initialize embedding manager for HPO matching."""
@@ -210,7 +212,10 @@ class HPOMatcher:
 
         # Match entities to HPO terms
         matches = self.matcher.match_hpo_terms(
-            entities, self.embedded_documents, contexts
+            entities,
+            self.embedded_documents,
+            contexts,
+            multi_match=self.multi_match,
         )
 
         # Combine match results with original data
@@ -235,6 +240,13 @@ class HPOMatcher:
                         : self.top_k
                     ],  # Limit to top_k
                 }
+
+                if self.multi_match:
+                    hp_ids = [h for h in match.get("hp_ids", []) if h]
+                    if not hp_ids and phenotype_match["hp_id"]:
+                        hp_ids = [phenotype_match["hp_id"]]
+                    phenotype_match["hpo_terms"] = hp_ids
+                    phenotype_match["hp_ids"] = hp_ids
 
                 matched_phenotypes.append(phenotype_match)
 

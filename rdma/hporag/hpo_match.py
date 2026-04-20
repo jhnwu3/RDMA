@@ -126,6 +126,7 @@ class RAGHPOMatcher(BaseHPOMatcher):
         entities: List[str],
         metadata: List[Dict],
         original_sentences: Optional[List[str]] = None,
+        multi_match: bool = False,
     ) -> List[Dict]:
         """Match entities to HPO terms using enriched matching followed by LLM."""
         if self.index is None:
@@ -153,6 +154,7 @@ class RAGHPOMatcher(BaseHPOMatcher):
             # Try exact matching
             hpo_term = self._try_exact_match(entity, enriched_candidates)
             if hpo_term:
+                hpo_terms = [hpo_term] if multi_match else None
                 match_info.update(
                     {
                         "hpo_term": hpo_term,
@@ -160,35 +162,55 @@ class RAGHPOMatcher(BaseHPOMatcher):
                         "confidence_score": 1.0,
                     }
                 )
+                if multi_match:
+                    match_info.update({"hpo_terms": hpo_terms, "hp_ids": hpo_terms})
                 matches.append(match_info)
                 continue
 
             # If no exact match, try LLM matching with enriched candidates
             if self.llm_client:
                 hpo_term = self._try_llm_match(
-                    entity, enriched_candidates, original_sentence
+                    entity,
+                    enriched_candidates,
+                    original_sentence,
+                    multi_match=multi_match,
                 )
                 if hpo_term:
+                    matched_terms = (
+                        hpo_term if isinstance(hpo_term, list) else [hpo_term]
+                    )
                     match_info.update(
                         {
-                            "hpo_term": hpo_term,
+                            "hpo_term": matched_terms[0],
                             "match_method": "llm",
                             "confidence_score": 0.7,
                         }
                     )
+                    if multi_match:
+                        unique_terms = list(
+                            dict.fromkeys([t for t in matched_terms if t])
+                        )
+                        match_info.update(
+                            {"hpo_terms": unique_terms, "hp_ids": unique_terms}
+                        )
                 else:
                     # If no match found, use the first candidate's HPO term
                     if enriched_candidates:
                         first_candidate = enriched_candidates[0]
+                        fallback_ids = [first_candidate["metadata"]["hp_id"]]
                         match_info.update(
                             {
-                                "hpo_term": first_candidate["metadata"]["hp_id"],
+                                "hpo_term": fallback_ids[0] if fallback_ids else None,
                                 "match_method": "fallback",
                                 "confidence_score": first_candidate.get(
                                     "similarity_score", 0.1
                                 ),  # Low confidence for fallback
                             }
                         )
+                        if multi_match:
+                            match_info.update(
+                                {"hpo_terms": fallback_ids, "hp_ids": fallback_ids}
+                            )
                     else:
                         # If no candidates at all, still include the entity with null HPO term
                         match_info.update(
@@ -198,6 +220,8 @@ class RAGHPOMatcher(BaseHPOMatcher):
                                 "confidence_score": 0.0,
                             }
                         )
+                        if multi_match:
+                            match_info.update({"hpo_terms": [], "hp_ids": []})
             matches.append(match_info)
 
         return matches
@@ -219,7 +243,8 @@ class RAGHPOMatcher(BaseHPOMatcher):
         entity: str,
         candidates: List[Dict],
         original_sentence: Optional[str] = None,
-    ) -> Optional[str]:
+        multi_match: bool = False,
+    ) -> Optional[Any]:
         """Try LLM matching using candidates as context."""
         if not self.llm_client or not self.system_message:
             return None
@@ -249,14 +274,21 @@ class RAGHPOMatcher(BaseHPOMatcher):
         prompt = "\n".join(filter(None, prompt_parts))
         response = self.llm_client.query(prompt, self.system_message)
 
-        hpo_match = re.search(r"HP:\d+", response)
-        return hpo_match.group(0) if hpo_match else None
+        hpo_matches = re.findall(r"HP:\d+", response)
+        if not hpo_matches:
+            return None
+
+        unique_ids = list(dict.fromkeys(hpo_matches))
+        if multi_match:
+            return unique_ids
+        return unique_ids[0]
 
     def process_batch(
         self,
         entities_batch: List[List[str]],
         metadata_batch: List[List[Dict]],
         original_sentences_batch: Optional[List[List[str]]] = None,
+        multi_match: bool = False,
     ) -> List[List[Dict]]:
         """Process a batch of entities for HPO term matching."""
         results = []
@@ -267,7 +299,12 @@ class RAGHPOMatcher(BaseHPOMatcher):
         for entities, metadata, original_sentences in zip(
             entities_batch, metadata_batch, original_sentences_batch
         ):
-            matches = self.match_hpo_terms(entities, metadata, original_sentences)
+            matches = self.match_hpo_terms(
+                entities,
+                metadata,
+                original_sentences,
+                multi_match=multi_match,
+            )
             results.append(matches)
 
         return results
@@ -503,7 +540,8 @@ class OptimizedRAGHPOMatcher(BaseHPOMatcher):
         entity: str,
         candidates: List[Dict],
         original_sentence: Optional[str] = None,
-    ) -> Optional[str]:
+        multi_match: bool = False,
+    ) -> Optional[Any]:
         """Optimized LLM matching using candidates as context."""
         if not self.llm_client or not self.system_message:
             return None
@@ -545,14 +583,21 @@ class OptimizedRAGHPOMatcher(BaseHPOMatcher):
             prompt = "\n".join(filter(None, prompt_parts))
             response = self.llm_client.query(prompt, self.system_message)
 
-            hpo_match = re.search(r"HP:\d+", response)
-            return hpo_match.group(0) if hpo_match else None
+            hpo_matches = re.findall(r"HP:\d+", response)
+            if not hpo_matches:
+                return None
+
+            unique_ids = list(dict.fromkeys(hpo_matches))
+            if multi_match:
+                return unique_ids
+            return unique_ids[0]
 
     def match_hpo_terms(
         self,
         entities: List[str],
         metadata: List[Dict],
         original_sentences: Optional[List[str]] = None,
+        multi_match: bool = False,
     ) -> List[Dict]:
         """Match entities to HPO terms with optimizations that prioritize accuracy."""
         with self._debug_time(f"Matching {len(entities)} entities"):
@@ -580,6 +625,7 @@ class OptimizedRAGHPOMatcher(BaseHPOMatcher):
                 # Try exact matching first (like the original)
                 hpo_term = self._try_exact_match(entity, candidates)
                 if hpo_term:
+                    hpo_terms = [hpo_term] if multi_match else None
                     match_info.update(
                         {
                             "hpo_term": hpo_term,
@@ -587,37 +633,57 @@ class OptimizedRAGHPOMatcher(BaseHPOMatcher):
                             "confidence_score": 1.0,
                         }
                     )
+                    if multi_match:
+                        match_info.update({"hpo_terms": hpo_terms, "hp_ids": hpo_terms})
                     matches.append(match_info)
                     continue
 
                 # If no exact match, go straight to LLM (like the original)
                 if self.llm_client:
                     hpo_term = self._try_llm_match(
-                        entity, enriched_candidates, original_sentence
+                        entity,
+                        enriched_candidates,
+                        original_sentence,
+                        multi_match=multi_match,
                     )
                     if hpo_term:
+                        matched_terms = (
+                            hpo_term if isinstance(hpo_term, list) else [hpo_term]
+                        )
                         match_info.update(
                             {
-                                "hpo_term": hpo_term,
+                                "hpo_term": matched_terms[0],
                                 "match_method": "llm",
                                 "confidence_score": 0.8,  # Higher confidence for LLM matches
                             }
                         )
+                        if multi_match:
+                            unique_terms = list(
+                                dict.fromkeys([t for t in matched_terms if t])
+                            )
+                            match_info.update(
+                                {"hpo_terms": unique_terms, "hp_ids": unique_terms}
+                            )
                         matches.append(match_info)
                         continue
 
                 # If all else fails, use the first candidate as fallback (like the original)
                 if candidates:
                     first_candidate = candidates[0]
+                    fallback_ids = [first_candidate["metadata"]["hp_id"]]
                     match_info.update(
                         {
-                            "hpo_term": first_candidate["metadata"]["hp_id"],
+                            "hpo_term": fallback_ids[0] if fallback_ids else None,
                             "match_method": "fallback",
                             "confidence_score": min(
                                 0.5, first_candidate.get("similarity_score", 0.1)
                             ),  # Cap at 0.5
                         }
                     )
+                    if multi_match:
+                        match_info.update(
+                            {"hpo_terms": fallback_ids, "hp_ids": fallback_ids}
+                        )
                 else:
                     # If no candidates at all, include the entity with null HPO term
                     match_info.update(
@@ -627,6 +693,8 @@ class OptimizedRAGHPOMatcher(BaseHPOMatcher):
                             "confidence_score": 0.0,
                         }
                     )
+                    if multi_match:
+                        match_info.update({"hpo_terms": [], "hp_ids": []})
 
                 matches.append(match_info)
 
@@ -637,6 +705,7 @@ class OptimizedRAGHPOMatcher(BaseHPOMatcher):
         entities_batch: List[List[str]],
         metadata_batch: List[List[Dict]],
         original_sentences_batch: Optional[List[List[str]]] = None,
+        multi_match: bool = False,
     ) -> List[List[Dict]]:
         """Process a batch of entities for HPO term matching."""
         with self._debug_time(
@@ -650,7 +719,12 @@ class OptimizedRAGHPOMatcher(BaseHPOMatcher):
             for entities, metadata, original_sentences in zip(
                 entities_batch, metadata_batch, original_sentences_batch
             ):
-                matches = self.match_hpo_terms(entities, metadata, original_sentences)
+                matches = self.match_hpo_terms(
+                    entities,
+                    metadata,
+                    original_sentences,
+                    multi_match=multi_match,
+                )
                 results.append(matches)
 
             return results

@@ -132,10 +132,16 @@ def main():
         help="PyHealth dataset cache directory (default: %(default)s)",
     )
     parser.add_argument(
+        "--extraction_temperature",
+        type=float,
+        default=0.001,
+        help="LLM sampling temperature for entity extraction (default: %(default)s)",
+    )
+    parser.add_argument(
         "--temperature",
         type=float,
         default=0.01,
-        help="LLM sampling temperature (default: %(default)s)",
+        help="LLM sampling temperature for verification and matching (default: %(default)s)",
     )
     parser.add_argument(
         "--gpu_id",
@@ -208,6 +214,24 @@ def main():
         ),
     )
     parser.add_argument(
+        "--negation",
+        action=argparse.BooleanOptionalAction,
+        default=True,
+        help=(
+            "If true, exclude negated findings during extraction. "
+            "Use --no-negation to include them (default: %(default)s)"
+        ),
+    )
+    parser.add_argument(
+        "--family_history",
+        action=argparse.BooleanOptionalAction,
+        default=True,
+        help=(
+            "If true, exclude family-history findings during extraction. "
+            "Use --no-family_history to include them (default: %(default)s)"
+        ),
+    )
+    parser.add_argument(
         "--output",
         type=Path,
         default=None,
@@ -252,7 +276,8 @@ def main():
     ts(f"LLM device        : {devices['llm']}")
     ts(f"LLM type          : {args.llm_type}")
     ts(f"Model type        : {args.model_type}")
-    ts(f"Temperature       : {args.temperature}")
+    ts(f"Extraction temp   : {args.extraction_temperature}")
+    ts(f"Verify/match temp : {args.temperature}")
     ts(f"GPU id            : {args.gpu_id}")
     ts(f"Condor mode       : {args.condor}")
     ts(f"Model cache dir   : {args.model_cache_dir}")
@@ -264,6 +289,8 @@ def main():
     ts(f"Verifier version  : {args.verifier_version}")
     ts(f"Matcher version   : {args.matcher_version}")
     ts(f"Use demographics  : {args.use_demographics}")
+    ts(f"Exclude negation  : {args.negation}")
+    ts(f"Exclude fam hist  : {args.family_history}")
     ts(f"Top-k             : {args.top_k}")
     ts(f"Output            : {output}")
     ts(f"Resume            : {args.resume}")
@@ -285,47 +312,51 @@ def main():
     ts(f"    phenotypes ({n_ph}): {ph_preview}")
 
     # ── Pipeline ──────────────────────────────────────────────────────────
+    def _make_llm_client(temperature):
+        if args.llm_type == "api":
+            return (
+                APILLMClient.from_config(args.api_config)
+                if args.api_config
+                else APILLMClient(model_type=args.model_type, temperature=temperature)
+            )
+        elif args.llm_type == "openrouter":
+            return (
+                OpenRouterLLMClient.from_config(args.api_config)
+                if args.api_config
+                else OpenRouterLLMClient(
+                    model_type=args.model_type, temperature=temperature
+                )
+            )
+        elif args.llm_type == "llama_cpp":
+            return LlamaCppLLMClient(
+                model_type=args.model_type,
+                gguf_file=args.gguf_file,
+                main_gpu=args.gpu_id if args.gpu_id is not None else 0,
+                temperature=temperature,
+                cache_dir=args.model_cache_dir,
+            )
+        else:
+            return LocalLLMClient(
+                model_type=args.model_type,
+                device=devices["llm"],
+                cache_dir=args.model_cache_dir,
+                temperature=temperature,
+            )
+
     ts(f"Loading LLM ({args.llm_type} / {args.model_type})")
-    if args.llm_type == "api":
-        llm_client = (
-            APILLMClient.from_config(args.api_config)
-            if args.api_config
-            else APILLMClient(
-                model_type=args.model_type, temperature=args.temperature
-            )
-        )
-    elif args.llm_type == "openrouter":
-        llm_client = (
-            OpenRouterLLMClient.from_config(args.api_config)
-            if args.api_config
-            else OpenRouterLLMClient(
-                model_type=args.model_type, temperature=args.temperature
-            )
-        )
-    elif args.llm_type == "llama_cpp":
-        llm_client = LlamaCppLLMClient(
-            model_type=args.model_type,
-            gguf_file=args.gguf_file,
-            main_gpu=args.gpu_id if args.gpu_id is not None else 0,
-            temperature=args.temperature,
-            cache_dir=args.model_cache_dir,
-        )
-    else:
-        llm_client = LocalLLMClient(
-            model_type=args.model_type,
-            device=devices["llm"],
-            cache_dir=args.model_cache_dir,
-            temperature=args.temperature,
-        )
+    extraction_llm_client = _make_llm_client(args.extraction_temperature)
+    llm_client = _make_llm_client(args.temperature)
 
     ts("Initialising HPO pipeline…")
     extractor = PhenotypeExtractor(
-        llm_client=llm_client,
+        llm_client=extraction_llm_client,
         extractor_type=args.entity_extractor,
         embeddings_file=str(args.embeddings_file),
         retriever=args.retriever,
         retriever_model=args.retriever_model,
         top_k=args.top_k,
+        negation=args.negation,
+        family_history=args.family_history,
         debug=args.debug,
     )
     verifier = HPOVerifier(
@@ -390,9 +421,7 @@ def main():
                     ts(f"  [{doc_id}] extracted {len(entities_with_contexts)}")
 
                 t0 = time.perf_counter()
-                verified_phenotypes = verifier.verify(
-                    entities_with_contexts, text
-                )
+                verified_phenotypes = verifier.verify(entities_with_contexts, text)
                 verify_s = time.perf_counter() - t0
                 if args.debug:
                     ts(f"  [{doc_id}] verified  {len(verified_phenotypes)}")
@@ -410,9 +439,7 @@ def main():
                     f"match={match_s:.2f}s"
                 )
                 predicted = [
-                    m.get("hp_id", "")
-                    for m in matched_phenotypes
-                    if m.get("hp_id")
+                    m.get("hp_id", "") for m in matched_phenotypes if m.get("hp_id")
                 ]
             except Exception as e:
                 ts(f"  ERROR [{doc_id}]: {e}")

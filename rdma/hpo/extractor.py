@@ -1,6 +1,4 @@
 #!/usr/bin/env python3
-import os
-import sys
 import torch
 from typing import List, Dict, Any, Optional
 
@@ -39,8 +37,12 @@ class PhenotypeExtractor:
         retriever_model: str = "BAAI/bge-small-en-v1.5",
         retriever_device: str = None,
         top_k: int = 5,
+        negation: bool = False,
+        family_history: bool = False,
         extract_demographics: bool = False,
         debug: bool = False,
+        decompose_compound: bool = False,
+        extract_qualified: bool = False,
     ):
         """
         Initialize the entity extractor wrapper.
@@ -48,13 +50,15 @@ class PhenotypeExtractor:
         Args:
             llm_client: Pre-initialized LLM client
             extractor_type: Type of entity extractor to use ('simple', 'iterative', 'multi', 'retrieval')
-            system_prompt_file: File containing system prompts
+            system_prompt_file: Deprecated and ignored (kept for compatibility)
             max_iterations: Maximum iterations for iterative extractor
             embeddings_file: Path to embeddings file for retrieval-enhanced extraction
             retriever: Type of retriever/embedding model to use
             retriever_model: Model name for retriever
             retriever_device: Device to use for retriever (if None, will auto-detect)
             top_k: Number of top candidates to retrieve per sentence
+            negation: If True, exclude negated findings during extraction
+            family_history: If True, exclude family-history findings during extraction
             extract_demographics: Whether to extract demographic information
             debug: Enable debug output
         """
@@ -62,6 +66,10 @@ class PhenotypeExtractor:
         self.debug = debug
         self.llm_client = llm_client
         self.extract_demographics = extract_demographics
+        self.negation = negation
+        self.family_history = family_history
+        self.decompose_compound = decompose_compound
+        self.extract_qualified = extract_qualified
 
         # Auto-detect retriever device if not specified
         if retriever_device is None:
@@ -71,8 +79,11 @@ class PhenotypeExtractor:
         if self.debug:
             print(f"Using device for retriever: {self.retriever_device}")
 
-        # Load system prompt
-        self.system_prompt = self._load_system_prompt(system_prompt_file)
+        if system_prompt_file and self.debug:
+            print(
+                "system_prompt_file is deprecated for PhenotypeExtractor "
+                "and is ignored."
+            )
 
         # Initialize entity extractor based on type
         self.entity_extractor = self._initialize_entity_extractor(
@@ -82,6 +93,10 @@ class PhenotypeExtractor:
             retriever,
             retriever_model,
             top_k,
+            self.negation,
+            self.family_history,
+            self.decompose_compound,
+            self.extract_qualified,
         )
 
         # Initialize context extractor
@@ -96,32 +111,6 @@ class PhenotypeExtractor:
                 llm_client=self.llm_client, debug=self.debug
             )
 
-    def _load_system_prompt(self, system_prompt_file: Optional[str]) -> str:
-        """Load system prompt from file or use default."""
-        import json
-
-        default_prompt = """You are a medical entity extraction assistant specializing in identifying medical terms in clinical notes. 
-        Extract ALL possible medical terms, symptoms, conditions, diagnoses, anatomical entities, genetic factors, and phenotypes.
-        Respond with a JSON array containing just the extracted terms. Format: {"findings": [term1, term2, ...]}"""
-
-        if system_prompt_file is None:
-            if self.debug:
-                print("Using default system prompt")
-            return default_prompt
-
-        try:
-            with open(system_prompt_file, "r") as f:
-                prompts = json.load(f)
-                system_message = prompts.get("system_message_I", default_prompt)
-                if self.debug:
-                    print(f"Loaded system prompt from {system_prompt_file}")
-                return system_message
-        except Exception as e:
-            if self.debug:
-                print(f"Error loading system prompt: {e}")
-                print("Using default system prompt")
-            return default_prompt
-
     def _initialize_entity_extractor(
         self,
         extractor_type: str,
@@ -130,21 +119,34 @@ class PhenotypeExtractor:
         retriever: str,
         retriever_model: str,
         top_k: int,
+        negation: bool,
+        family_history: bool,
+        decompose_compound: bool = False,
+        extract_qualified: bool = False,
     ):
         """Initialize entity extractor based on type."""
         if self.debug:
             print(f"Initializing {extractor_type} entity extractor")
 
         if extractor_type == "simple":
-            return LLMEntityExtractor(self.llm_client, self.system_prompt)
+            return LLMEntityExtractor(
+                self.llm_client,
+                negation=negation,
+                family_history=family_history,
+                decompose_compound=decompose_compound,
+                extract_qualified=extract_qualified,
+            )
         elif extractor_type == "multi":
             # Multi uses different temperatures for multiple passes
             temperatures = [0.01, 0.1, 0.3, 0.7, 0.9]
             return MultiIterativeExtractor(
                 self.llm_client,
-                self.system_prompt,
                 temperatures=temperatures,
                 max_iterations=max_iterations,
+                negation=negation,
+                family_history=family_history,
+                decompose_compound=decompose_compound,
+                extract_qualified=extract_qualified,
             )
         elif extractor_type == "retrieval":
             if not embeddings_file:
@@ -177,12 +179,20 @@ class PhenotypeExtractor:
                 self.llm_client,
                 embedding_manager,
                 embedded_documents,
-                self.system_prompt,
                 top_k=top_k,
+                negation=negation,
+                family_history=family_history,
+                decompose_compound=decompose_compound,
+                extract_qualified=extract_qualified,
             )
         else:  # Default to iterative
             return IterativeLLMEntityExtractor(
-                self.llm_client, self.system_prompt, max_iterations=max_iterations
+                self.llm_client,
+                max_iterations=max_iterations,
+                negation=negation,
+                family_history=family_history,
+                decompose_compound=decompose_compound,
+                extract_qualified=extract_qualified,
             )
 
     def extract(self, clinical_texts: List[str]) -> List[Dict[str, Any]]:
