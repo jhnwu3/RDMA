@@ -245,9 +245,7 @@ def main():
         )
         eval_output = results_base / f"eval_zeroshot_{args.model_type}.json"
     elif args.approach == "rdrag":
-        predictions_file = (
-            results_base / f"{args.model_type}_rdrag_predictions.jsonl"
-        )
+        predictions_file = results_base / f"{args.model_type}_rdrag_predictions.jsonl"
         eval_output = results_base / f"eval_rdrag_{args.model_type}.json"
     elif args.approach == "dict":
         predictions_file = results_base / "dict_predictions.jsonl"
@@ -261,7 +259,10 @@ def main():
     elif args.approach == "bioclinicalbert_ner":
         # bioclinicalbert_ner.py writes to results/mimic3/bioclinicalbert_ner/
         predictions_file = (
-            _RESULTS_DIR / "mimic3" / "bioclinicalbert_ner" / "per_note_predictions.jsonl"
+            _RESULTS_DIR
+            / "mimic3"
+            / "bioclinicalbert_ner"
+            / "per_note_predictions.jsonl"
         )
         eval_output = results_base / "eval_bioclinicalbert_ner.json"
     elif args.approach == "i2b2_rd":
@@ -270,9 +271,7 @@ def main():
         )
         eval_output = results_base / "eval_i2b2_rd.json"
     else:  # rdma
-        predictions_file = (
-            results_base / f"{args.model_type}_predictions.jsonl"
-        )
+        predictions_file = results_base / f"{args.model_type}_predictions.jsonl"
         eval_output = results_base / f"eval_{args.model_type}.json"
 
     if args.predictions_file is not None:
@@ -307,6 +306,7 @@ def main():
 
     # ── Device setup ──────────────────────────────────────────────────────
     from types import SimpleNamespace
+
     gpu_id = None if (args.cpu or args.gpu_id == -1) else args.gpu_id
     cfg = SimpleNamespace(
         gpu_id=gpu_id,
@@ -369,12 +369,8 @@ def main():
             }
         )
 
-    precision = (
-        total_tp / (total_tp + total_fp) if (total_tp + total_fp) > 0 else 0.0
-    )
-    recall = (
-        total_tp / (total_tp + total_fn) if (total_tp + total_fn) > 0 else 0.0
-    )
+    precision = total_tp / (total_tp + total_fp) if (total_tp + total_fp) > 0 else 0.0
+    recall = total_tp / (total_tp + total_fn) if (total_tp + total_fn) > 0 else 0.0
     f1 = (
         2 * precision * recall / (precision + recall)
         if (precision + recall) > 0

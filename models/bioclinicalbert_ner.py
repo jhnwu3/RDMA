@@ -23,7 +23,7 @@ Usage (PyHealth Trainer)::
 
 import sys
 from pathlib import Path
-from typing import Dict, Optional
+from typing import Dict, List, Optional, Tuple
 
 import torch
 from transformers import AutoModelForTokenClassification
@@ -116,6 +116,51 @@ class BioClinicalBERTNERModel(BaseModel):
         if out.loss is not None:
             result["loss"] = out.loss
         return result
+
+    # ------------------------------------------------------------------
+    # Inference helpers
+    # ------------------------------------------------------------------
+
+    @staticmethod
+    def bio_to_spans(
+        word_label_ids: List[int],
+        id2label: Dict[int, str],
+        label2id: Dict[str, int],
+    ) -> List[Tuple[int, int, int]]:
+        """Convert word-level label ids to (b_label_id, start, end) spans."""
+        spans: List[Tuple[int, int, int]] = []
+        i = 0
+        n = len(word_label_ids)
+        while i < n:
+            label = id2label.get(word_label_ids[i], "O")
+            if label.startswith("B-"):
+                etype = label[2:]
+                span_start = i
+                j = i + 1
+                while j < n and id2label.get(word_label_ids[j], "O") == f"I-{etype}":
+                    j += 1
+                spans.append((label2id[f"B-{etype}"], span_start, j - 1))
+                i = j
+            else:
+                i += 1
+        return spans
+
+    @staticmethod
+    def collapse_to_word_preds(
+        wids: torch.Tensor,
+        token_ids: torch.Tensor,
+    ) -> List[int]:
+        """Return first-subword-per-word label ids from subword-level token ids."""
+        seen: set = set()
+        word_preds: List[int] = []
+        for pos in range(len(wids)):
+            w = wids[pos].item()
+            if w == -1:
+                continue
+            if w not in seen:
+                seen.add(w)
+                word_preds.append(token_ids[pos].item())
+        return word_preds
 
     # ------------------------------------------------------------------
     # Checkpoint helpers (HuggingFace format)

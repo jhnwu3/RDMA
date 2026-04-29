@@ -286,6 +286,47 @@ class BertSpanNERModel(BaseModel):
             }
 
     # ------------------------------------------------------------------
+    # Span extraction
+    # ------------------------------------------------------------------
+
+    @staticmethod
+    def predict(
+        start_logits: torch.Tensor,
+        end_logits: torch.Tensor,
+        input_len: int,
+    ):
+        """Extract non-overlapping (label_id, start, end) spans from logits.
+
+        Args:
+            start_logits: ``[1, seq_len, num_labels]`` tensor.
+            end_logits:   ``[1, seq_len, num_labels]`` tensor.
+            input_len:    Actual (non-padded) sequence length.
+
+        Returns:
+            List of ``(label_id, start, end)`` tuples in 0-based text-token
+            space (i.e. after stripping the leading [CLS] and trailing tokens).
+        """
+        import numpy as np
+        start_pred = torch.argmax(start_logits, -1).cpu().numpy()[0][1:input_len - 1]
+        end_pred   = torch.argmax(end_logits,   -1).cpu().numpy()[0][1:input_len - 1]
+        spans = []
+        for i, s_l in enumerate(start_pred):
+            if s_l == 0:
+                continue
+            for j, e_l in enumerate(end_pred[i:]):
+                if s_l == e_l:
+                    spans.append((s_l, i, i + j))
+                    break
+        if len(spans) < 2:
+            return spans
+        result = []
+        for i in range(len(spans) - 1):
+            if spans[i][2] < spans[i + 1][1]:
+                result.append(spans[i])
+        result.append(spans[-1])
+        return result
+
+    # ------------------------------------------------------------------
     # Checkpoint helpers (HuggingFace format, not plain state_dict)
     # ------------------------------------------------------------------
 
