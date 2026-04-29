@@ -27,13 +27,23 @@ class BaseHPOMatcher(ABC):
         pass
 
 
+_NO_MATCH_SENTINEL = "__NO_MATCH__"
+
+
 class RAGHPOMatcher(BaseHPOMatcher):
     """HPO term matcher using RAG approach with enhanced match tracking."""
 
-    def __init__(self, embeddings_manager, llm_client=None, system_message: str = None):
+    def __init__(
+        self,
+        embeddings_manager,
+        llm_client=None,
+        system_message: str = None,
+        require_grounding: bool = False,
+    ):
         self.embeddings_manager = embeddings_manager
         self.llm_client = llm_client
         self.system_message = system_message
+        self.require_grounding = require_grounding
         self.index = None
         self.embedded_documents = None
 
@@ -175,7 +185,18 @@ class RAGHPOMatcher(BaseHPOMatcher):
                     original_sentence,
                     multi_match=multi_match,
                 )
-                if hpo_term:
+                if hpo_term == _NO_MATCH_SENTINEL:
+                    # LLM explicitly indicated no textual grounding — suppress
+                    match_info.update(
+                        {
+                            "hpo_term": None,
+                            "match_method": "no_match",
+                            "confidence_score": 0.0,
+                        }
+                    )
+                    if multi_match:
+                        match_info.update({"hpo_terms": [], "hp_ids": []})
+                elif hpo_term:
                     matched_terms = (
                         hpo_term if isinstance(hpo_term, list) else [hpo_term]
                     )
@@ -194,8 +215,9 @@ class RAGHPOMatcher(BaseHPOMatcher):
                             {"hpo_terms": unique_terms, "hp_ids": unique_terms}
                         )
                 else:
-                    # If no match found, use the first candidate's HPO term
-                    if enriched_candidates:
+                    # No match from LLM; fall back to top candidate unless
+                    # require_grounding suppresses fallbacks.
+                    if enriched_candidates and not self.require_grounding:
                         first_candidate = enriched_candidates[0]
                         fallback_ids = [first_candidate["metadata"]["hp_id"]]
                         match_info.update(
@@ -204,7 +226,7 @@ class RAGHPOMatcher(BaseHPOMatcher):
                                 "match_method": "fallback",
                                 "confidence_score": first_candidate.get(
                                     "similarity_score", 0.1
-                                ),  # Low confidence for fallback
+                                ),
                             }
                         )
                         if multi_match:
@@ -212,7 +234,6 @@ class RAGHPOMatcher(BaseHPOMatcher):
                                 {"hpo_terms": fallback_ids, "hp_ids": fallback_ids}
                             )
                     else:
-                        # If no candidates at all, still include the entity with null HPO term
                         match_info.update(
                             {
                                 "hpo_term": None,
@@ -273,6 +294,9 @@ class RAGHPOMatcher(BaseHPOMatcher):
         # Remove None entries and join
         prompt = "\n".join(filter(None, prompt_parts))
         response = self.llm_client.query(prompt, self.system_message)
+
+        if self.require_grounding and "NO_MATCH" in response:
+            return _NO_MATCH_SENTINEL
 
         hpo_matches = re.findall(r"HP:\d+", response)
         if not hpo_matches:
@@ -348,6 +372,7 @@ class OptimizedRAGHPOMatcher(BaseHPOMatcher):
         fuzzy_threshold: int = 90,
         max_candidates: int = 20,
         faiss_k: int = 800,
+        require_grounding: bool = False,
     ):
         """Initialize the improved HPO matcher.
 
@@ -359,6 +384,7 @@ class OptimizedRAGHPOMatcher(BaseHPOMatcher):
             fuzzy_threshold: Threshold for fuzzy matching (0-100)
             max_candidates: Maximum number of candidates to process
             faiss_k: K value for FAISS search (restored to 800)
+            require_grounding: If True, suppress fallback when LLM finds no match.
         """
         self.embeddings_manager = embeddings_manager
         self.llm_client = llm_client
@@ -367,6 +393,7 @@ class OptimizedRAGHPOMatcher(BaseHPOMatcher):
         self.fuzzy_threshold = fuzzy_threshold
         self.max_candidates = max_candidates
         self.faiss_k = faiss_k
+        self.require_grounding = require_grounding
         self.index = None
         self.embedded_documents = None
 
@@ -583,6 +610,9 @@ class OptimizedRAGHPOMatcher(BaseHPOMatcher):
             prompt = "\n".join(filter(None, prompt_parts))
             response = self.llm_client.query(prompt, self.system_message)
 
+            if self.require_grounding and "NO_MATCH" in response:
+                return _NO_MATCH_SENTINEL
+
             hpo_matches = re.findall(r"HP:\d+", response)
             if not hpo_matches:
                 return None
@@ -646,6 +676,19 @@ class OptimizedRAGHPOMatcher(BaseHPOMatcher):
                         original_sentence,
                         multi_match=multi_match,
                     )
+                    if hpo_term == _NO_MATCH_SENTINEL:
+                        # LLM explicitly indicated no textual grounding — suppress
+                        match_info.update(
+                            {
+                                "hpo_term": None,
+                                "match_method": "no_match",
+                                "confidence_score": 0.0,
+                            }
+                        )
+                        if multi_match:
+                            match_info.update({"hpo_terms": [], "hp_ids": []})
+                        matches.append(match_info)
+                        continue
                     if hpo_term:
                         matched_terms = (
                             hpo_term if isinstance(hpo_term, list) else [hpo_term]
@@ -654,7 +697,7 @@ class OptimizedRAGHPOMatcher(BaseHPOMatcher):
                             {
                                 "hpo_term": matched_terms[0],
                                 "match_method": "llm",
-                                "confidence_score": 0.8,  # Higher confidence for LLM matches
+                                "confidence_score": 0.8,
                             }
                         )
                         if multi_match:
@@ -667,8 +710,8 @@ class OptimizedRAGHPOMatcher(BaseHPOMatcher):
                         matches.append(match_info)
                         continue
 
-                # If all else fails, use the first candidate as fallback (like the original)
-                if candidates:
+                # Fallback to top candidate — suppressed when require_grounding is on
+                if candidates and not self.require_grounding:
                     first_candidate = candidates[0]
                     fallback_ids = [first_candidate["metadata"]["hp_id"]]
                     match_info.update(
@@ -677,7 +720,7 @@ class OptimizedRAGHPOMatcher(BaseHPOMatcher):
                             "match_method": "fallback",
                             "confidence_score": min(
                                 0.5, first_candidate.get("similarity_score", 0.1)
-                            ),  # Cap at 0.5
+                            ),
                         }
                     )
                     if multi_match:
@@ -685,7 +728,6 @@ class OptimizedRAGHPOMatcher(BaseHPOMatcher):
                             {"hpo_terms": fallback_ids, "hp_ids": fallback_ids}
                         )
                 else:
-                    # If no candidates at all, include the entity with null HPO term
                     match_info.update(
                         {
                             "hpo_term": None,

@@ -4,7 +4,8 @@ i2b2 NER baseline for the CSC phenotype-mining benchmark.
 
 Pipeline:
   1. Stanza i2b2 NER extracts PROBLEM entities.
-  2a. Default: HPOMatcher maps extracted entities to HPO codes.
+  2a. Default: EmbeddingFuzzyMatcher maps extracted entities to HPO codes
+      using embedding retrieval + fuzzy matching (no LLM required).
   2b. Optional: BioSent2Vec nearest-neighbor mapping.
 
 Output JSONL format:
@@ -20,7 +21,6 @@ import time
 import traceback
 from datetime import datetime
 from pathlib import Path
-from types import SimpleNamespace
 from typing import Dict, List
 
 import numpy as np
@@ -30,15 +30,8 @@ _RDMA_ROOT = Path("/home/johnwu3/projects/rare_disease/workspace/repos/RDMA")
 _PHENOGPT_ROOT = Path("/home/johnwu3/projects/rare_disease/workspace/repos/PhenoGPT")
 sys.path.insert(0, str(_RDMA_ROOT))
 
-from rdma.hpo.matcher import HPOMatcher  # noqa: E402
+from rdma.hpo.embedding_fuzzy_matcher import EmbeddingFuzzyMatcher  # noqa: E402
 from rdma.hporag.entity import StanzaEntityExtractor  # noqa: E402
-from rdma.utils.llm_client import (  # noqa: E402
-    APILLMClient,
-    LlamaCppLLMClient,
-    LocalLLMClient,
-    OpenRouterLLMClient,
-)
-from rdma.utils.setup import setup_device  # noqa: E402
 
 from datasets.csc import CSCDataset  # noqa: E402
 from tasks.csc import CSCPhenotypeMining  # noqa: E402
@@ -47,7 +40,6 @@ _RESULTS_DIR = Path("/home/johnwu3/projects/rare_disease/workspace/results")
 _DEFAULT_EMBEDDINGS_FILE = str(
     _RDMA_ROOT / "data" / "vector_stores" / "G2GHPO_metadata_medembed.npy"
 )
-_DEFAULT_MODEL_CACHE_DIR = "/shared/rsaas/jw3/rare_disease/model_cache"
 _DEFAULT_DATASET_CACHE_DIR = "/shared/eng/pyhealth/csc"
 _DEFAULT_HPO_DATABASE = str(_PHENOGPT_ROOT / "hpo_database.json")
 
@@ -176,7 +168,6 @@ class BioSent2VecMapper:
                 if hp:
                     predicted.append(hp)
 
-        # de-duplicate while preserving order
         seen = set()
         out = []
         for hp in predicted:
@@ -184,38 +175,6 @@ class BioSent2VecMapper:
                 seen.add(hp)
                 out.append(hp)
         return out
-
-
-def build_llm_client(args, devices):
-    if args.llm_type == "api":
-        return (
-            APILLMClient.from_config(args.api_config)
-            if args.api_config
-            else APILLMClient(model_type=args.model_type, temperature=args.temperature)
-        )
-    if args.llm_type == "openrouter":
-        return (
-            OpenRouterLLMClient.from_config(args.api_config)
-            if args.api_config
-            else OpenRouterLLMClient(
-                model_type=args.model_type,
-                temperature=args.temperature,
-            )
-        )
-    if args.llm_type == "llama_cpp":
-        return LlamaCppLLMClient(
-            model_type=args.model_type,
-            gguf_file=args.gguf_file,
-            main_gpu=args.gpu_id if args.gpu_id is not None else 0,
-            temperature=args.temperature,
-            cache_dir=args.model_cache_dir,
-        )
-    return LocalLLMClient(
-        model_type=args.model_type,
-        device=devices["llm"],
-        cache_dir=args.model_cache_dir,
-        temperature=args.temperature,
-    )
 
 
 def main() -> None:
@@ -238,7 +197,7 @@ def main() -> None:
     parser.add_argument(
         "--use_biosent2vec",
         action="store_true",
-        help="Use BioSent2Vec for HPO mapping instead of HPOMatcher",
+        help="Use BioSent2Vec for HPO mapping instead of EmbeddingFuzzyMatcher",
     )
     parser.add_argument(
         "--biosent2vec_path",
@@ -252,50 +211,12 @@ def main() -> None:
         default=_DEFAULT_HPO_DATABASE,
         help="Path to HPO database file for BioSent2Vec mapping",
     )
-
-    parser.add_argument(
-        "--llm_type",
-        type=str,
-        default="local",
-        choices=["local", "api", "openrouter", "llama_cpp"],
-        help="LLM backend for HPOMatcher mode (default: %(default)s)",
-    )
-    parser.add_argument(
-        "--api_config",
-        type=str,
-        default=None,
-        help="Path to saved API config JSON (api/openrouter only)",
-    )
-    parser.add_argument(
-        "--gguf_file",
-        type=str,
-        default=None,
-        help="GGUF filename override for llama_cpp backend",
-    )
-    parser.add_argument(
-        "--model_type",
-        type=str,
-        default="qwen_32b",
-        help="LLM model type for HPOMatcher mode (default: %(default)s)",
-    )
-    parser.add_argument(
-        "--model_cache_dir",
-        type=str,
-        default=_DEFAULT_MODEL_CACHE_DIR,
-        help="Model cache directory (default: %(default)s)",
-    )
-    parser.add_argument(
-        "--temperature",
-        type=float,
-        default=0.01,
-        help="LLM sampling temperature (default: %(default)s)",
-    )
     parser.add_argument(
         "--gpu_id",
         type=lambda x: None if x.lower() == "none" else int(x),
-        default=1,
+        default=0,
         metavar="N|none",
-        help="GPU device id; pass 'none' for CPU (default: %(default)s)",
+        help="GPU device id for embedding model; pass 'none' for CPU (default: %(default)s)",
     )
     parser.add_argument(
         "--condor",
@@ -306,40 +227,39 @@ def main() -> None:
         "--embeddings_file",
         type=Path,
         default=Path(_DEFAULT_EMBEDDINGS_FILE),
-        help="Path to HPO .npy embeddings file",
+        help="Path to HPO .npy embeddings file (default: %(default)s)",
     )
     parser.add_argument(
         "--retriever",
         type=str,
         default="sentence_transformer",
-        help="Retriever type for HPOMatcher",
+        help="Retriever type for EmbeddingFuzzyMatcher (default: %(default)s)",
     )
     parser.add_argument(
         "--retriever_model",
         type=str,
         default="abhinand/MedEmbed-small-v0.1",
-        help="Retriever model name for HPOMatcher",
+        help="Retriever model name (default: %(default)s)",
     )
     parser.add_argument(
         "--top_k",
         type=int,
-        default=5,
-        help="Top-k retrieved candidates for HPOMatcher",
+        default=20,
+        help="Top-k FAISS candidates to retrieve per entity (default: %(default)s)",
     )
     parser.add_argument(
-        "--matcher_version",
-        type=str,
-        default="standard",
-        choices=["standard", "optimized"],
-        help="HPOMatcher optimizer version",
+        "--fuzzy_threshold",
+        type=float,
+        default=0.85,
+        help="Minimum SequenceMatcher ratio to accept a fuzzy match (default: %(default)s)",
     )
-
     parser.add_argument(
         "--output",
         type=Path,
         default=None,
         help=(
-            "Output JSONL path " "(default: <results_dir>/csc/i2b2_predictions.jsonl)"
+            "Output JSONL path "
+            "(default: <results_dir>/csc/i2b2_predictions.jsonl)"
         ),
     )
     parser.add_argument(
@@ -361,22 +281,23 @@ def main() -> None:
     if args.use_biosent2vec and not args.biosent2vec_path:
         parser.error("--biosent2vec_path is required when --use_biosent2vec is set")
 
-    output = args.output or (_RESULTS_DIR / "csc" / "i2b2_predictions.jsonl")
+    import torch
+    if args.condor:
+        embed_device = "cuda" if torch.cuda.is_available() else "cpu"
+    elif args.gpu_id is not None and torch.cuda.is_available():
+        embed_device = f"cuda:{args.gpu_id}"
+    else:
+        embed_device = "cpu"
 
-    cfg = SimpleNamespace(
-        gpu_id=args.gpu_id,
-        condor=args.condor,
-        cpu=(args.gpu_id is None and not args.condor),
-        retriever_gpu_id=None,
-        retriever_cpu=False,
-    )
-    devices = setup_device(cfg)
+    output = args.output or (_RESULTS_DIR / "csc" / "i2b2_predictions.jsonl")
 
     ts(f"Dataset cache dir : {args.dataset_cache_dir}")
     ts(f"Stanza device     : {args.stanza_device}")
     ts(
-        f"Mapping           : {'BioSent2Vec' if args.use_biosent2vec else 'HPOMatcher (RDMA)'}"
+        f"Mapping           : {'BioSent2Vec' if args.use_biosent2vec else 'EmbeddingFuzzyMatcher'}"
     )
+    ts(f"Embeddings file   : {args.embeddings_file}")
+    ts(f"Fuzzy threshold   : {args.fuzzy_threshold}")
     ts(f"Output            : {output}")
     ts(f"Resume            : {args.resume}")
     ts(f"Debug             : {args.debug}")
@@ -419,16 +340,14 @@ def main() -> None:
             hpo_database_path=args.hpo_database,
         )
     else:
-        ts(f"Loading LLM for HPOMatcher ({args.llm_type}/{args.model_type})...")
-        llm_client = build_llm_client(args, devices)
-        matcher = HPOMatcher(
-            llm_client=llm_client,
-            device=devices["retriever"],
+        ts(f"Initializing EmbeddingFuzzyMatcher (embeddings: {args.embeddings_file})...")
+        matcher = EmbeddingFuzzyMatcher(
             embeddings_file=str(args.embeddings_file),
-            optimizer_version=args.matcher_version,
             retriever=args.retriever,
             retriever_model=args.retriever_model,
             top_k=args.top_k,
+            fuzzy_threshold=args.fuzzy_threshold,
+            device=embed_device,
             debug=args.debug,
         )
 

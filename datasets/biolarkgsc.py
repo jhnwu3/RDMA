@@ -1,4 +1,5 @@
 import logging
+import random
 from pathlib import Path
 from typing import List, Optional
 
@@ -117,13 +118,18 @@ class BioLarkGSCDataset(BaseDataset):
 
         root_path = Path(root)
         required_csvs = ("texts.csv", "annotations.csv")
-        if not all((root_path / f).exists() for f in required_csvs):
+        texts_path = root_path / "texts.csv"
+        needs_regen = not all((root_path / f).exists() for f in required_csvs)
+        if not needs_regen and texts_path.exists():
+            _df = pd.read_csv(texts_path, nrows=1)
+            if "split" not in _df.columns:
+                needs_regen = True
+        if needs_regen:
             logger.info(
                 "BioLarkGSC CSVs not found in %s — running prepare_metadata",
                 root,
             )
             self.prepare_metadata(root)
-
         super().__init__(
             root=root,
             tables=tables,
@@ -160,6 +166,24 @@ class BioLarkGSCDataset(BaseDataset):
             if labels_str and labels_str.lower() != "nan":
                 for entry in _parse_labels(labels_str, text):
                     ann_rows.append({"id": doc_id, **entry})
+
+        # Deterministic 80/10/10 split (no predefined splits in BioLarkGSC)
+        doc_ids = [r["id"] for r in texts_rows]
+        rng = random.Random(42)
+        shuffled = doc_ids[:]
+        rng.shuffle(shuffled)
+        n = len(shuffled)
+        n_train = int(n * 0.8)
+        n_dev = int(n * 0.1)
+        split_map = {}
+        for doc_id in shuffled[:n_train]:
+            split_map[doc_id] = "train"
+        for doc_id in shuffled[n_train : n_train + n_dev]:
+            split_map[doc_id] = "dev"
+        for doc_id in shuffled[n_train + n_dev :]:
+            split_map[doc_id] = "test"
+        for r in texts_rows:
+            r["split"] = split_map[r["id"]]
 
         texts_df = pd.DataFrame(texts_rows)
         ann_df = pd.DataFrame(ann_rows)

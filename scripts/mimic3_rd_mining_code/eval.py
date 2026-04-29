@@ -180,10 +180,19 @@ def parse_args():
     )
     parser.add_argument(
         "--approach",
-        choices=["rdma", "zeroshot", "rdrag", "dict"],
+        choices=[
+            "rdma",
+            "zeroshot",
+            "rdrag",
+            "dict",
+            "biobert_mrc",
+            "bioclinicalbert_ner",
+            "i2b2_rd",
+        ],
         default="rdma",
         help=(
-            "Prediction approach: rdma (default), zeroshot, rdrag, or dict. "
+            "Prediction approach: rdma (default), zeroshot, rdrag, dict, "
+            "biobert_mrc, bioclinicalbert_ner, or i2b2_rd. "
             "Determines the predictions filename."
         ),
     )
@@ -213,6 +222,12 @@ def _predictions_path(approach: str, model_type: str) -> Path:
         return base / f"{model_type}_rdrag_predictions.jsonl"
     if approach == "dict":
         return base / "dict_predictions.jsonl"
+    if approach == "biobert_mrc":
+        return base / "biobert_mrc.jsonl"
+    if approach == "bioclinicalbert_ner":
+        return base / "bioclinicalbert_ner.jsonl"
+    if approach == "i2b2_rd":
+        return base / "i2b2_rd.jsonl"
     # rdma (default)
     return base / f"{model_type}_predictions.jsonl"
 

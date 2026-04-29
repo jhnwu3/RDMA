@@ -181,7 +181,15 @@ def parse_args():
     )
     parser.add_argument(
         "--approach",
-        choices=["rdma", "zeroshot", "rdrag", "dict", "biobert_mrc", "bioclinicalbert_ner"],
+        choices=[
+            "rdma",
+            "zeroshot",
+            "rdrag",
+            "dict",
+            "biobert_mrc",
+            "bioclinicalbert_ner",
+            "i2b2_rd",
+        ],
         default="rdma",
         help="Prediction approach",
     )
@@ -256,6 +264,11 @@ def main():
             _RESULTS_DIR / "mimic3" / "bioclinicalbert_ner" / "per_note_predictions.jsonl"
         )
         eval_output = results_base / "eval_bioclinicalbert_ner.json"
+    elif args.approach == "i2b2_rd":
+        predictions_file = (
+            _RESULTS_DIR / "mimic3" / "i2b2_rd" / "per_note_predictions.jsonl"
+        )
+        eval_output = results_base / "eval_i2b2_rd.json"
     else:  # rdma
         predictions_file = (
             results_base / f"{args.model_type}_predictions.jsonl"

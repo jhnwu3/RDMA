@@ -4,7 +4,8 @@ PhenoGPT baseline for the BioLark GSC phenotype-mining benchmark.
 
 Pipeline:
   1. PhenoGPT (LLaMA-2-7B + LoRA) extracts phenotype text strings.
-  2a. Default: HPOMatcher maps extracted strings to HPO codes (RDMA RAG approach).
+  2a. Default: EmbeddingFuzzyMatcher maps extracted strings to HPO codes
+      using embedding retrieval + fuzzy matching (no LLM required).
   2b. Optional (--use_biosent2vec): PhenoGPTWithHPO maps via BioSent2Vec similarity
       (requires --biosent2vec_path and the sent2vec library).
 
@@ -25,7 +26,6 @@ import time
 import traceback
 from datetime import datetime
 from pathlib import Path
-from types import SimpleNamespace
 from tqdm import tqdm
 
 _RDMA_ROOT = Path("/home/johnwu3/projects/rare_disease/workspace/repos/RDMA")
@@ -33,9 +33,7 @@ _PHENOGPT_ROOT = Path("/home/johnwu3/projects/rare_disease/workspace/repos/Pheno
 sys.path.insert(0, str(_RDMA_ROOT))
 sys.path.insert(0, str(_PHENOGPT_ROOT))
 
-from rdma.hpo.matcher import HPOMatcher  # noqa: E402
-from rdma.utils.llm_client import LocalLLMClient  # noqa: E402
-from rdma.utils.setup import setup_device  # noqa: E402
+from rdma.hpo.embedding_fuzzy_matcher import EmbeddingFuzzyMatcher  # noqa: E402
 
 from run_phenogpt import PhenoGPT, PhenoGPTWithHPO  # noqa: E402
 
@@ -162,7 +160,7 @@ def main():
         action="store_true",
         help="Running under HTCondor: use generic 'cuda' device",
     )
-    # HPOMatcher args (used when --use_biosent2vec is NOT set)
+    # EmbeddingFuzzyMatcher args (used when --use_biosent2vec is NOT set)
     parser.add_argument(
         "--embeddings_file",
         type=Path,
@@ -172,27 +170,26 @@ def main():
     parser.add_argument(
         "--retriever",
         type=str,
-        default="fastembed",
-        help="Retriever type for HPOMatcher (default: %(default)s)",
+        default="sentence_transformer",
+        help="Retriever type for EmbeddingFuzzyMatcher (default: %(default)s)",
     )
     parser.add_argument(
         "--retriever_model",
         type=str,
-        default="BAAI/bge-small-en-v1.5",
-        help="Retriever model name for HPOMatcher (default: %(default)s)",
+        default="abhinand/MedEmbed-small-v0.1",
+        help="Retriever model name (default: %(default)s)",
     )
     parser.add_argument(
         "--top_k",
         type=int,
-        default=5,
-        help="Top-k retrieved candidates for HPOMatcher (default: %(default)s)",
+        default=20,
+        help="Top-k FAISS candidates per entity (default: %(default)s)",
     )
     parser.add_argument(
-        "--matcher_version",
-        type=str,
-        default="standard",
-        choices=["standard", "optimized"],
-        help="HPOMatcher optimizer version (default: %(default)s)",
+        "--fuzzy_threshold",
+        type=float,
+        default=0.85,
+        help="Minimum SequenceMatcher ratio (default: %(default)s)",
     )
     parser.add_argument(
         "--output",
@@ -235,19 +232,21 @@ def main():
     os.environ["TRANSFORMERS_CACHE"] = args.model_cache_dir
     os.environ["HF_HOME"] = args.model_cache_dir
 
-    cfg = SimpleNamespace(
-        gpu_id=args.gpu_id,
-        condor=args.condor,
-        cpu=(args.gpu_id is None and not args.condor),
-        retriever_gpu_id=None,
-        retriever_cpu=False,
-    )
-    devices = setup_device(cfg)
+    import torch
+    if args.condor:
+        embed_device = "cuda" if torch.cuda.is_available() else "cpu"
+        llm_device = "cuda" if torch.cuda.is_available() else "cpu"
+    elif args.gpu_id is not None and torch.cuda.is_available():
+        embed_device = f"cuda:{args.gpu_id}"
+        llm_device = f"cuda:{args.gpu_id}"
+    else:
+        embed_device = "cpu"
+        llm_device = "cpu"
 
-    ts(f"LLM device        : {devices['llm']}")
+    ts(f"LLM device        : {llm_device}")
     ts(f"Base model        : {args.base_model}")
     ts(f"LoRA weights      : {args.lora_weights}")
-    ts(f"HPO mapping       : {'BioSent2Vec' if args.use_biosent2vec else 'HPOMatcher (RDMA)'}")
+    ts(f"HPO mapping       : {'BioSent2Vec' if args.use_biosent2vec else 'EmbeddingFuzzyMatcher'}")
     ts(f"Model cache dir   : {args.model_cache_dir}")
     ts(f"Dataset cache dir : {args.dataset_cache_dir}")
     ts(f"GPU id            : {args.gpu_id}")
@@ -279,26 +278,19 @@ def main():
             hpo_database_path=args.hpo_database,
         )
     else:
-        ts("Loading PhenoGPT (HPOMatcher for HPO mapping)...")
+        ts("Loading PhenoGPT (EmbeddingFuzzyMatcher for HPO mapping)...")
         phenogpt_model = PhenoGPT(
             base_model_path=args.base_model,
             lora_weights_path=args.lora_weights,
         )
-        ts("Loading LLM for HPOMatcher...")
-        llm_client = LocalLLMClient(
-            model_type="qwen_32b",
-            device=devices["llm"],
-            cache_dir=args.model_cache_dir,
-            temperature=0.01,
-        )
-        ts(f"Initialising HPOMatcher (embeddings: {args.embeddings_file})...")
-        matcher = HPOMatcher(
-            llm_client=llm_client,
+        ts(f"Initialising EmbeddingFuzzyMatcher (embeddings: {args.embeddings_file})...")
+        matcher = EmbeddingFuzzyMatcher(
             embeddings_file=str(args.embeddings_file),
-            optimizer_version=args.matcher_version,
             retriever=args.retriever,
             retriever_model=args.retriever_model,
             top_k=args.top_k,
+            fuzzy_threshold=args.fuzzy_threshold,
+            device=embed_device,
             debug=args.debug,
         )
 

@@ -43,6 +43,8 @@ class PhenotypeExtractor:
         debug: bool = False,
         decompose_compound: bool = False,
         extract_qualified: bool = False,
+        exhaustive: bool = False,
+        exclude_etiology: bool = True,
     ):
         """
         Initialize the entity extractor wrapper.
@@ -70,6 +72,8 @@ class PhenotypeExtractor:
         self.family_history = family_history
         self.decompose_compound = decompose_compound
         self.extract_qualified = extract_qualified
+        self.exhaustive = exhaustive
+        self.exclude_etiology = exclude_etiology
 
         # Auto-detect retriever device if not specified
         if retriever_device is None:
@@ -97,6 +101,8 @@ class PhenotypeExtractor:
             self.family_history,
             self.decompose_compound,
             self.extract_qualified,
+            self.exhaustive,
+            self.exclude_etiology,
         )
 
         # Initialize context extractor
@@ -123,6 +129,8 @@ class PhenotypeExtractor:
         family_history: bool,
         decompose_compound: bool = False,
         extract_qualified: bool = False,
+        exhaustive: bool = False,
+        exclude_etiology: bool = True,
     ):
         """Initialize entity extractor based on type."""
         if self.debug:
@@ -135,6 +143,8 @@ class PhenotypeExtractor:
                 family_history=family_history,
                 decompose_compound=decompose_compound,
                 extract_qualified=extract_qualified,
+                exhaustive=exhaustive,
+                exclude_etiology=exclude_etiology,
             )
         elif extractor_type == "multi":
             # Multi uses different temperatures for multiple passes
@@ -147,6 +157,8 @@ class PhenotypeExtractor:
                 family_history=family_history,
                 decompose_compound=decompose_compound,
                 extract_qualified=extract_qualified,
+                exhaustive=exhaustive,
+                exclude_etiology=exclude_etiology,
             )
         elif extractor_type == "retrieval":
             if not embeddings_file:
@@ -184,6 +196,8 @@ class PhenotypeExtractor:
                 family_history=family_history,
                 decompose_compound=decompose_compound,
                 extract_qualified=extract_qualified,
+                exhaustive=exhaustive,
+                exclude_etiology=exclude_etiology,
             )
         else:  # Default to iterative
             return IterativeLLMEntityExtractor(
@@ -193,6 +207,8 @@ class PhenotypeExtractor:
                 family_history=family_history,
                 decompose_compound=decompose_compound,
                 extract_qualified=extract_qualified,
+                exhaustive=exhaustive,
+                exclude_etiology=exclude_etiology,
             )
 
     def extract(self, clinical_texts: List[str]) -> List[Dict[str, Any]]:

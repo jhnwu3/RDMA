@@ -28,14 +28,17 @@ from rdma.utils.llm_client import (  # noqa: E402
     LocalLLMClient,
     APILLMClient,
     OpenRouterLLMClient,
+    AzureOpenAILLMClient,
     LlamaCppLLMClient,
 )
 from rdma.utils.setup import setup_device  # noqa: E402
 
 from datasets.biolarkgsc import BioLarkGSCDataset  # noqa: E402
 from tasks.biolarkgsc import BioLarkGSCNER  # noqa: E402
+from scripts.biolarkgsc.eval import _build_hpo_lookup  # noqa: E402
 
 _RESULTS_DIR = Path("/home/johnwu3/projects/rare_disease/workspace/results")
+_DEFAULT_ONTOLOGY = _RDMA_ROOT / "data" / "ontology" / "hpo_data_with_lineage.json"
 _DEFAULT_EMBEDDINGS_FILE = str(
     _RDMA_ROOT / "data" / "vector_stores" / "G2GHPO_metadata_medembed.npy"
 )
@@ -101,14 +104,20 @@ def main():
         "--llm_type",
         type=str,
         default="local",
-        choices=["local", "api", "openrouter", "llama_cpp"],
+        choices=["local", "api", "openrouter", "azure", "llama_cpp"],
         help="LLM backend (default: %(default)s)",
     )
     parser.add_argument(
         "--api_config",
         type=str,
         default=None,
-        help="Path to saved API config JSON (api/openrouter only)",
+        help="Path to saved API config JSON (api/openrouter/azure)",
+    )
+    parser.add_argument(
+        "--dotenv_path",
+        type=str,
+        default=None,
+        help="Optional dotenv file for API backends (e.g. PyHealthAgent/.env)",
     )
     parser.add_argument(
         "--gguf_file",
@@ -197,7 +206,7 @@ def main():
     parser.add_argument(
         "--multi_match",
         action=argparse.BooleanOptionalAction,
-        default=True,
+        default=False,
         help=(
             "If true, allow matcher to return multiple valid HPO IDs per "
             "entity. Use --no-multi_match to force a single best match "
@@ -247,7 +256,7 @@ def main():
     parser.add_argument(
         "--decompose_compound",
         action=argparse.BooleanOptionalAction,
-        default=True,
+        default=False,
         help=(
             "If true, prompt the extractor to decompose named syndromes into "
             "their explicitly described component phenotypes (default: %(default)s)"
@@ -256,7 +265,7 @@ def main():
     parser.add_argument(
         "--extract_qualified",
         action=argparse.BooleanOptionalAction,
-        default=True,
+        default=False,
         help=(
             "If true, prompt the extractor to extract fully qualified phrases "
             "and inheritance pattern terms (default: %(default)s)"
@@ -265,11 +274,59 @@ def main():
     parser.add_argument(
         "--allow_inheritance",
         action=argparse.BooleanOptionalAction,
-        default=True,
+        default=False,
         help=(
             "If true, allow the verifier to accept inheritance pattern, "
             "expressivity, and onset modifier terms as valid HPO phenotypes "
             "(default: %(default)s)"
+        ),
+    )
+    parser.add_argument(
+        "--parent_match",
+        action=argparse.BooleanOptionalAction,
+        default=False,
+        help=(
+            "If true, expand each matched HPO term with its immediate parent "
+            "terms from the HPO ontology (default: %(default)s)"
+        ),
+    )
+    parser.add_argument(
+        "--exhaustive",
+        action=argparse.BooleanOptionalAction,
+        default=False,
+        help=(
+            "If true, instruct the extractor to prefer recall over precision — "
+            "include borderline terms rather than omit them (default: %(default)s)"
+        ),
+    )
+    parser.add_argument(
+        "--exclude_etiology",
+        action=argparse.BooleanOptionalAction,
+        default=True,
+        help=(
+            "If true, instruct the extractor to exclude molecular mechanisms and "
+            "chromosomal etiology terms (e.g., trisomy, UPD) from extraction. "
+            "Use --no-exclude_etiology to allow them (default: %(default)s)"
+        ),
+    )
+    parser.add_argument(
+        "--prefer_specific",
+        action=argparse.BooleanOptionalAction,
+        default=True,
+        help=(
+            "If true, instruct the matcher to prefer the most specific HPO term "
+            "supported by the text over parent/ancestor terms. "
+            "Use --no-prefer_specific to disable (default: %(default)s)"
+        ),
+    )
+    parser.add_argument(
+        "--require_grounding",
+        action=argparse.BooleanOptionalAction,
+        default=False,
+        help=(
+            "If true, the matcher will output NO_MATCH when no candidate is clearly "
+            "grounded in the text, suppressing the fallback to the top candidate. "
+            "Use --require_grounding to enable (default: %(default)s)"
         ),
     )
     parser.add_argument(
@@ -292,7 +349,13 @@ def main():
     parser.add_argument(
         "--dev",
         action="store_true",
-        help="Dev mode: process only the first 2 samples",
+        help="Dev mode: process only the first --dev_n samples",
+    )
+    parser.add_argument(
+        "--dev_n",
+        type=int,
+        default=2,
+        help="Number of samples to use when --dev is active (default: %(default)s)",
     )
     parser.add_argument(
         "--checkpoint_interval",
@@ -335,6 +398,11 @@ def main():
     ts(f"Decompose compound: {args.decompose_compound}")
     ts(f"Extract qualified : {args.extract_qualified}")
     ts(f"Allow inheritance : {args.allow_inheritance}")
+    ts(f"Parent match      : {args.parent_match}")
+    ts(f"Exhaustive        : {args.exhaustive}")
+    ts(f"Exclude etiology  : {args.exclude_etiology}")
+    ts(f"Prefer specific   : {args.prefer_specific}")
+    ts(f"Require grounding : {args.require_grounding}")
     ts(f"Top-k             : {args.top_k}")
     ts(f"Multi match       : {args.multi_match}")
     ts(f"Output            : {output}")
@@ -342,6 +410,12 @@ def main():
     ts(f"Debug             : {args.debug}")
     ts(f"Dev mode          : {args.dev}")
     ts(f"Checkpoint every  : {args.checkpoint_interval}")
+
+    # ── HPO label lookup (for debug output) ───────────────────────────────
+    hpo_lookup: dict = {}
+    if args.debug and _DEFAULT_ONTOLOGY.exists():
+        hpo_lookup = _build_hpo_lookup(_DEFAULT_ONTOLOGY)
+        ts(f"Loaded HPO ontology labels ({len(hpo_lookup)} terms)")
 
     # ── Dataset ───────────────────────────────────────────────────────────
     ts("Loading BioLarkGSCDataset...")
@@ -370,6 +444,17 @@ def main():
                 if args.api_config
                 else OpenRouterLLMClient(
                     model_type=args.model_type, temperature=temperature
+                )
+            )
+        elif args.llm_type == "azure":
+            return (
+                AzureOpenAILLMClient.from_config(args.api_config)
+                if args.api_config
+                else AzureOpenAILLMClient(
+                    model_type=args.model_type,
+                    azure_deployment=args.model_type,
+                    temperature=temperature,
+                    dotenv_path=args.dotenv_path,
                 )
             )
         elif args.llm_type == "llama_cpp":
@@ -405,6 +490,8 @@ def main():
         debug=args.debug,
         decompose_compound=args.decompose_compound,
         extract_qualified=args.extract_qualified,
+        exhaustive=args.exhaustive,
+        exclude_etiology=args.exclude_etiology,
     )
     verifier = HPOVerifier(
         llm_client=llm_client,
@@ -425,7 +512,10 @@ def main():
         retriever_model=args.retriever_model,
         top_k=args.top_k,
         multi_match=args.multi_match,
+        parent_match=args.parent_match,
         debug=args.debug,
+        prefer_specific=args.prefer_specific,
+        require_grounding=args.require_grounding,
     )
 
     # ── Run ───────────────────────────────────────────────────────────────
@@ -439,7 +529,7 @@ def main():
     try:
         timings: list = []
         records: list = []
-        run_samples = samples.subset(slice(0, 2)) if args.dev else samples
+        run_samples = samples.subset(slice(0, args.dev_n)) if args.dev else samples
         for i, sample in enumerate(
             tqdm(run_samples, total=len(run_samples), desc="BioLarkGSC")
         ):
@@ -461,6 +551,9 @@ def main():
                 continue
 
             extract_s = verify_s = match_s = 0.0
+            entities_with_contexts: list = []
+            verified_phenotypes: list = []
+            matched_phenotypes: list = []
             try:
                 t0 = time.perf_counter()
                 entities_with_contexts = extractor.extract([text])
@@ -486,9 +579,57 @@ def main():
                     f"verify={verify_s:.2f}s  "
                     f"match={match_s:.2f}s"
                 )
-                predicted = [
-                    m.get("hp_id", "") for m in matched_phenotypes if m.get("hp_id")
-                ]
+                if args.debug:
+                    pred_set = set()
+                    for m in matched_phenotypes:
+                        hps = m.get("hp_ids") or (
+                            [m.get("hp_id")] if m.get("hp_id") else []
+                        )
+                        for hp in hps:
+                            if hp:
+                                pred_set.add(hp)
+                    gold_set = set(h for h in ground_truth if h)
+                    fp_codes = pred_set - gold_set
+                    fn_codes = gold_set - pred_set
+
+                    def _label(hp):
+                        return hpo_lookup.get(hp, hp)
+
+                    ts(
+                        f"  [{doc_id}] GT  : {[(h, _label(h)) for h in sorted(gold_set)] or '(none)'}"
+                    )
+                    ts(
+                        f"  [{doc_id}] FP  : {[(h, _label(h)) for h in sorted(fp_codes)] or '(none)'}"
+                    )
+                    ts(
+                        f"  [{doc_id}] FN  : {[(h, _label(h)) for h in sorted(fn_codes)] or '(none)'}"
+                    )
+                    if fp_codes:
+                        ts(f"  [{doc_id}] FP spans:")
+                        for m in matched_phenotypes:
+                            hps = m.get("hp_ids") or (
+                                [m.get("hp_id")] if m.get("hp_id") else []
+                            )
+                            span = m.get("phenotype") or m.get("entity", "")
+                            for hp in hps:
+                                if hp in fp_codes:
+                                    ts(f'    {hp}  ({_label(hp)})  "{span}"')
+                if args.parent_match or args.multi_match:
+                    predicted = list(
+                        {
+                            hp
+                            for m in matched_phenotypes
+                            for hp in (
+                                m.get("hp_ids")
+                                or ([m.get("hp_id")] if m.get("hp_id") else [])
+                            )
+                            if hp
+                        }
+                    )
+                else:
+                    predicted = [
+                        m.get("hp_id", "") for m in matched_phenotypes if m.get("hp_id")
+                    ]
             except Exception as e:
                 ts(f"  ERROR [{doc_id}]: {e}")
                 if args.debug:
@@ -496,23 +637,57 @@ def main():
                 predicted = []
 
             timings.append((extract_s, verify_s, match_s))
-            records.append({"predicted": predicted, "ground_truth": ground_truth})
-            out_f.write(
-                json.dumps(
-                    {
-                        "id": doc_id,
-                        "predicted": predicted,
-                        "ground_truth": ground_truth,
-                        "timing": {
-                            "extraction_s": round(extract_s, 3),
-                            "verification_s": round(verify_s, 3),
-                            "matching_s": round(match_s, 3),
-                        },
-                    },
-                    ensure_ascii=False,
-                )
-                + "\n"
+            records.append(
+                {"id": doc_id, "predicted": predicted, "ground_truth": ground_truth}
             )
+            record = {
+                "id": doc_id,
+                "predicted": predicted,
+                "ground_truth": ground_truth,
+                "timing": {
+                    "extraction_s": round(extract_s, 3),
+                    "verification_s": round(verify_s, 3),
+                    "matching_s": round(match_s, 3),
+                },
+            }
+            if args.debug:
+                record["stages"] = {
+                    "extraction": [
+                        {"entity": e.get("entity"), "context": e.get("context", "")}
+                        for e in entities_with_contexts
+                    ],
+                    "verification": [
+                        {
+                            "phenotype": v.get("phenotype"),
+                            "original_entity": v.get("original_entity"),
+                            "status": v.get("status"),
+                            "confidence": v.get("confidence"),
+                            "method": v.get("method"),
+                            "lab_info": v.get("lab_info"),
+                        }
+                        for v in verified_phenotypes
+                    ],
+                    "matching": [
+                        {
+                            "phenotype": m.get("phenotype"),
+                            "original_entity": m.get("original_entity"),
+                            "hp_id": m.get("hp_id"),
+                            "hp_ids": m.get("hp_ids"),
+                            "match_method": m.get("match_method"),
+                            "confidence_score": m.get("confidence_score"),
+                            "top_candidates": [
+                                {
+                                    "hp_id": c.get("metadata", {}).get("hp_id"),
+                                    "label": c.get("metadata", {}).get("info"),
+                                    "score": c.get("similarity_score"),
+                                }
+                                for c in (m.get("top_candidates") or [])[:3]
+                            ],
+                        }
+                        for m in matched_phenotypes
+                    ],
+                }
+            out_f.write(json.dumps(record, ensure_ascii=False) + "\n")
             out_f.flush()
 
             if (i + 1) % args.checkpoint_interval == 0:
@@ -547,6 +722,23 @@ def main():
             f"  TP={strict['tp']}  FP={strict['fp']}  FN={strict['fn']}"
             f"  Docs={strict['n_docs']}"
         )
+
+    if args.debug and records:
+
+        def _label(hp):
+            return hpo_lookup.get(hp, hp)
+
+        ts("── Per-doc ground truth / FP / FN summary ──────────────────")
+        for rec in records:
+            doc = rec.get("id", "?")
+            pred_set = set(h for h in rec["predicted"] if h)
+            gold_set = set(h for h in rec["ground_truth"] if h)
+            fp_codes = pred_set - gold_set
+            fn_codes = gold_set - pred_set
+            ts(f"  [{doc}]")
+            ts(f"    GT  : {[(h, _label(h)) for h in sorted(gold_set)] or '(none)'}")
+            ts(f"    FP  : {[(h, _label(h)) for h in sorted(fp_codes)] or '(none)'}")
+            ts(f"    FN  : {[(h, _label(h)) for h in sorted(fn_codes)] or '(none)'}")
 
     ts(f"Done → {output}")
 

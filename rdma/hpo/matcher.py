@@ -26,7 +26,10 @@ class HPOMatcher:
         retriever_model: str = "BAAI/bge-small-en-v1.5",
         top_k: int = 5,
         multi_match: bool = False,
+        parent_match: bool = False,
         debug: bool = False,
+        prefer_specific: bool = True,
+        require_grounding: bool = False,
     ):
         """
         Initialize the HPO matcher wrapper.
@@ -45,8 +48,15 @@ class HPOMatcher:
         self.optimizer_version = optimizer_version
         self.top_k = top_k
         self.multi_match = multi_match
+        self.parent_match = parent_match
         self.debug = debug
         self.llm_client = llm_client
+        self.prefer_specific = prefer_specific
+        self.require_grounding = require_grounding
+
+        if self.parent_match:
+            from pyhpo import Ontology
+            self.ontology = Ontology()
 
         # Auto-detect device if not specified
         if device is None:
@@ -77,6 +87,13 @@ class HPOMatcher:
         # Prepare matcher index
         self.matcher.prepare_index(self.embedded_documents)
 
+    def _get_parent_ids(self, hp_id: str) -> List[str]:
+        try:
+            term = self.ontology.get_hpo_object(hp_id)
+            return [p.id for p in term.parents]
+        except Exception:
+            return []
+
     def _build_matching_prompt(self) -> str:
         """Compose mode-specific matching instructions in code."""
         base_prompt = (
@@ -88,13 +105,33 @@ class HPOMatcher:
             "invent findings that are not supported by the text and context."
         )
 
+        parts = [base_prompt]
+
+        if self.prefer_specific:
+            parts.append(
+                "GRANULARITY RULE: When candidates exist at different levels of "
+                "specificity (parent vs child terms), always prefer the MOST SPECIFIC "
+                "term that is directly and explicitly supported by the text. Do NOT "
+                "choose a parent or ancestor HPO term unless the text clearly does not "
+                "support a more specific classification. For example, if the text says "
+                "'short metacarpals', prefer HP:0010049 over its parent HP:0001167."
+            )
+
+        if self.require_grounding:
+            parts.append(
+                "GROUNDING RULE: The HPO term you select MUST correspond to a phenotype "
+                "that is explicitly stated or directly and unambiguously implied by the "
+                "original patient text. If none of the candidate HPO terms are clearly "
+                "supported by the text, output exactly: NO_MATCH"
+            )
+
         if self.multi_match:
             mode_clause = (
                 "MODE: multi_match=true. Return all applicable HPO IDs that are "
                 "well-supported by the entity and context. Include only clinically "
                 "relevant matches and exclude weak, tangential, or speculative "
-                "matches. Output only HPO IDs (e.g., HP:0001250, HP:...), with no extra "
-                "commentary."
+                "matches. Output only HPO IDs (e.g., HP:0001250, HP:...), "
+                "with no extra commentary."
             )
         else:
             mode_clause = (
@@ -103,7 +140,8 @@ class HPOMatcher:
                 "HPO ID (e.g., HP:0001250), with no extra commentary."
             )
 
-        return f"{base_prompt}\n\n{mode_clause}"
+        parts.append(mode_clause)
+        return "\n\n".join(parts)
 
     def _initialize_embedding_manager(self, retriever: str, retriever_model: str):
         """Initialize embedding manager for HPO matching."""
@@ -143,12 +181,14 @@ class HPOMatcher:
                 llm_client=self.llm_client,
                 system_message=self.system_prompt,
                 debug=self.debug,
+                require_grounding=self.require_grounding,
             )
         else:  # standard
             return RAGHPOMatcher(
                 embeddings_manager=self.embedding_manager,
                 llm_client=self.llm_client,
                 system_message=self.system_prompt,
+                require_grounding=self.require_grounding,
             )
 
     def format_phenotypes_for_matching(
@@ -249,6 +289,19 @@ class HPOMatcher:
                     phenotype_match["hp_ids"] = hp_ids
 
                 matched_phenotypes.append(phenotype_match)
+
+        if self.parent_match:
+            for pm in matched_phenotypes:
+                base_ids = pm.get("hp_ids") or (
+                    [pm["hp_id"]] if pm.get("hp_id") else []
+                )
+                expanded = list(base_ids)
+                for hp_id in base_ids:
+                    for parent_id in self._get_parent_ids(hp_id):
+                        if parent_id not in expanded:
+                            expanded.append(parent_id)
+                pm["hpo_terms"] = expanded
+                pm["hp_ids"] = expanded
 
         if self.debug:
             print(f"Successfully matched {len(matched_phenotypes)} phenotypes")

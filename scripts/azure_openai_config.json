@@ -1,0 +1,1 @@
+{"model_type": "gpt-5-john", "device": "cpu", "cache_dir": null, "temperature": 0.01, "api_version": "2025-01-01-preview", "azure_endpoint": "https://jp2.openai.azure.com", "azure_deployment": "gpt-5-john", "max_retries": 0}

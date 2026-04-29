@@ -29,6 +29,8 @@ def _default_entity_system_message() -> str:
 def _build_extraction_recall_hints(
     decompose_compound: bool = False,
     extract_qualified: bool = False,
+    exhaustive: bool = False,
+    exclude_etiology: bool = True,
 ) -> str:
     """Build optional recall-boosting hint clauses for entity extraction prompts.
 
@@ -37,8 +39,20 @@ def _build_extraction_recall_hints(
             into their explicitly described component phenotypes.
         extract_qualified: If True, instruct the model to extract fully qualified
             phrases (with modifiers) and inheritance/expressivity terms as entities.
+        exhaustive: If True, instruct the model to prefer recall over precision —
+            include borderline terms rather than omit them.
+        exclude_etiology: If True, add explicit exclusion of molecular mechanisms
+            and chromosomal etiology terms (e.g., trisomy, UPD, gene deletions).
     """
     lines = []
+    if exclude_etiology:
+        lines.append(
+            "Do NOT extract molecular mechanisms, chromosomal events, or etiological "
+            "terms as phenotypes. Specifically exclude terms such as: trisomy, monosomy, "
+            "uniparental disomy, contiguous gene deletion, gene mutations, chromosome "
+            "rearrangements, amplifications, or deletions. These describe causes or "
+            "mechanisms, not observable phenotypes."
+        )
     if decompose_compound:
         lines.append(
             "When a text mentions a named syndrome or condition AND also explicitly "
@@ -52,6 +66,12 @@ def _build_extraction_recall_hints(
             "'profound intellectual disability', 'variable expressivity'), extract the "
             "full qualified phrase, not just the base term. Also extract inheritance "
             "pattern terms (e.g., 'autosomal dominant') as separate entities."
+        )
+    if exhaustive:
+        lines.append(
+            "Be exhaustive: extract every phenotype term mentioned in the text, "
+            "including borderline or implicit findings. It is better to include a "
+            "term that may not map to HPO than to omit a term that does."
         )
     return "\n".join(lines)
 
@@ -120,6 +140,8 @@ class LLMEntityExtractor(BaseEntityExtractor):
         family_history: bool = True,
         decompose_compound: bool = False,
         extract_qualified: bool = False,
+        exhaustive: bool = False,
+        exclude_etiology: bool = True,
     ):
         self.llm_client = llm_client
         self.system_message = system_message or _default_entity_system_message()
@@ -127,6 +149,8 @@ class LLMEntityExtractor(BaseEntityExtractor):
         self.family_history = family_history
         self.decompose_compound = decompose_compound
         self.extract_qualified = extract_qualified
+        self.exhaustive = exhaustive
+        self.exclude_etiology = exclude_etiology
 
     def _compose_system_message(self) -> str:
         policy_override = _build_extraction_policy_override(
@@ -136,6 +160,8 @@ class LLMEntityExtractor(BaseEntityExtractor):
         recall_hints = _build_extraction_recall_hints(
             decompose_compound=self.decompose_compound,
             extract_qualified=self.extract_qualified,
+            exhaustive=self.exhaustive,
+            exclude_etiology=self.exclude_etiology,
         )
         parts = [self.system_message]
         if recall_hints:
@@ -191,6 +217,8 @@ class IterativeLLMEntityExtractor(BaseEntityExtractor):
         family_history: bool = True,
         decompose_compound: bool = False,
         extract_qualified: bool = False,
+        exhaustive: bool = False,
+        exclude_etiology: bool = True,
     ):
         """Initialize the iterative LLM entity extractor.
 
@@ -206,6 +234,8 @@ class IterativeLLMEntityExtractor(BaseEntityExtractor):
         self.family_history = family_history
         self.decompose_compound = decompose_compound
         self.extract_qualified = extract_qualified
+        self.exhaustive = exhaustive
+        self.exclude_etiology = exclude_etiology
 
     def _compose_system_message(self) -> str:
         policy_override = _build_extraction_policy_override(
@@ -215,6 +245,8 @@ class IterativeLLMEntityExtractor(BaseEntityExtractor):
         recall_hints = _build_extraction_recall_hints(
             decompose_compound=self.decompose_compound,
             extract_qualified=self.extract_qualified,
+            exhaustive=self.exhaustive,
+            exclude_etiology=self.exclude_etiology,
         )
         parts = [self.system_message]
         if recall_hints:
@@ -373,6 +405,8 @@ class MultiIterativeExtractor(BaseEntityExtractor):
         family_history: bool = True,
         decompose_compound: bool = False,
         extract_qualified: bool = False,
+        exhaustive: bool = False,
+        exclude_etiology: bool = True,
     ):
         """Initialize the multi-iterative entity extractor.
 
@@ -394,6 +428,8 @@ class MultiIterativeExtractor(BaseEntityExtractor):
         self.family_history = family_history
         self.decompose_compound = decompose_compound
         self.extract_qualified = extract_qualified
+        self.exhaustive = exhaustive
+        self.exclude_etiology = exclude_etiology
 
         # Validate aggregation type
         if aggregation_type not in ["union", "intersection", "hybrid"]:
@@ -442,6 +478,8 @@ class MultiIterativeExtractor(BaseEntityExtractor):
                     family_history=self.family_history,
                     decompose_compound=self.decompose_compound,
                     extract_qualified=self.extract_qualified,
+                    exhaustive=self.exhaustive,
+                    exclude_etiology=self.exclude_etiology,
                 )
 
                 # Extract entities
@@ -773,6 +811,8 @@ class RetrievalEnhancedEntityExtractor(BaseEntityExtractor):
         family_history: bool = True,
         decompose_compound: bool = False,
         extract_qualified: bool = False,
+        exhaustive: bool = False,
+        exclude_etiology: bool = True,
     ):
         """
         Initialize the retrieval-enhanced entity extractor.
@@ -800,6 +840,8 @@ class RetrievalEnhancedEntityExtractor(BaseEntityExtractor):
         self.family_history = family_history
         self.decompose_compound = decompose_compound
         self.extract_qualified = extract_qualified
+        self.exhaustive = exhaustive
+        self.exclude_etiology = exclude_etiology
         self.context_extractor = ContextExtractor()
 
         # For memory management
@@ -814,6 +856,8 @@ class RetrievalEnhancedEntityExtractor(BaseEntityExtractor):
         recall_hints = _build_extraction_recall_hints(
             decompose_compound=self.decompose_compound,
             extract_qualified=self.extract_qualified,
+            exhaustive=self.exhaustive,
+            exclude_etiology=self.exclude_etiology,
         )
         parts = [self.system_message]
         if recall_hints:

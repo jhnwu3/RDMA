@@ -380,3 +380,15 @@ nohup python scripts/mimic3_rd_mining_text/eval.py --model_type mistral_24b --ap
 
 
 nohup python baselines/raredis/rdrag.py --model_type mistral_24b --gpu_id 1 > ../../logs/raredis/rdrag_rerun_mistral_24b.log &
+
+
+python eval.py --predictions ../../../results/biolarkgsc/mistral_24b_predictions.jsonl --inspect --output ../../../results/biolarkgsc/mistral_24b_per_doc.csv
+
+nohup python eval.py --predictions /home/johnwu3/projects/rare_disease/workspace/results/biolarkgsc/mistral_24b_predictions.jsonl --inspect --output /home/johnwu3/projects/rare_disease/workspace/results/biolarkgsc/mistral_24b_per_doc.csv > inspect_rdma.log &
+
+
+
+nohup python eval.py --predictions /home/johnwu3/projects/rare_disease/workspace/results/biolarkgsc/gpt-5-john_predictions.jsonl --inspect --output /home/johnwu3/projects/rare_disease/workspace/results/biolarkgsc/gpt5_per_doc.csv > inspect_rdma_gp5.log &
+
+
+python scripts/biolarkgsc/run_hpo.py --model_type qwen3_32b --llm_type local --debug --dev --condor --checkpoint_interval 1 --output /home/johnwu3/projects/rare_disease/workspace/results/biolarkgsc/qwen3_32b_debug_dev.jsonl

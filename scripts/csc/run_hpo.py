@@ -28,6 +28,7 @@ from rdma.utils.llm_client import (  # noqa: E402
     LocalLLMClient,
     APILLMClient,
     OpenRouterLLMClient,
+    AzureOpenAILLMClient,
     LlamaCppLLMClient,
 )
 from rdma.utils.setup import setup_device  # noqa: E402
@@ -48,6 +49,39 @@ _DEFAULT_DATASET_CACHE_DIR = "/shared/eng/pyhealth/csc"
 
 def ts(msg):
     print(f"{datetime.now():%Y-%m-%d %H:%M:%S} - {msg}", flush=True)
+
+
+def _json_default(obj):
+    """Fallback serializer for numpy/scalar-like values in debug artifacts."""
+    if hasattr(obj, "item"):
+        try:
+            return obj.item()
+        except Exception:
+            pass
+    return str(obj)
+
+
+def _normalize_verified(verified_phenotypes: list) -> list:
+    """Attach a stable verification_type field for per-stage debugging."""
+    normalized = []
+    for item in verified_phenotypes:
+        if not isinstance(item, dict):
+            normalized.append(item)
+            continue
+        out = dict(item)
+        verification_type = (
+            out.get("verification_type")
+            or out.get("status")
+            or out.get("phenotype_type")
+            or "unknown"
+        )
+        if verification_type == "direct_phenotype":
+            verification_type = "direct"
+        elif verification_type == "implied_phenotype":
+            verification_type = "implied"
+        out["verification_type"] = verification_type
+        normalized.append(out)
+    return normalized
 
 
 def load_done_ids(path):
@@ -98,14 +132,20 @@ def main():
         "--llm_type",
         type=str,
         default="local",
-        choices=["local", "api", "openrouter", "llama_cpp"],
+        choices=["local", "api", "openrouter", "azure", "llama_cpp"],
         help="LLM backend (default: %(default)s)",
     )
     parser.add_argument(
         "--api_config",
         type=str,
         default=None,
-        help="Path to saved API config JSON (api/openrouter only)",
+        help="Path to saved API config JSON (api/openrouter/azure)",
+    )
+    parser.add_argument(
+        "--dotenv_path",
+        type=str,
+        default=None,
+        help="Optional dotenv file for API backends (e.g. PyHealthAgent/.env)",
     )
     parser.add_argument(
         "--gguf_file",
@@ -135,13 +175,18 @@ def main():
         "--extraction_temperature",
         type=float,
         default=0.001,
-        help="LLM sampling temperature for entity extraction (default: %(default)s)",
+        help=(
+            "LLM sampling temperature for entity extraction " "(default: %(default)s)"
+        ),
     )
     parser.add_argument(
         "--temperature",
         type=float,
         default=0.01,
-        help="LLM sampling temperature for verification and matching (default: %(default)s)",
+        help=(
+            "LLM sampling temperature for verification and matching "
+            "(default: %(default)s)"
+        ),
     )
     parser.add_argument(
         "--gpu_id",
@@ -205,6 +250,16 @@ def main():
         help="HPOMatcher optimizer version (default: %(default)s)",
     )
     parser.add_argument(
+        "--allow_inheritance",
+        action=argparse.BooleanOptionalAction,
+        default=False,
+        help=(
+            "If true, allow the verifier to accept inheritance pattern, "
+            "expressivity, and onset modifier terms as valid HPO phenotypes "
+            "(default: %(default)s)"
+        ),
+    )
+    parser.add_argument(
         "--use_demographics",
         action=argparse.BooleanOptionalAction,
         default=True,
@@ -251,7 +306,15 @@ def main():
     parser.add_argument(
         "--dev",
         action="store_true",
-        help="Dev mode: process only the first 2 samples",
+        help="Dev mode: process only the first --dev_n samples",
+    )
+    parser.add_argument(
+        "--dev_n",
+        type=int,
+        default=2,
+        help=(
+            "Number of samples to use when --dev is active " "(default: %(default)s)"
+        ),
     )
     parser.add_argument(
         "--checkpoint_interval",
@@ -288,6 +351,7 @@ def main():
     ts(f"Extractor         : {args.entity_extractor}")
     ts(f"Verifier version  : {args.verifier_version}")
     ts(f"Matcher version   : {args.matcher_version}")
+    ts(f"Allow inheritance : {args.allow_inheritance}")
     ts(f"Use demographics  : {args.use_demographics}")
     ts(f"Exclude negation  : {args.negation}")
     ts(f"Exclude fam hist  : {args.family_history}")
@@ -295,7 +359,7 @@ def main():
     ts(f"Output            : {output}")
     ts(f"Resume            : {args.resume}")
     ts(f"Debug             : {args.debug}")
-    ts(f"Dev mode          : {args.dev}")
+    ts(f"Dev mode          : {args.dev} (n={args.dev_n})")
     ts(f"Checkpoint every  : {args.checkpoint_interval}")
 
     # ── Dataset ───────────────────────────────────────────────────────────
@@ -317,7 +381,10 @@ def main():
             return (
                 APILLMClient.from_config(args.api_config)
                 if args.api_config
-                else APILLMClient(model_type=args.model_type, temperature=temperature)
+                else APILLMClient(
+                    model_type=args.model_type,
+                    temperature=temperature,
+                )
             )
         elif args.llm_type == "openrouter":
             return (
@@ -325,6 +392,17 @@ def main():
                 if args.api_config
                 else OpenRouterLLMClient(
                     model_type=args.model_type, temperature=temperature
+                )
+            )
+        elif args.llm_type == "azure":
+            return (
+                AzureOpenAILLMClient.from_config(args.api_config)
+                if args.api_config
+                else AzureOpenAILLMClient(
+                    model_type=args.model_type,
+                    azure_deployment=args.model_type,
+                    temperature=temperature,
+                    dotenv_path=args.dotenv_path,
                 )
             )
         elif args.llm_type == "llama_cpp":
@@ -368,6 +446,7 @@ def main():
         retriever_model=args.retriever_model,
         debug=args.debug,
         use_demographics=args.use_demographics,
+        allow_inheritance=args.allow_inheritance,
     )
     matcher = HPOMatcher(
         llm_client=llm_client,
@@ -390,14 +469,14 @@ def main():
     try:
         timings: list = []
         records: list = []
-        run_samples = samples.subset(slice(0, 2)) if args.dev else samples
+        run_samples = samples.subset(slice(0, args.dev_n)) if args.dev else samples
         for i, sample in enumerate(
             tqdm(run_samples, total=len(run_samples), desc="CSC")
         ):
             try:
                 doc_id = sample["patient_id"]
                 text = pickle.loads(sample["text"])
-                # CSC already uses HP:XXXXXXX colon format — no normalisation needed
+                # CSC already uses HP:XXXXXXX colon format.
                 ground_truth = [
                     p["hpo_id"]
                     for p in pickle.loads(sample["phenotypes"])
@@ -413,6 +492,9 @@ def main():
                 continue
 
             extract_s = verify_s = match_s = 0.0
+            entities_with_contexts = []
+            verified_phenotypes = []
+            matched_phenotypes = []
             try:
                 t0 = time.perf_counter()
                 entities_with_contexts = extractor.extract([text])
@@ -421,7 +503,10 @@ def main():
                     ts(f"  [{doc_id}] extracted {len(entities_with_contexts)}")
 
                 t0 = time.perf_counter()
-                verified_phenotypes = verifier.verify(entities_with_contexts, text)
+                verified_phenotypes = verifier.verify(
+                    entities_with_contexts,
+                    text,
+                )
                 verify_s = time.perf_counter() - t0
                 if args.debug:
                     ts(f"  [{doc_id}] verified  {len(verified_phenotypes)}")
@@ -448,20 +533,34 @@ def main():
                 predicted = []
 
             timings.append((extract_s, verify_s, match_s))
-            records.append({"predicted": predicted, "ground_truth": ground_truth})
+            records.append(
+                {
+                    "predicted": predicted,
+                    "ground_truth": ground_truth,
+                }
+            )
+            row = {
+                "id": doc_id,
+                "predicted": predicted,
+                "ground_truth": ground_truth,
+                "timing": {
+                    "extraction_s": round(extract_s, 3),
+                    "verification_s": round(verify_s, 3),
+                    "matching_s": round(match_s, 3),
+                },
+            }
+
+            # In debug mode, persist stage outputs for divergence analysis.
+            if args.debug:
+                row["extracted_entities"] = entities_with_contexts
+                row["verified_entities"] = _normalize_verified(verified_phenotypes)
+                row["final_matched_entities"] = matched_phenotypes
+
             out_f.write(
                 json.dumps(
-                    {
-                        "id": doc_id,
-                        "predicted": predicted,
-                        "ground_truth": ground_truth,
-                        "timing": {
-                            "extraction_s": round(extract_s, 3),
-                            "verification_s": round(verify_s, 3),
-                            "matching_s": round(match_s, 3),
-                        },
-                    },
+                    row,
                     ensure_ascii=False,
+                    default=_json_default,
                 )
                 + "\n"
             )

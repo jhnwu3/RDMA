@@ -61,29 +61,6 @@ from metrics.ner_metrics import SpanEntityScore  # noqa: E402
 # is not needed for span extraction; we take only what we use.)
 
 
-def bert_extract_item(start_logits, end_logits, input_len):
-    """Extract non-overlapping (label, start, end) spans from logits."""
-    start_pred = torch.argmax(start_logits, -1).cpu().numpy()[0][1 : input_len - 1]
-    end_pred = torch.argmax(end_logits, -1).cpu().numpy()[0][1 : input_len - 1]
-    spans = []
-    for i, s_l in enumerate(start_pred):
-        if s_l == 0:
-            continue
-        for j, e_l in enumerate(end_pred[i:]):
-            if s_l == e_l:
-                spans.append((s_l, i, i + j))
-                break
-    # Keep only non-overlapping spans (prefer later start)
-    result = []
-    if len(spans) < 2:
-        result = spans
-    else:
-        for i in range(len(spans) - 1):
-            if spans[i][2] < spans[i + 1][1]:
-                result.append(spans[i])
-        result.append(spans[-1])
-    return result
-
 
 # ── Constants ─────────────────────────────────────────────────────────────────
 _BIOBERT_MODEL = str(_BIOBERT_ROOT / "BioBERTv1.1_P")
@@ -204,7 +181,7 @@ def evaluate(
                 attention_mask.view(-1) - segment_ids.view(-1)
             ).cpu()
         )
-        pred_subjects = bert_extract_item(
+        pred_subjects = BertSpanNERModel.predict(
             outputs["start_logits"], outputs["end_logits"], text_len
         )
         metric.update(

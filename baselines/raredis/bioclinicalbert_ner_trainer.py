@@ -31,7 +31,7 @@ import logging
 import sys
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List, Tuple
+from typing import Dict, List
 
 import torch
 from torch.utils.data import DataLoader, Dataset, SequentialSampler
@@ -93,42 +93,6 @@ def collate_fn(batch: List[Dict]) -> Dict:
     }
 
 
-# ── Span extraction helpers ───────────────────────────────────────────────────
-
-
-def _bio_to_spans(word_label_ids: List[int]) -> List[Tuple[int, int, int]]:
-    """Convert word-level predicted label ids to ``(label_id, start, end)`` spans.
-
-    Uses the ``B-`` tag id as ``label_id`` to match the ``SpanEntityScore``
-    convention (which keys on the B- label id, not I-).
-
-    Args:
-        word_label_ids: Flat list of label ids, one per word.
-
-    Returns:
-        List of ``(b_label_id, word_start, word_end)`` tuples (inclusive).
-    """
-    ID2LABEL = BioClinicalBERTNERTask.ID2LABEL
-    LABEL2ID = BioClinicalBERTNERTask.LABEL2ID
-    spans: List[Tuple[int, int, int]] = []
-    i = 0
-    n = len(word_label_ids)
-    while i < n:
-        label = ID2LABEL.get(word_label_ids[i], "O")
-        if label.startswith("B-"):
-            etype = label[2:]
-            span_start = i
-            j = i + 1
-            while j < n and ID2LABEL.get(word_label_ids[j], "O") == f"I-{etype}":
-                j += 1
-            span_end = j - 1
-            spans.append((LABEL2ID[f"B-{etype}"], span_start, span_end))
-            i = j
-        else:
-            i += 1
-    return spans
-
-
 # ── Evaluation ────────────────────────────────────────────────────────────────
 
 
@@ -187,21 +151,11 @@ def evaluate(
                 preds = pred_ids[i]  # [seq]
                 golds = gold_ids[i]  # [seq]
 
-                # Collapse subword → word via first subword per word index
-                seen: set = set()
-                word_preds: List[int] = []
-                word_golds: List[int] = []
-                for pos in range(len(wids)):
-                    w = wids[pos].item()
-                    if w == -1:
-                        continue
-                    if w not in seen:
-                        seen.add(w)
-                        word_preds.append(preds[pos].item())
-                        word_golds.append(golds[pos].item())
+                word_preds = BioClinicalBERTNERModel.collapse_to_word_preds(wids, preds)
+                word_golds = BioClinicalBERTNERModel.collapse_to_word_preds(wids, golds)
 
-                pred_spans = _bio_to_spans(word_preds)
-                gold_spans = _bio_to_spans(word_golds)
+                pred_spans = BioClinicalBERTNERModel.bio_to_spans(word_preds, BioClinicalBERTNERTask.ID2LABEL, BioClinicalBERTNERTask.LABEL2ID)
+                gold_spans = BioClinicalBERTNERModel.bio_to_spans(word_golds, BioClinicalBERTNERTask.ID2LABEL, BioClinicalBERTNERTask.LABEL2ID)
                 metric.update(true_subject=gold_spans, pred_subject=pred_spans)
 
     eval_info, entity_info = metric.result()

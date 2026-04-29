@@ -10,6 +10,18 @@ import sys
 from typing import List
 import torch
 
+NO_REASONING_INSTRUCTION = (
+    "Return only the final answer with no chain-of-thought, no internal reasoning, "
+    "and no deliberation text. Be concise and direct."
+)
+
+
+def _suppress_reasoning(system_message: str) -> str:
+    """Inject a concise instruction to avoid reasoning-style outputs."""
+    if not system_message:
+        return NO_REASONING_INSTRUCTION
+    return f"{NO_REASONING_INSTRUCTION}\n\n{system_message}"
+
 
 class LLMClient(ABC):
     """Abstract base class for all LLM clients."""
@@ -84,7 +96,7 @@ class LocalLLMClient(LLMClient):
         import torch
 
         messages = [
-            {"role": "system", "content": system_message},
+            {"role": "system", "content": _suppress_reasoning(system_message)},
             {"role": "user", "content": user_input},
         ]
 
@@ -242,7 +254,7 @@ class LocalLLMClient(LLMClient):
 
     def query_with_full_entropy(self, user_input, system_message):
         messages = [
-            {"role": "system", "content": system_message},
+            {"role": "system", "content": _suppress_reasoning(system_message)},
             {"role": "user", "content": user_input},
         ]
 
@@ -370,6 +382,7 @@ from typing import Dict, Any, Optional, List
 import time
 import json
 import os
+from urllib.parse import urlparse, parse_qs
 from datetime import datetime
 from functools import wraps
 from ratelimit import limits, sleep_and_retry
@@ -512,7 +525,7 @@ class APILLMClient(LLMClient):
 
         # Prepare messages
         messages = [
-            {"role": "system", "content": system_message},
+            {"role": "system", "content": _suppress_reasoning(system_message)},
             {"role": "user", "content": user_input},
         ]
 
@@ -684,7 +697,7 @@ class OpenRouterLLMClient(LLMClient):
             Model's response text
         """
         messages = [
-            {"role": "system", "content": system_message},
+            {"role": "system", "content": _suppress_reasoning(system_message)},
             {"role": "user", "content": user_input},
         ]
 
@@ -755,6 +768,201 @@ class OpenRouterLLMClient(LLMClient):
             max_tokens_per_day=max_tokens,
             max_queries_per_minute=max_queries,
             temperature=temperature,
+        )
+
+
+class AzureOpenAILLMClient(LLMClient):
+    """Azure OpenAI chat client.
+
+    Reads credentials/config from a dotenv file and environment variables.
+    Expected environment variables:
+    - AZURE_OPENAI_ENDPOINT (can include ?api-version=...)
+    - AZURE_OPENAI_API_KEY
+    - AZURE_OPENAI_DEPLOYMENT (optional if deployment provided in constructor)
+    """
+
+    DEFAULT_API_VERSION = "2025-01-01-preview"
+
+    def __init__(
+        self,
+        model_type: str = "gpt-5-john",
+        device: str = "cpu",  # kept for interface compatibility
+        cache_dir: Optional[str] = None,  # kept for interface compatibility
+        temperature: float = 1.0,
+        api_key: Optional[str] = None,
+        azure_endpoint: Optional[str] = None,
+        api_version: Optional[str] = None,
+        azure_deployment: Optional[str] = None,
+        dotenv_path: Optional[str] = None,
+        max_retries: int = 0,
+    ):
+        # Load dotenv explicitly for this client if provided by caller.
+        if dotenv_path:
+            load_dotenv(dotenv_path)
+
+        self.model_type = model_type
+        self.device = device
+        self.cache_dir = cache_dir
+        self.temperature = temperature
+        self.max_retries = max_retries
+        self.last_usage_metadata = None
+        self.request_delay = float(os.environ.get("AZURE_REQUEST_DELAY", 0))
+
+        endpoint_full = azure_endpoint or os.getenv("AZURE_OPENAI_ENDPOINT")
+        self.api_key = api_key or os.getenv("AZURE_OPENAI_API_KEY")
+        self.azure_deployment = (
+            azure_deployment or os.getenv("AZURE_OPENAI_DEPLOYMENT") or self.model_type
+        )
+
+        if not endpoint_full:
+            raise ValueError(
+                "AZURE_OPENAI_ENDPOINT is required (argument or environment variable)"
+            )
+        if not self.api_key:
+            raise ValueError(
+                "AZURE_OPENAI_API_KEY is required (argument or environment variable)"
+            )
+
+        parsed = urlparse(endpoint_full)
+        parsed_api_version = parse_qs(parsed.query).get(
+            "api-version", [self.DEFAULT_API_VERSION]
+        )[0]
+
+        self.api_version = api_version or parsed_api_version
+        self.azure_endpoint = f"{parsed.scheme}://{parsed.netloc}"
+
+        try:
+            from langchain_openai import AzureChatOpenAI
+        except ImportError:
+            raise ImportError(
+                "langchain-openai is required for AzureOpenAILLMClient. "
+                "Install with: pip install langchain-openai"
+            )
+
+        self._azure_chat_cls = AzureChatOpenAI
+        self.client = self._build_client(include_temperature=True)
+
+        self._save_config()
+
+    def _save_config(self) -> None:
+        """Save current configuration to file."""
+        config = {
+            "model_type": self.model_type,
+            "device": self.device,
+            "cache_dir": self.cache_dir,
+            "temperature": self.temperature,
+            "api_version": self.api_version,
+            "azure_endpoint": self.azure_endpoint,
+            "azure_deployment": self.azure_deployment,
+            "max_retries": self.max_retries,
+        }
+
+        config_file = (
+            os.path.join(self.cache_dir, "azure_openai_config.json")
+            if self.cache_dir
+            else "azure_openai_config.json"
+        )
+        os.makedirs(os.path.dirname(os.path.abspath(config_file)), exist_ok=True)
+
+        with open(config_file, "w") as f:
+            json.dump(config, f)
+
+    def _build_client(self, include_temperature: bool = True):
+        """Create AzureChatOpenAI client, optionally omitting temperature."""
+        kwargs = {
+            "azure_endpoint": self.azure_endpoint,
+            "azure_deployment": self.azure_deployment,
+            "api_key": self.api_key,
+            "api_version": self.api_version,
+            "max_retries": self.max_retries,
+        }
+        if include_temperature and self.temperature is not None:
+            kwargs["temperature"] = self.temperature
+        return self._azure_chat_cls(**kwargs)
+
+    @staticmethod
+    def _is_unsupported_temperature_error(err: Exception) -> bool:
+        msg = str(err).lower()
+        return (
+            "temperature" in msg
+            and "unsupported" in msg
+            and ("default" in msg or "does not support" in msg)
+        )
+
+    @classmethod
+    def from_config(cls, config_file: str) -> "AzureOpenAILLMClient":
+        """Create an AzureOpenAILLMClient instance from a configuration file."""
+        if not os.path.exists(config_file):
+            raise FileNotFoundError(f"Configuration file {config_file} not found")
+
+        with open(config_file, "r") as f:
+            config = json.load(f)
+
+        return cls(**config)
+
+    @rate_limited_api
+    def query(self, user_input: str, system_message: str) -> str:
+        """Send a query to Azure OpenAI via LangChain AzureChatOpenAI."""
+        if self.request_delay > 0:
+            time.sleep(self.request_delay)
+        messages = [
+            ("system", _suppress_reasoning(system_message)),
+            ("human", user_input),
+        ]
+
+        try:
+            response = self.client.invoke(messages)
+            self.last_usage_metadata = getattr(response, "usage_metadata", None)
+            return response.content
+        except Exception as e:
+            if self.temperature is not None and self._is_unsupported_temperature_error(
+                e
+            ):
+                print(
+                    "[Azure OpenAI] Custom temperature unsupported by this "
+                    "deployment; retrying with default temperature."
+                )
+                self.temperature = None
+                self.client = self._build_client(include_temperature=False)
+                response = self.client.invoke(messages)
+                self.last_usage_metadata = getattr(response, "usage_metadata", None)
+                return response.content
+            print(f"Azure OpenAI request failed: {str(e)}")
+            raise
+
+    @staticmethod
+    def initialize_from_input() -> "AzureOpenAILLMClient":
+        """Initialize client by gathering input from user."""
+        print("\nInitializing Azure OpenAI Client")
+        print("-" * 34)
+
+        dotenv_path = (
+            input("Enter dotenv path (optional, e.g. PyHealthAgent/.env): ").strip()
+            or None
+        )
+
+        deployment = (
+            input("Enter deployment name (default 'gpt-5-john'): ").strip()
+            or "gpt-5-john"
+        )
+
+        cache_dir = input("Enter cache directory (optional): ").strip() or None
+
+        temperature = input("Enter temperature (default 1.0, range 0.0-1.0): ").strip()
+        try:
+            temperature = float(temperature) if temperature else 1.0
+            if not 0.0 <= temperature <= 1.0:
+                raise ValueError
+        except ValueError:
+            print("Invalid temperature. Using default (1.0)")
+            temperature = 1.0
+
+        return AzureOpenAILLMClient(
+            model_type=deployment,
+            azure_deployment=deployment,
+            cache_dir=cache_dir,
+            temperature=temperature,
+            dotenv_path=dotenv_path,
         )
 
 
@@ -851,7 +1059,7 @@ class LlamaCppLLMClient(LLMClient):
         import re
 
         messages = [
-            {"role": "system", "content": system_message},
+            {"role": "system", "content": _suppress_reasoning(system_message)},
             {"role": "user", "content": user_input},
         ]
         response = self.llm.create_chat_completion(

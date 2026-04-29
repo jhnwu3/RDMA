@@ -46,9 +46,14 @@ _DEFAULT_MIMIC3_ROOT = (
     "/srv/local/data/physionet.org/files/mimic-iii-clinical-database-1.4/"
 )
 _DEFAULT_MIMIC3_CACHE_DIR = "/shared/eng/pyhealth/mimic3"
+_DEFAULT_ORPHA_EMBEDDINGS_FILE = str(
+    _RDMA_ROOT / "data" / "vector_stores" / "rd_orpha_medembed.npy"
+)
 
 sys.path.insert(0, str(_PYHEALTH_ROOT))
 sys.path.insert(0, str(_RDMA_ROOT))  # inserted last → highest priority
+
+from rdma.hpo.embedding_fuzzy_matcher import EmbeddingFuzzyMatcher  # noqa: E402
 
 from pyhealth.datasets import MIMIC3Dataset  # noqa: E402
 from tasks.mimic3_rd_mining_text import MIMIC3RDMiningText  # noqa: E402
@@ -67,42 +72,6 @@ logger = logging.getLogger(__name__)
 def ts(msg: str) -> None:
     print(f"{datetime.now():%Y-%m-%d %H:%M:%S} - {msg}", flush=True)
 
-
-# ── Inlined from bioclinicalbert_ner_trainer.py ───────────────────────────────
-
-def _bio_to_spans(word_label_ids: List[int]) -> List[Tuple[int, int, int]]:
-    """Convert word-level predicted label ids to (label_id, start, end) spans.
-
-    Uses the B- tag id as label_id (matching SpanEntityScore convention).
-
-    Args:
-        word_label_ids: Flat list of label ids, one per word.
-
-    Returns:
-        List of (b_label_id, word_start, word_end) tuples (inclusive).
-    """
-    ID2LABEL = BioClinicalBERTNERTask.ID2LABEL
-    LABEL2ID = BioClinicalBERTNERTask.LABEL2ID
-    spans: List[Tuple[int, int, int]] = []
-    i = 0
-    n = len(word_label_ids)
-    while i < n:
-        label = ID2LABEL.get(word_label_ids[i], "O")
-        if label.startswith("B-"):
-            etype = label[2:]
-            span_start = i
-            j = i + 1
-            while j < n and ID2LABEL.get(word_label_ids[j], "O") == f"I-{etype}":
-                j += 1
-            span_end = j - 1
-            spans.append((LABEL2ID[f"B-{etype}"], span_start, span_end))
-            i = j
-        else:
-            i += 1
-    return spans
-
-
-# ── Inlined from biobert_mrc.py ───────────────────────────────────────────────
 
 def _word_offsets(text: str) -> Tuple[List[str], List[int]]:
     """Whitespace-split text, returning (words, char_starts)."""
@@ -226,7 +195,7 @@ def _bio_to_strings(word_preds: List[int], words: List[str]) -> List[str]:
     Returns:
         List of entity strings (joined words, lowercased).
     """
-    spans = _bio_to_spans(word_preds)
+    spans = BioClinicalBERTNERModel.bio_to_spans(word_preds, BioClinicalBERTNERTask.ID2LABEL, BioClinicalBERTNERTask.LABEL2ID)
     results: List[str] = []
     for label_id, span_start, span_end in spans:
         if label_id not in _KEEP_LABEL_IDS:
@@ -294,6 +263,42 @@ def main() -> None:
         "--dry_run",
         action="store_true",
         help="Load data and model, process one sample, then exit",
+    )
+    # Code-matching args (embedding + fuzzy, no LLM)
+    parser.add_argument(
+        "--skip_code_matching",
+        action="store_true",
+        help="Skip ORPHA code matching; produce text-eval output only",
+    )
+    parser.add_argument(
+        "--orpha_embeddings_file",
+        type=str,
+        default=_DEFAULT_ORPHA_EMBEDDINGS_FILE,
+        help="Path to ORPHA .npy embeddings file (default: %(default)s)",
+    )
+    parser.add_argument(
+        "--retriever",
+        type=str,
+        default="sentence_transformer",
+        help="Retriever type for EmbeddingFuzzyMatcher (default: %(default)s)",
+    )
+    parser.add_argument(
+        "--retriever_model",
+        type=str,
+        default="abhinand/MedEmbed-small-v0.1",
+        help="Retriever model name (default: %(default)s)",
+    )
+    parser.add_argument(
+        "--top_k",
+        type=int,
+        default=20,
+        help="Top-k FAISS candidates per entity (default: %(default)s)",
+    )
+    parser.add_argument(
+        "--fuzzy_threshold",
+        type=float,
+        default=0.85,
+        help="Minimum SequenceMatcher ratio for code matching (default: %(default)s)",
     )
     args = parser.parse_args()
 
@@ -388,15 +393,7 @@ def main() -> None:
 
             # Collapse subwords → word-level predictions (first subword per word)
             word_ids = feat["word_ids"]  # [seq]; -1 = special token
-            seen: set = set()
-            word_preds: List[int] = []
-            for pos in range(len(word_ids)):
-                wi = word_ids[pos].item()
-                if wi == -1:
-                    continue
-                if wi not in seen:
-                    seen.add(wi)
-                    word_preds.append(pred_ids[pos].item())
+            word_preds = BioClinicalBERTNERModel.collapse_to_word_preds(word_ids, pred_ids)
 
             entity_strings = _bio_to_strings(word_preds, chunk_words)
             pred_per_note[note_id].update(entity_strings)
@@ -459,6 +456,41 @@ def main() -> None:
 
     ts(f"Per-note predictions saved to {jsonl_path}")
     ts(f"Summary saved to {summary_path}")
+
+    # ── Code matching (embedding + fuzzy → ORPHA IDs) ─────────────────
+    if not args.skip_code_matching:
+        ts(f"Initialising EmbeddingFuzzyMatcher ({args.orpha_embeddings_file}) …")
+        code_matcher = EmbeddingFuzzyMatcher(
+            embeddings_file=args.orpha_embeddings_file,
+            retriever=args.retriever,
+            retriever_model=args.retriever_model,
+            top_k=args.top_k,
+            fuzzy_threshold=args.fuzzy_threshold,
+            device=device_str,
+        )
+
+        code_jsonl_path = args.output_dir / "per_note_code_predictions.jsonl"
+        ts(f"Writing code-eval JSONL to {code_jsonl_path} …")
+        with open(code_jsonl_path, "w") as fh:
+            for note_id in note_ids:
+                pred_entities = sorted(pred_per_note.get(note_id, set()))
+                entity_payload = [{"entity": e} for e in pred_entities]
+                matched = code_matcher.match(entity_payload)
+                orpha_ids = list(dict.fromkeys(
+                    m["hp_id"] for m in matched if m.get("hp_id")
+                ))
+                fh.write(
+                    json.dumps(
+                        {
+                            "id": note_id,
+                            "predicted": pred_entities,
+                            "predicted_orpha_ids": orpha_ids,
+                        },
+                        ensure_ascii=False,
+                    )
+                    + "\n"
+                )
+        ts(f"Code-eval predictions saved to {code_jsonl_path}")
 
 
 if __name__ == "__main__":

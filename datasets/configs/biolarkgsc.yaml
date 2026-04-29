@@ -6,6 +6,7 @@ tables:
     timestamp: null
     attributes:
       - "text"
+      - "split"
 
   annotations:
     file_path: "annotations.csv"

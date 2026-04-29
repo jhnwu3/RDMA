@@ -30,34 +30,12 @@ from transformers import AutoTokenizer
 from pyhealth.data.data import Patient
 from pyhealth.tasks.base_task import BaseTask
 
-from processors.bioclinicalbert_ner_processor import LongTensorProcessor
+from processors.long_tensor import LongTensorProcessor
+from tasks.utils import word_offsets
 
 
 # ── Private helpers ────────────────────────────────────────────────────────────
 
-
-def _word_offsets(text: str) -> Tuple[List[str], List[int]]:
-    """Split *text* on whitespace and return (words, char_starts).
-
-    Preserves exact character positions so that char-level entity spans can
-    be mapped back to word indices.  Mirrors the helper of the same name in
-    ``processors/biobert_mrc_ner_processor.py``.
-    """
-    words: List[str] = []
-    starts: List[int] = []
-    pos = 0
-    n = len(text)
-    while pos < n:
-        while pos < n and text[pos].isspace():
-            pos += 1
-        if pos >= n:
-            break
-        word_start = pos
-        while pos < n and not text[pos].isspace():
-            pos += 1
-        words.append(text[word_start:pos])
-        starts.append(word_start)
-    return words, starts
 
 
 def _tokenize_and_align(
@@ -210,7 +188,7 @@ class BioClinicalBERTNERTask(BaseTask):
             return []
 
         # ── 1. Whitespace-split text → word list + char offsets ───────
-        words, word_char_starts = _word_offsets(text)
+        words, word_char_starts = word_offsets(text)
         if not words:
             return []
 

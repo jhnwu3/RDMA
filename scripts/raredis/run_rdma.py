@@ -29,6 +29,7 @@ from rdma.utils.llm_client import (  # noqa: E402
     LocalLLMClient,
     APILLMClient,
     OpenRouterLLMClient,
+    AzureOpenAILLMClient,
     LlamaCppLLMClient,
 )
 from rdma.utils.setup import setup_device  # noqa: E402
@@ -73,14 +74,20 @@ def main():
         "--llm_type",
         type=str,
         default="local",
-        choices=["local", "api", "openrouter", "llama_cpp"],
+        choices=["local", "api", "openrouter", "azure", "llama_cpp"],
         help="LLM backend (default: %(default)s)",
     )
     parser.add_argument(
         "--api_config",
         type=str,
         default=None,
-        help="Path to saved API config JSON (api/openrouter only)",
+        help="Path to saved API config JSON (api/openrouter/azure)",
+    )
+    parser.add_argument(
+        "--dotenv_path",
+        type=str,
+        default=None,
+        help="Optional dotenv file for API backends (e.g. PyHealthAgent/.env)",
     )
     parser.add_argument(
         "--gguf_file",
@@ -295,9 +302,7 @@ def main():
         llm_client = (
             APILLMClient.from_config(args.api_config)
             if args.api_config
-            else APILLMClient(
-                model_type=args.model_type, temperature=args.temperature
-            )
+            else APILLMClient(model_type=args.model_type, temperature=args.temperature)
         )
     elif args.llm_type == "openrouter":
         llm_client = (
@@ -305,6 +310,17 @@ def main():
             if args.api_config
             else OpenRouterLLMClient(
                 model_type=args.model_type, temperature=args.temperature
+            )
+        )
+    elif args.llm_type == "azure":
+        llm_client = (
+            AzureOpenAILLMClient.from_config(args.api_config)
+            if args.api_config
+            else AzureOpenAILLMClient(
+                model_type=args.model_type,
+                azure_deployment=args.model_type,
+                temperature=args.temperature,
+                dotenv_path=args.dotenv_path,
             )
         )
     elif args.llm_type == "llama_cpp":

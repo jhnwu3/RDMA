@@ -1,10 +1,9 @@
 """
-Schema FeatureProcessor for BioClinicalBERT NER fields.
+Generic LongTensor schema FeatureProcessor.
 
-All complex tokenisation and BIO-label alignment logic lives in the task
-module (``tasks/bioclinicalbert_ner_raredis.py``).  This processor is
-intentionally shallow: its only job is to declare the field type in the
-PyHealth schema and ensure every field value is a ``torch.LongTensor``.
+This processor's only job is to declare the field type in the PyHealth schema
+and ensure every field value is a ``torch.LongTensor``.  All domain logic
+(tokenisation, label alignment) lives in the task modules.
 """
 
 import torch
