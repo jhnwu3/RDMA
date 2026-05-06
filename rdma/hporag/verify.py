@@ -26,6 +26,7 @@ class HPOVerifierConfig:
         use_context_for_extract=True,
         use_context_for_validation=False,
         use_context_for_implication=True,
+        fuzzy_threshold: float = 0.93,
     ):
         # Retrieval settings
         self.use_retrieval_for_direct = use_retrieval_for_direct
@@ -40,6 +41,7 @@ class HPOVerifierConfig:
         self.use_context_for_extract = use_context_for_extract
         self.use_context_for_validation = use_context_for_validation
         self.use_context_for_implication = use_context_for_implication
+        self.fuzzy_threshold = fuzzy_threshold
 
     def to_dict(self):
         """Convert configuration to a dictionary."""
@@ -444,7 +446,7 @@ class MultiStageHPOVerifierV4:
 
             # Check for high similarity match (over 90%)
             similarity = fuzz.ratio(normalized_term, normalized_entity)
-            if similarity > 93:
+            if similarity > self.config.fuzzy_threshold * 100:
                 self._debug_print(
                     f"High similarity match ({similarity}%): '{entity}' matches '{phenotype['term']}' ({phenotype['hp_id']})",
                     level=2,
@@ -1143,7 +1145,7 @@ class MultiStageHPOVerifierV4:
 
             # Check for high similarity match (over 90%)
             similarity = fuzz.ratio(normalized_term, normalized_phenotype)
-            if similarity > 93:
+            if similarity > self.config.fuzzy_threshold * 100:
                 self._debug_print(
                     f"High similarity match ({similarity}%): '{phenotype}' matches '{pheno['term']}' ({pheno['hp_id']})",
                     level=2,
@@ -1592,11 +1594,12 @@ class MultiStageHPOVerifierV3(MultiStageHPOVerifierV4):
     Lab test analysis is disabled in this version.
     """
 
-    def __init__(self, embedding_manager, llm_client, config=None, debug=False):
+    def __init__(self, embedding_manager, llm_client, config=None, debug=False, allow_inheritance: bool = False):
         """Initialize without lab embeddings capability."""
         # Call parent initializer without lab_embeddings_file
         super().__init__(
-            embedding_manager, llm_client, config, debug, lab_embeddings_file=None
+            embedding_manager, llm_client, config, debug, lab_embeddings_file=None,
+            allow_inheritance=allow_inheritance,
         )
         # Ensure lab searcher is None
         self.lab_searcher = None
@@ -1802,11 +1805,13 @@ class MultiStageHPOVerifierV2(MultiStageHPOVerifierV4):
         config=None,
         debug=False,
         lab_embeddings_file=None,
+        allow_inheritance: bool = False,
     ):
         """Initialize with more verbose system prompts."""
         # Call parent initializer first
         super().__init__(
-            embedding_manager, llm_client, config, debug, lab_embeddings_file
+            embedding_manager, llm_client, config, debug, lab_embeddings_file,
+            allow_inheritance=allow_inheritance,
         )
 
         # Override with more verbose prompts
@@ -1977,3 +1982,59 @@ class MultiStageHPOVerifierV2(MultiStageHPOVerifierV4):
             "\n}"
             "\n\nReturn ONLY the JSON with no additional text."
         )
+
+
+class MultiStageHPOVerifierV1(MultiStageHPOVerifierV4):
+    """Direct-phenotype-only verifier — strips all implied/lab reasoning stages.
+
+    Keeps an entity only if verify_direct_phenotype accepts it. Everything else
+    (lab test detection, implied phenotype extraction, validation) is skipped.
+    Useful as an ablation baseline to isolate the contribution of multi-stage
+    reasoning.
+    """
+
+    def process_entity(
+        self,
+        entity: str,
+        context: Optional[str] = None,
+        sample_data: Optional[Dict] = None,
+    ) -> Dict:
+        if not entity:
+            return {
+                "status": "not_phenotype",
+                "phenotype": None,
+                "original_entity": entity,
+                "confidence": 1.0,
+                "method": "empty_entity",
+            }
+
+        cleaned_entity = self.preprocess_entity(entity)
+        if not cleaned_entity:
+            return {
+                "status": "not_phenotype",
+                "phenotype": None,
+                "original_entity": entity,
+                "confidence": 1.0,
+                "method": "empty_after_preprocessing",
+            }
+
+        direct_result = self.verify_direct_phenotype(cleaned_entity, context)
+        if direct_result.get("is_phenotype", False):
+            result = {
+                "status": "direct_phenotype",
+                "phenotype": direct_result.get("matched_term", cleaned_entity),
+                "original_entity": entity,
+                "confidence": direct_result["confidence"],
+                "method": direct_result["method"],
+            }
+            if "hp_id" in direct_result:
+                result["hp_id"] = direct_result["hp_id"]
+            return result
+
+        return {
+            "status": "not_phenotype",
+            "phenotype": None,
+            "original_entity": entity,
+            "confidence": direct_result.get("confidence", 0.0),
+            "method": direct_result.get("method", "not_direct_phenotype"),
+        }

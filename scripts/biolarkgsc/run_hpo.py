@@ -330,6 +330,33 @@ def main():
         ),
     )
     parser.add_argument(
+        "--context_window_size",
+        type=int,
+        default=0,
+        help=(
+            "Number of sentences of context to include around each extracted entity "
+            "(default: %(default)s — entity sentence only)"
+        ),
+    )
+    parser.add_argument(
+        "--require_text_match",
+        action=argparse.BooleanOptionalAction,
+        default=False,
+        help=(
+            "If true, drop extracted entities that do not appear verbatim as a "
+            "substring of the source text (default: %(default)s)"
+        ),
+    )
+    parser.add_argument(
+        "--fuzzy_threshold",
+        type=float,
+        default=0.93,
+        help=(
+            "Fuzzy similarity threshold (0–1) used in the verifier's fast-match "
+            "stage; higher = stricter (default: %(default)s)"
+        ),
+    )
+    parser.add_argument(
         "--output",
         type=Path,
         default=None,
@@ -403,6 +430,9 @@ def main():
     ts(f"Exclude etiology  : {args.exclude_etiology}")
     ts(f"Prefer specific   : {args.prefer_specific}")
     ts(f"Require grounding : {args.require_grounding}")
+    ts(f"Context window    : {args.context_window_size}")
+    ts(f"Require text match: {args.require_text_match}")
+    ts(f"Fuzzy threshold   : {args.fuzzy_threshold}")
     ts(f"Top-k             : {args.top_k}")
     ts(f"Multi match       : {args.multi_match}")
     ts(f"Output            : {output}")
@@ -492,6 +522,7 @@ def main():
         extract_qualified=args.extract_qualified,
         exhaustive=args.exhaustive,
         exclude_etiology=args.exclude_etiology,
+        window_size=args.context_window_size,
     )
     verifier = HPOVerifier(
         llm_client=llm_client,
@@ -503,6 +534,8 @@ def main():
         debug=args.debug,
         use_demographics=args.use_demographics,
         allow_inheritance=args.allow_inheritance,
+        require_text_match=args.require_text_match,
+        fuzzy_threshold=args.fuzzy_threshold,
     )
     matcher = HPOMatcher(
         llm_client=llm_client,

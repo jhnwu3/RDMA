@@ -12,6 +12,7 @@ sys.path.insert(0, parent_dir)
 
 from rdma.hporag.verify import (
     HPOVerifierConfig,
+    MultiStageHPOVerifierV1,
     MultiStageHPOVerifierV2,
     MultiStageHPOVerifierV3,
     MultiStageHPOVerifierV4,
@@ -42,6 +43,8 @@ class HPOVerifier:
         debug: bool = False,
         use_demographics: bool = False,  # Flag to enable demographic extraction and use
         allow_inheritance: bool = False,
+        require_text_match: bool = False,
+        fuzzy_threshold: float = 0.93,
     ):
         """
         Initialize the phenotype verifier wrapper.
@@ -64,6 +67,8 @@ class HPOVerifier:
         self.debug = debug
         self.use_demographics = use_demographics
         self.allow_inheritance = allow_inheritance
+        self.require_text_match = require_text_match
+        self.fuzzy_threshold = fuzzy_threshold
         self.llm_client = llm_client
 
         # Auto-detect device if not specified
@@ -146,11 +151,13 @@ class HPOVerifier:
         if config_dict:
             if self.debug:
                 print("Using provided verifier configuration")
-            return HPOVerifierConfig.from_dict(config_dict)
+            cfg = HPOVerifierConfig.from_dict(config_dict)
         else:
             if self.debug:
                 print("Using default optimized configuration")
-            return HPOVerifierConfig.from_dict(optimized_config)
+            cfg = HPOVerifierConfig.from_dict(optimized_config)
+        cfg.fuzzy_threshold = self.fuzzy_threshold
+        return cfg
 
     def _load_embeddings(self, embeddings_file: str) -> Any:
         """Load embeddings from file."""
@@ -172,7 +179,15 @@ class HPOVerifier:
         if self.debug:
             print(f"Initializing {verifier_version.upper()} verifier")
 
-        if verifier_version == "v2":
+        if verifier_version == "v1":
+            return MultiStageHPOVerifierV1(
+                embedding_manager=self.embedding_manager,
+                llm_client=self.llm_client,
+                config=self.verifier_config,
+                debug=self.debug,
+                allow_inheritance=self.allow_inheritance,
+            )
+        elif verifier_version == "v2":
             return MultiStageHPOVerifierV2(
                 embedding_manager=self.embedding_manager,
                 llm_client=self.llm_client,
@@ -199,7 +214,7 @@ class HPOVerifier:
             )
 
     def filter_hallucinated_entities(
-        self, entities_with_contexts: List[Dict]
+        self, entities_with_contexts: List[Dict], source_text: Optional[str] = None
     ) -> List[Dict]:
         """Filter out potentially hallucinated entities (those without valid contexts)."""
         initial_count = len(entities_with_contexts)
@@ -211,6 +226,14 @@ class HPOVerifier:
             if entity.get("context")
             and len(entity.get("context", "").strip()) >= self.min_context_length
         ]
+
+        # Optionally enforce that the entity string appears verbatim in the source text
+        if self.require_text_match and source_text:
+            text_lower = source_text.lower()
+            filtered_entities = [
+                e for e in filtered_entities
+                if e.get("entity", "").lower() in text_lower
+            ]
 
         removed_count = initial_count - len(filtered_entities)
 
@@ -240,7 +263,7 @@ class HPOVerifier:
             print(f"Verifying {len(entities_with_contexts)} entities")
 
         # Filter out potentially hallucinated entities
-        filtered_entities = self.filter_hallucinated_entities(entities_with_contexts)
+        filtered_entities = self.filter_hallucinated_entities(entities_with_contexts, clinical_text)
 
         if self.debug:
             print(f"Processing {len(filtered_entities)} entities after filtering")

@@ -795,6 +795,7 @@ class AzureOpenAILLMClient(LLMClient):
         azure_deployment: Optional[str] = None,
         dotenv_path: Optional[str] = None,
         max_retries: int = 0,
+        request_timeout: int = 120,
     ):
         # Load dotenv explicitly for this client if provided by caller.
         if dotenv_path:
@@ -807,6 +808,7 @@ class AzureOpenAILLMClient(LLMClient):
         self.max_retries = max_retries
         self.last_usage_metadata = None
         self.request_delay = float(os.environ.get("AZURE_REQUEST_DELAY", 0))
+        self.request_timeout = int(os.environ.get("AZURE_REQUEST_TIMEOUT", request_timeout))
 
         endpoint_full = azure_endpoint or os.getenv("AZURE_OPENAI_ENDPOINT")
         self.api_key = api_key or os.getenv("AZURE_OPENAI_API_KEY")
@@ -855,6 +857,7 @@ class AzureOpenAILLMClient(LLMClient):
             "azure_endpoint": self.azure_endpoint,
             "azure_deployment": self.azure_deployment,
             "max_retries": self.max_retries,
+            "request_timeout": self.request_timeout,
         }
 
         config_file = (
@@ -875,6 +878,7 @@ class AzureOpenAILLMClient(LLMClient):
             "api_key": self.api_key,
             "api_version": self.api_version,
             "max_retries": self.max_retries,
+            "timeout": self.request_timeout,
         }
         if include_temperature and self.temperature is not None:
             kwargs["temperature"] = self.temperature
@@ -903,6 +907,8 @@ class AzureOpenAILLMClient(LLMClient):
     @rate_limited_api
     def query(self, user_input: str, system_message: str) -> str:
         """Send a query to Azure OpenAI via LangChain AzureChatOpenAI."""
+        import concurrent.futures
+
         if self.request_delay > 0:
             time.sleep(self.request_delay)
         messages = [
@@ -910,25 +916,34 @@ class AzureOpenAILLMClient(LLMClient):
             ("human", user_input),
         ]
 
-        try:
-            response = self.client.invoke(messages)
-            self.last_usage_metadata = getattr(response, "usage_metadata", None)
-            return response.content
-        except Exception as e:
-            if self.temperature is not None and self._is_unsupported_temperature_error(
-                e
-            ):
-                print(
-                    "[Azure OpenAI] Custom temperature unsupported by this "
-                    "deployment; retrying with default temperature."
-                )
-                self.temperature = None
-                self.client = self._build_client(include_temperature=False)
+        def _invoke():
+            try:
                 response = self.client.invoke(messages)
                 self.last_usage_metadata = getattr(response, "usage_metadata", None)
                 return response.content
-            print(f"Azure OpenAI request failed: {str(e)}")
-            raise
+            except Exception as e:
+                if self.temperature is not None and self._is_unsupported_temperature_error(e):
+                    print(
+                        "[Azure OpenAI] Custom temperature unsupported by this "
+                        "deployment; retrying with default temperature."
+                    )
+                    self.temperature = None
+                    self.client = self._build_client(include_temperature=False)
+                    response = self.client.invoke(messages)
+                    self.last_usage_metadata = getattr(response, "usage_metadata", None)
+                    return response.content
+                print(f"Azure OpenAI request failed: {str(e)}")
+                raise
+
+        deadline = self.request_timeout + 10
+        with concurrent.futures.ThreadPoolExecutor(max_workers=1) as executor:
+            future = executor.submit(_invoke)
+            try:
+                return future.result(timeout=deadline)
+            except concurrent.futures.TimeoutError:
+                raise TimeoutError(
+                    f"Azure OpenAI call timed out after {deadline}s"
+                )
 
     @staticmethod
     def initialize_from_input() -> "AzureOpenAILLMClient":

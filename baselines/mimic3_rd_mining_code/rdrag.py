@@ -39,6 +39,7 @@ from rdma.utils.embedding import EmbeddingsManager  # noqa: E402
 from rdma.utils.llm_client import (  # noqa: E402
     LocalLLMClient,
     APILLMClient,
+    AzureOpenAILLMClient,
     OpenRouterLLMClient,
     LlamaCppLLMClient,
 )
@@ -135,7 +136,7 @@ def main():
         "--llm_type",
         type=str,
         default="local",
-        choices=["local", "api", "openrouter", "llama_cpp"],
+        choices=["local", "api", "openrouter", "azure", "llama_cpp"],
         help="LLM backend (default: %(default)s)",
     )
     parser.add_argument(
@@ -284,6 +285,16 @@ def main():
             if args.api_config
             else OpenRouterLLMClient(
                 model_type=args.model_type, temperature=args.temperature
+            )
+        )
+    elif args.llm_type == "azure":
+        llm_client = (
+            AzureOpenAILLMClient.from_config(args.api_config)
+            if args.api_config
+            else AzureOpenAILLMClient(
+                model_type=args.model_type,
+                azure_deployment=args.model_type,
+                temperature=args.temperature,
             )
         )
     elif args.llm_type == "llama_cpp":

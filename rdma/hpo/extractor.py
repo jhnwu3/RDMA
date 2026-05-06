@@ -45,6 +45,7 @@ class PhenotypeExtractor:
         extract_qualified: bool = False,
         exhaustive: bool = False,
         exclude_etiology: bool = True,
+        window_size: int = 0,
     ):
         """
         Initialize the entity extractor wrapper.
@@ -74,6 +75,7 @@ class PhenotypeExtractor:
         self.extract_qualified = extract_qualified
         self.exhaustive = exhaustive
         self.exclude_etiology = exclude_etiology
+        self.window_size = window_size
 
         # Auto-detect retriever device if not specified
         if retriever_device is None:
@@ -246,7 +248,7 @@ class PhenotypeExtractor:
                 print(f"Extracted {len(entities)} entities from text {i}")
 
             # Find contexts for entities
-            entity_contexts = self.context_extractor.extract_contexts(entities, text)
+            entity_contexts = self.context_extractor.extract_contexts(entities, text, window_size=self.window_size)
 
             # Add demographics if available
             if self.extract_demographics and i in demographics_data:
