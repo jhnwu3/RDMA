@@ -22,10 +22,10 @@ from typing import Dict, List
 
 DEFAULT_WORKSPACE = Path("/home/johnwu3/projects/rare_disease/workspace")
 DEFAULT_MANIFEST = (
-    DEFAULT_WORKSPACE / "condor" / "rare_disease" / "eval_manifest_mimic3_raredis.tsv"
+    DEFAULT_WORKSPACE / "condor" / "rare_disease" / "eval_manifest_all_benchmarks.tsv"
 )
-DEFAULT_CSV = DEFAULT_WORKSPACE / "results" / "rare_disease_eval_matrix.csv"
-DEFAULT_MD = DEFAULT_WORKSPACE / "results" / "rare_disease_eval_matrix.md"
+DEFAULT_CSV = DEFAULT_WORKSPACE / "results" / "full_eval_matrix.csv"
+DEFAULT_MD = DEFAULT_WORKSPACE / "results" / "full_eval_matrix.md"
 RDMA_DIR = DEFAULT_WORKSPACE / "repos" / "RDMA"
 
 
@@ -43,6 +43,17 @@ def parse_args() -> argparse.Namespace:
         "--force_eval",
         action="store_true",
         help="Re-run eval even if eval_output already exists (implies --run_evals)",
+    )
+    parser.add_argument(
+        "--bootstrap",
+        action="store_true",
+        help="Compute 95%% bootstrap CIs for all evaluated rows (appends f1_ci_lower/upper columns)",
+    )
+    parser.add_argument(
+        "--n_bootstrap",
+        type=int,
+        default=1000,
+        help="Number of bootstrap iterations (default: 1000)",
     )
     return parser.parse_args()
 
@@ -89,6 +100,20 @@ def run_eval(row: Dict[str, str]) -> bool:
             str(RDMA_DIR / "scripts" / "rdd" / "eval.py"),
             "--model_type", model_type,
             "--approach", approach,
+        ]
+    elif dataset == "csc":
+        cmd = [
+            sys.executable,
+            str(RDMA_DIR / "scripts" / "csc" / "eval.py"),
+            "--predictions", predictions_file,
+            "--audit_json", eval_output,
+        ]
+    elif dataset == "biolarkgsc":
+        cmd = [
+            sys.executable,
+            str(RDMA_DIR / "scripts" / "biolarkgsc" / "eval.py"),
+            "--predictions", predictions_file,
+            "--audit_json", eval_output,
         ]
     else:
         print(f"[eval] SKIP unsupported dataset={dataset} track={track}")
@@ -158,38 +183,42 @@ def write_csv(rows: List[Dict[str, object]], path: Path) -> None:
         "status",
         "predictions_file",
         "eval_output",
+        "f1",
+        "f1_ci_lower",
+        "f1_ci_upper",
         "precision",
         "recall",
-        "f1",
         "tp",
         "fp",
         "fn",
         "documents_scored",
     ]
     with path.open("w", encoding="utf-8", newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer = csv.DictWriter(f, fieldnames=fieldnames, extrasaction="ignore")
         writer.writeheader()
         writer.writerows(rows)
 
 
 def write_markdown(rows: List[Dict[str, object]], path: Path) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
+    has_ci = any(row.get("f1_ci_lower") not in ("", None) for row in rows)
     headers = [
-        "dataset",
-        "track",
-        "approach",
-        "model_type",
-        "status",
+        "dataset", "track", "approach", "model_type", "status",
         "f1",
-        "precision",
-        "recall",
-        "documents_scored",
-        "eval_output",
     ]
+    if has_ci:
+        headers.append("95% CI")
+    headers += ["precision", "recall", "documents_scored", "eval_output"]
     with path.open("w", encoding="utf-8") as f:
         f.write("| " + " | ".join(headers) + " |\n")
         f.write("|" + "|".join(["---"] * len(headers)) + "|\n")
         for row in rows:
+            ci_str = ""
+            if has_ci:
+                lo = row.get("f1_ci_lower")
+                hi = row.get("f1_ci_upper")
+                if lo not in ("", None) and hi not in ("", None):
+                    ci_str = f"[{float(lo):.4f}, {float(hi):.4f}]"
             md_row = [
                 str(row.get("dataset", "")),
                 str(row.get("track", "")),
@@ -197,12 +226,55 @@ def write_markdown(rows: List[Dict[str, object]], path: Path) -> None:
                 str(row.get("model_type", "")),
                 str(row.get("status", "")),
                 fmt_float(row.get("f1")),
+            ]
+            if has_ci:
+                md_row.append(ci_str)
+            md_row += [
                 fmt_float(row.get("precision")),
                 fmt_float(row.get("recall")),
                 str(row.get("documents_scored", "")),
                 str(row.get("eval_output", "")),
             ]
             f.write("| " + " | ".join(md_row) + " |\n")
+
+
+def _bootstrap_f1(eval_path: Path, n_bootstrap: int) -> tuple:
+    """Return (f1_ci_lower, f1_ci_upper) by resampling documents. Returns ("", "") on error."""
+    import random
+    try:
+        with eval_path.open(encoding="utf-8") as f:
+            data = json.load(f)
+        docs = data.get("documents")
+        if not docs:
+            return "", ""
+        n = len(docs)
+        rng = random.Random(42)
+
+        def _counts(d):
+            if isinstance(d.get("tp"), int):
+                return d["tp"], d["fp"], d["fn"]
+            tp = len(d.get("matched_pairs") or d.get("matched") or [])
+            fp = len(d.get("fp") or [])
+            fn = len(d.get("fn") or [])
+            return tp, fp, fn
+
+        counts = [_counts(d) for d in docs]
+        samples = []
+        for _ in range(n_bootstrap):
+            idx = rng.choices(range(n), k=n)
+            tp = sum(counts[i][0] for i in idx)
+            fp = sum(counts[i][1] for i in idx)
+            fn = sum(counts[i][2] for i in idx)
+            p = tp / (tp + fp) if (tp + fp) > 0 else 0.0
+            r = tp / (tp + fn) if (tp + fn) > 0 else 0.0
+            samples.append(2 * p * r / (p + r) if (p + r) > 0 else 0.0)
+        samples.sort()
+        lo = samples[max(0, int(0.025 * n_bootstrap) - 1)]
+        hi = samples[min(n_bootstrap - 1, int(0.975 * n_bootstrap))]
+        return round(lo, 6), round(hi, 6)
+    except Exception as e:
+        print(f"[bootstrap] WARN: {eval_path}: {e}")
+        return "", ""
 
 
 def main() -> None:
@@ -237,11 +309,16 @@ def main() -> None:
                 metrics = load_metrics(eval_path)
             else:
                 status = "missing_eval"
+        ci_lower, ci_upper = "", ""
+        if args.bootstrap and status == "evaluated":
+            ci_lower, ci_upper = _bootstrap_f1(eval_path, args.n_bootstrap)
         out_rows.append(
             {
                 **row,
                 "status": status,
                 **metrics,
+                "f1_ci_lower": ci_lower,
+                "f1_ci_upper": ci_upper,
             }
         )
 

@@ -31,7 +31,7 @@ import logging
 import sys
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List
+from typing import Dict, List, Tuple
 
 import torch
 from torch.utils.data import DataLoader, Dataset, SequentialSampler
@@ -101,7 +101,7 @@ def evaluate(
     model: BioClinicalBERTNERModel,
     device: torch.device,
     desc: str = "Eval",
-) -> Dict[str, float]:
+) -> Tuple[Dict[str, float], List[Dict]]:
     """Evaluate *model* using ``SpanEntityScore``, returning P/R/F1/loss.
 
     Word-level predictions are obtained by taking the predicted label at
@@ -115,7 +115,8 @@ def evaluate(
         desc: Description string for the tqdm progress bar.
 
     Returns:
-        Dict with keys ``precision``, ``recall``, ``f1``, ``loss``.
+        Tuple of (aggregate_metrics dict, per_doc_list) where per_doc_list
+        entries have integer tp/fp/fn for bootstrap CI.
     """
     b_id2label = {
         BioClinicalBERTNERTask.LABEL2ID[f"B-{et}"]: et
@@ -124,6 +125,7 @@ def evaluate(
     metric = SpanEntityScore(b_id2label)
     total_loss = 0.0
     n_batches = 0
+    per_docs: List[Dict] = []
 
     model.eval()
     with torch.no_grad():
@@ -132,6 +134,7 @@ def evaluate(
             attention_mask = batch["attention_mask"].to(device)  # [B, seq]
             labels = batch["labels"].to(device)  # [B, seq]
             word_ids = batch["word_ids"]  # [B, seq] (cpu)
+            patient_ids = batch.get("patient_id", [None] * input_ids.size(0))
 
             out = model(
                 input_ids=input_ids,
@@ -158,6 +161,18 @@ def evaluate(
                 gold_spans = BioClinicalBERTNERModel.bio_to_spans(word_golds, BioClinicalBERTNERTask.ID2LABEL, BioClinicalBERTNERTask.LABEL2ID)
                 metric.update(true_subject=gold_spans, pred_subject=pred_spans)
 
+                pred_set = set(map(tuple, pred_spans))
+                gold_set = set(map(tuple, gold_spans))
+                tp = len(pred_set & gold_set)
+                fp = len(pred_set - gold_set)
+                fn = len(gold_set - pred_set)
+                per_docs.append({
+                    "id": str(patient_ids[i]) if patient_ids[i] is not None else str(len(per_docs)),
+                    "tp": tp,
+                    "fp": fp,
+                    "fn": fn,
+                })
+
     eval_info, entity_info = metric.result()
     results = dict(eval_info)
     results["loss"] = total_loss / max(n_batches, 1)
@@ -170,7 +185,7 @@ def evaluate(
             etype,
             "  ".join(f"{k}={v:.4f}" for k, v in info.items()),
         )
-    return results
+    return results, per_docs
 
 
 # ── Optuna HPO ────────────────────────────────────────────────────────────────
@@ -223,7 +238,7 @@ def _objective(
         patience=patience,
     )
 
-    results = evaluate(
+    results, _ = evaluate(
         dev_loader,
         model,
         torch.device(device_str),
@@ -323,6 +338,12 @@ def main() -> None:
         "--dry_run",
         action="store_true",
         help="Process one sample and exit (no training)",
+    )
+    parser.add_argument(
+        "--audit_json",
+        type=Path,
+        default=None,
+        help="Write per-document audit JSON (for bootstrap CI) to this path",
     )
     args = parser.parse_args()
 
@@ -438,7 +459,7 @@ def main() -> None:
 
     # ── Final test evaluation ─────────────────────────────────────────
     ts("Running test evaluation …")
-    test_results = evaluate(test_loader, model, device, desc="Test")
+    test_results, per_docs = evaluate(test_loader, model, device, desc="Test")
 
     results_path = args.output_dir / "test_results.json"
     with open(results_path, "w") as fh:
@@ -449,6 +470,23 @@ def main() -> None:
         f"  P={test_results['precision']:.4f}"
         f"  R={test_results['recall']:.4f}"
     )
+
+    audit_path = args.audit_json or args.output_dir / "eval_bioclinicalbert_ner.json"
+    audit_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(audit_path, "w") as fh:
+        json.dump({
+            "metrics": {
+                "precision": test_results["precision"],
+                "recall": test_results["recall"],
+                "f1": test_results["f1"],
+                "tp": sum(d["tp"] for d in per_docs),
+                "fp": sum(d["fp"] for d in per_docs),
+                "fn": sum(d["fn"] for d in per_docs),
+                "documents_scored": len(per_docs),
+            },
+            "documents": per_docs,
+        }, fh, indent=2)
+    ts(f"Audit JSON saved to {audit_path}")
 
 
 if __name__ == "__main__":

@@ -23,6 +23,7 @@ Usage (from RDMA repo root):
 import argparse
 import json
 import logging
+import pickle
 import sys
 from datetime import datetime
 from pathlib import Path
@@ -30,6 +31,7 @@ from typing import Dict, List, Tuple
 
 import torch
 from torch.utils.data import DataLoader, Dataset, SequentialSampler
+from transformers import BertTokenizer
 
 # ── Path setup ────────────────────────────────────────────────────────────────
 _RDMA_ROOT = Path("/home/johnwu3/projects/rare_disease/workspace/repos/RDMA")
@@ -45,11 +47,10 @@ sys.path.insert(0, str(_RDMA_ROOT))  # inserted last → index 0
 
 from datasets.raredis import RareDisDataset  # noqa: E402
 from tasks.biobert_mrc_raredis import BioBERTMRCTask  # noqa: E402
-from processors.biobert_mrc_ner_processor import (  # noqa: E402
-    BioBERTMRCNERProcessor,
-    ID2LABEL,
-)
+from tasks.utils import mrc_chunk_document  # noqa: E402
 from models.biobert_span_ner import BertSpanNERModel  # noqa: E402
+
+ID2LABEL = {0: "O", 1: "BioNE"}
 from splitter.splitter import split_by_function  # noqa: E402
 from pyhealth.trainer import Trainer  # noqa: E402
 
@@ -81,41 +82,53 @@ def ts(msg: str) -> None:
 
 
 class MRCNERDataset(Dataset):
-    """Wraps task samples and applies the processor on-the-fly."""
+    """Wraps task samples and tokenises on-the-fly via mrc_chunk_document."""
 
     def __init__(
         self,
         samples: List[Dict],
-        processor: BioBERTMRCNERProcessor,
+        tokenizer: BertTokenizer,
+        max_seq_length: int,
     ) -> None:
         self.samples = samples
-        self.processor = processor
+        self.tokenizer = tokenizer
+        self.max_seq_length = max_seq_length
 
     def __len__(self) -> int:
         return len(self.samples)
 
     def __getitem__(self, idx: int) -> Dict:
-        return self.processor.process(self.samples[idx])
+        s = self.samples[idx]
+        chunks = mrc_chunk_document(
+            self.tokenizer,
+            pickle.loads(s["text"]),
+            pickle.loads(s["entity_spans"]),
+            pickle.loads(s["mrc_query"]),
+            self.max_seq_length,
+        )
+        return chunks[0] if chunks else _empty_chunk(self.max_seq_length)
+
+
+def _empty_chunk(max_seq_length: int) -> Dict:
+    """Return a zero-padded chunk for documents that tokenise to nothing."""
+    z = torch.zeros(max_seq_length, dtype=torch.long)
+    return {
+        "input_ids": z, "attention_mask": z, "segment_ids": z,
+        "start_ids": z, "end_ids": z,
+        "input_len": torch.tensor(0, dtype=torch.long),
+        "subjects": [],
+    }
 
 
 def collate_fn(batch: List[Dict]) -> Tuple[torch.Tensor, ...]:
-    """Collate into padded tensors (tuple form).
-
-    RareDis documents always fit in a single chunk, so each processor
-    output has shape [1, max_seq_length].  We squeeze out the chunk
-    dimension before stacking.
-    """
-    input_ids = torch.stack([b["input_ids"].squeeze(0) for b in batch])
-    attention_mask = torch.stack(
-        [b["attention_mask"].squeeze(0) for b in batch]
-    )
-    segment_ids = torch.stack(
-        [b["segment_ids"].squeeze(0) for b in batch]
-    )
-    start_ids = torch.stack([b["start_ids"].squeeze(0) for b in batch])
-    end_ids = torch.stack([b["end_ids"].squeeze(0) for b in batch])
+    """Collate 1-D chunk tensors into a padded batch."""
+    input_ids = torch.stack([b["input_ids"] for b in batch])
+    attention_mask = torch.stack([b["attention_mask"] for b in batch])
+    segment_ids = torch.stack([b["segment_ids"] for b in batch])
+    start_ids = torch.stack([b["start_ids"] for b in batch])
+    end_ids = torch.stack([b["end_ids"] for b in batch])
     input_lens = torch.tensor(
-        [b["input_len"][0] for b in batch], dtype=torch.long
+        [b["input_len"].item() for b in batch], dtype=torch.long
     )
     max_len = input_lens.max().item()
     return (
@@ -146,26 +159,37 @@ def dict_collate_fn(batch: List[Dict]) -> Dict[str, torch.Tensor]:
 
 def evaluate(
     samples: List[Dict],
-    processor: BioBERTMRCNERProcessor,
+    tokenizer: BertTokenizer,
+    max_seq_length: int,
     model: BertSpanNERModel,
     device: torch.device,
     desc: str = "Eval",
-) -> Dict[str, float]:
-    """Evaluate *model* on *samples*, returning precision/recall/F1."""
+) -> Tuple[Dict[str, float], List[Dict]]:
+    """Evaluate *model* on *samples*, returning (aggregate_metrics, per_doc_list).
+
+    per_doc_list entries have integer tp/fp/fn for bootstrap CI.
+    """
     metric = SpanEntityScore(ID2LABEL)
     total_loss = 0.0
     pbar = ProgressBar(n_total=len(samples), desc=desc)
+    per_docs: List[Dict] = []
 
     model.eval()
     for step, sample in enumerate(samples):
-        feat = processor.process(sample)
-        # RareDis = 1 chunk; squeeze the chunk dimension
-        lens = feat["input_len"][0]
-        input_ids = feat["input_ids"][0:1, :lens].to(device)
-        attention_mask = feat["attention_mask"][0:1, :lens].to(device)
-        segment_ids = feat["segment_ids"][0:1, :lens].to(device)
-        start_ids = feat["start_ids"][0:1, :lens].to(device)
-        end_ids = feat["end_ids"][0:1, :lens].to(device)
+        chunks = mrc_chunk_document(
+            tokenizer,
+            pickle.loads(sample["text"]),
+            pickle.loads(sample["entity_spans"]),
+            pickle.loads(sample["mrc_query"]),
+            max_seq_length,
+        )
+        chunk = chunks[0] if chunks else _empty_chunk(max_seq_length)
+        lens = chunk["input_len"].item()
+        input_ids = chunk["input_ids"][:lens].unsqueeze(0).to(device)
+        attention_mask = chunk["attention_mask"][:lens].unsqueeze(0).to(device)
+        segment_ids = chunk["segment_ids"][:lens].unsqueeze(0).to(device)
+        start_ids = chunk["start_ids"][:lens].unsqueeze(0).to(device)
+        end_ids = chunk["end_ids"][:lens].unsqueeze(0).to(device)
 
         with torch.no_grad():
             outputs = model(
@@ -184,12 +208,22 @@ def evaluate(
         pred_subjects = BertSpanNERModel.predict(
             outputs["start_logits"], outputs["end_logits"], text_len
         )
-        metric.update(
-            true_subject=feat["subjects"][0],
-            pred_subject=pred_subjects,
-        )
+        gold_subjects = chunk["subjects"]
+        metric.update(true_subject=gold_subjects, pred_subject=pred_subjects)
         total_loss += outputs["loss"].item()
         pbar(step)
+
+        pred_set = set(map(tuple, pred_subjects))
+        gold_set = set(map(tuple, gold_subjects))
+        tp = len(pred_set & gold_set)
+        fp = len(pred_set - gold_set)
+        fn = len(gold_set - pred_set)
+        per_docs.append({
+            "id": sample.get("patient_id", str(step)),
+            "tp": tp,
+            "fp": fp,
+            "fn": fn,
+        })
 
     eval_info, entity_info = metric.result()
     results = dict(eval_info)
@@ -203,7 +237,7 @@ def evaluate(
             etype,
             "  ".join(f"{k}={v:.4f}" for k, v in info.items()),
         )
-    return results
+    return results, per_docs
 
 
 # ── Optuna HPO ────────────────────────────────────────────────────────────────
@@ -213,7 +247,7 @@ def _objective(
     trial,
     train_samples: List[Dict],
     dev_samples: List[Dict],
-    processor: "BioBERTMRCNERProcessor",
+    tokenizer: BertTokenizer,
     args,
     device_str: str,
 ) -> float:
@@ -223,15 +257,15 @@ def _objective(
     patience = trial.suggest_int("patience", 1, 3)
 
     train_loader = DataLoader(
-        MRCNERDataset(train_samples, processor),
+        MRCNERDataset(train_samples, tokenizer, args.max_seq_length),
         batch_size=batch_size,
         shuffle=True,
         collate_fn=dict_collate_fn,
     )
     dev_loader = DataLoader(
-        MRCNERDataset(dev_samples, processor),
+        MRCNERDataset(dev_samples, tokenizer, args.max_seq_length),
         batch_size=batch_size,
-        sampler=SequentialSampler(MRCNERDataset(dev_samples, processor)),
+        sampler=SequentialSampler(MRCNERDataset(dev_samples, tokenizer, args.max_seq_length)),
         collate_fn=dict_collate_fn,
     )
 
@@ -257,9 +291,10 @@ def _objective(
         patience=patience,
     )
 
-    results = evaluate(
+    results, _ = evaluate(
         dev_samples,
-        processor,
+        tokenizer,
+        args.max_seq_length,
         model,
         torch.device(device_str),
         desc=f"Trial {trial.number}",
@@ -275,7 +310,7 @@ def tune(
     args,
     train_samples: List[Dict],
     dev_samples: List[Dict],
-    processor: "BioBERTMRCNERProcessor",
+    tokenizer: BertTokenizer,
     device_str: str,
 ) -> None:
     """Run Optuna study and patch *args* with the best hyperparameters."""
@@ -287,7 +322,7 @@ def tune(
     study = optuna.create_study(direction="maximize")
     study.optimize(
         lambda trial: _objective(
-            trial, train_samples, dev_samples, processor, args, device_str
+            trial, train_samples, dev_samples, tokenizer, args, device_str
         ),
         n_trials=args.n_trials,
     )
@@ -370,6 +405,12 @@ def main() -> None:
         action="store_true",
         help="Process one sample and exit (no training)",
     )
+    parser.add_argument(
+        "--audit_json",
+        type=Path,
+        default=None,
+        help="Write per-document audit JSON (for bootstrap CI) to this path",
+    )
     args = parser.parse_args()
 
     if args.condor:
@@ -399,30 +440,33 @@ def main() -> None:
         f"  Test: {len(test_samples)}"
     )
 
-    # ── Processor ─────────────────────────────────────────────────────
-    ts(f"Initialising processor (model={args.model_path}) …")
-    processor = BioBERTMRCNERProcessor(
-        model_name_or_path=args.model_path,
-        max_seq_length=args.max_seq_length,
-    )
+    # ── Tokenizer ─────────────────────────────────────────────────────
+    ts(f"Loading tokenizer from {args.model_path} …")
+    tokenizer = BertTokenizer.from_pretrained(args.model_path)
 
     # ── Optuna HPO ────────────────────────────────────────────────────
     if args.tune:
-        tune(args, train_samples, dev_samples, processor, device_str)
+        tune(args, train_samples, dev_samples, tokenizer, device_str)
 
     # ── Dry-run ───────────────────────────────────────────────────────
     if args.dry_run:
         ts("Dry-run: processing first sample …")
-        feat = processor.process(train_samples[0])
-        ts(f"  input_ids shape : {tuple(feat['input_ids'].shape)}")
-        ts(f"  input_len       : {feat['input_len']}")
-        ts(f"  subjects        : {feat['subjects'][0]}")
+        s = train_samples[0]
+        chunks = mrc_chunk_document(
+            tokenizer, pickle.loads(s["text"]),
+            pickle.loads(s["entity_spans"]), pickle.loads(s["mrc_query"]),
+            args.max_seq_length,
+        )
+        chunk = chunks[0] if chunks else _empty_chunk(args.max_seq_length)
+        ts(f"  input_ids shape : {tuple(chunk['input_ids'].shape)}")
+        ts(f"  input_len       : {chunk['input_len'].item()}")
+        ts(f"  subjects        : {chunk['subjects']}")
         ts("Dry-run complete.")
         return
 
     # ── DataLoaders ───────────────────────────────────────────────────
-    train_dataset = MRCNERDataset(train_samples, processor)
-    dev_dataset = MRCNERDataset(dev_samples, processor)
+    train_dataset = MRCNERDataset(train_samples, tokenizer, args.max_seq_length)
+    dev_dataset = MRCNERDataset(dev_samples, tokenizer, args.max_seq_length)
 
     train_loader = DataLoader(
         train_dataset,
@@ -478,7 +522,7 @@ def main() -> None:
 
     # ── Final test evaluation ──────────────────────────────────────────
     ts("Running test evaluation …")
-    test_results = evaluate(test_samples, processor, model, device, desc="Test")
+    test_results, per_docs = evaluate(test_samples, tokenizer, args.max_seq_length, model, device, desc="Test")
 
     results_path = args.output_dir / "test_results.json"
     with open(results_path, "w") as fh:
@@ -489,6 +533,23 @@ def main() -> None:
         f"  P={test_results['precision']:.4f}"
         f"  R={test_results['recall']:.4f}"
     )
+
+    audit_path = args.audit_json or args.output_dir / "eval_biobert_mrc.json"
+    audit_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(audit_path, "w") as fh:
+        json.dump({
+            "metrics": {
+                "precision": test_results["precision"],
+                "recall": test_results["recall"],
+                "f1": test_results["f1"],
+                "tp": sum(d["tp"] for d in per_docs),
+                "fp": sum(d["fp"] for d in per_docs),
+                "fn": sum(d["fn"] for d in per_docs),
+                "documents_scored": len(per_docs),
+            },
+            "documents": per_docs,
+        }, fh, indent=2)
+    ts(f"Audit JSON saved to {audit_path}")
 
 
 if __name__ == "__main__":

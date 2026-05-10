@@ -112,6 +112,12 @@ def main():
         default=_DEFAULT_DATASET_CACHE_DIR,
         help="PyHealth dataset cache directory for loading text snippets (default: %(default)s)",
     )
+    parser.add_argument(
+        "--audit_json",
+        type=Path,
+        default=None,
+        help="Write per-document audit + aggregate metrics to this JSON path (for bootstrap CI)",
+    )
     args = parser.parse_args()
 
     records = []
@@ -271,6 +277,34 @@ def main():
             writer.writeheader()
             writer.writerows(rows)
         print(f"\nPer-document results written to {args.output}")
+
+    if args.audit_json:
+        payload = {
+            "metrics": {
+                "precision": strict["precision"],
+                "recall": strict["recall"],
+                "f1": strict["f1"],
+                "tp": strict["tp"],
+                "fp": strict["fp"],
+                "fn": strict["fn"],
+                "documents_scored": strict["n_docs"],
+            },
+            "documents": [
+                {
+                    "id": s["id"],
+                    "tp": s["tp"],
+                    "fp": s["fp"],
+                    "fn": s["fn"],
+                    "matched": sorted(s["tp_ids"]),
+                    "fp_ids": sorted(s["fp_ids"]),
+                    "fn_ids": sorted(s["fn_ids"]),
+                }
+                for s in per_sample
+            ],
+        }
+        args.audit_json.parent.mkdir(parents=True, exist_ok=True)
+        args.audit_json.write_text(json.dumps(payload, indent=2))
+        print(f"\nAudit JSON written to {args.audit_json}")
 
 
 if __name__ == "__main__":
