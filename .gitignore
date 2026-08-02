@@ -1,3 +1,7 @@
+# Ignore environment files with secrets
+.env
+.env.*
+
 # Ignore the data directory
 data/
 
@@ -9,3 +13,4 @@ data/
 *.pyc
 # *.txt
 # *.json
+*.out
