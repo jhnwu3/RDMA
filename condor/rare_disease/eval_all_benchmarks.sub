@@ -1,0 +1,23 @@
+# Unified eval matrix — all 5 benchmarks (mimic3, raredis, rdd, csc, biolarkgsc)
+executable = /home/johnwu3/projects/rare_disease/workspace/condor/rare_disease/run_eval_all_benchmarks.sh
+
+Requirements = (Machine == "sunlab-c02.cs.illinois.edu")
+
+universe       = vanilla
+request_cpus   = 16
+request_memory = 32GB
+request_gpus   = 1
+
+# 0 = run missing evals only; 1 = force re-run all
+force_eval = 0
+
+log    = /home/johnwu3/projects/rare_disease/workspace/logs/eval_all_benchmarks/$(Cluster).$(Process).log
+output = /home/johnwu3/projects/rare_disease/workspace/logs/eval_all_benchmarks/$(Cluster).$(Process).out
+error  = /home/johnwu3/projects/rare_disease/workspace/logs/eval_all_benchmarks/$(Cluster).$(Process).err
+
+stream_output = True
+stream_error  = True
+
+arguments = $(force_eval)
+
+queue

@@ -1,0 +1,24 @@
+# dataset track approach model_type predictions_file eval_output
+#
+# GPT-5 variants eval manifest (RareDis + MIMIC3)
+#
+# Tracks requested:
+# - RareDis:     zeroshot, rdrag, rdma
+# - MIMIC3 text: zeroshot, rdrag
+# - MIMIC3 code: rdma, zeroshot, rdrag (ORPHA-code matching)
+#
+# Add more GPT-5 variants by duplicating rows and changing model_type + paths.
+
+# MIMIC3 code track (scripts/mimic3_rd_mining_code/eval.py)
+mimic3 code rdma gpt-5-john /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/gpt-5-john_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/eval_rdma_gpt-5-john.json
+mimic3 code zeroshot gpt-5-john /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/zeroshot_gpt-5-john_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/eval_zeroshot_gpt-5-john.json
+mimic3 code rdrag gpt-5-john /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/gpt-5-john_rdrag_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/eval_rdrag_gpt-5-john.json
+
+# MIMIC3 text track (scripts/mimic3_rd_mining_text/eval.py)
+mimic3 text zeroshot gpt-5-john /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/zeroshot_gpt-5-john_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining_text/eval_zeroshot_gpt-5-john.json
+mimic3 text rdrag gpt-5-john /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/gpt-5-john_rdrag_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining_text/eval_rdrag_gpt-5-john.json
+
+# RareDis (scripts/raredis/eval.py)
+raredis na rdma gpt-5-john /home/johnwu3/projects/rare_disease/workspace/results/raredis/gpt-5-john_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/raredis/eval_gpt-5-john.json
+raredis na zeroshot gpt-5-john /home/johnwu3/projects/rare_disease/workspace/results/raredis/zeroshot_gpt-5-john_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/raredis/eval_zeroshot_gpt-5-john.json
+raredis na rdrag gpt-5-john /home/johnwu3/projects/rare_disease/workspace/results/raredis/gpt-5-john_rdrag_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/raredis/eval_rdrag_gpt-5-john.json

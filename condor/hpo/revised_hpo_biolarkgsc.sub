@@ -1,0 +1,33 @@
+# revised_hpo_biolarkgsc.sub — BioLark GSC HPO pipeline with prompt engineering fixes
+# Fixes enabled vs baseline biolarkgsc.sub:
+#   --exclude_etiology   (FP-A: ~68 errors)
+#   --prefer_specific    (FP-D + FN-C: ~644 errors)
+#   --require_grounding  (FP-C: ~223 errors)
+executable = /home/johnwu3/projects/rare_disease/workspace/condor/hpo/run_revised_hpo_biolarkgsc.sh
+
+Requirements = (Machine == "sunlab-c01.cs.illinois.edu")
+
+universe       = vanilla
+request_cpus   = 16
+request_memory = 32GB
+request_gpus   = 1
+
+log    = /home/johnwu3/projects/rare_disease/workspace/logs/biolarkgsc/revised_hpo/$(model_type)/$(Cluster).$(Process).log
+output = /home/johnwu3/projects/rare_disease/workspace/logs/biolarkgsc/revised_hpo/$(model_type)/$(Cluster).$(Process).out
+error  = /home/johnwu3/projects/rare_disease/workspace/logs/biolarkgsc/revised_hpo/$(model_type)/$(Cluster).$(Process).err
+
+model_type = llama3_8b
+arguments  = $(model_type) --allow_inheritance
+queue
+
+model_type = mistral_24b
+arguments  = $(model_type) --allow_inheritance
+queue
+
+model_type = llama3_70b
+arguments  = $(model_type) --allow_inheritance
+queue
+
+model_type = qwen3_32b
+arguments  = $(model_type) --allow_inheritance
+queue

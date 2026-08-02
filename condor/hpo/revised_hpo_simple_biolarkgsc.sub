@@ -1,0 +1,31 @@
+# revised_hpo_simple_biolarkgsc.sub — BioLark GSC revised_hpo with --entity_extractor simple
+# Ablation: isolates the impact of simple vs. retrieval extractor under revised_hpo prompt fixes.
+# Results land in results/biolarkgsc/revised_hpo_simple/ as {model}_simple_predictions.jsonl.
+executable = /home/johnwu3/projects/rare_disease/workspace/condor/hpo/run_revised_hpo_simple_biolarkgsc.sh
+
+Requirements = (Machine == "sunlab-c01.cs.illinois.edu")
+
+universe       = vanilla
+request_cpus   = 16
+request_memory = 32GB
+request_gpus   = 1
+
+log    = /home/johnwu3/projects/rare_disease/workspace/logs/biolarkgsc/revised_hpo_simple/$(model_type)/$(Cluster).$(Process).log
+output = /home/johnwu3/projects/rare_disease/workspace/logs/biolarkgsc/revised_hpo_simple/$(model_type)/$(Cluster).$(Process).out
+error  = /home/johnwu3/projects/rare_disease/workspace/logs/biolarkgsc/revised_hpo_simple/$(model_type)/$(Cluster).$(Process).err
+
+model_type = llama3_8b
+arguments  = $(model_type) --allow_inheritance
+queue
+
+model_type = mistral_24b
+arguments  = $(model_type) --allow_inheritance
+queue
+
+model_type = llama3_70b
+arguments  = $(model_type) --allow_inheritance
+queue
+
+model_type = qwen3_32b
+arguments  = $(model_type) --allow_inheritance
+queue

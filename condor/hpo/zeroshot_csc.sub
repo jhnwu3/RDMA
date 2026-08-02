@@ -1,0 +1,29 @@
+# zeroshot_csc.sub — submits one zero-shot CSC job per model; each job is scheduled independently
+executable = /home/johnwu3/projects/rare_disease/workspace/condor/hpo/run_zeroshot_csc.sh
+
+Requirements = (Machine == "sunlab-c02.cs.illinois.edu")
+
+universe       = vanilla
+request_cpus   = 16
+request_memory = 32GB
+request_gpus   = 1
+
+log    = /home/johnwu3/projects/rare_disease/workspace/logs/csc/zeroshot/$(model_type)/$(Cluster).$(Process).log
+output = /home/johnwu3/projects/rare_disease/workspace/logs/csc/zeroshot/$(model_type)/$(Cluster).$(Process).out
+error  = /home/johnwu3/projects/rare_disease/workspace/logs/csc/zeroshot/$(model_type)/$(Cluster).$(Process).err
+
+model_type = llama3_8b
+arguments  = $(model_type)
+queue
+
+model_type = mistral_24b
+arguments  = $(model_type)
+queue
+
+model_type = llama3_70b
+arguments  = $(model_type)
+queue
+
+model_type = qwen3_32b
+arguments  = $(model_type)
+queue

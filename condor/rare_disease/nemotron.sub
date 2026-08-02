@@ -1,0 +1,51 @@
+# nemotron.sub — benchmarks nemotron-120b-q4 (llama_cpp) across all RareDis and MIMIC-III pipelines
+# Submit with: condor_submit condor/nemotron.sub
+
+Requirements = (Machine == "sunlab-c01.cs.illinois.edu")
+
+universe       = vanilla
+request_cpus   = 4
+request_memory = 100GB
+request_gpus   = 1
+
+# ── RareDis: RDMA ────────────────────────────────────────────────────────────
+# executable = /home/johnwu3/projects/rare_disease/workspace/condor/rare_disease/run_nemotron_raredis.sh
+# log    = /home/johnwu3/projects/rare_disease/workspace/logs/raredis/rdma/nemotron-120b-q4/$(Cluster).$(Process).log
+# output = /home/johnwu3/projects/rare_disease/workspace/logs/raredis/rdma/nemotron-120b-q4/$(Cluster).$(Process).out
+# error  = /home/johnwu3/projects/rare_disease/workspace/logs/raredis/rdma/nemotron-120b-q4/$(Cluster).$(Process).err
+# queue
+
+# ── RareDis: RDRAG baseline ──────────────────────────────────────────────────
+# executable = /home/johnwu3/projects/rare_disease/workspace/condor/rare_disease/run_nemotron_rdrag_raredis.sh
+# log    = /home/johnwu3/projects/rare_disease/workspace/logs/raredis/rdrag/nemotron-120b-q4/$(Cluster).$(Process).log
+# output = /home/johnwu3/projects/rare_disease/workspace/logs/raredis/rdrag/nemotron-120b-q4/$(Cluster).$(Process).out
+# error  = /home/johnwu3/projects/rare_disease/workspace/logs/raredis/rdrag/nemotron-120b-q4/$(Cluster).$(Process).err
+# queue
+
+# ── RareDis: zero-shot baseline ──────────────────────────────────────────────
+# executable = /home/johnwu3/projects/rare_disease/workspace/condor/rare_disease/run_nemotron_zeroshot_raredis.sh
+# log    = /home/johnwu3/projects/rare_disease/workspace/logs/raredis/zeroshot/nemotron-120b-q4/$(Cluster).$(Process).log
+# output = /home/johnwu3/projects/rare_disease/workspace/logs/raredis/zeroshot/nemotron-120b-q4/$(Cluster).$(Process).out
+# error  = /home/johnwu3/projects/rare_disease/workspace/logs/raredis/zeroshot/nemotron-120b-q4/$(Cluster).$(Process).err
+# queue
+
+# ── MIMIC-III: RDMA ──────────────────────────────────────────────────────────
+executable = /home/johnwu3/projects/rare_disease/workspace/condor/rare_disease/run_nemotron_mimic3_rd_mining.sh
+log    = /home/johnwu3/projects/rare_disease/workspace/logs/mimic3_rd_mining/nemotron-120b-q4/$(Cluster).$(Process).log
+output = /home/johnwu3/projects/rare_disease/workspace/logs/mimic3_rd_mining/nemotron-120b-q4/$(Cluster).$(Process).out
+error  = /home/johnwu3/projects/rare_disease/workspace/logs/mimic3_rd_mining/nemotron-120b-q4/$(Cluster).$(Process).err
+queue
+
+# ── MIMIC-III: RDRAG baseline ────────────────────────────────────────────────
+executable = /home/johnwu3/projects/rare_disease/workspace/condor/rare_disease/run_nemotron_rdrag_mimic3_rd_mining.sh
+log    = /home/johnwu3/projects/rare_disease/workspace/logs/mimic3_rd_mining/rdrag/nemotron-120b-q4/$(Cluster).$(Process).log
+output = /home/johnwu3/projects/rare_disease/workspace/logs/mimic3_rd_mining/rdrag/nemotron-120b-q4/$(Cluster).$(Process).out
+error  = /home/johnwu3/projects/rare_disease/workspace/logs/mimic3_rd_mining/rdrag/nemotron-120b-q4/$(Cluster).$(Process).err
+queue
+
+# ── MIMIC-III: zero-shot baseline ────────────────────────────────────────────
+executable = /home/johnwu3/projects/rare_disease/workspace/condor/rare_disease/run_nemotron_zeroshot_mimic3_rd_mining.sh
+log    = /home/johnwu3/projects/rare_disease/workspace/logs/mimic3_rd_mining/zeroshot/nemotron-120b-q4/$(Cluster).$(Process).log
+output = /home/johnwu3/projects/rare_disease/workspace/logs/mimic3_rd_mining/zeroshot/nemotron-120b-q4/$(Cluster).$(Process).out
+error  = /home/johnwu3/projects/rare_disease/workspace/logs/mimic3_rd_mining/zeroshot/nemotron-120b-q4/$(Cluster).$(Process).err
+queue

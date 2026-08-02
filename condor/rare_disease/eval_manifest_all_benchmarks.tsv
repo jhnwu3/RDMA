@@ -1,0 +1,154 @@
+# Unified eval manifest — all 5 benchmarks
+# Format: dataset track approach model_type predictions_file eval_output
+#
+# Benchmarks:
+#   mimic3 code  — scripts/mimic3_rd_mining_code/eval.py  (ORPHA ID matching)
+#   mimic3 text  — scripts/mimic3_rd_mining_text/eval.py  (LLM judge)
+#   raredis      — scripts/raredis/eval.py                (LLM judge)
+#   rdd          — scripts/rdd/eval.py                    (LLM judge)
+#   csc          — scripts/csc/eval.py                    (HPO ID exact match)
+#   biolarkgsc   — scripts/biolarkgsc/eval.py             (HPO ID exact match)
+#
+# For rdd: predictions_file is informational only; the script derives it from
+#          model_type + approach internally.
+# For csc/biolarkgsc: predictions_file is passed as --predictions;
+#                     eval_output is passed as --audit_json.
+
+# ── MIMIC3 code track ─────────────────────────────────────────────────────────
+mimic3 code rdma llama3_8b /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/llama3_8b_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/eval_rdma_llama3_8b.json
+mimic3 code rdma mistral_24b /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/mistral_24b_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/eval_rdma_mistral_24b.json
+mimic3 code rdma llama3_70b /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/llama3_70b_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/eval_rdma_llama3_70b.json
+mimic3 code rdma qwen3_32b /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/qwen3_32b_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/eval_rdma_qwen3_32b.json
+mimic3 code rdma qwen_32b /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/qwen_32b_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/eval_rdma_qwen_32b.json
+mimic3 code rdma nemotron-120b-q4 /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/nemotron-120b-q4_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/eval_rdma_nemotron-120b-q4.json
+mimic3 code rdma gpt-5-john /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/gpt-5-john_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/eval_rdma_gpt-5-john.json
+mimic3 code rdrag llama3_8b /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/llama3_8b_rdrag_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/eval_rdrag_llama3_8b.json
+mimic3 code rdrag mistral_24b /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/mistral_24b_rdrag_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/eval_rdrag_mistral_24b.json
+mimic3 code rdrag llama3_70b /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/llama3_70b_rdrag_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/eval_rdrag_llama3_70b.json
+mimic3 code rdrag qwen3_32b /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/qwen3_32b_rdrag_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/eval_rdrag_qwen3_32b.json
+mimic3 code rdrag nemotron-120b-q4 /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/nemotron-120b-q4_rdrag_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/eval_rdrag_nemotron-120b-q4.json
+mimic3 code rdrag gpt-5-john /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/gpt-5-john_rdrag_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/eval_rdrag_gpt-5-john.json
+mimic3 code zeroshot llama3_8b /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/zeroshot_llama3_8b_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/eval_zeroshot_llama3_8b.json
+mimic3 code zeroshot mistral_24b /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/zeroshot_mistral_24b_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/eval_zeroshot_mistral_24b.json
+mimic3 code zeroshot llama3_70b /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/zeroshot_llama3_70b_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/eval_zeroshot_llama3_70b.json
+mimic3 code zeroshot qwen3_32b /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/zeroshot_qwen3_32b_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/eval_zeroshot_qwen3_32b.json
+mimic3 code zeroshot qwen_32b /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/zeroshot_qwen_32b_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/eval_zeroshot_qwen_32b.json
+mimic3 code zeroshot nemotron-120b-q4 /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/zeroshot_nemotron-120b-q4_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/eval_zeroshot_nemotron-120b-q4.json
+mimic3 code zeroshot gpt-5-john /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/zeroshot_gpt-5-john_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/eval_zeroshot_gpt-5-john.json
+mimic3 code dict dict /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/dict_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/eval_dict_dict.json
+mimic3 code biobert_mrc biobert_mrc /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/biobert_mrc.jsonl /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/eval_biobert_mrc_biobert_mrc.json
+mimic3 code bioclinicalbert_ner bioclinicalbert_ner /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/bioclinicalbert_ner.jsonl /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/eval_bioclinicalbert_ner_bioclinicalbert_ner.json
+mimic3 code i2b2_rd i2b2_rd /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/i2b2_rd.jsonl /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/eval_i2b2_rd_i2b2_rd.json
+
+# ── MIMIC3 text track ─────────────────────────────────────────────────────────
+mimic3 text rdma llama3_8b /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/llama3_8b_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining_text/eval_llama3_8b.json
+mimic3 text rdma mistral_24b /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/mistral_24b_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining_text/eval_mistral_24b.json
+mimic3 text rdma llama3_70b /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/llama3_70b_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining_text/eval_llama3_70b.json
+mimic3 text rdma qwen3_32b /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/qwen3_32b_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining_text/eval_qwen3_32b.json
+mimic3 text rdma qwen_32b /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/qwen_32b_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining_text/eval_qwen_32b.json
+mimic3 text rdma nemotron-120b-q4 /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/nemotron-120b-q4_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining_text/eval_nemotron-120b-q4.json
+mimic3 text rdma gpt-5-john /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/gpt-5-john_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining_text/eval_gpt-5-john.json
+mimic3 text rdrag llama3_8b /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/llama3_8b_rdrag_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining_text/eval_rdrag_llama3_8b.json
+mimic3 text rdrag mistral_24b /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/mistral_24b_rdrag_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining_text/eval_rdrag_mistral_24b.json
+mimic3 text rdrag llama3_70b /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/llama3_70b_rdrag_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining_text/eval_rdrag_llama3_70b.json
+mimic3 text rdrag qwen3_32b /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/qwen3_32b_rdrag_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining_text/eval_rdrag_qwen3_32b.json
+mimic3 text rdrag nemotron-120b-q4 /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/nemotron-120b-q4_rdrag_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining_text/eval_rdrag_nemotron-120b-q4.json
+mimic3 text rdrag gpt-5-john /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/gpt-5-john_rdrag_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining_text/eval_rdrag_gpt-5-john.json
+mimic3 text zeroshot llama3_8b /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/zeroshot_llama3_8b_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining_text/eval_zeroshot_llama3_8b.json
+mimic3 text zeroshot mistral_24b /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/zeroshot_mistral_24b_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining_text/eval_zeroshot_mistral_24b.json
+mimic3 text zeroshot llama3_70b /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/zeroshot_llama3_70b_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining_text/eval_zeroshot_llama3_70b.json
+mimic3 text zeroshot qwen3_32b /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/zeroshot_qwen3_32b_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining_text/eval_zeroshot_qwen3_32b.json
+mimic3 text zeroshot gpt-5-john /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/zeroshot_gpt-5-john_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining_text/eval_zeroshot_gpt-5-john.json
+mimic3 text i2b2_rd i2b2_rd /home/johnwu3/projects/rare_disease/workspace/results/mimic3/i2b2_rd/per_note_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining_text/eval_i2b2_rd.json
+mimic3 text dict dict /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/dict_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining_text/eval_dict.json
+mimic3 text biobert_mrc biobert_mrc /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/biobert_mrc.jsonl /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining_text/eval_biobert_mrc.json
+mimic3 text bioclinicalbert_ner bioclinicalbert_ner /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining/bioclinicalbert_ner.jsonl /home/johnwu3/projects/rare_disease/workspace/results/mimic3_rd_mining_text/eval_bioclinicalbert_ner.json
+
+# ── RareDis ───────────────────────────────────────────────────────────────────
+raredis na rdma llama3_8b /home/johnwu3/projects/rare_disease/workspace/results/raredis/llama3_8b_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/raredis/eval_llama3_8b.json
+raredis na rdma mistral_24b /home/johnwu3/projects/rare_disease/workspace/results/raredis/mistral_24b_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/raredis/eval_mistral_24b.json
+raredis na rdma llama3_70b /home/johnwu3/projects/rare_disease/workspace/results/raredis/llama3_70b_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/raredis/eval_llama3_70b.json
+raredis na rdma qwen3_32b /home/johnwu3/projects/rare_disease/workspace/results/raredis/qwen3_32b_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/raredis/eval_qwen3_32b.json
+raredis na rdma qwen_32b /home/johnwu3/projects/rare_disease/workspace/results/raredis/qwen_32b_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/raredis/eval_qwen_32b.json
+raredis na rdma nemotron-120b-q4 /home/johnwu3/projects/rare_disease/workspace/results/raredis/nemotron-120b-q4_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/raredis/eval_nemotron-120b-q4.json
+raredis na rdma gpt-5-john /home/johnwu3/projects/rare_disease/workspace/results/raredis/gpt-5-john_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/raredis/eval_gpt-5-john.json
+raredis na rdrag llama3_8b /home/johnwu3/projects/rare_disease/workspace/results/raredis/llama3_8b_rdrag_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/raredis/eval_rdrag_llama3_8b.json
+raredis na rdrag mistral_24b /home/johnwu3/projects/rare_disease/workspace/results/raredis/mistral_24b_rdrag_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/raredis/eval_rdrag_mistral_24b.json
+raredis na rdrag llama3_70b /home/johnwu3/projects/rare_disease/workspace/results/raredis/llama3_70b_rdrag_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/raredis/eval_rdrag_llama3_70b.json
+raredis na rdrag qwen3_32b /home/johnwu3/projects/rare_disease/workspace/results/raredis/qwen3_32b_rdrag_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/raredis/eval_rdrag_qwen3_32b.json
+raredis na rdrag nemotron-120b-q4 /home/johnwu3/projects/rare_disease/workspace/results/raredis/nemotron-120b-q4_rdrag_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/raredis/eval_rdrag_nemotron-120b-q4.json
+raredis na rdrag gpt-5-john /home/johnwu3/projects/rare_disease/workspace/results/raredis/gpt-5-john_rdrag_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/raredis/eval_rdrag_gpt-5-john.json
+raredis na zeroshot llama3_8b /home/johnwu3/projects/rare_disease/workspace/results/raredis/zeroshot_llama3_8b_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/raredis/eval_zeroshot_llama3_8b.json
+raredis na zeroshot mistral_24b /home/johnwu3/projects/rare_disease/workspace/results/raredis/zeroshot_mistral_24b_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/raredis/eval_zeroshot_mistral_24b.json
+raredis na zeroshot llama3_70b /home/johnwu3/projects/rare_disease/workspace/results/raredis/zeroshot_llama3_70b_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/raredis/eval_zeroshot_llama3_70b.json
+raredis na zeroshot qwen3_32b /home/johnwu3/projects/rare_disease/workspace/results/raredis/zeroshot_qwen3_32b_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/raredis/eval_zeroshot_qwen3_32b.json
+raredis na zeroshot qwen_32b /home/johnwu3/projects/rare_disease/workspace/results/raredis/zeroshot_qwen_32b_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/raredis/eval_zeroshot_qwen_32b.json
+raredis na zeroshot nemotron-120b-q4 /home/johnwu3/projects/rare_disease/workspace/results/raredis/zeroshot_nemotron-120b-q4_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/raredis/eval_zeroshot_nemotron-120b-q4.json
+raredis na zeroshot gpt-5-john /home/johnwu3/projects/rare_disease/workspace/results/raredis/zeroshot_gpt-5-john_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/raredis/eval_zeroshot_gpt-5-john.json
+raredis na dict dict /home/johnwu3/projects/rare_disease/workspace/results/raredis/dict_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/raredis/eval_dict.json
+raredis na biobert_mrc biobert_mrc /home/johnwu3/projects/rare_disease/workspace/results/raredis/biobert_mrc_trainer/test_results.json /home/johnwu3/projects/rare_disease/workspace/results/raredis/biobert_mrc_trainer/eval_biobert_mrc.json
+raredis na bioclinicalbert_ner bioclinicalbert_ner /home/johnwu3/projects/rare_disease/workspace/results/raredis/bioclinicalbert_ner_trainer/test_results.json /home/johnwu3/projects/rare_disease/workspace/results/raredis/bioclinicalbert_ner_trainer/eval_bioclinicalbert_ner.json
+raredis na i2b2 i2b2 /home/johnwu3/projects/rare_disease/workspace/results/raredis/i2b2_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/raredis/eval_i2b2.json
+
+# ── RDD ───────────────────────────────────────────────────────────────────────
+# predictions_file is informational; rdd eval.py derives the path from model_type+approach
+rdd na rdma llama3_8b /home/johnwu3/projects/rare_disease/workspace/results/rdd/llama3_8b_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/rdd/eval_llama3_8b.json
+rdd na rdma mistral_24b /home/johnwu3/projects/rare_disease/workspace/results/rdd/mistral_24b_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/rdd/eval_mistral_24b.json
+rdd na rdma llama3_70b /home/johnwu3/projects/rare_disease/workspace/results/rdd/llama3_70b_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/rdd/eval_llama3_70b.json
+rdd na rdma qwen3_32b /home/johnwu3/projects/rare_disease/workspace/results/rdd/qwen3_32b_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/rdd/eval_qwen3_32b.json
+rdd na rdma qwen_32b /home/johnwu3/projects/rare_disease/workspace/results/rdd/qwen_32b_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/rdd/eval_qwen_32b.json
+rdd na rdrag llama3_8b /home/johnwu3/projects/rare_disease/workspace/results/rdd/llama3_8b_rdrag_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/rdd/eval_rdrag_llama3_8b.json
+rdd na rdrag mistral_24b /home/johnwu3/projects/rare_disease/workspace/results/rdd/mistral_24b_rdrag_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/rdd/eval_rdrag_mistral_24b.json
+rdd na rdrag llama3_70b /home/johnwu3/projects/rare_disease/workspace/results/rdd/llama3_70b_rdrag_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/rdd/eval_rdrag_llama3_70b.json
+rdd na rdrag qwen_32b /home/johnwu3/projects/rare_disease/workspace/results/rdd/qwen_32b_rdrag_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/rdd/eval_rdrag_qwen_32b.json
+rdd na zeroshot llama3_8b /home/johnwu3/projects/rare_disease/workspace/results/rdd/zeroshot_llama3_8b_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/rdd/eval_zeroshot_llama3_8b.json
+rdd na zeroshot mistral_24b /home/johnwu3/projects/rare_disease/workspace/results/rdd/zeroshot_mistral_24b_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/rdd/eval_zeroshot_mistral_24b.json
+rdd na zeroshot llama3_70b /home/johnwu3/projects/rare_disease/workspace/results/rdd/zeroshot_llama3_70b_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/rdd/eval_zeroshot_llama3_70b.json
+rdd na zeroshot qwen_32b /home/johnwu3/projects/rare_disease/workspace/results/rdd/zeroshot_qwen_32b_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/rdd/eval_zeroshot_qwen_32b.json
+rdd na dict dict /home/johnwu3/projects/rare_disease/workspace/results/rdd/dict_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/rdd/eval_dict.json
+
+# ── CSC ───────────────────────────────────────────────────────────────────────
+csc na rdma gpt-5-john /home/johnwu3/projects/rare_disease/workspace/results/csc/gpt-5-john_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/csc/eval_rdma_gpt-5-john.json
+csc na rdma llama3_8b /home/johnwu3/projects/rare_disease/workspace/results/csc/llama3_8b_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/csc/eval_rdma_llama3_8b.json
+csc na rdma llama3_70b /home/johnwu3/projects/rare_disease/workspace/results/csc/llama3_70b_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/csc/eval_rdma_llama3_70b.json
+csc na rdma mistral_24b /home/johnwu3/projects/rare_disease/workspace/results/csc/mistral_24b_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/csc/eval_rdma_mistral_24b.json
+csc na rdma qwen3_32b /home/johnwu3/projects/rare_disease/workspace/results/csc/qwen3_32b_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/csc/eval_rdma_qwen3_32b.json
+csc na zeroshot gpt-5-john /home/johnwu3/projects/rare_disease/workspace/results/csc/zeroshot_gpt-5-john_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/csc/eval_zeroshot_gpt-5-john.json
+csc na zeroshot llama3_8b /home/johnwu3/projects/rare_disease/workspace/results/csc/zeroshot_llama3_8b_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/csc/eval_zeroshot_llama3_8b.json
+csc na zeroshot llama3_70b /home/johnwu3/projects/rare_disease/workspace/results/csc/zeroshot_llama3_70b_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/csc/eval_zeroshot_llama3_70b.json
+csc na zeroshot mistral_24b /home/johnwu3/projects/rare_disease/workspace/results/csc/zeroshot_mistral_24b_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/csc/eval_zeroshot_mistral_24b.json
+csc na zeroshot qwen3_32b /home/johnwu3/projects/rare_disease/workspace/results/csc/zeroshot_qwen3_32b_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/csc/eval_zeroshot_qwen3_32b.json
+csc na raghpo gpt-5-john /home/johnwu3/projects/rare_disease/workspace/results/csc/gpt-5-john_raghpo_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/csc/eval_raghpo_gpt-5-john.json
+csc na raghpo llama3_8b /home/johnwu3/projects/rare_disease/workspace/results/csc/llama3_8b_raghpo_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/csc/eval_raghpo_llama3_8b.json
+csc na raghpo llama3_70b /home/johnwu3/projects/rare_disease/workspace/results/csc/llama3_70b_raghpo_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/csc/eval_raghpo_llama3_70b.json
+csc na raghpo mistral_24b /home/johnwu3/projects/rare_disease/workspace/results/csc/mistral_24b_raghpo_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/csc/eval_raghpo_mistral_24b.json
+csc na raghpo qwen3_32b /home/johnwu3/projects/rare_disease/workspace/results/csc/qwen3_32b_raghpo_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/csc/eval_raghpo_qwen3_32b.json
+csc na biobert_mrc biobert_mrc /home/johnwu3/projects/rare_disease/workspace/results/csc/biobert_mrc_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/csc/eval_biobert_mrc.json
+csc na bioclinicalbert_ner bioclinicalbert_ner /home/johnwu3/projects/rare_disease/workspace/results/csc/bioclinicalbert_ner.jsonl /home/johnwu3/projects/rare_disease/workspace/results/csc/eval_bioclinicalbert_ner.json
+csc na dictionary_hpo dictionary_hpo /home/johnwu3/projects/rare_disease/workspace/results/csc/dictionary_hpo_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/csc/eval_dictionary_hpo.json
+csc na fasthpocr fasthpocr /home/johnwu3/projects/rare_disease/workspace/results/csc/fasthpocr_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/csc/eval_fasthpocr.json
+csc na i2b2 i2b2 /home/johnwu3/projects/rare_disease/workspace/results/csc/i2b2_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/csc/eval_i2b2.json
+csc na phenogpt phenogpt /home/johnwu3/projects/rare_disease/workspace/results/csc/phenogpt_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/csc/eval_phenogpt.json
+
+# ── BioLarkGSC ────────────────────────────────────────────────────────────────
+biolarkgsc na rdma gpt-5-john /home/johnwu3/projects/rare_disease/workspace/results/biolarkgsc/gpt-5-john_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/biolarkgsc/eval_rdma_gpt-5-john.json
+biolarkgsc na rdma llama3_8b /home/johnwu3/projects/rare_disease/workspace/results/biolarkgsc/llama3_8b_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/biolarkgsc/eval_rdma_llama3_8b.json
+biolarkgsc na rdma llama3_70b /home/johnwu3/projects/rare_disease/workspace/results/biolarkgsc/llama3_70b_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/biolarkgsc/eval_rdma_llama3_70b.json
+biolarkgsc na rdma mistral_24b /home/johnwu3/projects/rare_disease/workspace/results/biolarkgsc/mistral_24b_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/biolarkgsc/eval_rdma_mistral_24b.json
+biolarkgsc na rdma qwen3_32b /home/johnwu3/projects/rare_disease/workspace/results/biolarkgsc/qwen3_32b_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/biolarkgsc/eval_rdma_qwen3_32b.json
+biolarkgsc na zeroshot gpt-5-john /home/johnwu3/projects/rare_disease/workspace/results/biolarkgsc/zeroshot_gpt-5-john_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/biolarkgsc/eval_zeroshot_gpt-5-john.json
+biolarkgsc na zeroshot llama3_8b /home/johnwu3/projects/rare_disease/workspace/results/biolarkgsc/zeroshot_llama3_8b_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/biolarkgsc/eval_zeroshot_llama3_8b.json
+biolarkgsc na zeroshot llama3_70b /home/johnwu3/projects/rare_disease/workspace/results/biolarkgsc/zeroshot_llama3_70b_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/biolarkgsc/eval_zeroshot_llama3_70b.json
+biolarkgsc na zeroshot mistral_24b /home/johnwu3/projects/rare_disease/workspace/results/biolarkgsc/zeroshot_mistral_24b_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/biolarkgsc/eval_zeroshot_mistral_24b.json
+biolarkgsc na zeroshot qwen3_32b /home/johnwu3/projects/rare_disease/workspace/results/biolarkgsc/zeroshot_qwen3_32b_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/biolarkgsc/eval_zeroshot_qwen3_32b.json
+biolarkgsc na raghpo gpt-5-john /home/johnwu3/projects/rare_disease/workspace/results/biolarkgsc/gpt-5-john_raghpo_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/biolarkgsc/eval_raghpo_gpt-5-john.json
+biolarkgsc na raghpo llama3_8b /home/johnwu3/projects/rare_disease/workspace/results/biolarkgsc/llama3_8b_raghpo_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/biolarkgsc/eval_raghpo_llama3_8b.json
+biolarkgsc na raghpo llama3_70b /home/johnwu3/projects/rare_disease/workspace/results/biolarkgsc/llama3_70b_raghpo_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/biolarkgsc/eval_raghpo_llama3_70b.json
+biolarkgsc na raghpo mistral_24b /home/johnwu3/projects/rare_disease/workspace/results/biolarkgsc/mistral_24b_raghpo_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/biolarkgsc/eval_raghpo_mistral_24b.json
+biolarkgsc na raghpo qwen3_32b /home/johnwu3/projects/rare_disease/workspace/results/biolarkgsc/qwen3_32b_raghpo_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/biolarkgsc/eval_raghpo_qwen3_32b.json
+biolarkgsc na biobert_mrc biobert_mrc /home/johnwu3/projects/rare_disease/workspace/results/biolarkgsc/biobert_mrc_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/biolarkgsc/eval_biobert_mrc.json
+biolarkgsc na bioclinicalbert_ner bioclinicalbert_ner /home/johnwu3/projects/rare_disease/workspace/results/biolarkgsc/bioclinicalbert_ner_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/biolarkgsc/eval_bioclinicalbert_ner.json
+biolarkgsc na dictionary_hpo dictionary_hpo /home/johnwu3/projects/rare_disease/workspace/results/biolarkgsc/dictionary_hpo_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/biolarkgsc/eval_dictionary_hpo.json
+biolarkgsc na fasthpocr fasthpocr /home/johnwu3/projects/rare_disease/workspace/results/biolarkgsc/fasthpocr_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/biolarkgsc/eval_fasthpocr.json
+biolarkgsc na i2b2 i2b2 /home/johnwu3/projects/rare_disease/workspace/results/biolarkgsc/i2b2_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/biolarkgsc/eval_i2b2.json
+biolarkgsc na phenogpt phenogpt /home/johnwu3/projects/rare_disease/workspace/results/biolarkgsc/phenogpt_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/biolarkgsc/eval_phenogpt.json

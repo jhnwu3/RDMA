@@ -1,0 +1,18 @@
+# biobert_csc.sub — BioBERT-MRC inference on CSC phenotype-mining benchmark
+#
+# Run AFTER biobert_biolarkgsc has completed and produced a checkpoint at
+# results/biolarkgsc/biobert_mrc/best_hf/.
+executable = /home/johnwu3/projects/rare_disease/workspace/condor/hpo/run_biobert_csc.sh
+
+Requirements = (Machine == "sunlab-c02.cs.illinois.edu")
+
+universe       = vanilla
+request_cpus   = 16
+request_memory = 32GB
+request_gpus   = 1
+
+log    = /home/johnwu3/projects/rare_disease/workspace/logs/csc/biobert_mrc/$(Cluster).$(Process).log
+output = /home/johnwu3/projects/rare_disease/workspace/logs/csc/biobert_mrc/$(Cluster).$(Process).out
+error  = /home/johnwu3/projects/rare_disease/workspace/logs/csc/biobert_mrc/$(Cluster).$(Process).err
+
+queue

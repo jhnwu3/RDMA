@@ -1,0 +1,90 @@
+# ablation_mistral24b.sub — mistral_24b BioLarkGSC ablation sweep
+#
+# Reference baseline (NOT re-run): results/biolarkgsc/mistral_24b_predictions.jsonl
+#   Settings: retrieval extractor, v4 verifier, top_k=20, window=0, --allow_inheritance
+#   Performance: P=56.51  R=55.32  F1=55.91
+#
+# Groups:
+#   A: top_k sweep            (5, 10, 50, 100)
+#   B: verifier ablation      (v1=direct-only, v3=no-lab)
+#   C: fuzzy threshold sweep  (0.95, 0.90, 0.80, 0.60)
+#   D: context window sweep   (1, 2, 5, 10 sentences)
+#   E: text membership check  (require_text_match)
+
+executable = /home/johnwu3/projects/rare_disease/workspace/condor/hpo/run_ablation_mistral24b.sh
+
+Requirements = (Machine == "sunlab-c01.cs.illinois.edu")
+
+universe       = vanilla
+request_cpus   = 16
+request_memory = 32GB
+request_gpus   = 1
+
+log    = /home/johnwu3/projects/rare_disease/workspace/logs/biolarkgsc/ablation_mistral24b/$(job_name)/$(Cluster).$(Process).log
+output = /home/johnwu3/projects/rare_disease/workspace/logs/biolarkgsc/ablation_mistral24b/$(job_name)/$(Cluster).$(Process).out
+error  = /home/johnwu3/projects/rare_disease/workspace/logs/biolarkgsc/ablation_mistral24b/$(job_name)/$(Cluster).$(Process).err
+
+# ── Group A: top_k sweep ──────────────────────────────────────────────────────
+# job_name  = topk_5
+# arguments = $(job_name) --top_k 5
+# queue
+
+# job_name  = topk_10
+# arguments = $(job_name) --top_k 10
+# queue
+
+# job_name  = topk_50
+# arguments = $(job_name) --top_k 50
+# queue
+
+# job_name  = topk_100
+# arguments = $(job_name) --top_k 100
+# queue
+
+# ── Group B: verifier ablation ────────────────────────────────────────────────
+# job_name  = verifier_v1
+# arguments = $(job_name) --verifier_version v1
+# queue
+
+job_name  = verifier_v3
+arguments = $(job_name) --verifier_version v3
+queue
+
+# ── Group C: fuzzy threshold sweep ───────────────────────────────────────────
+# job_name  = fuzzy_95
+# arguments = $(job_name) --fuzzy_threshold 0.95
+# queue
+
+# job_name  = fuzzy_90
+# arguments = $(job_name) --fuzzy_threshold 0.90
+# queue
+
+# job_name  = fuzzy_80
+# arguments = $(job_name) --fuzzy_threshold 0.80
+# queue
+
+# job_name  = fuzzy_60
+# arguments = $(job_name) --fuzzy_threshold 0.60
+# queue
+
+# ── Group D: context window sweep ────────────────────────────────────────────
+# job_name  = ctx_1
+# arguments = $(job_name) --context_window_size 1
+# queue
+
+# job_name  = ctx_2
+# arguments = $(job_name) --context_window_size 2
+# queue
+
+# job_name  = ctx_5
+# arguments = $(job_name) --context_window_size 5
+# queue
+
+# job_name  = ctx_10
+# arguments = $(job_name) --context_window_size 10
+# queue
+
+# ── Group E: entity text membership check ────────────────────────────────────
+# job_name  = textmatch_on
+# arguments = $(job_name) --require_text_match
+# queue

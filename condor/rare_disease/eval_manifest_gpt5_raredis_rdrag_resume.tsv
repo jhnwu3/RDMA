@@ -1,0 +1,6 @@
+# dataset track approach model_type predictions_file eval_output
+# Single-entry manifest to force re-evaluation of the raredis rdrag gpt-5-john entry.
+# The previous eval only scored 601/1011 documents; this forces a full re-run.
+
+# RareDis (scripts/raredis/eval.py)
+raredis na rdrag gpt-5-john /home/johnwu3/projects/rare_disease/workspace/results/raredis/gpt-5-john_rdrag_predictions.jsonl /home/johnwu3/projects/rare_disease/workspace/results/raredis/eval_rdrag_gpt-5-john.json

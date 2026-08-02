@@ -1,0 +1,15 @@
+# i2b2_biolarkgsc.sub — submits one i2b2 BioLark GSC baseline job
+executable = /home/johnwu3/projects/rare_disease/workspace/condor/hpo/run_i2b2_biolarkgsc.sh
+
+Requirements = (Machine == "sunlab-c01.cs.illinois.edu")
+
+universe       = vanilla
+request_cpus   = 4
+request_memory = 16GB
+request_gpus   = 1
+
+log    = /home/johnwu3/projects/rare_disease/workspace/logs/biolarkgsc/i2b2/$(Cluster).$(Process).log
+output = /home/johnwu3/projects/rare_disease/workspace/logs/biolarkgsc/i2b2/$(Cluster).$(Process).out
+error  = /home/johnwu3/projects/rare_disease/workspace/logs/biolarkgsc/i2b2/$(Cluster).$(Process).err
+
+queue
