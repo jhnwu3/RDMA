@@ -1,0 +1,9 @@
+T1	RAREDISEASE 19 64	megalocornea intellectual disability syndrome
+T2	RAREDISEASE 77 89	Megalocornea
+T3	DISEASE 183 210	Recessive genetic disorders
+T4	RAREDISEASE 902 947	megalocornea intellectual disability syndrome
+T5	ANAPHOR 1038 1050	The disorder
+T6	ANAPHOR 1085 1097	The syndrome
+R1	Is_a Arg1:T2 Arg2:T3	
+R2	Anaphora Arg1:T4 Arg2:T5	
+R3	Anaphora Arg1:T4 Arg2:T6	

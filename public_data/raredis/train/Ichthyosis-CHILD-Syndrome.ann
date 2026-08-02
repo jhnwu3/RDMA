@@ -1,0 +1,12 @@
+T1	SKINRAREDISEASE 0 14	CHILD syndrome
+T2	SKINRAREDISEASE 31 104	congenital hemidysplasia with ichthyosiform erythroderma and limb defects
+T3	DISEASE 112 130	inherited disorder
+T4	DISEASE 184 194	ichthyosis
+T5	SIGN 184 218	ichthyosis-like skin abnormalities
+T6	SIGN 223 259	limb defects on one side of the body
+T7	SIGN 267 280	abnormalities
+R1	Is_acron Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T7	
+R3	Is_a Arg1:T2 Arg2:T3	
+R4	Produces Arg1:T2 Arg2:T5	
+R5	Produces Arg1:T2 Arg2:T6	

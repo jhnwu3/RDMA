@@ -1,0 +1,28 @@
+T1	DISEASE 0 5	Apnea
+T2	SIGN 37 79	temporary absence of spontaneous breathing
+T3	RAREDISEASE 81 96	Infantile apnea
+T4	DISEASE 143 148	Apnea
+T5	SIGN 170 219	neurological impairment of the respiratory rhythm
+T6	SIGN 223 246	obstruction of air flow
+T7	RAREDISEASE 289 304	infantile apnea
+T8	SIGN 317 351	stoppage of breathing during sleep
+T9	SIGN 399 407	cyanosis
+T10	SIGN 452 463	bradycardia
+T11	RAREDISEASE 466 481	Infantile apnea
+T12	DISEASE 514 542	sudden infant death syndrome
+T13	DISEASE 556 561	apnea
+T14	DISEASE 611 628	adult sleep apnea
+T15	RAREDISEASE 660 675	infantile apnea
+T16	ANAPHOR 691 693	It
+T17	RAREDISEASE 820 843	central infantile apnea
+T18	RAREDISEASE 925 940	Infantile apnea
+T19	DISEASE 1094 1099	apnea
+T20	RAREDISEASE 1101 1121	apnea of prematurity
+R1	Produces Arg1:T1 Arg2:T20	
+R2	Produces Arg1:T4 Arg2:T5	
+R3	Produces Arg1:T4 Arg2:T6	
+R4	Produces Arg1:T7 Arg2:T8	
+R5	Produces Arg1:T7 Arg2:T9	
+R6	Produces Arg1:T7 Arg2:T10	
+R7	Increases_risk_of Arg1:T11 Arg2:T12	
+R8	Anaphora Arg1:T15 Arg2:T16	

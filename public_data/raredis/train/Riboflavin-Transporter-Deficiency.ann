@@ -1,0 +1,5 @@
+T1	RAREDISEASE 0 33	Riboflavin transporter deficiency
+T2	ANAPHOR 128 141	this disorder
+T3	RAREDISEASE 300 333	riboflavin transporter deficiency
+T4	RAREDISEASE 603 636	riboflavin transporter deficiency
+R1	Anaphora Arg1:T1 Arg2:T2	

@@ -1,0 +1,13 @@
+T1	RAREDISEASE 0 13	Eales Disease
+T2	SIGN 78 136	white haze around the outercoat of the veins in the retina
+T3	SIGN 110 136;61 73	of the veins in the retina inflammation
+T4	ANAPHOR 138 150	The disorder
+T5	SIGN 340 361	vitreous hemorrhaging
+T6	RAREDISEASE 382 395	Eales Disease
+T7	ANAPHOR 411 424	This disorder
+T8	RAREDISEASE 549 562	Eales Disease
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Anaphora Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T4 Arg2:T5	
+R5	Anaphora Arg1:T6 Arg2:T7	

@@ -1,0 +1,5 @@
+T1	RAREDISEASE 0 26	Ventricular septal defects
+T2	SIGN 31 44;72 82	heart defects congenital
+T3	RAREDISEASE 558 562	VSDs
+T4	RAREDISEASE 954 979	ventricular septal defect
+R1	Produces Arg1:T1 Arg2:T2	

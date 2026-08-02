@@ -1,0 +1,29 @@
+T1	RAREDISEASE 0 21	Pentalogy of Cantrell
+T2	RAREDISEASE 80 101	Pentalogy of Cantrell
+T3	SIGN 139 152	birth defects
+T4	SIGN 160 173;190 197;214 221	birth defects involve sternum
+T5	SIGN 160 173;190 197;307 316	birth defects involve diaphragm
+T6	SIGN 160 173;190 197;359 370	birth defects involve pericardium
+T7	SIGN 160 173;190 197;377 391	birth defects involve abdominal wall
+T8	SIGN 160 173;190 197;401 406	birth defects involve heart
+T9	RAREDISEASE 408 429	Pentalogy of Cantrell
+T10	RAREDISEASE 628 649	pentalogy of Cantrell
+T11	RAREDISEASE 718 739	pentalogy of Cantrell
+T12	ANAPHOR 760 772	the disorder
+T13	RAREDISEASE 843 864	pentalogy of Cantrell
+T14	RAREDISEASE 943 964	pentalogy of Cantrell
+T15	RAREDISEASE 1083 1104	pentalogy of Cantrell
+T16	SIGN 1121 1222	abnormality in the development of midline embryonic tissue fourteen to eighteen days after conception
+T17	ANAPHOR 1362 1374	the disorder
+T18	RAREDISEASE 1450 1471	pentalogy of Cantrell
+T19	RAREDISEASE 1473 1494	Pentalogy of Cantrell
+T20	RAREDISEASE 1638 1659	pentalogy of Cantrell
+R1	Produces Arg1:T2 Arg2:T3	
+R2	Produces Arg1:T2 Arg2:T4	
+R3	Produces Arg1:T2 Arg2:T5	
+R4	Produces Arg1:T2 Arg2:T6	
+R5	Produces Arg1:T2 Arg2:T7	
+R6	Produces Arg1:T2 Arg2:T8	
+R7	Anaphora Arg1:T11 Arg2:T12	
+R8	Produces Arg1:T15 Arg2:T16	
+R9	Anaphora Arg1:T15 Arg2:T170	

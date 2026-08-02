@@ -1,0 +1,9 @@
+T1	RAREDISEASE 23 39	dentin dysplasia
+T2	SIGN 184 215	abnormal coronal pulp formation
+T3	SIGN 217 250	obliteration of the pulp chambers
+T4	SIGN 252 263	pulp stones
+T5	SIGN 267 312	thistle-shaped deformity of the pulp chamber.
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T5	

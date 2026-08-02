@@ -1,0 +1,21 @@
+T1	RAREDISEASE 3 14	astrocytoma
+T2	DISEASE 20 25	tumor
+T3	DISEASE 308 314	Tumors
+T4	RAREDISEASE 359 371	astrocytomas
+T5	RAREDISEASE 405 412	gliomas
+T6	RAREDISEASE 414 433	Grade I astrocytoma
+T7	DISEASE 500 512	brain tumors
+T8	RAREDISEASE 514 534	Grade II astrocytoma
+T9	RAREDISEASE 594 615	Grade III astrocytoma
+T10	DISEASE 724 736	brain tumors
+T11	RAREDISEASE 738 758	Grade IV astrocytoma
+T12	DISEASE 868 888	primary brain tumors
+T13	RAREDISEASE 907 918	astrocytoma
+T14	DISEASE 1550 1555	tumor
+T15	DISEASE 1633 1638	tumor
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Is_a Arg1:T4 Arg2:T5	
+R3	Is_a Arg1:T5 Arg2:T30	
+R4	Is_a Arg1:T6 Arg2:T7	
+R5	Is_a Arg1:T9 Arg2:T10	
+R6	Is_a Arg1:T11 Arg2:T12	

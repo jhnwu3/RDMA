@@ -1,0 +1,26 @@
+T1	RAREDISEASE 0 24	Bilateral Renal Agenesis
+T2	SIGN 32 64	absence of both kidneys at birth
+T3	ANAPHOR 67 69	It
+T4	DISEASE 75 91	genetic disorder
+T5	SIGN 111 155	failure of the kidneys to develop in a fetus
+T6	SIGN 162 180	absence of kidneys
+T7	DISEASE 220 235	Oligohydramnios
+T8	SIGN 220 235	Oligohydramnios
+T9	SIGN 383 407	compression of the fetus
+T10	SIGN 439 464	malformations of the baby
+T11	RAREDISEASE 466 490	Bilateral renal agenesis
+T12	ANAPHOR 547 549	It
+T13	SIGN 599 619	kidney abnormalities
+T14	ANAPHOR 622 624	It
+T15	RAREDISEASE 673 687	renal agenesis
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Is_a Arg1:T3 Arg2:T4	
+R4	Produces Arg1:T3 Arg2:T5	
+R5	Produces Arg1:T3 Arg2:T6	
+R6	Produces Arg1:T3 Arg2:T8	
+R7	Produces Arg1:T3 Arg2:T9	
+R8	Produces Arg1:T3 Arg2:T100	
+R9	Anaphora Arg1:T11 Arg2:T12	
+R10	Anaphora Arg1:T11 Arg2:T14	
+R11	Produces Arg1:T12 Arg2:T13	

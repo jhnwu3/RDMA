@@ -1,0 +1,60 @@
+T1	RAREDISEASE 1 21	Roussy-Lévy Syndrome
+T2	RAREDISEASE 37 66	hereditary areflexic dystasia
+T3	DISEASE 78 108	genetic neuromuscular disorder
+T4	ANAPHOR 165 177	The disorder
+T5	SIGN 198 212	incoordination
+T6	SIGN 242 256	sensory ataxia
+T7	SIGN 284 293;295 312	areflexia of the lower legs
+T8	SIGN 284 293;295 297;330 339	areflexia of the hands
+T9	SIGN 341 349;377 405	weakness of muscles of the lower legs
+T10	SIGN 368 375;377 405	atrophy of muscles of the lower legs
+T11	SIGN 418 466	high arches of the feet with increased extension
+T12	SIGN 480 489	pes cavus
+T13	SIGN 495 503	clawfoot
+T14	SIGN 512 532	tremors of the hands
+T15	SIGN 633 647	kyphoscoliosis
+T16	RAREDISEASE 670 690	Roussy-Lévy Syndrome
+T17	SIGN 779 790	denervation
+T18	RAREDISEASE 793 813	Roussy-Levy Syndrome
+T19	RAREDISEASE 879 899	Roussy-Lévy Syndrome
+T20	DISEASE 921 958	hereditary motor sensory neuropathies
+T21	SIGN 976 984;997 1015	weakness of the leg muscles
+T22	SIGN 989 1015	atrophy of the leg muscles
+T23	SIGN 1004 1015;1026 1041	leg muscles loss of feeling
+T24	ANAPHOR 1056 1069	this syndrome
+T25	SIGN 1075 1093	difficulty walking
+T26	SIGN 1100 1116	lack of reflexes
+T27	SIGN 1152 1161	pes cavus
+T28	RAREDISEASE 1164 1175	Roussy-Lévy
+T29	DISEASE 1205 1242	hereditary motor sensory neuropathies
+T30	ANAPHOR 1278 1290	the disorder
+T31	RAREDISEASE 1344 1355	Roussy-Lévy
+T32	SIGN 1397 1423	slight tremor in the hands
+T33	RAREDISEASE 1425 1436	Roussy-Lévy
+T34	RAREDISEASE 1544 1564	Roussy-Lévy Syndrome
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Anaphora Arg1:T1 Arg2:T4	
+R3	Is_synon Arg1:T2 Arg2:T1	
+R4	Produces Arg1:T4 Arg2:T5	
+R5	Produces Arg1:T4 Arg2:T6	
+R6	Produces Arg1:T4 Arg2:T70	
+R7	Produces Arg1:T4 Arg2:T8	
+R8	Produces Arg1:T4 Arg2:T9	
+R9	Produces Arg1:T4 Arg2:T10	
+R10	Produces Arg1:T4 Arg2:T11	
+R11	Produces Arg1:T4 Arg2:T12	
+R12	Produces Arg1:T4 Arg2:T13	
+R13	Produces Arg1:T4 Arg2:T14	
+R14	Produces Arg1:T4 Arg2:T15	
+R15	Produces Arg1:T16 Arg2:T17	
+R16	Is_a Arg1:T30 Arg2:T31	
+R17	Produces Arg1:T30 Arg2:T32	
+R18	Produces Arg1:T30 Arg2:T48	
+R19	Produces Arg1:T30 Arg2:T49	
+R20	Anaphora Arg1:T30 Arg2:T47	
+R21	Produces Arg1:T24 Arg2:T25	
+R22	Produces Arg1:T24 Arg2:T26	
+R23	Produces Arg1:T24 Arg2:T27	
+R24	Is_a Arg1:T28 Arg2:T29	
+R25	Anaphora Arg1:T28 Arg2:T30	
+R26	Produces Arg1:T31 Arg2:T32	

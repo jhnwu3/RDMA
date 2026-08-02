@@ -1,0 +1,36 @@
+T1	RAREDISEASE 0 15	Mulibrey nanism
+T2	DISEASE 37 73	autosomal recessive genetic disorder
+T3	SIGN 91 113	profound growth delays
+T4	SIGN 118 158	distinctive abnormalities of the muscles
+T5	SIGN 118 150;160 165	distinctive abnormalities of the liver
+T6	SIGN 118 150;167 172	distinctive abnormalities of the brain
+T7	SIGN 118 150;178 182	distinctive abnormalities of the eyes
+T8	DISEASE 256 262	Nanism
+T9	DISEASE 283 291	dwarfism
+T10	DISEASE 458 483	constrictive pericarditis
+T11	SIGN 458 483	constrictive pericarditis
+T12	SIGN 522 538	low birth weight
+T13	SIGN 540 553	short stature
+T14	SIGN 559 591	severe progressive growth delays
+T15	SIGN 650 659	hypotonia
+T16	ANAPHOR 680 693	this disorder
+T17	SIGN 730 742	hepatomegaly
+T18	SIGN 745 752;768 802	Infants yellow discoloration in their eyes
+T19	RAREDISEASE 804 819	Mulibrey nanism
+T20	ANAPHOR 962 976	this condition
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T50	
+R5	Produces Arg1:T1 Arg2:T6	
+R6	Produces Arg1:T1 Arg2:T7	
+R7	Produces Arg1:T1 Arg2:T11	
+R8	Produces Arg1:T1 Arg2:T12	
+R9	Produces Arg1:T1 Arg2:T13	
+R10	Produces Arg1:T1 Arg2:T14	
+R11	Produces Arg1:T1 Arg2:T15	
+R12	Anaphora Arg1:T1 Arg2:T16	
+R13	Is_synon Arg1:T8 Arg2:T9	
+R14	Produces Arg1:T16 Arg2:T17	
+R15	Produces Arg1:T16 Arg2:T180	
+R16	Anaphora Arg1:T19 Arg2:T20	

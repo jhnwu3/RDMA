@@ -1,0 +1,9 @@
+T1	RAREDISEASE 0 21	Factor VII deficiency
+T2	ANAPHOR 66 78	The disorder
+T3	RAREDISEASE 188 209	factor VII deficiency
+T4	ANAPHOR 249 251	it
+T5	RAREDISEASE 338 359	factor VII deficiency
+T6	RAREDISEASE 533 554	factor VII deficiency
+T7	RAREDISEASE 611 632	factor VII deficiency
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T3 Arg2:T4	

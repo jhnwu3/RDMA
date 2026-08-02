@@ -1,0 +1,6 @@
+T1	RAREDISEASE 0 20	Citrullinemia type I
+T2	RAREDISEASE 22 27	CTLN1
+T3	DISEASE 39 75	autosomal recessive genetic disorder
+T4	RAREDISEASE 221 226	CTLN1
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Is_acron Arg1:T2 Arg2:T1	

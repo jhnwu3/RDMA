@@ -1,0 +1,46 @@
+T1	RAREDISEASE 1 21	Acromicric Dysplasia
+T2	DISEASE 43 61	inherited disorder
+T3	SIGN 79 110	abnormally short hands and feet
+T4	SIGN 112 130	growth retardation
+T5	SIGN 135 158	delayed bone maturation
+T6	SIGN 170 183	short stature
+T7	SIGN 189 214	mild facial abnormalities
+T8	RAREDISEASE 353 373	Acromicric Dysplasia
+T9	RAREDISEASE 555 575	Acromicric Dysplasia
+T10	RAREDISEASE 747 767	Acromicric Dysplasia
+T11	SIGN 879 890	short hands
+T12	SIGN 1026 1065	abnormalities of the bones in the hands
+T13	SIGN 1026 1059;1070 1074	abnormalities of the bones in the feet
+T14	SIGN 1093 1114	short broad phalanges
+T15	SIGN 1093 1098;1116 1127	short metacarpals
+T16	SIGN 1093 1098;1133 1144	short metatarsals
+T17	SIGN 1146 1192	epiphyseal coning of the phalanges in the toes
+T18	SIGN 1194 1231	pointing of the last four metacarpals
+T19	SIGN 1256 1311	abnormal notch on the radial side of the 2nd metacarpal
+T20	SIGN 1256 1277;1316 1348	abnormal notch on the ulnar side of the 5th metacarpal
+T21	SIGN 1443 1487	abnormalities affecting the growth cartilage
+T22	SIGN 1521 1580	"disorganization of the """"growing"""" portion of certain bones"
+T23	SIGN 1593 1617;1645 1657	abnormal organization of chondrocytes
+T24	SIGN 1593 1617;1687 1695	abnormal organization of collagen
+T25	SIGN 1645 1657;1796 1807	chondrocytes high number
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T5	
+R5	Produces Arg1:T1 Arg2:T60	
+R6	Produces Arg1:T1 Arg2:T7	
+R7	Produces Arg1:T10 Arg2:T11	
+R8	Produces Arg1:T10 Arg2:T12	
+R9	Produces Arg1:T10 Arg2:T13	
+R10	Produces Arg1:T10 Arg2:T14	
+R11	Produces Arg1:T10 Arg2:T15	
+R12	Produces Arg1:T10 Arg2:T16	
+R13	Produces Arg1:T10 Arg2:T17	
+R14	Produces Arg1:T10 Arg2:T18	
+R15	Produces Arg1:T10 Arg2:T19	
+R16	Produces Arg1:T10 Arg2:T20	
+R17	Produces Arg1:T10 Arg2:T210	
+R18	Produces Arg1:T10 Arg2:T220	
+R19	Produces Arg1:T10 Arg2:T23	
+R20	Produces Arg1:T10 Arg2:T24	
+R21	Produces Arg1:T10 Arg2:T25	

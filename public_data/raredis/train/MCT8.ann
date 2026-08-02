@@ -1,0 +1,21 @@
+T1	RAREDISEASE 0 57	MCT8-specific thyroid hormone cell transporter deficiency
+T2	RAREDISEASE 59 74	THCT deficiency
+T3	DISEASE 82 100	inherited disorder
+T4	DISEASE 126 156	severe intellectual disability
+T5	SIGN 126 156	severe intellectual disability
+T6	SIGN 161 186	impaired ability to speak
+T7	SIGN 212 221	hypotonia
+T8	SIGN 231 253	movement abnormalities
+T9	RAREDISEASE 255 272	THCT deficiency i
+T10	DISEASE 281 299	inherited disorder
+T11	RAREDISEASE 504 519	THCT deficiency
+T12	DISEASE 551 574	intellectual disability
+T13	SIGN 551 574	intellectual disability
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T5	
+R3	Produces Arg1:T1 Arg2:T6	
+R4	Produces Arg1:T1 Arg2:T7	
+R5	Produces Arg1:T1 Arg2:T8	
+R6	Is_acron Arg1:T2 Arg2:T1	
+R7	Is_a Arg1:T10 Arg2:T14	
+R8	Produces Arg1:T11 Arg2:T13	

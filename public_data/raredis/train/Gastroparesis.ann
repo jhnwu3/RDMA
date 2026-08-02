@@ -1,0 +1,26 @@
+T1	RAREDISEASE 0 13	Gastroparesis
+T2	RAREDISEASE 30 32	GP
+T3	SIGN 115 118;132 148;150 166;82 113	and liquid nutrients from the stomach sluggish emptying of solid food
+T4	SYMPTOM 181 210	persistent digestive symptoms
+T5	SYMPTOM 222 228	nausea
+T6	RAREDISEASE 432 445	gastroparesis
+T7	RAREDISEASE 608 630	gastroparesis syndrome
+T8	RAREDISEASE 632 645	Gastroparesis
+T9	RAREDISEASE 753 777	Idiopathic gastroparesis
+T10	DISEASE 822 848	enteric autoimmune disease
+T11	RAREDISEASE 997 1024	Post surgical gastroparesis
+T12	DISEASE 1174 1178	GERD
+T13	DISEASE 1199 1211	peptic ulcer
+T14	DISEASE 1259 1268	scoliosis
+T15	DISEASE 1356 1372	dumping syndrome
+T16	RAREDISEASE 1483 1496	gastroparesis
+T17	RAREDISEASE 1545 1558	gastroparesis
+T18	DISEASE 1560 1569	gastritis
+T19	DISEASE 1571 1585	gastric ulcers
+T20	DISEASE 1587 1603	pyloric stenosis
+T21	DISEASE 1605 1619	celiac disease
+T22	DISEASE 1625 1640	GI obstructions
+R1	Produces Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Produces Arg1:T1 Arg2:T5	
+R4	Is_acron Arg1:T20 Arg2:T1	

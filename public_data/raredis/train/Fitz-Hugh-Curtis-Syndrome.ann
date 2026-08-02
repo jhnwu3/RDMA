@@ -1,0 +1,27 @@
+T1	RAREDISEASE 0 25	Fitz-Hugh-Curtis syndrome
+T2	ANAPHOR 86 88	It
+T3	SIGN 109 128;158 168	inflammation of the peritoneum
+T4	SIGN 209 222	perihepatitis
+T5	SYMPTOM 380 441	severe pain in the upper right area (quadrant) of the abdomen
+T6	SIGN 443 448	fever
+T7	SIGN 450 456	chills
+T8	SYMPTOM 458 467	headaches
+T9	SYMPTOM 507 514	malaise
+T10	RAREDISEASE 517 542	Fitz-Hugh-Curtis syndrome
+T11	DISEASE 564 591	pelvic inflammatory disease
+T12	DISEASE 593 596	PID
+T13	RAREDISEASE 763 788	Fitz-Hugh-Curtis syndrome
+T14	SYMPTOM 838 864	upper right abdominal pain
+T15	SIGN 1204 1242	inflammation of the perihepatic region
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T2 Arg2:T3	
+R3	Produces Arg1:T2 Arg2:T4	
+R4	Produces Arg1:T2 Arg2:T5	
+R5	Produces Arg1:T2 Arg2:T6	
+R6	Produces Arg1:T2 Arg2:T7	
+R7	Produces Arg1:T2 Arg2:T8	
+R8	Produces Arg1:T2 Arg2:T9	
+R9	Increases_risk_of Arg1:T11 Arg2:T10	
+R10	Is_acron Arg1:T12 Arg2:T11	
+R11	Produces Arg1:T13 Arg2:T14	
+R12	Produces Arg1:T13 Arg2:T150	

@@ -1,0 +1,11 @@
+T1	RAREDISEASE 0 30	Congenital adrenal hyperplasia
+T2	RAREDISEASE 32 35	CAH
+T3	DISEASE 56 95	inherited autosomal recessive disorders
+T4	SIGN 115 180	deficiency of one of the enzymes needed to make specific hormones
+T5	RAREDISEASE 182 185	CAH
+T6	RAREDISEASE 750 753	CAH
+T7	RAREDISEASE 1002 1005	CAH
+T8	RAREDISEASE 1049 1052	CAH
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Is_acron Arg1:T2 Arg2:T1	

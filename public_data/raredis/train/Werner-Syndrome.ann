@@ -1,0 +1,15 @@
+T1	SKINRAREDISEASE 0 15	Werner syndrome
+T2	DISEASE 26 46	progressive disorder
+T3	SIGN 119 127	progeria
+T4	SKINRAREDISEASE 119 127	progeria
+T5	ANAPHOR 139 151	the disorder
+T6	SKINRAREDISEASE 310 325	Werner syndrome
+T7	ANAPHOR 400 412	the disorder
+T8	ANAPHOR 525 537	The disorder
+T9	ANAPHOR 739 751	the disorder
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Anaphora Arg1:T1 Arg2:T5	
+R4	Anaphora Arg1:T6 Arg2:T7	
+R5	Anaphora Arg1:T6 Arg2:T8	
+R6	Anaphora Arg1:T6 Arg2:T9	

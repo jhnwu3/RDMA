@@ -1,0 +1,8 @@
+T1	RAREDISEASE 38 50	Dent disease
+T2	RAREDISEASE 63 82	Dent disease type 1
+T3	RAREDISEASE 132 151	Dent disease type 2
+T4	ANAPHOR 281 296	these disorders
+T5	RAREDISEASE 353 365	Dent disease
+T6	RAREDISEASE 400 412	Dent disease
+R1	Anaphora Arg1:T2 Arg2:T4	
+R2	Anaphora Arg1:T3 Arg2:T4	

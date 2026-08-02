@@ -1,0 +1,5 @@
+T1	RAREDISEASE 0 13	Lowe syndrome
+T2	DISEASE 24 40	genetic disorder
+T3	ANAPHOR 161 175	This condition
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	

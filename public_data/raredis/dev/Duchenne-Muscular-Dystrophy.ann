@@ -1,0 +1,4 @@
+T1	RAREDISEASE 0 3	DMD
+T2	RAREDISEASE 47 65	muscular dystrophy
+T3	RAREDISEASE 231 251	muscular dystrophies
+R1	Is_a Arg1:T1 Arg2:T2	

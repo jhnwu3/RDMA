@@ -1,0 +1,15 @@
+T1	RAREDISEASE 0 31	Adult polyglucosan body disease
+T2	RAREDISEASE 328 332	APBD
+T3	DISEASE 357 375	multiple sclerosis
+T4	RAREDISEASE 377 406	hereditary spastic paraplegia
+T5	RAREDISEASE 408 429	adrenomyeloneuropathy
+T6	RAREDISEASE 431 460	amyotrophic lateral sclerosis
+T7	RAREDISEASE 462 490	metachromatic leukodystrophy
+T8	RAREDISEASE 496 524	Pelizaeus-Merzbacher disease
+T9	SYMPTOM 545 561	urinary symptoms
+T10	DISEASE 592 609	enlarged prostate
+T11	DISEASE 611 631	prostate hypertrophy
+R1	Produces Arg1:T1 Arg2:T9	
+R2	Produces Arg1:T10 Arg2:T9	
+R3	Produces Arg1:T10 Arg2:T9	
+R4	Is_synon Arg1:T10 Arg2:T11	

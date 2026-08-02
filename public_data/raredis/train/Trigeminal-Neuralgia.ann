@@ -1,0 +1,5 @@
+T1	RAREDISEASE 0 20	Trigeminal neuralgia
+T2	ANAPHOR 186 198	The disorder
+T3	DISEASE 501 519	multiple sclerosis
+T4	RAREDISEASE 546 548	TN
+R1	Anaphora Arg1:T1 Arg2:T2	

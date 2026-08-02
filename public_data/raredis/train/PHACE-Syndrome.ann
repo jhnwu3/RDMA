@@ -1,0 +1,7 @@
+T1	RAREDISEASE 0 14	PHACE syndrome
+T2	ANAPHOR 41 43	it
+T3	ANAPHOR 120 122	It
+T4	ANAPHOR 219 231	the disorder
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Anaphora Arg1:T1 Arg2:T4	

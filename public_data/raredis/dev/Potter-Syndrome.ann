@@ -1,0 +1,8 @@
+T1	RAREDISEASE 0 15	Potter syndrome
+T2	ANAPHOR 104 118	this condition
+T3	RAREDISEASE 120 144	bilateral renal agenesis
+T4	RAREDISEASE 219 234	Potter syndrome
+T5	RAREDISEASE 353 368	Potter syndrome
+T6	DISEASE 522 542	obstructive uropathy
+R1	Increases_risk_of Arg1:T3 Arg2:T4	
+R2	Anaphora Arg1:T4 Arg2:T2	

@@ -1,0 +1,16 @@
+T1	SKINRAREDISEASE 0 22	Peutz Jeghers syndrome
+T2	SKINRAREDISEASE 159 162	PJS
+T3	ANAPHOR 242 253	the disease
+T4	DISEASE 375 381	cancer
+T5	SKINRAREDISEASE 402 405	PJS
+T6	DISEASE 445 451;484 490	breast cancer
+T7	DISEASE 453 460;484 490	ovarian cancer
+T8	DISEASE 462 470;484 490	cervical cancer
+T9	DISEASE 476 490	uterine cancer
+R1	Is_acron Arg1:T2 Arg2:T1	
+R2	Anaphora Arg1:T2 Arg2:T3	
+R3	Increases_risk_of Arg1:T5 Arg2:T4	
+R4	Increases_risk_of Arg1:T5 Arg2:T6	
+R5	Increases_risk_of Arg1:T5 Arg2:T7	
+R6	Increases_risk_of Arg1:T5 Arg2:T80	
+R7	Increases_risk_of Arg1:T5 Arg2:T9	

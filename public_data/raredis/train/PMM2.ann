@@ -1,0 +1,10 @@
+T1	RAREDISEASE 0 8	PMM2-CDG
+T2	DISEASE 80 109	inherited metabolic disorders
+T3	ANAPHOR 134 156	this specific disorder
+T4	ANAPHOR 464 479	these disorders
+T5	RAREDISEASE 569 577	PMM2-CDG
+T6	ANAPHOR 610 622	the disorder
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Anaphora Arg1:T2 Arg2:T4	
+R4	Anaphora Arg1:T5 Arg2:T6	

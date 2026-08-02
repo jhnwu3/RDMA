@@ -1,0 +1,7 @@
+T1	RAREDISEASE 0 37	Partial androgen sensitivity syndrome
+T2	RAREDISEASE 136 165	androgen sensitivity syndrome
+T3	RAREDISEASE 183 187	PAIS
+T4	RAREDISEASE 189 193	PAIS
+T5	ANAPHOR 246 268	this genetic condition
+R1	Is_a Arg1:T3 Arg2:T2	
+R2	Anaphora Arg1:T4 Arg2:T5	

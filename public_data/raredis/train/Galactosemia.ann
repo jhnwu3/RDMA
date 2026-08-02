@@ -1,0 +1,19 @@
+T1	RAREDISEASE 0 12	Galactosemia
+T2	RAREDISEASE 24 70	hereditary disorder of carbohydrate metabolism
+T3	ANAPHOR 223 235	The disorder
+T4	SIGN 251 317	deficiency of an enzyme galactose-1-phosphate uridylyl transferase
+T5	SIGN 464 496	profound intellectual disability
+T6	SIGN 498 511	liver failure
+T7	SIGN 516 543	death in the newborn period
+T8	RAREDISEASE 545 557	Galactosemia
+T9	DISEASE 577 614	autosomal recessive genetic condition
+T10	RAREDISEASE 616 636	Classic galactosemia
+T11	RAREDISEASE 658 670	galactosemia
+T12	RAREDISEASE 802 814	galactosemia
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T3 Arg2:T4	
+R4	Produces Arg1:T3 Arg2:T5	
+R5	Produces Arg1:T3 Arg2:T60	
+R6	Produces Arg1:T3 Arg2:T7	
+R7	Is_a Arg1:T8 Arg2:T9	

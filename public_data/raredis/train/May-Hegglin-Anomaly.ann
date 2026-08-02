@@ -1,0 +1,19 @@
+T1	RAREDISEASE 0 19	May-Hegglin Anomaly
+T2	DISEASE 31 65	inherited, blood platelet disorder
+T3	SIGN 125 140	giant platelets
+T4	SIGN 146 160;188 198	defects of the leukocytes
+T5	SIGN 204 235;252 263;308 328;356 365	defect of the white blood cells presence of Dohle bodies, in the cytoplasm
+T6	ANAPHOR 385 398	this disorder
+T7	SIGN 450 458	bleeding
+T8	RAREDISEASE 503 522	May-Hegglin Anomaly
+T9	RAREDISEASE 621 640	May-Hegglin Anomaly
+T10	DISEASE 651 674	blood platelet disorder
+T11	ANAPHOR 725 727	It
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T5	
+R5	Anaphora Arg1:T1 Arg2:T60	
+R6	Produces Arg1:T10 Arg2:T2	
+R7	Is_a Arg1:T9 Arg2:T10	
+R8	Anaphora Arg1:T9 Arg2:T11	

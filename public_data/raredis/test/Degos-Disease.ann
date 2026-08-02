@@ -1,0 +1,31 @@
+T1	RAREDISEASE 0 13	Degos disease
+T2	SIGN 101 123	occlusive arteriopathy
+T3	SIGN 126 155	restricting the flow of blood
+T4	RAREDISEASE 175 188	Degos disease
+T5	SIGN 219 231	skin lesions
+T6	RAREDISEASE 317 330	Degos disease
+T7	SKINRAREDISEASE 360 390	benign cutaneous Degos disease
+T8	RAREDISEASE 469 491	systemic Degos disease
+T9	RAREDISEASE 494 516	Systemic Degos disease
+T10	SYMPTOM 648 662	abdominal pain
+T11	DISEASE 664 672	diarrhea
+T12	SIGN 664 672	diarrhea
+T13	SIGN 681 692	weight loss
+T14	RAREDISEASE 698 706;715 728	systemic Degos disease
+T15	SIGN 778 795	perforated bowels
+T16	DISEASE 845 856	peritonitis
+T17	SIGN 845 856	peritonitis
+T18	RAREDISEASE 878 891	Degos disease
+T19	RAREDISEASE 919 932	Degos disease
+T20	SIGN 1061 1073	skin lesions
+T21	RAREDISEASE 1274 1287	Degos disease
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T4 Arg2:T5	
+R4	Is_a Arg1:T7 Arg2:T6	
+R5	Produces Arg1:T9 Arg2:T10	
+R6	Produces Arg1:T9 Arg2:T12	
+R7	Produces Arg1:T9 Arg2:T13	
+R8	Produces Arg1:T14 Arg2:T15	
+R9	Produces Arg1:T14 Arg2:T17	
+R10	Produces Arg1:T19 Arg2:T200	

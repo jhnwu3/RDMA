@@ -1,0 +1,8 @@
+T1	RAREDISEASE 0 12	Hemophilia B
+T2	ANAPHOR 62 64	It
+T3	RAREDISEASE 88 100	hemophilia A
+T4	RAREDISEASE 169 181	hemophilia B
+T5	RAREDISEASE 405 424	severe hemophilia B
+T6	RAREDISEASE 519 531	hemophilia B
+T7	RAREDISEASE 580 597	mild hemophilia B
+R1	Anaphora Arg1:T1 Arg2:T2	

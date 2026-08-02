@@ -1,0 +1,46 @@
+T1	RAREDISEASE 0 32	Ataxia with vitamin E deficiency
+T2	SIGN 0 6	Ataxia
+T3	SIGN 12 32	vitamin E deficiency
+T4	RAREDISEASE 34 38	AVED
+T5	DISEASE 50 86	inherited neurodegenerative disorder
+T6	DISEASE 156 162	ataxia
+T7	SIGN 156 162	ataxia
+T8	DISEASE 210 231	peripheral neuropathy
+T9	SIGN 210 231	peripheral neuropathy
+T10	RAREDISEASE 234 238	AVED
+T11	DISEASE 244 264	progressive disorder
+T12	DISEASE 317 337	multisystem disorder
+T13	SYMPTOM 397 418	neurological symptoms
+T14	SIGN 456 473	eye abnormalities
+T15	DISEASE 514 528	cardiomyopathy
+T16	SIGN 514 528	cardiomyopathy
+T17	DISEASE 568 577	scoliosis
+T18	SIGN 568 577	scoliosis
+T19	RAREDISEASE 580 584	AVED
+T20	DISEASE 641 660	Friedreich's ataxia
+T21	SIGN 654 660	ataxia
+T22	RAREDISEASE 662 666	AVED
+T23	RAREDISEASE 713 717	AVED
+T24	ANAPHOR 762 774	The disorder
+T25	ANAPHOR 846 858	the disorder
+T26	RAREDISEASE 918 922	AVED
+T27	ANAPHOR 1036 1048	The disorder
+T28	RAREDISEASE 1119 1123	AVED
+T29	SIGN 1259 1282	low levels of vitamin E
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Is_a Arg1:T1 Arg2:T5	
+R4	Produces Arg1:T1 Arg2:T7	
+R5	Produces Arg1:T1 Arg2:T9	
+R6	Is_acron Arg1:T4 Arg2:T1	
+R7	Is_a Arg1:T10 Arg2:T11	
+R8	Is_a Arg1:T10 Arg2:T12	
+R9	Produces Arg1:T10 Arg2:T13	
+R10	Produces Arg1:T10 Arg2:T140	
+R11	Produces Arg1:T10 Arg2:T16	
+R12	Produces Arg1:T10 Arg2:T180	
+R13	Produces Arg1:T20 Arg2:T21	
+R14	Anaphora Arg1:T23 Arg2:T24	
+R15	Anaphora Arg1:T23 Arg2:T25	
+R16	Anaphora Arg1:T26 Arg2:T27	
+R17	Produces Arg1:T28 Arg2:T29	

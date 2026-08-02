@@ -1,0 +1,34 @@
+T1	RAREDISEASE 1 22	Necrotizing fasciitis
+T2	RAREDISEASE 24 26	NF
+T3	DISEASE 61 93	decaying infection of the fascia
+T4	RAREDISEASE 198 200	NF
+T5	SIGN 292 311;359 367	subcutaneous tissue necrosis
+T6	ANAPHOR 370 386	These infections
+T7	DISEASE 538 558	toxic shock syndrome
+T8	SIGN 538 558	toxic shock syndrome
+T9	DISEASE 562 587	toxic shock-like syndrome
+T10	SIGN 562 587	toxic shock-like syndrome
+T11	SIGN 607 629	multiple organ failure
+T12	SIGN 634 639	death
+T13	RAREDISEASE 698 715	poly-microbial NF
+T14	DISEASE 724 731	obesity
+T15	DISEASE 764 772	diabetes
+T16	DISEASE 774 796	chronic kidney failure
+T17	DISEASE 798 801	HIV
+T18	DISEASE 818 825	abscess
+T19	DISEASE 925 936	chicken pox
+T20	RAREDISEASE 1056 1058	NF
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Is_acron Arg1:T2 Arg2:T1	
+R3	Produces Arg1:T4 Arg2:T5	
+R4	Anaphora Arg1:T4 Arg2:T60	
+R5	Produces Arg1:T4 Arg2:T8	
+R6	Produces Arg1:T4 Arg2:T10	
+R7	Produces Arg1:T7 Arg2:T11	
+R8	Produces Arg1:T9 Arg2:T12	
+R9	Increases_risk_of Arg1:T14 Arg2:T13	
+R10	Increases_risk_of Arg1:T15 Arg2:T13	
+R11	Increases_risk_of Arg1:T16 Arg2:T13	
+R12	Increases_risk_of Arg1:T17 Arg2:T13	
+R13	Increases_risk_of Arg1:T18 Arg2:T13	
+R14	Increases_risk_of Arg1:T20 Arg2:T14	

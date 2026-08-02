@@ -1,0 +1,45 @@
+T1	RAREDISEASE 0 22	Malignant hyperthermia
+T2	RAREDISEASE 24 26	MH
+T3	DISEASE 33 81	dominantly inherited disorder of skeletal muscle
+T4	SIGN 163 181	fulminant MH event
+T5	RAREDISEASE 173 175	MH
+T6	SIGN 335 355	fulminant MH episode
+T7	RAREDISEASE 345 347	MH
+T8	SIGN 376 391	hypermetabolism
+T9	SIGN 412 423	hypethermia
+T10	SIGN 426 449	increased oxygen uptake
+T11	SIGN 455 480	carbon dioxide production
+T12	SIGN 493 505	hyperkalemia
+T13	SIGN 511 519	acidosis
+T14	SIGN 525 540	hyperlacactemia
+T15	SIGN 543 567	Skeletal muscle rigidity
+T16	SIGN 632 645	Muscle damage
+T17	SIGN 662 696	increases in serum creatine kinase
+T18	SIGN 662 674;698 707	increases in potassium
+T19	SIGN 662 676;709 716	increases in s calcium
+T20	SIGN 662 674;722 731	increases in phosphate
+T21	SIGN 734 748	Rhabdomyolysis
+T22	DISEASE 754 767	myoglobinuria
+T23	SIGN 754 767	myoglobinuria
+T24	SIGN 772 785	myoglobinemia
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Is_acron Arg1:T2 Arg2:T1	
+R4	Produces Arg1:T5 Arg2:T4	
+R5	Produces Arg1:T7 Arg2:T6	
+R6	Produces Arg1:T7 Arg2:T8	
+R7	Produces Arg1:T7 Arg2:T9	
+R8	Produces Arg1:T7 Arg2:T100	
+R9	Produces Arg1:T7 Arg2:T11	
+R10	Produces Arg1:T7 Arg2:T12	
+R11	Produces Arg1:T7 Arg2:T13	
+R12	Produces Arg1:T7 Arg2:T14	
+R13	Produces Arg1:T7 Arg2:T15	
+R14	Produces Arg1:T7 Arg2:T16	
+R15	Produces Arg1:T7 Arg2:T17	
+R16	Produces Arg1:T7 Arg2:T180	
+R17	Produces Arg1:T7 Arg2:T19	
+R18	Produces Arg1:T7 Arg2:T20	
+R19	Produces Arg1:T7 Arg2:T21	
+R20	Produces Arg1:T7 Arg2:T23	
+R21	Produces Arg1:T7 Arg2:T24	

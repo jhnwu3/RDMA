@@ -1,0 +1,8 @@
+T1	SKINRAREDISEASE 17 49	progressive osseous heteroplasia
+T2	DISEASE 179 203	heterotopic ossification
+T3	SIGN 179 203	heterotopic ossification
+T4	SKINRAREDISEASE 272 275	POH
+T5	SIGN 394 403;405 464	transient increased levels of alkaline phosphatase in the blood serum
+R1	Produces Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T5	
+R3	Is_acron Arg1:T4 Arg2:T1	

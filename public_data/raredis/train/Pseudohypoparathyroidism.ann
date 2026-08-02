@@ -1,0 +1,75 @@
+T1	SKINRAREDISEASE 0 24	Pseudohypoparathyroidism
+T2	DISEASE 30 49	hereditary disorder
+T3	SIGN 70 116	inadequate response to the parathyroid hormone
+T4	SKINRAREDISEASE 234 258	Pseudohypoparathyroidism
+T5	SYMPTOM 301 310	headaches
+T6	SYMPTOM 312 330	unusual sensations
+T7	SYMPTOM 332 340	weakness
+T8	SYMPTOM 342 354	easy fatigue
+T9	SYMPTOM 356 370	lack of energy
+T10	SIGN 372 386	blurred vision
+T11	SIGN 417 433;435 443	hypersensitivity to light
+T12	SIGN 490 499;510 533	stiffness in the arms and/or legs
+T13	SIGN 503 533	cramps in the arms and/or legs
+T14	SYMPTOM 535 547	palpitations
+T15	SYMPTOM 556 570	abdominal pain
+T16	SKINRAREDISEASE 602 626	Pseudohypoparathyroidism
+T17	SIGN 650 660	round face
+T18	SIGN 662 681	thick short stature
+T19	SIGN 693 713	short fourth fingers
+T20	DISEASE 719 737	mental retardation
+T21	SIGN 719 737	mental retardation
+T22	SKINRAREDISEASE 834 858	Pseudohypoparathyroidism
+T23	SIGN 879 892	short stature
+T24	SIGN 896 906	round face
+T25	SIGN 908 919	short neck,
+T26	SIGN 924 961	shortened bones in the hands and feet
+T27	SYMPTOM 1031 1040	Headaches
+T28	SYMPTOM 1042 1050	weakness
+T29	SYMPTOM 1052 1065	tiring easily
+T30	SYMPTOM 1067 1075	lethargy
+T31	DISEASE 1077 1086	cataracts
+T32	SIGN 1077 1086	cataracts
+T33	SIGN 1091 1105	blurred vision
+T34	SIGN 1109 1134	hypersensitivity to light
+T35	SIGN 1175 1183	seizures
+T36	SIGN 1196 1248	Teeth with underdeveloped enamel tend to erupt later
+T37	SIGN 1278 1308;1321 1324	Levels of calcium in the blood low
+T38	SIGN 1278 1287;1332 1341;1374 1382	Levels of phosphate elevated
+T39	SIGN 1278 1287;1350 1382	Levels of parathyroid hormone are elevated
+T40	SKINRAREDISEASE 1399 1423	Pseudohypoparathyroidism
+T41	SKINRAREDISEASE 1448 1472	Pseudohypoparathyroidism
+T42	SKINRAREDISEASE 1549 1573	Pseudohypoparathyroidism
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T4 Arg2:T5	
+R4	Produces Arg1:T4 Arg2:T6	
+R5	Produces Arg1:T4 Arg2:T7	
+R6	Produces Arg1:T4 Arg2:T8	
+R7	Produces Arg1:T4 Arg2:T9	
+R8	Produces Arg1:T4 Arg2:T10	
+R9	Produces Arg1:T4 Arg2:T11	
+R10	Produces Arg1:T4 Arg2:T12	
+R11	Produces Arg1:T4 Arg2:T13	
+R12	Produces Arg1:T4 Arg2:T14	
+R13	Produces Arg1:T4 Arg2:T15	
+R14	Produces Arg1:T16 Arg2:T17	
+R15	Produces Arg1:T16 Arg2:T180	
+R16	Produces Arg1:T16 Arg2:T19	
+R17	Produces Arg1:T16 Arg2:T21	
+R18	Produces Arg1:T22 Arg2:T23	
+R19	Produces Arg1:T22 Arg2:T24	
+R20	Produces Arg1:T22 Arg2:T25	
+R21	Produces Arg1:T22 Arg2:T260	
+R22	Produces Arg1:T22 Arg2:T270	
+R23	Produces Arg1:T22 Arg2:T28	
+R24	Produces Arg1:T22 Arg2:T29	
+R25	Produces Arg1:T22 Arg2:T30	
+R26	Produces Arg1:T22 Arg2:T32	
+R27	Produces Arg1:T22 Arg2:T33	
+R28	Produces Arg1:T22 Arg2:T34	
+R29	Produces Arg1:T22 Arg2:T35	
+R30	Produces Arg1:T22 Arg2:T36	
+R31	Produces Arg1:T40 Arg2:T37	
+R32	Produces Arg1:T40 Arg2:T38	
+R33	Produces Arg1:T40 Arg2:T39	

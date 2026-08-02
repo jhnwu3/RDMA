@@ -1,0 +1,33 @@
+T1	RAREDISEASE 0 22	Mallory-Weiss syndrome
+T2	SIGN 147 172;35 76;92 98	gastroesophageal junction tear or laceration of the mucous membrane at the
+T3	SIGN 182 186	tear
+T4	SIGN 201 248	severe bleeding from the gastrointestinal tract
+T5	SIGN 277 283	lesion
+T6	RAREDISEASE 370 392	Mallory-Weiss syndrome
+T7	DISEASE 442 460	chronic alcoholism
+T8	RAREDISEASE 466 469	MWS
+T9	DISEASE 532 547	chronic hiccups
+T10	DISEASE 632 641	gastritis
+T11	DISEASE 657 668	esophagitis
+T12	DISEASE 671 684	hiatus hernia
+T13	DISEASE 739 745	Cancer
+T14	ANAPHOR 791 804	this disorder
+T15	RAREDISEASE 840 862	Mallory-Weiss syndrome
+T16	SIGN 892 917	gastrointestinal bleeding
+T17	ANAPHOR 938 940	it
+T18	DISEASE 984 994	alcoholism
+T19	RAREDISEASE 997 1000	MWS
+T20	RAREDISEASE 1198 1220	Mallory-Weiss syndrome
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T5	
+R5	Increases_risk_of Arg1:T7 Arg2:T8	
+R6	Anaphora Arg1:T8 Arg2:T140	
+R7	Increases_risk_of Arg1:T9 Arg2:T8	
+R8	Increases_risk_of Arg1:T10 Arg2:T8	
+R9	Increases_risk_of Arg1:T11 Arg2:T8	
+R10	Increases_risk_of Arg1:T10 Arg2:T3	
+R11	Produces Arg1:T15 Arg2:T16	
+R12	Anaphora Arg1:T15 Arg2:T17	
+R13	Increases_risk_of Arg1:T18 Arg2:T17	

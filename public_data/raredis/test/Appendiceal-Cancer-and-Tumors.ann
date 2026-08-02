@@ -1,0 +1,35 @@
+T1	RAREDISEASE 0 18	Appendiceal cancer
+T2	RAREDISEASE 88 107	Appendiceal cancers
+T3	SIGN 345 370	Peritoneal carcinomatosis
+T4	DISEASE 399 405	cancer
+T5	DISEASE 437 444	Cancers
+T6	SIGN 486 511	peritoneal carcinomatosis
+T7	DISEASE 524 540;681 688	gastrointestinal cancers
+T8	DISEASE 626 637;681 688	gynecologic cancers
+T9	DISEASE 696 703	cancers
+T10	DISEASE 775 783	melanoma
+T11	RAREDISEASE 785 816	Gastrointestinal stromal tumors
+T12	RAREDISEASE 818 823	GISTs
+T13	RAREDISEASE 842 866	sarcoma of the intestine
+T14	SIGN 894 931	multiple cancer tumors in the abdomen
+T15	DISEASE 903 909	cancer
+T16	RAREDISEASE 933 956	Peritoneal mesothelioma
+T17	DISEASE 962 968	cancer
+T18	SIGN 1054 1101	signs and symptoms of peritoneal carcinomatosis
+T19	RAREDISEASE 1143 1161	appendiceal cancer
+T20	RAREDISEASE 1251 1269	appendiceal cancer
+T21	DISEASE 1402 1414	appendicitis
+T22	DISEASE 1431 1450	intestinal blockage
+T23	RAREDISEASE 1463 1477	ovarian cancer
+T24	RAREDISEASE 1732 1748	ppendiceal tumor
+T25	RAREDISEASE 1814 1832	appendiceal tumors
+T26	RAREDISEASE 1961 1982	Goblet cell carcinoid
+R1	Produces Arg1:T7 Arg2:T3	
+R2	Produces Arg1:T7 Arg2:T6	
+R3	Produces Arg1:T8 Arg2:T3	
+R4	Produces Arg1:T8 Arg2:T6	
+R5	Is_a Arg1:T11 Arg2:T13	
+R6	Produces Arg1:T11 Arg2:T14	
+R7	Is_acron Arg1:T20 Arg2:T19	
+R8	Is_a Arg1:T16 Arg2:T17	
+R9	Produces Arg1:T16 Arg2:T18	

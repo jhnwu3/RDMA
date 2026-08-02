@@ -1,0 +1,33 @@
+T1	SIGN 0 9	Keratitis
+T2	SKINRAREDISEASE 0 29	Keratitis ichthyosis deafness
+T3	SIGN 21 29	deafness
+T4	SKINRAREDISEASE 31 34	KID
+T5	DISEASE 56 86	genetic, multi-system disorder
+T6	ANAPHOR 88 90	It
+T7	SIGN 150 159	keratitis
+T8	SIGN 200 218	erythrokeratoderma
+T9	SKINRAREDISEASE 200 218	erythrokeratoderma
+T10	DISEASE 224 246	sensorineural deafness
+T11	SIGN 224 246	sensorineural deafness
+T12	SIGN 250 275	severe hearing impairment
+T13	SKINRAREDISEASE 365 377	KID syndrome
+T14	DISEASE 400 414	skin disorders
+T15	SIGN 425 440	dry, scaly skin
+T16	SKINRAREDISEASE 454 464	ichthyoses
+T17	SKINRAREDISEASE 466 478	KID syndrome
+T18	SKINRAREDISEASE 524 536	KID syndrome
+T19	ANAPHOR 595 607	The disorder
+T20	SKINRAREDISEASE 701 711	ichthyoses
+R1	Produces Arg1:T2 Arg2:T1	
+R2	Produces Arg1:T2 Arg2:T3	
+R3	Is_a Arg1:T2 Arg2:T5	
+R4	Anaphora Arg1:T2 Arg2:T6	
+R5	Is_acron Arg1:T4 Arg2:T2	
+R6	Produces Arg1:T6 Arg2:T7	
+R7	Produces Arg1:T6 Arg2:T8	
+R8	Produces Arg1:T6 Arg2:T11	
+R9	Produces Arg1:T6 Arg2:T12	
+R10	Is_a Arg1:T13 Arg2:T14	
+R11	Produces Arg1:T13 Arg2:T15	
+R12	Is_a Arg1:T13 Arg2:T16	
+R13	Anaphora Arg1:T18 Arg2:T190	

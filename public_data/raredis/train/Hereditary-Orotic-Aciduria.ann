@@ -1,0 +1,21 @@
+T1	RAREDISEASE 0 26	Hereditary orotic aciduria
+T2	DISEASE 48 64	genetic disorder
+T3	DISEASE 113 141	blood (hematologic) disorder
+T4	DISEASE 149 169	megaloblastic anemia
+T5	SIGN 149 169	megaloblastic anemia
+T6	SIGN 181 198	failure to thrive
+T7	SIGN 218 227	infection
+T8	SIGN 268 280	crystalluria
+T9	SIGN 310 334	orotic acid in the urine
+T10	SIGN 336 369	Impaired neurological development
+T11	RAREDISEASE 456 482	Hereditary orotic aciduria
+T12	ANAPHOR 577 590	this disorder
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T5	
+R3	Produces Arg1:T1 Arg2:T6	
+R4	Produces Arg1:T1 Arg2:T7	
+R5	Produces Arg1:T1 Arg2:T8	
+R6	Produces Arg1:T1 Arg2:T9	
+R7	Produces Arg1:T1 Arg2:T10	
+R8	Is_a Arg1:T4 Arg2:T3	
+R9	Anaphora Arg1:T11 Arg2:T12	

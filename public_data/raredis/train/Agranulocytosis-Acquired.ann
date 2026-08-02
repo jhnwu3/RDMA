@@ -1,0 +1,14 @@
+T1	RAREDISEASE 0 24	Acquired agranulocytosis
+T2	DISEASE 36 63	drug-induced blood disorder
+T3	SIGN 144 156;91 124	granulocytes severe reduction in the number of
+T4	RAREDISEASE 312 336	Acquired Agranulocytosis
+T5	DISEASE 347 361	blood disorder
+T6	ANAPHOR 571 584	this disorder
+T7	RAREDISEASE 603 627	acquired agranulocytosis
+T8	SIGN 701 727	low levels of granulocytes
+T9	RAREDISEASE 861 885	acquired agranulocytosis
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Increases_risk_of Arg1:T4 Arg2:T5	
+R4	Anaphora Arg1:T4 Arg2:T6	
+R5	Produces Arg1:T7 Arg2:T8	

@@ -1,0 +1,9 @@
+T1	RAREDISEASE 17 27	meningioma
+T2	SIGN 263 271	seizures
+T3	SIGN 275 296	neurological deficits
+T4	RAREDISEASE 587 597	meningioma
+T5	RAREDISEASE 749 759	Meningioma
+T6	RAREDISEASE 839 850	meningiomas
+T7	RAREDISEASE 1164 1174	meningioma
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	

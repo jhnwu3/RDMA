@@ -1,0 +1,68 @@
+T1	DISEASE 53 59	cancer
+T2	RAREDISEASE 95 116	biliary tract cancers
+T3	SIGN 310 321	weight loss
+T4	SYMPTOM 323 337	abdominal pain
+T5	SYMPTOM 347 359	night sweats
+T6	SYMPTOM 364 371	fatigue
+T7	RAREDISEASE 373 413	Distal and perihilar cholangiocarcinomas
+T8	RAREDISEASE 417 436	gallbladder cancers
+T9	SIGN 479 487	jaundice
+T10	RAREDISEASE 562 582	biliary tract cancer
+T11	RAREDISEASE 704 722	cholangiocarcinoma
+T12	DISEASE 742 757	liver cirrhosis
+T13	DISEASE 759 770	hepatitis B
+T14	DISEASE 759 768;775 776	hepatitis C
+T15	DISEASE 778 798	biliary tract stones
+T16	DISEASE 800 822	liver fluke infections
+T17	DISEASE 826 859	congenital anatomical abnormality
+T18	RAREDISEASE 869 885	choledochal cyst
+T19	RAREDISEASE 894 934	chronic condition of inflamed bile ducts
+T20	RAREDISEASE 947 977	primary sclerosing cholangitis
+T21	RAREDISEASE 1151 1169	cholangiocarcinoma
+T22	RAREDISEASE 1184 1202	gallbladder cancer
+T23	SIGN 1247 1271	long standing gallstones
+T24	SIGN 1285 1322	calcification of the gallbladder wall
+T25	SIGN 1327 1348	porcelain gallbladder
+T26	SIGN 1352 1370	Gallbladder polyps
+T27	RAREDISEASE 1414 1432	gallbladder cancer
+T28	RAREDISEASE 1451 1468	bile duct cancers
+T29	RAREDISEASE 1641 1658	bile duct cancers
+T30	RAREDISEASE 1719 1738	gallbladder cancers
+T31	RAREDISEASE 1743 1779	distal/perihilar cholangiocarcinomas
+T32	RAREDISEASE 1794 1826	intrahepatic cholangiocarcinomas
+T33	RAREDISEASE 1857 1885	perihilar cholangiocarcinoma
+T34	RAREDISEASE 1958 1989	intrahepatic cholangiocarcinoma
+T35	RAREDISEASE 2104 2125	biliary tract cancers
+T36	RAREDISEASE 2244 2258	biliary cancer
+T37	DISEASE 2311 2317	cancer
+T38	RAREDISEASE 2337 2355	Gallbladder cancer
+T39	RAREDISEASE 2525 2543	gallbladder cancer
+T40	RAREDISEASE 2700 2718	cholangiocarcinoma
+T41	RAREDISEASE 2722 2740	gallbladder cancer
+T42	SIGN 3159 3167	jaundice
+T43	RAREDISEASE 3332 3350	gallbladder cancer
+T44	SIGN 3433 3443	gallstones
+T45	ANAPHOR 3451 3461	the cancer
+T46	DISEASE 3455 3461	cancer
+R1	Produces Arg1:T2 Arg2:T3	
+R2	Produces Arg1:T2 Arg2:T4	
+R3	Produces Arg1:T2 Arg2:T5	
+R4	Produces Arg1:T2 Arg2:T6	
+R5	Is_synon Arg1:T7 Arg2:T8	
+R6	Produces Arg1:T7 Arg2:T9	
+R7	Increases_risk_of Arg1:T12 Arg2:T11	
+R8	Increases_risk_of Arg1:T10 Arg2:T8	
+R9	Increases_risk_of Arg1:T40 Arg2:T8	
+R10	Increases_risk_of Arg1:T15 Arg2:T11	
+R11	Increases_risk_of Arg1:T16 Arg2:T11	
+R12	Increases_risk_of Arg1:T18 Arg2:T11	
+R13	Is_a Arg1:T18 Arg2:T17	
+R14	Is_synon Arg1:T19 Arg2:T20	
+R15	Increases_risk_of Arg1:T20 Arg2:T11	
+R16	Produces Arg1:T22 Arg2:T23	
+R17	Produces Arg1:T22 Arg2:T24	
+R18	Produces Arg1:T22 Arg2:T25	
+R19	Produces Arg1:T27 Arg2:T260	
+R20	Produces Arg1:T41 Arg2:T42	
+R21	Produces Arg1:T43 Arg2:T44	
+R22	Anaphora Arg1:T43 Arg2:T45	

@@ -1,0 +1,36 @@
+T1	DISEASE 0 14	Stomach cancer
+T2	DISEASE 37 43	cancer
+T3	ANAPHOR 78 80	it
+T4	DISEASE 91 97	cancer
+T5	SYMPTOM 219 224;285 297	Early asymptomatic
+T6	ANAPHOR 242 253	the disease
+T7	ANAPHOR 303 314	the disease
+T8	SIGN 341 352	indigestion
+T9	SYMPTOM 354 360	nausea
+T10	SIGN 362 370	vomiting
+T11	SYMPTOM 410 423	early satiety
+T12	DISEASE 451 465	stomach cancer
+T13	ANAPHOR 557 567	the cancer
+T14	DISEASE 561 567	cancer
+T15	DISEASE 667 681	Stomach cancer
+T16	DISEASE 829 843	stomach cancer
+T17	ANAPHOR 876 878	It
+T18	ANAPHOR 907 909	it
+T19	DISEASE 1043 1057	stomach cancer
+T20	DISEASE 1084 1090	cancer
+T21	DISEASE 1102 1116	Stomach cancer
+T22	DISEASE 1280 1294	stomach cancer
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Anaphora Arg1:T1 Arg2:T7	
+R4	Is_a Arg1:T3 Arg2:T4	
+R5	Produces Arg1:T6 Arg2:T5	
+R6	Produces Arg1:T7 Arg2:T8	
+R7	Produces Arg1:T7 Arg2:T9	
+R8	Produces Arg1:T7 Arg2:T10	
+R9	Produces Arg1:T7 Arg2:T110	
+R10	Anaphora Arg1:T12 Arg2:T13	
+R11	Is_a Arg1:T13 Arg2:T14	
+R12	Anaphora Arg1:T16 Arg2:T17	
+R13	Anaphora Arg1:T16 Arg2:T180	
+R14	Is_a Arg1:T19 Arg2:T20	

@@ -1,0 +1,6 @@
+T1	SKINRAREDISEASE 0 15	Dermatomyositis
+T2	ANAPHOR 99 101	it
+T3	SKINRAREDISEASE 159 174	dermatomyositis
+T4	SKINRAREDISEASE 346 370	juvenile dermatomyositis
+T5	SKINRAREDISEASE 396 411	dermatomyositis
+R1	Anaphora Arg1:T1 Arg2:T2	

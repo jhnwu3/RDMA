@@ -1,0 +1,46 @@
+T1	RAREDISEASE 0 26	Retinopathy of prematurity
+T2	RAREDISEASE 28 31	ROP
+T3	DISEASE 38 66	potentially blinding disease
+T4	SIGN 183 193;216 286	In infants blood vessels that supply the retinas are not yet completely developed
+T5	SIGN 297 338;366 402	blood vessel growth continues after birth in an abnormal, disorganized pattern
+T6	RAREDISEASE 413 416	ROP
+T7	RAREDISEASE 472 475	ROP
+T8	RAREDISEASE 519 522	ROP
+T9	SIGN 535 543	bleeding
+T10	SIGN 545 567	scarring of the retina
+T11	DISEASE 569 587	retinal detachment
+T12	SIGN 569 587	retinal detachment
+T13	SIGN 592 603	visual loss
+T14	RAREDISEASE 628 631	ROP
+T15	SIGN 728 731;741 754	eye abnormalities
+T16	SIGN 766 781	nearsightedness
+T17	DISEASE 809 819	strabismus
+T18	SIGN 809 819	strabismus
+T19	DISEASE 836 854	retinal detachment
+T20	SIGN 836 854	retinal detachment
+T21	RAREDISEASE 887 890	ROP
+T22	DISEASE 897 913	low birth weight
+T23	DISEASE 918 936	premature delivery
+T24	RAREDISEASE 938 941	ROP
+T25	SIGN 964 981	visual impairment
+T26	SIGN 986 995	blindness
+T27	RAREDISEASE 1103 1106	ROP
+T28	RAREDISEASE 1427 1430	ROP
+T29	RAREDISEASE 1562 1565	ROP
+T30	RAREDISEASE 1713 1716	ROP
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Is_acron Arg1:T2 Arg2:T1	
+R4	Produces Arg1:T10 Arg2:T17	
+R5	Produces Arg1:T8 Arg2:T9	
+R6	Produces Arg1:T8 Arg2:T10	
+R7	Produces Arg1:T8 Arg2:T12	
+R8	Produces Arg1:T8 Arg2:T13	
+R9	Produces Arg1:T14 Arg2:T15	
+R10	Produces Arg1:T14 Arg2:T16	
+R11	Produces Arg1:T14 Arg2:T180	
+R12	Produces Arg1:T14 Arg2:T20	
+R13	Increases_risk_of Arg1:T22 Arg2:T21	
+R14	Increases_risk_of Arg1:T23 Arg2:T21	
+R15	Produces Arg1:T24 Arg2:T25	
+R16	Produces Arg1:T24 Arg2:T26	

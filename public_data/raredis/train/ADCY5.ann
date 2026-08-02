@@ -1,0 +1,6 @@
+T1	RAREDISEASE 0 24	ADCY5-related dyskinesia
+T2	ANAPHOR 105 118	this disorder
+T3	RAREDISEASE 151 167	ADCY5-dyskinesia
+T4	ANAPHOR 287 299	The disorder
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T3 Arg2:T4	

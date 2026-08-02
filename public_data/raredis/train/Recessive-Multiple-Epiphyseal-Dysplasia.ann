@@ -1,0 +1,9 @@
+T1	RAREDISEASE 0 47	SLC26A2 Recessive multiple epiphyseal dysplasia
+T2	ANAPHOR 129 141	the disorder
+T3	RAREDISEASE 158 187	multiple epiphyseal dysplasia
+T4	RAREDISEASE 294 298	rMED
+T5	RAREDISEASE 361 390	multiple epiphyseal dysplasia
+T6	ANAPHOR 474 489	these disorders
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Is_acron Arg1:T4 Arg2:T1	
+R3	Anaphora Arg1:T5 Arg2:T6	

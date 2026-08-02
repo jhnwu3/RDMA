@@ -1,0 +1,7 @@
+T1	ANAPHOR 12 26	this condition
+T2	RAREDISEASE 191 204	gastroschisis
+T3	RAREDISEASE 237 250	Gastroschisis
+T4	ANAPHOR 306 308	It
+T5	RAREDISEASE 332 343	omphalocele
+R1	Anaphora Arg1:T2 Arg2:T1	
+R2	Anaphora Arg1:T3 Arg2:T4	

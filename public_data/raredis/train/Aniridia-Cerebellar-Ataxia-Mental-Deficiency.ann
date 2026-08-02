@@ -1,0 +1,35 @@
+T1	RAREDISEASE 0 8	Aniridia
+T2	RAREDISEASE 0 50	Aniridia, cerebellar ataxia, and mental deficiency
+T3	RAREDISEASE 66 84	Gillespie syndrome
+T4	DISEASE 107 125	inherited disorder
+T5	RAREDISEASE 174 182	aniridia
+T6	SIGN 174 182	aniridia
+T7	RAREDISEASE 196 212	partial aniridia
+T8	SIGN 196 212	partial aniridia
+T9	SIGN 327 337;339 364	hypoplasia of the brain's cerebellum
+T10	DISEASE 366 383	cerebellar ataxia
+T11	SIGN 366 383	cerebellar ataxia
+T12	DISEASE 390 408	mental retardation
+T13	SIGN 390 408	mental retardation
+T14	ANAPHOR 410 423	The condition
+T15	ANAPHOR 554 567	this syndrome
+T16	SIGN 674 697	psychomotor retardation
+T17	RAREDISEASE 700 705	ACAMD
+T18	RAREDISEASE 857 865	Aniridia
+T19	RAREDISEASE 857 906	Aniridia, cerebellar ataxia and mental deficiency
+T20	DISEASE 928 946	inherited disorder
+T21	ANAPHOR 1144 1157	this syndrome
+T22	RAREDISEASE 1196 1204	aniridia
+R1	Anaphora Arg1:T1 Arg2:T14	
+R2	Is_a Arg1:T2 Arg2:T4	
+R3	Produces Arg1:T2 Arg2:T6	
+R4	Produces Arg1:T2 Arg2:T8	
+R5	Produces Arg1:T2 Arg2:T9	
+R6	Produces Arg1:T2 Arg2:T110	
+R7	Produces Arg1:T2 Arg2:T13	
+R8	Is_synon Arg1:T3 Arg2:T2	
+R9	Produces Arg1:T15 Arg2:T16	
+R10	Anaphora Arg1:T17 Arg2:T15	
+R11	Is_a Arg1:T19 Arg2:T20	
+R12	Anaphora Arg1:T19 Arg2:T21	
+R13	Increases_risk_of Arg1:T22 Arg2:T21	

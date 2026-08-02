@@ -1,0 +1,12 @@
+T1	RAREDISEASE 0 22	Baller-Gerold syndrome
+T2	RAREDISEASE 24 27	BGS
+T3	DISEASE 39 55	genetic disorder
+T4	RAREDISEASE 115 118	BGS
+T5	SIGN 129 174	distinctive misshaped appearance of the skull
+T6	SIGN 129 168;176 202	distinctive misshaped appearance of the facial (craniofacial) area
+T7	SIGN 129 168;207 238	distinctive misshaped appearance of the bones of the forearms and hands
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Is_acron Arg1:T2 Arg2:T1	
+R3	Produces Arg1:T4 Arg2:T5	
+R4	Produces Arg1:T4 Arg2:T6	
+R5	Produces Arg1:T4 Arg2:T7	

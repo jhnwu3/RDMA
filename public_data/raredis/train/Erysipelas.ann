@@ -1,0 +1,18 @@
+T1	RAREDISEASE 0 10	Erysipelas
+T2	RAREDISEASE 166 176	Erysipelas
+T3	SIGN 190 222	fiery red rash with raised edges
+T4	SIGN 294 298;306 310	skin warm
+T5	RAREDISEASE 338 348	erysipelas
+T6	SIGN 444 456	inflammation
+T7	SIGN 545 549	rash
+T8	RAREDISEASE 588 598	Erysipelas
+T9	RAREDISEASE 762 772	Erysipelas
+T10	ANAPHOR 838 840	It
+T11	RAREDISEASE 967 977	erysipelas
+T12	SIGN 967 984	erysipelas lesion
+R1	Produces Arg1:T2 Arg2:T3	
+R2	Produces Arg1:T2 Arg2:T4	
+R3	Produces Arg1:T5 Arg2:T6	
+R4	Produces Arg1:T5 Arg2:T7	
+R5	Anaphora Arg1:T9 Arg2:T10	
+R6	Produces Arg1:T10 Arg2:T5	

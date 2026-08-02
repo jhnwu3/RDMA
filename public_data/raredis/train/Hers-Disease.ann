@@ -1,0 +1,32 @@
+T1	RAREDISEASE 0 12	Hers disease
+T2	DISEASE 18 44	genetic metabolic disorder
+T3	SIGN 57 102	deficiency of the enzyme, liver phosphorylase
+T4	SIGN 291 327	accumulation of glycogen in the body
+T5	RAREDISEASE 329 341	Hers disease
+T6	RAREDISEASE 386 412	glycogen storage disorders
+T7	ANAPHOR 414 416	It
+T8	SIGN 463 475	hepatomegaly
+T9	DISEASE 506 518	hypoglycemia
+T10	SIGN 506 518	hypoglycemia
+T11	SIGN 586 593	ketosis
+T12	SIGN 600 627	moderate growth retardation
+T13	RAREDISEASE 748 773	glycogen storage diseases
+T14	RAREDISEASE 876 888	Hers disease
+T15	ANAPHOR 910 922	the disorder
+T16	RAREDISEASE 988 1000	Hers disease
+T17	ANAPHOR 1050 1062	the disorder
+T18	RAREDISEASE 1104 1116	Hers disease
+T19	SIGN 1156 1182;1334 1358	liver phosphorylase enzyme activity will be reduced
+T20	RAREDISEASE 1308 1320	Hers disease
+R1	Is_a Arg1:T1 Arg2:T20	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Is_a Arg1:T5 Arg2:T6	
+R5	Anaphora Arg1:T5 Arg2:T7	
+R6	Produces Arg1:T7 Arg2:T8	
+R7	Produces Arg1:T7 Arg2:T10	
+R8	Produces Arg1:T7 Arg2:T11	
+R9	Produces Arg1:T7 Arg2:T12	
+R10	Anaphora Arg1:T14 Arg2:T15	
+R11	Anaphora Arg1:T16 Arg2:T17	
+R12	Produces Arg1:T18 Arg2:T190	

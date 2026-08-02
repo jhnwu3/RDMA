@@ -1,0 +1,5 @@
+T1	RAREDISEASE 0 30	Warm antibody hemolytic anemia
+T2	RAREDISEASE 75 103	Autoimmune hemolytic anemias
+T3	RAREDISEASE 240 270	warm antibody hemolytic anemia
+T4	ANAPHOR 276 278	it
+R1	Anaphora Arg1:T3 Arg2:T4	

@@ -1,0 +1,24 @@
+T1	RAREDISEASE 0 12	Sialadenitis
+T2	SIGN 45 111	inflammation and enlargement of one or more of the salivary glands
+T3	RAREDISEASE 200 212	Sialadenitis
+T4	SYMPTOM 238 242	pain
+T5	SIGN 244 254	tenderness
+T6	SIGN 256 263	redness
+T7	SIGN 269 317	gradual, localized swelling of the affected area
+T8	RAREDISEASE 338 350	sialadenitis
+T9	RAREDISEASE 384 396	sialadenitis
+T10	ANAPHOR 425 438	the condition
+T11	DISEASE 502 516	sialolithiasis
+T12	SIGN 502 516	sialolithiasis
+T13	RAREDISEASE 519 531	Sialadenitis
+T14	ANAPHOR 577 579	It
+T15	ANAPHOR 604 616	The disorder
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T3 Arg2:T4	
+R3	Produces Arg1:T3 Arg2:T5	
+R4	Produces Arg1:T3 Arg2:T60	
+R5	Produces Arg1:T3 Arg2:T7	
+R6	Anaphora Arg1:T9 Arg2:T10	
+R7	Produces Arg1:T10 Arg2:T12	
+R8	Anaphora Arg1:T13 Arg2:T14	
+R9	Anaphora Arg1:T13 Arg2:T15	

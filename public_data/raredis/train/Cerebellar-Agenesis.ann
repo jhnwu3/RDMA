@@ -1,0 +1,9 @@
+T1	RAREDISEASE 0 19	Cerebellar agenesis
+T2	ANAPHOR 112 124	the disorder
+T3	RAREDISEASE 163 202	Congenital isolated cerebellar agenesis
+T4	RAREDISEASE 299 318	cerebellar agenesis
+T5	RAREDISEASE 478 497	cerebellar agenesis
+T6	SIGN 647 709	destruction of the cerebellum during later stages of pregnancy
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Is_a Arg1:T3 Arg2:T1	
+R3	Produces Arg1:T5 Arg2:T6	

@@ -1,0 +1,5 @@
+T1	RAREDISEASE 0 22	Primary visual agnosia
+T2	DISEASE 44 65	neurological disorder
+T3	RAREDISEASE 145 159	visual agnosia
+T4	RAREDISEASE 361 375	visual agnosia
+R1	Is_a Arg1:T1 Arg2:T2	

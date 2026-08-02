@@ -1,0 +1,40 @@
+T1	SKINRAREDISEASE 0 29	Gorlin-Chaudhry-Moss syndrome
+T2	DISEASE 51 69	inherited disorder
+T3	RAREDISEASE 173 189	craniosynostosis
+T4	SIGN 173 189	craniosynostosis
+T5	DISEASE 214 228	microphthalmia
+T6	SIGN 214 228	microphthalmia
+T7	DISEASE 254 264	hypodontia
+T8	SIGN 254 264	hypodontia
+T9	DISEASE 301 315	hypertrichosis
+T10	SIGN 301 315	hypertrichosis
+T11	SIGN 420 438	growth retardation
+T12	SIGN 441 454	short fingers
+T13	SIGN 441 446;462 466	short toes
+T14	SIGN 493 503;505 507;574 586	hypoplasia of labia majora
+T15	SIGN 629 653;720 746	abnormal opening between pulmonary artery and aorta
+T16	DISEASE 863 887	patent ductus arteriosus
+T17	SIGN 863 887	patent ductus arteriosus
+T18	DISEASE 905 928	mild mental retardation
+T19	SIGN 905 928	mild mental retardation
+T20	SKINRAREDISEASE 970 999	Gorlin-Chaudhry-Moss syndrome
+T21	SKINRAREDISEASE 1050 1079	Gorlin-Chaudhry-Moss syndrome
+T22	DISEASE 1101 1119;1147 1157	inherited disorder congenital
+T23	SKINRAREDISEASE 1358 1387	Gorlin-Chaudhry-Moss syndrome
+T24	SKINRAREDISEASE 1436 1465	Gorlin-Chaudhry-Moss syndrome
+T25	DISEASE 1589 1613	patent ductus arteriosus
+T26	SKINRAREDISEASE 1644 1673	Gorlin-Chaudhry-Moss syndrome
+T27	SKINRAREDISEASE 2087 2116	Gorlin-Chaudhry-Moss syndrome
+R1	Is_a Arg1:T1 Arg2:T20	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Produces Arg1:T1 Arg2:T6	
+R4	Produces Arg1:T1 Arg2:T8	
+R5	Produces Arg1:T1 Arg2:T10	
+R6	Produces Arg1:T1 Arg2:T11	
+R7	Produces Arg1:T1 Arg2:T12	
+R8	Produces Arg1:T1 Arg2:T13	
+R9	Produces Arg1:T1 Arg2:T14	
+R10	Produces Arg1:T1 Arg2:T15	
+R11	Produces Arg1:T1 Arg2:T17	
+R12	Produces Arg1:T1 Arg2:T19	
+R13	Is_a Arg1:T21 Arg2:T22	

@@ -1,0 +1,74 @@
+T1	RAREDISEASE 0 14	Felty syndrome
+T2	DISEASE 76 96	rheumatoid arthritis
+T3	ANAPHOR 98 111	This disorder
+T4	DISEASE 170 190	rheumatoid arthritis
+T5	SIGN 170 190	rheumatoid arthritis
+T6	DISEASE 192 194	RA
+T7	SIGN 192 194	RA
+T8	DISEASE 217 229	spenomelgaly
+T9	SIGN 217 229	spenomelgaly
+T10	DISEASE 265 276	neutropenia
+T11	SIGN 265 276	neutropenia
+T12	DISEASE 295 297	RA
+T13	SIGN 295 297	RA
+T14	SYMPTOM 312 319;339 345	painful joints
+T15	SIGN 321 345	stiff and swollen joints
+T16	SIGN 349 375	low white blood cell count
+T17	SIGN 422 434	large spleen
+T18	SIGN 466 476	infections
+T19	RAREDISEASE 509 523	Felty syndrome
+T20	SYMPTOM 536 543	fatigue
+T21	SIGN 545 550	fever
+T22	SIGN 552 563	weight loss
+T23	SIGN 606 624	brown pigmentation
+T24	RAREDISEASE 646 660	Felty syndrome
+T25	ANAPHOR 673 675	It
+T26	DISEASE 697 716	autoimmune disorder
+T27	DISEASE 842 862	rheumatoid arthritis
+T28	RAREDISEASE 879 893	Felty syndrome
+T29	ANAPHOR 955 967	The disorder
+T30	RAREDISEASE 1024 1038	Felty syndrome
+T31	ANAPHOR 1129 1141	The disorder
+T32	RAREDISEASE 1221 1235	Felty syndrome
+T33	RAREDISEASE 1248 1259	sarcoidosis
+T34	SIGN 1248 1259	sarcoidosis
+T35	RAREDISEASE 1261 1272	amyloidosis
+T36	SIGN 1261 1272	amyloidosis
+T37	SIGN 1274 1300	reactions to certain drugs
+T38	SIGN 1309 1337	myeloproliferative disorders
+T39	RAREDISEASE 1390 1401	Sarcoidosis
+T40	RAREDISEASE 1407 1418	Amyloidosis
+T41	RAREDISEASE 1471 1485	Felty syndrome
+T42	DISEASE 1669 1689	rheumatoid arthritis
+T43	SIGN 1669 1689	rheumatoid arthritis
+T44	SIGN 1691 1712	low white blood count
+T45	SIGN 1718 1730	splenomegaly
+R1	Anaphora Arg1:T1 Arg2:T30	
+R2	Increases_risk_of Arg1:T2 Arg2:T1	
+R3	Produces Arg1:T40 Arg2:T25	
+R4	Produces Arg1:T40 Arg2:T26	
+R5	Produces Arg1:T40 Arg2:T28	
+R6	Produces Arg1:T40 Arg2:T29	
+R7	Produces Arg1:T40 Arg2:T41	
+R8	Is_acron Arg1:T6 Arg2:T4	
+R9	Produces Arg1:T30 Arg2:T43	
+R10	Produces Arg1:T30 Arg2:T42	
+R11	Produces Arg1:T19 Arg2:T16	
+R12	Produces Arg1:T19 Arg2:T17	
+R13	Produces Arg1:T19 Arg2:T18	
+R14	Produces Arg1:T19 Arg2:T20	
+R15	Produces Arg1:T19 Arg2:T21	
+R16	Produces Arg1:T19 Arg2:T220	
+R17	Produces Arg1:T19 Arg2:T23	
+R18	Anaphora Arg1:T24 Arg2:T25	
+R19	Is_a Arg1:T25 Arg2:T26	
+R20	Increases_risk_of Arg1:T27 Arg2:T28	
+R21	Anaphora Arg1:T30 Arg2:T29	
+R22	Anaphora Arg1:T30 Arg2:T31	
+R23	Produces Arg1:T32 Arg2:T34	
+R24	Produces Arg1:T32 Arg2:T36	
+R25	Produces Arg1:T32 Arg2:T37	
+R26	Produces Arg1:T32 Arg2:T38	
+R27	Produces Arg1:T32 Arg2:T430	
+R28	Produces Arg1:T32 Arg2:T44	
+R29	Produces Arg1:T32 Arg2:T45	

@@ -1,0 +1,9 @@
+T1	SKINRAREDISEASE 0 4	TSC1
+T2	SKINRAREDISEASE 5 23	Tuberous sclerosis
+T3	DISEASE 34 50	genetic disorder
+T4	SKINRAREDISEASE 170 188	tuberous sclerosis
+T5	ANAPHOR 335 347	the disorder
+T6	ANAPHOR 401 413	the disorder
+R1	Is_a Arg1:T2 Arg2:T3	
+R2	Anaphora Arg1:T4 Arg2:T5	
+R3	Anaphora Arg1:T4 Arg2:T6	

@@ -1,0 +1,11 @@
+T1	DISEASE 0 15	Graves’ disease
+T2	ANAPHOR 79 91	The disorder
+T3	DISEASE 218 233	Graves’ disease
+T4	DISEASE 274 289	Graves’ disease
+T5	DISEASE 346 361	Graves’ disease
+T6	DISEASE 390 405	hyperthyroidism
+T7	SIGN 390 405	hyperthyroidism
+T8	DISEASE 422 437	Graves’ disease
+T9	DISEASE 758 773	Graves’ disease
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T5 Arg2:T7	

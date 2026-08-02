@@ -1,0 +1,43 @@
+T1	RAREDISEASE 0 30	Cold antibody hemolytic anemia
+T2	RAREDISEASE 32 36	CAHA
+T3	DISEASE 48 67	autoimmune disorder
+T4	SIGN 89 129	premature destruction of red blood cells
+T5	RAREDISEASE 343 347	CAHA
+T6	SIGN 353 394	red blood cells are destroyed prematurely
+T7	ANAPHOR 511 521	the anemia
+T8	DISEASE 515 521	anemia
+T9	RAREDISEASE 692 722	cold antibody hemolytic anemia
+T10	DISEASE 741 760	autoimmune disorder
+T11	ANAPHOR 822 834	the disorder
+T12	DISEASE 874 894	Autoimmune disorders
+T13	RAREDISEASE 1064 1094	Cold antibody hemolytic anemia
+T14	RAREDISEASE 1149 1153	CAHA
+T15	RAREDISEASE 1277 1281	CAHA
+T16	DISEASE 1346 1370	infectious mononucleosis
+T17	DISEASE 1372 1400	lymphoproliferative diseases
+T18	DISEASE 1405 1425	mycoplasma pneumonia
+T19	ANAPHOR 1450 1463	this disorder
+T20	RAREDISEASE 1491 1507	hemolytic anemia
+T21	DISEASE 1523 1530	anemias
+T22	SIGN 1635 1669	number of young cells is increased
+T23	RAREDISEASE 1673 1689	hemolytic anemia
+T24	SIGN 1733 1739;1749 1760	spleen enlargement
+T25	SIGN 1743 1760	liver enlargement
+T26	RAREDISEASE 2021 2051	cold antibody hemolytic anemia
+T27	SIGN 2087 2116	positive for immunoglobulin M
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Anaphora Arg1:T1 Arg2:T70	
+R4	Is_acron Arg1:T2 Arg2:T1	
+R5	Produces Arg1:T5 Arg2:T6	
+R6	Is_a Arg1:T20 Arg2:T4	
+R7	Is_a Arg1:T9 Arg2:T10	
+R8	Anaphora Arg1:T9 Arg2:T11	
+R9	Anaphora Arg1:T15 Arg2:T19	
+R10	Increases_risk_of Arg1:T16 Arg2:T19	
+R11	Increases_risk_of Arg1:T17 Arg2:T19	
+R12	Increases_risk_of Arg1:T10 Arg2:T19	
+R13	Produces Arg1:T20 Arg2:T24	
+R14	Produces Arg1:T20 Arg2:T25	
+R15	Produces Arg1:T23 Arg2:T22	
+R16	Produces Arg1:T26 Arg2:T27	

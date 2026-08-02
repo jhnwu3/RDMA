@@ -1,0 +1,13 @@
+T1	SKINRAREDISEASE 0 10	Ichthyosis
+T2	DISEASE 50 71	genetic skin diseases
+T3	SIGN 89 118	dry, thickened, scaling skin.
+T4	SIGN 193 200	scaling
+T5	SIGN 230 237	scaling
+T6	SIGN 333 345	erythroderma
+T7	SKINRAREDISEASE 434 444	ichthyoses
+T8	SKINRAREDISEASE 514 524	ichthyoses
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T5	
+R5	Produces Arg1:T1 Arg2:T60	

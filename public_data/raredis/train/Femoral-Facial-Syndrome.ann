@@ -1,0 +1,8 @@
+T1	RAREDISEASE 0 23	Femoral-Facial Syndrome
+T2	ANAPHOR 252 265	this disorder
+T3	SIGN 270 284;298 304	underdeveloped femurs
+T4	SIGN 310 333	unusual facial features
+T5	RAREDISEASE 335 358	Femoral-Facial Syndrome
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T2 Arg2:T3	
+R3	Produces Arg1:T2 Arg2:T4	

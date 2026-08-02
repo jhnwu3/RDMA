@@ -1,0 +1,28 @@
+T1	RAREDISEASE 2 14	prolactinoma
+T2	DISEASE 57 64	adenoma
+T3	SIGN 115 124;83 92	prolactin excessive
+T4	DISEASE 136 154	hyperprolactinemia
+T5	SIGN 136 154	hyperprolactinemia
+T6	SIGN 175 202	irregular menstrual periods
+T7	SIGN 211 229	absence of periods
+T8	SIGN 231 242	infertility
+T9	DISEASE 304 316	galactorrhea
+T10	SIGN 304 316	galactorrhea
+T11	SIGN 353 362	impotence
+T12	DISEASE 377 393	pituitary tumors
+T13	DISEASE 411 427	pituitary tumors
+T14	DISEASE 533 549	Pituitary tumors
+T15	RAREDISEASE 683 700	pituitary adenoma
+T16	SIGN 779 812	prolactin level is >150-200 ng/ml
+T17	RAREDISEASE 1500 1512	Prolactinoma
+T18	RAREDISEASE 2052 2064	prolactinoma
+T19	RAREDISEASE 2164 2176	prolactinoma
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T5	
+R4	Produces Arg1:T4 Arg2:T6	
+R5	Produces Arg1:T4 Arg2:T7	
+R6	Produces Arg1:T4 Arg2:T8	
+R7	Produces Arg1:T4 Arg2:T10	
+R8	Produces Arg1:T4 Arg2:T11	
+R9	Produces Arg1:T15 Arg2:T16	

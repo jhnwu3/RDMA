@@ -1,0 +1,10 @@
+T1	DISEASE 0 12	Enterobiasis
+T2	DISEASE 16 33	pinworm infection
+T3	DISEASE 39 80	common, contagious, parasitic infestation
+T4	ANAPHOR 107 119	The disorder
+T5	DISEASE 186 198	Enterobiasis
+T6	SIGN 281 302	severe rectal itching
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Anaphora Arg1:T1 Arg2:T4	
+R3	Is_synon Arg1:T2 Arg2:T1	
+R4	Produces Arg1:T5 Arg2:T6	

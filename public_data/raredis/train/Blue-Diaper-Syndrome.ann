@@ -1,0 +1,27 @@
+T1	RAREDISEASE 0 20	Blue diaper syndrome
+T2	DISEASE 32 58	genetic metabolic disorder
+T3	SIGN 80 125	incomplete intestinal breakdown of tryptophan
+T4	SIGN 174 196	digestive disturbances
+T5	SIGN 198 203	fever
+T6	SIGN 205 217	irritability
+T7	SIGN 222 241	visual difficulties
+T8	RAREDISEASE 262 282	blue diaper syndrome
+T9	DISEASE 300 314	kidney disease
+T10	ANAPHOR 329 342	this disorder
+T11	RAREDISEASE 382 402	Blue diaper syndrome
+T12	RAREDISEASE 461 481	Blue diaper syndrome
+T13	DISEASE 503 521	metabolic disorder
+T14	ANAPHOR 588 600	the disorder
+T15	RAREDISEASE 654 674	blue diaper syndrome
+T16	SIGN 855 866	indicanuria
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T30	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T5	
+R5	Produces Arg1:T1 Arg2:T6	
+R6	Produces Arg1:T1 Arg2:T7	
+R7	Increases_risk_of Arg1:T8 Arg2:T9	
+R8	Anaphora Arg1:T8 Arg2:T10	
+R9	Is_a Arg1:T12 Arg2:T13	
+R10	Anaphora Arg1:T12 Arg2:T14	
+R11	Produces Arg1:T15 Arg2:T16	

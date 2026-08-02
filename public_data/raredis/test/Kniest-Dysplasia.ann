@@ -1,0 +1,14 @@
+T1	RAREDISEASE 0 16	Kniest dysplasia
+T2	RAREDISEASE 44 52	dwarfism
+T3	SIGN 294 339	Changes in the composition of type 2 collagen
+T4	SIGN 348 372	abnormal skeletal growth
+T5	DISEASE 400 419	dwarfing conditions
+T6	DISEASE 429 448	skeletal dysplasias
+T7	RAREDISEASE 450 465	Kniest Syndrome
+T8	ANAPHOR 548 561	this disorder
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Is_a Arg1:T1 Arg2:T5	
+R5	Is_a Arg1:T1 Arg2:T6	
+R6	Anaphora Arg1:T7 Arg2:T8	

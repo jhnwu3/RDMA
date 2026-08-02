@@ -1,0 +1,33 @@
+T1	RAREDISEASE 0 30	Acquired Pure Red Cell Aplasia
+T2	DISEASE 41 61	bone marrow disorder
+T3	SIGN 133 160;82 117	produced by the bone marrow isolated decline of red blood cells
+T4	SYMPTOM 198 205	fatigue
+T5	SYMPTOM 207 215	lethargy
+T6	SIGN 255 261	pallor
+T7	RAREDISEASE 264 294	Acquired Pure Red Cell Aplasia
+T8	DISEASE 346 373	primary autoimmune disorder
+T9	RAREDISEASE 400 430	Acquired Pure Red Cell Aplasia
+T10	DISEASE 456 481	tumor of the thymus gland
+T11	DISEASE 483 489	thyoma
+T12	DISEASE 492 508	viral infections
+T13	RAREDISEASE 528 558	Acquired Pure Red Cell Aplasia
+T14	DISEASE 579 598	autoimmune disorder
+T15	DISEASE 627 652	tumor of the thymus gland
+T16	DISEASE 673 688	viral infection
+T17	ANAPHOR 690 692	It
+T18	DISEASE 714 743	bone marrow failure syndromes
+T19	RAREDISEASE 745 775	Acquired Pure Red Cell Aplasia
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T5	
+R5	Produces Arg1:T1 Arg2:T6	
+R6	Is_a Arg1:T7 Arg2:T8	
+R7	Increases_risk_of Arg1:T10 Arg2:T9	
+R8	Is_synon Arg1:T11 Arg2:T10	
+R9	Increases_risk_of Arg1:T12 Arg2:T9	
+R10	Is_a Arg1:T13 Arg2:T14	
+R11	Anaphora Arg1:T13 Arg2:T170	
+R12	Increases_risk_of Arg1:T15 Arg2:T13	
+R13	Increases_risk_of Arg1:T10 Arg2:T9	
+R14	Is_a Arg1:T20 Arg2:T19	

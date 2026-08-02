@@ -1,0 +1,9 @@
+T1	RAREDISEASE 0 40	Jansen type metaphyseal chondrodysplasia
+T2	RAREDISEASE 206 246	Jansen type metaphyseal chondrodysplasia
+T3	SIGN 585 592;600 610	bulbous metaphyses
+T4	SIGN 760 774	hypercalciuria
+T5	DISEASE 787 800	hypercalcemia
+T6	SIGN 787 800	hypercalcemia
+R1	Produces Arg1:T2 Arg2:T3	
+R2	Produces Arg1:T2 Arg2:T4	
+R3	Produces Arg1:T2 Arg2:T6	

@@ -1,0 +1,53 @@
+T1	RAREDISEASE 0 17	Schinzel syndrome
+T2	RAREDISEASE 33 55	ulnar-mammary syndrome
+T3	DISEASE 67 85	inherited disorder
+T4	SIGN 103 142	abnormalities of the bones of the hands
+T5	SIGN 103 136;147 155	abnormalities of the bones of the forearms
+T6	SIGN 194 204;206 224;240 248;250 256	hypoplasia and dysfunction of apocrine glands
+T7	SIGN 194 204;206 224;277 291	hypoplasia and dysfunction of mammary glands
+T8	SIGN 294 321;335 343	Abnormalities affecting the forearms
+T9	SIGN 295 327	bnormalities affecting the hands
+T10	SIGN 416 444	hypoplastic terminal phalanx
+T11	SIGN 449 465;486 488;534 538	underdevelopment of ulna
+T12	SIGN 478 488;534 538	absence of ulna
+T13	RAREDISEASE 571 588	Schinzel syndrome
+T14	SIGN 814 854	bone abnormalities affecting the fingers
+T15	SIGN 814 846;856 861	bone abnormalities affecting the hands
+T16	SIGN 814 846;863 869	bone abnormalities affecting the wrists
+T17	SIGN 814 846;878 882	bone abnormalities affecting the arms
+T18	SIGN 892 913	genital abnormalities
+T19	SIGN 921 948	bicornate uterus in females
+T20	DISEASE 950 964	cryptorchidism
+T21	SIGN 950 973	cryptorchidism in males
+T22	DISEASE 1010 1026	pyloric stenosis
+T23	SIGN 1010 1026	pyloric stenosis
+T24	DISEASE 1028 1043	inguinal hernia
+T25	SIGN 1028 1043	inguinal hernia
+T26	SIGN 1107 1121;1137 1145;1147 1153	dysfunction of apocrine glands
+T27	SIGN 1107 1121;1165 1179	dysfunction of mammary glands
+T28	SIGN 1413 1439	ventricular septal defects
+T29	ANAPHOR 1485 1497	the disorder
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Produces Arg1:T1 Arg2:T5	
+R4	Produces Arg1:T1 Arg2:T60	
+R5	Produces Arg1:T1 Arg2:T7	
+R6	Produces Arg1:T1 Arg2:T8	
+R7	Produces Arg1:T1 Arg2:T9	
+R8	Produces Arg1:T1 Arg2:T10	
+R9	Produces Arg1:T1 Arg2:T11	
+R10	Produces Arg1:T1 Arg2:T120	
+R11	Is_synon Arg1:T2 Arg2:T1	
+R12	Produces Arg1:T13 Arg2:T14	
+R13	Produces Arg1:T13 Arg2:T15	
+R14	Produces Arg1:T13 Arg2:T16	
+R15	Produces Arg1:T13 Arg2:T170	
+R16	Produces Arg1:T13 Arg2:T18	
+R17	Produces Arg1:T13 Arg2:T19	
+R18	Produces Arg1:T13 Arg2:T21	
+R19	Produces Arg1:T13 Arg2:T23	
+R20	Produces Arg1:T13 Arg2:T25	
+R21	Produces Arg1:T13 Arg2:T26	
+R22	Produces Arg1:T13 Arg2:T27	
+R23	Anaphora Arg1:T13 Arg2:T29	
+R24	Produces Arg1:T29 Arg2:T28	

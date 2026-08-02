@@ -1,0 +1,38 @@
+T1	RAREDISEASE 0 22	Rasmussen encephalitis
+T2	RAREDISEASE 49 67	Rasmussen syndrome
+T3	RAREDISEASE 169 181	encephalitis
+T4	SIGN 169 181	encephalitis
+T5	DISEASE 358 366	epilepsy
+T6	SIGN 358 366	epilepsy
+T7	SIGN 373 405	progressive cerebral destruction
+T8	SIGN 493 504	hemiparesis
+T9	SIGN 507 524	language problems
+T10	SIGN 564 589	intellectual disabilities
+T11	ANAPHOR 610 623	this disorder
+T12	SIGN 673 691	brain inflammation
+T13	DISEASE 751 769	autoimmune disease
+T14	SIGN 816 828	brain damage
+T15	ANAPHOR 830 832	It
+T16	ANAPHOR 950 961	the disease
+T17	ANAPHOR 1078 1091	this disorder
+T18	SIGN 1145 1176	permanent neurological deficits
+T19	RAREDISEASE 1178 1200	Rasmussen encephalitis
+T20	ANAPHOR 1255 1257	It
+T21	SIGN 1468 1476	seizures
+T22	RAREDISEASE 1509 1518	Rasmussen
+R1	Produces Arg1:T1 Arg2:T4	
+R2	Produces Arg1:T1 Arg2:T6	
+R3	Produces Arg1:T1 Arg2:T7	
+R4	Produces Arg1:T1 Arg2:T8	
+R5	Produces Arg1:T1 Arg2:T9	
+R6	Produces Arg1:T1 Arg2:T10	
+R7	Anaphora Arg1:T1 Arg2:T11	
+R8	Anaphora Arg1:T1 Arg2:T150	
+R9	Is_synon Arg1:T2 Arg2:T1	
+R10	Produces Arg1:T11 Arg2:T12	
+R11	Produces Arg1:T11 Arg2:T14	
+R12	Produces Arg1:T17 Arg2:T18	
+R13	Anaphora Arg1:T19 Arg2:T16	
+R14	Anaphora Arg1:T19 Arg2:T17	
+R15	Anaphora Arg1:T19 Arg2:T20	
+R16	Produces Arg1:T20 Arg2:T21	

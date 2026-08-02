@@ -1,0 +1,5 @@
+T1	RAREDISEASE 0 22	Congenital heart block
+T2	SIGN 192 203	heart block
+T3	RAREDISEASE 287 309	Congenital heart block
+T4	RAREDISEASE 415 437	congenital heart block
+R1	Produces Arg1:T1 Arg2:T2	

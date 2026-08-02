@@ -1,0 +1,5 @@
+T1	RAREDISEASE 0 3	VWS
+T2	RAREDISEASE 44 64	cleft lip and palate
+T3	SIGN 44 64	cleft lip and palate
+T4	RAREDISEASE 157 160	PPS
+R1	Produces Arg1:T1 Arg2:T3	

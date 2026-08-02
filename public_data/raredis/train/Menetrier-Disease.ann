@@ -1,0 +1,19 @@
+T1	RAREDISEASE 0 17	Menetrier disease
+T2	SIGN 54 140	massive overgrowth of mucous cells (foveola) in the mucous membrane lining the stomach
+T3	SIGN 155 174	large gastric folds
+T4	RAREDISEASE 216 233	Menetrier disease
+T5	SYMPTOM 285 300	epigastric pain
+T6	RAREDISEASE 316 333	Menetrier disease
+T7	RAREDISEASE 346 363	Menetrier disease
+T8	ANAPHOR 412 414	It
+T9	ANAPHOR 493 505	the disorder
+T10	RAREDISEASE 576 593	Menetrier disease
+T11	RAREDISEASE 670 687	Menetrier disease
+T12	SIGN 746 765	Large gastric folds
+T13	RAREDISEASE 1178 1195	Menetrier disease
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T4 Arg2:T5	
+R4	Anaphora Arg1:T7 Arg2:T8	
+R5	Anaphora Arg1:T7 Arg2:T9	
+R6	Produces Arg1:T10 Arg2:T2	

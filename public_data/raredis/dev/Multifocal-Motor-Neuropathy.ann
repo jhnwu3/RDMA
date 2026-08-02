@@ -1,0 +1,32 @@
+T1	RAREDISEASE 0 27	Multifocal motor neuropathy
+T2	SIGN 64 98	slowly progressive muscle weakness
+T3	SIGN 110 121;64 98	of the arms slowly progressive muscle weakness
+T4	SIGN 110 116;128 129;64 98	of the g slowly progressive muscle weakness
+T5	ANAPHOR 132 144	The disorder
+T6	SIGN 203 215	inflammation
+T7	SIGN 231 272	abnormal functioning of the immune system
+T8	SIGN 281 359	presence of specific autoantibodies that target a specific protein in the body
+T9	SIGN 386 400	muscles cramps
+T10	SIGN 414 421;423 433	atrophy of muscles
+T11	ANAPHOR 655 668	this disorder
+T12	ANAPHOR 694 706	The disorder
+T13	ANAPHOR 783 795	the disorder
+T14	RAREDISEASE 797 824	Multifocal motor neuropathy
+T15	RAREDISEASE 888 915	Multifocal motor neuropathy
+T16	ANAPHOR 1122 1134	the disorder
+T17	ANAPHOR 1225 1237	the disorder
+T18	RAREDISEASE 1282 1309	Multifocal motor neuropathy
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Anaphora Arg1:T1 Arg2:T5	
+R5	Anaphora Arg1:T1 Arg2:T11	
+R6	Anaphora Arg1:T1 Arg2:T120	
+R7	Produces Arg1:T5 Arg2:T6	
+R8	Produces Arg1:T5 Arg2:T7	
+R9	Produces Arg1:T5 Arg2:T8	
+R10	Produces Arg1:T5 Arg2:T9	
+R11	Produces Arg1:T5 Arg2:T10	
+R12	Anaphora Arg1:T14 Arg2:T13	
+R13	Anaphora Arg1:T15 Arg2:T16	
+R14	Anaphora Arg1:T15 Arg2:T17	

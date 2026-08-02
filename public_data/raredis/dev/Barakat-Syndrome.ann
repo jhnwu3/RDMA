@@ -1,0 +1,36 @@
+T1	SIGN 70 82	hypocalcemia
+T2	SIGN 92 107	muscle weakness
+T3	SIGN 109 115	tetany
+T4	SIGN 121 132	convulsions
+T5	DISEASE 157 171	kidney disease
+T6	DISEASE 180 191	proteinuria
+T7	SIGN 180 191	proteinuria
+T8	SIGN 193 202	hematuria
+T9	DISEASE 208 226	nephrotic syndrome
+T10	SIGN 208 226	nephrotic syndrome
+T11	SIGN 228 236	Deafness
+T12	SIGN 352 404	congenital anomalies of the kidney and urinary tract
+T13	ANAPHOR 473 484	the disease
+T14	ANAPHOR 765 778	this syndrome
+T15	ANAPHOR 862 874	the syndrome
+T16	RAREDISEASE 883 921	familial idiopathic hypoparathyroidism
+T17	DISEASE 923 957	progressive sensorineural deafness
+T18	SIGN 949 957	deafness
+T19	DISEASE 966 979	renal disease
+T20	RAREDISEASE 981 1019	autosomal recessive hypoparathyroidism
+T21	DISEASE 1025 1044	renal insufficiency
+T22	DISEASE 1049 1068	developmental delay
+T23	RAREDISEASE 1074 1097	deletion 22q11 syndrome
+T24	RAREDISEASE 1099 1115	Barakat syndrome
+R1	Produces Arg1:T10 Arg2:T21	
+R2	Produces Arg1:T10 Arg2:T1	
+R3	Produces Arg1:T10 Arg2:T2	
+R4	Produces Arg1:T10 Arg2:T5	
+R5	Produces Arg1:T10 Arg2:T6	
+R6	Produces Arg1:T10 Arg2:T23	
+R7	Produces Arg1:T10 Arg2:T8	
+R8	Produces Arg1:T10 Arg2:T9	
+R9	Produces Arg1:T17 Arg2:T18	
+R10	Anaphora Arg1:T24 Arg2:T130	
+R11	Anaphora Arg1:T24 Arg2:T14	
+R12	Anaphora Arg1:T24 Arg2:T15	

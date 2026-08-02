@@ -1,0 +1,27 @@
+T1	RAREDISEASE 0 15	Jejunal Atresia
+T2	DISEASE 26 42	genetic disorder
+T3	ANAPHOR 58 71	this disorder
+T4	SIGN 88 205	partial absence of the fold of the stomach membrane that connects the small intestine to the back wall of the abdomen
+T5	SIGN 270 281;283 296;337 355	the jejunal twists around the marginal arter
+T6	SIGN 380 387	atresia
+T7	ANAPHOR 419 432	this disorder
+T8	SIGN 441 449	vomiting
+T9	SIGN 453 468	swollen abdomen
+T10	DISEASE 474 486	constipation
+T11	SIGN 474 486	constipation
+T12	RAREDISEASE 488 503	Jejunal Atresia
+T13	ANAPHOR 557 559	it
+T14	DISEASE 634 659	classic  genetic diseases
+T15	DISEASE 769 788	recessive disorders
+T16	DISEASE 1166 1184	recessive disorder
+T17	RAREDISEASE 1522 1537	Jejunal Atresia
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Anaphora Arg1:T1 Arg2:T7	
+R4	Produces Arg1:T3 Arg2:T4	
+R5	Produces Arg1:T3 Arg2:T5	
+R6	Produces Arg1:T3 Arg2:T6	
+R7	Produces Arg1:T7 Arg2:T8	
+R8	Produces Arg1:T7 Arg2:T9	
+R9	Produces Arg1:T7 Arg2:T11	
+R10	Anaphora Arg1:T12 Arg2:T13	

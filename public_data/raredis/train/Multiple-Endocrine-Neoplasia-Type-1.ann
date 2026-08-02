@@ -1,0 +1,18 @@
+T1	RAREDISEASE 0 28;35 41	Multiple endocrine neoplasia type 1
+T2	RAREDISEASE 30 33;35 41	MEN type 1
+T3	DISEASE 52 68	genetic disorder
+T4	SIGN 86 155	multiple tumors arising from cells of specific neuroendocrine tissues
+T5	RAREDISEASE 615 625	MEN type 1
+T6	ANAPHOR 670 672	It
+T7	RAREDISEASE 764 774	MEN type 1
+T8	ANAPHOR 883 895	the disorder
+T9	ANAPHOR 916 918	it
+T10	RAREDISEASE 990 1000	MEN type 1
+T11	DISEASE 1027 1043	genetic disorder
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Is_acron Arg1:T2 Arg2:T1	
+R4	Anaphora Arg1:T5 Arg2:T6	
+R5	Anaphora Arg1:T7 Arg2:T8	
+R6	Increases_risk_of Arg1:T7 Arg2:T90	
+R7	Is_a Arg1:T10 Arg2:T11	

@@ -1,0 +1,14 @@
+T1	RAREDISEASE 0 16	Selective mutism
+T2	DISEASE 27 48	psychiatric condition
+T3	ANAPHOR 87 89	It
+T4	SIGN 114 159	failure to speak in certain social situations
+T5	SIGN 299 316	excessive shyness
+T6	SIGN 321 335	social anxiety
+T7	RAREDISEASE 337 353	Selective mutism
+T8	ANAPHOR 432 445	This disorder
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T3 Arg2:T4	
+R4	Produces Arg1:T3 Arg2:T5	
+R5	Produces Arg1:T3 Arg2:T6	
+R6	Anaphora Arg1:T7 Arg2:T8	

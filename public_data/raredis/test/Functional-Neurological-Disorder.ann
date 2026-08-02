@@ -1,0 +1,10 @@
+T1	RAREDISEASE 0 32	Functional neurological disorder
+T2	RAREDISEASE 34 37	FND
+T3	DISEASE 240 258	multiple sclerosis
+T4	DISEASE 262 268	stroke
+T5	RAREDISEASE 270 273	FND
+T6	SIGN 337 350	limb weakness
+T7	SIGN 354 362	seizures
+R1	Is_acron Arg1:T2 Arg2:T1	
+R2	Produces Arg1:T5 Arg2:T6	
+R3	Produces Arg1:T5 Arg2:T7	

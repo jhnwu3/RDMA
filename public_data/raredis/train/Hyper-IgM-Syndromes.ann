@@ -1,0 +1,9 @@
+T1	RAREDISEASE 0 26	X-liked hyper IgM syndrome
+T2	RAREDISEASE 118 136	hyper IgM syndrome
+T3	RAREDISEASE 157 182	Hyper IgM syndrome type 2
+T4	RAREDISEASE 285 303	hyper IgM syndrome
+T5	ANAPHOR 507 524	The X-linked form
+T6	RAREDISEASE 615 642	X-linked hyper IgM syndrome
+T7	ANAPHOR 681 694	this disorder
+R1	Anaphora Arg1:T4 Arg2:T7	
+R2	Anaphora Arg1:T6 Arg2:T5	

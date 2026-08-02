@@ -1,0 +1,25 @@
+T1	RAREDISEASE 0 25	Antiphospholipid syndrome
+T2	RAREDISEASE 27 30	APS
+T3	DISEASE 42 61	autoimmune disorder
+T4	SIGN 102 112	thromboses
+T5	RAREDISEASE 207 210	APS
+T6	RAREDISEASE 327 330	APS
+T7	RAREDISEASE 366 399	primary antiphospholipid syndrome
+T8	DISEASE 433 452	autoimmune disorder
+T9	RAREDISEASE 461 489	systemic lupus erythematosus
+T10	RAREDISEASE 491 526	secondary antiphospholipid syndrome
+T11	RAREDISEASE 529 532	APS
+T12	RAREDISEASE 594 597	APS
+T13	RAREDISEASE 750 753	APS
+T14	DISEASE 788 794	stroke
+T15	RAREDISEASE 841 844	APS
+T16	RAREDISEASE 846 859	Secondary APS
+T17	DISEASE 877 882	lupus
+T18	DISEASE 901 906	lupus
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Is_acron Arg1:T10 Arg2:T1	
+R4	Is_a Arg1:T7 Arg2:T6	
+R5	Is_synon Arg1:T9 Arg2:T10	
+R6	Is_a Arg1:T10 Arg2:T6	
+R7	Increases_risk_of Arg1:T20 Arg2:T6	

@@ -1,0 +1,31 @@
+T1	RAREDISEASE 0 3	VKC
+T2	SIGN 21 66	inflammation of the outer membrane of the eye
+T3	SIGN 84 102	eyes to become red
+T4	SIGN 117 131	blurred vision
+T5	SIGN 137 186	eyes become sensitive to light and itch intensely
+T6	SIGN 224 307	cobblestone-like changes appear in the upper eyelid linings (palpebral conjunctiva)
+T7	SIGN 330 405	gelatinous nodule may develop in the tissue adjacent to the cornea (limbus)
+T8	SIGN 451 464	shield ulcers
+T9	DISEASE 491 499	cataract
+T10	SIGN 491 499	cataract
+T11	SIGN 523 564	temporarily or permanently reduced vision
+T12	RAREDISEASE 575 578	VKC
+T13	ANAPHOR 670 682	The disorder
+T14	RAREDISEASE 748 751	VKC
+T15	DISEASE 802 808	asthma
+T16	DISEASE 810 816	eczema
+T17	DISEASE 821 829	rhinitis
+T18	ANAPHOR 831 833	It
+T19	ANAPHOR 957 959	It
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T50	
+R5	Produces Arg1:T1 Arg2:T6	
+R6	Produces Arg1:T1 Arg2:T7	
+R7	Produces Arg1:T1 Arg2:T8	
+R8	Produces Arg1:T1 Arg2:T10	
+R9	Produces Arg1:T1 Arg2:T11	
+R10	Anaphora Arg1:T12 Arg2:T13	
+R11	Anaphora Arg1:T14 Arg2:T180	
+R12	Anaphora Arg1:T14 Arg2:T19	

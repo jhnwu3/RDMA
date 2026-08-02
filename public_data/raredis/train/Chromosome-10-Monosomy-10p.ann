@@ -1,0 +1,37 @@
+T1	RAREDISEASE 0 27	Chromosome 10, monosomy 10p
+T2	DISEASE 38 58	chromosomal disorder
+T3	DISEASE 358 381	intellectual disability
+T4	SIGN 358 381	intellectual disability
+T5	SIGN 410 438	postnatal growth retardation
+T6	SIGN 453 512	malformations of the skull and facial (craniofacial) region
+T7	SIGN 516 526	short neck
+T8	DISEASE 594 618	congenital heart defects
+T9	SIGN 594 618	congenital heart defects
+T10	RAREDISEASE 711 728	DiGeorge syndrome
+T11	RAREDISEASE 730 733	DGS
+T12	RAREDISEASE 736 739	DGS
+T13	DISEASE 745 764	congenital disorder
+T14	SIGN 782 823	underdevelopment or absence of the thymus
+T15	SIGN 782 816;828 846	underdevelopment or absence of the parathyroid glands
+T16	SIGN 868 902	abnormalities of the immune system
+T17	DISEASE 949 967	hypoparathyroidism
+T18	SIGN 949 967	hypoparathyroidism
+T19	DISEASE 972 984	heart defect
+T20	SIGN 972 984	heart defect
+T21	RAREDISEASE 1026 1053	chromosome 10, monosomy 10p
+T22	RAREDISEASE 1116 1143	Chromosome 10, monosomy 10p
+T23	ANAPHOR 1194 1206	the disorder
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Produces Arg1:T1 Arg2:T5	
+R4	Produces Arg1:T1 Arg2:T60	
+R5	Produces Arg1:T1 Arg2:T7	
+R6	Produces Arg1:T1 Arg2:T9	
+R7	Is_acron Arg1:T11 Arg2:T10	
+R8	Is_a Arg1:T12 Arg2:T13	
+R9	Produces Arg1:T12 Arg2:T14	
+R10	Produces Arg1:T12 Arg2:T15	
+R11	Produces Arg1:T12 Arg2:T16	
+R12	Produces Arg1:T12 Arg2:T18	
+R13	Produces Arg1:T12 Arg2:T200	
+R14	Anaphora Arg1:T22 Arg2:T23	

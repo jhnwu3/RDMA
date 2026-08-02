@@ -1,0 +1,23 @@
+T1	RAREDISEASE 0 15	Neonatal herpes
+T2	DISEASE 79 99	herpes simplex virus
+T3	DISEASE 101 104	HSV
+T4	DISEASE 181 195	genital herpes
+T5	ANAPHOR 206 218	the disorder
+T6	DISEASE 344 358	herpes simplex
+T7	DISEASE 378 388	Type 1 HSV
+T8	ANAPHOR 433 445	the disorder
+T9	DISEASE 466 476	Type 2 HSV
+T10	RAREDISEASE 532 547	neonatal herpes
+T11	DISEASE 715 718	HSV
+T12	SIGN 756 763;810 815	neonate fever
+T13	SYMPTOM 756 763;817 829	neonate poor feeding
+T14	SYMPTOM 756 763;831 839	neonate lethargy
+T15	SIGN 756 763;847 854	neonate seizure
+T16	DISEASE 937 940	HSV
+R1	Increases_risk_of Arg1:T1 Arg2:T5	
+R2	Anaphora Arg1:T1 Arg2:T8	
+R3	Is_acron Arg1:T3 Arg2:T2	
+R4	Produces Arg1:T10 Arg2:T12	
+R5	Produces Arg1:T10 Arg2:T13	
+R6	Produces Arg1:T10 Arg2:T14	
+R7	Produces Arg1:T10 Arg2:T15	

@@ -1,0 +1,12 @@
+T1	DISEASE 0 14	Cerebral Palsy
+T2	DISEASE 20 50	neurological movement disorder
+T3	SIGN 72 94	lack of muscle control
+T4	ANAPHOR 144 157	This disorder
+T5	DISEASE 286 300	Cerebral Palsy
+T6	DISEASE 321 335	Cerebral Palsy
+T7	DISEASE 517 531	Cerebral Palsy
+T8	ANAPHOR 607 620	this disorder
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Anaphora Arg1:T1 Arg2:T4	
+R4	Anaphora Arg1:T7 Arg2:T8	

@@ -9,8 +9,11 @@ from datasets._brat import parse_ann
 
 logger = logging.getLogger(__name__)
 
-# Raw corpus root (contains train/ and test/ BRAT directories)
-_DEFAULT_ROOT = Path("/home/johnwu3/projects/rare_disease/workspace/repos/RareDis")
+# Raw corpus root (contains train/, dev/ and test/ BRAT directories). Vendored
+# into the repo under public_data/; see public_data/README.md for provenance and
+# license (CC BY 4.0, Segura-Bedmar et al.).
+_REPO_ROOT = Path(__file__).resolve().parents[1]
+_DEFAULT_ROOT = _REPO_ROOT / "public_data" / "raredis"
 
 # Entity types that represent actual rare-disease mentions.
 # SKINRAREDISEASE is a dermatological subtype also kept.

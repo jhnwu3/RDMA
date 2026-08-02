@@ -1,0 +1,30 @@
+T1	RAREDISEASE 0 22	Churg-Strauss syndrome
+T2	ANAPHOR 104 116	The disorder
+T3	SIGN 191 208	hypereosinophilia
+T4	RAREDISEASE 267 277	vasculitis
+T5	SIGN 267 277	vasculitis
+T6	SIGN 351 365	granulomatosis
+T7	DISEASE 412 419	allergy
+T8	DISEASE 434 440	asthma
+T9	RAREDISEASE 613 635	Churg-Strauss syndrome
+T10	DISEASE 690 696	Asthma
+T11	DISEASE 700 728	chronic respiratory disorder
+T12	SIGN 750 762;777 798	inflammation of the lungs' airways
+T13	SIGN 767 798	narrowing of the lungs' airways
+T14	SIGN 832 839	dyspnea
+T15	SIGN 918 926	wheezing
+T16	RAREDISEASE 965 987	Churg-Strauss syndrome
+T17	ANAPHOR 1110 1122	The disorder
+T18	RAREDISEASE 1369 1391	Churg-Strauss syndrome
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T2 Arg2:T3	
+R3	Produces Arg1:T2 Arg2:T5	
+R4	Produces Arg1:T2 Arg2:T6	
+R5	Increases_risk_of Arg1:T7 Arg2:T9	
+R6	Increases_risk_of Arg1:T8 Arg2:T9	
+R7	Is_a Arg1:T10 Arg2:T11	
+R8	Produces Arg1:T10 Arg2:T12	
+R9	Produces Arg1:T10 Arg2:T13	
+R10	Produces Arg1:T10 Arg2:T14	
+R11	Produces Arg1:T10 Arg2:T150	
+R12	Anaphora Arg1:T16 Arg2:T17	

@@ -1,0 +1,22 @@
+T1	RAREDISEASE 0 14	Homocystinuria
+T2	DISEASE 25 44	metabolic condition
+T3	SIGN 65 112	excess of the compound homocystine in the urine
+T4	ANAPHOR 114 127	The condition
+T5	SIGN 144 279	deficiency of any of several enzymes involved in the conversion of the essential amino acid methionine to another amino acid (cysteine)
+T6	SIGN 300 362	impaired conversion of the compound homocysteine to methionine
+T7	RAREDISEASE 582 596	homocystinuria
+T8	SIGN 610 629;649 676	reduced activity of cystathionine beta-synthase
+T9	RAREDISEASE 704 718	homocystinuria
+T10	DISEASE 726 740	CBS deficiency
+T11	RAREDISEASE 765 789	classical homocystinuria
+T12	SIGN 846 863	failure to thrive
+T13	SIGN 874 894	developmental delays
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Anaphora Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T4 Arg2:T5	
+R5	Produces Arg1:T4 Arg2:T60	
+R6	Produces Arg1:T7 Arg2:T8	
+R7	Increases_risk_of Arg1:T10 Arg2:T11	
+R8	Produces Arg1:T11 Arg2:T12	
+R9	Produces Arg1:T11 Arg2:T13	

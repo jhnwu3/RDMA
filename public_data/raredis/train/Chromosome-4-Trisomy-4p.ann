@@ -1,0 +1,26 @@
+T1	RAREDISEASE 0 24	Chromosome 4, Trisomy 4p
+T2	DISEASE 35 55	chromosomal disorder
+T3	SIGN 475 482;497 509	feeding difficulties
+T4	SIGN 487 509	breathing difficulties
+T5	SIGN 511 582	characteristic malformations of the head and facial (craniofacial) area
+T6	SIGN 588 614	abnormalities of the hands
+T7	SIGN 588 608;619 623	abnormalities of the feet
+T8	RAREDISEASE 750 760	Trisomy 4p
+T9	DISEASE 786 811	severe mental retardation
+T10	SIGN 786 811	severe mental retardation
+T11	RAREDISEASE 813 837	Chromosome 4, Trisomy 4p
+T12	RAREDISEASE 904 945	Trisomy for the short arm of chromosome 4
+T13	ANAPHOR 1089 1101	the syndrome
+T14	DISEASE 1153 1174	chromosomal disorders
+T15	RAREDISEASE 1226 1250	Chromosome 4, Trisomy 4p
+T16	DISEASE 1420 1440	chromosomal disorder
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T40	
+R4	Produces Arg1:T1 Arg2:T5	
+R5	Produces Arg1:T1 Arg2:T6	
+R6	Produces Arg1:T1 Arg2:T7	
+R7	Produces Arg1:T8 Arg2:T10	
+R8	Is_synon Arg1:T8 Arg2:T11	
+R9	Is_synon Arg1:T12 Arg2:T11	
+R10	Anaphora Arg1:T12 Arg2:T13	

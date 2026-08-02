@@ -1,0 +1,19 @@
+T1	RAREDISEASE 0 17	Holoprosencephaly
+T2	RAREDISEASE 19 22	HPE
+T3	SIGN 31 95	failure of the prosencephalon, or forebrain, to develop normally
+T4	RAREDISEASE 406 423	holoprosencephaly
+T5	RAREDISEASE 432 438;523 526	alobar HPE
+T6	SIGN 454 501	no separation between the right and left halves
+T7	RAREDISEASE 513 526	semilobar HPE
+T8	RAREDISEASE 523 526;590 595	HPE lobar
+T9	SIGN 537 581	some separation of the two halves is present
+T10	SIGN 602 659	most of the brain has separated into right and left sides
+T11	SIGN 677 716	incomplete division into the two halves
+T12	RAREDISEASE 718 735	Holoprosencephaly
+T13	RAREDISEASE 854 871	holoprosencephaly
+R1	Produces Arg1:T1 Arg2:T3	
+R2	Is_acron Arg1:T2 Arg2:T1	
+R3	Produces Arg1:T5 Arg2:T6	
+R4	Produces Arg1:T7 Arg2:T9	
+R5	Produces Arg1:T10 Arg2:T9	
+R6	Produces Arg1:T10 Arg2:T11	

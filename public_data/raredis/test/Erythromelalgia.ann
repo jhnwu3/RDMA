@@ -1,0 +1,16 @@
+T1	SKINRAREDISEASE 0 15	Erythromelalgia
+T2	ANAPHOR 113 115	It
+T3	SYMPTOM 136 157	intense, burning pain
+T4	SIGN 199 207	erythema
+T5	SIGN 214 240	increased skin temperature
+T6	SYMPTOM 418 422	pain
+T7	SKINRAREDISEASE 434 449	erythromelalgia
+T8	ANAPHOR 504 506	it
+T9	ANAPHOR 557 568	The disease
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T2 Arg2:T3	
+R3	Produces Arg1:T2 Arg2:T4	
+R4	Produces Arg1:T2 Arg2:T5	
+R5	Produces Arg1:T7 Arg2:T6	
+R6	Anaphora Arg1:T7 Arg2:T8	
+R7	Anaphora Arg1:T7 Arg2:T90	

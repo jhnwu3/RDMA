@@ -1,0 +1,5 @@
+T1	RAREDISEASE 0 34	Free sialic acid storage disorders
+T2	ANAPHOR 101 116	these disorders
+T3	RAREDISEASE 155 168	Salla disease
+T4	RAREDISEASE 247 280	Free sialic acid storage diseases
+R1	Anaphora Arg1:T1 Arg2:T2	

@@ -1,0 +1,35 @@
+T1	RAREDISEASE 0 17	Schindler disease
+T2	DISEASE 28 56	inherited metabolic disorder
+T3	SIGN 78 152	deficient activity of the lysosomal enzyme alpha-N-acetylgalactosaminidase
+T4	SIGN 223 247;275 330	abnormal accumulation of glycosphingolipids, glycoproteins, and oligosaccharides
+T5	RAREDISEASE 461 478	Schindler disease
+T6	RAREDISEASE 461 478;524 530	Schindler disease type I
+T7	RAREDISEASE 461 478;575 582	Schindler disease type II
+T8	RAREDISEASE 618 626;635 652	type III Schindler disease
+T9	RAREDISEASE 635 652	Schindler disease
+T10	ANAPHOR 678 684	type I
+T11	ANAPHOR 707 714	type II
+T12	RAREDISEASE 754 771	Schindler disease
+T13	RAREDISEASE 809 826	Schindler disease
+T14	RAREDISEASE 917 934	Schindler disease
+T15	RAREDISEASE 1002 1019	Schindler disease
+T16	RAREDISEASE 1075 1092	Schindler disease
+T17	ANAPHOR 1142 1154	the disorder
+T18	DISEASE 1225 1250	ysosomal storage diseases
+T19	RAREDISEASE 1415 1422;1433 1441	Gaucher diseases
+T20	RAREDISEASE 1427 1441	Fabry diseases
+T21	ANAPHOR 1514 1529	these disorders
+T22	RAREDISEASE 1557 1599	alpha-N-acetylgalactosaminidase deficiency
+T23	RAREDISEASE 1601 1618	Schindler disease
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Anaphora Arg1:T6 Arg2:T10	
+R5	Anaphora Arg1:T7 Arg2:T110	
+R6	Anaphora Arg1:T16 Arg2:T17	
+R7	Is_a Arg1:T16 Arg2:T18	
+R8	Anaphora Arg1:T18 Arg2:T21	
+R9	Is_a Arg1:T19 Arg2:T18	
+R10	Is_a Arg1:T20 Arg2:T18	
+R11	Is_a Arg1:T22 Arg2:T21	
+R12	Is_synon Arg1:T22 Arg2:T23	

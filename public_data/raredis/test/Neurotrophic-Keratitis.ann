@@ -1,0 +1,6 @@
+T1	RAREDISEASE 0 22	Neurotrophic keratitis
+T2	SIGN 13 22	keratitis
+T3	RAREDISEASE 266 288	neurotrophic keratitis
+T4	SIGN 279 288	keratitis
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T3 Arg2:T4	

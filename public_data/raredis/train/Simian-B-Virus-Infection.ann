@@ -1,0 +1,53 @@
+T1	RAREDISEASE 0 24	Simian B Virus Infection
+T2	ANAPHOR 61 63	It
+T3	DISEASE 70 89	infectious disorder
+T4	ANAPHOR 190 192	It
+T5	SIGN 215 242;258 261;277 285	viral invasion of the brain and meninges
+T6	RAREDISEASE 244 256	Encephalitis
+T7	SIGN 244 256	Encephalitis
+T8	ANAPHOR 324 337	the infection
+T9	RAREDISEASE 382 399	Encephalomyelitis
+T10	SIGN 382 399	Encephalomyelitis
+T11	SIGN 402 421	Neurological damage
+T12	ANAPHOR 438 452	this infection
+T13	RAREDISEASE 487 501	Simian B Virus
+T14	RAREDISEASE 528 552	Simian B Virus Infection
+T15	SIGN 573 578	fever
+T16	SYMPTOM 580 588	headache
+T17	SIGN 590 598	vomiting
+T18	SYMPTOM 612 619	malaise
+T19	SIGN 628 638	stiff neck
+T20	SIGN 628 633;643 647	stiff back
+T21	SIGN 688 713	neuromuscular dysfunction
+T22	SIGN 715 739	respiratory difficulties
+T23	SIGN 741 756	vision problems
+T24	SIGN 758 785	cranial nerve abnormalities
+T25	SIGN 787 814	alteration of consciousness
+T26	SIGN 816 835	personality changes
+T27	SIGN 837 845	seizures
+T28	SIGN 872 879	paresis
+T29	SIGN 911 915	coma
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T4	
+R3	Anaphora Arg1:T1 Arg2:T8	
+R4	Anaphora Arg1:T1 Arg2:T120	
+R5	Is_a Arg1:T2 Arg2:T3	
+R6	Produces Arg1:T4 Arg2:T5	
+R7	Produces Arg1:T4 Arg2:T7	
+R8	Produces Arg1:T8 Arg2:T10	
+R9	Produces Arg1:T30 Arg2:T31	
+R10	Produces Arg1:T14 Arg2:T15	
+R11	Produces Arg1:T14 Arg2:T16	
+R12	Produces Arg1:T14 Arg2:T17	
+R13	Produces Arg1:T14 Arg2:T18	
+R14	Produces Arg1:T14 Arg2:T19	
+R15	Produces Arg1:T14 Arg2:T20	
+R16	Produces Arg1:T14 Arg2:T21	
+R17	Produces Arg1:T14 Arg2:T22	
+R18	Produces Arg1:T14 Arg2:T230	
+R19	Produces Arg1:T14 Arg2:T24	
+R20	Produces Arg1:T14 Arg2:T250	
+R21	Produces Arg1:T14 Arg2:T26	
+R22	Produces Arg1:T14 Arg2:T27	
+R23	Produces Arg1:T14 Arg2:T28	
+R24	Produces Arg1:T14 Arg2:T29	

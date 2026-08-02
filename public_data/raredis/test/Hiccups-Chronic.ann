@@ -1,0 +1,30 @@
+T1	SIGN 2 8	hiccup
+T2	SIGN 159 166	hiccups
+T3	RAREDISEASE 229 244	chronic hiccups
+T4	SIGN 385 403	persistent hiccups
+T5	SIGN 424 431	hiccups
+T6	RAREDISEASE 556 571	chronic hiccups
+T7	SIGN 589 596	Hiccups
+T8	SIGN 823 830	Hiccups
+T9	SYMPTOM 876 886	exhaustion
+T10	SIGN 891 902	weight loss
+T11	SIGN 908 921	lack of sleep
+T12	SIGN 930 968	interruption of normal eating patterns
+T13	SIGN 970 977	Hiccups
+T14	SIGN 1017 1024	Hiccups
+T15	RAREDISEASE 1069 1084	chronic hiccups
+T16	SIGN 1254 1261	hiccups
+T17	RAREDISEASE 1295 1310	chronic hiccups
+R1	Produces Arg1:T3 Arg2:T1	
+R2	Produces Arg1:T3 Arg2:T2	
+R3	Produces Arg1:T3 Arg2:T4	
+R4	Produces Arg1:T6 Arg2:T5	
+R5	Produces Arg1:T6 Arg2:T7	
+R6	Produces Arg1:T6 Arg2:T8	
+R7	Produces Arg1:T6 Arg2:T9	
+R8	Produces Arg1:T6 Arg2:T10	
+R9	Produces Arg1:T6 Arg2:T11	
+R10	Produces Arg1:T6 Arg2:T120	
+R11	Produces Arg1:T6 Arg2:T13	
+R12	Produces Arg1:T15 Arg2:T14	
+R13	Produces Arg1:T15 Arg2:T16	

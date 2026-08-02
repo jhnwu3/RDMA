@@ -1,0 +1,10 @@
+T1	RAREDISEASE 0 10	Cystinuria
+T2	DISEASE 17 45	inherited metabolic disorder
+T3	ANAPHOR 107 120	this disorder
+T4	SIGN 178 194	elevated cystine
+T5	ANAPHOR 230 242	The disorder
+T6	RAREDISEASE 340 350	cystinuria
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Anaphora Arg1:T1 Arg2:T5	
+R4	Produces Arg1:T3 Arg2:T4	

@@ -1,0 +1,10 @@
+T1	DISEASE 0 13	Elephantiasis
+T2	SIGN 46 108	gross enlargement of an area of the body, especially the limbs
+T3	DISEASE 171 184	Elephantiasis
+T4	SIGN 198 233	obstruction of the lymphatic system
+T5	SIGN 256 314	accumulation of a fluid called lymph in the affected areas
+T6	DISEASE 331 344	elephantiasis
+T7	DISEASE 570 583	elephantiasis
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T3 Arg2:T4	
+R3	Produces Arg1:T3 Arg2:T5	

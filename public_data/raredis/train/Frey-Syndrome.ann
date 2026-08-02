@@ -1,0 +1,8 @@
+T1	RAREDISEASE 23 36	Frey syndrome
+T2	ANAPHOR 49 61	The disorder
+T3	RAREDISEASE 200 213	Frey syndrome
+T4	RAREDISEASE 410 423	Frey syndrome
+T5	RAREDISEASE 483 496	Frey syndrome
+T6	SIGN 999 1017	excessive sweating
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T5 Arg2:T6	

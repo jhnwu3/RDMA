@@ -1,0 +1,12 @@
+T1	RAREDISEASE 0 35	Hereditary multiple osteochondromas
+T2	DISEASE 55 91	autosomal dominant genetic condition
+T3	DISEASE 93 119	Dominant genetic disorders
+T4	RAREDISEASE 365 368	HMO
+T5	RAREDISEASE 484 487	HMO
+T6	RAREDISEASE 1196 1199	HMO
+T7	ANAPHOR 1277 1290	this disorder
+T8	RAREDISEASE 1350 1374	multiple osteochondromas
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Is_a Arg1:T1 Arg2:T3	
+R3	Is_acron Arg1:T4 Arg2:T1	
+R4	Anaphora Arg1:T6 Arg2:T7	

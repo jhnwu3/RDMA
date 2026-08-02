@@ -1,0 +1,10 @@
+T1	RAREDISEASE 0 30	Primary sclerosing cholangitis
+T2	ANAPHOR 105 107	it
+T3	ANAPHOR 143 155	the disorder
+T4	ANAPHOR 235 247	the disorder
+T5	RAREDISEASE 438 441	PSC
+T6	RAREDISEASE 457 460	PSC
+T7	RAREDISEASE 568 571	PSC
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Anaphora Arg1:T1 Arg2:T4	

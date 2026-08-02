@@ -1,0 +1,5 @@
+T1	RAREDISEASE 22 58	Staphylococcal scalded skin syndrome
+T2	ANAPHOR 371 383	the disorder
+T3	ANAPHOR 942 954	the disorder
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	

@@ -1,0 +1,11 @@
+T1	RAREDISEASE 0 13	Keratomalacia
+T2	DISEASE 20 42	eye (ocular) condition
+T3	DISEASE 110 133	deficiency of vitamin A
+T4	RAREDISEASE 408 421	Keratomalacia
+T5	RAREDISEASE 567 580	keratomalacia
+T6	DISEASE 601 610	blindness
+T7	SIGN 601 610	blindness
+T8	DISEASE 669 689	vitamin A deficiency
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Increases_risk_of Arg1:T3 Arg2:T1	
+R3	Produces Arg1:T5 Arg2:T7	

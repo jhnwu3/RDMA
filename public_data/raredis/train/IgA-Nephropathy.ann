@@ -1,0 +1,3 @@
+T1	RAREDISEASE 282 297	IgA nephropathy
+T2	ANAPHOR 299 311	This disease
+R1	Anaphora Arg1:T1 Arg2:T2	

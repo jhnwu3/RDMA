@@ -1,0 +1,7 @@
+T1	RAREDISEASE 0 15	WNT4 deficiency
+T2	ANAPHOR 91 103	the disorder
+T3	RAREDISEASE 209 224	WNT4 deficiency
+T4	ANAPHOR 300 312	the disorder
+T5	RAREDISEASE 357 372	WNT4 deficiency
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T3 Arg2:T4	

@@ -1,0 +1,5 @@
+T1	RAREDISEASE 15 31	trichotillomania
+T2	SIGN 107 116	hair loss
+T3	SIGN 269 278	hair loss
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	

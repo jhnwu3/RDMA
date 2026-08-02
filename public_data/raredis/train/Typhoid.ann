@@ -1,0 +1,27 @@
+T1	RAREDISEASE 0 13	Typhoid fever
+T2	DISEASE 19 38	bacterial infection
+T3	ANAPHOR 83 85	it
+T4	SIGN 160 170	high fever
+T5	SYMPTOM 172 180	headache
+T6	SYMPTOM 182 198	loss of appetite
+T7	SYMPTOM 200 207	fatigue
+T8	SYMPTOM 209 223	abdominal pain
+T9	SIGN 228 236	diarrhea
+T10	RAREDISEASE 238 245	Typhoid
+T11	ANAPHOR 292 294	It
+T12	RAREDISEASE 403 410	Typhoid
+T13	RAREDISEASE 662 669	Typhoid
+T14	RAREDISEASE 841 848	Typhoid
+T15	RAREDISEASE 876 883	Typhoid
+T16	RAREDISEASE 1551 1558	Typhoid
+T17	ANAPHOR 1653 1673	this kind of disease
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T3 Arg2:T4	
+R4	Produces Arg1:T3 Arg2:T5	
+R5	Produces Arg1:T3 Arg2:T6	
+R6	Produces Arg1:T3 Arg2:T7	
+R7	Produces Arg1:T3 Arg2:T8	
+R8	Produces Arg1:T3 Arg2:T9	
+R9	Anaphora Arg1:T10 Arg2:T11	
+R10	Anaphora Arg1:T16 Arg2:T17	

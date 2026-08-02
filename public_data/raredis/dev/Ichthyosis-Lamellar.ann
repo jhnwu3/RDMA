@@ -1,0 +1,13 @@
+T1	SKINRAREDISEASE 0 19	Lamellar ichthyosis
+T2	DISEASE 30 51	genetic skin disorder
+T3	SKINRAREDISEASE 56 75	lamellar ichthyosis
+T4	SIGN 317 322	scale
+T5	SKINRAREDISEASE 324 343	Lamellar ichthyosis
+T6	SKINRAREDISEASE 415 434	Lamellar ichthyosis
+T7	ANAPHOR 480 482	it
+T8	SKINRAREDISEASE 510 529	Lamellar ichthyosis
+T9	SKINRAREDISEASE 735 754	lamellar ichthyosis
+T10	SKINRAREDISEASE 857 876	lamellar ichthyosis
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T3 Arg2:T40	
+R3	Anaphora Arg1:T6 Arg2:T7	

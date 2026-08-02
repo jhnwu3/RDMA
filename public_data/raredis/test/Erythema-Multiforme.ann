@@ -1,0 +1,19 @@
+T1	SIGN 0 8	Erythema
+T2	SKINRAREDISEASE 0 19	Erythema multiforme
+T3	SKINRAREDISEASE 21 23	EM
+T4	DISEASE 59 75	hypersensitivity
+T5	SIGN 152 181	symmetric red, patchy lesions
+T6	SKINRAREDISEASE 241 243	EM
+T7	DISEASE 282 296	herpes simplex
+T8	SIGN 661 669	Erythema
+T9	SKINRAREDISEASE 661 680	Erythema multiforme
+T10	ANAPHOR 748 750	It
+T11	SIGN 927 934	lesions
+R1	Produces Arg1:T2 Arg2:T1	
+R2	Is_a Arg1:T2 Arg2:T4	
+R3	Produces Arg1:T2 Arg2:T5	
+R4	Is_acron Arg1:T3 Arg2:T2	
+R5	Increases_risk_of Arg1:T7 Arg2:T60	
+R6	Produces Arg1:T9 Arg2:T8	
+R7	Anaphora Arg1:T9 Arg2:T10	
+R8	Produces Arg1:T10 Arg2:T11	

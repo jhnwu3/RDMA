@@ -1,0 +1,4 @@
+T1	RAREDISEASE 0 15	Weaver Syndrome
+T2	ANAPHOR 88 100	The syndrome
+T3	RAREDISEASE 164 179	Weaver Syndrome
+R1	Anaphora Arg1:T1 Arg2:T2	

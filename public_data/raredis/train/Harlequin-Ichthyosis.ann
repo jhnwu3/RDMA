@@ -1,0 +1,17 @@
+T1	SKINRAREDISEASE 0 20	Harlequin ichthyosis
+T2	DISEASE 31 52	genetic skin disorder
+T3	SIGN 89 136	plates of thick skin that crack and split apart
+T4	SIGN 142 154	thick plates
+T5	SIGN 171 194	distort facial features
+T6	SIGN 203 221	restrict breathing
+T7	SIGN 203 211;226 232	restrict eating
+T8	SKINRAREDISEASE 322 342	Harlequin ichthyosis
+T9	SKINRAREDISEASE 391 411	Harlequin ichthyosis
+T10	ANAPHOR 456 470	This condition
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T5	
+R5	Produces Arg1:T1 Arg2:T6	
+R6	Produces Arg1:T1 Arg2:T7	
+R7	Anaphora Arg1:T9 Arg2:T100	

@@ -1,0 +1,48 @@
+T1	RAREDISEASE 0 52	Autosomal dominant tubulointerstitial kidney disease
+T2	RAREDISEASE 54 59	ADTKD
+T3	ANAPHOR 130 146	These conditions
+T4	ANAPHOR 187 191	They
+T5	ANAPHOR 292 303	the disease
+T6	DISEASE 370 392	Chronic kidney disease
+T7	SIGN 370 392	Chronic kidney disease
+T8	SIGN 435 460	elevated blood creatinine
+T9	SIGN 498 517	elevated creatinine
+T10	SIGN 554 573	elevated creatinine
+T11	DISEASE 710 732	chronic kidney disease
+T12	SIGN 710 732	chronic kidney disease
+T13	SIGN 753 769	creatinine rises
+T14	SYMPTOM 805 812	fatigue
+T15	DISEASE 814 820	anemia
+T16	SIGN 814 820	anemia
+T17	SYMPTOM 826 848	feel cold all the time
+T18	SYMPTOM 850 868	Decreased appetite
+T19	SIGN 873 888	fluid retention
+T20	ANAPHOR 1057 1068	the disease
+T21	SIGN 1089 1131	elevated uric acid concentrations in blood
+T22	DISEASE 1136 1140	gout
+T23	SIGN 1136 1140	gout
+T24	RAREDISEASE 1190 1200	ADTKD-UMOD
+T25	RAREDISEASE 1205 1215	ADTKD- REN
+T26	DISEASE 1269 1273	gout
+T27	SIGN 1269 1273	gout
+T28	RAREDISEASE 1288 1340	autosomal dominant tubulointerstitial kidney disease
+R1	Anaphora Arg1:T1 Arg2:T3	
+R2	Anaphora Arg1:T1 Arg2:T4	
+R3	Anaphora Arg1:T1 Arg2:T5	
+R4	Produces Arg1:T1 Arg2:T9	
+R5	Produces Arg1:T1 Arg2:T10	
+R6	Produces Arg1:T1 Arg2:T12	
+R7	Anaphora Arg1:T1 Arg2:T20	
+R8	Is_acron Arg1:T2 Arg2:T1	
+R9	Produces Arg1:T3 Arg2:T7	
+R10	Produces Arg1:T6 Arg2:T8	
+R11	Produces Arg1:T11 Arg2:T13	
+R12	Produces Arg1:T11 Arg2:T14	
+R13	Produces Arg1:T11 Arg2:T16	
+R14	Produces Arg1:T11 Arg2:T17	
+R15	Produces Arg1:T11 Arg2:T18	
+R16	Produces Arg1:T11 Arg2:T19	
+R17	Produces Arg1:T20 Arg2:T21	
+R18	Produces Arg1:T20 Arg2:T230	
+R19	Produces Arg1:T24 Arg2:T27	
+R20	Produces Arg1:T25 Arg2:T27	

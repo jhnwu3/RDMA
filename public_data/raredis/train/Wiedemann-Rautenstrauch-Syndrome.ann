@@ -1,0 +1,6 @@
+T1	RAREDISEASE 0 3	WRS
+T2	DISEASE 25 41	genetic disorder
+T3	RAREDISEASE 103 106	WRS
+T4	ANAPHOR 162 174	The disorder
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T3 Arg2:T4	

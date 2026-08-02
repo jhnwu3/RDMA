@@ -1,0 +1,21 @@
+T1	RAREDISEASE 0 14	Ollier disease
+T2	DISEASE 25 42	skeletal disorder
+T3	SIGN 87 105	skeletal dysplasia
+T4	ANAPHOR 114 127	this disorder
+T5	ANAPHOR 166 168	it
+T6	SIGN 238 273	deformities or improper limb growth
+T7	RAREDISEASE 293 307	Ollier disease
+T8	RAREDISEASE 592 606	Ollier disease
+T9	ANAPHOR 768 781	This disorder
+T10	RAREDISEASE 826 840	Ollier disease
+T11	SIGN 979 1013	deformities of the affected limb(s
+T12	RAREDISEASE 1279 1293	chondrosarcoma
+T13	SIGN 1279 1293	chondrosarcoma
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Anaphora Arg1:T1 Arg2:T4	
+R4	Anaphora Arg1:T1 Arg2:T5	
+R5	Produces Arg1:T5 Arg2:T6	
+R6	Anaphora Arg1:T8 Arg2:T9	
+R7	Produces Arg1:T10 Arg2:T110	
+R8	Produces Arg1:T10 Arg2:T13	

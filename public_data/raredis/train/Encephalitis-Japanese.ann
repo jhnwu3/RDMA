@@ -1,0 +1,31 @@
+T1	RAREDISEASE 0 21	Japanese Encephalitis
+T2	SIGN 27 59	severe inflammation of the brain
+T3	ANAPHOR 209 222	This disorder
+T4	SIGN 327 337	high fever
+T5	SYMPTOM 339 348	headaches
+T6	SYMPTOM 350 358	weakness
+T7	SYMPTOM 360 366	nausea
+T8	SIGN 368 376	vomiting
+T9	SIGN 378 387	paralysis
+T10	SIGN 389 408	personality changes
+T11	SIGN 414 418	coma
+T12	SIGN 440 459	neurological damage
+T13	SIGN 463 468	death
+T14	RAREDISEASE 470 491	Japanese Encephalitis
+T15	SIGN 721 740	selective infection
+T16	SIGN 742 768	destruction of nerve cells
+T17	SIGN 774 804	weakening of the immune system
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T3 Arg2:T4	
+R3	Produces Arg1:T3 Arg2:T5	
+R4	Produces Arg1:T3 Arg2:T6	
+R5	Produces Arg1:T3 Arg2:T7	
+R6	Produces Arg1:T3 Arg2:T8	
+R7	Produces Arg1:T3 Arg2:T9	
+R8	Produces Arg1:T3 Arg2:T10	
+R9	Produces Arg1:T3 Arg2:T11	
+R10	Produces Arg1:T3 Arg2:T12	
+R11	Produces Arg1:T3 Arg2:T13	
+R12	Produces Arg1:T10 Arg2:T16	
+R13	Produces Arg1:T10 Arg2:T17	
+R14	Produces Arg1:T10 Arg2:T18	

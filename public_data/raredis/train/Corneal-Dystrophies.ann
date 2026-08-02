@@ -1,0 +1,24 @@
+T1	RAREDISEASE 0 19	Corneal dystrophies
+T2	DISEASE 35 76	genetic, often progressive, eye disorders
+T3	SIGN 173 179;95 128	cornea material often accumulates in the
+T4	RAREDISEASE 182 201	Corneal dystrophies
+T5	SYMPTOM 226 238	asymptomatic
+T6	SIGN 298 315	vision impairment
+T7	RAREDISEASE 390 407	corneal dystrophy
+T8	ANAPHOR 409 422	The disorders
+T9	RAREDISEASE 473 490	corneal dystrophy
+T10	RAREDISEASE 712 731	Corneal dystrophies
+T11	RAREDISEASE 782 805	Fuchs corneal dystrophy
+T12	RAREDISEASE 864 883	corneal dystrophies
+T13	RAREDISEASE 936 955	corneal dystrophies
+T14	SYMPTOM 1015 1027	asymptomatic
+T15	ANAPHOR 1064 1079	these disorders
+T16	RAREDISEASE 1138 1155	corneal dystrophy
+T17	RAREDISEASE 1483 1502	corneal dystrophies
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T4 Arg2:T50	
+R4	Produces Arg1:T4 Arg2:T6	
+R5	Anaphora Arg1:T9 Arg2:T8	
+R6	Anaphora Arg1:T13 Arg2:T15	
+R7	Produces Arg1:T15 Arg2:T14	

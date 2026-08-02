@@ -1,0 +1,7 @@
+T1	RAREDISEASE 0 15	Achondrogenesis
+T2	RAREDISEASE 59 82	Achondrogenesis type IA
+T3	RAREDISEASE 59 74;87 94	Achondrogenesis type IB
+T4	RAREDISEASE 155 178	Achondrogenesis type II
+R1	Is_a Arg1:T2 Arg2:T1	
+R2	Is_a Arg1:T3 Arg2:T1	
+R3	Is_a Arg1:T4 Arg2:T1	

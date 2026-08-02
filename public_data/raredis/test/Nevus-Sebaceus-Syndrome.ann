@@ -1,0 +1,4 @@
+T1	RAREDISEASE 13 36	Nevus sebaceus syndrome
+T2	ANAPHOR 119 131	the disorder
+T3	DISEASE 171 185	Epidermal nevi
+R1	Anaphora Arg1:T1 Arg2:T2	

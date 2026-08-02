@@ -1,0 +1,12 @@
+T1	RAREDISEASE 0 7	Q fever
+T2	DISEASE 14 32	infectious disease
+T3	ANAPHOR 405 417	this disease
+T4	ANAPHOR 545 547	it
+T5	RAREDISEASE 610 617	Q fever
+T6	DISEASE 663 668;676 688;690 699	acute self-limited infection
+T7	DISEASE 703 726	fatal chronic infection
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Anaphora Arg1:T1 Arg2:T4	
+R4	Increases_risk_of Arg1:T5 Arg2:T6	
+R5	Increases_risk_of Arg1:T5 Arg2:T7	

@@ -1,0 +1,32 @@
+T1	RAREDISEASE 0 35	Subacute sclerosing panencephalitis
+T2	RAREDISEASE 37 41	SSPE
+T3	DISEASE 60 81	neurological disorder
+T4	RAREDISEASE 126 138	encephalitis
+T5	SIGN 126 138	encephalitis
+T6	ANAPHOR 141 152	The disease
+T7	DISEASE 192 199	measles
+T8	DISEASE 249 256	measles
+T9	RAREDISEASE 264 268	SSPE
+T10	SIGN 362 373	memory loss
+T11	SIGN 375 387	irritability
+T12	SIGN 389 397	seizures
+T13	SIGN 399 427	involuntary muscle movements
+T14	SIGN 436 454	behavioral changes
+T15	SIGN 467 493	neurological deterioration
+T16	DISEASE 522 529	measles
+T17	RAREDISEASE 577 612	subacute sclerosing panencephalitis
+T18	ANAPHOR 738 751	this disorder
+T19	RAREDISEASE 879 914	Subacute sclerosing panencephalitis
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T5	
+R3	Anaphora Arg1:T1 Arg2:T6	
+R4	Is_acron Arg1:T2 Arg2:T1	
+R5	Increases_risk_of Arg1:T7 Arg2:T6	
+R6	Increases_risk_of Arg1:T10 Arg2:T15	
+R7	Produces Arg1:T9 Arg2:T10	
+R8	Produces Arg1:T9 Arg2:T11	
+R9	Produces Arg1:T9 Arg2:T12	
+R10	Produces Arg1:T9 Arg2:T13	
+R11	Produces Arg1:T9 Arg2:T14	
+R12	Produces Arg1:T9 Arg2:T150	
+R13	Anaphora Arg1:T17 Arg2:T18	

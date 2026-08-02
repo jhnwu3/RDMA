@@ -1,0 +1,9 @@
+T1	RAREDISEASE 0 16	Moebius syndrome
+T2	ANAPHOR 61 73	The disorder
+T3	RAREDISEASE 152 168	Moebius syndrome
+T4	RAREDISEASE 286 302	Moebius syndrome
+T5	RAREDISEASE 474 490	Moebius syndrome
+T6	DISEASE 560 572	facial palsy
+T7	SIGN 560 572	facial palsy
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T5 Arg2:T7	

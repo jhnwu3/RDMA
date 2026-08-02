@@ -1,0 +1,39 @@
+T1	SKINRAREDISEASE 0 17	Cockayne Syndrome
+T2	SKINRAREDISEASE 19 21	CS
+T3	SIGN 41 49	dwarfism
+T4	ANAPHOR 51 53	It
+T5	DISEASE 60 78	inherited disorder
+T6	SIGN 138 156	growth retardation
+T7	SIGN 163 176	short stature
+T8	SIGN 213 229	photosensitivity
+T9	SIGN 269 277	progeria
+T10	SKINRAREDISEASE 269 277	progeria
+T11	SKINRAREDISEASE 287 322	classical form of Cockayne Syndrome
+T12	SKINRAREDISEASE 324 333	CS type I
+T13	SKINRAREDISEASE 439 475	congenital form of Cockayne Syndrome
+T14	SKINRAREDISEASE 477 487	CS type II
+T15	SKINRAREDISEASE 556 582	Cockayne Syndrome Type III
+T16	SKINRAREDISEASE 584 595	CS type III
+T17	ANAPHOR 679 690	the disease
+T18	SKINRAREDISEASE 725 763	Xeroderma pigmentosa-Cockayne syndrome
+T19	SKINRAREDISEASE 765 770	XP-CS
+T20	SKINRAREDISEASE 819 836	Cockayne Syndrome
+T21	SKINRAREDISEASE 974 976	CS
+T22	SKINRAREDISEASE 1066 1068	CS
+R1	Produces Arg1:T1 Arg2:T30	
+R2	Anaphora Arg1:T1 Arg2:T4	
+R3	Anaphora Arg1:T1 Arg2:T17	
+R4	Is_acron Arg1:T2 Arg2:T1	
+R5	Is_a Arg1:T4 Arg2:T5	
+R6	Produces Arg1:T4 Arg2:T6	
+R7	Produces Arg1:T4 Arg2:T7	
+R8	Produces Arg1:T4 Arg2:T8	
+R9	Produces Arg1:T4 Arg2:T9	
+R10	Is_a Arg1:T11 Arg2:T4	
+R11	Is_acron Arg1:T12 Arg2:T11	
+R12	Is_a Arg1:T10 Arg2:T26	
+R13	Is_acron Arg1:T14 Arg2:T130	
+R14	Is_a Arg1:T15 Arg2:T17	
+R15	Is_acron Arg1:T16 Arg2:T15	
+R16	Is_a Arg1:T18 Arg2:T17	
+R17	Is_acron Arg1:T19 Arg2:T18	

@@ -1,0 +1,52 @@
+T1	RAREDISEASE 0 31	Tyrosine hydroxylase deficiency
+T2	DISEASE 42 58	genetic disorder
+T3	DISEASE 118 140	mild movement disorder
+T4	DISEASE 157 173;175 196	life-threatening neurological disorder
+T5	ANAPHOR 227 239	the disorder
+T6	SIGN 389 402	abnormal gait
+T7	DISEASE 408 416	dystonia
+T8	SIGN 408 416	dystonia
+T9	DISEASE 418 426	Dystonia
+T10	DISEASE 460 476	muscle disorders
+T11	SIGN 504 535	involuntary muscle contractions
+T12	SIGN 561 569;581 588;590 599	abnormal painful movements
+T13	SIGN 561 569;581 588;615 623	abnormal painful postures
+T14	DISEASE 626 634	Dystonia
+T15	SIGN 626 634;678 694	Dystonia affects the legs
+T16	RAREDISEASE 638 669	tyrosine hydroxylase deficiency
+T17	SIGN 739 746	tremors
+T18	SIGN 748 765	eye abnormalities
+T19	SIGN 794 827	children to walk on their tiptoes
+T20	RAREDISEASE 848 879	tyrosine hydroxylase deficiency
+T21	DISEASE 990 1007	movement disorder
+T22	DISEASE 1045 1075	severe, diffuse brain disorder
+T23	RAREDISEASE 1104 1135	tyrosine hydroxylase deficiency
+T24	RAREDISEASE 1344 1375	tyrosine hydroxylase deficiency
+T25	RAREDISEASE 1406 1437	tyrosine hydroxylase deficiency
+T26	RAREDISEASE 1464 1495	Tyrosine hydroxylase deficiency
+T27	RAREDISEASE 1651 1682	tyrosine hydroxylase deficiency
+T28	ANAPHOR 1812 1824	the disorder
+T29	RAREDISEASE 1947 1978	Tyrosine hydroxylase deficiency
+T30	RAREDISEASE 1983 2033	guanosine triphosphate cyclohydrolase I deficiency
+T31	RAREDISEASE 2035 2069	autosomal dominant Segawa syndrome
+T32	DISEASE 2134 2142	dystonia
+T33	SIGN 2134 2155	dystonia in childhood
+T34	RAREDISEASE 2157 2188	Tyrosine hydroxylase deficiency
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Is_a Arg1:T1 Arg2:T3	
+R3	Is_a Arg1:T1 Arg2:T4	
+R4	Anaphora Arg1:T1 Arg2:T5	
+R5	Produces Arg1:T5 Arg2:T60	
+R6	Produces Arg1:T5 Arg2:T8	
+R7	Is_a Arg1:T9 Arg2:T10	
+R8	Produces Arg1:T9 Arg2:T11	
+R9	Produces Arg1:T9 Arg2:T12	
+R10	Produces Arg1:T9 Arg2:T13	
+R11	Produces Arg1:T16 Arg2:T15	
+R12	Produces Arg1:T16 Arg2:T17	
+R13	Produces Arg1:T16 Arg2:T18	
+R14	Produces Arg1:T16 Arg2:T19	
+R15	Anaphora Arg1:T27 Arg2:T28	
+R16	Produces Arg1:T29 Arg2:T33	
+R17	Produces Arg1:T30 Arg2:T33	
+R18	Is_synon Arg1:T31 Arg2:T30	

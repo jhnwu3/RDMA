@@ -1,0 +1,7 @@
+T1	RAREDISEASE 0 13	HBOC syndrome
+T2	RAREDISEASE 114 127	HBOC syndrome
+T3	DISEASE 156 166;178 192	hereditary ovarian cancer
+T4	DISEASE 156 173;186 192	hereditary breast cancer
+T5	RAREDISEASE 511 524	HBOC syndrome
+R1	Is_a Arg1:T2 Arg2:T3	
+R2	Is_a Arg1:T2 Arg2:T4	

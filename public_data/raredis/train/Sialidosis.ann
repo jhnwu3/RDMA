@@ -1,0 +1,36 @@
+T1	RAREDISEASE 0 10	Sialidosis
+T2	RAREDISEASE 26 46	mucolipidosis type I
+T3	DISEASE 58 86	inherited metabolic disorder
+T4	SIGN 106 144	deficiency of the enzyme neuraminidase
+T5	SIGN 183 210	Deficiency of neuraminidase
+T6	SIGN 235 278	accumulation of toxic materials in the body
+T7	RAREDISEASE 280 290	Sialidosis
+T8	RAREDISEASE 345 362	Sialidosis type I
+T9	SIGN 485 494	myoclonus
+T10	SIGN 520 538;540 551	cherry-red macules in the eyes
+T11	SIGN 578 599	neurological findings
+T12	RAREDISEASE 601 619	Sialidosis type II
+T13	RAREDISEASE 648 665	sialidosis type I
+T14	ANAPHOR 667 674	Type II
+T15	SIGN 753 771	cherry-red macules
+T16	SIGN 773 802	mildly coarse facial features
+T17	SIGN 804 826	skeletal malformations
+T18	SIGN 831 856	mild cognitive impairment
+T19	RAREDISEASE 858 868	Sialidosis
+T20	RAREDISEASE 915 925	Sialidosis
+T21	RAREDISEASE 993 1003	sialidosis
+T22	RAREDISEASE 1262 1272	sialidosis
+T23	RAREDISEASE 1346 1356	sialidosis
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Produces Arg1:T1 Arg2:T5	
+R4	Produces Arg1:T1 Arg2:T6	
+R5	Is_synon Arg1:T2 Arg2:T1	
+R6	Produces Arg1:T8 Arg2:T9	
+R7	Produces Arg1:T8 Arg2:T10	
+R8	Produces Arg1:T8 Arg2:T110	
+R9	Anaphora Arg1:T12 Arg2:T14	
+R10	Produces Arg1:T14 Arg2:T15	
+R11	Produces Arg1:T14 Arg2:T16	
+R12	Produces Arg1:T14 Arg2:T17	
+R13	Produces Arg1:T14 Arg2:T18	

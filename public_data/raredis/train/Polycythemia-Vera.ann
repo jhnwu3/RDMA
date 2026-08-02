@@ -1,0 +1,7 @@
+T1	RAREDISEASE 0 17	Polycythemia vera
+T2	ANAPHOR 56 68	The disorder
+T3	ANAPHOR 154 156	It
+T4	ANAPHOR 253 255	It
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Anaphora Arg1:T1 Arg2:T4	

@@ -1,0 +1,17 @@
+T1	RAREDISEASE 17 39	hyperemesis gravidarum
+T2	SYMPTOM 175 203	persistent and severe nausea
+T3	SIGN 208 216	vomiting
+T4	SIGN 218 229	dehydration
+T5	SIGN 235 246	weight loss
+T6	SYMPTOM 302 308	nausea
+T7	SIGN 313 338	vomiting during pregnancy
+T8	SYMPTOM 403 409	nausea
+T9	SIGN 414 422	vomiting
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T5	
+R5	Produces Arg1:T1 Arg2:T6	
+R6	Produces Arg1:T1 Arg2:T7	
+R7	Produces Arg1:T1 Arg2:T8	
+R8	Produces Arg1:T1 Arg2:T9	

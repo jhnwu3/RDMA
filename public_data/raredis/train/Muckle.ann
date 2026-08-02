@@ -1,0 +1,21 @@
+T1	SKINRAREDISEASE 19 22	MWS
+T2	SIGN 31 47	recurrent rashes
+T3	SIGN 89 108	intermittent fevers
+T4	SYMPTOM 110 120	joint pain
+T5	SIGN 181 205	recurrent conjunctivitis
+T6	DISEASE 191 205	conjunctivitis
+T7	SIGN 316 340	progressive hearing loss
+T8	DISEASE 328 340	hearing loss
+T9	RAREDISEASE 345 356	amyloidosis
+T10	SIGN 345 356	amyloidosis
+T11	SKINRAREDISEASE 518 521	MWS
+T12	ANAPHOR 594 605	the disease
+T13	SKINRAREDISEASE 647 650	MWS
+T14	SKINRAREDISEASE 845 848	MWS
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T30	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T5	
+R5	Produces Arg1:T1 Arg2:T7	
+R6	Produces Arg1:T1 Arg2:T10	
+R7	Anaphora Arg1:T11 Arg2:T12	

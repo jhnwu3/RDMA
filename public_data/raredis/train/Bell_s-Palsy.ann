@@ -1,0 +1,47 @@
+T1	RAREDISEASE 0 12	Bell's palsy
+T2	DISEASE 18 55	non-progressive neurological disorder
+T3	ANAPHOR 105 118	This disorder
+T4	SIGN 159 175	facial paralysis
+T5	SIGN 202 214	slight fever
+T6	SYMPTOM 216 235	pain behind the ear
+T7	SIGN 260 270	stiff neck
+T8	SYMPTOM 276 284	weakness
+T9	SIGN 292 325	stiffness on one side of the face
+T10	SIGN 327 336	Paralysis
+T11	SIGN 374 382	ischemia
+T12	SIGN 391 427	compression of the 7th cranial nerve
+T13	RAREDISEASE 448 460	Bell's palsy
+T14	DISEASE 488 501	herpes zoster
+T15	DISEASE 513 529	immune disorders
+T16	ANAPHOR 571 584	this disorder
+T17	RAREDISEASE 644 656	Bell's palsy
+T18	RAREDISEASE 677 689	Bell’s palsy
+T19	DISEASE 704 709;721 730	Viral disorders
+T20	DISEASE 714 730	immune disorders
+T21	ANAPHOR 767 780	this disorder
+T22	RAREDISEASE 840 852	Bell’s palsy
+T23	SIGN 878 904	deficiency of blood supply
+T24	SIGN 909 942	pressure on the 7th cranial nerve
+T25	SIGN 958 972	nerve swelling
+T26	SIGN 1079 1089;1109 1134	difficulty moving the facial muscles
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T3 Arg2:T4	
+R4	Produces Arg1:T3 Arg2:T5	
+R5	Produces Arg1:T3 Arg2:T6	
+R6	Produces Arg1:T3 Arg2:T7	
+R7	Produces Arg1:T3 Arg2:T8	
+R8	Produces Arg1:T3 Arg2:T9	
+R9	Produces Arg1:T3 Arg2:T10	
+R10	Produces Arg1:T3 Arg2:T110	
+R11	Produces Arg1:T3 Arg2:T12	
+R12	Anaphora Arg1:T13 Arg2:T16	
+R13	Increases_risk_of Arg1:T14 Arg2:T16	
+R14	Increases_risk_of Arg1:T15 Arg2:T16	
+R15	Anaphora Arg1:T18 Arg2:T21	
+R16	Anaphora Arg1:T19 Arg2:T21	
+R17	Anaphora Arg1:T20 Arg2:T21	
+R18	Produces Arg1:T20 Arg2:T21	
+R19	Produces Arg1:T20 Arg2:T22	
+R20	Produces Arg1:T20 Arg2:T23	
+R21	Produces Arg1:T20 Arg2:T14	

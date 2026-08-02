@@ -1,0 +1,4 @@
+T1	RAREDISEASE 0 14	Nager syndrome
+T2	RAREDISEASE 335 349	Nager syndrome
+T3	RAREDISEASE 377 398	acrofacial dysostosis
+R1	Is_a Arg1:T2 Arg2:T3	

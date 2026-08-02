@@ -1,0 +1,9 @@
+T1	RAREDISEASE 0 26	Congenital afibrinogenemia
+T2	ANAPHOR 197 209	this disease
+T3	ANAPHOR 231 233	it
+T4	DISEASE 240 269	autosomal recessive disorder,
+T5	ANAPHOR 532 543	the disease
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Anaphora Arg1:T1 Arg2:T5	
+R4	Is_a Arg1:T3 Arg2:T4	

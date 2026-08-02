@@ -1,0 +1,30 @@
+T1	RAREDISEASE 0 30	Hyperostosis Frontalis Interna
+T2	SIGN 55 98	thickening of the frontal bone of the skull
+T3	ANAPHOR 121 134	this disorder
+T4	ANAPHOR 182 184	it
+T5	ANAPHOR 270 282	The disorder
+T6	SIGN 344 352	seizures
+T7	SYMPTOM 354 363	headaches
+T8	DISEASE 365 372	obesity
+T9	SIGN 365 372	obesity
+T10	DISEASE 374 392	diabetes insipidus
+T11	SIGN 374 392	diabetes insipidus
+T12	SIGN 394 415	excessive hair growth
+T13	SIGN 420 442	sex gland disturbances
+T14	SIGN 444 480	Increased serum alkaline phosphatase
+T15	SIGN 485 507	elevated serum calcium
+T16	RAREDISEASE 519 549	Hyperostosis Frontalis Interna
+T17	ANAPHOR 597 610	This disorder
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Anaphora Arg1:T1 Arg2:T4	
+R4	Anaphora Arg1:T1 Arg2:T5	
+R5	Produces Arg1:T5 Arg2:T6	
+R6	Produces Arg1:T5 Arg2:T7	
+R7	Produces Arg1:T5 Arg2:T9	
+R8	Produces Arg1:T5 Arg2:T11	
+R9	Produces Arg1:T5 Arg2:T120	
+R10	Produces Arg1:T5 Arg2:T13	
+R11	Produces Arg1:T5 Arg2:T14	
+R12	Produces Arg1:T5 Arg2:T15	
+R13	Anaphora Arg1:T16 Arg2:T17	

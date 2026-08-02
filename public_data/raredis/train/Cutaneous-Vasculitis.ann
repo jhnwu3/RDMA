@@ -1,0 +1,45 @@
+T1	SKINRAREDISEASE 0 32	Cutaneous necrotizing vasculitis
+T2	SIGN 80 118	inflammation of the blood vessel walls
+T3	SIGN 123 135	skin lesions
+T4	SIGN 177 184	macules
+T5	SIGN 187 194	nodules
+T6	SIGN 243 250	purpura
+T7	SIGN 527 541	darkened spots
+T8	SIGN 546 554	scarring
+T9	SIGN 583 601	wheel-like lesions
+T10	SIGN 630 639	urticaria
+T11	SIGN 645 664	ring-shaped lesions
+T12	SIGN 669 675	ulcers
+T13	SIGN 699 707	vesicles
+T14	SIGN 709 715	bullae
+T15	SIGN 764 769	fever
+T16	SYMPTOM 795 802	malaise
+T17	SYMPTOM 805 811;821 825	muscle pain
+T18	SYMPTOM 815 825	joint pain
+T19	SKINRAREDISEASE 827 859	Cutaneous necrotizing vasculitis
+T20	ANAPHOR 904 906	It
+T21	SKINRAREDISEASE 943 946	CNV
+T22	DISEASE 977 1008	inflammatory vascular disorders
+T23	SKINRAREDISEASE 1078 1081	CNV
+T24	SIGN 1117 1129	vasculitides
+T25	SKINRAREDISEASE 1256 1259	CNV
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T5	
+R5	Produces Arg1:T1 Arg2:T6	
+R6	Produces Arg1:T1 Arg2:T70	
+R7	Produces Arg1:T1 Arg2:T8	
+R8	Produces Arg1:T1 Arg2:T9	
+R9	Produces Arg1:T1 Arg2:T10	
+R10	Produces Arg1:T1 Arg2:T11	
+R11	Produces Arg1:T1 Arg2:T12	
+R12	Produces Arg1:T19 Arg2:T13	
+R13	Produces Arg1:T19 Arg2:T14	
+R14	Produces Arg1:T19 Arg2:T150	
+R15	Produces Arg1:T19 Arg2:T16	
+R16	Produces Arg1:T19 Arg2:T17	
+R17	Produces Arg1:T19 Arg2:T18	
+R18	Anaphora Arg1:T19 Arg2:T20	
+R19	Is_a Arg1:T21 Arg2:T22	
+R20	Produces Arg1:T25 Arg2:T24	

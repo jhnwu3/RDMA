@@ -1,0 +1,60 @@
+T1	SKINRAREDISEASE 0 24	Gianotti-Crosti Syndrome
+T2	DISEASE 35 47	skin disease
+T3	SIGN 142 174	blisters on the skin of the legs
+T4	SIGN 142 169;176 184	blisters on the skin of the buttocks
+T5	SIGN 142 169;189 193	blisters on the skin of the arms
+T6	ANAPHOR 195 207	The disorder
+T7	DISEASE 233 248	viral infection
+T8	SKINRAREDISEASE 250 274	Gianotti-Crosti Syndrome
+T9	SIGN 295 315	blisters on the skin
+T10	SIGN 407 415	blisters
+T11	SIGN 498 531	upper respiratory tract infection
+T12	SIGN 538 546	blisters
+T13	SIGN 637 685	enlargement of the lymph nodes in the trunk area
+T14	SKINRAREDISEASE 699 723	Gianotti-Crosti Syndrome
+T15	DISEASE 759 772	viral disease
+T16	DISEASE 783 797	Coxsackievirus
+T17	DISEASE 799 810	Hepatitis-B
+T18	DISEASE 812 836	Infectious Mononucleosis
+T19	DISEASE 840 855	Cytomegalovirus
+T20	SKINRAREDISEASE 916 940	Gianotti-Crosti Syndrome
+T21	DISEASE 983 998	viral infection
+T22	DISEASE 1057 1074	Hepatitis-B virus
+T23	SKINRAREDISEASE 1215 1239	Gianotti-Crosti Syndrome
+T24	ANAPHOR 1321 1323	It
+T25	ANAPHOR 1377 1389	the disorder
+T26	DISEASE 1419 1430	Hepatitis-B
+T27	SKINRAREDISEASE 1511 1535	Gianotti-Crosti Syndrome
+T28	SIGN 1803 1811	pruritus
+T29	SIGN 1818 1830	skin lesions
+T30	SKINRAREDISEASE 1847 1871	Gianotti-Crosti Syndrome
+T31	SIGN 2005 2020	lymphadenopathy
+T32	SIGN 2029 2053	enlargement of the liver
+T33	DISEASE 2101 2110	hepatitis
+T34	SIGN 2101 2110	hepatitis
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T5	
+R5	Anaphora Arg1:T1 Arg2:T6	
+R6	Increases_risk_of Arg1:T7 Arg2:T6	
+R7	Produces Arg1:T8 Arg2:T9	
+R8	Produces Arg1:T8 Arg2:T10	
+R9	Produces Arg1:T8 Arg2:T11	
+R10	Produces Arg1:T8 Arg2:T12	
+R11	Produces Arg1:T8 Arg2:T130	
+R12	Increases_risk_of Arg1:T15 Arg2:T14	
+R13	Increases_risk_of Arg1:T16 Arg2:T14	
+R14	Increases_risk_of Arg1:T17 Arg2:T14	
+R15	Increases_risk_of Arg1:T18 Arg2:T14	
+R16	Increases_risk_of Arg1:T19 Arg2:T14	
+R17	Increases_risk_of Arg1:T21 Arg2:T200	
+R18	Increases_risk_of Arg1:T22 Arg2:T200	
+R19	Anaphora Arg1:T23 Arg2:T24	
+R20	Anaphora Arg1:T23 Arg2:T25	
+R21	Increases_risk_of Arg1:T26 Arg2:T25	
+R22	Produces Arg1:T27 Arg2:T28	
+R23	Produces Arg1:T30 Arg2:T29	
+R24	Produces Arg1:T30 Arg2:T31	
+R25	Produces Arg1:T30 Arg2:T320	
+R26	Produces Arg1:T30 Arg2:T34	

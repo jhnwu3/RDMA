@@ -1,0 +1,35 @@
+T1	RAREDISEASE 0 21	Stiff-person syndrome
+T2	RAREDISEASE 23 26	SPS
+T3	DISEASE 38 68	acquired neurological disorder
+T4	SIGN 116 124	rigidity
+T5	SIGN 151 172	painful muscle spasms
+T6	SIGN 174 191	Muscular rigidity
+T7	SIGN 281 294	muscle spasms
+T8	SIGN 296 302	Spasms
+T9	RAREDISEASE 521 524	SPS
+T10	RAREDISEASE 579 582	SPS
+T11	SIGN 617 635	difficulty walking
+T12	RAREDISEASE 741 744	SPS
+T13	ANAPHOR 757 759	it
+T14	DISEASE 781 800	autoimmune disorder
+T15	DISEASE 839 859	autoimmune disorders
+T16	RAREDISEASE 876 879	SPS
+T17	SIGN 1153 1178	antibodies against GAD-65
+T18	SIGN 1180 1210	antibodies against amphiphysin
+T19	RAREDISEASE 1238 1256	paraneoplastic SPS
+T20	SIGN 1462 1475	stiff muscles
+T21	RAREDISEASE 1504 1507	SPS
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Produces Arg1:T1 Arg2:T50	
+R4	Produces Arg1:T1 Arg2:T6	
+R5	Produces Arg1:T1 Arg2:T7	
+R6	Produces Arg1:T1 Arg2:T8	
+R7	Is_acron Arg1:T2 Arg2:T1	
+R8	Produces Arg1:T10 Arg2:T11	
+R9	Anaphora Arg1:T12 Arg2:T13	
+R10	Is_a Arg1:T13 Arg2:T14	
+R11	Is_a Arg1:T19 Arg2:T16	
+R12	Produces Arg1:T19 Arg2:T17	
+R13	Produces Arg1:T19 Arg2:T18	
+R14	Produces Arg1:T21 Arg2:T20	

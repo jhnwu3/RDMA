@@ -1,0 +1,40 @@
+T1	RAREDISEASE 12 36	AIDS dysmorphic syndrome
+T2	RAREDISEASE 44 59	HIV embryopathy
+T3	SIGN 117 137	facial malformations
+T4	SIGN 145 169	craniofacial dysmorphism
+T5	SIGN 185 195	small head
+T6	SIGN 201 252	growth deficiency in some infants infected with HIV
+T7	DISEASE 249 253	HIV.
+T8	SIGN 260 286	craniofacial abnormalities
+T9	SIGN 304 330	rominent, boxlike forehead
+T10	SIGN 332 348	large, wide eyes
+T11	SIGN 352 374	flattened nasal bridge
+T12	SIGN 393 412	pronounced philtrum
+T13	RAREDISEASE 493 524	HIV infection in young children
+T14	RAREDISEASE 526 549	pediatric HIV infection
+T15	DISEASE 736 739	HIV
+T16	DISEASE 918 921	HIV
+T17	RAREDISEASE 1035 1058	Perinatal HIV infection
+T18	SYMPTOM 1253 1269	immunodeficiency
+T19	SYMPTOM 1395 1411	immunodeficiency
+T20	RAREDISEASE 1499 1522	Perinatal HIV infection
+T21	DISEASE 1571 1574	HIV
+T22	DISEASE 1659 1662	HIV
+T23	DISEASE 1676 1703	immune system abnormalities
+T24	DISEASE 1742 1745	HIV
+T25	DISEASE 1900 1903	HIV
+T26	DISEASE 2363 2366	HIV
+T27	DISEASE 2482 2485	HIV
+R1	Produces Arg1:T10 Arg2:T14	
+R2	Produces Arg1:T10 Arg2:T15	
+R3	Produces Arg1:T10 Arg2:T16	
+R4	Produces Arg1:T10 Arg2:T17	
+R5	Produces Arg1:T10 Arg2:T19	
+R6	Produces Arg1:T10 Arg2:T11	
+R7	Produces Arg1:T10 Arg2:T12	
+R8	Produces Arg1:T10 Arg2:T21	
+R9	Produces Arg1:T10 Arg2:T22	
+R10	Produces Arg1:T10 Arg2:T28	
+R11	Produces Arg1:T10 Arg2:T29	
+R12	Is_synon Arg1:T2 Arg2:T10	
+R13	Is_synon Arg1:T14 Arg2:T13	

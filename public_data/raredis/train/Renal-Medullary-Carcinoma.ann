@@ -1,0 +1,14 @@
+T1	RAREDISEASE 30 33	RMC
+T2	SIGN 57 66	hematuria
+T3	SYMPTOM 95 137	pain in their flank around the kidney area
+T4	SYMPTOM 157 185	feel a mass in their abdomen
+T5	RAREDISEASE 246 249	RMC
+T6	SIGN 261 274	losing weight
+T7	SIGN 307 313	fevers
+T8	SIGN 318 330	night sweats
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T5 Arg2:T6	
+R5	Produces Arg1:T5 Arg2:T7	
+R6	Produces Arg1:T5 Arg2:T8	

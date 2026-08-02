@@ -1,0 +1,3 @@
+T1	RAREDISEASE 19 37	Holt-Oram syndrome
+T2	DISEASE 48 64	genetic disorder
+R1	Is_a Arg1:T1 Arg2:T2	

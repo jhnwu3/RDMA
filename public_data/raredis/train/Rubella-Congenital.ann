@@ -1,0 +1,19 @@
+T1	RAREDISEASE 0 18	Congenital rubella
+T2	RAREDISEASE 85 92	rubella
+T3	ANAPHOR 120 122	It
+T4	SIGN 153 179	abnormalities of the heart
+T5	SIGN 153 173;184 198	abnormalities of the nervous system
+T6	SIGN 153 169;200 208	abnormalities of the eyes
+T7	SIGN 153 169;213 221	abnormalities of the ears
+T8	RAREDISEASE 366 373	rubella
+T9	RAREDISEASE 413 420	rubella
+T10	RAREDISEASE 477 495	congenital rubella
+T11	RAREDISEASE 497 515	Congenital rubella
+T12	RAREDISEASE 598 605	rubella
+T13	RAREDISEASE 607 621	German Measles
+T14	RAREDISEASE 679 686	rubella
+R1	Anaphora Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T3 Arg2:T4	
+R3	Produces Arg1:T3 Arg2:T5	
+R4	Produces Arg1:T3 Arg2:T6	
+R5	Produces Arg1:T3 Arg2:T7	

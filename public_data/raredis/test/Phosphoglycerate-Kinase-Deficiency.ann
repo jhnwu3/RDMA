@@ -1,0 +1,14 @@
+T1	RAREDISEASE 0 34	Phosphoglycerate kinase deficiency
+T2	ANAPHOR 142 153	the disease
+T3	ANAPHOR 225 237	the disorder
+T4	DISEASE 245 261	hemolytic anemia
+T5	SIGN 245 261	hemolytic anemia
+T6	ANAPHOR 264 276	The disorder
+T7	RAREDISEASE 357 360	PGK
+T8	ANAPHOR 461 472	the disease
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Anaphora Arg1:T1 Arg2:T6	
+R4	Produces Arg1:T3 Arg2:T5	
+R5	Is_acron Arg1:T7 Arg2:T1	
+R6	Anaphora Arg1:T7 Arg2:T8	

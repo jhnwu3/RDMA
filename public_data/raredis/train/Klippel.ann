@@ -1,0 +1,7 @@
+T1	SKINRAREDISEASE 0 26	Klippel-Trenaunay Syndrome
+T2	ANAPHOR 92 104	The disorder
+T3	SKINRAREDISEASE 123 126	KTS
+T4	ANAPHOR 323 336	the condition
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Is_acron Arg1:T3 Arg2:T1	
+R3	Anaphora Arg1:T3 Arg2:T4	

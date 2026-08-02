@@ -1,0 +1,47 @@
+T1	RAREDISEASE 0 25	Chromosome 3, Trisomy 3q2
+T2	DISEASE 36 56	chromosomal disorder
+T3	SIGN 369 389	developmental delays
+T4	DISEASE 391 409	mental retardation
+T5	SIGN 391 409	mental retardation
+T6	SIGN 415 486	characteristic abnormalities of the head and facial (craniofacial) area
+T7	SIGN 503 532	distinctive facial appearance
+T8	SIGN 539 565	craniofacial abnormalities
+T9	SIGN 603 616	brachycephaly
+T10	SIGN 639 659	ocular hypertelorism
+T11	SIGN 694 712	palpebral fissures
+T12	SIGN 756 772	anteverted nares
+T13	SIGN 823 837	long eyelashes
+T14	SIGN 839 894	arched, bushy, well-defined eyebrows that grow together
+T15	SIGN 924 933	synophrys
+T16	SIGN 949 1002	low hairline on the forehead and the back of the neck
+T17	SIGN 1043 1052	hirsutism
+T18	RAREDISEASE 1055 1080	Chromosome 3, Trisomy 3q2
+T19	SIGN 1110 1113;1123 1136	eye abnormalities
+T20	SIGN 1138 1150	limb defects
+T21	DISEASE 1184 1208	congenital heart defects
+T22	SIGN 1184 1208	congenital heart defects
+T23	SIGN 1220 1237	physical features
+T24	RAREDISEASE 1239 1263	Chromosome 3, Trisomy 3q
+T25	ANAPHOR 1399 1411	the disorder
+T26	ANAPHOR 1595 1607	The disorder
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T5	
+R4	Produces Arg1:T1 Arg2:T6	
+R5	Produces Arg1:T1 Arg2:T7	
+R6	Produces Arg1:T1 Arg2:T8	
+R7	Produces Arg1:T1 Arg2:T9	
+R8	Produces Arg1:T1 Arg2:T10	
+R9	Produces Arg1:T1 Arg2:T11	
+R10	Produces Arg1:T1 Arg2:T12	
+R11	Produces Arg1:T1 Arg2:T13	
+R12	Produces Arg1:T1 Arg2:T14	
+R13	Produces Arg1:T1 Arg2:T15	
+R14	Produces Arg1:T1 Arg2:T160	
+R15	Produces Arg1:T1 Arg2:T17	
+R16	Produces Arg1:T18 Arg2:T19	
+R17	Produces Arg1:T18 Arg2:T20	
+R18	Produces Arg1:T18 Arg2:T22	
+R19	Produces Arg1:T18 Arg2:T23	
+R20	Increases_risk_of Arg1:T24 Arg2:T250	
+R21	Anaphora Arg1:T24 Arg2:T26	

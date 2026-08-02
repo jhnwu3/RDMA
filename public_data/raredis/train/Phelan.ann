@@ -1,0 +1,6 @@
+T1	RAREDISEASE 0 3	PMS
+T2	RAREDISEASE 595 598	PMS
+T3	ANAPHOR 648 661	this deletion
+T4	ANAPHOR 862 896	this subtle chromosome abnormality
+R1	Anaphora Arg1:T2 Arg2:T3	
+R2	Anaphora Arg1:T2 Arg2:T4	

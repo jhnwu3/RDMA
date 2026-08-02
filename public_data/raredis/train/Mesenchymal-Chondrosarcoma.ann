@@ -1,0 +1,10 @@
+T1	RAREDISEASE 0 26	Mesenchymal chondrosarcoma
+T2	ANAPHOR 82 84	It
+T3	DISEASE 114 120	cancer
+T4	ANAPHOR 191 203	This tumor i
+T5	RAREDISEASE 394 420	Mesenchymal chondrosarcoma
+T6	RAREDISEASE 526 553	Mesenchymal chondrosarcomas
+T7	RAREDISEASE 609 623	chondrosarcoma
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T4	
+R3	Is_a Arg1:T2 Arg2:T3	

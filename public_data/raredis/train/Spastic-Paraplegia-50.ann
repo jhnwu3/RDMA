@@ -1,0 +1,83 @@
+T1	RAREDISEASE 0 21	Spastic paraplegia 50
+T2	SIGN 8 18	paraplegia
+T3	RAREDISEASE 23 28	SPG50
+T4	DISEASE 35 80	slowly-progressing neurodegenerative disorder
+T5	SIGN 110 136	global developmental delay
+T6	SIGN 138 180	moderate to severe intellectual disability
+T7	DISEASE 157 180	intellectual disability
+T8	SIGN 182 204	impaired/absent speech
+T9	DISEASE 223 235	microcephaly
+T10	SIGN 223 235	microcephaly
+T11	SIGN 238 246	seizures
+T12	SIGN 252 278	progressive motor symptoms
+T13	SIGN 280 289	Hypotonia
+T14	SIGN 322 332	hypertonia
+T15	SIGN 366 388	spasticity of the legs
+T16	SIGN 403 441	non-ambulation and wheelchair reliance
+T17	SIGN 443 453;474 491	Spasticity upper extremities
+T18	DISEASE 566 577	tetraplegia
+T19	SIGN 566 577	tetraplegia
+T20	RAREDISEASE 580 625	AP-4-associated hereditary spastic paraplegia
+T21	RAREDISEASE 627 630	HSP
+T22	DISEASE 646 692	slowly-progressing neurodegenerative disorders
+T23	SIGN 721 747	global developmental delay
+T24	SIGN 749 791	moderate to severe intellectual disability
+T25	DISEASE 768 791	intellectual disability
+T26	SIGN 793 815	impaired/absent speech
+T27	DISEASE 817 829	microcephaly
+T28	SIGN 817 829	microcephaly
+T29	SIGN 831 839	seizures
+T30	SIGN 845 871	progressive motor symptoms
+T31	ANAPHOR 873 887	The conditions
+T32	RAREDISEASE 915 920	SPG47
+T33	RAREDISEASE 922 927	SPG50
+T34	RAREDISEASE 929 934	SPG51
+T35	RAREDISEASE 939 944	SPG52
+T36	ANAPHOR 976 992	These conditions
+T37	SIGN 1110 1144	abnormal adaptor protein complex 4
+T38	RAREDISEASE 1199 1204	SPG50
+T39	SIGN 1271 1281	spasticity
+T40	SIGN 1283 1302	developmental delay
+T41	DISEASE 1305 1328	intellectual disability
+T42	SIGN 1305 1328	intellectual disability
+T43	SIGN 1334 1342	seizures
+T44	SIGN 1482 1502	thin corpus callosum
+T45	SIGN 1504 1527	wide lateral ventricles
+T46	SIGN 1532 1559	changes in the white matter
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Is_a Arg1:T1 Arg2:T4	
+R3	Produces Arg1:T1 Arg2:T50	
+R4	Produces Arg1:T1 Arg2:T6	
+R5	Produces Arg1:T1 Arg2:T8	
+R6	Produces Arg1:T1 Arg2:T10	
+R7	Produces Arg1:T1 Arg2:T11	
+R8	Produces Arg1:T1 Arg2:T12	
+R9	Produces Arg1:T1 Arg2:T13	
+R10	Produces Arg1:T1 Arg2:T14	
+R11	Produces Arg1:T1 Arg2:T15	
+R12	Produces Arg1:T1 Arg2:T16	
+R13	Produces Arg1:T1 Arg2:T17	
+R14	Produces Arg1:T1 Arg2:T19	
+R15	Is_acron Arg1:T3 Arg2:T1	
+R16	Is_a Arg1:T20 Arg2:T22	
+R17	Produces Arg1:T20 Arg2:T23	
+R18	Produces Arg1:T20 Arg2:T24	
+R19	Produces Arg1:T20 Arg2:T26	
+R20	Produces Arg1:T20 Arg2:T28	
+R21	Produces Arg1:T20 Arg2:T290	
+R22	Produces Arg1:T20 Arg2:T30	
+R23	Anaphora Arg1:T20 Arg2:T31	
+R24	Anaphora Arg1:T20 Arg2:T36	
+R25	Is_acron Arg1:T21 Arg2:T20	
+R26	Is_a Arg1:T32 Arg2:T31	
+R27	Is_a Arg1:T33 Arg2:T31	
+R28	Is_a Arg1:T34 Arg2:T31	
+R29	Is_a Arg1:T35 Arg2:T31	
+R30	Produces Arg1:T36 Arg2:T370	
+R31	Produces Arg1:T38 Arg2:T39	
+R32	Produces Arg1:T38 Arg2:T40	
+R33	Produces Arg1:T38 Arg2:T42	
+R34	Produces Arg1:T38 Arg2:T43	
+R35	Produces Arg1:T38 Arg2:T44	
+R36	Produces Arg1:T38 Arg2:T45	
+R37	Produces Arg1:T38 Arg2:T46	

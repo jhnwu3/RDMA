@@ -1,0 +1,13 @@
+T1	SIGN 217 259	continual shedding of large sheets of skin
+T2	SKINRAREDISEASE 274 295	peeling skin syndrome
+T3	SKINRAREDISEASE 301 319	Netherton syndrome
+T4	SKINRAREDISEASE 344 385	autosomal recessive congenital ichthyosis
+T5	SKINRAREDISEASE 395 432	congenital ichthyosiform erythroderma
+T6	SIGN 438 442;475 522	skin peels off after a few weeks and does not return
+T7	SKINRAREDISEASE 553 574	peeling skin syndrome
+R1	Produces Arg1:T2 Arg2:T1	
+R2	Is_a Arg1:T2 Arg2:T4	
+R3	Is_a Arg1:T3 Arg2:T4	
+R4	Produces Arg1:T3 Arg2:T6	
+R5	Is_a Arg1:T5 Arg2:T4	
+R6	Produces Arg1:T5 Arg2:T6	

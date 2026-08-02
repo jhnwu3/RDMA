@@ -1,0 +1,35 @@
+T1	RAREDISEASE 0 13	Adie syndrome
+T2	RAREDISEASE 18 38	Holmes-Adie syndrome
+T3	DISEASE 50 71	neurological disorder
+T4	SIGN 125 130;154 161	pupil dilated
+T5	SIGN 125 130;167 208	pupil slow to react in response to direct light
+T6	SIGN 210 240	Absent or poor tendon reflexes
+T7	ANAPHOR 266 279	this disorder
+T8	RAREDISEASE 341 354	Adie syndrome
+T9	SIGN 475 515	localized disturbance of sweat secretion
+T10	RAREDISEASE 535 548	Adie syndrome
+T11	RAREDISEASE 550 563	Ross syndrome
+T12	RAREDISEASE 566 579	Adie syndrome
+T13	SIGN 599 665	non progressive and limited damage to the autonomic nervous system
+T14	RAREDISEASE 821 834	Adie syndrome
+T15	DISEASE 1045 1057	Adie’s pupil
+T16	ANAPHOR 1063 1080	the full syndrome
+T17	RAREDISEASE 1182 1195	Adie syndrome
+T18	SIGN 1304 1318	blurred vision
+T19	SYMPTOM 1357 1377	sensitivity to light
+T20	SIGN 1424 1445	poor depth perception
+T21	SIGN 1486 1514	loss of deep tendon reflexes
+R1	Is_synon Arg1:T1 Arg2:T2	
+R2	Is_a Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T50	
+R5	Anaphora Arg1:T1 Arg2:T7	
+R6	Produces Arg1:T7 Arg2:T6	
+R7	Produces Arg1:T10 Arg2:T9	
+R8	Is_synon Arg1:T10 Arg2:T11	
+R9	Produces Arg1:T12 Arg2:T13	
+R10	Anaphora Arg1:T14 Arg2:T160	
+R11	Produces Arg1:T17 Arg2:T18	
+R12	Produces Arg1:T17 Arg2:T19	
+R13	Produces Arg1:T17 Arg2:T20	
+R14	Produces Arg1:T17 Arg2:T21	

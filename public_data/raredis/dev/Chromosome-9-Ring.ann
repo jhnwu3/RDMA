@@ -1,0 +1,19 @@
+T1	RAREDISEASE 0 17	Chromosome 9 Ring
+T2	SIGN 346 405	malformations of the skull and facial (craniofacial) region
+T3	RAREDISEASE 495 512	Chromosome 9 Ring
+T4	SIGN 596 614	growth retardation
+T5	SIGN 616 629	heart defects
+T6	SIGN 631 652	genital abnormalities
+T7	SIGN 721 763	moderate to severe intellectual disability
+T8	DISEASE 740 763	intellectual disability
+T9	RAREDISEASE 838 855	Chromosome 9 Ring
+T10	RAREDISEASE 1007 1024	Chromosome 9 Ring
+T11	DISEASE 1035 1058	chromosomal abnormality
+T12	ANAPHOR 1139 1151	the disorder
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T3 Arg2:T4	
+R3	Produces Arg1:T3 Arg2:T5	
+R4	Produces Arg1:T3 Arg2:T6	
+R5	Produces Arg1:T3 Arg2:T7	
+R6	Is_a Arg1:T10 Arg2:T11	
+R7	Anaphora Arg1:T10 Arg2:T12	

@@ -1,0 +1,3 @@
+T1	RAREDISEASE 0 14	Susac syndrome
+T2	RAREDISEASE 21 47	autoimmune endotheliopathy
+R1	Is_a Arg1:T1 Arg2:T2	

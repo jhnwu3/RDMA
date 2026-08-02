@@ -1,0 +1,16 @@
+T1	SKINRAREDISEASE 0 5	Pinta
+T2	DISEASE 16 43	infectious tropical disease
+T3	SKINRAREDISEASE 166 171	Pinta
+T4	SIGN 249 261	skin lesions
+T5	SIGN 266 279	discoloration
+T6	SKINRAREDISEASE 403 408	Pinta
+T7	DISEASE 415 442	infectious tropical disease
+T8	SKINRAREDISEASE 538 543	pinta
+T9	SIGN 836 848	skin lesions
+T10	SIGN 1004 1016	skin lesions
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T3 Arg2:T4	
+R3	Produces Arg1:T3 Arg2:T5	
+R4	Is_a Arg1:T10 Arg2:T3	
+R5	Produces Arg1:T8 Arg2:T9	
+R6	Produces Arg1:T8 Arg2:T10	

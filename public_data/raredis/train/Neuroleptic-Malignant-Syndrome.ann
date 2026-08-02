@@ -1,0 +1,5 @@
+T1	RAREDISEASE 0 30	Neuroleptic malignant syndrome
+T2	DISEASE 238 251	schizophrenia
+T3	DISEASE 262 274;297 306	neurological disorders
+T4	DISEASE 276 282;297 306	mental disorders
+T5	DISEASE 287 306	emotional disorders

@@ -1,0 +1,13 @@
+T1	RAREDISEASE 42 54	glioblastoma
+T2	RAREDISEASE 208 220	glioblastoma
+T3	RAREDISEASE 353 365	glioblastoma
+T4	RAREDISEASE 448 457	chordomas
+T5	RAREDISEASE 459 509	central nervous system (CNS) lymphomas, ependymoma
+T6	RAREDISEASE 511 527	medulloblastomas
+T7	RAREDISEASE 529 553	lower grade brain tumors
+T8	DISEASE 565 572	cancers
+T9	DISEASE 646 652	stroke
+T10	DISEASE 654 669	brain abscesses
+T11	DISEASE 671 683	brain bleeds
+T12	DISEASE 689 712	cavernous malformations
+T13	RAREDISEASE 733 745	glioblastoma

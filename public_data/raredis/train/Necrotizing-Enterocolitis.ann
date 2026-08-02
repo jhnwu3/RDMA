@@ -1,0 +1,97 @@
+T1	RAREDISEASE 9 12	NEC
+T2	ANAPHOR 176 187	the disease
+T3	SIGN 262 289	increased gastric aspirates
+T4	SIGN 291 302;311 328	bile-tinged gastric aspirates
+T5	SIGN 333 355	decreased bowel sounds
+T6	SIGN 361 370;386 396	abdominal tenderness
+T7	RAREDISEASE 560 563	NEC
+T8	SIGN 647 670	temperature instability
+T9	SIGN 676 690	poor perfusion
+T10	SIGN 790 813	cardiovascular collapse
+T11	SIGN 867 880	palpable mass
+T12	RAREDISEASE 1154 1157	NEC
+T13	RAREDISEASE 1225 1228	NEC
+T14	RAREDISEASE 1255 1258	NEC
+T15	DISEASE 1302 1326	congenital heart disease
+T16	DISEASE 1328 1334	sepsis
+T17	DISEASE 1371 1396	gastrointestinal diseases
+T18	RAREDISEASE 1407 1410	NEC
+T19	DISEASE 1503 1509	Sepsis
+T20	DISEASE 1523 1528	ileus
+T21	SIGN 1523 1528	ileus
+T22	SIGN 1534 1554	abdominal distention
+T23	SIGN 1559 1578	feeding intolerance
+T24	DISEASE 1666 1700	spontaneous intestinal perforation
+T25	DISEASE 1702 1705	SIP
+T26	DISEASE 1708 1711	SIP
+T27	SIGN 1732 1778	isolated perforation of the distal small bowel
+T28	SIGN 1796 1823	severe abdominal distention
+T29	SIGN 1844 1861	bowel obstruction
+T30	RAREDISEASE 1867 1888	Hirshsprung’s disease
+T31	DISEASE 1890 1909	small bowel atresia
+T32	DISEASE 1911 1925	meconium ileus
+T33	DISEASE 1931 1956	malrotation with volvulus
+T34	RAREDISEASE 1958 1961	NEC
+T35	DISEASE 1987 2009	allergic enterocolitis
+T36	DISEASE 2042 2049	allergy
+T37	RAREDISEASE 2051 2054	NEC
+T38	RAREDISEASE 2315 2318	NEC
+T39	SIGN 2386 2412	air in the intestinal wall
+T40	SIGN 2424 2448	persistent dilated loops
+T41	SIGN 2450 2470	thickened bowel wall
+T42	SIGN 2472 2488	pneumoperitoneum
+T43	SIGN 2493 2508	portal vein gas
+T44	SIGN 2510 2526	Pneumoperitoneum
+T45	SIGN 2592 2609	bowel perforation
+T46	SIGN 2709 2738	fluid in the abdominal cavity
+T47	SIGN 2742 2749	abscess
+T48	RAREDISEASE 2813 2816	NEC
+T49	DISEASE 2926 2938	leukocytosis
+T50	SIGN 2926 2938	leukocytosis
+T51	DISEASE 2944 2952	bandemia
+T52	SIGN 2944 2952	bandemia
+T53	DISEASE 2954 2965	neutropenia
+T54	SIGN 2954 2965	neutropenia
+T55	DISEASE 2967 2973	anemia
+T56	SIGN 2967 2973	anemia
+T57	DISEASE 2978 2994	thrombocytopenia
+T58	SIGN 2978 2994	thrombocytopenia
+T59	SIGN 3051 3059	acidosis
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T2 Arg2:T3	
+R3	Produces Arg1:T2 Arg2:T4	
+R4	Produces Arg1:T2 Arg2:T50	
+R5	Produces Arg1:T2 Arg2:T6	
+R6	Produces Arg1:T7 Arg2:T8	
+R7	Produces Arg1:T7 Arg2:T9	
+R8	Produces Arg1:T7 Arg2:T10	
+R9	Produces Arg1:T7 Arg2:T11	
+R10	Increases_risk_of Arg1:T15 Arg2:T140	
+R11	Increases_risk_of Arg1:T16 Arg2:T140	
+R12	Is_a Arg1:T18 Arg2:T17	
+R13	Increases_risk_of Arg1:T19 Arg2:T20	
+R14	Produces Arg1:T19 Arg2:T210	
+R15	Produces Arg1:T19 Arg2:T22	
+R16	Produces Arg1:T19 Arg2:T23	
+R17	Is_acron Arg1:T25 Arg2:T24	
+R18	Produces Arg1:T26 Arg2:T27	
+R19	Produces Arg1:T30 Arg2:T28	
+R20	Produces Arg1:T30 Arg2:T29	
+R21	Produces Arg1:T31 Arg2:T28	
+R22	Produces Arg1:T32 Arg2:T28	
+R23	Produces Arg1:T33 Arg2:T28	
+R24	Produces Arg1:T38 Arg2:T39	
+R25	Produces Arg1:T38 Arg2:T40	
+R26	Produces Arg1:T38 Arg2:T41	
+R27	Produces Arg1:T38 Arg2:T42	
+R28	Produces Arg1:T38 Arg2:T43	
+R29	Produces Arg1:T38 Arg2:T44	
+R30	Produces Arg1:T38 Arg2:T450	
+R31	Produces Arg1:T38 Arg2:T46	
+R32	Produces Arg1:T38 Arg2:T47	
+R33	Produces Arg1:T48 Arg2:T50	
+R34	Produces Arg1:T48 Arg2:T52	
+R35	Produces Arg1:T48 Arg2:T54	
+R36	Produces Arg1:T48 Arg2:T56	
+R37	Produces Arg1:T48 Arg2:T58	
+R38	Produces Arg1:T48 Arg2:T59	

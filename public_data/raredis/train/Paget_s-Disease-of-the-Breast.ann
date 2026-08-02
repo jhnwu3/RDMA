@@ -1,0 +1,13 @@
+T1	RAREDISEASE 0 29	Paget’s disease of the breast
+T2	DISEASE 48 61	breast cancer
+T3	ANAPHOR 146 158	the disorder
+T4	RAREDISEASE 180 209	Paget’s disease of the breast
+T5	ANAPHOR 317 319	it
+T6	ANAPHOR 367 369	It
+T7	DISEASE 421 434	breast cancer
+T8	RAREDISEASE 497 526	Paget’s disease of the breast
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Anaphora Arg1:T4 Arg2:T5	
+R4	Anaphora Arg1:T4 Arg2:T6	
+R5	Is_a Arg1:T6 Arg2:T7	

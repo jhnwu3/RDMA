@@ -1,0 +1,24 @@
+T1	RAREDISEASE 0 18	Chromosome 18 Ring
+T2	ANAPHOR 463 475	the disorder
+T3	DISEASE 492 510	mental retardation
+T4	SIGN 492 510	mental retardation
+T5	SIGN 529 538	hypotonia
+T6	SIGN 541 559	growth retardation
+T7	SIGN 562 611	epeated infections during the first years of life
+T8	SIGN 620 679	malformations of the skull and facial (craniofacial) region
+T9	DISEASE 747 759	microcephaly
+T10	SIGN 747 759	microcephaly
+T11	SIGN 782 802	ocular hypertelorism
+T12	SIGN 868 884	epicanthal folds
+T13	RAREDISEASE 887 905	Chromosome 18 Ring
+T14	RAREDISEASE 1072 1090	Chromosome 18 Ring
+T15	ANAPHOR 1271 1283	The disorder
+R1	Produces Arg1:T2 Arg2:T4	
+R2	Produces Arg1:T2 Arg2:T5	
+R3	Produces Arg1:T2 Arg2:T6	
+R4	Produces Arg1:T2 Arg2:T7	
+R5	Produces Arg1:T2 Arg2:T8	
+R6	Produces Arg1:T2 Arg2:T10	
+R7	Produces Arg1:T2 Arg2:T11	
+R8	Produces Arg1:T2 Arg2:T12	
+R9	Anaphora Arg1:T14 Arg2:T15	

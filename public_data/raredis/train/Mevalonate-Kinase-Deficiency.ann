@@ -1,0 +1,18 @@
+T1	RAREDISEASE 0 28	Mevalonate kinase deficiency
+T2	RAREDISEASE 30 33	MKD
+T3	DISEASE 45 78	genetic autoinflammatory disorder
+T4	DISEASE 80 106	Autoinflammatory syndromes
+T5	SIGN 159 204	random or unprovoked episodes of inflammation
+T6	DISEASE 291 311	autoimmune disorders
+T7	RAREDISEASE 401 429	Mevalonate kinase deficiency
+T8	ANAPHOR 528 540	the disorder
+T9	ANAPHOR 598 610	the disorder
+T10	ANAPHOR 789 801	the disorder
+T11	RAREDISEASE 910 938	mevalonate kinase deficiency
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Is_a Arg1:T1 Arg2:T4	
+R3	Is_acron Arg1:T2 Arg2:T1	
+R4	Produces Arg1:T4 Arg2:T5	
+R5	Anaphora Arg1:T7 Arg2:T8	
+R6	Anaphora Arg1:T7 Arg2:T90	
+R7	Anaphora Arg1:T7 Arg2:T10	

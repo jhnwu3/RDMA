@@ -1,0 +1,10 @@
+T1	RAREDISEASE 0 24	Primary gastric lymphoma
+T2	DISEASE 57 63	cancer
+T3	RAREDISEASE 140 164	primary gastric lymphoma
+T4	RAREDISEASE 176 233	mucosa-associated lymphoid tissue (MALT) gastric lymphoma
+T5	RAREDISEASE 237 266;275 289	diffuse large B-cell lymphoma of the stomach
+T6	RAREDISEASE 268 273;275 289	DLBCL of the stomach
+T7	RAREDISEASE 291 312	MALT gastric lymphoma
+T8	RAREDISEASE 512 536	primary gastric lymphoma
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Is_acron Arg1:T6 Arg2:T5	

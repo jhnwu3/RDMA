@@ -1,0 +1,20 @@
+T1	RAREDISEASE 0 21	Sporadic porencephaly
+T2	RAREDISEASE 82 94	porencephaly
+T3	SIGN 105 146	cavities form on the surface of the brain
+T4	SIGN 119 146;96 101	on the surface of the brain cysts
+T5	SIGN 154 159;183 214	cysts filled with cerebrospinal fluid
+T6	SIGN 163 171;183 214	cavities filled with cerebrospinal fluid
+T7	RAREDISEASE 363 375	porencephaly
+T8	SIGN 468 489	fluid-filled cavities
+T9	SIGN 468 480;493 498	fluid-filled cysts
+T10	RAREDISEASE 653 674	sporadic porencephaly
+T11	ANAPHOR 826 838	the disorder
+T12	RAREDISEASE 883 904	Sporadic porencephaly
+T13	RAREDISEASE 964 985	sporadic porencephaly
+R1	Produces Arg1:T2 Arg2:T3	
+R2	Produces Arg1:T2 Arg2:T40	
+R3	Produces Arg1:T2 Arg2:T5	
+R4	Produces Arg1:T2 Arg2:T6	
+R5	Produces Arg1:T7 Arg2:T8	
+R6	Produces Arg1:T7 Arg2:T9	
+R7	Anaphora Arg1:T10 Arg2:T11	

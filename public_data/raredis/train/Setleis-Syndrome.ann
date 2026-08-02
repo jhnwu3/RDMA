@@ -1,0 +1,57 @@
+T1	SKINRAREDISEASE 1 17	Setleis syndrome
+T2	DISEASE 39 57	inherited disorder
+T3	SKINRAREDISEASE 103 124	ectodermal dysplasias
+T4	SKINRAREDISEASE 126 147	Ectodermal dysplasias
+T5	SKINRAREDISEASE 202 218	Setleis syndrome
+T6	SIGN 239 283;315 325	distinctive abnormalities of the facial area congenital
+T7	SIGN 355 412	multiple, scar-like, circular depressions on both temples
+T8	SIGN 548 584	puffy, wrinkled skin around the eyes
+T9	SIGN 606 659	abnormalities of the eyelashes, eyebrows, and eyelids
+T10	SKINRAREDISEASE 674 690	Setleis syndrome
+T11	SIGN 698 748	missing eyelashes on both the upper and lower lids
+T12	SIGN 767 835	multiple rows of lashes on the upper lids but none on the lower lids
+T13	SIGN 883 887;949 956	nose bulbous
+T14	SIGN 1035 1041;1054 1071;968 975;987 1020	in the nose and the chin infants loose, excessive (redundant) skin
+T15	SKINRAREDISEASE 1120 1136	Setleis syndrome
+T16	SIGN 1149 1153;1185 1195	aged appearance
+T17	SIGN 1161 1172;1185 1195	"leonine"""" appearance"
+T18	SKINRAREDISEASE 1274 1290	Setleis syndrome
+T19	SKINRAREDISEASE 1360 1376	Setleis syndrome
+T20	DISEASE 1398 1416	inherited disorder
+T21	SKINRAREDISEASE 1622 1638	Setleis syndrome
+T22	SIGN 1789 1836	scar-like, circular depressions on both temples
+T23	SIGN 1841 1845;1872 1882	aged appearance
+T24	SIGN 1853 1882	"leonine"""" facial appearance"
+T25	SIGN 1903 1933	abnormalities of the eyelashes
+T26	SIGN 1903 1923;1935 1943	abnormalities of the eyebrows
+T27	SIGN 1903 1923;1949 1956	abnormalities of the eyelids
+T28	SIGN 2080 2095;2121 2130	thinning of the epidermis
+T29	SIGN 2136 2229	absence of certain specialized structures normally located within the inner layer of the skin
+T30	SIGN 2136 2146;2237 2249	absence of sweat glands
+T31	SIGN 2136 2146;2251 2267	absence of sebaceous glands
+T32	SIGN 2136 2146;2269 2283	absence of hair follicles
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Is_a Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T5 Arg2:T6	
+R4	Produces Arg1:T5 Arg2:T7	
+R5	Produces Arg1:T5 Arg2:T8	
+R6	Produces Arg1:T5 Arg2:T9	
+R7	Produces Arg1:T10 Arg2:T11	
+R8	Produces Arg1:T10 Arg2:T12	
+R9	Produces Arg1:T10 Arg2:T13	
+R10	Produces Arg1:T10 Arg2:T140	
+R11	Produces Arg1:T10 Arg2:T140	
+R12	Produces Arg1:T15 Arg2:T16	
+R13	Produces Arg1:T15 Arg2:T17	
+R14	Is_a Arg1:T19 Arg2:T20	
+R15	Produces Arg1:T21 Arg2:T22	
+R16	Produces Arg1:T21 Arg2:T23	
+R17	Produces Arg1:T21 Arg2:T24	
+R18	Produces Arg1:T21 Arg2:T25	
+R19	Produces Arg1:T21 Arg2:T26	
+R20	Produces Arg1:T21 Arg2:T270	
+R21	Produces Arg1:T21 Arg2:T28	
+R22	Produces Arg1:T21 Arg2:T290	
+R23	Produces Arg1:T21 Arg2:T30	
+R24	Produces Arg1:T21 Arg2:T31	
+R25	Produces Arg1:T21 Arg2:T32	

@@ -1,0 +1,13 @@
+T1	RAREDISEASE 0 37	Congenital pulmonary lymphangiectasia
+T2	RAREDISEASE 39 42	CPL
+T3	DISEASE 54 76	developmental disorder
+T4	SIGN 158 165;167 201	dilated lymphatic vessels within the lungs
+T5	RAREDISEASE 629 632	CPL
+T6	RAREDISEASE 714 717	CPL
+T7	RAREDISEASE 796 799	CPL
+T8	ANAPHOR 825 837	the disorder
+T9	RAREDISEASE 896 899	CPL
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Is_acron Arg1:T2 Arg2:T1	
+R4	Anaphora Arg1:T7 Arg2:T8	

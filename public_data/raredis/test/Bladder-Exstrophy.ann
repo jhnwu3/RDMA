@@ -1,0 +1,22 @@
+T1	RAREDISEASE 0 54	Bladder exstrophy-epispadias-cloacal exstrophy complex
+T2	RAREDISEASE 188 213	classic bladder exstrophy
+T3	RAREDISEASE 524 578	bladder exstrophy-epispadias-cloacal exstrophy complex
+T4	SIGN 594 619	developmental abnormality
+T5	SIGN 672 751	cloacal membrane is not replaced by tissue that will form the abdominal muscles
+T6	ANAPHOR 778 803	this error in development
+T7	RAREDISEASE 842 867	classic bladder exstrophy
+T8	RAREDISEASE 997 1016	Isolated epispadias
+T9	RAREDISEASE 1109 1126	Cloacal exstrophy
+T10	SIGN 1248 1274	absence of bladder filling
+T11	SIGN 1276 1298	low-set umbilical cord
+T12	SIGN 1300 1325	separation of pubic bones
+T13	SIGN 1327 1341	small genitals
+T14	SIGN 1349 1414	abdominal mass that increases in size as the pregnancy progresses
+R1	Produces Arg1:T3 Arg2:T4	
+R2	Produces Arg1:T3 Arg2:T5	
+R3	Anaphora Arg1:T3 Arg2:T6	
+R4	Produces Arg1:T3 Arg2:T10	
+R5	Produces Arg1:T3 Arg2:T11	
+R6	Produces Arg1:T3 Arg2:T12	
+R7	Produces Arg1:T3 Arg2:T13	
+R8	Produces Arg1:T3 Arg2:T14	

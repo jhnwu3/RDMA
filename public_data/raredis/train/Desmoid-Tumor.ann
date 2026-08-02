@@ -1,0 +1,12 @@
+T1	RAREDISEASE 0 14	Desmoid tumors
+T2	RAREDISEASE 133 147	Desmoid tumors
+T3	RAREDISEASE 242 256	Desmoid tumors
+T4	RAREDISEASE 415 428	desmoid tumor
+T5	SIGN 549 608	spindle cells of desmoid tumors appear to be myofibroblasts
+T6	SIGN 634 674	abnormal proliferation of myofibroblasts
+T7	SIGN 812 848	nuclear accumulation of beta-catenin
+T8	RAREDISEASE 917 931	desmoid tumors
+T9	RAREDISEASE 1084 1098	desmoid tumors
+R1	Produces Arg1:T4 Arg2:T5	
+R2	Produces Arg1:T4 Arg2:T6	
+R3	Produces Arg1:T8 Arg2:T7	

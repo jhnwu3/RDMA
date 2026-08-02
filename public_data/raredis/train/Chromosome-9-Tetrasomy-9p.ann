@@ -1,0 +1,7 @@
+T1	RAREDISEASE 1 27	Chromosome 9, Tetrasomy 9p
+T2	DISEASE 43 63	chromosomal disorder
+T3	RAREDISEASE 377 403	Chromosome 9, Tetrasomy 9p
+T4	RAREDISEASE 476 502	Chromosome 9, Tetrasomy 9p
+T5	DISEASE 518 538	chromosomal disorder
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Is_a Arg1:T4 Arg2:T5	

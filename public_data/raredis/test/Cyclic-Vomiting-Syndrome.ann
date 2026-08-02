@@ -1,0 +1,36 @@
+T1	RAREDISEASE 0 24	Cyclic vomiting syndrome
+T2	SIGN 7 15	vomiting
+T3	ANAPHOR 81 83	It
+T4	ANAPHOR 163 165	it
+T5	ANAPHOR 254 256	it
+T6	DISEASE 294 305	stomach flu
+T7	RAREDISEASE 369 372	CVS
+T8	ANAPHOR 406 408	it
+T9	RAREDISEASE 480 483	CVS
+T10	ANAPHOR 505 507	it
+T11	RAREDISEASE 643 646	CVS
+T12	ANAPHOR 677 689	the disorder
+T13	RAREDISEASE 787 790	CVS
+T14	RAREDISEASE 892 916	cyclic vomiting syndrome
+T15	SIGN 899 907	vomiting
+T16	RAREDISEASE 1259 1262	CVS
+T17	SIGN 1302 1320	recurrent vomiting
+T18	RAREDISEASE 1386 1410	cyclic vomiting syndrome
+T19	SIGN 1393 1401	vomiting
+T20	SIGN 1437 1470	urine ketosis early in an episode
+T21	SYMPTOM 1563 1579	recurrent nausea
+T22	SIGN 1584 1592	vomiting
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Anaphora Arg1:T1 Arg2:T4	
+R4	Anaphora Arg1:T1 Arg2:T5	
+R5	Is_a Arg1:T5 Arg2:T6	
+R6	Anaphora Arg1:T10 Arg2:T18	
+R7	Anaphora Arg1:T9 Arg2:T10	
+R8	Anaphora Arg1:T20 Arg2:T21	
+R9	Produces Arg1:T14 Arg2:T15	
+R10	Produces Arg1:T16 Arg2:T17	
+R11	Produces Arg1:T18 Arg2:T19	
+R12	Produces Arg1:T18 Arg2:T20	
+R13	Produces Arg1:T18 Arg2:T21	
+R14	Produces Arg1:T18 Arg2:T22	

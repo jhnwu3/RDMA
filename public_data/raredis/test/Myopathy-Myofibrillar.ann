@@ -1,0 +1,24 @@
+T1	RAREDISEASE 0 23	Myofibrillar myopathies
+T2	DISEASE 44 75	genetic neuromuscular disorders
+T3	ANAPHOR 156 172	These conditions
+T4	SIGN 220 254;272 280	slowly progressive muscle weakness skeletal
+T5	SIGN 220 254;285 291	slowly progressive muscle weakness smooth
+T6	SIGN 300 324	Skeletal muscle weakness
+T7	DISEASE 462 476	cardiomyopathy
+T8	SIGN 462 476	cardiomyopathy
+T9	SIGN 508 518	arrhythmia
+T10	SIGN 520 538	conduction defects
+T11	DISEASE 542 566	congestive heart failure
+T12	SIGN 542 566	congestive heart failure
+T13	RAREDISEASE 585 608	myofibrillar myopathies
+T14	ANAPHOR 652 668	these conditions
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T3 Arg2:T4	
+R4	Produces Arg1:T3 Arg2:T5	
+R5	Produces Arg1:T3 Arg2:T6	
+R6	Produces Arg1:T3 Arg2:T8	
+R7	Produces Arg1:T3 Arg2:T9	
+R8	Produces Arg1:T3 Arg2:T10	
+R9	Produces Arg1:T3 Arg2:T12	
+R10	Anaphora Arg1:T13 Arg2:T14	

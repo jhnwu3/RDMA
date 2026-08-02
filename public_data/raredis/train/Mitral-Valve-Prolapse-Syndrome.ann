@@ -1,0 +1,28 @@
+T1	DISEASE 124 154	Mitral valve prolapse syndrome
+T2	DISEASE 156 159	MVP
+T3	SIGN 192 344	one or both of the flaps (cusps) of the mitral valve bulge or collapse backward (prolapse) into the left atrium during ventricular contraction (systole)
+T4	DISEASE 465 485	mitral regurgitation
+T5	SIGN 465 485	mitral regurgitation
+T6	DISEASE 497 527	mitral valve prolapse syndrome
+T7	DISEASE 529 532	MVP
+T8	ANAPHOR 584 586	it
+T9	DISEASE 652 655	MVP
+T10	DISEASE 807 837	mitral valve prolapse syndrome
+T11	ANAPHOR 1010 1021	the disease
+T12	DISEASE 1089 1119	Mitral valve prolapse syndrome
+T13	DISEASE 1121 1124	MVP
+T14	ANAPHOR 1243 1256	The condition
+T15	SIGN 1410 1425	systolic clicks
+T16	SIGN 1478 1512	late systolic regurgitation murmur
+T17	SIGN 1953 1966	regurgitation
+R1	Produces Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T50	
+R3	Is_acron Arg1:T2 Arg2:T1	
+R4	Anaphora Arg1:T6 Arg2:T8	
+R5	Is_acron Arg1:T7 Arg2:T6	
+R6	Anaphora Arg1:T10 Arg2:T11	
+R7	Anaphora Arg1:T12 Arg2:T14	
+R8	Is_acron Arg1:T13 Arg2:T12	
+R9	Produces Arg1:T14 Arg2:T15	
+R10	Produces Arg1:T14 Arg2:T16	
+R11	Produces Arg1:T14 Arg2:T17	

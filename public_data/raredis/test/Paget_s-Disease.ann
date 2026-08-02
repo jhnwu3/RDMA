@@ -1,0 +1,10 @@
+T1	DISEASE 0 15	Paget’s disease
+T2	DISEASE 153 168	Paget’s disease
+T3	ANAPHOR 231 233	it
+T4	DISEASE 371 386	Paget’s disease
+T5	DISEASE 483 498	Paget’s disease
+T6	SIGN 683 733	elevated levels of the enzyme alkaline phosphatase
+T7	DISEASE 762 777	Paget’s disease
+T8	DISEASE 951 966	Paget’s disease
+R1	Anaphora Arg1:T2 Arg2:T3	
+R2	Produces Arg1:T7 Arg2:T6	

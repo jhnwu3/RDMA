@@ -1,0 +1,9 @@
+T1	RAREDISEASE 0 10	Trisomy 5p
+T2	DISEASE 21 41	chromosomal disorder
+T3	RAREDISEASE 497 507	trisomy 5p
+T4	RAREDISEASE 714 724	trisomy 5p
+T5	RAREDISEASE 830 840	trisomy 5p
+T6	DISEASE 862 880	genetic conditions
+T7	DISEASE 884 909	chromosomal abnormalities
+T8	DISEASE 987 1007	chromosomal disorder
+R1	Is_a Arg1:T1 Arg2:T2	

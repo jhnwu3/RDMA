@@ -1,0 +1,30 @@
+T1	RAREDISEASE 13 28	hyperprolinemia
+T2	SIGN 103 173	inherited inborn error of metabolism involving the amino acid, proline
+T3	RAREDISEASE 246 268	Hyperprolinemia Type I
+T4	SIGN 246 268	Hyperprolinemia Type I
+T5	RAREDISEASE 286 312	proline oxidase deficiency
+T6	SIGN 340 375	abnormally high proline blood level
+T7	SIGN 404 418;431 457	hydroxyproline in the blood are also high
+T8	SIGN 423 457	glycine in the blood are also high
+T9	SIGN 503 523	kidney abnormalities
+T10	RAREDISEASE 547 551	HP-I
+T11	RAREDISEASE 607 611	HP-I
+T12	SIGN 628 667	high levels of amino acids in the blood
+T13	SIGN 628 661;672 677	high levels of amino acids in the urine
+T14	ANAPHOR 698 711	this disorder
+T15	RAREDISEASE 736 758	Hyperprolinemia Type I
+T16	ANAPHOR 810 812	It
+T17	RAREDISEASE 857 861	HP-I
+T18	SIGN 879 908	elevated blood proline levels
+T19	RAREDISEASE 972 976	HP-1
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T3 Arg2:T6	
+R3	Produces Arg1:T3 Arg2:T7	
+R4	Produces Arg1:T3 Arg2:T8	
+R5	Produces Arg1:T5 Arg2:T4	
+R6	Produces Arg1:T10 Arg2:T9	
+R7	Produces Arg1:T11 Arg2:T12	
+R8	Produces Arg1:T11 Arg2:T13	
+R9	Anaphora Arg1:T11 Arg2:T14	
+R10	Anaphora Arg1:T10 Arg2:T18	
+R11	Produces Arg1:T17 Arg2:T18	

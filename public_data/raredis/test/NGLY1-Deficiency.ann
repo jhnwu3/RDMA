@@ -1,0 +1,4 @@
+T1	RAREDISEASE 6 22	NGLY1 deficiency
+T2	ANAPHOR 246 258	the disorder
+T3	RAREDISEASE 279 295	NGLY1 deficiency
+R1	Anaphora Arg1:T1 Arg2:T2	

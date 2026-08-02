@@ -1,0 +1,32 @@
+T1	SKINRAREDISEASE 0 9	Pemphigus
+T2	SKINRAREDISEASE 14 24	pemphigoid
+T3	DISEASE 34 100	autoimmune blistering diseases of the skin and/or mucous membranes
+T4	SKINRAREDISEASE 102 111	Pemphigus
+T5	SIGN 165 172	lesions
+T6	SIGN 177 210	blisters that are easily ruptured
+T7	SKINRAREDISEASE 212 222	Pemphigoid
+T8	SIGN 305 344	tense blisters that do not break easily
+T9	SKINRAREDISEASE 356 366	pemphigoid
+T10	SIGN 381 386	hives
+T11	SIGN 390 396	eczema
+T12	SKINRAREDISEASE 415 424	Pemphigus
+T13	SKINRAREDISEASE 429 439	pemphigoid
+T14	ANAPHOR 525 536	the disease
+T15	ANAPHOR 832 846	these diseases
+T16	ANAPHOR 884 898	The conditions
+T17	ANAPHOR 1110 1121	the disease
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Is_a Arg1:T10 Arg2:T11	
+R3	Produces Arg1:T4 Arg2:T5	
+R4	Produces Arg1:T4 Arg2:T6	
+R5	Produces Arg1:T7 Arg2:T8	
+R6	Produces Arg1:T9 Arg2:T10	
+R7	Produces Arg1:T9 Arg2:T11	
+R8	Anaphora Arg1:T12 Arg2:T14	
+R9	Anaphora Arg1:T12 Arg2:T15	
+R10	Anaphora Arg1:T12 Arg2:T16	
+R11	Anaphora Arg1:T12 Arg2:T17	
+R12	Anaphora Arg1:T13 Arg2:T14	
+R13	Anaphora Arg1:T13 Arg2:T15	
+R14	Anaphora Arg1:T13 Arg2:T16	
+R15	Anaphora Arg1:T13 Arg2:T17	

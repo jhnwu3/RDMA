@@ -1,0 +1,8 @@
+T1	RAREDISEASE 0 14	Achondroplasia
+T2	ANAPHOR 69 82	This disorder
+T3	RAREDISEASE 153 171	skeletal dysplasia
+T4	SIGN 184 192	dwarfism
+T5	RAREDISEASE 221 235	achondroplasia
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Is_a Arg1:T2 Arg2:T3	
+R3	Produces Arg1:T2 Arg2:T4	

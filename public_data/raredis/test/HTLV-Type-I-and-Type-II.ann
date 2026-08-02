@@ -1,0 +1,16 @@
+T1	RAREDISEASE 0 6	HTLV-I
+T2	RAREDISEASE 88 96	lymphoma
+T3	ANAPHOR 119 121	it
+T4	RAREDISEASE 145 153	lymphoma
+T5	RAREDISEASE 179 200	acute T-cell leukemia
+T6	RAREDISEASE 202 210	lymphoma
+T7	RAREDISEASE 212 215	ATL
+T8	DISEASE 312 346	chronic disease of the spinal cord
+T9	RAREDISEASE 351 357	HTLV-I
+T10	RAREDISEASE 391 448	HTLV-I associated myelopathy/tropical spastic paraparesis
+T11	RAREDISEASE 420 448	tropical spastic paraparesis
+T12	RAREDISEASE 450 457	HAM/TSP
+T13	RAREDISEASE 517 531	HTLV infection
+R1	Anaphora Arg1:T1 Arg2:T3	
+R2	Is_acron Arg1:T10 Arg2:T9	
+R3	Is_acron Arg1:T12 Arg2:T10	

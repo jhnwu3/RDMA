@@ -1,0 +1,28 @@
+T1	DISEASE 0 17	Wernicke syndrome
+T2	DISEASE 22 40	Korsakoff syndrome
+T3	SIGN 89 111	deficiency of thiamine
+T4	DISEASE 126 145	Wernicke's syndrome
+T5	DISEASE 161 184	Wernicke encephalopathy
+T6	DISEASE 191 211	neurological disease
+T7	SYMPTOM 251 260	confusion
+T8	SIGN 310 316	ataxia
+T9	SIGN 323 326;336 349	eye abnormalities
+T10	DISEASE 351 371	Korsakoff's syndrome
+T11	DISEASE 377 392	mental disorder
+T12	SIGN 410 438	disproportionate memory loss
+T13	ANAPHOR 481 500	these two disorders
+T14	DISEASE 526 553	Wernicke-Korsakoff syndrome
+T15	DISEASE 617 644	Wernicke-Korsakoff syndrome
+T16	ANAPHOR 715 727	The disorder
+R1	Produces Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T2 Arg2:T3	
+R3	Is_a Arg1:T4 Arg2:T6	
+R4	Produces Arg1:T4 Arg2:T7	
+R5	Produces Arg1:T4 Arg2:T8	
+R6	Produces Arg1:T4 Arg2:T9	
+R7	Anaphora Arg1:T4 Arg2:T13	
+R8	Is_synon Arg1:T5 Arg2:T4	
+R9	Is_a Arg1:T10 Arg2:T11	
+R10	Produces Arg1:T10 Arg2:T120	
+R11	Anaphora Arg1:T10 Arg2:T13	
+R12	Anaphora Arg1:T15 Arg2:T16	

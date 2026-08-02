@@ -1,0 +1,21 @@
+T1	RAREDISEASE 0 3	DMC
+T2	RAREDISEASE 8 11	SMS
+T3	DISEASE 31 48	genetic disorders
+T4	RAREDISEASE 97 100	DMC
+T5	RAREDISEASE 104 107	SMS
+T6	RAREDISEASE 287 290	DMC
+T7	SIGN 444 456	barrel chest
+T8	SIGN 461 491	disproportionate short stature
+T9	SIGN 526 548	skeletal abnormalities
+T10	RAREDISEASE 578 581	DMC
+T11	SIGN 604 636	notching of the vertebral bodies
+T12	SIGN 638 672	lacy appearance of the iliac crest
+T13	SIGN 678 710	small and malformed carpal bones
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Is_a Arg1:T2 Arg2:T3	
+R3	Produces Arg1:T6 Arg2:T7	
+R4	Produces Arg1:T6 Arg2:T8	
+R5	Produces Arg1:T10 Arg2:T9	
+R6	Produces Arg1:T10 Arg2:T11	
+R7	Produces Arg1:T10 Arg2:T120	
+R8	Produces Arg1:T10 Arg2:T13	

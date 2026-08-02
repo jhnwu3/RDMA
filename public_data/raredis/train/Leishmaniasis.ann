@@ -1,0 +1,5 @@
+T1	DISEASE 29 48	infectious diseases
+T2	DISEASE 50 73	inflammatory conditions
+T3	DISEASE 75 94	malignant neoplasms
+T4	DISEASE 99 114	skin conditions
+T5	RAREDISEASE 159 172	leishmaniasis

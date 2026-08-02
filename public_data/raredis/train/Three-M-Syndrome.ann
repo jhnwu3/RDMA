@@ -1,0 +1,5 @@
+T1	RAREDISEASE 0 16	Three M syndrome
+T2	DISEASE 38 56	inherited disorder
+T3	ANAPHOR 190 202	the disorder
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	

@@ -1,0 +1,6 @@
+T1	RAREDISEASE 0 17	Nemaline myopathy
+T2	RAREDISEASE 317 334	nemaline myopathy
+T3	RAREDISEASE 491 508	nemaline myopathy
+T4	SIGN 730 745	nemaline bodies
+T5	RAREDISEASE 999 1016	nemaline myopathy
+R1	Produces Arg1:T3 Arg2:T4	

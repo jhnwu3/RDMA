@@ -1,0 +1,5 @@
+T1	SKINRAREDISEASE 0 23	Lymphedema-distichiasis
+T2	RAREDISEASE 68 78	Lymphedema
+T3	ANAPHOR 147 160	this disorder
+T4	SKINRAREDISEASE 199 231	Lymphedema-distichiasis syndrome
+R1	Anaphora Arg1:T1 Arg2:T3	

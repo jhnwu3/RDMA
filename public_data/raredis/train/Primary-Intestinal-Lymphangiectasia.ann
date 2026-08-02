@@ -1,0 +1,15 @@
+T1	RAREDISEASE 0 35	Primary intestinal lymphangiectasia
+T2	RAREDISEASE 37 40	PIL
+T3	DISEASE 52 70	digestive disorder
+T4	SIGN 109 118;120 177	dilatated lymph vessels supplying the lining of the small intestine
+T5	SIGN 211 216	edema
+T6	SYMPTOM 235 255	abdominal discomfort
+T7	ANAPHOR 257 269	The disorder
+T8	RAREDISEASE 372 375	PIL
+T9	RAREDISEASE 448 451	PIL
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Produces Arg1:T1 Arg2:T5	
+R4	Produces Arg1:T1 Arg2:T6	
+R5	Anaphora Arg1:T1 Arg2:T70	
+R6	Is_acron Arg1:T2 Arg2:T1	

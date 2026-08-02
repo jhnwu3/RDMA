@@ -1,0 +1,24 @@
+T1	RAREDISEASE 0 21	Diastrophic dysplasia
+T2	RAREDISEASE 46 67	disastrophic dwarfism
+T3	DISEASE 114 124;79 87	congenital disorder
+T4	ANAPHOR 240 252	the disorder
+T5	SIGN 279 292	short stature
+T6	SIGN 328 349	short-limbed dwarfism
+T7	SIGN 383 401	skeletal dysplasia
+T8	SIGN 415 430	joint dysplasia
+T9	DISEASE 504 513	scoliosis
+T10	SIGN 504 513	scoliosis
+T11	DISEASE 521 529	kyphosis
+T12	SIGN 521 529	kyphosis
+T13	SIGN 532 562;600 606	abnormal tissue changes of the pinnae
+T14	SIGN 632 688	malformations of the head and facial (craniofacial) area
+R1	Is_synon Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T4	
+R3	Produces Arg1:T4 Arg2:T5	
+R4	Produces Arg1:T4 Arg2:T6	
+R5	Produces Arg1:T4 Arg2:T7	
+R6	Produces Arg1:T4 Arg2:T8	
+R7	Produces Arg1:T4 Arg2:T10	
+R8	Produces Arg1:T4 Arg2:T12	
+R9	Produces Arg1:T4 Arg2:T13	
+R10	Produces Arg1:T4 Arg2:T14	

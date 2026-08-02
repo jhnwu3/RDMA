@@ -1,0 +1,78 @@
+T1	RAREDISEASE 0 21	Legionnaires' Disease
+T2	DISEASE 42 69	acute respiratory pneumonia
+T3	DISEASE 343 362	Renal insufficiency
+T4	SIGN 343 362	Renal insufficiency
+T5	RAREDISEASE 469 490	Legionnaires’ Disease
+T6	DISEASE 504 513	pneumonia
+T7	SIGN 504 513	pneumonia
+T8	SYMPTOM 526 586	shaking chill, sharp pain in the involved side of the chest,
+T9	SIGN 587 592	cough
+T10	SIGN 598 604	sputum
+T11	SIGN 608 614	phlegm
+T12	SIGN 627 632	fever
+T13	SIGN 670 675;688 699	rapid respiration
+T14	SYMPTOM 680 699	painful respiration
+T15	SYMPTOM 702 716	Abdominal pain
+T16	SIGN 718 726	diarrhea
+T17	SIGN 728 746	neurological signs
+T18	SYMPTOM 755 763	headache
+T19	SYMPTOM 765 774	confusion
+T20	SYMPTOM 776 784	lethargy
+T21	SYMPTOM 788 797	agitation
+T22	SIGN 851 874	abnormal liver function
+T23	DISEASE 910 926	hypophosphatemia
+T24	SIGN 910 926	hypophosphatemia
+T25	SIGN 949 958	hematuria
+T26	SIGN 983 995	hyponatremia
+T27	RAREDISEASE 1003 1024	Legionnaires’ Disease
+T28	RAREDISEASE 1026 1039	Pontiac Fever
+T29	SYMPTOM 1183 1190	malaise
+T30	SYMPTOM 1193 1200	fatigue
+T31	SIGN 1202 1207	fever
+T32	SIGN 1209 1215	chills
+T33	SYMPTOM 1231 1238	myalgia
+T34	SYMPTOM 1245 1253	headache
+T35	RAREDISEASE 1278 1291	Pontiac Fever
+T36	SYMPTOM 1309 1315	nausea
+T37	SIGN 1317 1322	cough
+T38	SYMPTOM 1337 1346	arthalgia
+T39	SIGN 1349 1357	diarrhea
+T40	SYMPTOM 1363 1377	abdominal pain
+T41	DISEASE 1384 1393	pneumonia
+T42	SIGN 1384 1393	pneumonia
+T43	RAREDISEASE 1402 1423	Legionnaires’ Disease
+T44	RAREDISEASE 1557 1570	Pontiac Fever
+T45	RAREDISEASE 1721 1742	Legionnaires’ Disease
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Produces Arg1:T5 Arg2:T7	
+R4	Produces Arg1:T5 Arg2:T8	
+R5	Produces Arg1:T5 Arg2:T9	
+R6	Produces Arg1:T5 Arg2:T10	
+R7	Produces Arg1:T5 Arg2:T11	
+R8	Produces Arg1:T5 Arg2:T12	
+R9	Produces Arg1:T5 Arg2:T13	
+R10	Produces Arg1:T5 Arg2:T140	
+R11	Produces Arg1:T5 Arg2:T15	
+R12	Produces Arg1:T5 Arg2:T16	
+R13	Produces Arg1:T5 Arg2:T17	
+R14	Produces Arg1:T5 Arg2:T18	
+R15	Produces Arg1:T5 Arg2:T19	
+R16	Produces Arg1:T5 Arg2:T20	
+R17	Produces Arg1:T5 Arg2:T210	
+R18	Produces Arg1:T5 Arg2:T22	
+R19	Produces Arg1:T5 Arg2:T24	
+R20	Produces Arg1:T5 Arg2:T25	
+R21	Produces Arg1:T5 Arg2:T26	
+R22	Produces Arg1:T20 Arg2:T21	
+R23	Produces Arg1:T20 Arg2:T22	
+R24	Produces Arg1:T20 Arg2:T23	
+R25	Produces Arg1:T20 Arg2:T24	
+R26	Produces Arg1:T20 Arg2:T25	
+R27	Produces Arg1:T20 Arg2:T26	
+R28	Produces Arg1:T35 Arg2:T36	
+R29	Produces Arg1:T35 Arg2:T37	
+R30	Produces Arg1:T35 Arg2:T38	
+R31	Produces Arg1:T35 Arg2:T390	
+R32	Produces Arg1:T35 Arg2:T40	
+R33	Produces Arg1:T43 Arg2:T42	

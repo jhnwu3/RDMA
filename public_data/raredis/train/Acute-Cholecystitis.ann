@@ -1,0 +1,34 @@
+T1	DISEASE 430 440	Gallstones
+T2	DISEASE 581 591	Gallstones
+T3	SIGN 624 649	block the release of bile
+T4	DISEASE 685 695	gallstones
+T5	SIGN 722 755	obstruction within the bile ducts
+T6	SIGN 766 777;788 798	gallbladder distension
+T7	SYMPTOM 804 815	severe pain
+T8	DISEASE 869 882	biliary colic
+T9	SIGN 869 882	biliary colic
+T10	SIGN 928 940	inflammation
+T11	SIGN 942 951	infection
+T12	SIGN 982 990	ischemia
+T13	DISEASE 1021 1040	acute cholecystitis
+T14	DISEASE 1045 1074	acute calculous cholecystitis
+T15	DISEASE 1076 1079	ACC
+T16	DISEASE 1109 1128	acute cholecystitis
+T17	DISEASE 1143 1164	chronic cholecystitis
+T18	SIGN 1174 1222	thickening and shrinking of the gallbladder wall
+T19	SIGN 1239 1262	inability to store bile
+R1	Produces Arg1:T2 Arg2:T3	
+R2	Produces Arg1:T20 Arg2:T21	
+R3	Produces Arg1:T20 Arg2:T14	
+R4	Produces Arg1:T20 Arg2:T1	
+R5	Produces Arg1:T20 Arg2:T2	
+R6	Increases_risk_of Arg1:T20 Arg2:T5	
+R7	Produces Arg1:T13 Arg2:T10	
+R8	Produces Arg1:T13 Arg2:T11	
+R9	Produces Arg1:T13 Arg2:T12	
+R10	Produces Arg1:T13 Arg2:T12	
+R11	Is_synon Arg1:T14 Arg2:T13	
+R12	Is_acron Arg1:T15 Arg2:T14	
+R13	Increases_risk_of Arg1:T16 Arg2:T17	
+R14	Produces Arg1:T17 Arg2:T18	
+R15	Produces Arg1:T17 Arg2:T190	

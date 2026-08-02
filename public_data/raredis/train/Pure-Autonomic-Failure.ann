@@ -1,0 +1,14 @@
+T1	SIGN 145 168	orthostatic hypotension
+T2	SIGN 184 221	sudden drastic drop in blood pressure
+T3	RAREDISEASE 291 313	pure autonomic failure
+T4	RAREDISEASE 315 318	PAF
+T5	RAREDISEASE 437 440	PAF
+T6	SIGN 463 531	accumulation of a protein called alpha-synuclein in autonomic nerves
+T7	RAREDISEASE 633 636	PAF
+T8	RAREDISEASE 754 757	PAF
+T9	ANAPHOR 847 849	It
+R1	Produces Arg1:T3 Arg2:T1	
+R2	Produces Arg1:T3 Arg2:T2	
+R3	Is_acron Arg1:T4 Arg2:T3	
+R4	Produces Arg1:T5 Arg2:T6	
+R5	Anaphora Arg1:T8 Arg2:T9	

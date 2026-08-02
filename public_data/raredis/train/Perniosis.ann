@@ -1,0 +1,31 @@
+T1	RAREDISEASE 0 9	Perniosis
+T2	DISEASE 16 37	inflammatory disorder
+T3	ANAPHOR 115 117	It
+T4	RAREDISEASE 172 182	vasculitis
+T5	SIGN 172 182	vasculitis
+T6	SIGN 208 244	painful, itchy, tender, skin lesions
+T7	ANAPHOR 298 309	The lesions
+T8	ANAPHOR 359 371	the disorder
+T9	RAREDISEASE 432 441	perniosis
+T10	SIGN 622 635	skin to swell
+T11	SYMPTOM 677 681	pain
+T12	ANAPHOR 725 737	the disorder
+T13	DISEASE 776 792	hypersensitivity
+T14	DISEASE 877 888;907 915	circulatory diseases
+T15	DISEASE 892 915	cardiovascular diseases
+T16	DISEASE 1093 1110	systemic diseases
+T17	RAREDISEASE 1112 1121	Perniosis
+T18	ANAPHOR 1174 1176	it
+T19	RAREDISEASE 1286 1295	perniosis
+T20	ANAPHOR 1421 1433	The disorder
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Anaphora Arg1:T1 Arg2:T7	
+R4	Anaphora Arg1:T1 Arg2:T8	
+R5	Produces Arg1:T3 Arg2:T5	
+R6	Produces Arg1:T3 Arg2:T6	
+R7	Produces Arg1:T9 Arg2:T10	
+R8	Produces Arg1:T9 Arg2:T11	
+R9	Anaphora Arg1:T9 Arg2:T12	
+R10	Anaphora Arg1:T17 Arg2:T18	
+R11	Anaphora Arg1:T10 Arg2:T20	

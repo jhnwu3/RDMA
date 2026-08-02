@@ -1,0 +1,7 @@
+T1	RAREDISEASE 0 24	Neonatal hemochromatosis
+T2	ANAPHOR 111 123	the disorder
+T3	RAREDISEASE 136 160	Neonatal hemochromatosis
+T4	SIGN 189 214	liver failure in newborns
+T5	RAREDISEASE 278 302	Neonatal hemochromatosis
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T3 Arg2:T4	

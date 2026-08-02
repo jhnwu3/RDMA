@@ -1,0 +1,20 @@
+T1	RAREDISEASE 0 34	Chromosome 11, Partial Trisomy 11q
+T2	DISEASE 45 65	chromosomal disorder
+T3	ANAPHOR 265 277	the disorder
+T4	SIGN 342 350;365 383	prenatal growth retardation
+T5	SIGN 355 383	postnatal growth retardation
+T6	DISEASE 405 423	mental retardation
+T7	SIGN 405 423	mental retardation
+T8	SIGN 437 496	abnormalities of the skull and facial (craniofacial) region
+T9	RAREDISEASE 581 615	Chromosome 11, Partial Trisomy 11q
+T10	DISEASE 631 651	chromosomal disorder
+T11	ANAPHOR 731 744	this disorder
+T12	RAREDISEASE 793 827	Chromosome 11, Partial Trisomy 11q
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T3 Arg2:T4	
+R4	Produces Arg1:T3 Arg2:T5	
+R5	Produces Arg1:T3 Arg2:T7	
+R6	Produces Arg1:T3 Arg2:T8	
+R7	Is_a Arg1:T9 Arg2:T100	
+R8	Anaphora Arg1:T9 Arg2:T11	

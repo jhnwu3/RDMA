@@ -1,0 +1,7 @@
+T1	RAREDISEASE 0 16	Ogilvie syndrome
+T2	RAREDISEASE 162 178	Ogilvie syndrome
+T3	ANAPHOR 328 340	the disorder
+T4	ANAPHOR 448 460	the disorder
+T5	RAREDISEASE 501 517	Ogilvie syndrome
+R1	Anaphora Arg1:T2 Arg2:T3	
+R2	Anaphora Arg1:T2 Arg2:T4	

@@ -1,0 +1,15 @@
+T1	RAREDISEASE 0 28	Giant hypertrophic gastritis
+T2	RAREDISEASE 30 33	GHG
+T3	SIGN 57 84	inflammation of the stomach
+T4	SIGN 150 156;158 172;96 137	mucosa of the stomach accumulation of inflammatory cells in the
+T5	SIGN 282 308	hypertrophic gastric folds
+T6	RAREDISEASE 311 314	GHG
+T7	RAREDISEASE 370 373	GHG
+T8	RAREDISEASE 421 424	GHG
+T9	RAREDISEASE 437 465	Giant hypertrophic gastritis
+T10	ANAPHOR 510 512	It
+R1	Produces Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Produces Arg1:T1 Arg2:T5	
+R4	Is_acron Arg1:T2 Arg2:T1	
+R5	Anaphora Arg1:T9 Arg2:T10	

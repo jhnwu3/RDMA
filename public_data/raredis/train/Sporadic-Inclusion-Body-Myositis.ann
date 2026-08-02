@@ -1,0 +1,20 @@
+T1	RAREDISEASE 0 32	Sporadic inclusion body myositis
+T2	RAREDISEASE 34 38	sIBM
+T3	DISEASE 46 82	acquired progressive muscle disorder
+T4	RAREDISEASE 155 159	sIBM
+T5	RAREDISEASE 208 212	sIBM
+T6	SIGN 233 253;281 295	progressive weakness of the muscles
+T7	SIGN 272 279;281 295	atrophy of the muscles
+T8	RAREDISEASE 339 343	sIBM
+T9	RAREDISEASE 385 389	sIBM
+T10	DISEASE 396 414	autoimmune disease
+T11	ANAPHOR 469 481	the disorder
+T12	RAREDISEASE 494 498	sIBM
+T13	DISEASE 509 528	autoimmune diseases
+R1	Is_a Arg1:T1 Arg2:T30	
+R2	Is_acron Arg1:T2 Arg2:T1	
+R3	Produces Arg1:T5 Arg2:T6	
+R4	Produces Arg1:T5 Arg2:T7	
+R5	Is_a Arg1:T9 Arg2:T10	
+R6	Anaphora Arg1:T9 Arg2:T11	
+R7	Is_a Arg1:T12 Arg2:T13	

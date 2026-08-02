@@ -1,0 +1,16 @@
+T1	RAREDISEASE 0 24	Scapuloperoneal myopathy
+T2	DISEASE 35 51	genetic disorder
+T3	SYMPTOM 69 77;90 108	weakness of certain muscles
+T4	SYMPTOM 82 108	wasting of certain muscles
+T5	ANAPHOR 397 409	the disorder
+T6	ANAPHOR 436 450	This condition
+T7	RAREDISEASE 503 527	Scapuloperoneal myopathy
+T8	RAREDISEASE 573 597	Scapuloperoneal myopathy
+T9	RAREDISEASE 695 719	Scapuloperoneal myopathy
+T10	ANAPHOR 764 777	this disorder
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Anaphora Arg1:T1 Arg2:T5	
+R5	Anaphora Arg1:T1 Arg2:T60	
+R6	Anaphora Arg1:T9 Arg2:T10	

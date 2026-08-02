@@ -1,0 +1,23 @@
+T1	RAREDISEASE 0 34	Dentinogenesis imperfecta type III
+T2	RAREDISEASE 36 43	DGI-III
+T3	DISEASE 70 90	hereditary disorders
+T4	DISEASE 277 303	heritable dentin disorders
+T5	RAREDISEASE 379 402	osteogenesis imperfecta
+T6	RAREDISEASE 486 511	dentinogenesis imperfecta
+T7	RAREDISEASE 530 564	Dentinogenesis imperfecta type III
+T8	SIGN 585 640	rapid erosion of the crowns in baby and permanent teeth
+T9	SIGN 643 654;683 690	Dental pulp exposed
+T10	SIGN 698 747	pulp may be opalescent, smooth, and amber colored
+T11	SIGN 833 848;860 928	Permanent teeth reduction or even complete loss of the pulp chambers and root canals
+T12	ANAPHOR 956 969	this disorder
+T13	SIGN 1114 1125	shell teeth
+T14	SIGN 1129 1156;1167 1189	Pitting of the tooth enamel in the permanent teeth
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Is_acron Arg1:T2 Arg2:T1	
+R3	Produces Arg1:T7 Arg2:T8	
+R4	Produces Arg1:T7 Arg2:T9	
+R5	Produces Arg1:T7 Arg2:T10	
+R6	Produces Arg1:T7 Arg2:T110	
+R7	Anaphora Arg1:T7 Arg2:T12	
+R8	Produces Arg1:T12 Arg2:T13	
+R9	Produces Arg1:T12 Arg2:T14	

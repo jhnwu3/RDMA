@@ -1,0 +1,26 @@
+T1	RAREDISEASE 0 27	Kugelberg Welander syndrome
+T2	RAREDISEASE 48 71	spinal muscular atrophy
+T3	ANAPHOR 73 75	It
+T4	DISEASE 86 118	inherited neuromuscular disorder
+T5	SYMPTOM 136 143	wasting
+T6	SIGN 148 183	weakness in the muscles of the arms
+T7	SIGN 148 178;188 192	weakness in the muscles of the legs
+T8	SIGN 205 225	walking difficulties
+T9	SIGN 243 261	loss of ambulation
+T10	RAREDISEASE 275 302	Kugelberg Welander syndrome
+T11	SIGN 361 376	fall frequently
+T12	SIGN 390 444	trouble walking up and down stairs at 2-3 years of age
+T13	RAREDISEASE 683 706	spinal muscular atrophy
+T14	RAREDISEASE 794 821	Kugelberg-Welander syndrome
+T15	RAREDISEASE 823 827	SMA3
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Is_a Arg1:T3 Arg2:T4	
+R4	Produces Arg1:T3 Arg2:T5	
+R5	Produces Arg1:T3 Arg2:T6	
+R6	Produces Arg1:T3 Arg2:T70	
+R7	Produces Arg1:T3 Arg2:T8	
+R8	Produces Arg1:T3 Arg2:T9	
+R9	Produces Arg1:T10 Arg2:T11	
+R10	Produces Arg1:T10 Arg2:T12	
+R11	Is_acron Arg1:T15 Arg2:T14	

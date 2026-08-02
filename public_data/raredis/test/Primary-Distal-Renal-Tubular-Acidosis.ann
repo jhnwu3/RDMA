@@ -1,0 +1,4 @@
+T1	RAREDISEASE 0 37	Primary distal renal tubular acidosis
+T2	ANAPHOR 118 131	this disorder
+T3	RAREDISEASE 164 201	primary distal renal tubular acidosis
+R1	Anaphora Arg1:T1 Arg2:T2	

@@ -1,0 +1,68 @@
+T1	SKINRAREDISEASE 0 21	Adams-Oliver syndrome
+T2	SKINRAREDISEASE 23 26	AOS
+T3	DISEASE 49 67	inherited disorder
+T4	SIGN 85 105	defects of the scalp
+T5	SIGN 110 138	abnormalities of the fingers
+T6	SIGN 110 130;140 144	abnormalities of the toes
+T7	SIGN 110 130;146 150	abnormalities of the arms
+T8	SIGN 110 130;159 163	abnormalities of the legs
+T9	SIGN 169 191	physical abnormalities
+T10	ANAPHOR 208 221	this disorder
+T11	SKINRAREDISEASE 335 356	Adams-Oliver syndrome
+T12	SIGN 358 371;394 404	scalp defects congenital
+T13	SIGN 422 460	one or multiple hairless scarred areas
+T14	SIGN 492 499;501 546	dilated blood vessels directly under the affected ski
+T15	SIGN 569 612	underlying defect of the bones of the skull
+T16	ANAPHOR 660 673	this disorder
+T17	SIGN 689 715	malformations of the hands
+T18	SIGN 689 709;717 721	malformations of the arms
+T19	SIGN 689 709;723 727	malformations of the feet
+T20	SIGN 689 709;736 740	malformations of the legs
+T21	SIGN 777 788;790 797	hypoplastic fingers
+T22	SIGN 777 788;802 806	hypoplastic toes
+T23	SIGN 810 822	absent hands
+T24	SIGN 810 816;830 840	absent lower legs
+T25	SKINRAREDISEASE 917 920	AOS
+T26	SKINRAREDISEASE 1029 1050	Adams-Oliver syndrome
+T27	SKINRAREDISEASE 1252 1273	Adams-Oliver syndrome
+T28	SIGN 1281 1294;1342 1352	scalp defects congenital
+T29	SIGN 1299 1317;1342 1352	limb abnormalities congenital
+T30	SKINRAREDISEASE 1372 1393	Adams-Oliver syndrome
+T31	SIGN 1468 1491	scalp and skull defects
+T32	SIGN 1522 1550	malformations of the fingers
+T33	SIGN 1522 1542;1552 1556	malformations of the toes
+T34	SIGN 1522 1542;1558 1563	malformations of the hands
+T35	SIGN 1522 1542;1572 1576	malformations of the feet
+T36	SIGN 1789 1803;1817 1822;1837 1847	defects of the limbs prenatally
+T37	SIGN 1789 1809;1837 1847	defects of the skull prenatally
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Produces Arg1:T1 Arg2:T5	
+R4	Produces Arg1:T1 Arg2:T6	
+R5	Produces Arg1:T1 Arg2:T7	
+R6	Produces Arg1:T1 Arg2:T8	
+R7	Anaphora Arg1:T1 Arg2:T10	
+R8	Is_acron Arg1:T2 Arg2:T1	
+R9	Produces Arg1:T10 Arg2:T9	
+R10	Produces Arg1:T11 Arg2:T12	
+R11	Produces Arg1:T11 Arg2:T13	
+R12	Produces Arg1:T11 Arg2:T14	
+R13	Produces Arg1:T11 Arg2:T15	
+R14	Anaphora Arg1:T11 Arg2:T16	
+R15	Produces Arg1:T16 Arg2:T170	
+R16	Produces Arg1:T16 Arg2:T18	
+R17	Produces Arg1:T16 Arg2:T19	
+R18	Produces Arg1:T16 Arg2:T20	
+R19	Produces Arg1:T16 Arg2:T21	
+R20	Produces Arg1:T16 Arg2:T22	
+R21	Produces Arg1:T16 Arg2:T23	
+R22	Produces Arg1:T16 Arg2:T24	
+R23	Produces Arg1:T27 Arg2:T28	
+R24	Produces Arg1:T27 Arg2:T29	
+R25	Produces Arg1:T30 Arg2:T310	
+R26	Produces Arg1:T30 Arg2:T32	
+R27	Produces Arg1:T30 Arg2:T330	
+R28	Produces Arg1:T30 Arg2:T34	
+R29	Produces Arg1:T30 Arg2:T35	
+R30	Produces Arg1:T30 Arg2:T36	
+R31	Produces Arg1:T30 Arg2:T37	

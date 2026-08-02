@@ -1,0 +1,22 @@
+T1	RAREDISEASE 0 16	Homozygous OSMED
+T2	RAREDISEASE 18 55	oto-spondylo-megaepiphyseal dysplasia
+T3	DISEASE 78 94	genetic disorder
+T4	SIGN 126 135;137 153	dysplasia of certain bones
+T5	SIGN 155 167	hearing loss
+T6	SIGN 172 196	distinct facial features
+T7	SIGN 198 220	Skeletal malformations
+T8	SIGN 308 321	short stature
+T9	SIGN 323 335	Hearing loss
+T10	RAREDISEASE 377 393	Homozygous OSMED
+T11	RAREDISEASE 532 548	homozygous OSMED
+T12	SIGN 745 782	characteristic skeletal malformations
+T13	RAREDISEASE 799 815	homozygous OSMED
+R1	Is_acron Arg1:T1 Arg2:T2	
+R2	Is_a Arg1:T2 Arg2:T3	
+R3	Produces Arg1:T2 Arg2:T4	
+R4	Produces Arg1:T2 Arg2:T5	
+R5	Produces Arg1:T2 Arg2:T60	
+R6	Produces Arg1:T2 Arg2:T7	
+R7	Produces Arg1:T2 Arg2:T8	
+R8	Produces Arg1:T2 Arg2:T9	
+R9	Produces Arg1:T13 Arg2:T12	

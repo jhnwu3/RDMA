@@ -1,0 +1,19 @@
+T1	RAREDISEASE 19 45	primary orthostatic tremor
+T2	ANAPHOR 101 113	the disorder
+T3	DISEASE 141 157	essential tremor
+T4	ANAPHOR 185 197	the disorder
+T5	RAREDISEASE 242 268	primary orthostatic tremor
+T6	SIGN 298 304	tremor
+T7	ANAPHOR 390 402	the disorder
+T8	RAREDISEASE 487 513	primary orthostatic tremor
+T9	RAREDISEASE 515 541	Primary orthostatic tremor
+T10	RAREDISEASE 632 658	primary orthostatic tremor
+T11	ANAPHOR 698 710	the disorder
+T12	ANAPHOR 809 822	this disorder
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T4	
+R3	Is_a Arg1:T2 Arg2:T3	
+R4	Produces Arg1:T5 Arg2:T6	
+R5	Anaphora Arg1:T5 Arg2:T70	
+R6	Anaphora Arg1:T10 Arg2:T11	
+R7	Anaphora Arg1:T10 Arg2:T12	

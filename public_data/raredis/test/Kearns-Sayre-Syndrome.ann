@@ -1,0 +1,38 @@
+T1	RAREDISEASE 0 21	Kearns-Sayre syndrome
+T2	RAREDISEASE 23 26	KSS
+T3	DISEASE 38 60	neuromuscular disorder
+T4	SIGN 126 150	mono-or bilateral ptosis
+T5	DISEASE 144 150	ptosis
+T6	ANAPHOR 185 197	This disease
+T7	RAREDISEASE 295 339	chronic progressive external ophthalmoplegia
+T8	SIGN 295 339	chronic progressive external ophthalmoplegia
+T9	RAREDISEASE 341 345	CPEO
+T10	RAREDISEASE 447 476	atypical retinitis pigmentosa
+T11	SIGN 447 475	atypical retinitis pigmentos
+T12	SIGN 490 510	chronic inflammation
+T13	SIGN 512 536	progressive degeneration
+T14	SIGN 582 619	pigmentary degeneration of the retina
+T15	DISEASE 641 655	cardiomyopathy
+T16	SIGN 641 655	cardiomyopathy
+T17	SIGN 665 676	heart block
+T18	SIGN 705 720	muscle weakness
+T19	SIGN 722 735	short stature
+T20	SIGN 737 749	hearing loss
+T21	SIGN 813 819	ataxia
+T22	RAREDISEASE 894 897	KSS
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Anaphora Arg1:T1 Arg2:T6	
+R4	Is_acron Arg1:T2 Arg2:T1	
+R5	Produces Arg1:T6 Arg2:T8	
+R6	Produces Arg1:T6 Arg2:T11	
+R7	Produces Arg1:T6 Arg2:T12	
+R8	Produces Arg1:T6 Arg2:T130	
+R9	Produces Arg1:T6 Arg2:T14	
+R10	Produces Arg1:T6 Arg2:T16	
+R11	Produces Arg1:T6 Arg2:T17	
+R12	Produces Arg1:T6 Arg2:T18	
+R13	Produces Arg1:T6 Arg2:T19	
+R14	Produces Arg1:T6 Arg2:T20	
+R15	Produces Arg1:T6 Arg2:T21	
+R16	Is_acron Arg1:T9 Arg2:T7	

@@ -1,0 +1,6 @@
+T1	RAREDISEASE 0 17	Gitelman syndrome
+T2	ANAPHOR 56 68	The disorder
+T3	RAREDISEASE 258 275	Gitelman syndrome
+T4	SIGN 547 568	lower blood pressures
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T3 Arg2:T4	

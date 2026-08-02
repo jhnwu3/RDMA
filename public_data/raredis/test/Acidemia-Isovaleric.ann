@@ -1,0 +1,26 @@
+T1	RAREDISEASE 0 19	Isovaleric Acidemia
+T2	DISEASE 25 54	hereditary metabolic disorder
+T3	ANAPHOR 56 58	It
+T4	SIGN 81 134	deficiency of the enzyme isovaleryl CoA dehydrogenase
+T5	ANAPHOR 136 148	The disorder
+T6	RAREDISEASE 227 246	Isovaleric Acidemia
+T7	SIGN 248 256	vomiting
+T8	SYMPTOM 258 272	refusal to eat
+T9	SYMPTOM 278 290	listlessness
+T10	ANAPHOR 343 355	the disorder
+T11	RAREDISEASE 428 447	Isovaleric Acidemia
+T12	DISEASE 453 469	genetic disorder
+T13	SIGN 546 614	deficiency of the enzyme  isovaleric co-enzyme A (CoA) dehydrogenase
+T14	DISEASE 707 731	classic genetic diseases
+T15	DISEASE 859 878	recessive disorders
+T16	RAREDISEASE 1514 1533	Isovaleric Acidemia
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Anaphora Arg1:T1 Arg2:T5	
+R4	Produces Arg1:T3 Arg2:T4	
+R5	Produces Arg1:T6 Arg2:T7	
+R6	Produces Arg1:T6 Arg2:T8	
+R7	Produces Arg1:T6 Arg2:T9	
+R8	Anaphora Arg1:T6 Arg2:T10	
+R9	Is_a Arg1:T11 Arg2:T12	
+R10	Produces Arg1:T11 Arg2:T13	

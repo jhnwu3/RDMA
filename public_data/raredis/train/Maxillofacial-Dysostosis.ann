@@ -1,0 +1,26 @@
+T1	RAREDISEASE 0 24	Maxillofacial dysostosis
+T2	DISEASE 46 62	genetic disorder
+T3	SIGN 92 146	abnormalities of the head and face (craniofacial) area
+T4	SIGN 190 200;202 211	hypoplasia upper jaw
+T5	SIGN 213 249	downward-slanting palpebral fissures
+T6	SIGN 272 315	opening between the eyelids slants downward
+T7	SIGN 318 373	minor malformations of the external portion of the ears
+T8	SIGN 379 399	speech abnormalities
+T9	RAREDISEASE 401 425	Maxillofacial dysostosis
+T10	RAREDISEASE 499 523	maxillofacial dysostosis
+T11	RAREDISEASE 584 608	Maxillofacial dysostosis
+T12	DISEASE 654 670	Genetic diseases
+T13	DISEASE 806 832	Dominant genetic disorders
+T14	RAREDISEASE 1218 1242	Maxillofacial dysostosis
+T15	RAREDISEASE 1416 1440	maxillofacial dysostosis
+T16	ANAPHOR 1532 1544	the disorder
+T17	RAREDISEASE 1572 1596	Maxillofacial dysostosis
+T18	RAREDISEASE 1668 1692	maxillofacial dysostosis
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T5	
+R5	Produces Arg1:T1 Arg2:T6	
+R6	Produces Arg1:T1 Arg2:T7	
+R7	Produces Arg1:T1 Arg2:T8	
+R8	Anaphora Arg1:T15 Arg2:T16	

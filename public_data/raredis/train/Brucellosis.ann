@@ -1,0 +1,22 @@
+T1	RAREDISEASE 0 11	Brucellosis
+T2	DISEASE 18 36	infectious disease
+T3	ANAPHOR 94 96	It
+T4	ANAPHOR 183 195	The disorder
+T5	SIGN 345 351	fevers
+T6	SYMPTOM 353 364	muscle pain
+T7	SYMPTOM 366 374	headache
+T8	SYMPTOM 376 392	loss of appetite
+T9	SIGN 394 410	profuse sweating
+T10	SYMPTOM 416 433	physical weakness
+T11	RAREDISEASE 564 575	brucellosis
+T12	ANAPHOR 592 603	the disease
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T30	
+R3	Anaphora Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T5	
+R5	Produces Arg1:T1 Arg2:T6	
+R6	Produces Arg1:T1 Arg2:T7	
+R7	Produces Arg1:T1 Arg2:T8	
+R8	Produces Arg1:T1 Arg2:T10	
+R9	Produces Arg1:T4 Arg2:T9	
+R10	Anaphora Arg1:T11 Arg2:T12	

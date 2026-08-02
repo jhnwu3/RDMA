@@ -1,0 +1,38 @@
+T1	RAREDISEASE 0 19	Winchester syndrome
+T2	DISEASE 41 67	connective tissue disorder
+T3	DISEASE 125 146	mucopolysaccharidoses
+T4	DISEASE 168 197	hereditary metabolic diseases
+T5	ANAPHOR 372 385	This syndrome
+T6	SIGN 406 419	short stature
+T7	SIGN 421 444	arthritis-like symptoms
+T8	SIGN 446 468	nodules under the skin
+T9	SIGN 485 507	coarse facial features
+T10	SIGN 513 516;527 540	eye abnormalities
+T11	SIGN 521 540	teeth abnormalities
+T12	RAREDISEASE 542 561	Winchester syndrome
+T13	ANAPHOR 657 670	this syndrome
+T14	ANAPHOR 775 787	the syndrome
+T15	RAREDISEASE 969 988	Winchester syndrome
+T16	SIGN 1101 1114	short stature
+T17	SIGN 1116 1127;1136 1148	progressive contractures
+T18	SIGN 1165 1174	cataracts
+T19	SIGN 1176 1198	coarse facial features
+T20	SIGN 1226 1243	hyperpigmentation
+T21	SIGN 1254 1300	growth of hair in the leathery patches of skin
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T50	
+R3	Is_a Arg1:T3 Arg2:T4	
+R4	Produces Arg1:T20 Arg2:T4	
+R5	Produces Arg1:T20 Arg2:T3	
+R6	Produces Arg1:T20 Arg2:T5	
+R7	Produces Arg1:T20 Arg2:T13	
+R8	Produces Arg1:T20 Arg2:T14	
+R9	Produces Arg1:T20 Arg2:T15	
+R10	Anaphora Arg1:T12 Arg2:T13	
+R11	Anaphora Arg1:T12 Arg2:T14	
+R12	Produces Arg1:T15 Arg2:T160	
+R13	Produces Arg1:T15 Arg2:T17	
+R14	Produces Arg1:T15 Arg2:T18	
+R15	Produces Arg1:T15 Arg2:T19	
+R16	Produces Arg1:T15 Arg2:T20	
+R17	Produces Arg1:T15 Arg2:T21	

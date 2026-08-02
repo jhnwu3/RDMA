@@ -1,0 +1,29 @@
+T1	RAREDISEASE 0 30	Juvenile pilocytic astrocytoma
+T2	RAREDISEASE 32 35	JPA
+T3	DISEASE 47 68	childhood brain tumor
+T4	RAREDISEASE 199 202	JPA
+T5	SIGN 291 321	ncreased pressure on the brain
+T6	SYMPTOM 334 343	headaches
+T7	SYMPTOM 345 351	nausea
+T8	SIGN 353 361	vomiting
+T9	SIGN 363 379	balance problems
+T10	SIGN 384 404	vision abnormalities
+T11	RAREDISEASE 406 437	Juvenile pilocytic astrocytomas
+T12	RAREDISEASE 486 490	JPAs
+T13	RAREDISEASE 537 541	JPAs
+T14	SIGN 562 578	cerebellar tumor
+T15	RAREDISEASE 592 604	Astrocytomas
+T16	DISEASE 636 647	brain tumor
+T17	SIGN 716 752	tumors of the central nervous system
+T18	RAREDISEASE 861 873	astrocytomas
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Is_acron Arg1:T2 Arg2:T1	
+R3	Produces Arg1:T4 Arg2:T5	
+R4	Produces Arg1:T4 Arg2:T6	
+R5	Produces Arg1:T4 Arg2:T7	
+R6	Produces Arg1:T4 Arg2:T8	
+R7	Produces Arg1:T4 Arg2:T9	
+R8	Produces Arg1:T4 Arg2:T100	
+R9	Produces Arg1:T13 Arg2:T14	
+R10	Is_a Arg1:T15 Arg2:T16	
+R11	Produces Arg1:T15 Arg2:T17	

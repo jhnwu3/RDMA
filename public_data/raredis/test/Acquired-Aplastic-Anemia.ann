@@ -1,0 +1,19 @@
+T1	RAREDISEASE 0 24	Acquired aplastic anemia
+T2	SIGN 18 24	anemia
+T3	RAREDISEASE 153 168	aplastic anemia
+T4	SIGN 162 168	anemia
+T5	RAREDISEASE 431 446	aplastic anemia
+T6	SIGN 440 446	anemia
+T7	RAREDISEASE 487 511	acquired aplastic anemia
+T8	SIGN 505 511	anemia
+T9	DISEASE 612 624	pancytopenia
+T10	SIGN 612 624	pancytopenia
+T11	RAREDISEASE 939 963	acquired aplastic anemia
+T12	SIGN 957 963	anemia
+T13	RAREDISEASE 1104 1112	leukemia
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T3 Arg2:T4	
+R3	Produces Arg1:T5 Arg2:T6	
+R4	Produces Arg1:T10 Arg2:T12	
+R5	Produces Arg1:T10 Arg2:T5	
+R6	Produces Arg1:T11 Arg2:T12	

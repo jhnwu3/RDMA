@@ -1,0 +1,32 @@
+T1	RAREDISEASE 0 25	Refractory celiac disease
+T2	RAREDISEASE 27 30	RCD
+T3	DISEASE 37 64	complex autoimmune disorder
+T4	DISEASE 91 105	celiac disease
+T5	DISEASE 118 132	celiac disease
+T6	ANAPHOR 134 136	it
+T7	DISEASE 394 408	celiac disease
+T8	RAREDISEASE 427 430	RCD
+T9	RAREDISEASE 613 632	intestinal lymphoma
+T10	RAREDISEASE 634 649	Crohn's disease
+T11	DISEASE 692 713	hypogammaglobulinemia
+T12	RAREDISEASE 715 740	Refractory celiac disease
+T13	RAREDISEASE 852 855	RCD
+T14	DISEASE 1054 1068	celiac disease
+T15	RAREDISEASE 1101 1104	RCD
+T16	RAREDISEASE 1120 1123	RCD
+T17	RAREDISEASE 1148 1158	Type I RCD
+T18	RAREDISEASE 1194 1219	refractory celiac disease
+T19	RAREDISEASE 1453 1478	refractory celiac disease
+T20	DISEASE 1762 1782	intestinal disorders
+T21	RAREDISEASE 1794 1797	RCD
+T22	SIGN 1952 1992	small intestinal inflammation and injury
+T23	RAREDISEASE 2276 2287	Type II RCD
+T24	RAREDISEASE 2436 2444	lymphoma
+T25	RAREDISEASE 2468 2471	RCD
+T26	RAREDISEASE 3013 3021	lymphoma
+R1	Is_a Arg1:T1 Arg2:T30	
+R2	Anaphora Arg1:T1 Arg2:T6	
+R3	Is_acron Arg1:T2 Arg2:T1	
+R4	Increases_risk_of Arg1:T14 Arg2:T15	
+R5	Is_a Arg1:T17 Arg2:T16	
+R6	Produces Arg1:T21 Arg2:T22	

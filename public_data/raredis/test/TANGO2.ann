@@ -1,0 +1,3 @@
+T1	RAREDISEASE 0 55	TANGO2-related metabolic encephalopathy and arrhythmias
+T2	ANAPHOR 256 268	the disorder
+R1	Anaphora Arg1:T1 Arg2:T2	

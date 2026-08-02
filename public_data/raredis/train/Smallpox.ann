@@ -1,0 +1,24 @@
+T1	RAREDISEASE 0 8	Smallpox
+T2	DISEASE 15 33	infectious disease
+T3	ANAPHOR 63 65	It
+T4	SIGN 86 91	fever
+T5	SYMPTOM 126 133	malaise
+T6	SYMPTOM 136 145	headaches
+T7	SYMPTOM 150 159	back pain
+T8	SIGN 202 206	rash
+T9	SIGN 243 248	pocks
+T10	RAREDISEASE 276 284	Smallpox
+T11	DISEASE 291 316	highly contagious disease
+T12	RAREDISEASE 373 381	smallpox
+T13	RAREDISEASE 509 517	smallpox
+T14	DISEASE 519 532	variola major
+T15	DISEASE 537 550	variola minor
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T3 Arg2:T4	
+R4	Produces Arg1:T3 Arg2:T5	
+R5	Produces Arg1:T3 Arg2:T6	
+R6	Produces Arg1:T3 Arg2:T7	
+R7	Produces Arg1:T3 Arg2:T8	
+R8	Produces Arg1:T3 Arg2:T9	
+R9	Is_a Arg1:T10 Arg2:T11	

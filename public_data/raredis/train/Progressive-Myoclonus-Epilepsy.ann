@@ -1,0 +1,15 @@
+T1	RAREDISEASE 0 30	Progressive myoclonus epilepsy
+T2	RAREDISEASE 32 35	PME
+T3	ANAPHOR 154 168	These diseases
+T4	SIGN 283 292	myoclonus
+T5	DISEASE 308 316	epilepsy
+T6	SIGN 308 316	epilepsy
+T7	SIGN 359 366	seizure
+T8	RAREDISEASE 400 403	PME
+T9	RAREDISEASE 507 537	Progressive myoclonus epilepsy
+T10	RAREDISEASE 748 751	PME
+R1	Anaphora Arg1:T1 Arg2:T3	
+R2	Is_acron Arg1:T2 Arg2:T1	
+R3	Produces Arg1:T3 Arg2:T4	
+R4	Produces Arg1:T3 Arg2:T60	
+R5	Produces Arg1:T3 Arg2:T7	

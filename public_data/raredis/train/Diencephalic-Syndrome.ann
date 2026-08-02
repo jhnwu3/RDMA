@@ -1,0 +1,28 @@
+T1	RAREDISEASE 0 21	Diencephalic syndrome
+T2	SIGN 53 58;90 102	tumor diencephalon
+T3	SIGN 288 319	failure to gain weight and grow
+T4	SIGN 368 385	failure to thrive
+T5	SIGN 391 420	abnormal progressive thinness
+T6	SYMPTOM 435 445	emaciation
+T7	SIGN 607 615	vomiting
+T8	SIGN 617 637	vision abnormalities
+T9	SYMPTOM 639 648	headaches
+T10	SIGN 654 660	pallor
+T11	RAREDISEASE 679 700	Diencephalic syndrome
+T12	RAREDISEASE 763 784	Diencephalic syndrome
+T13	RAREDISEASE 923 944	diencephalic syndrome
+T14	RAREDISEASE 957 978	Diencephalic syndrome
+T15	RAREDISEASE 1049 1070	Diencephalic syndrome
+T16	ANAPHOR 1170 1183	this disorder
+T17	ANAPHOR 1222 1234	The disorder
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T5	
+R5	Produces Arg1:T1 Arg2:T6	
+R6	Produces Arg1:T1 Arg2:T7	
+R7	Produces Arg1:T1 Arg2:T8	
+R8	Produces Arg1:T1 Arg2:T9	
+R9	Produces Arg1:T1 Arg2:T10	
+R10	Anaphora Arg1:T15 Arg2:T16	
+R11	Anaphora Arg1:T15 Arg2:T17	

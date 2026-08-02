@@ -1,0 +1,37 @@
+T1	RAREDISEASE 0 53	Mitochondrial neurogastrointestinal encephalomyopathy
+T2	RAREDISEASE 55 60	MNGIE
+T3	DISEASE 72 92	multisystem disorder
+T4	SIGN 110 179	progressive degeneration of the muscles of the gastrointestinal tract
+T5	SIGN 188 216	gastrointestinal dysmotility
+T6	SIGN 218 250	weakness of extra-ocular muscles
+T7	DISEASE 284 290	ptosis
+T8	SIGN 284 290	ptosis
+T9	SIGN 322 338	ophthalmoparesis
+T10	SIGN 341 374	degeneration of peripheral nerves
+T11	SIGN 383 400;414 438	altered sensation the distal arms and legs
+T12	SIGN 405 438	weakness the distal arms and legs
+T13	SIGN 461 469	cachexia
+T14	RAREDISEASE 510 515	MNGIE
+T15	SIGN 555 563	vomiting
+T16	SYMPTOM 565 571	nausea
+T17	DISEASE 573 581	diarrhea
+T18	SIGN 573 581	diarrhea
+T19	SYMPTOM 583 597	abdominal pain
+T20	SYMPTOM 603 667	numbness or sensations of pins and needles in the hands and feet
+T21	RAREDISEASE 716 721	MNGIE
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Produces Arg1:T1 Arg2:T5	
+R4	Produces Arg1:T1 Arg2:T6	
+R5	Produces Arg1:T1 Arg2:T8	
+R6	Produces Arg1:T1 Arg2:T9	
+R7	Produces Arg1:T1 Arg2:T10	
+R8	Produces Arg1:T1 Arg2:T11	
+R9	Produces Arg1:T1 Arg2:T12	
+R10	Produces Arg1:T1 Arg2:T13	
+R11	Is_acron Arg1:T2 Arg2:T1	
+R12	Produces Arg1:T14 Arg2:T150	
+R13	Produces Arg1:T14 Arg2:T16	
+R14	Produces Arg1:T14 Arg2:T18	
+R15	Produces Arg1:T14 Arg2:T19	
+R16	Produces Arg1:T14 Arg2:T20	

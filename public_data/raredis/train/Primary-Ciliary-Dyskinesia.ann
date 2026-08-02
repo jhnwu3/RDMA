@@ -1,0 +1,15 @@
+T1	RAREDISEASE 0 26	Primary ciliary dyskinesia
+T2	RAREDISEASE 117 136	Kartagener syndrome
+T3	RAREDISEASE 171 197	Primary ciliary dyskinesia
+T4	SIGN 247 251;292 319	lung Specific structural defects
+T5	SIGN 255 260;292 319	sinus Specific structural defects
+T6	SIGN 509 520;533 553	respiratory recurrent infections
+T7	RAREDISEASE 728 731	PCD
+T8	RAREDISEASE 831 834	PCD
+T9	RAREDISEASE 874 877	PCD
+T10	RAREDISEASE 893 896	PCD
+T11	RAREDISEASE 929 932	PCD
+T12	RAREDISEASE 1012 1015	PCD
+R1	Produces Arg1:T3 Arg2:T4	
+R2	Produces Arg1:T3 Arg2:T5	
+R3	Produces Arg1:T3 Arg2:T6	

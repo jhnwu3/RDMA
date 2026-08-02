@@ -1,0 +1,7 @@
+T1	RAREDISEASE 0 29	Eosinophilia-myalgia syndrome
+T2	ANAPHOR 122 134	the disorder
+T3	RAREDISEASE 159 188	eosinophilia-myalgia syndrome
+T4	ANAPHOR 273 285	the disorder
+T5	RAREDISEASE 382 411	eosinophilia-myalgia syndrome
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T3 Arg2:T4	

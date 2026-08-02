@@ -1,0 +1,4 @@
+T1	RAREDISEASE 0 35	Binder type nasomaxillary dysplasia
+T2	DISEASE 46 66	congenital condition
+T3	RAREDISEASE 189 204	Binder syndrome
+R1	Is_a Arg1:T1 Arg2:T2	

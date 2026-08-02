@@ -1,0 +1,63 @@
+T1	RAREDISEASE 0 7	47, XXY
+T2	RAREDISEASE 9 11	KS
+T3	RAREDISEASE 42 49	47, XXY
+T4	RAREDISEASE 51 53	KS
+T5	RAREDISEASE 218 225	47, XXY
+T6	RAREDISEASE 227 229	KS
+T7	RAREDISEASE 325 332	47, XXY
+T8	RAREDISEASE 334 336	KS
+T9	SIGN 483 509	primary testicular failure
+T10	SIGN 521 540	androgen deficiency
+T11	RAREDISEASE 542 549	47, XXY
+T12	RAREDISEASE 551 553	KS
+T13	ANAPHOR 654 656	It
+T14	RAREDISEASE 736 753	Kallmann syndrome
+T15	DISEASE 764 782	inherited disorder
+T16	RAREDISEASE 859 876	Kallmann syndrome
+T17	SIGN 909 938	failure to experience puberty
+T18	SIGN 947 993	complete or partial loss of the sense of smell
+T19	SIGN 995 1024	Failure to go through puberty
+T20	SIGN 1036 1054	hormonal imbalance
+T21	SIGN 1075 1085;1119 1131	failure of hypothalamus
+T22	RAREDISEASE 1147 1164	Kallmann syndrome
+T23	DISEASE 1249 1261	hypogonadism
+T24	SIGN 1249 1261	hypogonadism
+T25	SIGN 1298 1305	anosmia
+T26	SIGN 1312 1343	impaired production of hormones
+T27	DISEASE 1382 1397	delayed puberty
+T28	SIGN 1382 1397	delayed puberty
+T29	SIGN 1382 1389;1399 1405	delayed growth
+T30	SIGN 1410 1421	infertility
+T31	RAREDISEASE 1471 1488	Kallmann syndrome
+T32	RAREDISEASE 1552 1559	47, XXY
+T33	RAREDISEASE 1561 1563	KS
+T34	SIGN 1709 1720	infertility
+T35	RAREDISEASE 1722 1729	47, XXY
+T36	RAREDISEASE 1731 1733	KS
+T37	RAREDISEASE 2002 2009	47, XXY
+T38	RAREDISEASE 2011 2013	KS
+R1	Is_synon Arg1:T10 Arg2:T29	
+R2	Is_synon Arg1:T4 Arg2:T30	
+R3	Is_synon Arg1:T6 Arg2:T5	
+R4	Produces Arg1:T7 Arg2:T9	
+R5	Produces Arg1:T7 Arg2:T10	
+R6	Is_synon Arg1:T8 Arg2:T7	
+R7	Anaphora Arg1:T11 Arg2:T13	
+R8	Is_synon Arg1:T12 Arg2:T11	
+R9	Is_acron Arg1:T12 Arg2:T14	
+R10	Is_a Arg1:T14 Arg2:T150	
+R11	Produces Arg1:T16 Arg2:T17	
+R12	Produces Arg1:T16 Arg2:T18	
+R13	Produces Arg1:T16 Arg2:T19	
+R14	Produces Arg1:T16 Arg2:T20	
+R15	Produces Arg1:T16 Arg2:T21	
+R16	Produces Arg1:T22 Arg2:T24	
+R17	Produces Arg1:T22 Arg2:T25	
+R18	Produces Arg1:T22 Arg2:T26	
+R19	Produces Arg1:T22 Arg2:T28	
+R20	Produces Arg1:T22 Arg2:T29	
+R21	Produces Arg1:T22 Arg2:T30	
+R22	Produces Arg1:T32 Arg2:T34	
+R23	Is_synon Arg1:T33 Arg2:T32	
+R24	Is_synon Arg1:T36 Arg2:T35	
+R25	Is_synon Arg1:T38 Arg2:T37	

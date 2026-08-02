@@ -1,0 +1,36 @@
+T1	RAREDISEASE 0 22	Giant cell myocarditis
+T2	SIGN 11 22	myocarditis
+T3	DISEASE 33 56	cardiovascular disorder
+T4	ANAPHOR 103 105	It
+T5	SIGN 200 211	myocarditis
+T6	SIGN 213 225	Inflammation
+T7	SIGN 239 277	widespread infiltration of giant cells
+T8	SIGN 323 352	heart muscle cell destruction
+T9	RAREDISEASE 468 490	giant cell myocarditis
+T10	SIGN 479 490	myocarditis
+T11	SIGN 503 522	abnormal heartbeats
+T12	SYMPTOM 524 534	chest pain
+T13	SIGN 552 565	heart failure
+T14	ANAPHOR 623 635	The disorder
+T15	RAREDISEASE 671 693	Giant cell myocarditis
+T16	SIGN 682 693	myocarditis
+T17	ANAPHOR 738 740	It
+T18	RAREDISEASE 951 973	giant cell myocarditis
+T19	SIGN 962 973	myocarditis
+T20	SIGN 1140 1159	heart abnormalities
+R1	Produces Arg1:T10 Arg2:T1	
+R2	Is_a Arg1:T10 Arg2:T11	
+R3	Anaphora Arg1:T10 Arg2:T19	
+R4	Produces Arg1:T4 Arg2:T5	
+R5	Produces Arg1:T4 Arg2:T6	
+R6	Produces Arg1:T4 Arg2:T7	
+R7	Produces Arg1:T4 Arg2:T8	
+R8	Produces Arg1:T9 Arg2:T10	
+R9	Produces Arg1:T9 Arg2:T11	
+R10	Produces Arg1:T9 Arg2:T12	
+R11	Produces Arg1:T9 Arg2:T13	
+R12	Anaphora Arg1:T9 Arg2:T140	
+R13	Produces Arg1:T15 Arg2:T16	
+R14	Anaphora Arg1:T15 Arg2:T17	
+R15	Produces Arg1:T18 Arg2:T19	
+R16	Produces Arg1:T18 Arg2:T20	

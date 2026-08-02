@@ -1,0 +1,28 @@
+T1	RAREDISEASE 1 19	Reactive arthritis
+T2	SIGN 72 81	arthritis
+T3	SIGN 190 208	Joint inflammation
+T4	SIGN 229 236;257 296	redness warmth in and around the affected joint
+T5	SIGN 238 246;257 296	swelling warmth in and around the affected joint
+T6	SYMPTOM 248 252;264 296	pain in and around the affected joint
+T7	SIGN 257 296	warmth in and around the affected joint
+T8	RAREDISEASE 301 319	reactive arthritis
+T9	RAREDISEASE 437 455	reactive arthritis
+T10	SIGN 460 493	inflammation of the urinary tract
+T11	SIGN 565 579	conjunctivitis
+T12	SIGN 695 700	fever
+T13	SIGN 702 713	weight loss
+T14	SIGN 715 730	lower back pain
+T15	SYMPTOM 735 744	heel pain
+T16	RAREDISEASE 761 779	Reactive arthritis
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T30	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T5	
+R5	Produces Arg1:T1 Arg2:T6	
+R6	Produces Arg1:T1 Arg2:T7	
+R7	Produces Arg1:T9 Arg2:T10	
+R8	Produces Arg1:T9 Arg2:T11	
+R9	Produces Arg1:T9 Arg2:T12	
+R10	Produces Arg1:T9 Arg2:T130	
+R11	Produces Arg1:T9 Arg2:T14	
+R12	Produces Arg1:T9 Arg2:T15	

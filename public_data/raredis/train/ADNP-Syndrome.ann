@@ -1,0 +1,13 @@
+T1	RAREDISEASE 0 13	ADNP syndrome
+T2	ANAPHOR 94 107	this disorder
+T3	ANAPHOR 235 247	the disorder
+T4	RAREDISEASE 269 282	ADNP syndrome
+T5	RAREDISEASE 402 415	ADNP syndrome
+T6	DISEASE 474 480	autism
+T7	ANAPHOR 489 491	it
+T8	DISEASE 541 565	autism spectrum disorder
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Increases_risk_of Arg1:T5 Arg2:T6	
+R4	Anaphora Arg1:T5 Arg2:T7	
+R5	Increases_risk_of Arg1:T7 Arg2:T8	

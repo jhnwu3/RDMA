@@ -1,0 +1,4 @@
+T1	RAREDISEASE 0 31	Type I glycogen storage disease
+T2	RAREDISEASE 95 99	GSDI
+T3	ANAPHOR 148 162	This condition
+R1	Anaphora Arg1:T2 Arg2:T3	

@@ -1,0 +1,58 @@
+T1	RAREDISEASE 1 21	Wildervanck syndrome
+T2	RAREDISEASE 37 66	cervicooculoacoustic syndrome
+T3	DISEASE 78 94	genetic disorder
+T4	ANAPHOR 127 139	The disorder
+T5	RAREDISEASE 190 211	Klippel-Feil syndrome
+T6	SIGN 190 211	Klippel-Feil syndrome
+T7	RAREDISEASE 213 216	KFS
+T8	SIGN 219 247	abnormalities of certain eye
+T9	DISEASE 274 288	Duane syndrome
+T10	SIGN 274 288	Duane syndrome
+T11	SIGN 298 316;343 353	hearing impairment congenital
+T12	RAREDISEASE 376 379	KFS
+T13	SIGN 376 379	KFS
+T14	SIGN 390 421;486 504	abnormal union or fusion of two cervical vertebrae
+T15	DISEASE 507 521	Duane syndrome
+T16	SIGN 507 521	Duane syndrome
+T17	SIGN 542 599	limitation or absence of certain horizontal eye movements
+T18	SIGN 601 705	"retraction or """"drawing back"""" of the eyeball into the eye cavity (orbit) upon attempting to look inward"
+T19	SIGN 783 793	strabismus
+T20	RAREDISEASE 896 916	Wildervanck syndrome
+T21	RAREDISEASE 999 1019	Wildervanck syndrome
+T22	ANAPHOR 1053 1065	the disorder
+T23	SIGN 1250 1268	hearing impairment
+T24	RAREDISEASE 1288 1308	Wildervanck syndrome
+T25	RAREDISEASE 1310 1330	Wildervanck syndrome
+T26	SIGN 1941 1971	abnormalities of the inner ear
+T27	SIGN 1973 1991;2034 2052	union or fusion of cervical vertebrae
+T28	SIGN 2055 2107	possible impingement of vertebrae on the spinal cord
+T29	ANAPHOR 2160 2172	the disorder
+T30	RAREDISEASE 2212 2232	Wildervanck syndrome
+T31	SIGN 2281 2312	malformations of the middle ear
+T32	ANAPHOR 2466 2478	the disorder
+T33	SIGN 2511 2535	congenital heart defects
+T34	SIGN 2537 2556	renal abnormalities
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Anaphora Arg1:T1 Arg2:T4	
+R3	Is_synon Arg1:T2 Arg2:T1	
+R4	Produces Arg1:T4 Arg2:T6	
+R5	Produces Arg1:T4 Arg2:T8	
+R6	Produces Arg1:T4 Arg2:T10	
+R7	Produces Arg1:T4 Arg2:T11	
+R8	Produces Arg1:T4 Arg2:T13	
+R9	Produces Arg1:T4 Arg2:T16	
+R10	Is_acron Arg1:T7 Arg2:T5	
+R11	Produces Arg1:T12 Arg2:T14	
+R12	Produces Arg1:T15 Arg2:T17	
+R13	Produces Arg1:T15 Arg2:T180	
+R14	Produces Arg1:T15 Arg2:T19	
+R15	Anaphora Arg1:T21 Arg2:T22	
+R16	Produces Arg1:T24 Arg2:T23	
+R17	Anaphora Arg1:T25 Arg2:T29	
+R18	Produces Arg1:T29 Arg2:T26	
+R19	Produces Arg1:T29 Arg2:T27	
+R20	Produces Arg1:T29 Arg2:T28	
+R21	Produces Arg1:T40 Arg2:T41	
+R22	Anaphora Arg1:T40 Arg2:T48	
+R23	Produces Arg1:T32 Arg2:T33	
+R24	Produces Arg1:T32 Arg2:T34	

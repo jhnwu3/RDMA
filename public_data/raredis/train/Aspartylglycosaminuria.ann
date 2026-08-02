@@ -1,0 +1,66 @@
+T1	RAREDISEASE 0 22	Aspartylglycosaminuria
+T2	DISEASE 38 54	genetic disorder
+T3	ANAPHOR 185 187	It
+T4	SIGN 194 220	inborn error of metabolism
+T5	DISEASE 237 263	lysosomal storage diseases
+T6	ANAPHOR 265 267	It
+T7	SIGN 350 372	coarse facial features
+T8	SIGN 374 379;388 399	spine deformities
+T9	SIGN 384 399	eye deformities
+T10	SIGN 401 418	behavior problems
+T11	DISEASE 423 441	mental retardation
+T12	SIGN 423 441	mental retardation
+T13	RAREDISEASE 443 465	Aspartylglycosaminuria
+T14	SIGN 488 529	deficient activity of a particular enzyme
+T15	SIGN 546 580	accumulation of metabolic products
+T16	RAREDISEASE 594 616	Aspartylglycosaminuria
+T17	DISEASE 622 647	lysosomal storage disease
+T18	SIGN 728 748	abnormal development
+T19	DISEASE 767 775	Diarrhea
+T20	SIGN 767 775	Diarrhea
+T21	DISEASE 780 790	infections
+T22	SIGN 780 790	infections
+T23	SIGN 852 867;881 887	facial features coarse
+T24	SIGN 937 945;957 965	skeleton deformed
+T25	SIGN 974 1018	ocular lens may develop crystalline deposits
+T26	SIGN 1021 1041	Mental deterioration
+T27	DISEASE 1194 1212	mental retardation
+T28	SIGN 1194 1212	mental retardation
+T29	SIGN 1213 1252	uneven development of the head and face
+T30	SIGN 1258 1272	sagging cheeks
+T31	SIGN 1276 1285	wide nose
+T32	SIGN 1290 1300	broad face
+T33	DISEASE 1329 1338	scoliosis
+T34	SIGN 1329 1338	scoliosis
+T35	SIGN 1348 1352;1370 1375	neck short
+T36	RAREDISEASE 1417 1439	Aspartylglycosaminuria
+T37	ANAPHOR 1655 1668	the condition
+T38	RAREDISEASE 1742 1764	Aspartylglycosaminuria
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Anaphora Arg1:T1 Arg2:T6	
+R4	Produces Arg1:T1 Arg2:T7	
+R5	Produces Arg1:T1 Arg2:T8	
+R6	Produces Arg1:T1 Arg2:T9	
+R7	Produces Arg1:T1 Arg2:T10	
+R8	Produces Arg1:T1 Arg2:T12	
+R9	Produces Arg1:T3 Arg2:T4	
+R10	Is_a Arg1:T3 Arg2:T5	
+R11	Produces Arg1:T13 Arg2:T14	
+R12	Produces Arg1:T13 Arg2:T150	
+R13	Is_a Arg1:T16 Arg2:T17	
+R14	Produces Arg1:T16 Arg2:T18	
+R15	Produces Arg1:T16 Arg2:T20	
+R16	Produces Arg1:T16 Arg2:T22	
+R17	Produces Arg1:T16 Arg2:T23	
+R18	Produces Arg1:T16 Arg2:T24	
+R19	Produces Arg1:T16 Arg2:T25	
+R20	Produces Arg1:T16 Arg2:T26	
+R21	Produces Arg1:T16 Arg2:T28	
+R22	Produces Arg1:T16 Arg2:T29	
+R23	Produces Arg1:T16 Arg2:T300	
+R24	Produces Arg1:T16 Arg2:T31	
+R25	Produces Arg1:T16 Arg2:T32	
+R26	Produces Arg1:T36 Arg2:T340	
+R27	Produces Arg1:T36 Arg2:T35	
+R28	Anaphora Arg1:T36 Arg2:T37	

@@ -1,0 +1,29 @@
+T1	RAREDISEASE 0 23	Medullary Sponge Kidney
+T2	SIGN 77 121	cystic malformations in the collecting ducts
+T3	SIGN 169 176;77 104	tubules cystic malformations in the
+T4	ANAPHOR 259 272	this disorder
+T5	SIGN 305 314	hematuria
+T6	DISEASE 357 372	nephrolithiasis
+T7	SIGN 357 372	nephrolithiasis
+T8	SIGN 377 386	infection
+T9	RAREDISEASE 407 430	Medullary Sponge Kidney
+T10	RAREDISEASE 464 487	Medullary Sponge Kidney
+T11	DISEASE 845 864	Hyperparathyroidism
+T12	RAREDISEASE 870 893	Medullary Sponge Kidney
+T13	RAREDISEASE 895 918	Medullary Sponge Kidney
+T14	ANAPHOR 982 984	It
+T15	RAREDISEASE 1083 1106	Medullary Sponge Kidney
+T16	DISEASE 1271 1284	kidney stones
+T17	RAREDISEASE 1315 1338	Medullary Sponge Kidney
+T18	RAREDISEASE 1340 1363	Medullary Sponge Kidney
+T19	RAREDISEASE 1396 1423	Beckwith-Wiedemann Syndrome
+T20	RAREDISEASE 1451 1478	Beckwith-Wiedemann Syndrome
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T30	
+R3	Anaphora Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T4 Arg2:T5	
+R5	Produces Arg1:T4 Arg2:T7	
+R6	Produces Arg1:T4 Arg2:T8	
+R7	Anaphora Arg1:T13 Arg2:T14	
+R8	Increases_risk_of Arg1:T16 Arg2:T17	
+R9	Increases_risk_of Arg1:T19 Arg2:T180	

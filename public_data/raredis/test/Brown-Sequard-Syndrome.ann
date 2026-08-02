@@ -1,0 +1,8 @@
+T1	RAREDISEASE 0 22	Brown-Séquard syndrome
+T2	DISEASE 33 48	spinal disorder
+T3	ANAPHOR 175 177	It
+T4	RAREDISEASE 416 438	Brown-Séquard syndrome
+T5	RAREDISEASE 572 594	Brown-Séquard syndrome
+T6	RAREDISEASE 699 717	spinal cord injury
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	

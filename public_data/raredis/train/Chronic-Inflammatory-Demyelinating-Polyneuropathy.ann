@@ -1,0 +1,17 @@
+T1	RAREDISEASE 19 23	CIDP
+T2	RAREDISEASE 73 77	CIDP
+T3	DISEASE 84 103	autoimmune disorder
+T4	DISEASE 105 125	Autoimmune disorders
+T5	DISEASE 285 305	autoimmune disorders
+T6	RAREDISEASE 318 322	CIDP
+T7	RAREDISEASE 439 443	CIDP
+T8	RAREDISEASE 546 550	CIDP
+T9	RAREDISEASE 612 616	CIDP
+T10	SYMPTOM 704 742	symmetric proximal and distal weakness
+T11	SIGN 748 781	reduced or absent tendon reflexes
+T12	RAREDISEASE 807 811	CIDP
+T13	SIGN 1117 1129	inflammation
+R1	Is_a Arg1:T2 Arg2:T30	
+R2	Produces Arg1:T12 Arg2:T10	
+R3	Produces Arg1:T12 Arg2:T11	
+R4	Produces Arg1:T12 Arg2:T13	

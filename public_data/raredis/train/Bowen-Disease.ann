@@ -1,0 +1,21 @@
+T1	SKINRAREDISEASE 0 13	Bowen disease
+T2	DISEASE 24 37	skin disorder
+T3	SIGN 70 125	slow-growing, reddish scaly patch or plaque on the skin
+T4	SKINRAREDISEASE 182 195	Bowen disease
+T5	SIGN 254 261	Lesions
+T6	SKINRAREDISEASE 392 405	Bowen disease
+T7	DISEASE 422 445	pre-cancerous condition
+T8	DISEASE 479 490	skin cancer
+T9	SIGN 479 490	skin cancer
+T10	ANAPHOR 516 528	The disorder
+T11	SKINRAREDISEASE 578 591	Bowen disease
+T12	SKINRAREDISEASE 700 713	Bowen disease
+T13	SKINRAREDISEASE 752 765	Bowen disease
+T14	ANAPHOR 888 890	It
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T4 Arg2:T50	
+R4	Is_a Arg1:T6 Arg2:T7	
+R5	Produces Arg1:T6 Arg2:T9	
+R6	Anaphora Arg1:T6 Arg2:T10	
+R7	Anaphora Arg1:T13 Arg2:T14	

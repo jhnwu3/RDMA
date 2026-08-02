@@ -1,0 +1,10 @@
+T1	RAREDISEASE 0 18	Aceruloplasminemia
+T2	RAREDISEASE 121 139	aceruloplasminemia
+T3	ANAPHOR 152 154	It
+T4	ANAPHOR 193 195	it
+T5	RAREDISEASE 295 313	aceruloplasminemia
+T6	ANAPHOR 358 370	the disorder
+T7	RAREDISEASE 428 446	Aceruloplasminemia
+R1	Anaphora Arg1:T2 Arg2:T3	
+R2	Anaphora Arg1:T2 Arg2:T4	
+R3	Anaphora Arg1:T5 Arg2:T6	

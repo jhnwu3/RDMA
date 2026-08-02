@@ -1,0 +1,28 @@
+T1	RAREDISEASE 0 5	Bejel
+T2	DISEASE 12 30	infectious disease
+T3	ANAPHOR 107 120	The infection
+T4	RAREDISEASE 140 148	syphilis
+T5	RAREDISEASE 326 331	bejel
+T6	RAREDISEASE 388 396	syphilis
+T7	RAREDISEASE 398 403	pinta
+T8	RAREDISEASE 408 412	yaws
+T9	RAREDISEASE 507 523	endemic syphilis
+T10	RAREDISEASE 525 530	bejel
+T11	SIGN 551 570	lesions of the skin
+T12	SIGN 551 565;575 580	lesions of the bones
+T13	RAREDISEASE 674 679	Bejel
+T14	DISEASE 690 708	infectious disease
+T15	RAREDISEASE 916 924	syphilis
+T16	ANAPHOR 926 937	The disease
+T17	RAREDISEASE 984 989	bejel
+T18	SIGN 1091 1098	lesions
+T19	RAREDISEASE 1448 1453	bejel
+T20	RAREDISEASE 1459 1476	venereal syphilis
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Is_synon Arg1:T9 Arg2:T10	
+R4	Produces Arg1:T10 Arg2:T11	
+R5	Produces Arg1:T10 Arg2:T12	
+R6	Is_a Arg1:T13 Arg2:T140	
+R7	Anaphora Arg1:T13 Arg2:T160	
+R8	Produces Arg1:T17 Arg2:T18	

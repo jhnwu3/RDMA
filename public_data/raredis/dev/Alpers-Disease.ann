@@ -1,0 +1,56 @@
+T1	RAREDISEASE 0 14	Alpers disease
+T2	DISEASE 20 51	progressive neurologic disorder
+T3	DISEASE 121 142	serious liver disease
+T4	SIGN 161 182	increased muscle tone
+T5	SIGN 210 220	spasticity
+T6	SIGN 223 231	seizures
+T7	DISEASE 264 272	dementia
+T8	SIGN 264 272	dementia
+T9	RAREDISEASE 275 289	Alpers disease
+T10	SIGN 350 358	seizures
+T11	ANAPHOR 401 403	It
+T12	SIGN 424 462	lack of coordination of motor movement
+T13	SIGN 464 481	partial paralysis
+T14	SIGN 483 491	seizures
+T15	SIGN 497 513	muscle twitching
+T16	SIGN 566 575	hypotonia
+T17	RAREDISEASE 719 733	Alpers disease
+T18	SIGN 753 765	liver damage
+T19	DISEASE 768 786	Mental retardation
+T20	SIGN 768 786	Mental retardation
+T21	SIGN 826 856	loss of intellectual functions
+T22	DISEASE 956 964	dementia
+T23	SIGN 956 964	dementia
+T24	DISEASE 1052 1072	spastic quadriplegia
+T25	SIGN 1052 1072	spastic quadriplegia
+T26	SIGN 1079 1084;1096 1105	liver cirrhotic
+T27	SIGN 1163 1171	jaundice
+T28	SIGN 1210 1215	blind
+T29	DISEASE 1231 1244	optic atrophy
+T30	SIGN 1231 1244	optic atrophy
+T31	RAREDISEASE 1296 1310	Alpers disease
+T32	ANAPHOR 1493 1506	this disorder
+T33	RAREDISEASE 1543 1557	Alpers disease
+R1	Is_a Arg1:T1 Arg2:T20	
+R2	Increases_risk_of Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T5	
+R5	Produces Arg1:T1 Arg2:T6	
+R6	Produces Arg1:T1 Arg2:T8	
+R7	Produces Arg1:T9 Arg2:T10	
+R8	Anaphora Arg1:T9 Arg2:T11	
+R9	Produces Arg1:T11 Arg2:T12	
+R10	Produces Arg1:T11 Arg2:T13	
+R11	Produces Arg1:T11 Arg2:T14	
+R12	Produces Arg1:T11 Arg2:T15	
+R13	Produces Arg1:T11 Arg2:T16	
+R14	Produces Arg1:T17 Arg2:T18	
+R15	Produces Arg1:T17 Arg2:T20	
+R16	Produces Arg1:T17 Arg2:T21	
+R17	Produces Arg1:T17 Arg2:T23	
+R18	Produces Arg1:T17 Arg2:T25	
+R19	Produces Arg1:T17 Arg2:T26	
+R20	Produces Arg1:T17 Arg2:T27	
+R21	Produces Arg1:T17 Arg2:T28	
+R22	Produces Arg1:T17 Arg2:T30	
+R23	Anaphora Arg1:T33 Arg2:T32	

@@ -1,0 +1,23 @@
+T1	RAREDISEASE 0 32	Chromosome 6, Partial Trisomy 6q
+T2	DISEASE 54 74	chromosomal disorder
+T3	SIGN 353 371	growth retardation
+T4	DISEASE 374 392	mental retardation
+T5	SIGN 374 392	mental retardation
+T6	SIGN 394 453	malformations of the skull and facial (craniofacial) region
+T7	SIGN 468 486	short, webbed neck
+T8	SIGN 565 583	joint contractures
+T9	SIGN 599 621	physical abnormalities
+T10	RAREDISEASE 638 670	Chromosome 6, Partial Trisomy 6q
+T11	RAREDISEASE 742 774	Chromosome 6, Partial Trisomy 6q
+T12	DISEASE 796 816	chromosomal disorder
+T13	DISEASE 948 969	chromosomal disorders
+T14	RAREDISEASE 1033 1065	Chromosome 6, Partial Trisomy 6q
+T15	DISEASE 1235 1255	chromosomal disorder
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T5	
+R4	Produces Arg1:T1 Arg2:T6	
+R5	Produces Arg1:T1 Arg2:T7	
+R6	Produces Arg1:T1 Arg2:T80	
+R7	Produces Arg1:T1 Arg2:T9	
+R8	Is_a Arg1:T11 Arg2:T12	

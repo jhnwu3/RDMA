@@ -1,0 +1,33 @@
+T1	RAREDISEASE 0 15	Ocular melanoma
+T2	DISEASE 45 51	cancer
+T3	ANAPHOR 131 133	it
+T4	DISEASE 153 178	primary cancer of the eye
+T5	DISEASE 213 219	cancer
+T6	DISEASE 339 345	cancer
+T7	RAREDISEASE 982 998	ocular melanomas
+T8	RAREDISEASE 1025 1040	Ocular melanoma
+T9	RAREDISEASE 1133 1148	Ocular melanoma
+T10	SIGN 1165 1174;1176 1202;1211 1222	malignant tumor that can potentially metastasize
+T11	ANAPHOR 1296 1309	this disorder
+T12	RAREDISEASE 1369 1384	Ocular melanoma
+T13	DISEASE 1404 1436	primary cancer affecting the eye
+T14	ANAPHOR 1447 1449	it
+T15	ANAPHOR 1683 1694	This cancer
+T16	DISEASE 1688 1694	cancer
+T17	ANAPHOR 1768 1770	It
+T18	RAREDISEASE 1891 1906	ocular melanoma
+T19	ANAPHOR 1946 1958	The disorder
+T20	RAREDISEASE 2147 2162	Ocular melanoma
+T21	RAREDISEASE 2206 2214	melanoma
+T22	RAREDISEASE 2239 2247	melanoma
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Is_a Arg1:T3 Arg2:T4	
+R4	Produces Arg1:T9 Arg2:T10	
+R5	Anaphora Arg1:T9 Arg2:T11	
+R6	Is_a Arg1:T12 Arg2:T13	
+R7	Anaphora Arg1:T12 Arg2:T14	
+R8	Anaphora Arg1:T12 Arg2:T15	
+R9	Anaphora Arg1:T12 Arg2:T17	
+R10	Is_a Arg1:T15 Arg2:T160	
+R11	Anaphora Arg1:T18 Arg2:T190	

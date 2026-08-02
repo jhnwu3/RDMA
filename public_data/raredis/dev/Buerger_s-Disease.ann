@@ -1,0 +1,31 @@
+T1	RAREDISEASE 0 17	Buerger's disease
+T2	RAREDISEASE 33 59	thromboangiitis obliterans
+T3	ANAPHOR 154 156	It
+T4	SIGN 177 255	narrowing or blockage (occlusion) of the veins and arteries of the extremities
+T5	DISEASE 305 332	peripheral vascular disease
+T6	SIGN 305 332	peripheral vascular disease
+T7	SYMPTOM 419 438;454 458	extreme pain of the legs
+T8	SYMPTOM 419 449;459 472	extreme pain of the lower arms while at rest
+T9	SIGN 515 550	cramping in the legs when they walk
+T10	SIGN 591 603	claudication
+T11	SIGN 656 662;664 682	ulcers on the extremities
+T12	SIGN 800 820	Raynaud's phenomenon
+T13	DISEASE 874 890	thrombophlebitis
+T14	SIGN 874 890	thrombophlebitis
+T15	RAREDISEASE 927 944	Buerger's disease
+T16	SIGN 971 979	gangrene
+T17	RAREDISEASE 1019 1036	Buerger's disease
+T18	RAREDISEASE 1126 1143	Buerger's disease
+T19	RAREDISEASE 1321 1338	Buerger's disease
+R1	Anaphora Arg1:T1 Arg2:T3	
+R2	Is_synon Arg1:T2 Arg2:T1	
+R3	Produces Arg1:T3 Arg2:T4	
+R4	Produces Arg1:T3 Arg2:T6	
+R5	Produces Arg1:T3 Arg2:T7	
+R6	Produces Arg1:T3 Arg2:T8	
+R7	Produces Arg1:T3 Arg2:T9	
+R8	Produces Arg1:T3 Arg2:T10	
+R9	Produces Arg1:T15 Arg2:T11	
+R10	Produces Arg1:T15 Arg2:T12	
+R11	Produces Arg1:T15 Arg2:T14	
+R12	Produces Arg1:T15 Arg2:T16	

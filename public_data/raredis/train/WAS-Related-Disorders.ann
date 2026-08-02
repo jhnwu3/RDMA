@@ -1,0 +1,73 @@
+T1	RAREDISEASE 4 25	WAS-related disorders
+T2	ANAPHOR 129 144	These disorders
+T3	RAREDISEASE 153 177	Wiskott-Aldrich syndrome
+T4	RAREDISEASE 179 204	X-linked thrombocytopenia
+T5	RAREDISEASE 209 240	X-linked congenital neutropenia
+T6	ANAPHOR 242 266	The WAS gene abnormality
+T7	SIGN 280 310	deficiency in the WASP protein
+T8	SIGN 347 363	thrombocytopenia
+T9	RAREDISEASE 367 388	WAS-related disorders
+T10	SIGN 441 456	bloody diarrhea
+T11	SIGN 458 478	recurrent infections
+T12	SIGN 480 487	scaling
+T13	SIGN 489 494	itchy
+T14	SIGN 509 515	eczema
+T15	SIGN 572 580	petechia
+T16	DISEASE 602 632	Pneumocystis carinii pneumonia
+T17	SIGN 602 632	Pneumocystis carinii pneumonia
+T18	DISEASE 634 637	PCP
+T19	SIGN 634 637	PCP
+T20	SIGN 643 664	intracranial bleeding
+T21	SIGN 787 803	hemolytic anemia
+T22	SIGN 806 815	arthritis
+T23	RAREDISEASE 817 827	vasculitis
+T24	SIGN 817 827	vasculitis
+T25	SIGN 832 838;849 855	kidney damage
+T26	SIGN 843 855	liver damage
+T27	RAREDISEASE 916 925	lymphomas
+T28	SIGN 916 925	lymphomas
+T29	RAREDISEASE 976 997	WAS-related disorders
+T30	RAREDISEASE 1090 1111	WAS-related disorders
+T31	ANAPHOR 1135 1149	This condition
+T32	RAREDISEASE 1216 1236	WAS-related disorder
+T33	SIGN 1318 1336	low platelet count
+T34	SIGN 1341 1360	small platelet size
+T35	SIGN 1424 1431	low IgM
+T36	SIGN 1433 1445	elevated IgA
+T37	SIGN 1433 1441;1450 1453	elevated IgE
+T38	SIGN 1455 1497	decreased absolute numbers of CD8+ T cells
+T39	SIGN 1502 1544	decreased function of natural killer cells
+T40	SIGN 1546 1578	Decreased or absent WASP protein
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T6	
+R3	Is_a Arg1:T3 Arg2:T2	
+R4	Is_a Arg1:T4 Arg2:T2	
+R5	Is_a Arg1:T5 Arg2:T2	
+R6	Produces Arg1:T6 Arg2:T7	
+R7	Produces Arg1:T6 Arg2:T8	
+R8	Produces Arg1:T9 Arg2:T10	
+R9	Produces Arg1:T9 Arg2:T11	
+R10	Produces Arg1:T9 Arg2:T12	
+R11	Produces Arg1:T9 Arg2:T13	
+R12	Produces Arg1:T9 Arg2:T14	
+R13	Produces Arg1:T9 Arg2:T15	
+R14	Produces Arg1:T9 Arg2:T17	
+R15	Produces Arg1:T9 Arg2:T19	
+R16	Produces Arg1:T9 Arg2:T20	
+R17	Produces Arg1:T9 Arg2:T21	
+R18	Produces Arg1:T9 Arg2:T220	
+R19	Produces Arg1:T9 Arg2:T24	
+R20	Produces Arg1:T9 Arg2:T25	
+R21	Produces Arg1:T9 Arg2:T26	
+R22	Increases_risk_of Arg1:T9 Arg2:T270	
+R23	Produces Arg1:T9 Arg2:T28	
+R24	Is_acron Arg1:T18 Arg2:T16	
+R25	Anaphora Arg1:T30 Arg2:T31	
+R26	Produces Arg1:T32 Arg2:T33	
+R27	Produces Arg1:T32 Arg2:T34	
+R28	Produces Arg1:T32 Arg2:T35	
+R29	Produces Arg1:T32 Arg2:T36	
+R30	Produces Arg1:T32 Arg2:T37	
+R31	Produces Arg1:T32 Arg2:T380	
+R32	Produces Arg1:T32 Arg2:T39	
+R33	Produces Arg1:T32 Arg2:T40	

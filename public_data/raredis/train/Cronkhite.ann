@@ -1,0 +1,24 @@
+T1	SKINRAREDISEASE 0 25	Cronkhite-Canada syndrome
+T2	SKINRAREDISEASE 27 30	CCS
+T3	SIGN 86 103	intestinal polyps
+T4	SYMPTOM 105 118	loss of taste
+T5	SIGN 120 129	hair loss
+T6	SIGN 135 155	nail growth problems
+T7	ANAPHOR 157 159	It
+T8	SIGN 193 206	malabsorption
+T9	SIGN 228 234	polyps
+T10	SKINRAREDISEASE 236 239	CCS
+T11	ANAPHOR 333 335	It
+T12	SKINRAREDISEASE 413 438	Cronkhite-Canada syndrome
+T13	ANAPHOR 451 453	It
+T14	SKINRAREDISEASE 541 566	Cronkhite-Canada syndrome
+R1	Produces Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Produces Arg1:T1 Arg2:T5	
+R4	Produces Arg1:T1 Arg2:T6	
+R5	Anaphora Arg1:T1 Arg2:T7	
+R6	Is_acron Arg1:T2 Arg2:T1	
+R7	Produces Arg1:T7 Arg2:T8	
+R8	Produces Arg1:T7 Arg2:T90	
+R9	Anaphora Arg1:T10 Arg2:T11	
+R10	Anaphora Arg1:T12 Arg2:T13	

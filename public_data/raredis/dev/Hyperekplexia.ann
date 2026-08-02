@@ -1,0 +1,6 @@
+T1	RAREDISEASE 0 13	Hyperekplexia
+T2	DISEASE 24 40	genetic disorder
+T3	ANAPHOR 143 155	the disorder
+T4	RAREDISEASE 203 216	Hyperekplexia
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	

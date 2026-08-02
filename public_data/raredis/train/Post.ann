@@ -1,0 +1,14 @@
+T1	RAREDISEASE 0 43	Post-transplant lymphoproliferative disease
+T2	RAREDISEASE 45 49	PTLD
+T3	RAREDISEASE 162 166	PTLD
+T4	RAREDISEASE 728 771	post-transplant lymphoproliferative disease
+T5	ANAPHOR 813 828	these disorders
+T6	RAREDISEASE 886 929	post-transplant lymphoproliferative disease
+T7	RAREDISEASE 1098 1102	PTLD
+T8	RAREDISEASE 1171 1175	PTLD
+T9	DISEASE 1195 1201	cancer
+T10	DISEASE 1261 1284	squamous cell carcinoma
+T11	RAREDISEASE 1361 1365	PTLD
+R1	Is_acron Arg1:T2 Arg2:T1	
+R2	Anaphora Arg1:T4 Arg2:T5	
+R3	Is_a Arg1:T8 Arg2:T9	

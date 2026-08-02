@@ -1,0 +1,38 @@
+T1	RAREDISEASE 0 35	Congenital fiber type disproportion
+T2	RAREDISEASE 37 41	CFTD
+T3	DISEASE 53 75	genetic muscle disease
+T4	RAREDISEASE 111 130	congenital myopathy
+T5	ANAPHOR 133 135	It
+T6	DISEASE 158 175	muscle conditions
+T7	DISEASE 187 208	congenital myopathies
+T8	SIGN 306 315	hypotonia
+T9	SIGN 321 348	generalized muscle weakness
+T10	SIGN 350 377	Delays in motor development
+T11	SIGN 417 432	muscle weakness
+T12	DISEASE 489 498	scoliosis
+T13	SIGN 489 498	scoliosis
+T14	SIGN 501 516	dislocated hips
+T15	SIGN 585 597	contractures
+T16	SIGN 585 597;613 625	contractures at the ankle
+T17	RAREDISEASE 627 631	CFTD
+T18	ANAPHOR 693 705	the disorder
+T19	ANAPHOR 747 749	it
+T20	ANAPHOR 763 775	The disorder
+T21	RAREDISEASE 914 918	CFTD
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Is_a Arg1:T1 Arg2:T4	
+R3	Anaphora Arg1:T1 Arg2:T5	
+R4	Produces Arg1:T1 Arg2:T80	
+R5	Produces Arg1:T1 Arg2:T9	
+R6	Produces Arg1:T1 Arg2:T10	
+R7	Produces Arg1:T1 Arg2:T11	
+R8	Produces Arg1:T1 Arg2:T13	
+R9	Produces Arg1:T1 Arg2:T14	
+R10	Produces Arg1:T1 Arg2:T15	
+R11	Produces Arg1:T1 Arg2:T160	
+R12	Is_acron Arg1:T2 Arg2:T1	
+R13	Is_a Arg1:T5 Arg2:T7	
+R14	Is_a Arg1:T7 Arg2:T6	
+R15	Anaphora Arg1:T17 Arg2:T18	
+R16	Anaphora Arg1:T17 Arg2:T19	
+R17	Anaphora Arg1:T17 Arg2:T20	

@@ -1,0 +1,54 @@
+T1	RAREDISEASE 0 33	Adenylosuccinate lyase deficiency
+T2	RAREDISEASE 35 39	ASLD
+T3	DISEASE 52 80	inherited metabolic disorder
+T4	SIGN 90 131	lack of the enzyme adenylosuccinate lyase
+T5	ANAPHOR 139 149	The defect
+T6	SIGN 174 187;211 254;295 368	appearance of succinylaminoimidazole carboxamide riboside in cerebrospinal fluid, in urine and, to a much smaller extent, in plasma
+T7	SIGN 174 187;276 293;295 368	appearance of succinyladenosine in cerebrospinal fluid, in urine and, to a much smaller extent, in plasma
+T8	RAREDISEASE 556 560	ASLD
+T9	RAREDISEASE 618 622	ASLD
+T10	SIGN 716 739	psychomotor retardation
+T11	SIGN 741 758	autistic features
+T12	DISEASE 760 768	epilepsy
+T13	SIGN 760 768	epilepsy
+T14	SIGN 770 785	axial hypotonia
+T15	SIGN 791 812	peripheral hypertonia
+T16	DISEASE 814 828	muscle wasting
+T17	SIGN 814 828	muscle wasting
+T18	SIGN 834 860	secondary feeding problems
+T19	SIGN 899 910	dysmorphism
+T20	SIGN 964 985	severe growth failure
+T21	SIGN 987 1011	small head circumference
+T22	SIGN 1013 1026	brachycephaly
+T23	SIGN 1028 1040	flat occiput
+T24	SIGN 1042 1066	prominent metopic suture
+T25	SIGN 1069 1101	ntermittent divergent strabismus
+T26	DISEASE 1081 1101	divergent strabismus
+T27	SIGN 1103 1138	small nose with anteverted nostrils
+T28	SIGN 1140 1164	long and smooth philtrum
+T29	SIGN 1166 1180	thin upper lip
+T30	SIGN 1186 1198	low set ears
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Anaphora Arg1:T1 Arg2:T5	
+R4	Is_acron Arg1:T2 Arg2:T1	
+R5	Produces Arg1:T5 Arg2:T6	
+R6	Produces Arg1:T5 Arg2:T7	
+R7	Produces Arg1:T9 Arg2:T10	
+R8	Produces Arg1:T9 Arg2:T11	
+R9	Produces Arg1:T9 Arg2:T13	
+R10	Produces Arg1:T9 Arg2:T14	
+R11	Produces Arg1:T9 Arg2:T15	
+R12	Produces Arg1:T9 Arg2:T17	
+R13	Produces Arg1:T9 Arg2:T18	
+R14	Produces Arg1:T9 Arg2:T190	
+R15	Produces Arg1:T9 Arg2:T20	
+R16	Produces Arg1:T9 Arg2:T21	
+R17	Produces Arg1:T9 Arg2:T22	
+R18	Produces Arg1:T9 Arg2:T23	
+R19	Produces Arg1:T9 Arg2:T24	
+R20	Produces Arg1:T9 Arg2:T25	
+R21	Produces Arg1:T9 Arg2:T27	
+R22	Produces Arg1:T9 Arg2:T28	
+R23	Produces Arg1:T9 Arg2:T29	
+R24	Produces Arg1:T9 Arg2:T300	

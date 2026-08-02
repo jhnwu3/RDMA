@@ -1,0 +1,21 @@
+T1	RAREDISEASE 0 20	Cogan-Reese syndrome
+T2	DISEASE 42 54	eye disorder
+T3	SIGN 74 129	matted or smudged appearance to the surface of the iris
+T4	SIGN 183 200	nodular iris nevi
+T5	DISEASE 257 286	peripheral anterior synechiae
+T6	SIGN 257 286	peripheral anterior synechiae
+T7	DISEASE 327 335	glaucoma
+T8	SIGN 327 335	glaucoma
+T9	DISEASE 338 356	Secondary glaucoma
+T10	SIGN 338 356	Secondary glaucoma
+T11	SIGN 369 380	vision loss
+T12	ANAPHOR 382 395	This disorder
+T13	RAREDISEASE 531 551	Cogan-Reese syndrome
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T6	
+R5	Produces Arg1:T1 Arg2:T8	
+R6	Produces Arg1:T1 Arg2:T100	
+R7	Anaphora Arg1:T1 Arg2:T12	
+R8	Produces Arg1:T9 Arg2:T11	

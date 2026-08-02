@@ -1,0 +1,8 @@
+T1	RAREDISEASE 0 15	NAGS deficiency
+T2	DISEASE 184 204	urea cycle disorders
+T3	DISEASE 260 280	urea cycle disorders
+T4	RAREDISEASE 286 301	NAGS deficiency
+T5	ANAPHOR 325 340	these disorders
+T6	DISEASE 417 437	urea cycle disorders
+R1	Anaphora Arg1:T3 Arg2:T5	
+R2	Is_a Arg1:T4 Arg2:T3	

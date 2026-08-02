@@ -1,0 +1,43 @@
+T1	RAREDISEASE 0 15	Biliary atresia
+T2	DISEASE 26 51	gastrointestinal disorder
+T3	SIGN 158 180	extrahepatic bile duct
+T4	RAREDISEASE 492 507	biliary atresia
+T5	SIGN 509 516;532 549	absence of the bile ducts
+T6	SIGN 520 549	destruction of the bile ducts
+T7	SIGN 574 607	accumulation of bile in the liver
+T8	SIGN 677 685	jaundice
+T9	SIGN 707 712;714 722	liver fibrosis
+T10	SIGN 791 804	heart defects
+T11	SIGN 809 819;839 852	intestinal malformations
+T12	SIGN 821 827;839 852	spleen malformations
+T13	SIGN 832 852	kidney malformations
+T14	RAREDISEASE 873 888	biliary atresia
+T15	RAREDISEASE 901 916	Biliary atresia
+T16	RAREDISEASE 1095 1110	biliary atresia
+T17	RAREDISEASE 1204 1219	biliary atresia
+T18	RAREDISEASE 1267 1282	Biliary atresia
+T19	DISEASE 1311 1334	end-stage liver disease
+T20	RAREDISEASE 1391 1406	biliary atresia
+T21	SIGN 2026 2058	elevated levels of liver enzymes
+T22	SIGN 2026 2044;2060 2089	elevated levels of gamma-glutamyl transpeptidase
+T23	SIGN 2026 2044;2095 2104	elevated levels of bilirubin
+T24	SIGN 2130 2177	high blood levels of matrix metalloproteinase-7
+T25	RAREDISEASE 2224 2239	biliary atresia
+T26	SIGN 2274 2301	absence of the gall bladder
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T4 Arg2:T5	
+R4	Produces Arg1:T4 Arg2:T6	
+R5	Produces Arg1:T4 Arg2:T7	
+R6	Produces Arg1:T4 Arg2:T8	
+R7	Produces Arg1:T4 Arg2:T9	
+R8	Produces Arg1:T4 Arg2:T10	
+R9	Produces Arg1:T4 Arg2:T11	
+R10	Produces Arg1:T4 Arg2:T120	
+R11	Produces Arg1:T4 Arg2:T13	
+R12	Increases_risk_of Arg1:T18 Arg2:T190	
+R13	Produces Arg1:T25 Arg2:T21	
+R14	Produces Arg1:T25 Arg2:T22	
+R15	Produces Arg1:T25 Arg2:T23	
+R16	Produces Arg1:T25 Arg2:T24	
+R17	Produces Arg1:T25 Arg2:T26	

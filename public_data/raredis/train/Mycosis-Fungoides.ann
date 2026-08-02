@@ -1,0 +1,24 @@
+T1	RAREDISEASE 0 17	Mycosis fungoides
+T2	RAREDISEASE 36 63	T-cell lymphoma of the skin
+T3	ANAPHOR 77 88	the disease
+T4	RAREDISEASE 154 171	mycosis fungoides
+T5	SIGN 177 181;190 201	skin infiltrated
+T6	SIGN 207 214	plaques
+T7	SIGN 219 226;236 259	nodules composed of lymphocytes
+T8	SIGN 280 296	ulcerated tumors
+T9	SIGN 301 356	infiltration of lymph nodes by diseased cells may occur
+T10	ANAPHOR 358 370	The disorder
+T11	RAREDISEASE 492 509	mycosis fungoides
+T12	DISEASE 621 627	cancer
+T13	RAREDISEASE 663 680	Mycosis fungoides
+T14	ANAPHOR 716 718	It
+T15	RAREDISEASE 775 792	mycosis fungoides
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T4 Arg2:T5	
+R4	Produces Arg1:T4 Arg2:T6	
+R5	Produces Arg1:T4 Arg2:T7	
+R6	Produces Arg1:T4 Arg2:T80	
+R7	Produces Arg1:T4 Arg2:T9	
+R8	Anaphora Arg1:T4 Arg2:T10	
+R9	Anaphora Arg1:T13 Arg2:T14	

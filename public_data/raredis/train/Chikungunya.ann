@@ -1,0 +1,34 @@
+T1	RAREDISEASE 0 11	Chikungunya
+T2	DISEASE 22 37	viral infection
+T3	ANAPHOR 87 89	It
+T4	SIGN 112 116	rash
+T5	SIGN 118 123	fever
+T6	SYMPTOM 148 159	arthralgias
+T7	RAREDISEASE 242 253	Chikungunya
+T8	ANAPHOR 303 305	It
+T9	RAREDISEASE 355 366	Chikungunya
+T10	DISEASE 373 400	infectious tropical disease
+T11	ANAPHOR 464 466	It
+T12	ANAPHOR 680 682	it
+T13	RAREDISEASE 712 723	Chikungunya
+T14	DISEASE 729 742	viral disease
+T15	ANAPHOR 793 795	It
+T16	RAREDISEASE 899 910	Chikungunya
+T17	ANAPHOR 951 964	This disorder
+T18	RAREDISEASE 1030 1041	Chikungunya
+T19	RAREDISEASE 1160 1171	Chikungunya
+T20	DISEASE 1345 1359	viral diseases
+T21	ANAPHOR 1403 1415	this disease
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T3 Arg2:T4	
+R4	Produces Arg1:T3 Arg2:T5	
+R5	Produces Arg1:T3 Arg2:T6	
+R6	Anaphora Arg1:T7 Arg2:T8	
+R7	Is_a Arg1:T9 Arg2:T10	
+R8	Anaphora Arg1:T9 Arg2:T11	
+R9	Anaphora Arg1:T9 Arg2:T12	
+R10	Is_a Arg1:T13 Arg2:T140	
+R11	Anaphora Arg1:T13 Arg2:T15	
+R12	Anaphora Arg1:T16 Arg2:T170	
+R13	Anaphora Arg1:T19 Arg2:T21	

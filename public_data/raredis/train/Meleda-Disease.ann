@@ -1,0 +1,24 @@
+T1	SKINRAREDISEASE 0 14	Meleda disease
+T2	DISEASE 36 59	inherited skin disorder
+T3	DISEASE 191 218	palmoplantar hyperkeratosis
+T4	SIGN 191 218	palmoplantar hyperkeratosis
+T5	SIGN 257 265	erythema
+T6	SIGN 306 331	symmetrical cornification
+T7	SIGN 377 403	abnormalities of the nails
+T8	SIGN 425 438;451 474	hyperhidrosis with an unpleasant odor
+T9	SIGN 542 559	lichenoid plaques
+T10	SKINRAREDISEASE 625 639	Meleda disease
+T11	SKINRAREDISEASE 703 717	Meleda disease
+T12	SIGN 881 899;926 936;938 955	skin abnormalities congenital or during infancy
+T13	SIGN 981 1025	skin abnormalities on the palms of the hands
+T14	SIGN 1030 1051;981 1002	the soles of the feet skin abnormalities on
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Produces Arg1:T1 Arg2:T5	
+R4	Produces Arg1:T1 Arg2:T6	
+R5	Produces Arg1:T1 Arg2:T7	
+R6	Produces Arg1:T1 Arg2:T8	
+R7	Produces Arg1:T1 Arg2:T9	
+R8	Produces Arg1:T11 Arg2:T12	
+R9	Produces Arg1:T11 Arg2:T13	
+R10	Produces Arg1:T11 Arg2:T14	

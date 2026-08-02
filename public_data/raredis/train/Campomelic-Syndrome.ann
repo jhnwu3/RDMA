@@ -1,0 +1,35 @@
+T1	RAREDISEASE 0 19	Campomelic syndrome
+T2	DISEASE 30 49	congenital disorder
+T3	ANAPHOR 91 93	It
+T4	SIGN 114 120;139 168	bowing of the long bones of the legs
+T5	SIGN 125 168	angular shape of the long bones of the legs
+T6	SIGN 192 228	multiple minor anomalies of the face
+T7	RAREDISEASE 230 242	cleft palate
+T8	SIGN 230 242	cleft palate
+T9	SIGN 250 268	skeletal anomalies
+T10	SIGN 277 306	abnormalities of the shoulder
+T11	SIGN 277 297;311 317	abnormalities of the pelvic
+T12	SIGN 327 347	eleven pairs of ribs
+T13	SIGN 377 408	underdevelopment of the trachea
+T14	SIGN 410 429	developmental delay
+T15	SIGN 448 492	incomplete development of genitalia in males
+T16	RAREDISEASE 530 549	Campomelic syndrome
+T17	ANAPHOR 685 698	this disorder
+T18	SIGN 715 727	sex reversal
+T19	ANAPHOR 821 834	this disorder
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T3 Arg2:T4	
+R4	Produces Arg1:T3 Arg2:T5	
+R5	Produces Arg1:T3 Arg2:T6	
+R6	Produces Arg1:T3 Arg2:T8	
+R7	Produces Arg1:T3 Arg2:T9	
+R8	Produces Arg1:T3 Arg2:T100	
+R9	Produces Arg1:T3 Arg2:T11	
+R10	Produces Arg1:T3 Arg2:T12	
+R11	Produces Arg1:T3 Arg2:T13	
+R12	Produces Arg1:T3 Arg2:T14	
+R13	Produces Arg1:T3 Arg2:T15	
+R14	Anaphora Arg1:T16 Arg2:T17	
+R15	Anaphora Arg1:T16 Arg2:T19	
+R16	Produces Arg1:T17 Arg2:T18	

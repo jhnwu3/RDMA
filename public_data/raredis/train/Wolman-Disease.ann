@@ -1,0 +1,6 @@
+T1	RAREDISEASE 0 14	Wolman disease
+T2	ANAPHOR 242 254	the disorder
+T3	RAREDISEASE 299 313	Wolman disease
+T4	ANAPHOR 372 384	the disorder
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T3 Arg2:T4	

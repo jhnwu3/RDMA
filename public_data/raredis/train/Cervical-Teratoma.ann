@@ -1,0 +1,13 @@
+T1	RAREDISEASE 0 18	Cervical teratomas
+T2	DISEASE 38 54	germ cell tumors
+T3	DISEASE 56 64	neoplasm
+T4	RAREDISEASE 106 115	teratomas
+T5	SIGN 265 280	cervical tumors
+T6	RAREDISEASE 356 374	cervical teratomas
+T7	RAREDISEASE 430 448	Cervical teratomas
+T8	RAREDISEASE 488 504	Germ cell tumors
+T9	RAREDISEASE 557 575	Cervical teratomas
+T10	RAREDISEASE 645 663	cervical teratomas
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T5	
+R3	Is_synon Arg1:T3 Arg2:T2	

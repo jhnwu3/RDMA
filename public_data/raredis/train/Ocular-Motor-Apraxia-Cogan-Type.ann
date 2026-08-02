@@ -1,0 +1,18 @@
+T1	RAREDISEASE 0 31	Cogan type ocular motor apraxia
+T2	SIGN 137 159	jerking-head movements
+T3	ANAPHOR 176 189	this disorder
+T4	RAREDISEASE 326 357	Cogan type ocular motor apraxia
+T5	SIGN 389 411	jerking-head movements
+T6	SIGN 497 519	jerking-head movements
+T7	SIGN 528 560	inability to fixate on an object
+T8	SIGN 744 774	associated brain abnormalities
+T9	SIGN 782 821	underdevelopment of the corpus callosum
+T10	SIGN 825 870	improper development of the cerebellar vermis
+R1	Anaphora Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T3 Arg2:T2	
+R3	Produces Arg1:T4 Arg2:T5	
+R4	Produces Arg1:T4 Arg2:T6	
+R5	Produces Arg1:T4 Arg2:T7	
+R6	Produces Arg1:T4 Arg2:T8	
+R7	Produces Arg1:T4 Arg2:T90	
+R8	Produces Arg1:T4 Arg2:T10	

@@ -1,0 +1,10 @@
+T1	RAREDISEASE 0 17	Pernicious anemia
+T2	DISEASE 28 42	blood disorder
+T3	SIGN 64 117	inability of the body to properly utilize vitamin B12
+T4	SIGN 205 216;242 258	lack of the intrinsic factor
+T5	SIGN 282 304	B12 cannot be absorbed
+T6	RAREDISEASE 323 340	pernicious anemia
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T5	

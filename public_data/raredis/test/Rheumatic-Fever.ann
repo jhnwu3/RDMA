@@ -1,0 +1,34 @@
+T1	RAREDISEASE 0 15	Rheumatic fever
+T2	SIGN 10 15	fever
+T3	DISEASE 22 42	inflammatory disease
+T4	ANAPHOR 122 124	It
+T5	DISEASE 251 263	strep throat
+T6	DISEASE 267 280	scarlet fever
+T7	SIGN 275 280	fever
+T8	RAREDISEASE 344 359	rheumatic fever
+T9	SIGN 354 359	fever
+T10	RAREDISEASE 370 385	rheumatic fever
+T11	SIGN 380 385	fever
+T12	DISEASE 407 439	Group A streptococcal infections
+T13	DISEASE 441 453	strep throat
+T14	ANAPHOR 484 496	the disorder
+T15	DISEASE 522 534	Strep throat
+T16	RAREDISEASE 565 580	rheumatic fever
+T17	SIGN 575 580	fever
+T18	RAREDISEASE 621 636	rheumatic fever
+T19	SIGN 631 636	fever
+T20	SIGN 653 662	flare-ups
+T21	SIGN 668 693	repeated strep infections
+T22	DISEASE 677 693	strep infections
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Is_a Arg1:T1 Arg2:T3	
+R3	Anaphora Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T6 Arg2:T7	
+R5	Produces Arg1:T8 Arg2:T9	
+R6	Produces Arg1:T10 Arg2:T11	
+R7	Increases_risk_of Arg1:T10 Arg2:T140	
+R8	Is_synon Arg1:T13 Arg2:T12	
+R9	Produces Arg1:T10 Arg2:T11	
+R10	Produces Arg1:T18 Arg2:T19	
+R11	Produces Arg1:T18 Arg2:T20	
+R12	Produces Arg1:T18 Arg2:T21	

@@ -1,0 +1,5 @@
+T1	RAREDISEASE 0 23	Crigler-Najjar syndrome
+T2	ANAPHOR 188 200	the disorder
+T3	ANAPHOR 319 321	It
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	

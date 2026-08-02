@@ -1,0 +1,13 @@
+T1	RAREDISEASE 0 14	Meige syndrome
+T2	DISEASE 25 55	neurological movement disorder
+T3	RAREDISEASE 155 177	oromandibular dystonia
+T4	SIGN 155 177	oromandibular dystonia
+T5	DISEASE 258 271	blepharospasm
+T6	SIGN 258 271	blepharospasm
+T7	RAREDISEASE 339 353	Meige syndrome
+T8	ANAPHOR 512 524	The disorder
+T9	RAREDISEASE 651 665	Meige syndrome
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Produces Arg1:T1 Arg2:T6	
+R4	Anaphora Arg1:T7 Arg2:T8	

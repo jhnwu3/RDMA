@@ -1,0 +1,56 @@
+T1	RAREDISEASE 12 29	Wieacker syndrome
+T2	SIGN 38 86	stiffening of the muscles and joints of the feet
+T3	SIGN 102 168	slowly progressive atrophy of certain muscles of the legs and arms
+T4	SIGN 174 202	mild intellectual disability
+T5	DISEASE 179 202	intellectual disability
+T6	SIGN 223 263	impairment or inability to move the eyes
+T7	SIGN 295 343	impairment in the use of face and tongue muscles
+T8	SIGN 406 412	ptosis
+T9	DISEASE 429 439	strabismus
+T10	SIGN 429 439	strabismus
+T11	DISEASE 462 471	hyperopia
+T12	SIGN 462 471	hyperopia
+T13	SIGN 522 536	kyphoscoliosis
+T14	RAREDISEASE 557 574	Wieacker syndrome
+T15	RAREDISEASE 589 606	Wieacker syndrome
+T16	ANAPHOR 683 695	the disorder
+T17	ANAPHOR 709 721	the syndrome
+T18	SIGN 852 882	severe intellectual disability
+T19	DISEASE 859 882	intellectual disability
+T20	SIGN 887 929	congenital contractures of multiple joints
+T21	SIGN 940 963	equinovarus of the feet
+T22	SIGN 1011 1026	muscle weakness
+T23	SIGN 1028 1038	spasticity
+T24	SIGN 1040 1048	seizures
+T25	SIGN 1053 1059	ptosis
+T26	SIGN 1104 1133	neonatal respiratory distress
+T27	RAREDISEASE 1163 1180	Wieacker syndrome
+T28	RAREDISEASE 1255 1289	arthrogryposis multiplex congenita
+T29	SIGN 1255 1289	arthrogryposis multiplex congenita
+T30	DISEASE 1335 1358	intellectual disability
+T31	SIGN 1335 1358	intellectual disability
+T32	ANAPHOR 1448 1460	the syndrome
+T33	ANAPHOR 1482 1494	the syndrome
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T6	
+R5	Produces Arg1:T1 Arg2:T7	
+R6	Produces Arg1:T1 Arg2:T8	
+R7	Produces Arg1:T1 Arg2:T10	
+R8	Produces Arg1:T1 Arg2:T12	
+R9	Produces Arg1:T1 Arg2:T130	
+R10	Anaphora Arg1:T15 Arg2:T16	
+R11	Anaphora Arg1:T15 Arg2:T170	
+R12	Produces Arg1:T15 Arg2:T180	
+R13	Produces Arg1:T15 Arg2:T20	
+R14	Produces Arg1:T15 Arg2:T21	
+R15	Produces Arg1:T20 Arg2:T12	
+R16	Produces Arg1:T20 Arg2:T13	
+R17	Produces Arg1:T20 Arg2:T33	
+R18	Produces Arg1:T20 Arg2:T14	
+R19	Produces Arg1:T20 Arg2:T34	
+R20	Produces Arg1:T27 Arg2:T29	
+R21	Produces Arg1:T27 Arg2:T31	
+R22	Anaphora Arg1:T27 Arg2:T32	
+R23	Anaphora Arg1:T27 Arg2:T33	

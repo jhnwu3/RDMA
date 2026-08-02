@@ -1,0 +1,6 @@
+T1	RAREDISEASE 0 14	POEMS syndrome
+T2	ANAPHOR 108 110	it
+T3	ANAPHOR 163 175	The disorder
+T4	RAREDISEASE 264 278	POEMS syndrome
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	

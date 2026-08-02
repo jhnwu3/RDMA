@@ -1,0 +1,28 @@
+T1	DISEASE 0 16	Pityriasis rosea
+T2	DISEASE 33 51	mild skin disorder
+T3	SIGN 71 105	salmon or pink colored, scaly rash
+T4	DISEASE 107 123	Pityriasis rosea
+T5	DISEASE 195 211	pityriasis rosea
+T6	SIGN 232 236	rash
+T7	SIGN 285 293;316 346	resemble an upper respiratory infection
+T8	SIGN 352 356	rash
+T9	SIGN 509 513	rash
+T10	DISEASE 540 556	pityriasis rosea
+T11	DISEASE 711 727	pityriasis rosea
+T12	ANAPHOR 785 797	the disorder
+T13	ANAPHOR 842 854	The disorder
+T14	DISEASE 995 1011	Pityriasis rosea
+T15	DISEASE 1090 1106	pityriasis rosea
+T16	ANAPHOR 1258 1270	the disorder
+T17	DISEASE 1353 1369	pityriasis rosea
+T18	DISEASE 1383 1397	skin disorders
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T5 Arg2:T6	
+R4	Produces Arg1:T5 Arg2:T7	
+R5	Produces Arg1:T5 Arg2:T8	
+R6	Produces Arg1:T5 Arg2:T9	
+R7	Anaphora Arg1:T11 Arg2:T12	
+R8	Anaphora Arg1:T11 Arg2:T13	
+R9	Anaphora Arg1:T17 Arg2:T160	
+R10	Is_a Arg1:T17 Arg2:T18	

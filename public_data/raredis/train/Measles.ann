@@ -1,0 +1,46 @@
+T1	DISEASE 0 7	Measles
+T2	DISEASE 13 44	highly contagious viral disease
+T3	ANAPHOR 78 90	This disease
+T4	SIGN 111 116	fever
+T5	SIGN 118 123	cough
+T6	SIGN 164 170	coryza
+T7	SIGN 216 230	conjunctivitis
+T8	SIGN 245 249	rash
+T9	SIGN 303 317;319 409	Koplik's spots on the inner cheeks in the mouth with a minute bluish or white speck in the center of each
+T10	DISEASE 411 418	Measles
+T11	ANAPHOR 450 461	The disease
+T12	SIGN 532 536	rash
+T13	DISEASE 691 698	Measles
+T14	DISEASE 795 802	measles
+T15	DISEASE 892 899	Measles
+T16	DISEASE 1050 1057	Measles
+T17	ANAPHOR 1093 1105	This disease
+T18	SIGN 1126 1131	fever
+T19	SIGN 1133 1138	cough
+T20	SIGN 1179 1185	coryza
+T21	SIGN 1231 1245	conjunctivitis
+T22	SIGN 1260 1264	rash
+T23	SIGN 1318 1332;1334 1424	Koplik's spots on the inner cheeks in the mouth with a minute bluish or white speck in the center of each
+T24	DISEASE 1442 1465	measles virus infection
+T25	DISEASE 1505 1512	measles
+T26	SIGN 1636 1640	rash
+T27	SIGN 1680 1684	rash
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T3 Arg2:T4	
+R4	Produces Arg1:T3 Arg2:T5	
+R5	Produces Arg1:T3 Arg2:T6	
+R6	Produces Arg1:T3 Arg2:T7	
+R7	Produces Arg1:T3 Arg2:T8	
+R8	Produces Arg1:T3 Arg2:T9	
+R9	Anaphora Arg1:T10 Arg2:T32	
+R10	Produces Arg1:T11 Arg2:T120	
+R11	Anaphora Arg1:T16 Arg2:T17	
+R12	Produces Arg1:T17 Arg2:T18	
+R13	Produces Arg1:T17 Arg2:T19	
+R14	Produces Arg1:T17 Arg2:T200	
+R15	Produces Arg1:T17 Arg2:T21	
+R16	Produces Arg1:T17 Arg2:T22	
+R17	Produces Arg1:T17 Arg2:T23	
+R18	Produces Arg1:T25 Arg2:T26	
+R19	Produces Arg1:T25 Arg2:T27	

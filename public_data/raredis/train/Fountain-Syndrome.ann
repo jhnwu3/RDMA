@@ -1,0 +1,27 @@
+T1	RAREDISEASE 0 17	Fountain syndrome
+T2	DISEASE 39 67	genetic multisystem disorder
+T3	DISEASE 93 116	intellectual disability
+T4	SIGN 93 116	intellectual disability
+T5	SIGN 127 149	swelling of the cheeks
+T6	SIGN 127 142;154 158	swelling of the lips
+T7	SIGN 245 249;251 256	face edema
+T8	SIGN 259 281	skeletal abnormalities
+T9	SIGN 290 298	deafness
+T10	SIGN 306 321;335 342	malformation of cochlea
+T11	RAREDISEASE 396 413	Fountain syndrome
+T12	ANAPHOR 426 438	The disorder
+T13	RAREDISEASE 500 517	Fountain syndrome
+T14	DISEASE 539 557	inherited disorder
+T15	ANAPHOR 723 735	the disorder
+T16	RAREDISEASE 832 849	Fountain syndrome
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Produces Arg1:T1 Arg2:T50	
+R4	Produces Arg1:T1 Arg2:T6	
+R5	Produces Arg1:T1 Arg2:T7	
+R6	Produces Arg1:T1 Arg2:T8	
+R7	Produces Arg1:T1 Arg2:T9	
+R8	Produces Arg1:T1 Arg2:T10	
+R9	Anaphora Arg1:T11 Arg2:T12	
+R10	Is_a Arg1:T13 Arg2:T14	
+R11	Anaphora Arg1:T13 Arg2:T15	

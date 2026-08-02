@@ -1,0 +1,11 @@
+T1	RAREDISEASE 0 22	Keratosis follicularis
+T2	ANAPHOR 67 69	It
+T3	ANAPHOR 157 169	The disorder
+T4	RAREDISEASE 292 314	Keratosis follicularis
+T5	RAREDISEASE 385 407	keratosis follicularis
+T6	SIGN 649 663	keratinization
+T7	SIGN 703 715	acantholysis
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T5 Arg2:T6	
+R4	Produces Arg1:T5 Arg2:T7	

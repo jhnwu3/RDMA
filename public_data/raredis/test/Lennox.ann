@@ -1,0 +1,26 @@
+T1	RAREDISEASE 0 23	Lennox-Gastaut syndrome
+T2	RAREDISEASE 25 28	LGS
+T3	DISEASE 50 58	epilepsy
+T4	SIGN 50 58;91 124	epilepsy during infancy or early childhood
+T5	SIGN 182 190	seizures
+T6	SIGN 205 248	atonic, tonic and atypical absence seizures
+T7	RAREDISEASE 264 287	Lennox-Gastaut syndrome
+T8	SIGN 305 326	cognitive dysfunction
+T9	SIGN 328 371	delays in reaching developmental milestones
+T10	SIGN 376 395	behavioral problems
+T11	RAREDISEASE 397 420	Lennox-Gastaut syndrome
+T12	RAREDISEASE 520 543	Lennox-Gastaut syndrome
+T13	ANAPHOR 578 580	it
+T14	RAREDISEASE 710 733	Lennox-Gastaut syndrome
+T15	RAREDISEASE 735 758	Lennox-Gastaut syndrome
+T16	RAREDISEASE 807 830	Lennox-Gastaut syndrome
+T17	DISEASE 941 959	childhood epilepsy
+T18	RAREDISEASE 1046 1069	Lennox-Gastaut syndrome
+R1	Produces Arg1:T1 Arg2:T4	
+R2	Produces Arg1:T1 Arg2:T50	
+R3	Produces Arg1:T1 Arg2:T6	
+R4	Is_acron Arg1:T2 Arg2:T1	
+R5	Produces Arg1:T7 Arg2:T8	
+R6	Produces Arg1:T7 Arg2:T9	
+R7	Produces Arg1:T7 Arg2:T10	
+R8	Anaphora Arg1:T12 Arg2:T13	

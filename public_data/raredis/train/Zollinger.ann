@@ -1,0 +1,36 @@
+T1	RAREDISEASE 0 26	Zollinger-Ellison syndrome
+T2	RAREDISEASE 28 31	ZES
+T3	RAREDISEASE 81 91	gastrinoma
+T4	SIGN 81 91	gastrinoma
+T5	RAREDISEASE 249 260	gastrinomas
+T6	SIGN 249 260	gastrinomas
+T7	SIGN 353 359	tumors
+T8	SIGN 479 506	gastric acid hypersecretion
+T9	RAREDISEASE 526 529	ZES
+T10	SIGN 542 555	peptic ulcers
+T11	SIGN 631 644	Peptic ulcers
+T12	RAREDISEASE 804 807	ZES
+T13	SYMPTOM 835 849	abdominal pain
+T14	SIGN 851 859	diarrhea
+T15	SIGN 901 912	steatorrhea
+T16	RAREDISEASE 973 976	ZES
+T17	RAREDISEASE 1082 1085	ZES
+T18	DISEASE 1115 1131	genetic syndrome
+T19	RAREDISEASE 1141 1176	multiple endocrine neoplasia type 1
+T20	RAREDISEASE 1178 1183	MEN-1
+T21	RAREDISEASE 1323 1326	ZES
+T22	RAREDISEASE 1450 1453	ZES
+T23	RAREDISEASE 1532 1535	ZES
+T24	SIGN 1572 1585	peptic ulcers
+R1	Produces Arg1:T1 Arg2:T4	
+R2	Produces Arg1:T1 Arg2:T6	
+R3	Produces Arg1:T1 Arg2:T7	
+R4	Is_acron Arg1:T2 Arg2:T1	
+R5	Produces Arg1:T9 Arg2:T8	
+R6	Produces Arg1:T9 Arg2:T10	
+R7	Produces Arg1:T9 Arg2:T11	
+R8	Produces Arg1:T12 Arg2:T13	
+R9	Produces Arg1:T12 Arg2:T14	
+R10	Produces Arg1:T12 Arg2:T15	
+R11	Is_acron Arg1:T20 Arg2:T19	
+R12	Produces Arg1:T23 Arg2:T24	

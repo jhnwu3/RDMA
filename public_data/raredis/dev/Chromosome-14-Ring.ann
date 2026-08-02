@@ -1,0 +1,37 @@
+T1	RAREDISEASE 0 18	Chromosome 14 Ring
+T2	SIGN 247 265	psychomotor delays
+T3	DISEASE 268 286	mental retardation
+T4	SIGN 268 286	mental retardation
+T5	SIGN 288 301	growth delays
+T6	SIGN 366 374	seizures
+T7	ANAPHOR 377 389	The disorder
+T8	SIGN 427 483	abnormalities of the head and facial (craniofacial) area
+T9	DISEASE 541 553	microcephaly
+T10	SIGN 541 553	microcephaly
+T11	SIGN 562 575	high forehead
+T12	SIGN 580 594	elongated face
+T13	SIGN 616 636	ocular hypertelorism
+T14	SIGN 641 655	thin upper lip
+T15	SIGN 659 676	flat nasal bridge
+T16	SIGN 684 703	prominent nasal tip
+T17	SIGN 709 728	large, low-set ears
+T18	RAREDISEASE 730 748	Chromosome 14 Ring
+T19	DISEASE 770 790	chromosomal disorder
+T20	DISEASE 937 958	chromosomal disorders
+T21	RAREDISEASE 1010 1028	Chromosome 14 Ring
+T22	DISEASE 1198 1218	chromosomal disorder
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Produces Arg1:T1 Arg2:T5	
+R4	Produces Arg1:T1 Arg2:T6	
+R5	Anaphora Arg1:T1 Arg2:T7	
+R6	Produces Arg1:T7 Arg2:T80	
+R7	Produces Arg1:T7 Arg2:T10	
+R8	Produces Arg1:T7 Arg2:T11	
+R9	Produces Arg1:T7 Arg2:T12	
+R10	Produces Arg1:T7 Arg2:T13	
+R11	Produces Arg1:T7 Arg2:T14	
+R12	Produces Arg1:T7 Arg2:T15	
+R13	Produces Arg1:T7 Arg2:T16	
+R14	Produces Arg1:T7 Arg2:T17	
+R15	Is_a Arg1:T20 Arg2:T22	

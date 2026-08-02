@@ -1,0 +1,9 @@
+T1	RAREDISEASE 17 32	Poland Syndrome
+T2	SIGN 526 552	abnormalities in the hands
+T3	SIGN 526 546;554 562	abnormalities in the forearms
+T4	SIGN 526 546;564 568	abnormalities in the ribs
+T5	SIGN 526 546;577 592	abnormalities in the shoulder blades
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T5	

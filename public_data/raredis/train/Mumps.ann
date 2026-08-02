@@ -1,0 +1,19 @@
+T1	DISEASE 0 5	Mumps
+T2	SIGN 46 100	painful inflammation and swelling of the saliva glands
+T3	DISEASE 189 194	Mumps
+T4	DISEASE 215 233	infectious disease
+T5	ANAPHOR 336 348	the disorder
+T6	DISEASE 379 384	mumps
+T7	DISEASE 484 489	Mumps
+T8	DISEASE 506 519	viral disease
+T9	DISEASE 767 772	mumps
+T10	ANAPHOR 796 798	It
+T11	ANAPHOR 871 882	the disease
+T12	DISEASE 1015 1020	mumps
+T13	DISEASE 1117 1122	mumps
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Is_a Arg1:T3 Arg2:T4	
+R3	Anaphora Arg1:T3 Arg2:T5	
+R4	Is_a Arg1:T7 Arg2:T8	
+R5	Anaphora Arg1:T9 Arg2:T10	
+R6	Anaphora Arg1:T9 Arg2:T11	

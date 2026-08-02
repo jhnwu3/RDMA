@@ -1,0 +1,32 @@
+T1	RAREDISEASE 0 17	Kikuchi's disease
+T2	RAREDISEASE 33 72	histiocytic necrotizing lymphadenopathy
+T3	SIGN 57 72	lymphadenopathy
+T4	DISEASE 85 130	benign, (noncancerous, nonmalignant) disorder
+T5	ANAPHOR 197 210	This disorder
+T6	RAREDISEASE 233 251	malignant lymphoma
+T7	RAREDISEASE 264 283	cervical adenopathy
+T8	SIGN 273 283	adenopathy
+T9	SIGN 327 334	lesions
+T10	SIGN 339 355	tissue anomalies
+T11	RAREDISEASE 360 373	this disorder
+T12	SIGN 416 431	lymphadenopathy
+T13	RAREDISEASE 475 492	Kikuchi's disease
+T14	RAREDISEASE 557 576	malignant lymphoma.
+T15	RAREDISEASE 596 613	Kikuchi’s disease
+T16	ANAPHOR 689 702	this disorder
+T17	ANAPHOR 734 746	the disorder
+T18	RAREDISEASE 753 781	systemic lupus erythematosus
+T19	DISEASE 788 821	self-limited autoimmune condition
+T20	DISEASE 823 843	Autoimmune disorders
+R1	Is_a Arg1:T1 Arg2:T4	
+R2	Anaphora Arg1:T1 Arg2:T5	
+R3	Increases_risk_of Arg1:T1 Arg2:T11	
+R4	Is_synon Arg1:T10 Arg2:T1	
+R5	Produces Arg1:T10 Arg2:T2	
+R6	Produces Arg1:T7 Arg2:T8	
+R7	Produces Arg1:T11 Arg2:T9	
+R8	Produces Arg1:T11 Arg2:T10	
+R9	Produces Arg1:T11 Arg2:T12	
+R10	Anaphora Arg1:T15 Arg2:T160	
+R11	Is_a Arg1:T17 Arg2:T19	
+R12	Anaphora Arg1:T18 Arg2:T17	

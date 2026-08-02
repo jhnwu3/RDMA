@@ -1,0 +1,42 @@
+T1	RAREDISEASE 0 31	Gastrointestinal stromal tumors
+T2	RAREDISEASE 33 38	GISTs
+T3	DISEASE 61 68	cancers
+T4	DISEASE 78 98	soft tissue sarcomas
+T5	SIGN 192 198;213 238	Tumors from the intestinal tract
+T6	SIGN 400 406;485 495	tumors peritoneum
+T7	SIGN 400 406;541 548	tumors omentum
+T8	SIGN 582 628	tumors arising in the appendix and/or pancreas
+T9	SIGN 636 642	tumors
+T10	SYMPTOM 670 684	abdominal pain
+T11	SIGN 686 694	bleeding
+T12	DISEASE 707 729	intestinal obstruction
+T13	SIGN 707 729	intestinal obstruction
+T14	RAREDISEASE 880 885	GISTs
+T15	SIGN 1271 1277	tumors
+T16	RAREDISEASE 1404 1419	Leiomyosarcomas
+T17	RAREDISEASE 1497 1501	GIST
+T18	RAREDISEASE 1503 1517	Leiomyosarcoma
+T19	SIGN 1523 1550;1563 1587	malignant (cancerous) tumor from smooth muscle cells
+T20	RAREDISEASE 2190 2204	Leiomyosarcoma
+T21	ANAPHOR 2265 2267	it
+T22	RAREDISEASE 2333 2347	leiomyosarcoma
+T23	RAREDISEASE 2586 2600	leiomyosarcoma
+T24	RAREDISEASE 2607 2622	leiomyosarcomas
+T25	RAREDISEASE 2677 2682	GISTs
+T26	RAREDISEASE 2703 2717	leiomyosarcoma
+T27	RAREDISEASE 2737 2751	leiomyosarcoma
+T28	RAREDISEASE 2812 2826	leiomyosarcoma
+R1	Is_a Arg1:T1 Arg2:T4	
+R2	Produces Arg1:T1 Arg2:T5	
+R3	Produces Arg1:T1 Arg2:T6	
+R4	Produces Arg1:T1 Arg2:T7	
+R5	Produces Arg1:T1 Arg2:T80	
+R6	Produces Arg1:T1 Arg2:T9	
+R7	Produces Arg1:T1 Arg2:T10	
+R8	Produces Arg1:T1 Arg2:T11	
+R9	Produces Arg1:T1 Arg2:T13	
+R10	Is_acron Arg1:T2 Arg2:T1	
+R11	Is_a Arg1:T4 Arg2:T3	
+R12	Produces Arg1:T14 Arg2:T15	
+R13	Produces Arg1:T18 Arg2:T19	
+R14	Anaphora Arg1:T20 Arg2:T21	

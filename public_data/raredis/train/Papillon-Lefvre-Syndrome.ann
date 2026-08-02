@@ -1,0 +1,7 @@
+T1	SKINRAREDISEASE 0 25	Papillon-Lefèvre syndrome
+T2	ANAPHOR 232 244	the disorder
+T3	SIGN 396 414	Skin abnormalities
+T4	ANAPHOR 431 444	this disorder
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T4	
+R3	Produces Arg1:T4 Arg2:T3	

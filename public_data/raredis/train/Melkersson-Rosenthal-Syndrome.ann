@@ -1,0 +1,48 @@
+T1	SKINRAREDISEASE 21 24	MRS
+T2	SIGN 36 61	swelling of the upper lip
+T3	SIGN 36 51;63 72	swelling of the lower lip
+T4	SIGN 36 51;74 92	swelling of the one or both cheeks
+T5	SIGN 36 51;94 101	swelling of the eyelids
+T6	SIGN 114 135;36 47	one side of the scalp swelling of
+T7	SIGN 189 197	swelling
+T8	SIGN 286 299;311 318;323 333;345 352	enlarged lips cracked discolored painful
+T9	SIGN 354 359	Fever
+T10	SYMPTOM 361 369	headache
+T11	SYMPTOM 374 393	visual disturbances
+T12	SIGN 429 444	fissured tongue
+T13	SIGN 513 552	Salivary gland secretion may be reduced
+T14	SIGN 561 593	sense of taste may be diminished
+T15	DISEASE 595 607	Facial palsy
+T16	SIGN 595 607	Facial palsy
+T17	SIGN 683 695	lip swelling
+T18	DISEASE 758 770	facial palsy
+T19	SIGN 758 770	facial palsy
+T20	SKINRAREDISEASE 845 848	MRS
+T21	SKINRAREDISEASE 983 986	MRS
+T22	RAREDISEASE 1039 1054	Crohn’s disease
+T23	RAREDISEASE 1058 1069	sarcoidosis
+T24	SKINRAREDISEASE 1121 1150	Melkersson Rosenthal syndrome
+T25	ANAPHOR 1278 1291	the condition
+T26	DISEASE 1323 1335	facial palsy
+T27	SIGN 1323 1335	facial palsy
+T28	SKINRAREDISEASE 1359 1362	MRS
+T29	RAREDISEASE 1565 1580	Crohn’s disease
+T30	RAREDISEASE 1585 1596	sarcoidosis
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T5	
+R5	Produces Arg1:T1 Arg2:T60	
+R6	Produces Arg1:T1 Arg2:T7	
+R7	Produces Arg1:T1 Arg2:T8	
+R8	Produces Arg1:T1 Arg2:T9	
+R9	Produces Arg1:T1 Arg2:T10	
+R10	Produces Arg1:T1 Arg2:T11	
+R11	Produces Arg1:T20 Arg2:T12	
+R12	Produces Arg1:T20 Arg2:T13	
+R13	Produces Arg1:T20 Arg2:T14	
+R14	Produces Arg1:T20 Arg2:T16	
+R15	Produces Arg1:T20 Arg2:T17	
+R16	Produces Arg1:T20 Arg2:T19	
+R17	Anaphora Arg1:T24 Arg2:T25	
+R18	Produces Arg1:T25 Arg2:T27	

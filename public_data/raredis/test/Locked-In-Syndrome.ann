@@ -1,0 +1,12 @@
+T1	RAREDISEASE 0 18	Locked-in syndrome
+T2	DISEASE 29 50	neurological disorder
+T3	RAREDISEASE 100 118	Locked-in syndrome
+T4	SIGN 232 237;249 257	brain bleeding
+T5	DISEASE 238 244	stroke
+T6	SIGN 238 244	stroke
+T7	RAREDISEASE 276 294	locked-in syndrome
+T8	ANAPHOR 407 419	the disorder
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T3 Arg2:T4	
+R3	Produces Arg1:T3 Arg2:T6	
+R4	Anaphora Arg1:T7 Arg2:T8	

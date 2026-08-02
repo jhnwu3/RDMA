@@ -1,0 +1,9 @@
+T1	RAREDISEASE 0 37	Congenital disorders of glycosylation
+T2	ANAPHOR 118 133	these disorders
+T3	ANAPHOR 299 314	these disorders
+T4	RAREDISEASE 424 432	PMM2-CDG
+T5	ANAPHOR 497 512	these disorders
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Anaphora Arg1:T1 Arg2:T5	
+R4	Is_a Arg1:T4 Arg2:T1	

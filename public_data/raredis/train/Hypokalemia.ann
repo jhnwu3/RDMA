@@ -1,0 +1,19 @@
+T1	DISEASE 0 11	Hypokalemia
+T2	SIGN 64 97	low potassium levels in the blood
+T3	ANAPHOR 99 101	It
+T4	DISEASE 967 978	Hypokalemia
+T5	DISEASE 1028 1039	Hypokalemia
+T6	DISEASE 1204 1215	Hypokalemia
+T7	ANAPHOR 1261 1263	it
+T8	DISEASE 1321 1332	Hypokalemia
+T9	DISEASE 1365 1376	hypokalemia
+T10	DISEASE 1718 1732	kidney disease
+T11	DISEASE 1734 1751	diabetes mellitus
+T12	DISEASE 1756 1800	dysfunctions of the autonomic nervous system
+T13	DISEASE 1930 1942	Hyperkalemia
+T14	DISEASE 1965 1976	Hypokalemia
+T15	DISEASE 1997 2016	high blood pressure
+T16	DISEASE 2133 2144	Hypokalemia
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Anaphora Arg1:T6 Arg2:T7	

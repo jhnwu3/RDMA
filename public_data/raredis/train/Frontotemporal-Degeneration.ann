@@ -1,0 +1,7 @@
+T1	RAREDISEASE 0 27	Frontotemporal degeneration
+T2	DISEASE 62 70	dementia
+T3	DISEASE 107 126	Alzheimer’s disease
+T4	RAREDISEASE 265 292	Frontotemporal degeneration
+T5	RAREDISEASE 516 543	frontotemporal degeneration
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Is_a Arg1:T3 Arg2:T2	

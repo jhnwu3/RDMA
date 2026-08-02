@@ -1,0 +1,20 @@
+T1	RAREDISEASE 0 29	Amyotrophic lateral sclerosis
+T2	RAREDISEASE 31 34	ALS
+T3	DISEASE 76 97	motor neuron diseases
+T4	ANAPHOR 99 101	It
+T5	SIGN 126 150;170 184	progressive degeneration of nerve cells
+T6	SIGN 155 184	eventual death of nerve cells
+T7	RAREDISEASE 495 498	ALS
+T8	RAREDISEASE 734 737	ALS
+T9	SIGN 747 766	respiratory failure
+T10	RAREDISEASE 860 863	ALS
+T11	RAREDISEASE 880 900	Lou Gehrig's disease
+T12	RAREDISEASE 902 931	Amyotrophic lateral sclerosis
+T13	RAREDISEASE 1116 1119	ALS
+R1	Increases_risk_of Arg1:T1 Arg2:T3	
+R2	Anaphora Arg1:T1 Arg2:T4	
+R3	Is_acron Arg1:T2 Arg2:T1	
+R4	Produces Arg1:T4 Arg2:T5	
+R5	Produces Arg1:T4 Arg2:T6	
+R6	Produces Arg1:T10 Arg2:T2	
+R7	Is_synon Arg1:T10 Arg2:T11	

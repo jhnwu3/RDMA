@@ -1,0 +1,28 @@
+T1	RAREDISEASE 0 16	Candida Albicans
+T2	DISEASE 31 55	harmless yeast infection
+T3	DISEASE 106 117	Candidiasis
+T4	DISEASE 217 234	Candida infection
+T5	DISEASE 252 267	yeast infection
+T6	RAREDISEASE 363 381	Candida infections
+T7	ANAPHOR 445 447	it
+T8	ANAPHOR 576 578	it
+T9	DISEASE 695 706	Candidiasis
+T10	RAREDISEASE 802 818	Candida albicans
+T11	DISEASE 1144 1161	diabetes mellitus
+T12	RAREDISEASE 1199 1216	Candida infection
+T13	RAREDISEASE 1218 1237	Chronic Candidiasis
+T14	DISEASE 1323 1340	diabetes mellitus
+T15	DISEASE 1355 1374	immune deficiencies
+T16	ANAPHOR 1418 1430	the disorder
+T17	DISEASE 1439 1457	maternal infection
+T18	DISEASE 1534 1543;1562 1572	bacterial infections
+T19	DISEASE 1545 1551;1562 1572	fungal infections
+T20	DISEASE 1556 1572	viral infections
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Is_synon Arg1:T5 Arg2:T4	
+R3	Anaphora Arg1:T10 Arg2:T18	
+R4	Anaphora Arg1:T10 Arg2:T20	
+R5	Anaphora Arg1:T10 Arg2:T16	
+R6	Increases_risk_of Arg1:T11 Arg2:T12	
+R7	Increases_risk_of Arg1:T14 Arg2:T13	
+R8	Increases_risk_of Arg1:T15 Arg2:T13	

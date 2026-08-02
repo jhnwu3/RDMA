@@ -1,0 +1,41 @@
+T1	SKINRAREDISEASE 0 42	Keratosis follicularis spinulosa decalvans
+T2	SKINRAREDISEASE 44 48	KFSD
+T3	DISEASE 61 85	inherited, skin disorder
+T4	SKINRAREDISEASE 87 91	KFSD
+T5	DISEASE 135 144	keratosis
+T6	SIGN 135 144	keratosis
+T7	SIGN 240 262	thickening of the skin
+T8	SIGN 285 301	loss of eyebrows
+T9	SIGN 285 292;303 312	loss of eyelashes
+T10	SIGN 285 292;317 322	loss of beard
+T11	SIGN 334 342	alopecia
+T12	SKINRAREDISEASE 372 376	KFSD
+T13	SIGN 421 432	photophobia
+T14	SIGN 464 475	blepharitis
+T15	DISEASE 554 568	conjunctivitis
+T16	SIGN 554 568	conjunctivitis
+T17	DISEASE 584 592	pink eye
+T18	SIGN 584 592	pink eye
+T19	SIGN 676 693	corneal dystrophy
+T20	SIGN 712 726	loss of vision
+T21	SIGN 730 744	blurred vision
+T22	SIGN 765 790	poor fingernail formation
+T23	SKINRAREDISEASE 792 796	KFSD
+T24	SKINRAREDISEASE 885 889	KFSD
+T25	SKINRAREDISEASE 1016 1020	KFSD
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Is_acron Arg1:T2 Arg2:T1	
+R3	Produces Arg1:T4 Arg2:T6	
+R4	Produces Arg1:T4 Arg2:T7	
+R5	Produces Arg1:T4 Arg2:T8	
+R6	Produces Arg1:T4 Arg2:T90	
+R7	Produces Arg1:T4 Arg2:T10	
+R8	Produces Arg1:T4 Arg2:T11	
+R9	Produces Arg1:T12 Arg2:T13	
+R10	Produces Arg1:T12 Arg2:T14	
+R11	Produces Arg1:T12 Arg2:T16	
+R12	Produces Arg1:T12 Arg2:T18	
+R13	Produces Arg1:T12 Arg2:T19	
+R14	Produces Arg1:T12 Arg2:T20	
+R15	Produces Arg1:T12 Arg2:T21	
+R16	Produces Arg1:T12 Arg2:T220	

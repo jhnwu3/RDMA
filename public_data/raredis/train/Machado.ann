@@ -1,0 +1,22 @@
+T1	RAREDISEASE 0 22	Machado-Joseph Disease
+T2	RAREDISEASE 24 31	MJD-III
+T3	RAREDISEASE 46 77	spinocerebellar ataxia type III
+T4	DISEASE 90 107	inherited, ataxia
+T5	SIGN 101 107	ataxia
+T6	SIGN 197 217;259 268	slow degeneration of hindbrain
+T7	RAREDISEASE 284 287	MJD
+T8	SIGN 310 318	crippled
+T9	SIGN 326 335	paralyzed
+T10	RAREDISEASE 397 400	MJD
+T11	RAREDISEASE 444 447	MJD
+T12	DISEASE 468 489	neurological disorder
+T13	RAREDISEASE 634 637	MJD
+R1	Is_a Arg1:T1 Arg2:T4	
+R2	Produces Arg1:T1 Arg2:T5	
+R3	Produces Arg1:T1 Arg2:T6	
+R4	Is_acron Arg1:T2 Arg2:T1	
+R5	Is_synon Arg1:T3 Arg2:T1	
+R6	Is_acron Arg1:T7 Arg2:T1	
+R7	Produces Arg1:T7 Arg2:T8	
+R8	Produces Arg1:T7 Arg2:T90	
+R9	Is_a Arg1:T11 Arg2:T12	

@@ -1,0 +1,51 @@
+T1	SKINRAREDISEASE 0 21;28 36	Oculocerebrocutaneous syndrome
+T2	SKINRAREDISEASE 23 26;28 36	OCC syndrome
+T3	DISEASE 59 75	genetic disorder
+T4	ANAPHOR 112 124	The disorder
+T5	SIGN 160 166;214 227	ocular malformations
+T6	SIGN 182 190;214 227	cerebral malformations
+T7	SIGN 203 212;214 227	cutaneous malformations
+T8	SIGN 306 311;313 319;347 353	cysts within orbits
+T9	DISEASE 494 508	microphthalmos
+T10	SIGN 494 508	microphthalmos
+T11	SIGN 511 530	Brain abnormalities
+T12	SKINRAREDISEASE 547 559	OCC syndrome
+T13	SIGN 572 609	enlargement of the ventricular system
+T14	SIGN 611 639	multiple fluid-filled spaces
+T15	SIGN 651 671;714 729	malformations of the cerebral cortex
+T16	SIGN 804 835	agenesis of the corpus callosum
+T17	SIGN 844 886	typical malformation of mid- and hindbrain
+T18	DISEASE 929 952	intellectual disability
+T19	SIGN 929 952	intellectual disability
+T20	SIGN 1016 1024	seizures
+T21	SKINRAREDISEASE 1040 1052	OCC syndrome
+T22	SIGN 1139 1162	focal dermal hypoplasia
+T23	SKINRAREDISEASE 1139 1162	focal dermal hypoplasia
+T24	SIGN 1139 1151;1166 1173	focal dermal aplasia
+T25	SKINRAREDISEASE 1139 1151;1166 1173	focal dermal aplasia
+T26	SIGN 1247 1261;1263 1290	cutaneous tags within certain facial areas
+T27	SKINRAREDISEASE 1379 1391	OCC syndrome
+T28	ANAPHOR 1406 1418	the disorder
+T29	SKINRAREDISEASE 1486 1498	OCC syndrome
+T30	ANAPHOR 1601 1613	the disorder
+R1	Is_a Arg1:T10 Arg2:T2	
+R2	Anaphora Arg1:T10 Arg2:T30	
+R3	Produces Arg1:T10 Arg2:T15	
+R4	Is_acron Arg1:T2 Arg2:T10	
+R5	Produces Arg1:T30 Arg2:T1	
+R6	Produces Arg1:T30 Arg2:T12	
+R7	Produces Arg1:T30 Arg2:T13	
+R8	Produces Arg1:T30 Arg2:T14	
+R9	Produces Arg1:T12 Arg2:T11	
+R10	Produces Arg1:T12 Arg2:T13	
+R11	Produces Arg1:T12 Arg2:T14	
+R12	Produces Arg1:T12 Arg2:T15	
+R13	Produces Arg1:T12 Arg2:T160	
+R14	Produces Arg1:T12 Arg2:T17	
+R15	Produces Arg1:T12 Arg2:T19	
+R16	Produces Arg1:T12 Arg2:T20	
+R17	Produces Arg1:T21 Arg2:T22	
+R18	Produces Arg1:T21 Arg2:T24	
+R19	Produces Arg1:T21 Arg2:T26	
+R20	Anaphora Arg1:T27 Arg2:T28	
+R21	Anaphora Arg1:T29 Arg2:T30	

@@ -1,0 +1,22 @@
+T1	RAREDISEASE 0 30	Weismann-Netter-Stuhl syndrome
+T2	DISEASE 52 77	genetic skeletal disorder
+T3	SIGN 129 148	osseousbo dysplasia
+T4	SIGN 180 189;296 302	bowing of fibula
+T5	SIGN 209 215;217 223;234 239	shafts of the tibia
+T6	SIGN 473 486	short stature
+T7	SIGN 621 634	short stature
+T8	RAREDISEASE 847 877	Weismann-Netter-Stuhl syndrome
+T9	ANAPHOR 963 975	the disorder
+T10	RAREDISEASE 1022 1052	Weismann-Netter-Stuhl syndrome
+T11	DISEASE 1074 1091	skeletal disorder
+T12	ANAPHOR 1216 1228	the disorder
+T13	RAREDISEASE 1298 1328	Weismann-Netter-Stuhl syndrome
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T50	
+R5	Produces Arg1:T1 Arg2:T6	
+R6	Produces Arg1:T1 Arg2:T7	
+R7	Anaphora Arg1:T8 Arg2:T9	
+R8	Is_a Arg1:T10 Arg2:T11	
+R9	Anaphora Arg1:T10 Arg2:T12	

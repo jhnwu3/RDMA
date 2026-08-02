@@ -1,0 +1,23 @@
+T1	RAREDISEASE 0 28	Vogt-Koyanagi-Harada disease
+T2	SIGN 234 248	loss of vision
+T3	SYMPTOM 295 310	severe headache
+T4	SYMPTOM 312 319	vertigo
+T5	SYMPTOM 321 327	nausea
+T6	SIGN 333 343	drowsiness
+T7	SIGN 345 360	Loss of hearing
+T8	RAREDISEASE 380 388	alopecia
+T9	SIGN 380 388	alopecia
+T10	SIGN 438 458	loss of pigmentation
+T11	SIGN 487 495	poliosis
+T12	RAREDISEASE 498 526	Vogt-Koyanagi-Harada disease
+T13	ANAPHOR 594 606	The disorder
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T5	
+R5	Produces Arg1:T1 Arg2:T6	
+R6	Produces Arg1:T1 Arg2:T7	
+R7	Produces Arg1:T1 Arg2:T9	
+R8	Produces Arg1:T1 Arg2:T10	
+R9	Produces Arg1:T1 Arg2:T11	
+R10	Anaphora Arg1:T12 Arg2:T130	

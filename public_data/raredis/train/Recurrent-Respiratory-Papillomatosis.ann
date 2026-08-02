@@ -1,0 +1,11 @@
+T1	RAREDISEASE 21 57	recurrent respiratory papillomatosis
+T2	RAREDISEASE 204 207	RRP
+T3	RAREDISEASE 480 485	JORRP
+T4	ANAPHOR 546 558	the disorder
+T5	RAREDISEASE 756 759	RRP
+T6	DISEASE 785 791	asthma
+T7	DISEASE 793 802	allergies
+T8	DISEASE 804 822	chronic bronchitis
+T9	DISEASE 824 829	croup
+T10	DISEASE 850 873	gastroesophageal reflux
+R1	Anaphora Arg1:T3 Arg2:T40	

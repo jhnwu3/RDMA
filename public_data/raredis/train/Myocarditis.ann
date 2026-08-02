@@ -1,0 +1,17 @@
+T1	RAREDISEASE 0 11	Myocarditis
+T2	SYMPTOM 74 84	chest pain
+T3	SIGN 89 122	shortness of breath with activity
+T4	DISEASE 153 166	heart disease
+T5	SIGN 224 244	cardiac inflammation
+T6	DISEASE 370 390	autoimmune disorders
+T7	RAREDISEASE 392 403	myocarditis
+T8	DISEASE 475 490	viral infection
+T9	RAREDISEASE 509 520	myocarditis
+T10	RAREDISEASE 635 646	Myocarditis
+T11	RAREDISEASE 725 736	amyloidosis
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T5	
+R4	Produces Arg1:T4 Arg2:T2	
+R5	Produces Arg1:T4 Arg2:T3	
+R6	Increases_risk_of Arg1:T6 Arg2:T7	

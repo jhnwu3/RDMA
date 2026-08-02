@@ -1,0 +1,19 @@
+T1	SKINRAREDISEASE 0 29	Nephrogenic systemic fibrosis
+T2	SKINRAREDISEASE 31 34	NSF
+T3	DISEASE 92 115	reduced kidney function
+T4	SIGN 304 312	fibrosis
+T5	SKINRAREDISEASE 428 431	NSF
+T6	SIGN 478 486;488 499	fibrosis of the skin
+T7	SIGN 478 486;501 521	fibrosis subcutaneous tissues
+T8	SIGN 478 486;539 565	fibrosis underlying skeletal muscle
+T9	SIGN 678 710;722 730	proliferation of fibrotic tissue systemic
+T10	SKINRAREDISEASE 1094 1097	NSF
+T11	SKINRAREDISEASE 1143 1146	NSF
+T12	SKINRAREDISEASE 1500 1503	NSF
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Is_acron Arg1:T2 Arg2:T1	
+R4	Produces Arg1:T5 Arg2:T6	
+R5	Produces Arg1:T5 Arg2:T70	
+R6	Produces Arg1:T5 Arg2:T8	
+R7	Produces Arg1:T5 Arg2:T9	

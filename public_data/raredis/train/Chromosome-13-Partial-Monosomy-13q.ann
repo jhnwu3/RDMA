@@ -1,0 +1,27 @@
+T1	RAREDISEASE 0 35	Chromosome 13, Partial Monosomy 13q
+T2	DISEASE 46 66	chromosomal disorder
+T3	RAREDISEASE 278 313	Chromosome 13, Partial Monosomy 13q
+T4	SIGN 371 387	low birth weight
+T5	SIGN 389 445	malformations of the head and facial (craniofacial) area
+T6	SIGN 447 472	abnormalities of the eyes
+T7	SIGN 474 494	defects of the hands
+T8	SIGN 474 488;502 506	defects of the feet
+T9	SIGN 509 547	enital malformations in affected males
+T10	SIGN 567 589	physical abnormalities
+T11	SIGN 734 757	psychomotor retardation
+T12	DISEASE 789 812	intellectual disability
+T13	SIGN 789 812	intellectual disability
+T14	RAREDISEASE 840 875	Chromosome 13, Partial Monosomy 13q
+T15	RAREDISEASE 938 973	Chromosome 13, Partial Monosomy 13q
+T16	ANAPHOR 1142 1154	the disorder
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T3 Arg2:T4	
+R3	Produces Arg1:T3 Arg2:T5	
+R4	Produces Arg1:T3 Arg2:T6	
+R5	Produces Arg1:T3 Arg2:T7	
+R6	Produces Arg1:T3 Arg2:T8	
+R7	Produces Arg1:T3 Arg2:T90	
+R8	Produces Arg1:T3 Arg2:T10	
+R9	Produces Arg1:T3 Arg2:T11	
+R10	Produces Arg1:T3 Arg2:T13	
+R11	Anaphora Arg1:T15 Arg2:T16	

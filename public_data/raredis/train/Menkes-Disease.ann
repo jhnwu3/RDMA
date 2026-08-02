@@ -1,0 +1,81 @@
+T1	SKINRAREDISEASE 0 14	Menkes disease
+T2	RAREDISEASE 20 57	genetic disorder of copper metabolism
+T3	ANAPHOR 218 220	It
+T4	SIGN 241 249	seizures
+T5	DISEASE 251 269	mental retardation
+T6	SIGN 251 269	mental retardation
+T7	SIGN 271 285	stunted growth
+T8	SIGN 287 304	failure to thrive
+T9	SIGN 306 331	unstable body temperature
+T10	SIGN 337 375	very unusual color and texture of hair
+T11	SKINRAREDISEASE 377 391	Menkes disease
+T12	SIGN 412 458	brittle, tangled, sparse, steely or kinky hair
+T13	SIGN 454 503	hair that is often white, ivory, or gray in color
+T14	SIGN 506 529	Unusual facial features
+T15	SIGN 538 550	pudgy cheeks
+T16	SIGN 555 572	abnormal eyebrows
+T17	SIGN 602 618	born prematurely
+T18	SIGN 656 667	hypothermia
+T19	SIGN 704 722	hyperbilirubinemia
+T20	DISEASE 763 771	jaundice
+T21	SIGN 763 771	jaundice
+T22	SIGN 774 785	Hypothermia
+T23	SIGN 943 969	Severe developmental delay
+T24	SIGN 971 1003	loss of early development skills
+T25	SIGN 1009 1020	convulsions
+T26	SIGN 1033 1052	Brain abnormalities
+T27	SIGN 1100 1117	subdural hematoma
+T28	SIGN 1126 1172	rupture or thrombosis of arteries in the brain
+T29	SIGN 1197 1213	Spastic dementia
+T30	SIGN 1218 1226	seizures
+T31	SIGN 1259 1264;1309 1318	bones fractures
+T32	DISEASE 1266 1278	osteoporosis
+T33	SIGN 1266 1278	osteoporosis
+T34	SIGN 1339 1356	subdural hematoma
+T35	SIGN 1361 1375	bone fractures
+T36	SIGN 1428 1437	Emphysema
+T37	SIGN 1439 1460	bladder abnormalities
+T38	SIGN 1462 1488	degeneration of the retina
+T39	SIGN 1493 1510	cysts of the iris
+T40	SKINRAREDISEASE 1664 1678	Menkes disease
+T41	SKINRAREDISEASE 1751 1765	Menkes disease
+T42	SIGN 1799 1818;1830 1859	decreased amount of ceruloplasmin in blood plasma
+T43	SIGN 1799 1825;1844 1859	decreased amount of copper in blood plasma
+T44	SIGN 2004 2021	copper deficiency
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T3 Arg2:T4	
+R4	Produces Arg1:T3 Arg2:T6	
+R5	Produces Arg1:T3 Arg2:T7	
+R6	Produces Arg1:T3 Arg2:T8	
+R7	Produces Arg1:T3 Arg2:T9	
+R8	Produces Arg1:T3 Arg2:T10	
+R9	Produces Arg1:T11 Arg2:T12	
+R10	Produces Arg1:T11 Arg2:T13	
+R11	Produces Arg1:T11 Arg2:T14	
+R12	Produces Arg1:T11 Arg2:T15	
+R13	Produces Arg1:T11 Arg2:T16	
+R14	Produces Arg1:T11 Arg2:T17	
+R15	Produces Arg1:T11 Arg2:T18	
+R16	Produces Arg1:T11 Arg2:T190	
+R17	Produces Arg1:T11 Arg2:T21	
+R18	Produces Arg1:T11 Arg2:T22	
+R19	Produces Arg1:T32 Arg2:T31	
+R20	Produces Arg1:T40 Arg2:T23	
+R21	Produces Arg1:T40 Arg2:T24	
+R22	Produces Arg1:T40 Arg2:T250	
+R23	Produces Arg1:T40 Arg2:T26	
+R24	Produces Arg1:T40 Arg2:T27	
+R25	Produces Arg1:T40 Arg2:T28	
+R26	Produces Arg1:T40 Arg2:T29	
+R27	Produces Arg1:T40 Arg2:T30	
+R28	Produces Arg1:T40 Arg2:T33	
+R29	Produces Arg1:T40 Arg2:T34	
+R30	Produces Arg1:T40 Arg2:T35	
+R31	Produces Arg1:T40 Arg2:T36	
+R32	Produces Arg1:T40 Arg2:T37	
+R33	Produces Arg1:T40 Arg2:T38	
+R34	Produces Arg1:T40 Arg2:T39	
+R35	Produces Arg1:T20 Arg2:T21	
+R36	Produces Arg1:T20 Arg2:T19	
+R37	Produces Arg1:T20 Arg2:T45	

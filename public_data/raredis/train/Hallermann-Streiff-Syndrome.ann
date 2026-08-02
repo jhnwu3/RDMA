@@ -1,0 +1,11 @@
+T1	RAREDISEASE 0 27	Hallermann-Streiff syndrome
+T2	RAREDISEASE 159 186	Hallermann-Streiff syndrome
+T3	ANAPHOR 575 588	this disorder
+T4	SIGN 590 610	Congenital cataracts
+T5	DISEASE 638 652	microphthalmia
+T6	SIGN 638 652	microphthalmia
+T7	RAREDISEASE 706 733	Hallermann-Streiff syndrome
+T8	DISEASE 945 974	autosomal recessive disorders
+R1	Anaphora Arg1:T2 Arg2:T3	
+R2	Produces Arg1:T7 Arg2:T4	
+R3	Produces Arg1:T7 Arg2:T6	

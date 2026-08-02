@@ -1,0 +1,7 @@
+T1	RAREDISEASE 17 46	idiopathic neonatal hepatitis
+T2	SIGN 37 46	hepatitis
+T3	DISEASE 225 245	cholestatic diseases
+T4	RAREDISEASE 411 440	idiopathic neonatal hepatitis
+T5	SIGN 431 440	hepatitis
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T4 Arg2:T5	

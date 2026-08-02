@@ -1,0 +1,9 @@
+T1	RAREDISEASE 0 15	Alport syndrome
+T2	ANAPHOR 204 216	the disorder
+T3	RAREDISEASE 218 233	Alport syndrome
+T4	DISEASE 282 304	chronic kidney disease
+T5	DISEASE 329 352	end-stage renal disease
+T6	RAREDISEASE 457 472	Alport syndrome
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Increases_risk_of Arg1:T4 Arg2:T3	
+R3	Increases_risk_of Arg1:T5 Arg2:T3	

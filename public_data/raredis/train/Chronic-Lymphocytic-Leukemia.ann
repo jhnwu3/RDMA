@@ -1,0 +1,11 @@
+T1	RAREDISEASE 0 28	Chronic lymphocytic leukemia
+T2	RAREDISEASE 56 64	leukemia
+T3	ANAPHOR 99 101	It
+T4	ANAPHOR 192 194	It
+T5	ANAPHOR 318 330	the disorder
+T6	RAREDISEASE 351 354	CLL
+T7	RAREDISEASE 510 513	CLL
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Anaphora Arg1:T1 Arg2:T4	
+R4	Anaphora Arg1:T1 Arg2:T5	

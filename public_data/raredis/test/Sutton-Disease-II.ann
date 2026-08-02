@@ -1,0 +1,31 @@
+T1	RAREDISEASE 0 17	Sutton disease II
+T2	DISEASE 102 112	stomatitis
+T3	SIGN 102 112	stomatitis
+T4	SIGN 128 160	multiple ulcers of varying sizes
+T5	SIGN 168 187	ulcers in the mouth
+T6	SIGN 208 220	canker sores
+T7	RAREDISEASE 222 239	Sutton disease II
+T8	RAREDISEASE 257 286	recurrent aphthous stomatitis
+T9	ANAPHOR 307 319	this disease
+T10	ANAPHOR 354 356	it
+T11	RAREDISEASE 466 483	Sutton disease II
+T12	ANAPHOR 528 530	it
+T13	ANAPHOR 738 750	this disease
+T14	RAREDISEASE 841 858	Sutton disease II
+T15	ANAPHOR 913 915	it
+T16	SIGN 974 986	canker sores
+T17	RAREDISEASE 988 1005	Sutton disease II
+T18	ANAPHOR 1112 1124	This disease
+T19	DISEASE 1265 1300	acquired immune deficiency syndrome
+R1	Produces Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Produces Arg1:T1 Arg2:T5	
+R4	Produces Arg1:T1 Arg2:T6	
+R5	Anaphora Arg1:T7 Arg2:T9	
+R6	Anaphora Arg1:T7 Arg2:T10	
+R7	Is_synon Arg1:T8 Arg2:T7	
+R8	Anaphora Arg1:T11 Arg2:T12	
+R9	Anaphora Arg1:T11 Arg2:T13	
+R10	Anaphora Arg1:T14 Arg2:T150	
+R11	Produces Arg1:T20 Arg2:T10	
+R12	Anaphora Arg1:T17 Arg2:T18	

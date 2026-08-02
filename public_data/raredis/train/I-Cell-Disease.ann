@@ -1,0 +1,28 @@
+T1	RAREDISEASE 0 14	I-cell disease
+T2	RAREDISEASE 16 32	mucolipidosis II
+T3	DISEASE 44 72	inherited metabolic disorder
+T4	SIGN 90 112	coarse facial features
+T5	SIGN 114 136	skeletal abnormalities
+T6	DISEASE 141 159	mental retardation
+T7	SIGN 141 159	mental retardation
+T8	RAREDISEASE 177 191	I-cell disease
+T9	RAREDISEASE 237 252	Hurler syndrome
+T10	ANAPHOR 283 296	this disorder
+T11	SIGN 353 388	multiple abnormalities of the skull
+T12	SIGN 353 382;393 397	multiple abnormalities of the face
+T13	SIGN 402 415	growth delays
+T14	RAREDISEASE 417 431	I-Cell Disease
+T15	ANAPHOR 572 585	this disorder
+T16	RAREDISEASE 614 628	I-Cell Disease
+T17	ANAPHOR 676 688	This disease
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Produces Arg1:T1 Arg2:T5	
+R4	Produces Arg1:T1 Arg2:T7	
+R5	Is_synon Arg1:T2 Arg2:T1	
+R6	Anaphora Arg1:T8 Arg2:T100	
+R7	Produces Arg1:T10 Arg2:T14	
+R8	Produces Arg1:T10 Arg2:T7	
+R9	Produces Arg1:T10 Arg2:T15	
+R10	Anaphora Arg1:T14 Arg2:T15	
+R11	Anaphora Arg1:T16 Arg2:T17	

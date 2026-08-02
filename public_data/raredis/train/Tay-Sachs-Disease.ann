@@ -1,0 +1,17 @@
+T1	RAREDISEASE 1 18	Tay-Sachs disease
+T2	DISEASE 30 56	neurodegenerative disorder
+T3	SIGN 66 79;91 107	deficiency of hexosaminidase A
+T4	SIGN 130 145;177 218	accumulation of gangliosides in the brain and nerve cells
+T5	SIGN 234 262	accumulation of gangliosides
+T6	SIGN 272 325	progressive dysfunction of the central nervous system
+T7	ANAPHOR 327 340	This disorder
+T8	DISEASE 361 386	lysosomal storage disease
+T9	SIGN 747 796	too much fatty material builds up in the lysosome
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T5	
+R5	Produces Arg1:T1 Arg2:T6	
+R6	Anaphora Arg1:T1 Arg2:T7	
+R7	Is_a Arg1:T7 Arg2:T8	
+R8	Produces Arg1:T7 Arg2:T90	

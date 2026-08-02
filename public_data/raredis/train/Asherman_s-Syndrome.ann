@@ -1,0 +1,32 @@
+T1	RAREDISEASE 0 19	Asherman's syndrome
+T2	DISEASE 36 68	acquired, gynecological disorder
+T3	SIGN 86 116	changes in the menstrual cycle
+T4	SIGN 138 160	reduced menstrual flow
+T5	SIGN 162 180	increased cramping
+T6	SYMPTOM 185 199	abdominal pain
+T7	DISEASE 241 251	amenorrhea
+T8	SIGN 241 251	amenorrhea
+T9	SIGN 278 289	infertility
+T10	DISEASE 384 397	endometriosis
+T11	SIGN 384 397	endometriosis
+T12	RAREDISEASE 564 586	intrauterine adhesions
+T13	SIGN 564 586	intrauterine adhesions
+T14	DISEASE 591 600	synechiae
+T15	SIGN 591 600	synechiae
+T16	DISEASE 604 624	Endometrial scarring
+T17	RAREDISEASE 629 651	intrauterine adhesions
+T18	RAREDISEASE 814 826	tuberculosis
+T19	RAREDISEASE 847 866	Asherman’s syndrome
+T20	RAREDISEASE 940 959	Asherman's syndrome
+T21	ANAPHOR 1242 1255	this syndrome
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T5	
+R5	Produces Arg1:T1 Arg2:T6	
+R6	Produces Arg1:T1 Arg2:T8	
+R7	Produces Arg1:T1 Arg2:T9	
+R8	Produces Arg1:T1 Arg2:T11	
+R9	Produces Arg1:T1 Arg2:T130	
+R10	Produces Arg1:T1 Arg2:T15	
+R11	Anaphora Arg1:T20 Arg2:T21	

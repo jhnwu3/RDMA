@@ -1,0 +1,25 @@
+T1	RAREDISEASE 0 24	Hashimoto encephalopathy
+T2	DISEASE 86 100	encephalopathy
+T3	SIGN 86 100	encephalopathy
+T4	ANAPHOR 135 137	it
+T5	DISEASE 159 183	immune-mediated disorder
+T6	SIGN 216 228	inflammation
+T7	SIGN 329 365	antithyroid antibodies in their body
+T8	RAREDISEASE 637 661	Hashimoto encephalopathy
+T9	DISEASE 740 754	encephalopathy
+T10	ANAPHOR 829 831	it
+T11	ANAPHOR 915 927	the disorder
+T12	ANAPHOR 973 985	The disorder
+T13	RAREDISEASE 1034 1058	Hashimoto encephalopathy
+T14	ANAPHOR 1117 1129	The disorder
+T15	ANAPHOR 1208 1210	It
+R1	Produces Arg1:T1 Arg2:T3	
+R2	Anaphora Arg1:T1 Arg2:T4	
+R3	Is_a Arg1:T4 Arg2:T50	
+R4	Produces Arg1:T4 Arg2:T6	
+R5	Produces Arg1:T4 Arg2:T7	
+R6	Anaphora Arg1:T8 Arg2:T10	
+R7	Anaphora Arg1:T8 Arg2:T11	
+R8	Anaphora Arg1:T8 Arg2:T12	
+R9	Anaphora Arg1:T13 Arg2:T14	
+R10	Anaphora Arg1:T13 Arg2:T15	

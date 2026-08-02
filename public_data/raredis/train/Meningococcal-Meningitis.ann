@@ -1,0 +1,3 @@
+T1	RAREDISEASE 12 36	meningococcal meningitis
+T2	DISEASE 292 312	bacterial meningitis
+R1	Is_a Arg1:T1 Arg2:T2	

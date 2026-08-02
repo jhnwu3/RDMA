@@ -1,0 +1,7 @@
+T1	RAREDISEASE 0 26	Caudal regression syndrome
+T2	ANAPHOR 88 100	the disorder
+T3	ANAPHOR 158 170	The disorder
+T4	DISEASE 218 226	diabetes
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Increases_risk_of Arg1:T4 Arg2:T3	

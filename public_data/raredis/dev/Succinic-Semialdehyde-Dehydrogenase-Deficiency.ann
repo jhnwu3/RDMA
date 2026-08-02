@@ -1,0 +1,28 @@
+T1	RAREDISEASE 0 35;44 54	Succinic semialdehyde dehydrogenase deficiency
+T2	RAREDISEASE 37 42;44 54	SSADH deficiency
+T3	SIGN 65 91	inborn error of metabolism
+T4	ANAPHOR 163 175	the disorder
+T5	SIGN 177 215	deficient activity of the SSADH enzyme
+T6	SIGN 216 266	disrupts the metabolism of gamma-aminobutyric acid
+T7	RAREDISEASE 427 443	SSADH deficiency
+T8	SIGN 453 512	abnormal accumulation of the compound succinic semialdehyde
+T9	SIGN 491 512;520 568;570 587	succinic semialdehyde is reduced or converted to 4-hydroxybutyric acid also known as GHB
+T10	RAREDISEASE 753 769	SSADH deficiency
+T11	SIGN 773 808	elevated levels of GHB in the urine
+T12	SIGN 773 802;901 907	elevated levels of GHB in the plasma
+T13	SIGN 773 802;992 995	elevated levels of GHB in the CSF
+T14	SIGN 816 832;857 865	4-hydroxybutyric aciduria
+T15	RAREDISEASE 836 865	gamma-hydroxybutyric aciduria
+T16	SIGN 836 865	gamma-hydroxybutyric aciduria
+R1	Produces Arg1:T1 Arg2:T30	
+R2	Anaphora Arg1:T1 Arg2:T4	
+R3	Is_acron Arg1:T2 Arg2:T1	
+R4	Produces Arg1:T4 Arg2:T5	
+R5	Produces Arg1:T4 Arg2:T6	
+R6	Produces Arg1:T7 Arg2:T8	
+R7	Produces Arg1:T7 Arg2:T9	
+R8	Produces Arg1:T10 Arg2:T11	
+R9	Produces Arg1:T10 Arg2:T12	
+R10	Produces Arg1:T10 Arg2:T13	
+R11	Produces Arg1:T10 Arg2:T14	
+R12	Produces Arg1:T10 Arg2:T16	

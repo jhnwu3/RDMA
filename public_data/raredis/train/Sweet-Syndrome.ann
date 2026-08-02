@@ -1,0 +1,42 @@
+T1	RAREDISEASE 0 14	Sweet syndrome
+T2	SIGN 51 56	fever
+T3	SIGN 83 87	rash
+T4	SIGN 107 147	multiple tender, red or bluish-red bumps
+T5	SIGN 151 158	lesions
+T6	SIGN 166 173	lesions
+T7	SIGN 367 376	arthritis
+T8	SIGN 396 411;486 505	inflammation of the internal organs
+T9	SIGN 465 479	conjunctivitis
+T10	ANAPHOR 548 560	the disorder
+T11	RAREDISEASE 599 624	idiopathic Sweet syndrome
+T12	RAREDISEASE 649 673	classical Sweet syndrome
+T13	ANAPHOR 687 699	the disorder
+T14	DISEASE 737 743	cancer
+T15	DISEASE 768 773;788 794	blood cancer
+T16	RAREDISEASE 820 828	leukemia
+T17	RAREDISEASE 847 883	malignancy-associated Sweet syndrome
+T18	ANAPHOR 885 897	The disorder
+T19	RAREDISEASE 1036 1063	drug-induced Sweet syndrome
+T20	RAREDISEASE 1065 1079	Sweet syndrome
+T21	RAREDISEASE 1113 1137	Classical Sweet syndrome
+T22	RAREDISEASE 1267 1288;1305 1319	malignancy-associated Sweet syndrome
+T23	RAREDISEASE 1292 1319	drug-induced Sweet syndrome
+T24	RAREDISEASE 1321 1345	Classical Sweet syndrome
+T25	RAREDISEASE 1538 1552	Sweet syndrome
+T26	RAREDISEASE 1691 1705	Sweet syndrome
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T5	
+R5	Produces Arg1:T1 Arg2:T6	
+R6	Produces Arg1:T1 Arg2:T7	
+R7	Produces Arg1:T1 Arg2:T8	
+R8	Produces Arg1:T1 Arg2:T9	
+R9	Anaphora Arg1:T1 Arg2:T10	
+R10	Anaphora Arg1:T1 Arg2:T13	
+R11	Anaphora Arg1:T1 Arg2:T18	
+R12	Is_a Arg1:T10 Arg2:T25	
+R13	Is_synon Arg1:T10 Arg2:T9	
+R14	Is_a Arg1:T16 Arg2:T15	
+R15	Is_a Arg1:T17 Arg2:T13	
+R16	Is_a Arg1:T19 Arg2:T18	

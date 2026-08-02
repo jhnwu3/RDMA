@@ -1,0 +1,23 @@
+T1	DISEASE 0 11	Keratoconus
+T2	DISEASE 18 39	eye (ocular) disorder
+T3	SIGN 57 116	progressive thinning and changes in the shape of the cornea
+T4	SIGN 200 241	Slowly progressive thinning of the cornea
+T5	SIGN 251 346	cone-shaped bulge to develop towards the center of the cornea in the areas of greatest thinning
+T6	SIGN 377 403	blurry or distorted vision
+T7	SIGN 427 438	photophobia
+T8	SIGN 456 471	vision problems
+T9	DISEASE 473 484	Keratoconus
+T10	ANAPHOR 632 645	the condition
+T11	DISEASE 786 797	keratoconus
+T12	DISEASE 830 841	keratoconus
+T13	DISEASE 882 893	Keratoconus
+T14	ANAPHOR 945 958	the condition
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T50	
+R5	Produces Arg1:T1 Arg2:T6	
+R6	Produces Arg1:T1 Arg2:T7	
+R7	Produces Arg1:T1 Arg2:T8	
+R8	Anaphora Arg1:T9 Arg2:T10	
+R9	Anaphora Arg1:T13 Arg2:T14	

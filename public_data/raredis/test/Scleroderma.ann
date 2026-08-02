@@ -1,0 +1,14 @@
+T1	SKINRAREDISEASE 0 11	Scleroderma
+T2	DISEASE 22 59	autoimmune connective tissue disorder
+T3	SIGN 86 108	thickening of the skin
+T4	SKINRAREDISEASE 225 236	scleroderma
+T5	SKINRAREDISEASE 369 380	Scleroderma
+T6	SKINRAREDISEASE 398 428	progressive systemic sclerosis
+T7	SKINRAREDISEASE 449 460	scleroderma
+T8	SKINRAREDISEASE 477 505	systemic form of scleroderma
+T9	ANAPHOR 579 590	The disease
+T10	SKINRAREDISEASE 652 663	Scleroderma
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Is_synon Arg1:T6 Arg2:T5	
+R4	Anaphora Arg1:T8 Arg2:T9	

@@ -1,0 +1,4 @@
+T1	RAREDISEASE 0 23	Andersen-Tawil syndrome
+T2	ANAPHOR 105 117	the disorder
+T3	RAREDISEASE 281 304	Andersen-Tawil syndrome
+R1	Anaphora Arg1:T1 Arg2:T2	

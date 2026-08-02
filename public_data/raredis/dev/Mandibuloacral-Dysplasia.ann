@@ -1,0 +1,5 @@
+T1	SKINRAREDISEASE 26 50	mandibuloacral dysplasia
+T2	SKINRAREDISEASE 120 151	mandibuloacral dysplasia type B
+T3	ANAPHOR 212 224	the disorder
+T4	SKINRAREDISEASE 324 348	mandibuloacral dysplasia
+R1	Anaphora Arg1:T2 Arg2:T3	

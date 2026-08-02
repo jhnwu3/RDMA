@@ -1,0 +1,7 @@
+T1	DISEASE 0 26	Congenital lactic acidosis
+T2	DISEASE 94 120	congenital lactic acidosis
+T3	DISEASE 356 382	congenital lactic acidosis
+T4	DISEASE 425 451	congenital lactic acidosis
+T5	DISEASE 689 715	congenital lactic acidosis
+T6	SIGN 724 750	elevated levels of lactate
+R1	Produces Arg1:T5 Arg2:T6	

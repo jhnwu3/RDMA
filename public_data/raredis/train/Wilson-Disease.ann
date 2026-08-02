@@ -1,0 +1,8 @@
+T1	RAREDISEASE 0 14	Wilson disease
+T2	ANAPHOR 83 94	The disease
+T3	RAREDISEASE 181 197	Wilson’s disease
+T4	DISEASE 470 482;505 514	neurological disorders
+T5	DISEASE 484 489;505 514	liver disorders
+T6	DISEASE 493 514	psychiatric disorders
+T7	RAREDISEASE 590 606	Wilson’s disease
+R1	Anaphora Arg1:T1 Arg2:T2	

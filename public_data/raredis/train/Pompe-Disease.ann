@@ -1,0 +1,7 @@
+T1	RAREDISEASE 0 13	Pompe disease
+T2	RAREDISEASE 261 274	Pompe disease
+T3	RAREDISEASE 341 354	Pompe disease
+T4	SIGN 432 455	limb-girdle dystrophies
+T5	SIGN 463 476	hyper CK-emia
+R1	Produces Arg1:T3 Arg2:T4	
+R2	Produces Arg1:T3 Arg2:T5	

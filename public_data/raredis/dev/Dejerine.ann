@@ -1,0 +1,34 @@
+T1	RAREDISEASE 0 3	DSS
+T2	SIGN 112 127	Muscle weakness
+T3	SIGN 239 262	delayed motor milestone
+T4	SIGN 384 424	hand and forearm muscles may become weak
+T5	ANAPHOR 428 441	the condition
+T6	RAREDISEASE 468 471	DSS
+T7	SIGN 481 506	respiratory insufficiency
+T8	SIGN 588 612	Mild vision difficulties
+T9	SYMPTOM 652 656	pain
+T10	SIGN 658 682	loss of heat sensitivity
+T11	SIGN 684 703	absence of reflexes
+T12	SIGN 718 725;727 741	atrophy of leg muscles
+T13	DISEASE 743 752	scoliosis
+T14	SIGN 743 752	scoliosis
+T15	SIGN 781 787	ataxia
+T16	RAREDISEASE 875 878	DSS
+T17	RAREDISEASE 880 904	Dejerine-Sottas syndrome
+T18	ANAPHOR 930 943	This disorder
+T19	ANAPHOR 992 994	It
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T30	
+R3	Anaphora Arg1:T1 Arg2:T5	
+R4	Produces Arg1:T5 Arg2:T4	
+R5	Produces Arg1:T6 Arg2:T7	
+R6	Produces Arg1:T6 Arg2:T80	
+R7	Produces Arg1:T6 Arg2:T9	
+R8	Produces Arg1:T6 Arg2:T10	
+R9	Produces Arg1:T6 Arg2:T11	
+R10	Produces Arg1:T6 Arg2:T12	
+R11	Produces Arg1:T6 Arg2:T14	
+R12	Produces Arg1:T6 Arg2:T15	
+R13	Is_acron Arg1:T16 Arg2:T17	
+R14	Anaphora Arg1:T17 Arg2:T18	
+R15	Anaphora Arg1:T17 Arg2:T19	

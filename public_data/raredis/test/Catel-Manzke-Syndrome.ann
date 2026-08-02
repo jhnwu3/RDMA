@@ -1,0 +1,6 @@
+T1	RAREDISEASE 32 53	Catel-Manzke syndrome
+T2	ANAPHOR 96 108	the disorder
+T3	RAREDISEASE 248 269	Catel-Manzke syndrome
+T4	ANAPHOR 346 358	the disorder
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T3 Arg2:T4	

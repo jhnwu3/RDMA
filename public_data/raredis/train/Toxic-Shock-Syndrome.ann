@@ -1,0 +1,34 @@
+T1	RAREDISEASE 0 20	Toxic Shock Syndrome
+T2	DISEASE 31 50	multisystem disease
+T3	ANAPHOR 82 84	It
+T4	RAREDISEASE 192 212	Toxic Shock Syndrome
+T5	SIGN 234 244	high fever
+T6	SYMPTOM 246 252	nausea
+T7	SIGN 254 262	vomiting
+T8	SIGN 264 272	diarrhea
+T9	SIGN 305 316	hypotension
+T10	SIGN 340 349	skin rash
+T11	RAREDISEASE 393 413	Toxic Shock Syndrome
+T12	RAREDISEASE 608 628	Toxic Shock Syndrome
+T13	RAREDISEASE 630 633	TSS
+T14	RAREDISEASE 721 724	TSS
+T15	SIGN 946 951	fever
+T16	SIGN 953 957	rash
+T17	SIGN 994 1006	desquamation
+T18	SIGN 1066 1077	hypotension
+T19	RAREDISEASE 1335 1363	Rocky Mountain Spotted Fever
+T20	RAREDISEASE 1365 1378	Leptospirosis
+T21	DISEASE 1384 1391	Measles
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T4 Arg2:T5	
+R4	Produces Arg1:T4 Arg2:T6	
+R5	Produces Arg1:T4 Arg2:T7	
+R6	Produces Arg1:T4 Arg2:T8	
+R7	Produces Arg1:T4 Arg2:T9	
+R8	Produces Arg1:T4 Arg2:T100	
+R9	Is_acron Arg1:T13 Arg2:T12	
+R10	Produces Arg1:T14 Arg2:T15	
+R11	Produces Arg1:T14 Arg2:T16	
+R12	Produces Arg1:T14 Arg2:T17	
+R13	Produces Arg1:T14 Arg2:T18	

@@ -1,0 +1,35 @@
+T1	RAREDISEASE 0 21	Acanthocheilonemiasis
+T2	DISEASE 32 59	tropical infectious disease
+T3	DISEASE 146 163	parasitic disease
+T4	DISEASE 174 191	filarial diseases
+T5	DISEASE 193 201	nematode
+T6	SIGN 309 317	pruritis
+T7	SYMPTOM 320 329;340 344	abdominal pain
+T8	SYMPTOM 334 344	chest pain
+T9	SYMPTOM 361 368	myalgia
+T10	SIGN 404 409	edema
+T11	SIGN 478 496	hepatosplenomegaly
+T12	DISEASE 603 615	eosinophilia
+T13	SIGN 603 615	eosinophilia
+T14	RAREDISEASE 695 716	Acanthocheilonemiasis
+T15	DISEASE 727 745	infectious disease
+T16	ANAPHOR 847 858	The disease
+T17	RAREDISEASE 983 1004	Acanthocheilonemiasis
+T18	ANAPHOR 1070 1083	This disorder
+T19	RAREDISEASE 1128 1149	Acanthocheilonemiasis
+T20	RAREDISEASE 1400 1421	acanthocheilonemiasis
+R1	Is_a Arg1:T10 Arg2:T19	
+R2	Increases_risk_of Arg1:T10 Arg2:T1	
+R3	Increases_risk_of Arg1:T10 Arg2:T11	
+R4	Increases_risk_of Arg1:T10 Arg2:T12	
+R5	Produces Arg1:T10 Arg2:T14	
+R6	Produces Arg1:T10 Arg2:T20	
+R7	Produces Arg1:T10 Arg2:T2	
+R8	Produces Arg1:T10 Arg2:T4	
+R9	Produces Arg1:T10 Arg2:T5	
+R10	Produces Arg1:T10 Arg2:T6	
+R11	Produces Arg1:T10 Arg2:T9	
+R12	Is_synon Arg1:T4 Arg2:T5	
+R13	Is_a Arg1:T14 Arg2:T15	
+R14	Anaphora Arg1:T14 Arg2:T16	
+R15	Anaphora Arg1:T17 Arg2:T18	

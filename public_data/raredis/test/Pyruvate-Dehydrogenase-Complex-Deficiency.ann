@@ -1,0 +1,39 @@
+T1	RAREDISEASE 19 23	PDCD
+T2	SYMPTOM 41 53;96 108	poor feeding in an infant
+T3	SYMPTOM 55 63;96 108	lethargy in an infant
+T4	SIGN 85 94;96 108	tachypnea in an infant
+T5	SIGN 237 248	motor delay
+T6	SIGN 250 266	poor muscle tone
+T7	SIGN 268 276	seizures
+T8	SIGN 294 300	ataxia
+T9	SIGN 303 325	abnormal eye movements
+T10	SIGN 330 350	poor visual tracking
+T11	RAREDISEASE 493 497	PDCD
+T12	SIGN 566 572	ataxia
+T13	SIGN 596 623	upper respiratory infection
+T14	SYMPTOM 633 645	minor stress
+T15	SIGN 666 685	neurologic deficits
+T16	DISEASE 690 708	mental retardation
+T17	SIGN 690 708	mental retardation
+T18	RAREDISEASE 739 743	PDCD
+T19	RAREDISEASE 770 774	PDCD
+T20	SIGN 973 998	Biochemical abnormalities
+T21	SIGN 1013 1028	severe acidosis
+T22	SIGN 1338 1348;1365 1386	alaninuria during acute episodes
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T5	
+R5	Produces Arg1:T1 Arg2:T6	
+R6	Produces Arg1:T1 Arg2:T7	
+R7	Produces Arg1:T1 Arg2:T8	
+R8	Produces Arg1:T1 Arg2:T9	
+R9	Produces Arg1:T1 Arg2:T10	
+R10	Produces Arg1:T11 Arg2:T12	
+R11	Produces Arg1:T11 Arg2:T130	
+R12	Produces Arg1:T11 Arg2:T14	
+R13	Produces Arg1:T18 Arg2:T15	
+R14	Produces Arg1:T18 Arg2:T17	
+R15	Produces Arg1:T19 Arg2:T20	
+R16	Produces Arg1:T19 Arg2:T21	
+R17	Produces Arg1:T19 Arg2:T22	

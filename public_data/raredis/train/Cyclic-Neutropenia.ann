@@ -1,0 +1,19 @@
+T1	RAREDISEASE 0 18	Cyclic neutropenia
+T2	DISEASE 29 43	blood disorder
+T3	SIGN 135 146;94 107	neutrophils low levels of
+T4	RAREDISEASE 301 319	cyclic neutropenia
+T5	SIGN 332 337	fever
+T6	SYMPTOM 372 379	malaise
+T7	SIGN 396 402;404 440	ulcers of the mucous membranes of the mouth
+T8	DISEASE 501 512	neutropenia
+T9	SIGN 501 512	neutropenia
+T10	DISEASE 544 564	recurrent infections
+T11	SIGN 544 564	recurrent infections
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T30	
+R3	Produces Arg1:T4 Arg2:T5	
+R4	Produces Arg1:T4 Arg2:T6	
+R5	Produces Arg1:T4 Arg2:T7	
+R6	Produces Arg1:T4 Arg2:T9	
+R7	Produces Arg1:T4 Arg2:T11	
+R8	Increases_risk_of Arg1:T8 Arg2:T10	

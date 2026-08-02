@@ -1,0 +1,28 @@
+T1	RAREDISEASE 1 16	Canavan disease
+T2	DISEASE 25 54	genetic neurological disorder
+T3	SIGN 76 115	spongy degeneration of the white matter
+T4	SIGN 278 290	macrocephaly
+T5	SIGN 293 313	lack of head control
+T6	SIGN 315 346	severely diminished muscle tone
+T7	SIGN 362 372	floppiness
+T8	SIGN 380 423	delays in reaching developmental milestones
+T9	SIGN 380 386;432 451	delays independent sitting
+T10	SIGN 380 386;456 463	delays walking
+T11	RAREDISEASE 547 562	Canavan disease
+T12	ANAPHOR 701 703	It
+T13	DISEASE 723 752	autosomal recessive condition
+T14	RAREDISEASE 754 769	Canavan disease
+T15	ANAPHOR 814 816	It
+T16	RAREDISEASE 1228 1243	Canavan disease
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T40	
+R4	Produces Arg1:T1 Arg2:T5	
+R5	Produces Arg1:T1 Arg2:T6	
+R6	Produces Arg1:T1 Arg2:T7	
+R7	Produces Arg1:T1 Arg2:T8	
+R8	Produces Arg1:T1 Arg2:T9	
+R9	Produces Arg1:T1 Arg2:T10	
+R10	Anaphora Arg1:T11 Arg2:T120	
+R11	Is_a Arg1:T20 Arg2:T21	
+R12	Anaphora Arg1:T14 Arg2:T15	

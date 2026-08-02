@@ -1,0 +1,21 @@
+T1	RAREDISEASE 138 161	endomyocardial fibrosis
+T2	RAREDISEASE 166 184	Loeffler’s disease
+T3	ANAPHOR 212 227	both conditions
+T4	ANAPHOR 410 425	these disorders
+T5	RAREDISEASE 491 514	endomyocardial fibrosis
+T6	DISEASE 537 553	hypersensitivity
+T7	RAREDISEASE 600 623	endomyocardial fibrosis
+T8	DISEASE 653 658	mumps
+T9	RAREDISEASE 666 689	Endomyocardial fibrosis
+T10	ANAPHOR 751 753	It
+T11	ANAPHOR 803 805	It
+T12	ANAPHOR 859 870	The disease
+T13	RAREDISEASE 1056 1079	endomyocardial fibrosis
+T14	RAREDISEASE 1083 1101	Loeffler’s disease
+R1	Anaphora Arg1:T1 Arg2:T3	
+R2	Anaphora Arg1:T1 Arg2:T4	
+R3	Anaphora Arg1:T2 Arg2:T3	
+R4	Anaphora Arg1:T2 Arg2:T4	
+R5	Anaphora Arg1:T9 Arg2:T10	
+R6	Anaphora Arg1:T9 Arg2:T11	
+R7	Anaphora Arg1:T9 Arg2:T12	

@@ -1,0 +1,96 @@
+T1	RAREDISEASE 0 38	Superior semicircular canal dehiscence
+T2	RAREDISEASE 40 44	SSCD
+T3	SIGN 70 178	absence of bone overlying the superior semicircular canal facing toward the dura of the middle cranial fossa
+T4	RAREDISEASE 180 184	SSCD
+T5	SYMPTOM 263 282	Tullio's phenomenon
+T6	SIGN 284 308	pressure induced vertigo
+T7	SYMPTOM 310 324	aural fullness
+T8	SYMPTOM 326 335	autophony
+T9	SIGN 337 360	conductive hearing loss
+T10	SIGN 366 419	fluctuating or progressive sensorineural hearing loss
+T11	DISEASE 393 419	sensorineural hearing loss
+T12	RAREDISEASE 435 439	SSCD
+T13	SYMPTOM 469 481	asymptomatic
+T14	RAREDISEASE 515 519	SSCD
+T15	DISEASE 552 564	otosclerosis
+T16	DISEASE 566 591	patulous eustachian tubes
+T17	DISEASE 593 626	middle ear perilymphatic fistulas
+T18	DISEASE 631 648	Ménière’s disease
+T19	RAREDISEASE 837 841	SSCD
+T20	SIGN 845 876	occlusion of the superior canal
+T21	RAREDISEASE 937 941	SSCD
+T22	ANAPHOR 998 1000	it
+T23	DISEASE 1044 1057	ear disorders
+T24	SYMPTOM 1097 1104	vertigo
+T25	SYMPTOM 1105 1114	dizziness
+T26	SYMPTOM 1176 1197	sound-induced vertigo
+T27	SYMPTOM 1200 1228	fullness/pressure in the ear
+T28	SYMPTOM 1233 1242	autophony
+T29	SYMPTOM 1245 1254	Autophony
+T30	SYMPTOM 1321 1349	hearing your eyes move/blink
+T31	SYMPTOM 1321 1328;1351 1361	hearing heart beat
+T32	SYMPTOM 1321 1328;1365 1380	hearing joint movements
+T33	SIGN 1382 1394	Hearing loss
+T34	SIGN 1399 1423	fluctuating hearing loss
+T35	DISEASE 1445 1457	otosclerosis
+T36	DISEASE 1461 1478	Meniere’s disease
+T37	SYMPTOM 1480 1499	Fullness in the ear
+T38	SYMPTOM 1504 1544	hearing your breathing loudly in the ear
+T39	DISEASE 1561 1585	patulous eustachian tube
+T40	RAREDISEASE 1614 1618	SSCD
+T41	DISEASE 1672 1710	superior semicircular canal dehiscence
+T42	RAREDISEASE 1779 1783	SSCD
+T43	RAREDISEASE 1863 1867	SSCD
+T44	RAREDISEASE 1923 1927	SSCD
+T45	RAREDISEASE 1974 1978	SSCD
+T46	RAREDISEASE 2055 2059	SSCD
+T47	SIGN 2312 2351	Posterior semicircular canal dehiscence
+T48	SIGN 2423 2459	anomalies of the vestibular aqueduct
+T49	RAREDISEASE 2469 2506	enlarged vestibular aqueduct syndrome
+T50	RAREDISEASE 2508 2512	EVAS
+T51	RAREDISEASE 2515 2519	EVAS
+T52	RAREDISEASE 2568 2572	SSCD
+T53	SIGN 2574 2614	Horizontal semicircular canal dehiscence
+T54	DISEASE 2675 2688	cholesteatoma
+T55	SIGN 2890 2913;2933 2937	internal auditory canal wide
+T56	RAREDISEASE 2972 2976	SSCD
+T57	RAREDISEASE 3003 3007	SSCD
+T58	RAREDISEASE 3202 3206	SSCD
+T59	RAREDISEASE 3548 3552	SSCD
+T60	SYMPTOM 3617 3626	autophony
+R1	Produces Arg1:T1 Arg2:T3	
+R2	Is_acron Arg1:T2 Arg2:T1	
+R3	Produces Arg1:T4 Arg2:T50	
+R4	Produces Arg1:T4 Arg2:T6	
+R5	Produces Arg1:T4 Arg2:T7	
+R6	Produces Arg1:T4 Arg2:T8	
+R7	Produces Arg1:T4 Arg2:T9	
+R8	Produces Arg1:T4 Arg2:T10	
+R9	Produces Arg1:T12 Arg2:T13	
+R10	Produces Arg1:T19 Arg2:T20	
+R11	Anaphora Arg1:T30 Arg2:T59	
+R12	Produces Arg1:T30 Arg2:T7	
+R13	Produces Arg1:T30 Arg2:T8	
+R14	Produces Arg1:T30 Arg2:T9	
+R15	Produces Arg1:T30 Arg2:T32	
+R16	Produces Arg1:T30 Arg2:T33	
+R17	Produces Arg1:T30 Arg2:T34	
+R18	Produces Arg1:T30 Arg2:T35	
+R19	Produces Arg1:T30 Arg2:T36	
+R20	Produces Arg1:T30 Arg2:T37	
+R21	Produces Arg1:T30 Arg2:T38	
+R22	Produces Arg1:T30 Arg2:T39	
+R23	Produces Arg1:T10 Arg2:T38	
+R24	Produces Arg1:T10 Arg2:T39	
+R25	Produces Arg1:T36 Arg2:T33	
+R26	Produces Arg1:T36 Arg2:T34	
+R27	Produces Arg1:T39 Arg2:T370	
+R28	Produces Arg1:T39 Arg2:T38	
+R29	Produces Arg1:T40 Arg2:T370	
+R30	Produces Arg1:T40 Arg2:T38	
+R31	Produces Arg1:T49 Arg2:T47	
+R32	Produces Arg1:T49 Arg2:T48	
+R33	Is_acron Arg1:T50 Arg2:T14	
+R34	Produces Arg1:T54 Arg2:T53	
+R35	Produces Arg1:T56 Arg2:T55	
+R36	Produces Arg1:T59 Arg2:T60	

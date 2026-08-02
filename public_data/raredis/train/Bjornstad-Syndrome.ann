@@ -1,0 +1,31 @@
+T1	SKINRAREDISEASE 0 18	Björnstad syndrome
+T2	DISEASE 40 58	inherited disorder
+T3	SIGN 135 145	pili torti
+T4	SIGN 177 203	sensorineural hearing loss
+T5	SIGN 206 218;248 257	Hearing loss bilateral
+T6	ANAPHOR 277 290	this disorder
+T7	SIGN 304 354	dry, fragile, lusterless, and/or coarse scalp hair
+T8	RAREDISEASE 393 401	alopecia
+T9	SIGN 393 401	alopecia
+T10	SKINRAREDISEASE 500 518	Björnstad syndrome
+T11	ANAPHOR 594 596	it
+T12	SKINRAREDISEASE 797 815	Björnstad Syndrome
+T13	SIGN 871 881	pili torti
+T14	SIGN 1057 1084	twisting of the hair shafts
+T15	SKINRAREDISEASE 1168 1186	Björnstad Syndrome
+T16	DISEASE 1251 1265	nerve deafness
+T17	SIGN 1251 1265	nerve deafness
+T18	DISEASE 1267 1289	Sensorineural deafness
+T19	SIGN 1267 1289	Sensorineural deafness
+R1	Is_a Arg1:T1 Arg2:T20	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T5	
+R5	Anaphora Arg1:T1 Arg2:T6	
+R6	Produces Arg1:T6 Arg2:T7	
+R7	Produces Arg1:T6 Arg2:T9	
+R8	Anaphora Arg1:T10 Arg2:T11	
+R9	Produces Arg1:T12 Arg2:T13	
+R10	Produces Arg1:T12 Arg2:T14	
+R11	Produces Arg1:T15 Arg2:T17	
+R12	Produces Arg1:T15 Arg2:T19	

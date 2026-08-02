@@ -1,0 +1,39 @@
+T1	RAREDISEASE 0 15	Laband syndrome
+T2	RAREDISEASE 31 56	Zimmerman-Laband syndrome
+T3	DISEASE 79 95	genetic disorder
+T4	SIGN 113 169	abnormalities of the head and facial (craniofacial) area
+T5	SIGN 113 133;178 183	abnormalities of the hands
+T6	SIGN 113 133;188 192	abnormalities of the feet
+T7	ANAPHOR 213 226	this disorder
+T8	DISEASE 255 276	gingival fibromatosis
+T9	SIGN 255 276	gingival fibromatosis
+T10	SIGN 279 293	Overgrown gums
+T11	SIGN 389 420	t abnormally long, thin fingers
+T12	SIGN 391 412;425 429	abnormally long, thin toes
+T13	SIGN 447 457;469 483	dysplastic nails at birth
+T14	SIGN 462 483	absent nails at birth
+T15	DISEASE 500 518	mental retardation
+T16	SIGN 500 518	mental retardation
+T17	RAREDISEASE 555 570	Laband syndrome
+T18	RAREDISEASE 723 738	Laband syndrome
+T19	ANAPHOR 1059 1071	the disorder
+T20	SIGN 1073 1109	Malformation or absence of the nails
+T21	RAREDISEASE 1165 1180	Laband syndrome
+T22	DISEASE 1203 1224	gingival fibromatosis
+T23	SIGN 1203 1224;1237 1266	gingival fibromatosis when the primary teeth appear
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Produces Arg1:T1 Arg2:T5	
+R4	Produces Arg1:T1 Arg2:T6	
+R5	Anaphora Arg1:T1 Arg2:T7	
+R6	Is_synon Arg1:T2 Arg2:T1	
+R7	Produces Arg1:T7 Arg2:T9	
+R8	Produces Arg1:T7 Arg2:T10	
+R9	Produces Arg1:T7 Arg2:T11	
+R10	Produces Arg1:T7 Arg2:T120	
+R11	Produces Arg1:T7 Arg2:T13	
+R12	Produces Arg1:T7 Arg2:T14	
+R13	Produces Arg1:T7 Arg2:T16	
+R14	Anaphora Arg1:T10 Arg2:T13	
+R15	Produces Arg1:T19 Arg2:T20	
+R16	Produces Arg1:T21 Arg2:T23	

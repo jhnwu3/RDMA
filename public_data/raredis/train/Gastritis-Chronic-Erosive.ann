@@ -1,0 +1,42 @@
+T1	RAREDISEASE 0 26	Chronic, Erosive Gastritis
+T2	SIGN 52 104	inflamed lesions in the mucous lining of the stomach
+T3	ANAPHOR 106 108	It
+T4	RAREDISEASE 171 198	Chronic,  Erosive Gastritis
+T5	SIGN 205 232	inflammation of the stomach
+T6	SIGN 250 287	multiple lesions in the mucous lining
+T7	SYMPTOM 296 315	ulcer-like symptoms
+T8	SYMPTOM 347 354	burning
+T9	SYMPTOM 359 398	heavy feeling in the pit of the stomach
+T10	SYMPTOM 400 411	mild nausea
+T11	SIGN 413 421	vomiting
+T12	SYMPTOM 423 439	loss of appetite
+T13	SYMPTOM 444 452	weakness
+T14	SIGN 484 507	bleeding of the stomach
+T15	SIGN 528 534	anemia
+T16	ANAPHOR 554 567	this disorder
+T17	ANAPHOR 639 650	the disease
+T18	RAREDISEASE 789 815	Chronic, Erosive Gastritis
+T19	ANAPHOR 829 831	It
+T20	RAREDISEASE 1028 1043	Crohn’s disease
+T21	RAREDISEASE 1048 1059	Sarcoidosis
+T22	RAREDISEASE 1107 1133	Chronic, Erosive Gastritis
+T23	RAREDISEASE 1183 1209	Chronic, Erosive Gastritis
+T24	DISEASE 1354 1363	arthritis
+T25	ANAPHOR 1389 1402	this disorder
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T4 Arg2:T5	
+R4	Produces Arg1:T4 Arg2:T6	
+R5	Produces Arg1:T4 Arg2:T7	
+R6	Produces Arg1:T4 Arg2:T80	
+R7	Produces Arg1:T4 Arg2:T9	
+R8	Produces Arg1:T4 Arg2:T10	
+R9	Produces Arg1:T4 Arg2:T11	
+R10	Produces Arg1:T4 Arg2:T12	
+R11	Produces Arg1:T4 Arg2:T13	
+R12	Produces Arg1:T4 Arg2:T14	
+R13	Produces Arg1:T4 Arg2:T150	
+R14	Anaphora Arg1:T4 Arg2:T16	
+R15	Anaphora Arg1:T18 Arg2:T17	
+R16	Anaphora Arg1:T18 Arg2:T19	
+R17	Anaphora Arg1:T23 Arg2:T25	

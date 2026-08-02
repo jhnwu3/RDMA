@@ -1,0 +1,21 @@
+T1	RAREDISEASE 0 27	Portopulmonary hypertension
+T2	DISEASE 64 77	liver disease
+T3	RAREDISEASE 108 111	HPS
+T4	RAREDISEASE 122 146	hepatopulmonary syndrome
+T5	RAREDISEASE 151 178	portopulmonary hypertension
+T6	SIGN 223 265	abnormalities of the pulmonary vasculature
+T7	DISEASE 281 294	liver disease
+T8	RAREDISEASE 296 299	HPS
+T9	SIGN 320 334	vasodilatation
+T10	SIGN 339 348	hypoxemia
+T11	RAREDISEASE 357 384	portopulmonary hypertension
+T12	SIGN 431 447;449 465	vasoconstriction of blood vessels
+T13	SIGN 481 512	pulmonary arterial hypertension
+R1	Increases_risk_of Arg1:T2 Arg2:T1	
+R2	Increases_risk_of Arg1:T7 Arg2:T5	
+R3	Produces Arg1:T8 Arg2:T6	
+R4	Produces Arg1:T8 Arg2:T90	
+R5	Produces Arg1:T8 Arg2:T10	
+R6	Produces Arg1:T11 Arg2:T6	
+R7	Produces Arg1:T11 Arg2:T12	
+R8	Produces Arg1:T11 Arg2:T13	

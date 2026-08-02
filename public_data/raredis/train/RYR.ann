@@ -1,0 +1,9 @@
+T1	RAREDISEASE 0 22	RYR-1-related diseases
+T2	DISEASE 44 58	orphan disease
+T3	ANAPHOR 123 135	The disorder
+T4	RAREDISEASE 402 424	RYR-1-related diseases
+T5	DISEASE 873 893	muscular dystrophies
+T6	DISEASE 898 908	myopathies
+T7	RAREDISEASE 932 946	RYR-1 myopathy
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	

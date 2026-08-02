@@ -1,0 +1,45 @@
+T1	RAREDISEASE 0 27	Herpes simplex encephalitis
+T2	RAREDISEASE 29 32	HSE
+T3	DISEASE 44 65	neurological disorder
+T4	RAREDISEASE 110 122	encephalitis
+T5	SIGN 110 122	encephalitis
+T6	SYMPTOM 149 158	headaches
+T7	SIGN 160 166	fevers
+T8	SYMPTOM 168 178	drowsiness
+T9	SIGN 180 193	hyperactivity
+T10	SYMPTOM 210 218	weakness
+T11	ANAPHOR 220 232	The disorder
+T12	SIGN 256 266;289 299	similar to meningitis
+T13	SIGN 311 321	stiff neck
+T14	SIGN 323 339	altered reflexes
+T15	SYMPTOM 341 350	confusion
+T16	SIGN 359 379	speech abnormalities
+T17	RAREDISEASE 436 463	herpes simplex encephalitis
+T18	RAREDISEASE 465 492	Herpes simplex encephalitis
+T19	RAREDISEASE 523 543	herpes simplex virus
+T20	RAREDISEASE 545 548	HSV
+T21	RAREDISEASE 552 578	erpes simplex encephalitis
+T22	ANAPHOR 631 633	It
+T23	ANAPHOR 678 690	The disorder
+T24	RAREDISEASE 718 736	acute encephalitis
+T25	RAREDISEASE 852 864	encephalitis
+T26	RAREDISEASE 922 948	herpes simplex encephaliti
+T27	DISEASE 1227 1241	herpes simplex
+T28	RAREDISEASE 1404 1431	herpes simplex encephalitis
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T5	
+R3	Produces Arg1:T1 Arg2:T6	
+R4	Produces Arg1:T1 Arg2:T7	
+R5	Produces Arg1:T1 Arg2:T8	
+R6	Produces Arg1:T1 Arg2:T9	
+R7	Produces Arg1:T1 Arg2:T10	
+R8	Anaphora Arg1:T1 Arg2:T11	
+R9	Is_acron Arg1:T2 Arg2:T1	
+R10	Produces Arg1:T11 Arg2:T12	
+R11	Produces Arg1:T11 Arg2:T130	
+R12	Produces Arg1:T11 Arg2:T14	
+R13	Produces Arg1:T11 Arg2:T15	
+R14	Produces Arg1:T11 Arg2:T160	
+R15	Is_acron Arg1:T20 Arg2:T19	
+R16	Anaphora Arg1:T21 Arg2:T22	
+R17	Anaphora Arg1:T21 Arg2:T23	

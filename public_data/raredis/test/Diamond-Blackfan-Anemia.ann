@@ -1,0 +1,5 @@
+T1	RAREDISEASE 0 23	Diamond Blackfan anemia
+T2	SIGN 17 23	anemia
+T3	ANAPHOR 322 333	the disease
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	

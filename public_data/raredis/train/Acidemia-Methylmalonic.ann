@@ -1,0 +1,32 @@
+T1	RAREDISEASE 4 27	methylmalonic acidemias
+T2	DISEASE 32 49	organic acidemias
+T3	SIGN 119 163;63 100	methionine, threonine, isoleucine and valine enzymatic defect in the metabolism of
+T4	SIGN 196 214;243 255	high level of acid body tissues
+T5	SIGN 229 237	academia
+T6	SYMPTOM 276 286	drowsiness
+T7	SIGN 288 292	coma
+T8	SIGN 298 306	seizures
+T9	DISEASE 318 336	Mental retardation
+T10	SIGN 318 336	Mental retardation
+T11	ANAPHOR 365 377	The disorder
+T12	SIGN 397 410;438 462	deficiency of methylmalonyl CoA mutase
+T13	SIGN 397 410;464 486	deficiency of methylmalonyl racemase
+T14	SIGN 397 410;491 526	deficiency of adenosylcobalamin synthetic enzymes
+T15	SIGN 541 555;593 605;620 624	methylmalonate in the urine high
+T16	ANAPHOR 654 666	the disorder
+T17	DISEASE 678 695	organic acidemias
+T18	RAREDISEASE 745 768	Methylmalonic Acidemias
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T5	
+R5	Produces Arg1:T1 Arg2:T6	
+R6	Produces Arg1:T1 Arg2:T7	
+R7	Produces Arg1:T1 Arg2:T8	
+R8	Produces Arg1:T1 Arg2:T10	
+R9	Anaphora Arg1:T1 Arg2:T11	
+R10	Produces Arg1:T11 Arg2:T12	
+R11	Produces Arg1:T11 Arg2:T13	
+R12	Produces Arg1:T11 Arg2:T14	
+R13	Produces Arg1:T16 Arg2:T150	
+R14	Is_a Arg1:T18 Arg2:T17	

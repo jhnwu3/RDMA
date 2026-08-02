@@ -1,0 +1,22 @@
+T1	RAREDISEASE 0 23	Antithrombin deficiency
+T2	RAREDISEASE 92 122	Type I antithrombin deficiency
+T3	DISEASE 354 371	venous thrombosis
+T4	DISEASE 376 384	embolism
+T5	RAREDISEASE 390 424	congenital antithrombin deficiency
+T6	RAREDISEASE 430 438;447 470	acquired antithrombin deficiency
+T7	ANAPHOR 494 529	the congenital form of the disorder
+T8	ANAPHOR 517 529	the disorder
+T9	SIGN 533 564	low blood level of antithrombin
+T10	RAREDISEASE 600 623	antithrombin deficiency
+T11	SIGN 691 716	lower antithrombin levels
+T12	DISEASE 748 753;764 771	liver disease
+T13	DISEASE 757 771	kidney disease
+T14	RAREDISEASE 806 839	inherited antithrombin deficiency
+R1	Increases_risk_of Arg1:T3 Arg2:T5	
+R2	Increases_risk_of Arg1:T4 Arg2:T5	
+R3	Anaphora Arg1:T5 Arg2:T7	
+R4	Anaphora Arg1:T10 Arg2:T16	
+R5	Produces Arg1:T10 Arg2:T9	
+R6	Produces Arg1:T12 Arg2:T11	
+R7	Produces Arg1:T13 Arg2:T11	
+R8	Produces Arg1:T14 Arg2:T11	

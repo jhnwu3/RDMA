@@ -1,0 +1,7 @@
+T1	RAREDISEASE 45 72	primary hyperparathyroidism
+T2	ANAPHOR 122 134	the disorder
+T3	SYMPTOM 193 205	asymptomatic
+T4	RAREDISEASE 312 335	Primary hyperthyroidism
+T5	RAREDISEASE 640 667	primary hyperparathyroidism
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T2 Arg2:T3	

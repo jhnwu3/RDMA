@@ -1,0 +1,42 @@
+T1	RAREDISEASE 0 17	Papular urticaria
+T2	SIGN 8 17	urticaria
+T3	RAREDISEASE 34 39	hives
+T4	SIGN 100 107	papules
+T5	SIGN 177 182;195 215	bumps between 0.2 and 2 cm
+T6	SIGN 274 280	bullae
+T7	ANAPHOR 283 297	This condition
+T8	DISEASE 485 495	angioedema
+T9	SIGN 485 495	angioedema
+T10	RAREDISEASE 513 536	Acute papular urticaria
+T11	SIGN 527 536	urticaria
+T12	DISEASE 541 551	angioedema
+T13	SIGN 541 551	angioedema
+T14	DISEASE 568 598	exaggerated allergic reactions
+T15	ANAPHOR 676 688	The reaction
+T16	DISEASE 708 720	drug allergy
+T17	DISEASE 780 787	allergy
+T18	ANAPHOR 972 984	the reaction
+T19	SIGN 1098 1114	acute angioedema
+T20	DISEASE 1104 1114	angioedema
+T21	SIGN 1168 1177	urticaria
+T22	DISEASE 1181 1209	hereditary enzyme deficiency
+T23	RAREDISEASE 1310 1327	papular urticaria
+T24	SIGN 1318 1327	urticaria
+T25	ANAPHOR 1422 1424	It
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Produces Arg1:T1 Arg2:T5	
+R4	Produces Arg1:T1 Arg2:T6	
+R5	Anaphora Arg1:T1 Arg2:T7	
+R6	Is_synon Arg1:T3 Arg2:T1	
+R7	Produces Arg1:T7 Arg2:T9	
+R8	Produces Arg1:T10 Arg2:T11	
+R9	Produces Arg1:T10 Arg2:T13	
+R10	Is_a Arg1:T10 Arg2:T14	
+R11	Anaphora Arg1:T10 Arg2:T15	
+R12	Anaphora Arg1:T10 Arg2:T18	
+R13	Is_a Arg1:T12 Arg2:T14	
+R14	Produces Arg1:T22 Arg2:T19	
+R15	Produces Arg1:T23 Arg2:T210	
+R16	Produces Arg1:T23 Arg2:T24	
+R17	Anaphora Arg1:T23 Arg2:T250	

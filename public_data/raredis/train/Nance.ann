@@ -1,0 +1,24 @@
+T1	RAREDISEASE 0 20	Nance-Horan syndrome
+T2	DISEASE 31 47	genetic disorder
+T3	ANAPHOR 91 93	It
+T4	SIGN 189 209	congenital cataracts
+T5	SIGN 225 236	poor vision
+T6	SIGN 249 252;262 275	eye abnormalities
+T7	SIGN 393 404	microcornea
+T8	SIGN 454 463	nystagmus
+T9	ANAPHOR 496 508	the disorder
+T10	RAREDISEASE 756 776	Nance-Horan syndrome
+T11	ANAPHOR 926 938	The disorder
+T12	RAREDISEASE 973 993	Nance-Horan syndrome
+T13	ANAPHOR 1169 1181	the disorder
+T14	RAREDISEASE 1332 1352	Nance-Horan syndrome
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Anaphora Arg1:T1 Arg2:T9	
+R4	Produces Arg1:T3 Arg2:T4	
+R5	Produces Arg1:T3 Arg2:T5	
+R6	Produces Arg1:T3 Arg2:T60	
+R7	Produces Arg1:T3 Arg2:T7	
+R8	Produces Arg1:T3 Arg2:T8	
+R9	Anaphora Arg1:T10 Arg2:T11	
+R10	Anaphora Arg1:T12 Arg2:T13	

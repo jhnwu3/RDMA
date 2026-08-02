@@ -1,0 +1,5 @@
+T1	RAREDISEASE 0 4	CFND
+T2	DISEASE 20 36	genetic disorder
+T3	ANAPHOR 116 128	the disorder
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
