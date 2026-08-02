@@ -110,7 +110,7 @@ class RDMAVerifier:
             self.verifier.prepare_index(self.embedded_documents)
         else:
             # Fallback to simple matcher/verifier
-            from rdrag.rd_match import RAGRDMatcher
+            from rdma.rdrag.rd_match import RAGRDMatcher
 
             self._debug_print("Initializing simple rare disease verifier")
             self.verifier = RAGRDMatcher(
