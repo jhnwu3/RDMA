@@ -1,394 +1,486 @@
-# RDMA - Rare Disease Mining Agents
-Paper [here](https://arxiv.org/pdf/2507.15867)
+# RDMA — Rare Disease Mining Agents
 
-For people who know how to use Git:
+Agent-driven extraction of rare diseases and phenotypes from clinical text.
 
-    git clone https://github.com/jhnwu3/RDMA.git
+📄 **Paper:** [RDMA: Cost Effective Agent-Driven Rare Disease Mining from Electronic Health Records](https://arxiv.org/abs/2507.15867) (arXiv:2507.15867)
+John Wu, Adam Cross, Jimeng Sun
 
-For others, on GitHub, there's a "Download Zip" button on the Green "Code" Button. You'll need to unzip manually yourself.
-
-To get the prerequisite dependencies, please:
-    
-    pip install -r requirements.txt
-
-Download these prerequisite files for the embedded documents [here.](https://drive.google.com/file/d/16wpcexHf2KDZ4w2qBHrTp8dn1oa59ABM/view?usp=sharing)
-
-Make sure to unzip the files and place them in a location where you can reference their pathing. We offer a tools/ directory that we typically put them in. 
-
-To see how to use RDMA, we have provided a jupyter notebook:
-
-    example.ipynb
-
-## Setting Up API Keys
-
-RDMA supports running LLMs either locally (via HuggingFace) or through cloud APIs (OpenRouter, Groq). API keys are loaded from environment variables.
-
-### Using the .env file
-
-A `.env` template is included at the root of this repository. Fill in the keys you need:
+RDMA runs a four-agent pipeline over clinical text:
 
 ```
-# .env
+  text ──▶ Extractor ──▶ Verifier ──▶ Matcher ──▶ Supervisor ──▶ ORPHA / HPO codes
+           find candidate  filter out   ground to    catch and
+           mentions        negated,     the ontology correct
+                           hypothetical              residual errors
+                           and false
+                           positives
+```
+
+Implementation: `rdma/rd/` for rare diseases (Orphanet), `rdma/hpo/` for
+phenotypes (Human Phenotype Ontology). Shared infrastructure — LLM clients,
+embedding managers, abbreviation expansion — lives in `rdma/utils/`.
+
+---
+
+## Contents
+
+- [Install](#install)
+- [⚠️ Paths you must configure](#️-paths-you-must-configure)
+- [API keys](#api-keys)
+- [Data](#data)
+- [Quick start](#quick-start)
+- [Reproducing the benchmark results](#reproducing-the-benchmark-results)
+- [Baselines](#baselines)
+- [Step-by-step pipeline](#step-by-step-pipeline)
+- [Annotation UI](#annotation-ui)
+- [Restricted data and rehydration](#restricted-data-and-rehydration)
+- [Repository layout](#repository-layout)
+- [License and citation](#license-and-citation)
+
+---
+
+## Install
+
+```bash
+git clone https://github.com/jhnwu3/RDMA.git
+cd RDMA
+pip install -r requirements.txt
+```
+
+Python 3.10+ is expected. `llama-cpp-python` is optional and only needed for the
+`llama_cpp` backend; install it separately since the build is platform-specific.
+
+**Prebuilt embedding stores** (Orphanet, HPO and abbreviation vector stores) are
+a separate download — they are far too large for git:
+
+📦 [Download here](https://drive.google.com/file/d/16wpcexHf2KDZ4w2qBHrTp8dn1oa59ABM/view?usp=sharing)
+
+Unzip them anywhere and pass the paths with `--embeddings_file` /
+`--abbreviations_file`. If you place them at `data/vector_stores/` and
+`data/tools/` inside the repo, the built-in defaults will find them.
+
+You can also build the stores yourself:
+
+```bash
+python scripts/create_vector_store_hpo.py    # HPO terms
+python scripts/create_vector_store_orpha.py  # Orphanet terms
+python scripts/create_vector_store_rd.py     # rare disease names
+```
+
+---
+
+## ⚠️ Paths you must configure
+
+**This is the main thing standing between a fresh clone and a working run.**
+
+Scripts under `scripts/` and `baselines/` were written for a single lab machine
+and still carry absolute paths from it as *defaults*. The good news: every one of
+them is overridable on the command line — you do not need to edit any source.
+
+| Default (hardcoded) | Override with | What it is |
+|---|---|---|
+| `/home/johnwu3/.../workspace/results` | `--output <path>` | where predictions are written |
+| `/shared/rsaas/jw3/rare_disease/model_cache` | `--model_cache_dir <path>` | HuggingFace model cache |
+| `/shared/eng/pyhealth/<dataset>` | `--dataset_cache_dir <path>` | PyHealth dataset cache |
+| `data/vector_stores/*.npy` | `--embeddings_file <path>` | ontology embedding store |
+| `data/tools/abbreviations_*.npy` | `--abbreviations_file <path>`, or `RDMA_ABBREVIATIONS_FILE` | abbreviation store |
+
+So a runnable invocation on a new machine looks like:
+
+```bash
+python scripts/raredis/run_rdma.py \
+  --model_type qwen_32b --gpu_id 0 \
+  --model_cache_dir   ~/.cache/huggingface \
+  --dataset_cache_dir ~/.cache/pyhealth/raredis \
+  --embeddings_file   /path/to/rd_orpha_medembed.npy \
+  --output            ./results/raredis/qwen_32b_predictions.jsonl
+```
+
+Two further notes:
+
+- Scripts `sys.path`-insert a hardcoded `_RDMA_ROOT`. **Run them from the repo
+  root** (`cd RDMA && python scripts/...`) and it resolves correctly.
+- Everything under `condor/` is site-specific and will not run unmodified. See
+  [`condor/README.md`](condor/README.md).
+
+The dataset **loaders** need no configuration — they default to the vendored
+copies in `public_data/`.
+
+---
+
+## API keys
+
+RDMA runs LLMs locally via HuggingFace or through hosted APIs. Keys are read
+from environment variables.
+
+Create a `.env` at the repo root (it is gitignored):
+
+```bash
 OPENROUTER_API_KEY=sk-or-...
 GROQ_API_KEY=gsk_...
 HF_API_KEY=hf_...
 ACCESS_TOKEN=hf_...
 ```
 
-Then load it into your shell before running any script:
+Load it before running:
 
 ```bash
 export $(grep -v '^#' .env | xargs)
 ```
 
-Or set individual variables directly:
+| Backend (`--llm_type`) | Needs | Notes |
+|---|---|---|
+| `local` (default) | GPU, `ACCESS_TOKEN` for gated models | HuggingFace weights |
+| `openrouter` | `OPENROUTER_API_KEY` | hundreds of models, many free-tier; no GPU |
+| `api` | `GROQ_API_KEY` | Groq |
+| `azure` | Azure OpenAI credentials | copy `scripts/azure_openai_config.example.json` to `scripts/azure_openai_config.json` and fill it in |
+| `llama_cpp` | local GGUF file | pass `--gguf_file` |
 
-```bash
-export OPENROUTER_API_KEY=sk-or-...
-```
+**OpenRouter shortcuts** for `--model_type`: `nemotron-120b`, `llama3-70b`,
+`qwen3-235b`, `deepseek-r1`. Raw OpenRouter model IDs also work.
 
-> **Note:** `.env` is listed in `.gitignore` and will never be committed. Never share this file.
-
-### Getting an OpenRouter API Key
-
-OpenRouter gives access to hundreds of hosted LLMs (including many free-tier models) via a single OpenAI-compatible API.
-
-1. Sign up at [https://openrouter.ai](https://openrouter.ai)
-2. Go to **Keys** in your account dashboard and create a new key
-3. Copy the key (starts with `sk-or-`) into your `.env` as `OPENROUTER_API_KEY`
-
-Free models (e.g. `nvidia/nemotron-3-super-120b-a12b:free`) require no credits. Paid models require adding credits to your account.
-
-### Getting a HuggingFace Token
-
-Required for downloading gated models (Llama 3, Qwen, Mistral, etc.).
-
-1. Sign up at [https://huggingface.co](https://huggingface.co)
-2. Go to **Settings → Access Tokens** and create a token with **Read** permissions
-3. Copy it into your `.env` as both `HF_API_KEY` and `ACCESS_TOKEN`
-4. Accept the model license on the HuggingFace model page for any gated model you want to use
+For HuggingFace: create a Read token at **Settings → Access Tokens**, put it in
+`.env` as both `HF_API_KEY` and `ACCESS_TOKEN`, and accept the model license on
+the model page for any gated model (Llama 3, Qwen, Mistral).
 
 ---
 
-## Running the Pipeline
+## Data
 
-### Choosing an LLM backend
+Full provenance, licenses and citations: **[`public_data/README.md`](public_data/README.md)**.
 
-All scripts accept a `--llm_type` flag:
+| Benchmark | Ships in repo? | Docs | Notes |
+|---|---|---|---|
+| BioLark GSC+ | ✅ `public_data/biolarkgsc/` | 228 | HPO phenotype NER over PubMed abstracts |
+| CSC | ✅ `public_data/csc/` | 116 | HPO phenotypes over clinical case reports |
+| RareDis | ✅ `public_data/raredis/` | 1011 | rare-disease NER over NORD descriptions |
+| RDD Corpus | ❌ download separately | — | pass `root=` to `RDDDataset` |
+| MIMIC-III RD mining | ⚠️ annotations only | 117 | needs PhysioNet credentials for the notes |
+| MIMIC-IV diff. diagnosis | ⚠️ annotations only | 145 | needs PhysioNet credentials for the notes |
 
-| `--llm_type` | Description |
-|---|---|
-| `local` | Load a HuggingFace model locally (default). Requires a GPU and `--model_type`. |
-| `api` | Use Groq API. Requires `GROQ_API_KEY`. |
-| `openrouter` | Use OpenRouter API. Requires `OPENROUTER_API_KEY`. |
+The three vendored corpora load with no configuration:
 
-For `local`, pass a model name with `--model_type` (e.g. `qwen_32b`, `llama3_70b`, `mistral_24b`).
+```python
+from datasets.biolarkgsc import BioLarkGSCDataset
+from datasets.csc import CSCDataset
+from datasets.raredis import RareDisDataset
 
-For `api` or `openrouter`, optionally pass `--api_config path/to/config.json` to reuse saved settings, or omit it to be prompted interactively (config is saved automatically for future runs).
-
-**OpenRouter model shortcuts** (pass as `--model_type`):
-
-| Shortcut | OpenRouter model |
-|---|---|
-| `nemotron-120b` | `nvidia/nemotron-3-super-120b-a12b:free` |
-| `llama3-70b` | `meta-llama/llama-3.3-70b-instruct:free` |
-| `qwen3-235b` | `qwen/qwen3-235b-a22b:free` |
-| `deepseek-r1` | `deepseek/deepseek-r1:free` |
-
-Raw OpenRouter model IDs (copy-pasted from openrouter.ai) are also accepted directly.
-
-### Main pipeline scripts
-
-These scripts run the full RDMA pipeline (extraction → verification → ORPHA matching) on a benchmark dataset.
-
-**RareDis benchmark:**
-```bash
-# Local model
-python scripts/run_raredis.py \
-  --model_type qwen_32b \
-  --gpu_id 0 \
-  --embeddings_file tools/rd_orpha_medembed.npy \
-  --use_abbreviations \
-  --abbreviations_file tools/abbreviations_medembed_sm.npy \
-  --output results/raredis_predictions.jsonl
-
-# OpenRouter (no GPU required)
-python scripts/run_raredis.py \
-  --llm_type openrouter \
-  --model_type nemotron-120b \
-  --embeddings_file tools/rd_orpha_medembed.npy \
-  --use_abbreviations \
-  --abbreviations_file tools/abbreviations_medembed_sm.npy \
-  --output results/raredis_predictions.jsonl
-
-
-python scripts/run_raredis.py \
-  --llm_type openrouter \
-  --model_type nemotron-120b  --output results/raredis_nemotron_predictions.jsonl
-
-# Debug run (2 samples only — for testing the OpenRouter client)
-python scripts/run_raredis.py \
-  --llm_type openrouter \
-  --model_type nemotron-120b \
-  --dev \
-  --output results/raredis_nemotron_dev.jsonl
-
-python scripts/run_raredis.py   --llm_type openrouter   --model_type nemotron-120b   --dev   --debug   --output results/raredis_nemotron_dev.jsonl
-
-# Full run 
-nohup python scripts/run_raredis.py \
-  --llm_type openrouter \
-  --model_type nemotron-120b \
-  --output ../../results/raredis/nemotron_rdma.jsonl > ../../logs/raredis/nemotron_rdma.log &
-
+BioLarkGSCDataset().stats()   # 228 documents
 ```
 
-**RDD benchmark (NER):**
-```bash
-python scripts/run_rdd.py \
-  --task ner \
-  --llm_type openrouter \
-  --model_type nemotron-120b \
-  --embeddings_file tools/rd_orpha_medembed.npy \
-  --output results/rdd_ner_predictions.jsonl
-```
-
-**RDD benchmark (relation classification):**
-```bash
-python scripts/run_rdd.py \
-  --task relation \
-  --llm_type openrouter \
-  --model_type nemotron-120b \
-  --output results/rdd_relation_predictions.jsonl
-```
-
-**MIMIC-III rare disease mining** (requires MIMIC-III access):
-```bash
-python scripts/run_mimic3_rd_mining.py \
-  --mimic3_root /path/to/mimic-iii/1.4 \
-  --llm_type openrouter \
-  --model_type nemotron-120b \
-  --embeddings_file tools/rd_orpha_medembed.npy \
-  --use_abbreviations \
-  --abbreviations_file tools/abbreviations_medembed_sm.npy \
-  --output results/mimic3_predictions.jsonl
-```
-
-All pipeline scripts support `--resume` to continue from a checkpoint if interrupted.
+MIMIC data is **not** redistributed — the files here contain our annotations and
+the join keys, but no clinical note text. See
+[Restricted data and rehydration](#restricted-data-and-rehydration).
 
 ---
 
-## Running Baselines
+## Quick start
 
-### Zero-shot baselines
+`example.ipynb` walks through the pipeline interactively.
 
-These run a single LLM pass with no retrieval or verification.
-
-**RareDis:**
-```bash
-# Local model
-python baselines/zeroshot_raredis.py --model_type qwen_32b --gpu_id 0
-
-# OpenRouter
-python baselines/zeroshot_raredis.py \
-  --llm_type openrouter \
-  --model_type nemotron-120b \
-  --output results/zeroshot_raredis.jsonl
-```
-
-**RDD (NER):**
-```bash
-python baselines/zeroshot_rdd.py \
-  --task ner \
-  --llm_type openrouter \
-  --model_type nemotron-120b \
-  --output results/zeroshot_rdd_ner.jsonl
-```
-
-**RDD (relation classification):**
-```bash
-python baselines/zeroshot_rdd.py \
-  --task relation \
-  --llm_type openrouter \
-  --model_type nemotron-120b \
-  --output results/zeroshot_rdd_relation.jsonl
-```
-
-**MIMIC-III:**
-```bash
-python baselines/zeroshot_mimic3_rd_mining.py \
-  --mimic3_root /path/to/mimic-iii/1.4 \
-  --llm_type openrouter \
-  --model_type nemotron-120b \
-  --output results/zeroshot_mimic3.jsonl
-```
-
-### Dictionary matching baseline (no LLM)
+From the command line, the smallest end-to-end run is CSC (116 documents):
 
 ```bash
-python baselines/run_dict_raredis.py \
-  --embeddings_file tools/rd_orpha_medembed.npy \
-  --output results/dict_raredis.jsonl
+# 1. Extract phenotypes
+python scripts/csc/run_hpo.py \
+  --llm_type openrouter --model_type nemotron-120b \
+  --output ./results/csc/nemotron_predictions.jsonl
+
+# 2. Score them
+python scripts/csc/eval.py \
+  --predictions ./results/csc/nemotron_predictions.jsonl
 ```
 
-### RDRAG baseline (LLM extraction + embedding matching)
-
-```bash
-python baselines/run_rdrag_raredis.py \
-  --llm_type openrouter \
-  --model_type nemotron-120b \
-  --embeddings_file tools/rd_orpha_medembed.npy \
-  --top_k 5 \
-  --output results/rdrag_raredis.jsonl
-```
+Add `--dev` for a 2-document smoke test and `--debug` for verbose tracing.
+All pipeline scripts support `--resume` to continue from a checkpoint.
 
 ---
 
-## Running Step-by-Step (rd_steps/)
+## Reproducing the benchmark results
 
-For custom pipelines or finer control, you can run each stage individually.
+This is how the tables in the paper were produced. The flow is the same for
+every benchmark:
 
-### Step 1 — Extract entities and context
+```
+run_rdma.py / run_hpo.py        →  results/<bench>/<model>_predictions.jsonl
+  or baselines/<bench>/<method>.py
+
+eval.py                         →  results/<bench>/eval_<...>.json
+
+aggregate_rare_disease_eval_matrix.py
+                                →  results/full_eval_matrix.{csv,md}
+
+scripts/analysis/bootstrap_ci.py
+                                →  results/bootstrap_ci_all.{csv,md}
+```
+
+### The six benchmark tracks
+
+| Track | Runner | Evaluator | Metric |
+|---|---|---|---|
+| `biolarkgsc` | `scripts/biolarkgsc/run_hpo.py` | `scripts/biolarkgsc/eval.py` | HPO-ID P/R/F1, lenient (ancestor-resolved) + strict |
+| `csc` | `scripts/csc/run_hpo.py` | `scripts/csc/eval.py` | HPO-ID P/R/F1, lenient + strict |
+| `raredis` | `scripts/raredis/run_rdma.py` | `scripts/raredis/eval.py` | micro-F1 over surface forms, exact match then LLM judge |
+| `rdd` | `scripts/rdd/run_rdma.py` | `scripts/rdd/eval.py` | micro-F1, LLM judge |
+| `mimic3_rd_mining_code` | `scripts/mimic3_rd_mining_code/run_rdma.py` | `scripts/mimic3_rd_mining_code/eval.py` | ORPHA-ID exact-match micro-F1 |
+| `mimic3_rd_mining_text` | *(reuses the code track's predictions)* | `scripts/mimic3_rd_mining_text/eval.py` | micro-F1 over surface forms, LLM judge |
+
+The two evaluator families take different arguments:
 
 ```bash
+# Rare-disease tracks: resolve prediction paths by convention
+python scripts/raredis/eval.py --model_type mistral_24b --approach rdma
+#   --approach ∈ {rdma, zeroshot, rdrag, dict}
+
+# HPO tracks: point at a predictions file directly
+python scripts/csc/eval.py --predictions results/csc/mistral_24b_predictions.jsonl
+#   add --inspect --output per_doc.csv for a per-document breakdown
+```
+
+The LLM-judge evaluators load a local model (default `mistral_24b`) to adjudicate
+non-exact matches, so they need a GPU — pass `--gpu_id`.
+
+### Approaches evaluated
+
+|  | biolarkgsc | csc | raredis | rdd | mimic3 code | mimic3 text |
+|---|:-:|:-:|:-:|:-:|:-:|:-:|
+| RDMA (full) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| RDRAG (no verifier/supervisor) | | | ✅ | ✅ | ✅ | ✅ |
+| Zero-shot LLM | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Dictionary (no LLM) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| RAG-HPO | ✅ | ✅ | | | | |
+| FastHPOCR | ✅ | ✅ | | | | |
+| PhenoGPT / PhenoGPT2 | ✅ | ✅ | | | | |
+| i2b2 (Stanza) | ✅ | ✅ | ✅ | | | ✅ |
+| BioBERT-MRC | ✅ | ✅ | ✅ | | | ✅ |
+| Bio_ClinicalBERT NER | ✅ | ✅ | ✅ | | | ✅ |
+
+Models reported: `llama3_8b`, `mistral_24b`, `llama3_70b`, `qwen3_32b`,
+`nemotron-120b-q4`, and GPT-5 via Azure.
+
+### Aggregating
+
+`scripts/aggregate_rare_disease_eval_matrix.py` reads a TSV manifest listing
+every (dataset, track, approach, model) run and collects the results into one
+table. The manifests used for the paper are in `condor/rare_disease/`:
+
+```bash
+python scripts/aggregate_rare_disease_eval_matrix.py \
+  --manifest condor/rare_disease/eval_manifest_all_benchmarks.tsv \
+  --run_evals \
+  --bootstrap --n_bootstrap 1000
+```
+
+`--run_evals` fills in any row that has predictions but no eval output.
+`--bootstrap` appends 95% confidence intervals.
+
+Confidence intervals can also be computed standalone — the method (per-document
+resampling of TP/FP/FN, 1000 iterations, seed 42) is documented in
+[`scripts/analysis/bootstrap.md`](scripts/analysis/bootstrap.md):
+
+```bash
+python scripts/analysis/bootstrap_ci.py --all
+```
+
+Other analysis helpers in `scripts/analysis/`:
+`evaluate_hpo_runs.py` (sweep all HPO prediction files),
+`print_approach_comparison.py` (approach comparison table),
+`dataset_stats.py` (corpus statistics).
+
+### Running the whole grid
+
+`condor/` holds the exact HTCondor submit files used, one job per
+(benchmark × approach × model). They are site-specific — read
+[`condor/README.md`](condor/README.md) before submitting. Each job is a thin
+wrapper around one of the Python commands above, so Condor is not required.
+
+---
+
+## Baselines
+
+Every baseline is `baselines/<benchmark>/<method>.py` and takes the same core
+flags as the main runners (`--llm_type`, `--model_type`, `--gpu_id`, `--output`).
+
+```bash
+# Zero-shot LLM
+python baselines/raredis/zeroshot.py --llm_type openrouter --model_type nemotron-120b
+
+# RDRAG — extraction + embedding matching, no verifier or supervisor
+python baselines/raredis/rdrag.py --model_type mistral_24b --gpu_id 0
+
+# Dictionary matching, no LLM
+python baselines/raredis/dict.py --embeddings_file /path/to/rd_orpha_medembed.npy
+
+# HPO-specific baselines
+python baselines/csc/raghpo.py     --llm_type openrouter --model_type nemotron-120b
+python baselines/csc/fasthpocr.py
+python baselines/csc/dictionary_hpo.py
+```
+
+The BERT baselines train first, then run inference elsewhere:
+
+```bash
+python baselines/raredis/biobert_mrc_trainer.py           # writes a checkpoint
+python baselines/mimic3_rd_mining_text/biobert_mrc.py     # reuses it
+```
+
+Several baselines wrap external repositories that must be cloned alongside RDMA
+— PhenoGPT, PhenoGPT2, FastHPOCR and BioBERT-MRC. Sources and citations for all
+of them are in **[`CITATIONS.md`](CITATIONS.md)**.
+
+---
+
+## Step-by-step pipeline
+
+For finer control, `rd_steps/` runs each agent separately.
+
+```bash
+# 1 — extract entities with context
 python rd_steps/step1_extract_rd_context.py \
-  --input_file your_notes.json \
-  --output_file step1_out.json \
-  --llm_type openrouter \
-  --model_type nemotron-120b \
+  --input_file your_notes.json --output_file step1.json \
+  --llm_type openrouter --model_type nemotron-120b \
   --entity_extractor retrieval \
-  --embeddings_file tools/rd_orpha_medembed.npy \
-  --top_k 10
-```
+  --embeddings_file /path/to/rd_orpha_medembed.npy --top_k 10
 
-`--entity_extractor` options: `llm` (plain), `retrieval` (RAG), `iterative`, `multi` (multi-temperature ensemble).
-
-### Step 2 — Verify extracted entities
-
-```bash
+# 2 — verify (negation, hypotheticals, false positives)
 python rd_steps/step2_verify_rd_context.py \
-  --input_file step1_out.json \
-  --output_file step2_out.json \
-  --llm_type openrouter \
-  --model_type nemotron-120b \
-  --embeddings_file tools/rd_orpha_medembed.npy \
+  --input_file step1.json --output_file step2.json \
+  --llm_type openrouter --model_type nemotron-120b \
+  --embeddings_file /path/to/rd_orpha_medembed.npy \
   --verifier_type multi_stage \
-  --use_abbreviations \
-  --abbreviations_file tools/abbreviations_medembed_sm.npy
-```
+  --use_abbreviations --abbreviations_file /path/to/abbreviations_medembed_sm.npy
 
-### Step 3 — Match to ORPHA codes
-
-```bash
+# 3 — match to ORPHA codes
 python rd_steps/step3_match_rd.py \
-  --input_file step2_out.json \
-  --output_file step3_out.json \
-  --llm_type openrouter \
-  --model_type nemotron-120b \
-  --embeddings_file tools/rd_orpha_medembed.npy \
-  --top_k 5 \
-  --csv_output results.csv
-```
+  --input_file step2.json --output_file step3.json \
+  --llm_type openrouter --model_type nemotron-120b \
+  --embeddings_file /path/to/rd_orpha_medembed.npy --top_k 5
 
-### Step 4 — Supervisor (evaluation + error correction)
-
-```bash
+# 4 — supervisor: evaluate and correct
 python rd_steps/step4_supervisor.py \
-  --predictions step3_out.json \
-  --ground-truth ground_truth.json \
-  --evaluation step3_eval.json \
-  --output supervision_out.json \
-  --llm_type openrouter \
-  --model_type nemotron-120b \
-  --embeddings_file tools/rd_orpha_medembed.npy
+  --predictions step3.json --ground-truth gold.json \
+  --evaluation step3_eval.json --output supervised.json \
+  --llm_type openrouter --model_type nemotron-120b \
+  --embeddings_file /path/to/rd_orpha_medembed.npy
 ```
+
+`--entity_extractor` accepts `llm`, `retrieval` (RAG), `iterative`, or `multi`
+(multi-temperature ensemble).
 
 ---
 
-## Publicly available data
+## Annotation UI
 
-We source our clinical case study annotations from the excel file from [RAG-HPO](https://github.com/PoseyPod/RAG-HPO) and provide it as a .json file in the directory: 
-    
-    public_data/phenotype_mining_benchmark.json
+`annotation_tool.html` is a standalone, no-backend annotation interface — open it
+directly in a browser.
 
-We show three variants of our MIMIC3 rare disease mention annotations. 
+![Annotation tool](figs/AnnotationToolUI.png)
 
-First, we showcase the original set from [here](https://github.com/acadTags/Rare-disease-identification/tree/main/data%20annotation)
+Upload a predictions JSON with the upload button:
 
-    public_data/rd_annos.json
+![Upload button](figs/UploadButton.png)
 
-Next, we showcase the keyword filtered version:
-
-    public_data/filtered_rd_annos.json
-
-Then, we showcase the human-reannotated version:
-
-    public_data/reannotated_rd_annos.json
-
-To get the clinical note counterpart, please see the [MIMIC-III](https://physionet.org/content/mimiciii/1.4/) dataset.
-
-## Using the provided annotation UI
-We note that it is possible to use our existing annotation tool locally. Simply, double click or open **annotation_tool.html**, and you'll be greeted with this interface below:
-
-![UI_Interface](figs/AnnotationToolUI.png)
-
-Simply click the upload button and upload your .json file. 
-
-![Upload Button](figs/UploadButton.png)
-
-Upload your file.
-
-![Upload Button Clicked](figs/UploadButtonAnnotation.drawio.png)
-
-
-Then, you'll be greeted with the annotation display where you can click next, and declare whether or not an entity is a rare disease or not.
+Then step through each entity and mark whether it is a rare disease:
 
 ![Annotating](figs/AnnotatingUI.png)
 
-Once you're done, hit the green export button in the top right, it will ask to save a corrections .json file. 
+Export a corrections JSON with the green button, top right:
 
-![ExportButton](figs/ExportButton.png)
+![Export button](figs/ExportButton.png)
 
+**Two warnings:**
 
-Some important notes:
+- **Do not refresh or close the page.** There is no backend and no autosave —
+  refreshing loses all annotations in progress.
+- You may see `[Entity '...' occurrence #1 (index 0) not found by string search
+  or overlaps with previously used positions ...]`. That means the entity string
+  could not be located in the document text.
 
-**Sometimes you'll see a "[Entity 'heparin induced thrombocytopenia' occurrence #1 (index 0) not found by string search or overlaps with previously used positions in document 2541 ORPHA:Orphanet_3325]", which implies the annotation entity was never found in the text"**
+`public_data/annotation_tool_input.json` is a working example input, but its
+`context` panes will be empty until you rehydrate it (below) — the note text was
+stripped for the public release.
 
-**Do not refresh the page or you will lose all of your progress. Do not exit on accident. There's no database or backend that's tracking your annotations.**
+---
 
+## Restricted data and rehydration
 
+MIMIC-III and MIMIC-IV are distributed by PhysioNet under a Credentialed Health
+Data Use Agreement that forbids republishing note text. Our annotation files
+originally embedded note excerpts in `context` fields; those have been removed.
 
-# My own scripts that I run for debugging:
+**What ships:** all annotation labels, ORPHA/HPO codes, decisions, and the
+identifiers needed to join back to the source notes
+(`document_id` → `NOTEEVENTS.ROW_ID` for MIMIC-III, `subject_id` for MIMIC-IV).
 
-python scripts/mimic3_rd_mining_code/run_rdma.py \
-  --llm_type llama_cpp \
-  --model_type nemotron-120b-q4 \
-  --mimic3_root /srv/local/data/jw3/physionet.org/files/mimic-iii-clinical-database-1.4 \
-  --output results/mimic3_rd_mining/nemotron-120b-q4_dev.jsonl \
-  --dev --debug --condor
+**What does not:** any clinical note text.
 
+If you hold PhysioNet credentials, rebuild the contexts from your own copy:
 
+```bash
+python scripts/data/rehydrate_mimic_text.py \
+  --mimic3-root      /path/to/mimic-iii-clinical-database-1.4 \
+  --mimic4-note-root /path/to/mimic-iv-note/2.2/note \
+  --out rehydrated/
+```
 
+The originals stored snippets without character offsets, so this re-locates each
+entity in its source note and re-extracts a window. The result is **equivalent
+but not byte-identical** — enclosing sentences match, window edges may not. The
+script reports any entity it could not relocate.
 
-  nohup python scripts/raredis/eval.py --model_type llama3_8b --approach rdrag --gpu_id 0 > ../../logs/raredis/rdrag_sanity_llama3_8b.log &
+Before publishing anything derived from `public_data/`, run the leakage gate:
 
-  nohup python scripts/raredis/eval.py --model_type mistral_24b --approach rdrag --gpu_id 1 > ../../logs/raredis/rdrag_sanity_mistral_24b.log &
+```bash
+python scripts/data/check_public_data_leakage.py
+```
 
+It exits non-zero if it finds a residual `context` key, an over-long string, or a
+MIMIC de-identification marker.
 
-nohup python scripts/mimic3_rd_mining_text/eval.py --model_type mistral_24b --approach rdrag --gpu_id 0 --predictions_file ../../results/mimic3_rd_mining/mistral_24b_predictions.jsonl > ../../logs/mimic3_rd_mining_text/mimic3_text_sanity_mistral_24b.log &
+---
 
+## Repository layout
 
+```
+rdma/                  core library
+  rd/                    rare-disease agents: extractor, verifier, matcher, supervisor
+  hpo/                   phenotype agents
+  rdrag/  hporag/        earlier RAG layers the agents build on
+  utils/                 LLM clients, embeddings, abbreviations, search
+datasets/              PyHealth dataset loaders (biolarkgsc, csc, raredis, rdd)
+tasks/                 PyHealth task definitions
+models/                BioBERT-MRC and Bio_ClinicalBERT NER models
+scripts/               per-benchmark runners and evaluators
+  <benchmark>/           run_rdma.py or run_hpo.py, plus eval.py
+  analysis/              bootstrap CIs, aggregation, corpus statistics
+  data/                  MIMIC strip / rehydrate / leakage-check tooling
+baselines/<benchmark>/ baseline implementations
+rd_steps/              step-by-step CLI version of the pipeline
+public_data/           redistributable benchmark data
+condor/                HTCondor submit files used for the paper (site-specific)
+notebooks/             analysis notebooks
+figs/                  figures
+```
 
-nohup python baselines/raredis/rdrag.py --model_type mistral_24b --gpu_id 1 > ../../logs/raredis/rdrag_rerun_mistral_24b.log &
+---
 
+## License and citation
 
-python eval.py --predictions ../../../results/biolarkgsc/mistral_24b_predictions.jsonl --inspect --output ../../../results/biolarkgsc/mistral_24b_per_doc.csv
+Code is MIT licensed — see [`LICENSE`](LICENSE). **The license covers the source
+code only.** Benchmark data under `public_data/` carries its original authors'
+licenses; see [`public_data/README.md`](public_data/README.md).
 
-nohup python eval.py --predictions /home/johnwu3/projects/rare_disease/workspace/results/biolarkgsc/mistral_24b_predictions.jsonl --inspect --output /home/johnwu3/projects/rare_disease/workspace/results/biolarkgsc/mistral_24b_per_doc.csv > inspect_rdma.log &
+If you use RDMA, please cite the paper — and cite the datasets and baselines you
+actually used. Full entries for all of them are in
+**[`CITATIONS.md`](CITATIONS.md)**.
 
-
-
-nohup python eval.py --predictions /home/johnwu3/projects/rare_disease/workspace/results/biolarkgsc/gpt-5-john_predictions.jsonl --inspect --output /home/johnwu3/projects/rare_disease/workspace/results/biolarkgsc/gpt5_per_doc.csv > inspect_rdma_gp5.log &
-
-
-python scripts/biolarkgsc/run_hpo.py --model_type qwen3_32b --llm_type local --debug --dev --condor --checkpoint_interval 1 --output /home/johnwu3/projects/rare_disease/workspace/results/biolarkgsc/qwen3_32b_debug_dev.jsonl
+```bibtex
+@article{wu2025rdma,
+  title  = {RDMA: Cost Effective Agent-Driven Rare Disease Mining from
+            Electronic Health Records},
+  author = {Wu, John and Cross, Adam and Sun, Jimeng},
+  journal = {arXiv preprint arXiv:2507.15867},
+  year   = {2025},
+  url    = {https://arxiv.org/abs/2507.15867}
+}
+```
