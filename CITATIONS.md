@@ -307,14 +307,14 @@ The dataset/task framework RDMA's benchmark layer plugs into.
 ```
 
 ### NLP libraries
-- **spaCy** / **scispaCy** — biomedical NLP pipelines. Cite Neumann et al.,
-  *ScispaCy: Fast and Robust Models for Biomedical Natural Language Processing*,
-  BioNLP 2019.
-- **negspacy** — negation detection, implementing the NegEx algorithm
-  (Chapman et al., 2001).
 - **Stanza** — see the i2b2 baseline entry above.
 - **FAISS** — similarity search. Cite Johnson et al., *Billion-scale similarity
   search with GPUs*, IEEE Transactions on Big Data, 2019.
+- **NLTK** — tokenization in the i2b2 and PhenoGPT baselines. Cite Bird, Klein &
+  Loper, *Natural Language Processing with Python*, O'Reilly, 2009.
+
+Negation and hypothetical detection are handled by RDMA's own verifier agent
+(`rdma/rd/verifier.py`), not by a rule-based library such as negspacy/NegEx.
 
 ### Ontologies
 - **Human Phenotype Ontology** — <https://hpo.jax.org>, CC BY 4.0. Cite the
