@@ -1,0 +1,20 @@
+T1	RAREDISEASE 0 7	Uveitis
+T2	SIGN 41 53;90 94	inflammation uvea
+T3	RAREDISEASE 96 113	Posterior uveitis
+T4	ANAPHOR 210 224	This condition
+T5	ANAPHOR 270 272	It
+T6	ANAPHOR 312 314	it
+T7	RAREDISEASE 402 443	chronic, non-infectious posterior uveitis
+T8	RAREDISEASE 542 549	uveitis
+T9	ANAPHOR 734 746	the disorder
+T10	DISEASE 792 804	herpes virus
+T11	RAREDISEASE 806 819	toxoplasmosis
+T12	RAREDISEASE 821 833	toxocariasis
+T13	RAREDISEASE 887 898	sarcoidosis
+T14	RAREDISEASE 902 914	tuberculosis
+T15	RAREDISEASE 980 999	large cell lymphoma
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T3 Arg2:T4	
+R3	Anaphora Arg1:T3 Arg2:T5	
+R4	Anaphora Arg1:T3 Arg2:T6	
+R5	Anaphora Arg1:T8 Arg2:T9	

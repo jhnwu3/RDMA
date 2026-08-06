@@ -1,0 +1,8 @@
+T1	RAREDISEASE 0 24	Sacrococcygeal teratomas
+T2	ANAPHOR 134 146	these tumors
+T3	SIGN 140 146	tumors
+T4	RAREDISEASE 206 230	Sacrococcygeal teratomas
+T5	RAREDISEASE 355 363	teratoma
+T6	RAREDISEASE 376 400	Sacrococcygeal teratomas
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	

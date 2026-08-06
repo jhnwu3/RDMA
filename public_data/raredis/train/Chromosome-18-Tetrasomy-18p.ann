@@ -1,0 +1,7 @@
+T1	RAREDISEASE 1 29	Chromosome 18, Tetrasomy 18p
+T2	DISEASE 45 65	chromosomal disorder
+T3	RAREDISEASE 370 398	Chromosome 18, Tetrasomy 18p
+T4	RAREDISEASE 484 512	Chromosome 18, Tetrasomy 18p
+T5	DISEASE 528 548	chromosomal disorder
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Is_a Arg1:T4 Arg2:T5	

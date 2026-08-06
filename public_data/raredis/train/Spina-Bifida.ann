@@ -1,0 +1,22 @@
+T1	DISEASE 0 12	Spina bifida
+T2	SIGN 33 62;91 100	incomplete closure of certain vertebrae
+T3	SIGN 113 148	portion of the spinal cord exposed.
+T4	DISEASE 290 302	Spina bifida
+T5	SIGN 313 346	difficulties with bladder control
+T6	SIGN 313 330;348 355	difficulties with walking
+T7	DISEASE 430 442	Spina bifida
+T8	DISEASE 462 480	neural tube defect
+T9	ANAPHOR 578 591	this disorder
+T10	DISEASE 624 636	Spina bifida
+T11	ANAPHOR 677 679	it
+T12	ANAPHOR 744 746	It
+T13	DISEASE 787 806	neural tube defects
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T4 Arg2:T5	
+R4	Produces Arg1:T4 Arg2:T60	
+R5	Is_a Arg1:T7 Arg2:T8	
+R6	Anaphora Arg1:T7 Arg2:T9	
+R7	Anaphora Arg1:T10 Arg2:T11	
+R8	Anaphora Arg1:T10 Arg2:T12	
+R9	Is_a Arg1:T12 Arg2:T13	

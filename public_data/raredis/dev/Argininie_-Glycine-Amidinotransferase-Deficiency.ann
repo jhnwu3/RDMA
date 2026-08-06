@@ -1,0 +1,18 @@
+T1	RAREDISEASE 16 20	AGAT
+T2	RAREDISEASE 65 69	AGAT
+T3	SIGN 110 135	intellectual disabilities
+T4	SIGN 137 151	delayed speech
+T5	SIGN 166 173	seizure
+T6	RAREDISEASE 252 256	AGAT
+T7	SIGN 308 325	failure to thrive
+T8	SIGN 337 372	delayed development of motor skills
+T9	RAREDISEASE 507 511	AGAT
+T10	RAREDISEASE 537 541	CCDS
+T11	DISEASE 584 598	cerebral palsy
+T12	DISEASE 661 667	autism
+T13	DISEASE 671 698	global developmental delays
+R1	Produces Arg1:T2 Arg2:T3	
+R2	Produces Arg1:T2 Arg2:T4	
+R3	Produces Arg1:T2 Arg2:T5	
+R4	Produces Arg1:T10 Arg2:T2	
+R5	Produces Arg1:T10 Arg2:T12	

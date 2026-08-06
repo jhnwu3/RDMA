@@ -1,0 +1,22 @@
+T1	RAREDISEASE 158 173	Tietze syndrome
+T2	ANAPHOR 205 217	the disorder
+T3	DISEASE 307 312;326 336	viral infections
+T4	DISEASE 316 336	bacterial infections
+T5	RAREDISEASE 371 386	Tietze syndrome
+T6	RAREDISEASE 544 559	Tietze syndrome
+T7	ANAPHOR 701 713	the disorder
+T8	RAREDISEASE 741 756	Tietze syndrome
+T9	SYMPTOM 912 922	chest pain
+T10	SYMPTOM 1045 1055	chest pain
+T11	DISEASE 1066 1090	cardiovascular disorders
+T12	DISEASE 1094 1114	malignant conditions
+T13	SIGN 1159 1206	hickening and enlargement of affected cartilage
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Increases_risk_of Arg1:T3 Arg2:T2	
+R3	Increases_risk_of Arg1:T4 Arg2:T2	
+R4	Anaphora Arg1:T6 Arg2:T7	
+R5	Produces Arg1:T8 Arg2:T9	
+R6	Produces Arg1:T8 Arg2:T10	
+R7	Produces Arg1:T8 Arg2:T130	
+R8	Produces Arg1:T11 Arg2:T10	
+R9	Increases_risk_of Arg1:T12 Arg2:T11	

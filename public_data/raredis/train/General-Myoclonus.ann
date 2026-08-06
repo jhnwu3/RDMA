@@ -1,0 +1,21 @@
+T1	RAREDISEASE 0 9	Myoclonus
+T2	SIGN 43 102	sudden, involuntary jerking of a muscle or group of muscles
+T3	RAREDISEASE 134 152	positive myoclonus
+T4	RAREDISEASE 176 194	negative myoclonus
+T5	SIGN 201 232	twitching or jerking of muscles
+T6	SIGN 285 300	Myoclonic jerks
+T7	RAREDISEASE 459 468	myoclonus
+T8	ANAPHOR 533 535	it
+T9	DISEASE 603 610	hiccups
+T10	RAREDISEASE 639 648	myoclonus
+T11	ANAPHOR 668 670	it
+T12	RAREDISEASE 785 794	Myoclonus
+T13	RAREDISEASE 853 862	myoclonus
+T14	RAREDISEASE 928 937	myoclonus
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T5	
+R3	Produces Arg1:T1 Arg2:T6	
+R4	Is_a Arg1:T3 Arg2:T1	
+R5	Is_a Arg1:T4 Arg2:T1	
+R6	Anaphora Arg1:T7 Arg2:T8	
+R7	Anaphora Arg1:T10 Arg2:T11	

@@ -1,0 +1,29 @@
+T1	SKINRAREDISEASE 0 26	Ellis-Van Creveld syndrome
+T2	DISEASE 37 53	genetic disorder
+T3	SIGN 71 90	short limb dwarfism
+T4	SIGN 124 135	polydactyly
+T5	SIGN 138 173	abnormal development of fingernails
+T6	SIGN 206 230	congenital heart defects
+T7	ANAPHOR 279 292	This disorder
+T8	DISEASE 312 341	autosomal recessive condition
+T9	SKINRAREDISEASE 343 369	Ellis-Van Creveld syndrome
+T10	ANAPHOR 468 482	This condition
+T11	ANAPHOR 535 537	It
+T12	SKINRAREDISEASE 672 698	Ellis-Van-Creveld syndrome
+T13	SIGN 734 747	short stature
+T14	SIGN 749 760	slow growth
+T15	SIGN 762 784	skeletal abnormalities
+T16	SIGN 856 867	natal teeth
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T5	
+R5	Produces Arg1:T1 Arg2:T6	
+R6	Anaphora Arg1:T1 Arg2:T70	
+R7	Is_a Arg1:T10 Arg2:T11	
+R8	Anaphora Arg1:T9 Arg2:T10	
+R9	Anaphora Arg1:T9 Arg2:T11	
+R10	Produces Arg1:T12 Arg2:T13	
+R11	Produces Arg1:T12 Arg2:T14	
+R12	Produces Arg1:T12 Arg2:T15	
+R13	Produces Arg1:T12 Arg2:T16	

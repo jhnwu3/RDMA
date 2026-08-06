@@ -1,0 +1,33 @@
+T1	RAREDISEASE 0 20	Retinitis pigmentosa
+T2	RAREDISEASE 22 24	RP
+T3	DISEASE 53 79	inherited vision disorders
+T4	SIGN 91 129	progressive degeneration of the retina
+T5	SIGN 195 205;216 242	Peripheral vision gradually decreases
+T6	ANAPHOR 331 347	these conditions
+T7	RAREDISEASE 363 365	RP
+T8	DISEASE 389 397	deafness
+T9	DISEASE 399 406	obesity
+T10	DISEASE 408 422	kidney disease
+T11	DISEASE 477 499;514 523	central nervous system disorders
+T12	DISEASE 504 523	metabolic disorders
+T13	DISEASE 542 567	chromosomal abnormalities
+T14	RAREDISEASE 569 571	RP
+T15	DISEASE 586 602	vision disorders
+T16	RAREDISEASE 870 872	RP
+T17	ANAPHOR 1062 1077	these disorders
+T18	DISEASE 1089 1121	age-related macular degeneration
+T19	DISEASE 1126 1134	glaucoma
+T20	RAREDISEASE 1259 1261	RP
+T21	SIGN 1290 1311	inherited visual loss
+T22	RAREDISEASE 1313 1315	RP
+T23	SIGN 1366 1408	progressive loss in photoreceptor function
+T24	RAREDISEASE 1693 1695	RP
+R1	Is_a Arg1:T1 Arg2:T30	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Produces Arg1:T1 Arg2:T5	
+R4	Anaphora Arg1:T1 Arg2:T6	
+R5	Is_acron Arg1:T2 Arg2:T1	
+R6	Is_a Arg1:T14 Arg2:T15	
+R7	Anaphora Arg1:T16 Arg2:T17	
+R8	Produces Arg1:T20 Arg2:T21	
+R9	Produces Arg1:T22 Arg2:T23	

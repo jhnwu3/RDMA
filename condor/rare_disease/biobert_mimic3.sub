@@ -1,0 +1,19 @@
+# biobert_mimic3.sub — BioBERT-MRC inference on MIMIC-III rare-disease notes
+#
+# Run AFTER the RareDis training job (biobert_raredis.sub) has completed and
+# produced a checkpoint at results/raredis/biobert_mrc_trainer/best_hf/.
+# Update MIMIC3_ROOT in run_biobert_mimic3.sh before submitting.
+executable = /home/johnwu3/projects/rare_disease/workspace/condor/rare_disease/run_biobert_mimic3.sh
+
+Requirements = (Machine == "sunlab-c02.cs.illinois.edu")
+
+universe       = vanilla
+request_cpus   = 4
+request_memory = 32GB
+request_gpus   = 1
+
+log    = /home/johnwu3/projects/rare_disease/workspace/logs/mimic3/biobert_mrc/$(Cluster).$(Process).log
+output = /home/johnwu3/projects/rare_disease/workspace/logs/mimic3/biobert_mrc/$(Cluster).$(Process).out
+error  = /home/johnwu3/projects/rare_disease/workspace/logs/mimic3/biobert_mrc/$(Cluster).$(Process).err
+
+queue

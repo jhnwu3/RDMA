@@ -1,0 +1,10 @@
+T1	RAREDISEASE 15 18	PNH
+T2	SIGN 72 95	intravascular hemolysis
+T3	DISEASE 103 117	hemoglobinuria
+T4	SIGN 103 117	hemoglobinuria
+T5	SIGN 130 158	high serum LDH concentration
+T6	RAREDISEASE 368 371	PNH
+T7	RAREDISEASE 422 425	PNH
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Produces Arg1:T1 Arg2:T5	

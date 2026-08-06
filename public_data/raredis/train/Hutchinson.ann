@@ -1,0 +1,90 @@
+T1	RAREDISEASE 0 8	Progeria
+T2	RAREDISEASE 13 49	Hutchinson-Gilford progeria syndrome
+T3	RAREDISEASE 51 55	HGPS
+T4	DISEASE 69 106	fatal, genetic condition of childhood
+T5	RAREDISEASE 141 156	premature aging
+T6	SIGN 141 156	premature aging
+T7	RAREDISEASE 172 180	progeria
+T8	SIGN 232 234;249 273;313 335	At nine to 24 months of age profound growth delays
+T9	SIGN 350 363	short stature
+T10	SIGN 368 378	low weight
+T11	SIGN 400 429	distinctive facial appearance
+T12	SIGN 449 478	disproportionately small face
+T13	SIGN 529 541	micrognathia
+T14	SIGN 544 582	malformation and crowding of the teeth
+T15	SIGN 595 609	prominent eyes
+T16	SIGN 613 623	small nose
+T17	SIGN 625 639	prominent eyes
+T18	SIGN 646 678	subtle blueness around the mouth
+T19	RAREDISEASE 771 779	alopecia
+T20	SIGN 771 779	alopecia
+T21	SIGN 790 854	scalp hair may be replaced by small, downy, white or blond hairs
+T22	DISEASE 899 926	generalized atherosclerosis
+T23	SIGN 899 926	generalized atherosclerosis
+T24	DISEASE 928 950	cardiovascular disease
+T25	SIGN 928 950	cardiovascular disease
+T26	SIGN 955 961	stroke
+T27	SIGN 963 979	hip dislocations
+T28	SIGN 991 1019	prominent veins of the scalp
+T29	SIGN 1021 1028;1064 1091	loss of subcutaneous adipose tissue
+T30	SIGN 1094 1114	defects of the nails
+T31	SIGN 1116 1131	joint stiffness
+T32	SIGN 1133 1149	skeletal defects
+T33	RAREDISEASE 1244 1248	HGPS
+T34	DISEASE 1330 1346	arteriosclerosis
+T35	SIGN 1330 1346	arteriosclerosis
+T36	RAREDISEASE 1461 1469	progeria
+T37	DISEASE 1477 1490	heart disease
+T38	DISEASE 1492 1507	atherosclerosis
+T39	SIGN 1492 1507	atherosclerosis
+T40	DISEASE 1615 1628	heart disease
+T41	SIGN 1615 1628	heart disease
+T42	DISEASE 1651 1664	heart disease
+T43	SIGN 1651 1664	heart disease
+T44	RAREDISEASE 1692 1700	progeria
+T45	SIGN 1713 1732	high blood pressure
+T46	SIGN 1734 1741	strokes
+T47	SYMPTOM 1743 1749	angina
+T48	SIGN 1807 1821	enlarged heart
+T49	SIGN 1827 1840	heart failure
+T50	RAREDISEASE 1880 1884	HGPS
+T51	ANAPHOR 1977 1989	The disorder
+T52	RAREDISEASE 2194 2198	HGPS
+T53	RAREDISEASE 2318 2326	progeria
+R1	Is_a Arg1:T1 Arg2:T4	
+R2	Produces Arg1:T1 Arg2:T6	
+R3	Is_synon Arg1:T2 Arg2:T1	
+R4	Is_acron Arg1:T3 Arg2:T2	
+R5	Produces Arg1:T7 Arg2:T8	
+R6	Produces Arg1:T7 Arg2:T9	
+R7	Produces Arg1:T7 Arg2:T10	
+R8	Produces Arg1:T7 Arg2:T11	
+R9	Produces Arg1:T7 Arg2:T120	
+R10	Produces Arg1:T7 Arg2:T13	
+R11	Produces Arg1:T7 Arg2:T14	
+R12	Produces Arg1:T7 Arg2:T15	
+R13	Produces Arg1:T7 Arg2:T16	
+R14	Produces Arg1:T7 Arg2:T17	
+R15	Produces Arg1:T7 Arg2:T18	
+R16	Produces Arg1:T7 Arg2:T20	
+R17	Produces Arg1:T7 Arg2:T21	
+R18	Produces Arg1:T33 Arg2:T230	
+R19	Produces Arg1:T33 Arg2:T25	
+R20	Produces Arg1:T33 Arg2:T26	
+R21	Produces Arg1:T33 Arg2:T27	
+R22	Produces Arg1:T33 Arg2:T28	
+R23	Produces Arg1:T33 Arg2:T29	
+R24	Produces Arg1:T33 Arg2:T30	
+R25	Produces Arg1:T33 Arg2:T31	
+R26	Produces Arg1:T33 Arg2:T32	
+R27	Produces Arg1:T33 Arg2:T35	
+R28	Produces Arg1:T36 Arg2:T39	
+R29	Is_a Arg1:T38 Arg2:T37	
+R30	Produces Arg1:T44 Arg2:T41	
+R31	Produces Arg1:T44 Arg2:T43	
+R32	Produces Arg1:T44 Arg2:T45	
+R33	Produces Arg1:T44 Arg2:T46	
+R34	Produces Arg1:T44 Arg2:T47	
+R35	Produces Arg1:T44 Arg2:T48	
+R36	Produces Arg1:T44 Arg2:T49	
+R37	Anaphora Arg1:T50 Arg2:T51	

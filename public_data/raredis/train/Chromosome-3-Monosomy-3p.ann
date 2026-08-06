@@ -1,0 +1,26 @@
+T1	RAREDISEASE 0 25	Chromosome 3, Monosomy 3p
+T2	DISEASE 36 56	chromosomal disorder
+T3	SIGN 309 317;332 349	prenatal growth deficiency
+T4	SIGN 322 349	postnatal growth deficiency
+T5	SIGN 352 389	severe to profound mental retardation
+T6	DISEASE 371 389	mental retardation
+T7	SIGN 391 462	distinctive malformations of the skull and facial (craniofacial) region
+T8	SIGN 493 502	synophrys
+T9	DISEASE 535 549	hypertrichosis
+T10	SIGN 535 549	hypertrichosis
+T11	SIGN 563 585	physical abnormalities
+T12	RAREDISEASE 622 647	Chromosome 3, Monosomy 3p
+T13	RAREDISEASE 710 735	Chromosome 3, Monosomy 3p
+T14	ANAPHOR 808 820	the disorder
+T15	DISEASE 947 968	chromosomal disorders
+T16	RAREDISEASE 1020 1045	Chromosome 3, Monosomy 3p
+T17	DISEASE 1216 1236	chromosomal disorder
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T5	
+R5	Produces Arg1:T1 Arg2:T7	
+R6	Produces Arg1:T1 Arg2:T8	
+R7	Produces Arg1:T1 Arg2:T100	
+R8	Produces Arg1:T1 Arg2:T11	
+R9	Anaphora Arg1:T13 Arg2:T14	

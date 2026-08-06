@@ -1,0 +1,38 @@
+T1	DISEASE 0 8	Dystonia
+T2	DISEASE 48 66	movement disorders
+T3	ANAPHOR 133 170	This group of neurological conditions
+T4	DISEASE 147 170	neurological conditions
+T5	SIGN 201 232	involuntary muscle contractions
+T6	SIGN 258 310	abnormal, sometimes painful, movements and positions
+T7	SIGN 327 348	muscular contractions
+T8	SIGN 505 511	tremor
+T9	DISEASE 513 521	Dystonia
+T10	DISEASE 631 639	dystonia
+T11	ANAPHOR 717 732	these disorders
+T12	DISEASE 864 872	dystonia
+T13	SIGN 876 906	twisting, repetitive movements
+T14	DISEASE 1036 1054	laryngeal dystonia
+T15	DISEASE 1098 1106	Dystonia
+T16	SYMPTOM 1133 1137	pain
+T17	SIGN 1142 1152	disability
+T18	DISEASE 1306 1314	dystonia
+T19	ANAPHOR 1363 1365	it
+T20	DISEASE 1417 1425	Dystonia
+T21	DISEASE 1484 1492	dystonia
+T22	DISEASE 1648 1656	Dystonia
+T23	DISEASE 1832 1840	dystonia
+T24	DISEASE 1873 1881	dystonia
+T25	DISEASE 1948 1956	dystonia
+T26	DISEASE 2012 2020	dystonia
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Is_a Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T3 Arg2:T5	
+R5	Produces Arg1:T3 Arg2:T60	
+R6	Produces Arg1:T3 Arg2:T7	
+R7	Produces Arg1:T3 Arg2:T8	
+R8	Anaphora Arg1:T10 Arg2:T11	
+R9	Produces Arg1:T12 Arg2:T13	
+R10	Produces Arg1:T15 Arg2:T16	
+R11	Produces Arg1:T15 Arg2:T17	
+R12	Anaphora Arg1:T10 Arg2:T25	

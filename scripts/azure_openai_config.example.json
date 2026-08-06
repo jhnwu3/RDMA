@@ -1,0 +1,10 @@
+{
+  "model_type": "<your-azure-deployment-name>",
+  "device": "cpu",
+  "cache_dir": null,
+  "temperature": 0.01,
+  "api_version": "2025-01-01-preview",
+  "azure_endpoint": "https://<your-resource>.openai.azure.com",
+  "azure_deployment": "<your-azure-deployment-name>",
+  "max_retries": 0
+}

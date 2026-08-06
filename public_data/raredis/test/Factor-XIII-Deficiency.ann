@@ -1,0 +1,8 @@
+T1	RAREDISEASE 0 22	Factor XIII deficiency
+T2	RAREDISEASE 179 201	factor XIII deficiency
+T3	RAREDISEASE 303 325	factor XIII deficiency
+T4	ANAPHOR 395 407	the disorder
+T5	ANAPHOR 456 468	the disorder
+T6	RAREDISEASE 506 528	factor XIII deficiency
+R1	Anaphora Arg1:T3 Arg2:T4	
+R2	Anaphora Arg1:T3 Arg2:T5	

@@ -1,0 +1,42 @@
+T1	RAREDISEASE 0 16	Pheochromocytoma
+T2	SIGN 35 40	tumor
+T3	RAREDISEASE 172 189	pheochromocytomas
+T4	RAREDISEASE 428 445	pheochromocytomas
+T5	RAREDISEASE 560 591	extra-adrenal pheochromocytomas
+T6	RAREDISEASE 595 609	paragangliomas
+T7	RAREDISEASE 611 625	Paragangliomas
+T8	RAREDISEASE 728 745	pheochromocytomas
+T9	DISEASE 775 787	hypertension
+T10	SIGN 775 787	hypertension
+T11	SYMPTOM 790 799	headaches
+T12	SIGN 801 819	excessive sweating
+T13	SIGN 828 846	heart palpitations
+T14	RAREDISEASE 863 880	pheochromocytomas
+T15	RAREDISEASE 977 994	pheochromocytomas
+T16	RAREDISEASE 1112 1149	multiple endocrine neoplasia types 2a
+T17	RAREDISEASE 1112 1140;1154 1156	multiple endocrine neoplasia 2b
+T18	RAREDISEASE 1158 1184	von Hippel-Lindau syndrome
+T19	RAREDISEASE 1186 1203	neurofibromatosis
+T20	RAREDISEASE 1207 1247	familial paraganglioma syndromes types 1
+T21	RAREDISEASE 1207 1245;1249 1250	familial paraganglioma syndromes types 3
+T22	RAREDISEASE 1207 1239;1254 1255	familial paraganglioma syndromes 4
+T23	RAREDISEASE 1263 1297	familial isolated pheochromocytoma
+T24	RAREDISEASE 1367 1384	pheochromocytomas
+T25	DISEASE 1396 1419	neurogenic hypertension
+T26	DISEASE 1477 1491	Thyrotoxicosis
+T27	DISEASE 1493 1505	hypoglycemia
+T28	DISEASE 1507 1514	anxiety
+T29	DISEASE 1533 1548	hyperthyroidism
+T30	DISEASE 1550 1579	adrenal medullary hyperplasia
+T31	RAREDISEASE 1581 1602	familial dysautonomia
+T32	RAREDISEASE 1686 1700	neuroblastomas
+T33	RAREDISEASE 1702 1723	ganglioneuroblastomas
+T34	RAREDISEASE 1729 1744	ganglioneuromas
+T35	RAREDISEASE 1755 1772	pheochromocytomas
+T36	RAREDISEASE 1799 1815	pheochromocytoma
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Is_synon Arg1:T6 Arg2:T5	
+R3	Produces Arg1:T8 Arg2:T10	
+R4	Produces Arg1:T8 Arg2:T110	
+R5	Produces Arg1:T8 Arg2:T12	
+R6	Produces Arg1:T8 Arg2:T13	

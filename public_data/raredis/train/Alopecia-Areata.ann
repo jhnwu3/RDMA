@@ -1,0 +1,19 @@
+T1	DISEASE 0 15	Alopecia areata
+T2	SIGN 47 59	loss of hair
+T3	SIGN 139 148	hair loss
+T4	ANAPHOR 207 211	this
+T5	DISEASE 232 251	autoimmune disorder
+T6	SIGN 407 416	hair loss
+T7	ANAPHOR 451 464	this disorder
+T8	SIGN 506 515	Hair loss
+T9	DISEASE 600 615	Alopecia areata
+T10	ANAPHOR 661 663	It
+T11	DISEASE 813 828	alopecia areata
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Anaphora Arg1:T1 Arg2:T40	
+R4	Anaphora Arg1:T1 Arg2:T7	
+R5	Is_a Arg1:T10 Arg2:T7	
+R6	Produces Arg1:T7 Arg2:T6	
+R7	Produces Arg1:T7 Arg2:T8	
+R8	Anaphora Arg1:T9 Arg2:T10	

@@ -1,0 +1,46 @@
+T1	RAREDISEASE 0 20	Infectious arthritis
+T2	SIGN 11 20	arthritis
+T3	SIGN 27 61	inflammation of one or more joints
+T4	RAREDISEASE 177 197	Infectious arthritis
+T5	SIGN 188 197	arthritis
+T6	ANAPHOR 233 246	the infection
+T7	SIGN 274 279	fever
+T8	SIGN 281 287	chills
+T9	SYMPTOM 289 305	general weakness
+T10	SYMPTOM 311 320	headaches
+T11	SIGN 334 401	inflammation and painful swelling of one or more joints of the body
+T12	RAREDISEASE 772 792	infectious arthritis
+T13	SIGN 783 792	arthritis
+T14	DISEASE 827 834	rubella
+T15	DISEASE 836 841	mumps
+T16	DISEASE 845 856	hepatitis B
+T17	SIGN 845 854	hepatitis
+T18	RAREDISEASE 922 934	tuberculosis
+T19	RAREDISEASE 958 978	infectious arthritis
+T20	SIGN 969 978	arthritis
+T21	RAREDISEASE 993 1013	rheumatoid arthritis
+T22	SIGN 1004 1013	arthritis
+T23	RAREDISEASE 1078 1098	infectious arthritis
+T24	SIGN 1089 1098	arthritis
+T25	RAREDISEASE 1100 1120	Infectious arthritis
+T26	SIGN 1111 1120	arthritis
+T27	RAREDISEASE 1414 1434	gonococcal arthritis
+T28	SIGN 1425 1434	arthritis
+T29	ANAPHOR 1436 1448	the disorder
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T4 Arg2:T5	
+R4	Anaphora Arg1:T4 Arg2:T6	
+R5	Produces Arg1:T6 Arg2:T7	
+R6	Produces Arg1:T6 Arg2:T8	
+R7	Produces Arg1:T6 Arg2:T9	
+R8	Produces Arg1:T6 Arg2:T10	
+R9	Produces Arg1:T6 Arg2:T11	
+R10	Produces Arg1:T12 Arg2:T13	
+R11	Produces Arg1:T16 Arg2:T17	
+R12	Produces Arg1:T19 Arg2:T20	
+R13	Produces Arg1:T20 Arg2:T21	
+R14	Produces Arg1:T23 Arg2:T24	
+R15	Produces Arg1:T25 Arg2:T26	
+R16	Produces Arg1:T10 Arg2:T26	
+R17	Anaphora Arg1:T10 Arg2:T29	

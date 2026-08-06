@@ -1,0 +1,19 @@
+T1	RAREDISEASE 0 13	Blastomycosis
+T2	DISEASE 24 54	infectious multisystem disease
+T3	ANAPHOR 173 175	It
+T4	SIGN 196 201	fever
+T5	SYMPTOM 203 209	chills
+T6	SIGN 211 216	cough
+T7	SYMPTOM 247 254	dyspnea
+T8	ANAPHOR 281 292	the disease
+T9	RAREDISEASE 399 412	Blastomycosis
+T10	DISEASE 423 441	infectious disease
+T11	RAREDISEASE 662 675	Blastomycosis
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Anaphora Arg1:T1 Arg2:T8	
+R4	Produces Arg1:T3 Arg2:T4	
+R5	Produces Arg1:T3 Arg2:T5	
+R6	Produces Arg1:T3 Arg2:T6	
+R7	Produces Arg1:T3 Arg2:T7	
+R8	Is_a Arg1:T9 Arg2:T100	

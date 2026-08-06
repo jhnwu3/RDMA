@@ -1,0 +1,7 @@
+T1	RAREDISEASE 0 20	Lesch-Nyhan syndrome
+T2	ANAPHOR 95 107	the disorder
+T3	ANAPHOR 160 171	the disease
+T4	ANAPHOR 238 250	the disorder
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Anaphora Arg1:T1 Arg2:T4	

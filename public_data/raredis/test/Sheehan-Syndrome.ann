@@ -1,0 +1,21 @@
+T1	RAREDISEASE 125 149	maternal hypopituitarism
+T2	RAREDISEASE 159 175	Sheehan syndrome
+T3	RAREDISEASE 177 179	SS
+T4	SIGN 267 296	pituitary cells to be damaged
+T5	SIGN 267 282;305 313	pituitary cells necrosis
+T6	SIGN 326 384	production of the usual pituitary hormones will be reduced
+T7	SIGN 717 778	amount of hormones produced by the pituitary may be decreased
+T8	DISEASE 823 838	hypopituitarism
+T9	SIGN 823 838	hypopituitarism
+T10	ANAPHOR 872 884	the disorder
+T11	RAREDISEASE 1190 1206	Sheehan syndrome
+T12	RAREDISEASE 1311 1327	Sheehan syndrome
+T13	SIGN 1406 1437	long-lasting low blood pressure
+R1	Produces Arg1:T1 Arg2:T4	
+R2	Produces Arg1:T1 Arg2:T5	
+R3	Produces Arg1:T1 Arg2:T6	
+R4	Produces Arg1:T1 Arg2:T7	
+R5	Produces Arg1:T1 Arg2:T9	
+R6	Anaphora Arg1:T2 Arg2:T10	
+R7	Is_acron Arg1:T3 Arg2:T2	
+R8	Produces Arg1:T12 Arg2:T13	

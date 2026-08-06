@@ -1,0 +1,16 @@
+T1	RAREDISEASE 0 15	Distal myopathy
+T2	RAREDISEASE 20 45	distal muscular dystrophy
+T3	DISEASE 85 114	progressive genetic disorders
+T4	SIGN 141 148	atrophy
+T5	SIGN 154 194	weakness of the voluntary distal muscles
+T6	RAREDISEASE 674 689	distal myopathy
+T7	RAREDISEASE 815 832	distal myopathies
+T8	RAREDISEASE 928 943	distal myopathy
+T9	RAREDISEASE 1060 1075	distal myopathy
+T10	RAREDISEASE 1207 1211	IBM2
+T11	DISEASE 1264 1284	muscular dystrophies
+R1	Is_synon Arg1:T1 Arg2:T2	
+R2	Is_a Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T5	
+R5	Is_a Arg1:T9 Arg2:T11	

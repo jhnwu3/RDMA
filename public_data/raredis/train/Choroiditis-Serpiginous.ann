@@ -1,0 +1,37 @@
+T1	RAREDISEASE 0 23	Serpiginous Choroiditis
+T2	DISEASE 71 90	white dot syndromes
+T3	SIGN 109 135	inflammation of the retina
+T4	SIGN 109 124;140 147	inflammation of choroid
+T5	SIGN 185 202;236 242	white dots in the fundus
+T6	RAREDISEASE 245 268	Serpiginous Choroiditis
+T7	DISEASE 279 301	recurrent eye disorder
+T8	SIGN 339 350;352 399	serpiginous lesions involving two layers of the eye surface
+T9	SIGN 522 528;533 540	macula damaged
+T10	SIGN 552 579	painless decrease in vision
+T11	RAREDISEASE 625 648	Serpiginous Choroiditis
+T12	SIGN 707 716	scotomata
+T13	SYMPTOM 754 763	photopsia
+T14	SIGN 819 822;839 846	eye lesions
+T15	RAREDISEASE 906 929	Serpiginous Choroiditis
+T16	RAREDISEASE 963 986	Serpiginous Choroiditis
+T17	SIGN 1026 1033;1110 1124	lesions macular region
+T18	SIGN 1128 1139	Vision loss
+T19	SIGN 1416 1436;1438 1448	localized vasculitis of the eye
+T20	RAREDISEASE 1426 1436	vasculitis
+T21	RAREDISEASE 1480 1503	Serpiginous Choroiditis
+T22	RAREDISEASE 1785 1808	Serpiginous Choroiditis
+T23	RAREDISEASE 1836 1859	Serpiginous Choroiditis
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T5	
+R5	Is_a Arg1:T6 Arg2:T7	
+R6	Produces Arg1:T6 Arg2:T8	
+R7	Produces Arg1:T6 Arg2:T9	
+R8	Produces Arg1:T11 Arg2:T10	
+R9	Produces Arg1:T11 Arg2:T12	
+R10	Produces Arg1:T11 Arg2:T130	
+R11	Produces Arg1:T11 Arg2:T14	
+R12	Produces Arg1:T16 Arg2:T17	
+R13	Produces Arg1:T16 Arg2:T18	
+R14	Produces Arg1:T21 Arg2:T19	

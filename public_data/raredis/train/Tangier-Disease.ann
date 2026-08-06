@@ -1,0 +1,68 @@
+T1	RAREDISEASE 0 15	Tangier disease
+T2	DISEASE 26 44	inherited disorder
+T3	SIGN 76 138	reduced levels of high-density lipoproteins (HDL) in the blood
+T4	RAREDISEASE 353 368	Tangier disease
+T5	SIGN 413 459	enlarged and yellow- or orange-colored tonsils
+T6	SIGN 464 472;521 532	enlarged lymph nodes
+T7	SIGN 480 492	hepatomegaly
+T8	SIGN 503 515	splenomegaly
+T9	RAREDISEASE 534 549	Tangier disease
+T10	DISEASE 599 621	cardiovascular disease
+T11	SIGN 599 621	cardiovascular disease
+T12	SIGN 660 680	hypertriglyceridemia
+T13	DISEASE 703 713	neuropathy
+T14	SIGN 703 713	neuropathy
+T15	SIGN 769 785	corneal clouding
+T16	ANAPHOR 788 801	This disorder
+T17	ANAPHOR 851 853	it
+T18	ANAPHOR 922 933	the disease
+T19	ANAPHOR 999 1010	the disease
+T20	RAREDISEASE 1081 1096	Tangier disease
+T21	RAREDISEASE 1192 1207	Tangier disease
+T22	SIGN 1239 1281	enlarged orange- or yellow-colored tonsils
+T23	SIGN 1312 1354	fatty deposits accumulating in the tonsils
+T24	SIGN 1356 1370	Fatty deposits
+T25	SIGN 1409 1434	enlargement of the throat
+T26	SIGN 1409 1427;1436 1441	enlargement of the liver
+T27	SIGN 1409 1427;1443 1449	enlargement of the spleen
+T28	SIGN 1409 1427;1454 1465	enlargement of the lymph nodes
+T29	SIGN 1467 1494	Fat accumulations in nerves
+T30	SIGN 1522 1539	loss-of-sensation
+T31	DISEASE 1547 1568	peripheral neuropathy
+T32	SIGN 1547 1568	peripheral neuropathy
+T33	SIGN 1570 1583;1599 1622	Discoloration in the digestive system
+T34	SIGN 1570 1583;1599 1605;1637 1647	Discoloration in the the rectum
+T35	SIGN 1570 1583;1599 1605;1652 1667	Discoloration in the large intestine
+T36	DISEASE 1669 1691	Cardiovascular disease
+T37	SIGN 1669 1691	Cardiovascular disease
+T38	RAREDISEASE 1725 1740	Tangier disease
+T39	SIGN 1759 1792	clouding of the cornea of the eye
+T40	RAREDISEASE 1864 1879	Tangier disease
+T41	RAREDISEASE 1954 1969	Tangier disease
+R1	Produces Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T4 Arg2:T5	
+R3	Produces Arg1:T4 Arg2:T6	
+R4	Produces Arg1:T4 Arg2:T8	
+R5	Produces Arg1:T9 Arg2:T11	
+R6	Produces Arg1:T9 Arg2:T12	
+R7	Produces Arg1:T9 Arg2:T14	
+R8	Produces Arg1:T9 Arg2:T15	
+R9	Anaphora Arg1:T9 Arg2:T16	
+R10	Anaphora Arg1:T9 Arg2:T17	
+R11	Anaphora Arg1:T9 Arg2:T18	
+R12	Anaphora Arg1:T9 Arg2:T19	
+R13	Produces Arg1:T21 Arg2:T22	
+R14	Produces Arg1:T21 Arg2:T23	
+R15	Produces Arg1:T21 Arg2:T24	
+R16	Produces Arg1:T21 Arg2:T250	
+R17	Produces Arg1:T21 Arg2:T26	
+R18	Produces Arg1:T21 Arg2:T27	
+R19	Produces Arg1:T21 Arg2:T28	
+R20	Produces Arg1:T21 Arg2:T29	
+R21	Produces Arg1:T21 Arg2:T30	
+R22	Produces Arg1:T21 Arg2:T32	
+R23	Produces Arg1:T21 Arg2:T330	
+R24	Produces Arg1:T21 Arg2:T34	
+R25	Produces Arg1:T21 Arg2:T35	
+R26	Produces Arg1:T38 Arg2:T37	
+R27	Produces Arg1:T38 Arg2:T39	

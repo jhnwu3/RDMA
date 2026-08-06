@@ -1,0 +1,13 @@
+T1	RAREDISEASE 0 14	Tongue cancers
+T2	DISEASE 19 31	oral cancers
+T3	DISEASE 113 119	cancer
+T4	RAREDISEASE 178 217	squamous cell cancer of the oral tongue
+T5	DISEASE 226 232	cancer
+T6	RAREDISEASE 299 345	squamous cell cancer at the base of the tongue
+T7	RAREDISEASE 347 360	Tongue cancer
+T8	ANAPHOR 397 399	It
+T9	DISEASE 518 524	cancer
+T10	ANAPHOR 713 725	the disorder
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T7 Arg2:T8	
+R3	Anaphora Arg1:T7 Arg2:T100	

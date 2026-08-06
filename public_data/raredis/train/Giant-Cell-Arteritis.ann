@@ -1,0 +1,63 @@
+T1	RAREDISEASE 0 20	Giant cell arteritis
+T2	RAREDISEASE 22 25	GCA
+T3	DISEASE 46 67	blood vessel disorder
+T4	RAREDISEASE 170 180	vasculitis
+T5	SIGN 170 180	vasculitis
+T6	RAREDISEASE 183 186	GCA
+T7	RAREDISEASE 285 305	giant cell arteritis
+T8	RAREDISEASE 369 380	cranial-GCA
+T9	SIGN 387 412	inflammation of the aorta
+T10	RAREDISEASE 508 524	large vessel-GCA
+T11	ANAPHOR 546 550	this
+T12	SIGN 596 605	blindness
+T13	SYMPTOM 736 744	arm pain
+T14	SYMPTOM 746 802	pulsing headaches on one side or on the back of the head
+T15	SYMPTOM 804 813	jaw pain,
+T16	SIGN 814 830	scalp tenderness
+T17	SIGN 832 845	double vision
+T18	SIGN 855 874	visual disturbances
+T19	SIGN 876 892	bulging temporal
+T20	SIGN 908 930	tender with skin edema
+T21	SIGN 935 942	redness
+T22	ANAPHOR 944 946	It
+T23	SYMPTOM 1001 1012	polymyalgia
+T24	SIGN 1014 1020	fevers
+T25	SIGN 1022 1030	anorexia
+T26	SIGN 1036 1047	weight loss
+T27	RAREDISEASE 1067 1073	LV-GCA
+T28	RAREDISEASE 1088 1108	giant cell arteritis
+T29	RAREDISEASE 1218 1240	Polymyalgia rheumatica
+T30	DISEASE 1247 1268	inflammatory disorder
+T31	RAREDISEASE 1296 1316	giant cell arteritis
+T32	RAREDISEASE 1359 1379	giant call arteritis
+T33	RAREDISEASE 1408 1430	polymyalgia rheumatica
+T34	SYMPTOM 1408 1419	polymyalgia
+T35	RAREDISEASE 1441 1461	giant cell arteritis
+T36	SIGN 1452 1461	arteritis
+T37	RAREDISEASE 1612 1632	Giant cell arteritis
+T38	RAREDISEASE 1864 1867	GCA
+R1	Is_a Arg1:T1 Arg2:T30	
+R2	Produces Arg1:T1 Arg2:T5	
+R3	Is_acron Arg1:T2 Arg2:T1	
+R4	Anaphora Arg1:T7 Arg2:T11	
+R5	Anaphora Arg1:T7 Arg2:T22	
+R6	Produces Arg1:T8 Arg2:T13	
+R7	Produces Arg1:T8 Arg2:T14	
+R8	Produces Arg1:T8 Arg2:T15	
+R9	Produces Arg1:T8 Arg2:T16	
+R10	Produces Arg1:T8 Arg2:T17	
+R11	Produces Arg1:T8 Arg2:T18	
+R12	Produces Arg1:T8 Arg2:T19	
+R13	Produces Arg1:T8 Arg2:T200	
+R14	Produces Arg1:T8 Arg2:T21	
+R15	Produces Arg1:T10 Arg2:T9	
+R16	Produces Arg1:T11 Arg2:T12	
+R17	Produces Arg1:T27 Arg2:T23	
+R18	Produces Arg1:T27 Arg2:T240	
+R19	Produces Arg1:T27 Arg2:T25	
+R20	Produces Arg1:T27 Arg2:T26	
+R21	Is_a Arg1:T29 Arg2:T30	
+R22	Increases_risk_of Arg1:T32 Arg2:T29	
+R23	Produces Arg1:T33 Arg2:T34	
+R24	Increases_risk_of Arg1:T33 Arg2:T35	
+R25	Produces Arg1:T35 Arg2:T36	

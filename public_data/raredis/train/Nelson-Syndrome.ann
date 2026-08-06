@@ -1,0 +1,57 @@
+T1	SKINRAREDISEASE 0 15	Nelson syndrome
+T2	SIGN 47 73	abnormal hormone secretion
+T3	SIGN 75 109	enlargement of the pituitary gland
+T4	DISEASE 183 191	adenomas
+T5	SIGN 183 191	adenomas
+T6	ANAPHOR 193 195	It
+T7	RAREDISEASE 301 316	Cushing disease
+T8	SKINRAREDISEASE 343 358	Nelson syndrome
+T9	SIGN 395 412	hyperpigmentation
+T10	SYMPTOM 415 424	headaches
+T11	SIGN 426 443	vision impairment
+T12	SIGN 453 483	cessation of menstrual periods
+T13	SKINRAREDISEASE 506 521	Nelson syndrome
+T14	SIGN 530 555	intense skin pigmentation
+T15	SYMPTOM 557 566	headaches
+T16	SIGN 568 593	visual field disturbances
+T17	SIGN 602 632	cessation of menstrual periods
+T18	SIGN 645 664;722 757;784 788	Blood levels of the beta-melanocyte stimulating hormone high
+T19	SIGN 645 710;784 788	Blood levels of the pituitary hormones adrenocorticotrope hormone high
+T20	SIGN 795 832	pituitary gland gets abnormally large
+T21	SKINRAREDISEASE 836 851	Nelson syndrome
+T22	SYMPTOM 861 870	headaches
+T23	SYMPTOM 875 892	visceral symptoms
+T24	SKINRAREDISEASE 894 909	Nelson syndrome
+T25	RAREDISEASE 1069 1084	Cushing disease
+T26	RAREDISEASE 1087 1102	Cushing disease
+T27	RAREDISEASE 1145 1161	Cushing syndrome
+T28	DISEASE 1166 1184	endocrine disorder
+T29	DISEASE 1220 1226;1243 1272	benign tumors on the pituitary gland
+T30	SKINRAREDISEASE 1343 1358	Nelson syndrome
+T31	DISEASE 1410 1438	tumor of the pituitary gland
+T32	ANAPHOR 1454 1467	this disorder
+T33	SKINRAREDISEASE 1469 1484	Nelson syndrome
+T34	ANAPHOR 1589 1591	It
+T35	SKINRAREDISEASE 1680 1695	Nelson syndrome
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T5	
+R4	Anaphora Arg1:T1 Arg2:T6	
+R5	Produces Arg1:T8 Arg2:T9	
+R6	Produces Arg1:T8 Arg2:T10	
+R7	Produces Arg1:T8 Arg2:T11	
+R8	Produces Arg1:T8 Arg2:T12	
+R9	Produces Arg1:T13 Arg2:T140	
+R10	Produces Arg1:T13 Arg2:T150	
+R11	Produces Arg1:T13 Arg2:T16	
+R12	Produces Arg1:T13 Arg2:T17	
+R13	Produces Arg1:T13 Arg2:T18	
+R14	Produces Arg1:T13 Arg2:T19	
+R15	Produces Arg1:T21 Arg2:T20	
+R16	Produces Arg1:T21 Arg2:T22	
+R17	Produces Arg1:T21 Arg2:T23	
+R18	Is_a Arg1:T20 Arg2:T14	
+R19	Increases_risk_of Arg1:T29 Arg2:T270	
+R20	Anaphora Arg1:T30 Arg2:T32	
+R21	Increases_risk_of Arg1:T31 Arg2:T32	
+R22	Anaphora Arg1:T33 Arg2:T34	

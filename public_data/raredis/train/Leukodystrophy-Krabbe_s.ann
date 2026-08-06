@@ -1,0 +1,32 @@
+T1	RAREDISEASE 0 23	Krabbe's Leukodystrophy
+T2	DISEASE 34 66	inherited lipid storage disorder
+T3	SIGN 79 124	deficiency of the enzyme galactocerebrosidase
+T4	SIGN 239 280	Failure to break down these sphingolipids
+T5	SIGN 359 372	demyelination
+T6	SIGN 390 441	globoid cells appear in affected areas of the brain
+T7	ANAPHOR 443 466	This metabolic disorder
+T8	DISEASE 448 466	metabolic disorder
+T9	SIGN 487 523	progressive neurological dysfunction
+T10	DISEASE 532 550	mental retardation
+T11	SIGN 532 550	mental retardation
+T12	SIGN 552 561	paralysis
+T13	SIGN 563 572	blindness
+T14	SIGN 574 582	deafness
+T15	DISEASE 624 642	pseudobulbar palsy
+T16	SIGN 624 642	pseudobulbar palsy
+T17	RAREDISEASE 645 668	Krabbe's Leukodystrophy
+T18	RAREDISEASE 786 809	Krabbe’s Leukodystrophy
+T19	RAREDISEASE 852 875	Krabbe's Leukodystrophy
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T5	
+R5	Produces Arg1:T1 Arg2:T6	
+R6	Anaphora Arg1:T1 Arg2:T7	
+R7	Is_a Arg1:T7 Arg2:T8	
+R8	Produces Arg1:T7 Arg2:T9	
+R9	Produces Arg1:T7 Arg2:T11	
+R10	Produces Arg1:T7 Arg2:T12	
+R11	Produces Arg1:T7 Arg2:T13	
+R12	Produces Arg1:T7 Arg2:T14	
+R13	Produces Arg1:T7 Arg2:T160	

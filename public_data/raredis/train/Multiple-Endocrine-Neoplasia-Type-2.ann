@@ -1,0 +1,26 @@
+T1	RAREDISEASE 0 35	Multiple endocrine neoplasia type 2
+T2	RAREDISEASE 37 41	MEN2
+T3	DISEASE 53 69	genetic disorder
+T4	DISEASE 138 152	thyroid cancer
+T5	RAREDISEASE 154 181	medullary thyroid carcinoma
+T6	SIGN 154 181	medullary thyroid carcinoma
+T7	SIGN 187 252	benign tumors affecting additional glands of the endocrine system
+T8	RAREDISEASE 668 672	MEN2
+T9	RAREDISEASE 780 784	MEN2
+T10	ANAPHOR 829 831	It
+T11	RAREDISEASE 951 955	MEN2
+T12	ANAPHOR 1021 1033	the disorder
+T13	RAREDISEASE 1078 1083	MEN2A
+T14	RAREDISEASE 1157 1162	MEN2B
+T15	RAREDISEASE 1246 1273	medullary thyroid carcinoma
+T16	RAREDISEASE 1312 1316	MEN2
+T17	DISEASE 1378 1393	thyroid cancers
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Increases_risk_of Arg1:T1 Arg2:T5	
+R3	Produces Arg1:T1 Arg2:T6	
+R4	Produces Arg1:T1 Arg2:T7	
+R5	Is_acron Arg1:T2 Arg2:T1	
+R6	Is_a Arg1:T5 Arg2:T4	
+R7	Anaphora Arg1:T9 Arg2:T10	
+R8	Anaphora Arg1:T11 Arg2:T12	
+R9	Is_a Arg1:T15 Arg2:T17	

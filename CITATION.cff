@@ -1,0 +1,41 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite both the software and the paper below."
+title: "RDMA: Rare Disease Mining Agents"
+abstract: >-
+  An agent-driven pipeline for mining rare diseases and phenotypes from
+  electronic health records, pairing LLM extraction with ontology-grounded
+  verification and matching against Orphanet and the Human Phenotype Ontology.
+type: software
+license: MIT
+repository-code: "https://github.com/jhnwu3/RDMA"
+authors:
+  - family-names: "Wu"
+    given-names: "John"
+  - family-names: "Cross"
+    given-names: "Adam"
+  - family-names: "Sun"
+    given-names: "Jimeng"
+keywords:
+  - rare disease
+  - phenotype extraction
+  - human phenotype ontology
+  - orphanet
+  - clinical natural language processing
+  - large language models
+preferred-citation:
+  type: article
+  title: "RDMA: Cost Effective Agent-Driven Rare Disease Mining from Electronic Health Records"
+  authors:
+    - family-names: "Wu"
+      given-names: "John"
+    - family-names: "Cross"
+      given-names: "Adam"
+    - family-names: "Sun"
+      given-names: "Jimeng"
+  year: 2025
+  journal: "arXiv"
+  url: "https://arxiv.org/abs/2507.15867"
+  identifiers:
+    - type: other
+      value: "arXiv:2507.15867"
+      description: "arXiv preprint identifier"

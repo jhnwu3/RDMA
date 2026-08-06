@@ -1,0 +1,5 @@
+T1	RAREDISEASE 0 23	ASAH1-related disorders
+T2	ANAPHOR 54 58	They
+T3	RAREDISEASE 205 228	ASAH1-related disorders
+T4	RAREDISEASE 346 372	acid ceramidase deficiency
+R1	Anaphora Arg1:T1 Arg2:T2	

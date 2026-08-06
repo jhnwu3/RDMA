@@ -1,0 +1,22 @@
+T1	RAREDISEASE 13 28	hyperprolinemia
+T2	SIGN 103 149;166 173	inherited inborn error of metabolism involving proline
+T3	RAREDISEASE 175 198	Hyperprolinemia Type II
+T4	SIGN 233 269	high level of the amino acid proline
+T5	SIGN 285 291	Fevers
+T6	SIGN 308 316	seizures
+T7	DISEASE 332 355	mild mental retardation
+T8	SIGN 332 355	mild mental retardation
+T9	RAREDISEASE 372 395	Hyperprolinemia Type II
+T10	ANAPHOR 447 449	It
+T11	RAREDISEASE 494 499	HP-II
+T12	SIGN 517 539	elevated blood proline
+T13	SIGN 544 578	elevated P-5-C levels in the urine
+T14	RAREDISEASE 684 689	HP-II
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T3 Arg2:T4	
+R3	Produces Arg1:T3 Arg2:T5	
+R4	Produces Arg1:T3 Arg2:T6	
+R5	Produces Arg1:T3 Arg2:T8	
+R6	Anaphora Arg1:T9 Arg2:T10	
+R7	Produces Arg1:T11 Arg2:T120	
+R8	Produces Arg1:T11 Arg2:T13	

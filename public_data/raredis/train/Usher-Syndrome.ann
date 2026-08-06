@@ -1,0 +1,11 @@
+T1	RAREDISEASE 0 14	Usher syndrome
+T2	RAREDISEASE 122 136	Usher syndrome
+T3	RAREDISEASE 288 292	USH3
+T4	RAREDISEASE 381 395	Usher syndrome
+T5	DISEASE 415 431	genetic disorder
+T6	RAREDISEASE 481 495	Usher syndrome
+T7	SIGN 563 604	moderate to profound deafness in children
+T8	RAREDISEASE 606 620	Usher syndrome
+T9	RAREDISEASE 1176 1190	Usher syndrome
+R1	Is_a Arg1:T4 Arg2:T5	
+R2	Produces Arg1:T6 Arg2:T7	

@@ -1,0 +1,12 @@
+T1	RAREDISEASE 0 21	Central pain syndrome
+T2	SYMPTOM 8 12	pain
+T3	DISEASE 128 134	stroke
+T4	RAREDISEASE 146 164	spinal cord injury
+T5	DISEASE 208 226	multiple sclerosis
+T6	RAREDISEASE 281 293	central pain
+T7	SYMPTOM 289 293	pain
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Increases_risk_of Arg1:T3 Arg2:T6	
+R3	Increases_risk_of Arg1:T4 Arg2:T6	
+R4	Increases_risk_of Arg1:T5 Arg2:T6	
+R5	Produces Arg1:T6 Arg2:T7	

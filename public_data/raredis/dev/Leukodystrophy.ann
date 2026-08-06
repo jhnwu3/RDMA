@@ -1,0 +1,24 @@
+T1	RAREDISEASE 0 16	Leukodystrophies
+T2	DISEASE 38 78	progressive, metabolic, genetic diseases
+T3	RAREDISEASE 160 174	leukodystrophy
+T4	SIGN 230 314	abnormal development or destruction of the white matter (myelin sheath) of the brain
+T5	RAREDISEASE 434 448	leukodystrophy
+T6	RAREDISEASE 545 561	leukodystrophies
+T7	RAREDISEASE 647 661	leukodystrophy
+T8	RAREDISEASE 757 773	leukodystrophies
+T9	SIGN 857 867	spasticity
+T10	SIGN 872 890	motor difficulties
+T11	SIGN 942 950	seizures
+T12	SIGN 955 974	burning paresthesia
+T13	DISEASE 980 1001	peripheral neuropathy
+T14	SIGN 980 1001	peripheral neuropathy
+T15	SYMPTOM 1033 1049	neuropathic pain
+T16	RAREDISEASE 1105 1119	leukodystrophy
+R1	Is_a Arg1:T1 Arg2:T20	
+R2	Produces Arg1:T3 Arg2:T4	
+R3	Produces Arg1:T8 Arg2:T9	
+R4	Produces Arg1:T8 Arg2:T10	
+R5	Produces Arg1:T8 Arg2:T11	
+R6	Produces Arg1:T8 Arg2:T12	
+R7	Produces Arg1:T8 Arg2:T14	
+R8	Produces Arg1:T8 Arg2:T15	

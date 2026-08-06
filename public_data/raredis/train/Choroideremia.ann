@@ -1,0 +1,11 @@
+T1	RAREDISEASE 0 13	Choroideremia
+T2	RAREDISEASE 358 371	choroideremia
+T3	RAREDISEASE 497 510	choroideremia
+T4	SIGN 544 570	degeneration of the retina
+T5	RAREDISEASE 638 651	choroideremia
+T6	RAREDISEASE 669 682	choroideremia
+T7	ANAPHOR 702 713	the disease
+T8	ANAPHOR 893 906	this disorder
+R1	Produces Arg1:T3 Arg2:T4	
+R2	Anaphora Arg1:T6 Arg2:T7	
+R3	Anaphora Arg1:T6 Arg2:T8	

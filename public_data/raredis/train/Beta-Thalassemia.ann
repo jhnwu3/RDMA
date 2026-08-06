@@ -1,0 +1,6 @@
+T1	RAREDISEASE 0 16	Beta thalassemia
+T2	DISEASE 88 117	autosomal recessive disorders
+T3	ANAPHOR 252 264	The disorder
+T4	RAREDISEASE 500 516	beta thalassemia
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	

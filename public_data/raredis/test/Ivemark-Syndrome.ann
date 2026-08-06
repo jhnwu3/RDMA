@@ -1,0 +1,26 @@
+T1	RAREDISEASE 0 16	Ivemark syndrome
+T2	ANAPHOR 85 87	It
+T3	SIGN 121 129	asplenia
+T4	SIGN 152 162;164 177	hypoplasia of the spleen
+T5	SIGN 179 205	malformations of the heart
+T6	SIGN 214 282	abnormal arrangement of the internal organs of the chest and abdomen
+T7	RAREDISEASE 300 316	Ivemark syndrome
+T8	SIGN 472 504	bluish discoloration to the skin
+T9	SIGN 543 551	cyanosis
+T10	SIGN 554 567	heart murmurs
+T11	DISEASE 582 606	congestive heart failure
+T12	SIGN 582 606	congestive heart failure
+T13	RAREDISEASE 608 624	Ivemark syndrome
+T14	RAREDISEASE 704 720	Ivemark syndrome
+T15	RAREDISEASE 772 788	Ivemark syndrome
+T16	RAREDISEASE 848 864	Ivemark syndrome
+T17	RAREDISEASE 894 914	laterality disorders
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T2 Arg2:T3	
+R3	Produces Arg1:T2 Arg2:T4	
+R4	Produces Arg1:T2 Arg2:T5	
+R5	Produces Arg1:T2 Arg2:T6	
+R6	Produces Arg1:T2 Arg2:T9	
+R7	Produces Arg1:T7 Arg2:T8	
+R8	Produces Arg1:T7 Arg2:T10	
+R9	Produces Arg1:T7 Arg2:T120	

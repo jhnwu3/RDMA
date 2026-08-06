@@ -1,0 +1,14 @@
+T1	RAREDISEASE 0 17	Crohn’s disease i
+T2	ANAPHOR 96 108	The disorder
+T3	RAREDISEASE 300 325	pediatric Crohn’s disease
+T4	RAREDISEASE 409 424	Crohn’s disease
+T5	SIGN 409 458	Crohn’s disease in children less than 6 years old
+T6	RAREDISEASE 475 524	very early onset (VEO) inflammatory bowel disease
+T7	RAREDISEASE 562 577	Crohn’s disease
+T8	RAREDISEASE 588 613	pediatric Crohn’s disease
+T9	RAREDISEASE 649 674	Pediatric Crohn’s disease
+T10	ANAPHOR 739 741	It
+T11	RAREDISEASE 802 819	Crohn’s disease i
+R1	Anaphora Arg1:T1 Arg2:T20	
+R2	Produces Arg1:T6 Arg2:T5	
+R3	Anaphora Arg1:T9 Arg2:T10	

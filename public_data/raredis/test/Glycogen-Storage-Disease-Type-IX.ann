@@ -1,0 +1,12 @@
+T1	RAREDISEASE 33 60	glycogen storage disease IX
+T2	SIGN 191 215	enlargement of the liver
+T3	RAREDISEASE 292 315	GSD-IX types A, B and C
+T4	ANAPHOR 392 407	These disorders
+T5	RAREDISEASE 445 471	glycogen storage disorders
+T6	RAREDISEASE 479 485	GSD-IX
+T7	RAREDISEASE 652 658	GSD-IX
+T8	RAREDISEASE 686 693	GSD-IXd
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T3 Arg2:T4	
+R3	Is_a Arg1:T4 Arg2:T5	
+R4	Is_a Arg1:T6 Arg2:T5	

@@ -1,0 +1,15 @@
+T1	RAREDISEASE 0 19	Trisomy 18 syndrome
+T2	DISEASE 30 50	chromosomal disorder
+T3	DISEASE 191 214	chromosomal abnormality
+T4	RAREDISEASE 330 349	Trisomy 18 syndrome
+T5	RAREDISEASE 374 390	Edwards syndrome
+T6	ANAPHOR 461 474	the condition
+T7	ANAPHOR 514 526	The syndrome
+T8	ANAPHOR 669 671	it
+T9	RAREDISEASE 741 760	trisomy 18 syndrome
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Is_a Arg1:T1 Arg2:T3	
+R3	Anaphora Arg1:T4 Arg2:T6	
+R4	Anaphora Arg1:T4 Arg2:T7	
+R5	Anaphora Arg1:T4 Arg2:T8	
+R6	Is_synon Arg1:T5 Arg2:T4	

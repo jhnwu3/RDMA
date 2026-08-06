@@ -1,0 +1,37 @@
+T1	RAREDISEASE 0 3	PDE
+T2	RAREDISEASE 247 250	PDE
+T3	RAREDISEASE 348 351	PDE
+T4	RAREDISEASE 651 672	pyridoxine-dependency
+T5	SIGN 729 758	intractable seizures in young
+T6	RAREDISEASE 836 854	brain malformation
+T7	DISEASE 981 1008	inborn errors of metabolism
+T8	DISEASE 1028 1055	neonatal metabolic epilepsy
+T9	RAREDISEASE 1059 1074	PNPO deficiency
+T10	SIGN 1076 1087;1132 1140	Babies with seizures
+T11	ANAPHOR 1088 1109	this genetic disorder
+T12	DISEASE 1093 1109	genetic disorder
+T13	SIGN 1150 1158	seizures
+T14	RAREDISEASE 1319 1348	genetic pyridoxine-dependency
+T15	RAREDISEASE 1382 1409	pyridoxine-dependent anemia
+T16	RAREDISEASE 1444 1458	homocystinuria
+T17	RAREDISEASE 1460 1480	xanthurenic aciduria
+T18	RAREDISEASE 1485 1501	cystathioninuria
+T19	ANAPHOR 1508 1524	these conditions
+T20	RAREDISEASE 1556 1559	PDE
+T21	SIGN 1565 1585	intractable seizures
+T22	ANAPHOR 1607 1628	these other disorders
+R1	Produces Arg1:T4 Arg2:T5	
+R2	Is_a Arg1:T9 Arg2:T8	
+R3	Anaphora Arg1:T9 Arg2:T11	
+R4	Produces Arg1:T11 Arg2:T10	
+R5	Produces Arg1:T11 Arg2:T13	
+R6	Anaphora Arg1:T12 Arg2:T11	
+R7	Anaphora Arg1:T15 Arg2:T190	
+R8	Anaphora Arg1:T15 Arg2:T22	
+R9	Anaphora Arg1:T16 Arg2:T190	
+R10	Anaphora Arg1:T16 Arg2:T22	
+R11	Anaphora Arg1:T17 Arg2:T190	
+R12	Anaphora Arg1:T17 Arg2:T22	
+R13	Anaphora Arg1:T10 Arg2:T20	
+R14	Anaphora Arg1:T10 Arg2:T22	
+R15	Produces Arg1:T20 Arg2:T21	

@@ -1,0 +1,12 @@
+T1	RAREDISEASE 0 22	Acute myeloid leukemia
+T2	DISEASE 50 64	acute leukemia
+T3	DISEASE 111 125	acute leukemia
+T4	ANAPHOR 236 247	the disease
+T5	RAREDISEASE 290 293	AML
+T6	ANAPHOR 369 380	the disease
+T7	ANAPHOR 386 388	it
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Is_a Arg1:T1 Arg2:T3	
+R3	Anaphora Arg1:T1 Arg2:T4	
+R4	Anaphora Arg1:T1 Arg2:T7	
+R5	Anaphora Arg1:T5 Arg2:T6	

@@ -1,0 +1,25 @@
+T1	RAREDISEASE 0 28	Pelizaeus-Merzbacher disease
+T2	RAREDISEASE 30 33	PMD
+T3	DISEASE 45 70	X-linked genetic disorder
+T4	SIGN 132 194	abnormalities of the white matter of the brain and spinal cord
+T5	ANAPHOR 196 198	It
+T6	RAREDISEASE 213 229	leukodystrophies
+T7	RAREDISEASE 506 509	PMD
+T8	SIGN 731 737	ataxia
+T9	SIGN 767 777	spasticity
+T10	SIGN 794 827	slow, stiff movements of the legs
+T11	SIGN 829 872	delays in reaching developmental milestones
+T12	SIGN 874 908	late onset loss of motor abilities
+T13	SIGN 914 964	progressive deterioration of intellectual function
+T14	RAREDISEASE 990 993	PMD
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Anaphora Arg1:T1 Arg2:T5	
+R4	Is_acron Arg1:T2 Arg2:T1	
+R5	Is_a Arg1:T5 Arg2:T6	
+R6	Produces Arg1:T7 Arg2:T8	
+R7	Produces Arg1:T7 Arg2:T9	
+R8	Produces Arg1:T7 Arg2:T10	
+R9	Produces Arg1:T7 Arg2:T11	
+R10	Produces Arg1:T7 Arg2:T12	
+R11	Produces Arg1:T7 Arg2:T13	

@@ -1,0 +1,29 @@
+T1	RAREDISEASE 1 53	Low gamma-GT (GGT) familial intrahepatic cholestasis
+T2	ANAPHOR 122 146	This spectrum of disease
+T3	RAREDISEASE 212 253	low GGT familial intrahepatic cholestasis
+T4	SIGN 269 314	defects in bile acid synthesis or conjugation
+T5	SIGN 330 374	abnormalities of contact between liver cells
+T6	SIGN 390 424	abnormalities of cell organization
+T7	RAREDISEASE 437 490	arthrogryposis-renal dysfunction-cholestasis syndrome
+T8	SIGN 437 490	arthrogryposis-renal dysfunction-cholestasis syndrome
+T9	RAREDISEASE 512 536	neonatal hemochromatosis
+T10	SIGN 512 536	neonatal hemochromatosis
+T11	RAREDISEASE 552 593	low GGT familial intrahepatic cholestasis
+T12	ANAPHOR 595 610	These disorders
+T13	RAREDISEASE 658 699	low GGT familial intrahepatic cholestasis
+T14	DISEASE 761 772	cholestasis
+T15	SIGN 761 772	cholestasis
+T16	DISEASE 1131 1140	cirrhosis
+T17	SIGN 1131 1140	cirrhosis
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T3 Arg2:T4	
+R3	Produces Arg1:T3 Arg2:T5	
+R4	Produces Arg1:T3 Arg2:T6	
+R5	Produces Arg1:T3 Arg2:T80	
+R6	Produces Arg1:T7 Arg2:T6	
+R7	Anaphora Arg1:T7 Arg2:T12	
+R8	Anaphora Arg1:T9 Arg2:T12	
+R9	Produces Arg1:T11 Arg2:T10	
+R10	Anaphora Arg1:T11 Arg2:T12	
+R11	Produces Arg1:T13 Arg2:T15	
+R12	Produces Arg1:T13 Arg2:T17	

@@ -1,0 +1,18 @@
+T1	RAREDISEASE 0 26	Bronchopulmonary dysplasia
+T2	RAREDISEASE 85 88	BPD
+T3	RAREDISEASE 205 208	BPD
+T4	RAREDISEASE 243 246	BPD
+T5	RAREDISEASE 399 402	BPD
+T6	RAREDISEASE 427 430	BPD
+T7	RAREDISEASE 602 605	BPD
+T8	RAREDISEASE 676 679	BPD
+T9	SIGN 915 948	low levels of oxygen in the blood
+T10	SIGN 972 1004	distinctive changes in the lungs
+T11	SIGN 1015 1048	abnormal development of the lungs
+T12	SIGN 1120 1153	breathing difficulties in infants
+T13	DISEASE 1162 1186	congenital heart defects
+R1	Produces Arg1:T8 Arg2:T90	
+R2	Produces Arg1:T8 Arg2:T10	
+R3	Produces Arg1:T8 Arg2:T11	
+R4	Produces Arg1:T8 Arg2:T12	
+R5	Produces Arg1:T13 Arg2:T12	

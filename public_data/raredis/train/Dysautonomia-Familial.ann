@@ -1,0 +1,7 @@
+T1	RAREDISEASE 0 21	Familial dysautonomia
+T2	DISEASE 32 48	genetic disorder
+T3	ANAPHOR 98 111	This disorder
+T4	ANAPHOR 311 324	this disorder
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Anaphora Arg1:T1 Arg2:T4	

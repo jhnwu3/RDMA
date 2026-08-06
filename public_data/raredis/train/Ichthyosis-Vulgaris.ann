@@ -1,0 +1,25 @@
+T1	DISEASE 3 22	ichthyosis vulgaris
+T2	SIGN 239 244	scale
+T3	SIGN 246 257	Fine scales
+T4	DISEASE 365 375	Ichthyosis
+T5	DISEASE 431 450	Ichthyosis vulgaris
+T6	DISEASE 457 475	inherited disorder
+T7	DISEASE 572 591	ichthyosis vulgaris
+T8	DISEASE 648 664	genetic diseases
+T9	DISEASE 792 810	dominant disorders
+T10	DISEASE 1010 1029	ichthyosis vulgaris
+T11	ANAPHOR 1044 1055	the disease
+T12	ANAPHOR 1116 1127	the disease
+T13	ANAPHOR 1155 1167	the disorder
+T14	DISEASE 1275 1294	Ichthyosis vulgaris
+T15	DISEASE 1441 1460	Ichthyosis vulgaris
+T16	DISEASE 1609 1628	ichthyosis vulgaris
+T17	DISEASE 1649 1666	atopic dermatitis
+T18	SIGN 1649 1666	atopic dermatitis
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Is_a Arg1:T5 Arg2:T6	
+R4	Anaphora Arg1:T10 Arg2:T11	
+R5	Anaphora Arg1:T10 Arg2:T12	
+R6	Anaphora Arg1:T10 Arg2:T13	
+R7	Produces Arg1:T16 Arg2:T180	

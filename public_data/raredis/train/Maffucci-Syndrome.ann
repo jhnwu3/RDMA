@@ -1,0 +1,7 @@
+T1	SKINRAREDISEASE 0 17	Maffucci syndrome
+T2	SKINRAREDISEASE 95 112	Maffucci syndrome
+T3	SIGN 247 263	skeletal lesions
+T4	SIGN 288 299	enchondroma
+T5	RAREDISEASE 331 345	chondrosarcoma
+R1	Produces Arg1:T2 Arg2:T3	
+R2	Produces Arg1:T2 Arg2:T4	

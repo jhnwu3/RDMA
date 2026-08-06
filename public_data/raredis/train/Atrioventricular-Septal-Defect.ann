@@ -1,0 +1,10 @@
+T1	RAREDISEASE 0 30	Atrioventricular septal defect
+T2	RAREDISEASE 32 36	ASVD
+T3	RAREDISEASE 143 148	ASVDs
+T4	SIGN 154 224	improperly developed atrial and ventricular septa and adjoining valves
+T5	RAREDISEASE 243 273	atrioventricular septal defect
+T6	RAREDISEASE 845 849	ASVD
+T7	SIGN 868 888	abnormal EKG reading
+R1	Is_acron Arg1:T2 Arg2:T1	
+R2	Produces Arg1:T3 Arg2:T4	
+R3	Produces Arg1:T6 Arg2:T7	

@@ -1,0 +1,18 @@
+T1	RAREDISEASE 0 14	Sotos syndrome
+T2	DISEASE 20 36	genetic disorder
+T3	SIGN 74 90	excessive growth
+T4	SIGN 135 150	dolichocephalic
+T5	SIGN 158 190	distinctive facial configuration
+T6	SIGN 198 235	non-progressive neurological disorder
+T7	DISEASE 214 235	neurological disorder
+T8	DISEASE 241 264	intellectual disability
+T9	SIGN 241 264	intellectual disability
+T10	RAREDISEASE 335 349	Sotos syndrome
+T11	ANAPHOR 466 480	This condition
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T5	
+R5	Produces Arg1:T1 Arg2:T6	
+R6	Produces Arg1:T1 Arg2:T90	
+R7	Anaphora Arg1:T10 Arg2:T11	

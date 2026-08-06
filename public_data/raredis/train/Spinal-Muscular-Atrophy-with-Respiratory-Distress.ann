@@ -1,0 +1,6 @@
+T1	RAREDISEASE 24 30	SMARD1
+T2	SIGN 71 94	diaphragmatic paralysis
+T3	DISEASE 162 185	spinal muscular atrophy
+T4	RAREDISEASE 224 230	SMARD1
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Increases_risk_of Arg1:T3 Arg2:T1	

@@ -1,0 +1,15 @@
+T1	RAREDISEASE 19 37	Madelung’s disease
+T2	ANAPHOR 115 117	it
+T3	DISEASE 128 146	endocrine disorder
+T4	ANAPHOR 192 204	the disorder
+T5	RAREDISEASE 366 384	Madelung’s disease
+T6	ANAPHOR 428 441	The condition
+T7	ANAPHOR 494 506	this disease
+T8	ANAPHOR 600 612	the disorder
+T9	RAREDISEASE 696 714	Madelung’s disease
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T4	
+R3	Is_a Arg1:T2 Arg2:T3	
+R4	Anaphora Arg1:T5 Arg2:T6	
+R5	Anaphora Arg1:T5 Arg2:T7	
+R6	Anaphora Arg1:T5 Arg2:T8	

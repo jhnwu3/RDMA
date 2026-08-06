@@ -1,0 +1,65 @@
+T1	RAREDISEASE 0 31	Waldenström's macroglobulinemia
+T2	RAREDISEASE 33 36	WMG
+T3	DISEASE 43 102	malignant disorder of the bone marrow and lymphatic tissues
+T4	RAREDISEASE 114 122	lymphoma
+T5	SIGN 160 248	abnormally large numbers of a particular kind of white blood cell known as B lymphocytes
+T6	SIGN 289 312;342 345	excessive quantities of IgM
+T7	SIGN 360 380	Large amounts of IgM
+T8	SIGN 391 412	blood to become thick
+T9	ANAPHOR 530 542	the disorder
+T10	SIGN 544 563;568 572	Small blood vessels tear
+T11	SIGN 584 604	bleeding in the nose
+T12	SIGN 584 599;606 610	bleeding in the gums
+T13	SIGN 584 599;615 621	bleeding in the retina
+T14	RAREDISEASE 635 666	Waldenström’s macroglobulinemia
+T15	SYMPTOM 712 719	fatigue
+T16	SYMPTOM 724 738	loss of energy
+T17	DISEASE 746 752	anemia
+T18	SIGN 746 752	anemia
+T19	SIGN 754 776	Bleeding from the nose
+T20	SIGN 754 771;781 785	Bleeding from the gums
+T21	SIGN 806 838	tingling in the fingers and toes
+T22	DISEASE 854 875	peripheral neuropathy
+T23	SIGN 906 920	enlarged liver
+T24	SIGN 906 914;922 928	enlarged spleen
+T25	SIGN 906 914;933 944	enlarged lymph nodes
+T26	SIGN 946 954	Blurring
+T27	SIGN 958 975	vision impairment
+T28	SIGN 998 1067	changes in blood flow through the blood vessels that serve the retina
+T29	SIGN 1143 1150;1152 1157	viscous blood
+T30	RAREDISEASE 1195 1226	Waldenström’s macroglobulinemia
+T31	RAREDISEASE 1322 1353	Waldenström’s macroglobulinemia
+T32	RAREDISEASE 1487 1490	WMG
+T33	ANAPHOR 1660 1673	This disorder
+T34	SIGN 1809 1831	bleeding of the retina
+T35	RAREDISEASE 1833 1836	WMG
+T36	SIGN 1919 1937	low red blood cell
+T37	SIGN 1956 1975	low platelet counts
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Is_a Arg1:T1 Arg2:T4	
+R3	Produces Arg1:T1 Arg2:T5	
+R4	Produces Arg1:T1 Arg2:T6	
+R5	Is_acron Arg1:T2 Arg2:T1	
+R6	Produces Arg1:T9 Arg2:T7	
+R7	Produces Arg1:T9 Arg2:T8	
+R8	Produces Arg1:T9 Arg2:T100	
+R9	Produces Arg1:T9 Arg2:T11	
+R10	Produces Arg1:T9 Arg2:T120	
+R11	Produces Arg1:T9 Arg2:T13	
+R12	Produces Arg1:T14 Arg2:T15	
+R13	Produces Arg1:T14 Arg2:T16	
+R14	Produces Arg1:T14 Arg2:T18	
+R15	Produces Arg1:T14 Arg2:T19	
+R16	Produces Arg1:T14 Arg2:T20	
+R17	Produces Arg1:T14 Arg2:T23	
+R18	Produces Arg1:T14 Arg2:T24	
+R19	Produces Arg1:T14 Arg2:T25	
+R20	Produces Arg1:T22 Arg2:T21	
+R21	Produces Arg1:T30 Arg2:T260	
+R22	Produces Arg1:T30 Arg2:T27	
+R23	Produces Arg1:T30 Arg2:T28	
+R24	Produces Arg1:T30 Arg2:T29	
+R25	Anaphora Arg1:T32 Arg2:T33	
+R26	Produces Arg1:T35 Arg2:T34	
+R27	Produces Arg1:T35 Arg2:T36	
+R28	Produces Arg1:T35 Arg2:T37	

@@ -1,0 +1,64 @@
+T1	RAREDISEASE 4 36	median arcuate ligament syndrome
+T2	RAREDISEASE 38 42	MALS
+T3	SYMPTOM 58 80	chronic abdominal pain
+T4	SYMPTOM 123 145	Chronic abdominal pain
+T5	SIGN 275 282	anxiety
+T6	SIGN 284 308	school and work absences
+T7	SIGN 310 334	poor functional capacity
+T8	SIGN 342 362	poor quality of life
+T9	SYMPTOM 393 397	pain
+T10	SIGN 410 424;450 491	compression of the celiac plexus nerves by the diaphragm
+T11	SIGN 410 442;475 491	compression of the celiac artery by the diaphragm
+T12	SYMPTOM 506 510	pain
+T13	SYMPTOM 591 597	nausea
+T14	SIGN 602 613	weight loss
+T15	DISEASE 706 721	eating disorder
+T16	DISEASE 723 745	psychiatric conditions
+T17	SYMPTOM 750 775	functional abdominal pain
+T18	DISEASE 782 806	irritable bowel syndrome
+T19	DISEASE 808 826	abdominal migraine
+T20	DISEASE 1116 1145	vascular compression syndrome
+T21	SYMPTOM 1220 1234	abdominal pain
+T22	SIGN 1272 1283	weight loss
+T23	SYMPTOM 1285 1291	nausea
+T24	SIGN 1296 1304	vomiting
+T25	SIGN 1336 1356;1384 1406	soft whooshing sound over the upper abdomen
+T26	SIGN 1432 1449	vascular blockage
+T27	SYMPTOM 1497 1527	recurrent upper abdominal pain
+T28	SIGN 1707 1719	palpitations
+T29	SYMPTOM 1761 1771	chest pain
+T30	SIGN 1773 1781	diarrhea
+T31	SIGN 1783 1795	constipation
+T32	SIGN 1801 1820	difficulty sleeping
+T33	RAREDISEASE 1841 1845	MALS
+T34	SYMPTOM 1957 1979	chronic abdominal pain
+T35	ANAPHOR 2063 2075	the syndrome
+R1	Produces Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Produces Arg1:T1 Arg2:T5	
+R4	Produces Arg1:T1 Arg2:T6	
+R5	Produces Arg1:T1 Arg2:T7	
+R6	Produces Arg1:T1 Arg2:T8	
+R7	Produces Arg1:T1 Arg2:T9	
+R8	Produces Arg1:T1 Arg2:T100	
+R9	Produces Arg1:T1 Arg2:T11	
+R10	Produces Arg1:T1 Arg2:T12	
+R11	Produces Arg1:T1 Arg2:T13	
+R12	Produces Arg1:T1 Arg2:T14	
+R13	Is_acron Arg1:T2 Arg2:T1	
+R14	Produces Arg1:T18 Arg2:T17	
+R15	Produces Arg1:T19 Arg2:T17	
+R16	Produces Arg1:T20 Arg2:T21	
+R17	Produces Arg1:T20 Arg2:T22	
+R18	Produces Arg1:T20 Arg2:T23	
+R19	Produces Arg1:T20 Arg2:T24	
+R20	Produces Arg1:T33 Arg2:T25	
+R21	Produces Arg1:T33 Arg2:T26	
+R22	Produces Arg1:T33 Arg2:T27	
+R23	Produces Arg1:T33 Arg2:T28	
+R24	Produces Arg1:T33 Arg2:T290	
+R25	Produces Arg1:T33 Arg2:T30	
+R26	Produces Arg1:T33 Arg2:T31	
+R27	Produces Arg1:T33 Arg2:T32	
+R28	Produces Arg1:T33 Arg2:T34	
+R29	Anaphora Arg1:T33 Arg2:T35	

@@ -1,0 +1,14 @@
+T1	RAREDISEASE 13 17	SCID
+T2	RAREDISEASE 121 125	SCID
+T3	RAREDISEASE 197 201	SCID
+T4	SIGN 500 508	low TREC
+T5	SIGN 535 574	low numbers of lymphocytes in the blood
+T6	SIGN 737 752;767 772	low levels of B cells
+T7	SIGN 754 755;767 772	T cells
+T8	SIGN 764 772	NK cells
+T9	RAREDISEASE 949 953	SCID
+R1	Produces Arg1:T3 Arg2:T4	
+R2	Produces Arg1:T3 Arg2:T5	
+R3	Produces Arg1:T3 Arg2:T6	
+R4	Produces Arg1:T3 Arg2:T7	
+R5	Produces Arg1:T3 Arg2:T80	

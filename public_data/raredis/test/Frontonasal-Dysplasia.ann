@@ -1,0 +1,5 @@
+T1	RAREDISEASE 0 21	Frontonasal dysplasia
+T2	ANAPHOR 128 141	this disorder
+T3	RAREDISEASE 224 245	Frontonasal dysplasia
+T4	RAREDISEASE 510 531	frontonasal dysplasia
+R1	Anaphora Arg1:T1 Arg2:T2	

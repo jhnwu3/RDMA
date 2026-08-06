@@ -1,0 +1,31 @@
+T1	SKINRAREDISEASE 0 30	Autoimmune blistering diseases
+T2	SIGN 117 135	blistering lesions
+T3	SKINRAREDISEASE 196 226	autoimmune blistering diseases
+T4	DISEASE 375 394	blistering diseases
+T5	SIGN 375 385	blistering
+T6	SIGN 490 508	blistering lesions
+T7	SKINRAREDISEASE 584 614	autoimmune blistering diseases
+T8	ANAPHOR 616 620	they
+T9	SKINRAREDISEASE 677 707	autoimmune blistering diseases
+T10	ANAPHOR 843 858	these disorders
+T11	ANAPHOR 995 1009	these diseases
+T12	SKINRAREDISEASE 1087 1117	autoimmune blistering diseases
+T13	SKINRAREDISEASE 1224 1254	Autoimmune blistering diseases
+T14	SKINRAREDISEASE 1385 1415	autoimmune blistering diseases
+T15	SKINRAREDISEASE 1510 1519	pemphigus
+T16	SKINRAREDISEASE 1575 1584	Pemphigus
+T17	SKINRAREDISEASE 1767 1791	dermatitis herpetiformis
+T18	SKINRAREDISEASE 1852 1882	epidermolysis bullosa acquista
+T19	SKINRAREDISEASE 1891 1901	pemphigoid
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Is_a Arg1:T3 Arg2:T4	
+R3	Produces Arg1:T3 Arg2:T6	
+R4	Produces Arg1:T4 Arg2:T5	
+R5	Anaphora Arg1:T7 Arg2:T80	
+R6	Anaphora Arg1:T9 Arg2:T10	
+R7	Anaphora Arg1:T9 Arg2:T11	
+R8	Is_a Arg1:T15 Arg2:T13	
+R9	Is_a Arg1:T16 Arg2:T13	
+R10	Is_a Arg1:T17 Arg2:T13	
+R11	Is_a Arg1:T18 Arg2:T13	
+R12	Is_a Arg1:T19 Arg2:T13	

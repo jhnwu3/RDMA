@@ -1,0 +1,7 @@
+T1	RAREDISEASE 51 77	severe chronic neutropenia
+T2	RAREDISEASE 364 390	severe chronic neutropenia
+T3	SIGN 433 458	low levels of neutrophils
+T4	SIGN 554 586	neutrophil count falls below 0.5
+T5	RAREDISEASE 593 611	severe neutropenia
+R1	Produces Arg1:T2 Arg2:T3	
+R2	Produces Arg1:T5 Arg2:T4	

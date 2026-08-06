@@ -1,0 +1,18 @@
+T1	RAREDISEASE 0 39	Primary central nervous system lymphoma
+T2	DISEASE 62 74	brain tumors
+T3	RAREDISEASE 214 219	PCNSL
+T4	RAREDISEASE 307 327	primary CNS lymphoma
+T5	DISEASE 427 430	HIV
+T6	DISEASE 432 436	AIDS
+T7	DISEASE 614 651	congenital immunodeficiency syndromes
+T8	RAREDISEASE 662 682	primary CNS lymphoma
+T9	DISEASE 702 713	brain tumor
+T10	RAREDISEASE 788 793	PCNSL
+T11	RAREDISEASE 879 884	PCNSL
+T12	RAREDISEASE 922 940	AIDS-related PCNSL
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Is_acron Arg1:T3 Arg2:T1	
+R3	Increases_risk_of Arg1:T5 Arg2:T4	
+R4	Increases_risk_of Arg1:T6 Arg2:T4	
+R5	Increases_risk_of Arg1:T7 Arg2:T4	
+R6	Is_a Arg1:T8 Arg2:T9	

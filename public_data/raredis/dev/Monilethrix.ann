@@ -1,0 +1,22 @@
+T1	SKINRAREDISEASE 0 11	Monilethrix
+T2	DISEASE 22 40	inherited disorder
+T3	SIGN 58 90	sparse, dry, and/or brittle hair
+T4	SIGN 163 183	hair may lack luster
+T5	DISEASE 229 237	alopecia
+T6	SIGN 229 237	alopecia
+T7	SIGN 304 311	papules
+T8	DISEASE 401 430	perifollicular hyperkeratosis
+T9	SIGN 401 430	perifollicular hyperkeratosis
+T10	SIGN 469 521	hair shaft resembles a string of evenly-spaced beads
+T11	SKINRAREDISEASE 538 549	monilethrix
+T12	SKINRAREDISEASE 595 606	Monilethrix
+T13	ANAPHOR 691 704	this disorder
+T14	SKINRAREDISEASE 720 731	Monilethrix
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T6	
+R5	Produces Arg1:T1 Arg2:T7	
+R6	Produces Arg1:T1 Arg2:T90	
+R7	Produces Arg1:T1 Arg2:T10	
+R8	Anaphora Arg1:T12 Arg2:T13	

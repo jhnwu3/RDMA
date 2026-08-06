@@ -1,0 +1,11 @@
+T1	RAREDISEASE 0 41	Ovotesticular disorder of sex development
+T2	RAREDISEASE 43 60	ovotesticular DSD
+T3	SIGN 108 117;175 205	born with female ovaries and male testes
+T4	SIGN 212 299	gonads can be any combination of ovary, testes or combined ovary and testes (ovotestes)
+T5	RAREDISEASE 395 412	Ovotesticular DSD
+T6	RAREDISEASE 427 454	disorder of sex development
+T7	RAREDISEASE 575 592	Ovotesticular DSD
+R1	Produces Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Is_acron Arg1:T2 Arg2:T1	
+R4	Is_a Arg1:T5 Arg2:T6	

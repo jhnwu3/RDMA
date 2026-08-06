@@ -1,0 +1,33 @@
+T1	SKINRAREDISEASE 0 27	Erythrokeratolysis hiemalis
+T2	SKINRAREDISEASE 57 67	ichthyosis
+T3	ANAPHOR 225 237	The disorder
+T4	SIGN 283 295;314 359	erythematous distributed equally on both sides of the body
+T5	ANAPHOR 446 458	The disorder
+T6	SKINRAREDISEASE 504 531	Erythrokeratolysis hiemalis
+T7	SIGN 552 588	periodic attacks of red skin plaques
+T8	SIGN 637 644	plaques
+T9	SIGN 694 701	plaques
+T10	ANAPHOR 777 789	the disorder
+T11	ANAPHOR 910 922	the disorder
+T12	SIGN 1011 1018	plaques
+T13	SIGN 1042 1047	fever
+T14	SKINRAREDISEASE 1060 1087	Erythrokeratolysis hiemalis
+T15	ANAPHOR 1176 1189	This disorder
+T16	ANAPHOR 1262 1264	It
+T17	ANAPHOR 1358 1371	this disorder
+T18	SIGN 1556 1571	scaly, dry skin
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Anaphora Arg1:T1 Arg2:T5	
+R4	Produces Arg1:T3 Arg2:T4	
+R5	Produces Arg1:T6 Arg2:T7	
+R6	Produces Arg1:T6 Arg2:T80	
+R7	Produces Arg1:T6 Arg2:T9	
+R8	Anaphora Arg1:T6 Arg2:T10	
+R9	Anaphora Arg1:T6 Arg2:T11	
+R10	Produces Arg1:T11 Arg2:T12	
+R11	Produces Arg1:T11 Arg2:T13	
+R12	Anaphora Arg1:T14 Arg2:T15	
+R13	Anaphora Arg1:T14 Arg2:T16	
+R14	Anaphora Arg1:T14 Arg2:T17	
+R15	Produces Arg1:T17 Arg2:T18	

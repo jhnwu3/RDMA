@@ -1,0 +1,49 @@
+T1	SKINRAREDISEASE 14 31	Marshall Syndrome
+T2	SIGN 51 70	flat sunken midface
+T3	SIGN 102 113	saddle nose
+T4	SIGN 116 141	nostrils that turn upward
+T5	SIGN 178 191	hypertelorism
+T6	SIGN 236 244;249 256	calvaria thicker
+T7	SIGN 273 289;303 315	calcium deposits in the skull
+T8	SKINRAREDISEASE 394 411	Marshall Syndrome
+T9	SIGN 416 431	nearsightedness
+T10	DISEASE 491 499	cataract
+T11	SIGN 491 499	cataract
+T12	SIGN 508 535	wide space between the eyes
+T13	SIGN 547 575	eyeballs appear to be larger
+T14	SIGN 589 601	Hearing loss
+T15	SIGN 639 662;701 714	distortion of the sound sensorineural
+T16	SKINRAREDISEASE 764 781	Marshall Syndrome
+T17	DISEASE 801 810	esotropia
+T18	SIGN 801 810	esotropia
+T19	DISEASE 890 901	hypertropia
+T20	SIGN 890 901	hypertropia
+T21	DISEASE 904 922	retinal detachment
+T22	SIGN 904 922	retinal detachment
+T23	DISEASE 924 932	glaucoma
+T24	SIGN 924 932	glaucoma
+T25	SIGN 934 959	protruding upper incisors
+T26	SIGN 974 1015	smaller than normal or missing nasal bone
+T27	SKINRAREDISEASE 1017 1034	Marshall Syndrome
+T28	SKINRAREDISEASE 1122 1139	Marshall syndrome
+T29	DISEASE 1217 1226	cataracts
+T30	SIGN 1217 1226	cataracts
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T5	
+R5	Produces Arg1:T1 Arg2:T60	
+R6	Produces Arg1:T1 Arg2:T7	
+R7	Produces Arg1:T8 Arg2:T9	
+R8	Produces Arg1:T8 Arg2:T11	
+R9	Produces Arg1:T8 Arg2:T12	
+R10	Produces Arg1:T8 Arg2:T13	
+R11	Produces Arg1:T8 Arg2:T14	
+R12	Produces Arg1:T8 Arg2:T15	
+R13	Produces Arg1:T16 Arg2:T180	
+R14	Produces Arg1:T16 Arg2:T20	
+R15	Produces Arg1:T16 Arg2:T22	
+R16	Produces Arg1:T16 Arg2:T24	
+R17	Produces Arg1:T16 Arg2:T25	
+R18	Produces Arg1:T16 Arg2:T26	
+R19	Produces Arg1:T28 Arg2:T30	

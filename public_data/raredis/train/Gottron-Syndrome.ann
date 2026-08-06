@@ -1,0 +1,36 @@
+T1	SKINRAREDISEASE 0 16	Gottron syndrome
+T2	SKINRAREDISEASE 18 20	GS
+T3	RAREDISEASE 114 122	progeria
+T4	SIGN 114 122	progeria
+T5	SIGN 161 222	fragile, thin skin on the hands and feet (distal extremities)
+T6	SKINRAREDISEASE 225 227	GS
+T7	DISEASE 246 278;287 299	mild, nonprogressive, congenital skin atrophy
+T8	SIGN 361 381	subcutaneous atrophy
+T9	SIGN 422 433	small hands
+T10	SIGN 422 427;438 442	small feet
+T11	SIGN 458 486	prominent veins on the chest
+T12	SIGN 488 501	small stature
+T13	SIGN 532 544	micrognathia
+T14	SKINRAREDISEASE 578 594	Gottron syndrome
+T15	SIGN 636 640;654 706	skin thin, taut, and parchment-like on the hands and feet
+T16	SIGN 734 739;767 772	hands small
+T17	SIGN 744 748;767 772	feet small
+T18	SIGN 794 843	veins on the chest are very visible and prominent
+T19	SIGN 851 861;893 909	diminished subcutaneous fat
+T20	SKINRAREDISEASE 932 948	Gottron syndrome
+T21	SKINRAREDISEASE 1072 1088	Gottron syndrome
+R1	Produces Arg1:T1 Arg2:T40	
+R2	Produces Arg1:T1 Arg2:T5	
+R3	Is_acron Arg1:T2 Arg2:T1	
+R4	Is_a Arg1:T6 Arg2:T7	
+R5	Produces Arg1:T6 Arg2:T8	
+R6	Produces Arg1:T6 Arg2:T9	
+R7	Produces Arg1:T6 Arg2:T10	
+R8	Produces Arg1:T6 Arg2:T11	
+R9	Produces Arg1:T6 Arg2:T12	
+R10	Produces Arg1:T6 Arg2:T130	
+R11	Produces Arg1:T14 Arg2:T15	
+R12	Produces Arg1:T14 Arg2:T16	
+R13	Produces Arg1:T14 Arg2:T17	
+R14	Produces Arg1:T14 Arg2:T18	
+R15	Produces Arg1:T14 Arg2:T19	

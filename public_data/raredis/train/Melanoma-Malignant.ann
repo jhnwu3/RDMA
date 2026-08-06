@@ -1,0 +1,7 @@
+T1	SKINRAREDISEASE 0 18	Malignant Melanoma
+T2	DISEASE 31 42	skin cancer
+T3	ANAPHOR 182 206	This type of skin cancer
+T4	DISEASE 195 206	skin cancer
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Is_a Arg1:T3 Arg2:T4	

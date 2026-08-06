@@ -1,0 +1,30 @@
+T1	RAREDISEASE 0 25	Orocraniodigital syndrome
+T2	DISEASE 47 65	inherited disorder
+T3	SIGN 83 126	multiple malformations of the head and face
+T4	SIGN 151 171;83 108	the fingers and toes multiple malformations of
+T5	DISEASE 252 261	cleft lip
+T6	SIGN 252 261	cleft lip
+T7	RAREDISEASE 310 322	cleft palate
+T8	SIGN 310 322	cleft palate
+T9	DISEASE 351 363	microcephaly
+T10	SIGN 351 363	microcephaly
+T11	SIGN 386 406	ocular hypertelorism
+T12	SIGN 431 441;443 468	hypoplasia of the thumbs and/or toes
+T13	DISEASE 486 496	syndactyly
+T14	SIGN 486 496;498 509	syndactyly of the toes
+T15	SIGN 526 565	malformations of certain skeletal bones
+T16	DISEASE 587 605	Mental retardation
+T17	SIGN 587 605	Mental retardation
+T18	RAREDISEASE 645 670	Orocraniodigital syndrome
+T19	RAREDISEASE 755 780	orocraniodigital syndrome
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T40	
+R4	Produces Arg1:T1 Arg2:T6	
+R5	Produces Arg1:T1 Arg2:T8	
+R6	Produces Arg1:T1 Arg2:T10	
+R7	Produces Arg1:T1 Arg2:T11	
+R8	Produces Arg1:T1 Arg2:T12	
+R9	Produces Arg1:T1 Arg2:T140	
+R10	Produces Arg1:T1 Arg2:T15	
+R11	Produces Arg1:T1 Arg2:T17	

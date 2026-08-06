@@ -1,0 +1,41 @@
+T1	SIGN 27 108	excessive oral tendencies with an urge to put all kinds of objects into the mouth
+T2	SIGN 110 129	hypermetamorophosis
+T3	SIGN 162 173	memory loss
+T4	SIGN 175 192	emotional changes
+T5	SIGN 194 217	extreme sexual behavior
+T6	SIGN 219 231	indifference
+T7	SIGN 233 242	placidity
+T8	SIGN 244 266	visual distractibility
+T9	DISEASE 271 285	visual agnosia
+T10	SIGN 271 285	visual agnosia
+T11	DISEASE 457 465	dementia
+T12	SIGN 457 465	dementia
+T13	RAREDISEASE 492 512	Klüver-Bucy syndrome
+T14	SIGN 530 571	damage to the temporal lobes of the brain
+T15	DISEASE 650 677	degenerative brain diseases
+T16	DISEASE 679 685	tumors
+T17	ANAPHOR 690 692	it
+T18	DISEASE 715 731	brain infections
+T19	DISEASE 747 761	herpes simplex
+T20	RAREDISEASE 762 774	encephalitis
+T21	DISEASE 778 799	viral brain infection
+T22	RAREDISEASE 802 822	Klüver-Bucy syndrome
+T23	RAREDISEASE 899 919	Klüver-Bucy syndrome
+R1	Produces Arg1:T13 Arg2:T1	
+R2	Produces Arg1:T13 Arg2:T2	
+R3	Produces Arg1:T13 Arg2:T3	
+R4	Produces Arg1:T13 Arg2:T4	
+R5	Produces Arg1:T13 Arg2:T5	
+R6	Produces Arg1:T13 Arg2:T6	
+R7	Produces Arg1:T13 Arg2:T7	
+R8	Produces Arg1:T13 Arg2:T80	
+R9	Produces Arg1:T13 Arg2:T10	
+R10	Produces Arg1:T13 Arg2:T12	
+R11	Produces Arg1:T13 Arg2:T140	
+R12	Anaphora Arg1:T13 Arg2:T17	
+R13	Increases_risk_of Arg1:T15 Arg2:T17	
+R14	Increases_risk_of Arg1:T16 Arg2:T17	
+R15	Increases_risk_of Arg1:T18 Arg2:T17	
+R16	Increases_risk_of Arg1:T19 Arg2:T17	
+R17	Increases_risk_of Arg1:T20 Arg2:T17	
+R18	Is_a Arg1:T20 Arg2:T21	

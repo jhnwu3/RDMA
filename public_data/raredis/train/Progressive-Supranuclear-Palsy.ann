@@ -1,0 +1,7 @@
+T1	RAREDISEASE 0 3	PSP
+T2	ANAPHOR 81 94	This disorder
+T3	RAREDISEASE 240 243	PSP
+T4	ANAPHOR 312 325	this disorder
+T5	RAREDISEASE 475 505	progressive supranuclear palsy
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T3 Arg2:T4	

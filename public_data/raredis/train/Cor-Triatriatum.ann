@@ -1,0 +1,28 @@
+T1	RAREDISEASE 1 16	Cor triatriatum
+T2	DISEASE 38 48;68 80	congenital heart defect
+T3	RAREDISEASE 324 339	cor triatriatum
+T4	SIGN 351 405	small extra chamber above the left atrium of the heart
+T5	SIGN 476 496	"extra """"third atrium"
+T6	SIGN 504 550;582 588	passage of blood from the lungs into the heart slowed
+T7	RAREDISEASE 612 627	Cor triatriatum
+T8	DISEASE 663 687	congestive heart failure
+T9	SIGN 663 687	congestive heart failure
+T10	SIGN 692 703	obstruction
+T11	RAREDISEASE 734 749	cor triatriatum
+T12	RAREDISEASE 764 779	Cor triatriatum
+T13	DISEASE 801 827	congenital heart condition
+T14	ANAPHOR 890 903	this disorder
+T15	DISEASE 982 1006	congenital heart disease
+T16	RAREDISEASE 1025 1040	cor triatriatum
+T17	RAREDISEASE 1566 1581	cor triatriatum
+T18	SIGN 1592 1613	abnormal EKG patterns
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T3 Arg2:T4	
+R3	Produces Arg1:T3 Arg2:T5	
+R4	Produces Arg1:T3 Arg2:T6	
+R5	Produces Arg1:T7 Arg2:T9	
+R6	Produces Arg1:T7 Arg2:T100	
+R7	Is_a Arg1:T12 Arg2:T13	
+R8	Anaphora Arg1:T12 Arg2:T14	
+R9	Is_a Arg1:T14 Arg2:T15	
+R10	Produces Arg1:T17 Arg2:T18	

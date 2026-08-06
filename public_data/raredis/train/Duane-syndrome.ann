@@ -1,0 +1,8 @@
+T1	RAREDISEASE 0 14	Duane syndrome
+T2	RAREDISEASE 72 74	DS
+T3	DISEASE 121 143	eye movement disorders
+T4	DISEASE 145 155	strabismus
+T5	RAREDISEASE 292 294	DS
+R1	Increases_risk_of Arg1:T3 Arg2:T2	
+R2	Increases_risk_of Arg1:T4 Arg2:T2	
+R3	Is_a Arg1:T4 Arg2:T3	

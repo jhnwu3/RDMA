@@ -1,0 +1,10 @@
+T1	RAREDISEASE 0 6	Rabies
+T2	DISEASE 13 31	infectious disease
+T3	ANAPHOR 99 112	This disorder
+T4	RAREDISEASE 367 373	Rabies
+T5	ANAPHOR 542 554	this problem
+T6	RAREDISEASE 662 668	rabies
+T7	RAREDISEASE 780 786	rabies
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Anaphora Arg1:T4 Arg2:T5	

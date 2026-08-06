@@ -1,0 +1,9 @@
+T1	SKINRAREDISEASE 0 26	Rabson-Mendenhall syndrome
+T2	DISEASE 48 64	genetic disorder
+T3	SIGN 82 107	severe insulin resistance
+T4	SKINRAREDISEASE 315 341	Rabson-Mendenhall syndrome
+T5	SKINRAREDISEASE 475 501	Rabson-Mendenhall syndrome
+T6	SKINRAREDISEASE 542 568	Rabson-Mendenhall syndrome
+T7	SKINRAREDISEASE 700 726	Rabson-Mendenhall syndrome
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	

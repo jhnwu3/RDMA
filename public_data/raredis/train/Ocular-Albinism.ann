@@ -1,0 +1,16 @@
+T1	RAREDISEASE 18 33	ocular albinism
+T2	RAREDISEASE 102 117	ocular albinism
+T3	SIGN 134 161	characteristic eye findings
+T4	SIGN 163 169;234 263	Female retinal pigment abnormalities
+T5	RAREDISEASE 203 218	ocular albinism
+T6	SIGN 332 346;368 373	visual changes males
+T7	RAREDISEASE 433 436	OA1
+T8	SIGN 447 456	nystagmus
+T9	SIGN 461 478	foveal hypoplasia
+T10	SIGN 484 505	reduced visual acuity
+R1	Produces Arg1:T2 Arg2:T3	
+R2	Produces Arg1:T5 Arg2:T4	
+R3	Produces Arg1:T5 Arg2:T6	
+R4	Produces Arg1:T10 Arg2:T4	
+R5	Produces Arg1:T10 Arg2:T8	
+R6	Produces Arg1:T10 Arg2:T9	

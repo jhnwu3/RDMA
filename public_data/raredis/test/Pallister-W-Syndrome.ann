@@ -1,0 +1,72 @@
+T1	RAREDISEASE 0 20	Pallister W syndrome
+T2	DISEASE 31 47	genetic disorder
+T3	SIGN 65 88	unusual facial features
+T4	SIGN 97 119	clefting of the palate
+T5	SIGN 128 137;97 112	upper lip clefting of the
+T6	SIGN 141 156	broad flat nose
+T7	SIGN 158 184	widely spaced slanted eyes
+T8	SIGN 193 218	downslanting eyelid folds
+T9	DISEASE 268 286	mental retardation
+T10	SIGN 268 286	mental retardation
+T11	SIGN 288 303	speech problems
+T12	SIGN 305 333	bone deformities of the arms
+T13	SIGN 305 328;338 342	bone deformities of the legs
+T14	SIGN 351 359	seizures
+T15	RAREDISEASE 380 400	Pallister W syndrome
+T16	RAREDISEASE 415 435	Pallister W syndrome
+T17	ANAPHOR 459 461	It
+T18	SIGN 502 515	hypertelorism
+T19	SIGN 522 552	downward slanting eyelid folds
+T20	SIGN 577 600	broad flat nasal bridge
+T21	SIGN 604 625	broad tip of the nose
+T22	SIGN 629 643	broad flat jaw
+T23	SIGN 645 675	central clefting of the palate
+T24	SIGN 645 668;679 689	central clefting of the upper lip,
+T25	SIGN 690 698	seizures
+T26	DISEASE 704 722	mental retardation
+T27	SIGN 704 722	mental retardation
+T28	SIGN 743 773	bone abnormalities in the arms
+T29	SIGN 743 768;778 782	bone abnormalities in the legs
+T30	SIGN 868 882	cubitus valgus
+T31	SIGN 954 961	cowlick
+T32	SIGN 979 994	partial adontia
+T33	SIGN 997 1008	broad uvula
+T34	SIGN 1016 1035	high broad forehead
+T35	SIGN 1070 1076	tremor
+T36	SIGN 1084 1115	involuntary muscle contractions
+T37	SIGN 1123 1133	spasticity
+T38	RAREDISEASE 1136 1156	Pallister W syndrome
+T39	ANAPHOR 1382 1384	it
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T5	
+R5	Produces Arg1:T1 Arg2:T6	
+R6	Produces Arg1:T1 Arg2:T7	
+R7	Produces Arg1:T1 Arg2:T8	
+R8	Produces Arg1:T1 Arg2:T10	
+R9	Produces Arg1:T1 Arg2:T11	
+R10	Produces Arg1:T1 Arg2:T120	
+R11	Produces Arg1:T1 Arg2:T13	
+R12	Produces Arg1:T1 Arg2:T14	
+R13	Anaphora Arg1:T16 Arg2:T17	
+R14	Produces Arg1:T17 Arg2:T18	
+R15	Produces Arg1:T17 Arg2:T19	
+R16	Produces Arg1:T17 Arg2:T20	
+R17	Produces Arg1:T17 Arg2:T21	
+R18	Produces Arg1:T17 Arg2:T22	
+R19	Produces Arg1:T17 Arg2:T23	
+R20	Produces Arg1:T17 Arg2:T24	
+R21	Produces Arg1:T17 Arg2:T250	
+R22	Produces Arg1:T17 Arg2:T27	
+R23	Produces Arg1:T17 Arg2:T28	
+R24	Produces Arg1:T17 Arg2:T29	
+R25	Produces Arg1:T17 Arg2:T30	
+R26	Produces Arg1:T17 Arg2:T31	
+R27	Produces Arg1:T17 Arg2:T32	
+R28	Produces Arg1:T17 Arg2:T33	
+R29	Produces Arg1:T17 Arg2:T34	
+R30	Produces Arg1:T17 Arg2:T350	
+R31	Produces Arg1:T17 Arg2:T360	
+R32	Produces Arg1:T17 Arg2:T37	
+R33	Anaphora Arg1:T38 Arg2:T39	

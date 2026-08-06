@@ -1,0 +1,9 @@
+T1	RAREDISEASE 0 10	Cystinosis
+T2	ANAPHOR 55 67	The disorder
+T3	RAREDISEASE 148 158	Cystinosis
+T4	RAREDISEASE 210 220	Cystinosis
+T5	DISEASE 255 271	Fanconi syndrome
+T6	DISEASE 351 365	kidney failure
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Increases_risk_of Arg1:T4 Arg2:T5	
+R3	Increases_risk_of Arg1:T4 Arg2:T6	

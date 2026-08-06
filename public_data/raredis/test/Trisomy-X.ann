@@ -1,0 +1,10 @@
+T1	RAREDISEASE 0 9	Trisomy X
+T2	DISEASE 15 35	chromosomal disorder
+T3	SYMPTOM 184 191;219 237	females few or no symptoms
+T4	ANAPHOR 197 209	the disorder
+T5	ANAPHOR 293 305	the disorder
+T6	RAREDISEASE 615 624	trisomy X
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T4	
+R3	Anaphora Arg1:T1 Arg2:T5	
+R4	Produces Arg1:T4 Arg2:T3	

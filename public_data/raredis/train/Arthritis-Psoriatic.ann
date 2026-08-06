@@ -1,0 +1,20 @@
+T1	RAREDISEASE 0 20	Psoriatic, Arthritis
+T2	DISEASE 26 61	rheumatoid-like arthritic condition
+T3	SYMPTOM 112 125;79 83	of the joints pain
+T4	SIGN 127 136	arthritis
+T5	DISEASE 219 228	psoriasis
+T6	SIGN 219 228	psoriasis
+T7	SIGN 231 257	Abnormalities of the nails
+T8	SIGN 335 344	arthritis
+T9	RAREDISEASE 386 405	psoriatic arthritis
+T10	DISEASE 488 497	psoriasis
+T11	RAREDISEASE 540 559	psoriatic arthritis
+T12	ANAPHOR 561 563	It
+R1	Is_a Arg1:T1 Arg2:T20	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T6	
+R5	Produces Arg1:T1 Arg2:T7	
+R6	Produces Arg1:T1 Arg2:T8	
+R7	Increases_risk_of Arg1:T10 Arg2:T11	
+R8	Anaphora Arg1:T11 Arg2:T12	

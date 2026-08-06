@@ -1,0 +1,56 @@
+T1	RAREDISEASE 0 45	Bronchiolitis obliterans organizing pneumonia
+T2	RAREDISEASE 47 51	BOOP
+T3	DISEASE 63 89	inflammatory lung disorder
+T4	SIGN 178 211	symptoms such as flu-like illness
+T5	SIGN 243 248	cough
+T6	SIGN 253 272	shortness of breath
+T7	SIGN 301 309	Wheezing
+T8	SIGN 314 324	hemoptysis
+T9	DISEASE 344 368	bronchiolitis obliterans
+T10	SIGN 344 368	bronchiolitis obliterans
+T11	DISEASE 464 484	Organizing pneumonia
+T12	SIGN 464 484	Organizing pneumonia
+T13	RAREDISEASE 646 650	BOOP
+T14	SIGN 662 693	inflammation of the bronchioles
+T15	SIGN 662 681;698 727	inflammation of the alveolar lung spherical units
+T16	ANAPHOR 764 766	it
+T17	DISEASE 786 813	inflammatory lung disorders
+T18	DISEASE 831 840	pneumonia
+T19	RAREDISEASE 850 854	BOOP
+T20	RAREDISEASE 904 908	BOOP
+T21	RAREDISEASE 953 957	BOOP
+T22	RAREDISEASE 969 973	BOOP
+T23	RAREDISEASE 1188 1192	BOOP
+T24	DISEASE 1205 1231	connective-tissue diseases
+T25	DISEASE 1233 1256	immunological disorders
+T26	DISEASE 1262 1288	inflammatory bowel disease
+T27	RAREDISEASE 1290 1294	BOOP
+T28	DISEASE 1334 1346	lung abscess
+T29	DISEASE 1348 1359	lung cancer
+T30	RAREDISEASE 1365 1373	lymphoma
+T31	RAREDISEASE 1392 1396	BOOP
+T32	RAREDISEASE 1432 1461	idiopathic pulmonary fibrosis
+T33	RAREDISEASE 1466 1469	IPF
+T34	DISEASE 1508 1520	lung disease
+T35	RAREDISEASE 1528 1531	IPF
+T36	RAREDISEASE 1561 1565	BOOP
+T37	RAREDISEASE 1567 1571	BOOP
+T38	ANAPHOR 1616 1618	It
+T39	RAREDISEASE 1720 1724	BOOP
+T40	DISEASE 1790 1802	lung disease
+T41	RAREDISEASE 1825 1829	BOOP
+T42	RAREDISEASE 1885 1889	BOOP
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Produces Arg1:T1 Arg2:T5	
+R4	Produces Arg1:T1 Arg2:T6	
+R5	Produces Arg1:T1 Arg2:T7	
+R6	Produces Arg1:T1 Arg2:T8	
+R7	Produces Arg1:T1 Arg2:T10	
+R8	Produces Arg1:T1 Arg2:T12	
+R9	Is_acron Arg1:T2 Arg2:T1	
+R10	Produces Arg1:T10 Arg2:T11	
+R11	Produces Arg1:T10 Arg2:T36	
+R12	Anaphora Arg1:T10 Arg2:T45	
+R13	Is_a Arg1:T16 Arg2:T17	
+R14	Anaphora Arg1:T37 Arg2:T38	

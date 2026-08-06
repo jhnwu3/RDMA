@@ -1,0 +1,76 @@
+T1	RAREDISEASE 0 26	Cornelia de Lange syndrome
+T2	RAREDISEASE 28 33	CdLS)
+T3	DISEASE 44 60	genetic disorder
+T4	SIGN 207 215;230 248	prenatal growth retardation
+T5	SIGN 220 248	postnatal growth retardation
+T6	SIGN 266 322	abnormalities of the head and facial (craniofacial) area
+T7	SIGN 339 368	distinctive facial appearance
+T8	SIGN 370 390;407 418	malformations of the upper limbs
+T9	DISEASE 440 463	intellectual disability
+T10	SIGN 440 463	intellectual disability
+T11	ANAPHOR 496 508	the disorder
+T12	SIGN 546 564	microbrachycephaly
+T13	SIGN 569 587;627 635	prominent vertical philtrum
+T14	SIGN 640 662	depressed nasal bridge
+T15	SIGN 683 699	anteverted nares
+T16	SIGN 730 751	maxillary prognathism
+T17	SIGN 770 782	micrognathia
+T18	SIGN 796 831	characteristic facial abnormalities
+T19	SIGN 844 865	thin, downturned lips
+T20	SIGN 867 879	low-set ears
+T21	SIGN 959 968	synophrys
+T22	SIGN 984 1037	low hairline on the forehead and the back of the neck
+T23	SIGN 1043 1074	curly, unusually long eyelashes
+T24	SIGN 1123 1149	malformations of the limbs
+T25	SIGN 1169 1180	small hands
+T26	SIGN 1169 1174;1185 1189	small feet
+T27	SIGN 1209 1221	clinodactyly
+T28	DISEASE 1258 1268	syndactyly
+T29	SIGN 1258 1268	syndactyly
+T30	SIGN 1315 1358	absence of the forearms, hands, and fingers
+T31	RAREDISEASE 1373 1377	CdLS
+T32	SIGN 1392 1399;1414 1426	feeding difficulties
+T33	SIGN 1404 1426	breathing difficulties
+T34	DISEASE 1459 1480	respiratory infection
+T35	SIGN 1485 1525	"low-pitched ""growling"" cry and low voice"
+T36	SIGN 1527 1540	heart defects
+T37	SIGN 1542 1569	delayed skeletal maturation
+T38	SIGN 1571 1583	hearing loss
+T39	SIGN 1594 1616	physical abnormalities
+T40	RAREDISEASE 1726 1730	CdLS
+T41	RAREDISEASE 1880 1884	CdLS
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T5	
+R3	Produces Arg1:T1 Arg2:T6	
+R4	Produces Arg1:T1 Arg2:T70	
+R5	Produces Arg1:T1 Arg2:T8	
+R6	Produces Arg1:T1 Arg2:T10	
+R7	Anaphora Arg1:T1 Arg2:T11	
+R8	Is_acron Arg1:T2 Arg2:T1	
+R9	Produces Arg1:T2 Arg2:T4	
+R10	Produces Arg1:T11 Arg2:T12	
+R11	Produces Arg1:T11 Arg2:T13	
+R12	Produces Arg1:T11 Arg2:T14	
+R13	Produces Arg1:T11 Arg2:T15	
+R14	Produces Arg1:T11 Arg2:T160	
+R15	Produces Arg1:T11 Arg2:T17	
+R16	Produces Arg1:T11 Arg2:T18	
+R17	Produces Arg1:T11 Arg2:T19	
+R18	Produces Arg1:T11 Arg2:T20	
+R19	Produces Arg1:T11 Arg2:T21	
+R20	Produces Arg1:T11 Arg2:T22	
+R21	Produces Arg1:T11 Arg2:T23	
+R22	Produces Arg1:T31 Arg2:T24	
+R23	Produces Arg1:T31 Arg2:T25	
+R24	Produces Arg1:T31 Arg2:T26	
+R25	Produces Arg1:T31 Arg2:T270	
+R26	Produces Arg1:T31 Arg2:T29	
+R27	Produces Arg1:T31 Arg2:T30	
+R28	Produces Arg1:T31 Arg2:T32	
+R29	Produces Arg1:T31 Arg2:T33	
+R30	Increases_risk_of Arg1:T31 Arg2:T34	
+R31	Produces Arg1:T31 Arg2:T35	
+R32	Produces Arg1:T31 Arg2:T36	
+R33	Produces Arg1:T31 Arg2:T37	
+R34	Produces Arg1:T31 Arg2:T380	
+R35	Produces Arg1:T31 Arg2:T39	

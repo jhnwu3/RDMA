@@ -1,0 +1,7 @@
+T1	SKINRAREDISEASE 0 23	Mucha-Habermann disease
+T2	ANAPHOR 59 71	The disorder
+T3	SKINRAREDISEASE 235 258	Mucha-Habermann disease
+T4	SKINRAREDISEASE 286 309	Mucha-Habermann disease
+T5	SIGN 422 434	skin lesions
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T4 Arg2:T5	

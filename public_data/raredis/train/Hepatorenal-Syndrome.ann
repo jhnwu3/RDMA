@@ -1,0 +1,19 @@
+T1	RAREDISEASE 0 20	Hepatorenal syndrome
+T2	RAREDISEASE 88 108	hepatorenal syndrome
+T3	ANAPHOR 121 123	It
+T4	DISEASE 238 245	ascites
+T5	DISEASE 251 260	cirrhosis
+T6	ANAPHOR 271 273	it
+T7	DISEASE 309 327	advanced cirrhosis
+T8	DISEASE 332 339	ascites
+T9	RAREDISEASE 341 361	hepatorenal syndrome
+T10	DISEASE 413 426	liver disease
+T11	RAREDISEASE 437 462	fulminant hepatic failure
+R1	Anaphora Arg1:T2 Arg2:T30	
+R2	Anaphora Arg1:T2 Arg2:T6	
+R3	Increases_risk_of Arg1:T4 Arg2:T30	
+R4	Increases_risk_of Arg1:T5 Arg2:T30	
+R5	Increases_risk_of Arg1:T7 Arg2:T6	
+R6	Increases_risk_of Arg1:T8 Arg2:T6	
+R7	Increases_risk_of Arg1:T10 Arg2:T9	
+R8	Increases_risk_of Arg1:T11 Arg2:T9	

@@ -1,0 +1,48 @@
+T1	RAREDISEASE 0 18	Hypochrondroplasia
+T2	DISEASE 24 40	genetic disorder
+T3	SIGN 58 71	small stature
+T4	SIGN 130 151	short-limbed dwarfism
+T5	SIGN 154 167	Short stature
+T6	ANAPHOR 276 288	the disorder
+T7	SIGN 290 308	bowing of the legs
+T8	DISEASE 460 472	macrocephaly
+T9	SIGN 460 472	macrocephaly
+T10	SIGN 488 506	prominent forehead
+T11	SIGN 521 543	physical abnormalities
+T12	ANAPHOR 560 572	the disorder
+T13	DISEASE 617 640	mild mental retardation
+T14	SIGN 617 640	mild mental retardation
+T15	RAREDISEASE 657 674	Hypochondroplasia
+T16	ANAPHOR 757 769	the disorder
+T17	RAREDISEASE 804 821	hypochondroplasia
+T18	RAREDISEASE 993 1010	Hypochondroplasia
+T19	RAREDISEASE 1080 1094	achondroplasia
+T20	RAREDISEASE 1235 1249	achondroplasia
+T21	RAREDISEASE 1340 1354	achondroplasia
+T22	RAREDISEASE 1463 1480	hypochondroplasia
+T23	SIGN 1482 1495	short stature
+T24	ANAPHOR 1578 1590	The disorder
+T25	SIGN 1708 1721	short stature
+T26	DISEASE 1723 1736	brachydactyly
+T27	SIGN 1723 1736	brachydactyly
+T28	SIGN 1738 1748	genu varum
+T29	DISEASE 1750 1762	macrocephaly
+T30	SIGN 1750 1762	macrocephaly
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T5	
+R5	Anaphora Arg1:T1 Arg2:T6	
+R6	Anaphora Arg1:T1 Arg2:T120	
+R7	Produces Arg1:T6 Arg2:T70	
+R8	Produces Arg1:T30 Arg2:T22	
+R9	Produces Arg1:T30 Arg2:T23	
+R10	Produces Arg1:T30 Arg2:T24	
+R11	Produces Arg1:T30 Arg2:T25	
+R12	Anaphora Arg1:T17 Arg2:T16	
+R13	Produces Arg1:T22 Arg2:T23	
+R14	Anaphora Arg1:T22 Arg2:T24	
+R15	Produces Arg1:T24 Arg2:T25	
+R16	Produces Arg1:T24 Arg2:T27	
+R17	Produces Arg1:T24 Arg2:T28	
+R18	Produces Arg1:T24 Arg2:T30	

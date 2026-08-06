@@ -1,0 +1,14 @@
+T1	RAREDISEASE 101 114	arachnoiditis
+T2	DISEASE 169 197	failed back surgery syndrome
+T3	DISEASE 199 217	multiple sclerosis
+T4	DISEASE 219 231	fibromyalgia
+T5	RAREDISEASE 233 261	reflex sympathetic dystrophy
+T6	DISEASE 263 284	chronic pain syndrome
+T7	SYMPTOM 271 275	pain
+T8	DISEASE 286 307	cauda equina syndrome
+T9	RAREDISEASE 309 322	syringomyelia
+T10	RAREDISEASE 417 430	arachnoiditis
+T11	RAREDISEASE 542 555	arachnoiditis
+T12	SYMPTOM 628 632	pain
+R1	Produces Arg1:T6 Arg2:T7	
+R2	Produces Arg1:T11 Arg2:T12	

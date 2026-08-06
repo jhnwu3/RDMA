@@ -1,0 +1,9 @@
+T1	RAREDISEASE 19 39	Eisenmenger syndrome
+T2	RAREDISEASE 122 135	Down syndrome
+T3	RAREDISEASE 215 235	Eisenmenger syndrome
+T4	DISEASE 587 599	heart defect
+T5	SIGN 587 599	heart defect
+T6	SIGN 604 611;629 656	raising high pressures in the lungs
+R1	Increases_risk_of Arg1:T2 Arg2:T1	
+R2	Produces Arg1:T3 Arg2:T5	
+R3	Produces Arg1:T3 Arg2:T6	

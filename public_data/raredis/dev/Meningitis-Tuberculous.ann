@@ -1,0 +1,35 @@
+T1	RAREDISEASE 0 22	Tuberculous Meningitis
+T2	RAREDISEASE 24 27	TBM
+T3	DISEASE 42 52	meningitis
+T4	SIGN 101 109;70 89	meninges inflammation of the
+T5	RAREDISEASE 201 213	tuberculosis
+T6	RAREDISEASE 218 221	TBM
+T7	ANAPHOR 223 235	the disorder
+T8	ANAPHOR 328 341	the infection
+T9	RAREDISEASE 343 365	Tuberculous Meningitis
+T10	RAREDISEASE 439 451	tuberculosis
+T11	RAREDISEASE 453 455	TB
+T12	RAREDISEASE 469 489	miliary tuberculosis
+T13	ANAPHOR 492 494	It
+T14	RAREDISEASE 570 572	TB
+T15	ANAPHOR 575 598	This form of meningitis
+T16	DISEASE 588 598	meningitis
+T17	RAREDISEASE 655 667	Tuberculosis
+T18	RAREDISEASE 695 707	tuberculosis
+T19	RAREDISEASE 717 729	tuberculosis
+T20	RAREDISEASE 782 785	TBM
+T21	ANAPHOR 847 849	it
+T22	DISEASE 872 882	Meningitis
+T23	ANAPHOR 958 971	the infection
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Is_acron Arg1:T2 Arg2:T1	
+R4	Anaphora Arg1:T6 Arg2:T7	
+R5	Anaphora Arg1:T6 Arg2:T8	
+R6	Anaphora Arg1:T9 Arg2:T13	
+R7	Anaphora Arg1:T9 Arg2:T15	
+R8	Is_acron Arg1:T11 Arg2:T10	
+R9	Increases_risk_of Arg1:T12 Arg2:T9	
+R10	Is_a Arg1:T15 Arg2:T16	
+R11	Anaphora Arg1:T20 Arg2:T21	
+R12	Anaphora Arg1:T20 Arg2:T23	

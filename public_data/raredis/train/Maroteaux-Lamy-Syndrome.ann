@@ -1,0 +1,7 @@
+T1	RAREDISEASE 0 23	Maroteaux-Lamy syndrome
+T2	ANAPHOR 109 121	the disorder
+T3	RAREDISEASE 165 168	MPS
+T4	RAREDISEASE 252 255	MPS
+T5	ANAPHOR 315 330	these disorders
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T4 Arg2:T5	

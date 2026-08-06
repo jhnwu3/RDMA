@@ -1,0 +1,52 @@
+T1	SKINRAREDISEASE 0 22	Acquired lipodystrophy
+T2	SKINRAREDISEASE 54 67	lipodystrophy
+T3	SKINRAREDISEASE 139 163	Acquired lipodystrophies
+T4	SKINRAREDISEASE 251 275	Acquired lipodystrophies
+T5	SKINRAREDISEASE 368 390	acquired lipodystrophy
+T6	SKINRAREDISEASE 399 433	acquired generalized lipodystrophy
+T7	SKINRAREDISEASE 435 452	Lawrence syndrome
+T8	SKINRAREDISEASE 455 485	acquired partial lipodystrophy
+T9	SKINRAREDISEASE 487 512	Barraquer-Simons syndrome
+T10	SKINRAREDISEASE 515 538	localized lipodystrophy
+T11	SKINRAREDISEASE 544 592	high active antiretroviral induced lipodystrophy
+T12	DISEASE 615 618	HIV
+T13	SKINRAREDISEASE 690 721	acquired forms of lipodystrophy
+T14	SIGN 820 836	loss of body fat
+T15	SIGN 1017 1035	insulin resistance
+T16	DISEASE 1112 1131	glucose intolerance
+T17	SIGN 1112 1131	glucose intolerance
+T18	DISEASE 1197 1217	hypertriglyceridemia
+T19	SIGN 1197 1217	hypertriglyceridemia
+T20	DISEASE 1224 1232	diabetes
+T21	SIGN 1224 1232	diabetes
+T22	DISEASE 1293 1304	fatty liver
+T23	SIGN 1293 1304	fatty liver
+T24	DISEASE 1308 1325	hepatic steatosis
+T25	SIGN 1308 1325	hepatic steatosis
+T26	SKINRAREDISEASE 1343 1346	AGL
+T27	SKINRAREDISEASE 1351 1354	APL
+T28	SKINRAREDISEASE 1524 1527	APL
+T29	ANAPHOR 1615 1617	It
+T30	SKINRAREDISEASE 1685 1688	AGL
+T31	SKINRAREDISEASE 1821 1827	LD-HIV
+T32	DISEASE 1950 1953	HIV
+T33	SKINRAREDISEASE 1964 1970	LD-HIV
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Is_a Arg1:T6 Arg2:T5	
+R3	Is_synon Arg1:T7 Arg2:T6	
+R4	Is_a Arg1:T8 Arg2:T5	
+R5	Is_synon Arg1:T9 Arg2:T8	
+R6	Is_a Arg1:T10 Arg2:T5	
+R7	Is_a Arg1:T11 Arg2:T5	
+R8	Produces Arg1:T13 Arg2:T14	
+R9	Produces Arg1:T13 Arg2:T15	
+R10	Produces Arg1:T13 Arg2:T17	
+R11	Produces Arg1:T13 Arg2:T19	
+R12	Produces Arg1:T13 Arg2:T210	
+R13	Produces Arg1:T13 Arg2:T230	
+R14	Produces Arg1:T13 Arg2:T25	
+R15	Is_acron Arg1:T26 Arg2:T6	
+R16	Is_acron Arg1:T27 Arg2:T8	
+R17	Anaphora Arg1:T28 Arg2:T29	
+R18	Is_acron Arg1:T31 Arg2:T11	
+R19	Increases_risk_of Arg1:T32 Arg2:T33	

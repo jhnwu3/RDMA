@@ -1,0 +1,20 @@
+T1	RAREDISEASE 1 25	Adenoid cystic carcinoma
+T2	RAREDISEASE 27 30	ACC
+T3	DISEASE 61 67	cancer
+T4	RAREDISEASE 158 161	ACC
+T5	RAREDISEASE 295 298	ACC
+T6	SIGN 299 305;310 326;365 395;411 427;429 490	"tumors characterized by abnormal """"nests"""" or cords of epithelial cells that surround and/or infiltrate ducts or glandular structures"
+T7	RAREDISEASE 724 727	ACC
+T8	RAREDISEASE 808 811	ACC
+T9	ANAPHOR 960 979	This form of cancer
+T10	DISEASE 973 979	cancer
+T11	ANAPHOR 1033 1035	it
+T12	RAREDISEASE 1109 1112	ACC
+T13	DISEASE 1170 1188	metastatic disease
+T14	RAREDISEASE 1248 1251	ACC
+R1	Is_acron Arg1:T2 Arg2:T1	
+R2	Produces Arg1:T10 Arg2:T9	
+R3	Is_a Arg1:T9 Arg2:T10	
+R4	Anaphora Arg1:T12 Arg2:T9	
+R5	Anaphora Arg1:T12 Arg2:T11	
+R6	Is_a Arg1:T12 Arg2:T13	

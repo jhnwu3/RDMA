@@ -1,0 +1,6 @@
+T1	SIGN 22 40	spastic paraplegia
+T2	SIGN 45 88	developmental delay/intellectual disability
+T3	DISEASE 65 88	intellectual disability
+T4	RAREDISEASE 94 108	L1CAM syndrome
+R1	Produces Arg1:T4 Arg2:T1	
+R2	Produces Arg1:T4 Arg2:T2	

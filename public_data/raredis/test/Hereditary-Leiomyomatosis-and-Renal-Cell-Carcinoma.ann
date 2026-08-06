@@ -1,0 +1,6 @@
+T1	RAREDISEASE 0 5	HLRCC
+T2	ANAPHOR 50 62	The disorder
+T3	SIGN 135 150	uterine fibroid
+T4	RAREDISEASE 214 219	HLRCC
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T2 Arg2:T3	

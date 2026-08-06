@@ -1,0 +1,38 @@
+T1	RAREDISEASE 0 20	Empty sella syndrome
+T2	SIGN 126 139;57 87	sella turcica enlargement or malformation of
+T3	RAREDISEASE 288 308	empty sella syndrome
+T4	SIGN 314 379	sella turcica is either partially filled with cerebrospinal fluid
+T5	SIGN 386 455	very small associated pituitary gland lying in the floor of the sella
+T6	RAREDISEASE 457 478	partially empty sella
+T7	SIGN 483 560	completely filled with cerebrospinal fluid with no visualized pituitary gland
+T8	RAREDISEASE 562 584	completely empty sella
+T9	RAREDISEASE 609 629	empty sella syndrome
+T10	SIGN 705 725	hormone deficiencies
+T11	RAREDISEASE 727 747	Empty sella syndrome
+T12	ANAPHOR 863 865	it
+T13	RAREDISEASE 934 949	pituitary tumor
+T14	RAREDISEASE 988 1024	idiopathic intracranial hypertension
+T15	RAREDISEASE 1038 1057	pseudotumor cerebri
+T16	SIGN 1072 1093	elevated intracranial
+T17	RAREDISEASE 1110 1130	empty sella syndrome
+T18	RAREDISEASE 1132 1160	Primary empty sella syndrome
+T19	DISEASE 1294 1306	hypertension
+T20	SIGN 1294 1306	hypertension
+T21	RAREDISEASE 1334 1354	empty sella syndrome
+T22	ANAPHOR 1412 1424	the disorder
+T23	RAREDISEASE 1559 1579	empty sella syndrome
+T24	ANAPHOR 1624 1636	the disorder
+T25	RAREDISEASE 1707 1727	empty sella syndrome
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T6 Arg2:T4	
+R3	Produces Arg1:T6 Arg2:T5	
+R4	Produces Arg1:T8 Arg2:T70	
+R5	Produces Arg1:T9 Arg2:T10	
+R6	Increases_risk_of Arg1:T11 Arg2:T12	
+R7	Increases_risk_of Arg1:T13 Arg2:T12	
+R8	Increases_risk_of Arg1:T14 Arg2:T12	
+R9	Produces Arg1:T14 Arg2:T16	
+R10	Is_synon Arg1:T10 Arg2:T7	
+R11	Produces Arg1:T18 Arg2:T20	
+R12	Anaphora Arg1:T21 Arg2:T22	
+R13	Anaphora Arg1:T23 Arg2:T24	

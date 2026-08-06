@@ -1,0 +1,31 @@
+T1	RAREDISEASE 0 25	Chromosome 8, Monosomy 8p
+T2	DISEASE 36 56	chromosomal disorder
+T3	SIGN 257 274	growth deficiency
+T4	DISEASE 276 294	mental retardation
+T5	SIGN 276 294	mental retardation
+T6	SIGN 296 355	malformations of the skull and facial (craniofacial) region
+T7	DISEASE 379 391	microcephaly
+T8	SIGN 379 391	microcephaly
+T9	SIGN 457 473	epicanthal folds
+T10	SIGN 476 481;492 505	heart abnormalities
+T11	SIGN 514 547	genital defects in affected males
+T12	SIGN 560 581	craniofacial features
+T13	SIGN 656 673	short, broad nose
+T14	SIGN 677 699	low, wide nasal bridge
+T15	SIGN 721 733	micrognathia
+T16	RAREDISEASE 751 776	Chromosome 8, Monosomy 8p
+T17	RAREDISEASE 897 922	Chromosome 8, Monosomy 8p
+T18	ANAPHOR 996 1008	the disorder
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T5	
+R4	Produces Arg1:T1 Arg2:T6	
+R5	Produces Arg1:T1 Arg2:T8	
+R6	Produces Arg1:T1 Arg2:T90	
+R7	Produces Arg1:T1 Arg2:T10	
+R8	Produces Arg1:T1 Arg2:T11	
+R9	Produces Arg1:T1 Arg2:T12	
+R10	Produces Arg1:T1 Arg2:T13	
+R11	Produces Arg1:T1 Arg2:T14	
+R12	Produces Arg1:T1 Arg2:T15	
+R13	Anaphora Arg1:T17 Arg2:T180	

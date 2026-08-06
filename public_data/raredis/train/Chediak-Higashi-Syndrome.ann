@@ -1,0 +1,5 @@
+T1	SKINRAREDISEASE 0 24	Chediak-Higashi syndrome
+T2	ANAPHOR 98 100	It
+T3	ANAPHOR 268 279	the disease
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	

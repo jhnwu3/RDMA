@@ -1,0 +1,13 @@
+T1	SKINRAREDISEASE 0 27	Lymphomatoid granulomatosis
+T2	DISEASE 136 164	lymphoproliferative disorder
+T3	SIGN 136 164	lymphoproliferative disorder
+T4	SIGN 258 333	lesions or nodules damage or destroy the blood vessels within these tissues
+T5	SKINRAREDISEASE 375 402	lymphomatoid granulomatosis
+T6	SIGN 427 432	cough
+T7	SIGN 455 462	dyspnea
+T8	SIGN 468 483	chest tightness
+R1	Produces Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T40	
+R3	Produces Arg1:T5 Arg2:T6	
+R4	Produces Arg1:T5 Arg2:T7	
+R5	Produces Arg1:T5 Arg2:T8	

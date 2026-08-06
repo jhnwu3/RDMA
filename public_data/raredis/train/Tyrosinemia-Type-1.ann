@@ -1,0 +1,19 @@
+T1	RAREDISEASE 0 18	Tyrosinemia type I
+T2	DISEASE 29 75	autosomal recessive genetic metabolic disorder
+T3	SIGN 93 141	lack of the enzyme fumarylacetoacetate hydrolase
+T4	SIGN 218 257	Failure to properly break down tyrosine
+T5	SIGN 276 300	accumulation of tyrosine
+T6	SIGN 276 300;309 333	accumulation of tyrosine metabolites in the liver
+T7	SIGN 360 380	severe liver disease
+T8	DISEASE 367 380	liver disease
+T9	SIGN 382 390;411 425	Tyrosine in the kidneys
+T10	SIGN 382 390;430 452	Tyrosine central nervous system
+T11	RAREDISEASE 454 472	Tyrosinemia type I
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T5	
+R5	Produces Arg1:T1 Arg2:T6	
+R6	Produces Arg1:T1 Arg2:T7	
+R7	Produces Arg1:T1 Arg2:T90	
+R8	Produces Arg1:T1 Arg2:T10	

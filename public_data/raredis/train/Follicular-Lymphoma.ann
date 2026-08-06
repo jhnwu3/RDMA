@@ -1,0 +1,31 @@
+T1	RAREDISEASE 1 20	Follicular lymphoma
+T2	DISEASE 34 40	cancer
+T3	ANAPHOR 42 44	It
+T4	RAREDISEASE 58 78	non-Hodgkin lymphoma
+T5	RAREDISEASE 80 83	NHL
+T6	DISEASE 114 121	cancers
+T7	RAREDISEASE 156 165	lymphomas
+T8	RAREDISEASE 1694 1713	Follicular lymphoma
+T9	ANAPHOR 1780 1799	This form of cancer
+T10	DISEASE 1793 1799	cancer
+T11	ANAPHOR 1864 1866	It
+T12	ANAPHOR 1931 1933	it
+T13	RAREDISEASE 2033 2052	follicular lymphoma
+T14	RAREDISEASE 2090 2110	non-Hodgkin lymphoma
+T15	RAREDISEASE 2155 2175	non-Hodgkin lymphoma
+T16	RAREDISEASE 2224 2232	lymphoma
+T17	RAREDISEASE 2293 2312	follicular lymphoma
+T18	RAREDISEASE 2314 2343	Pediatric follicular lymphoma
+T19	RAREDISEASE 2401 2420	malignant lymphomas
+T20	RAREDISEASE 2434 2454	Non-Hodgkin lymphoma
+T21	DISEASE 2507 2513	cancer
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Is_a Arg1:T4 Arg2:T6	
+R4	Is_a Arg1:T4 Arg2:T7	
+R5	Is_acron Arg1:T5 Arg2:T4	
+R6	Anaphora Arg1:T20 Arg2:T31	
+R7	Anaphora Arg1:T20 Arg2:T35	
+R8	Anaphora Arg1:T20 Arg2:T36	
+R9	Is_a Arg1:T9 Arg2:T10	
+R10	Is_a Arg1:T20 Arg2:T210	

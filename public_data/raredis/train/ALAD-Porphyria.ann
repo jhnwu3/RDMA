@@ -1,0 +1,12 @@
+T1	RAREDISEASE 0 14	ALAD porphyria
+T2	ANAPHOR 141 153	the disorder
+T3	RAREDISEASE 232 246	ALAD porphyria
+T4	ANAPHOR 291 303	the disorder
+T5	RAREDISEASE 396 410	ALAD porphyria
+T6	ANAPHOR 497 510	this disorder
+T7	RAREDISEASE 551 565	ALAD porphyria
+T8	ANAPHOR 624 636	the disorder
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T3 Arg2:T4	
+R3	Anaphora Arg1:T5 Arg2:T6	
+R4	Anaphora Arg1:T7 Arg2:T8	

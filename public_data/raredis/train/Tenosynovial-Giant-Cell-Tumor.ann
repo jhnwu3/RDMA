@@ -1,0 +1,3 @@
+T1	RAREDISEASE 0 30	Tenosynovial giant cell tumors
+T2	ANAPHOR 132 144	these tumors
+R1	Anaphora Arg1:T1 Arg2:T2	

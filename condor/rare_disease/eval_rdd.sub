@@ -1,0 +1,66 @@
+# eval_rdd.sub — submits one RDD evaluation job per (approach, model); each job is scheduled independently
+executable = /home/johnwu3/projects/rare_disease/workspace/condor/rare_disease/run_eval_rdd.sh
+
+Requirements = (Machine == "sunlab-c02.cs.illinois.edu")
+
+universe       = vanilla
+request_cpus   = 16
+request_memory = 32GB
+request_gpus   = 1
+
+log    = /home/johnwu3/projects/rare_disease/workspace/logs/rdd/eval_$(approach)/$(model_type)/$(Cluster).$(Process).log
+output = /home/johnwu3/projects/rare_disease/workspace/logs/rdd/eval_$(approach)/$(model_type)/$(Cluster).$(Process).out
+error  = /home/johnwu3/projects/rare_disease/workspace/logs/rdd/eval_$(approach)/$(model_type)/$(Cluster).$(Process).err
+
+arguments = $(model_type) $(approach)
+
+# ── rdma approach ─────────────────────────────────────────────────────────────
+approach = rdma
+
+model_type = llama3_8b
+queue
+
+model_type = mistral_24b
+queue
+
+model_type = llama3_70b
+queue
+
+model_type = qwen3_32b
+queue
+
+# ── zeroshot approach ─────────────────────────────────────────────────────────
+approach = zeroshot
+
+model_type = llama3_8b
+queue
+
+model_type = mistral_24b
+queue
+
+model_type = llama3_70b
+queue
+
+model_type = qwen3_32b
+queue
+
+# ── rdrag approach ─────────────────────────────────────────────────────────────
+approach = rdrag
+
+model_type = llama3_8b
+queue
+
+model_type = mistral_24b
+queue
+
+model_type = llama3_70b
+queue
+
+model_type = qwen3_32b
+queue
+
+# ── dict approach ─────────────────────────────────────────────────────────────
+approach = dict
+
+model_type = dict
+queue

@@ -1,0 +1,11 @@
+T1	RAREDISEASE 0 31	Hypoplastic left heart syndrome
+T2	RAREDISEASE 881 912	Hypoplastic left heart syndrome
+T3	ANAPHOR 1017 1029	the disorder
+T4	RAREDISEASE 1059 1090	Hypoplastic left heart syndrome
+T5	DISEASE 1123 1147	congenital heart defects
+T6	ANAPHOR 1165 1178	this disorder
+T7	RAREDISEASE 1231 1262	hypoplastic left heart syndrome
+T8	RAREDISEASE 1419 1450	hypoplastic left heart syndrome
+R1	Anaphora Arg1:T2 Arg2:T3	
+R2	Is_a Arg1:T4 Arg2:T5	
+R3	Anaphora Arg1:T4 Arg2:T6	

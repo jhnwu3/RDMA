@@ -1,0 +1,35 @@
+T1	SKINRAREDISEASE 0 16	Grover's disease
+T2	DISEASE 28 51	transient skin disorder
+T3	SIGN 69 100	small, firm, raised red lesions
+T4	SIGN 113 115;128 137;69 100	on the chest small, firm, raised red lesions
+T5	SIGN 113 119;142 146;69 100	on the back small, firm, raised red lesions
+T6	ANAPHOR 161 174	this disorder
+T7	SIGN 231 286	"loss of the ""cement"" that holds the skin cells together"
+T8	SIGN 318 341	"skin loses the ""cement"""
+T9	SIGN 347 352;363 368	cells lysis
+T10	SIGN 371 412	Small blisters containing a watery liquid
+T11	SKINRAREDISEASE 498 514	Grover's disease
+T12	ANAPHOR 591 593	it
+T13	SKINRAREDISEASE 669 685	Grover’s disease
+T14	ANAPHOR 701 703	It
+T15	DISEASE 786 799	skin disorder
+T16	ANAPHOR 872 885	this disorder
+T17	ANAPHOR 1069 1082	this disorder
+T18	SKINRAREDISEASE 1144 1160	Grover’s disease
+T19	DISEASE 1171 1184	skin disorder
+T20	ANAPHOR 1239 1241	It
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T5	
+R5	Anaphora Arg1:T1 Arg2:T6	
+R6	Produces Arg1:T1 Arg2:T90	
+R7	Produces Arg1:T6 Arg2:T7	
+R8	Produces Arg1:T6 Arg2:T8	
+R9	Produces Arg1:T6 Arg2:T10	
+R10	Anaphora Arg1:T11 Arg2:T12	
+R11	Anaphora Arg1:T13 Arg2:T14	
+R12	Anaphora Arg1:T13 Arg2:T16	
+R13	Anaphora Arg1:T13 Arg2:T17	
+R14	Is_a Arg1:T18 Arg2:T19	
+R15	Anaphora Arg1:T18 Arg2:T20	

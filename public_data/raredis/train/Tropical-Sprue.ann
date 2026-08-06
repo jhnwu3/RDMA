@@ -1,0 +1,32 @@
+T1	RAREDISEASE 0 14	Tropical Sprue
+T2	DISEASE 25 42	digestive disease
+T3	SIGN 115 128	malabsorption
+T4	SIGN 145 169	nutritional deficiencies
+T5	SIGN 174 231	abnormalities in the mucous lining of the small intestine
+T6	ANAPHOR 267 280	this disorder
+T7	ANAPHOR 303 305	it
+T8	ANAPHOR 395 397	it
+T9	RAREDISEASE 436 450	Tropical Sprue
+T10	ANAPHOR 466 468	It
+T11	RAREDISEASE 558 572	Tropical Sprue
+T12	RAREDISEASE 730 744	Tropical Sprue
+T13	RAREDISEASE 862 876	Tropical Sprue
+T14	ANAPHOR 919 921	It
+T15	RAREDISEASE 1100 1114	Tropical Sprue
+T16	ANAPHOR 1285 1299	f the disorder
+T17	SIGN 1576 1584	Diarrhea
+T18	ANAPHOR 1601 1614	this disorder
+T19	SIGN 1643 1651	diarrhea
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T5	
+R5	Anaphora Arg1:T1 Arg2:T6	
+R6	Anaphora Arg1:T1 Arg2:T7	
+R7	Anaphora Arg1:T1 Arg2:T8	
+R8	Anaphora Arg1:T9 Arg2:T10	
+R9	Anaphora Arg1:T13 Arg2:T14	
+R10	Anaphora Arg1:T15 Arg2:T160	
+R11	Anaphora Arg1:T15 Arg2:T18	
+R12	Produces Arg1:T18 Arg2:T17	
+R13	Produces Arg1:T18 Arg2:T19	

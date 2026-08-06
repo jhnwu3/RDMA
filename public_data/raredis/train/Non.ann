@@ -1,0 +1,17 @@
+T1	RAREDISEASE 0 31	Non-24-hour sleep-wake disorder
+T2	RAREDISEASE 33 36	N24
+T3	DISEASE 43 74	circadian rhythm sleep disorder
+T4	SIGN 87 154	individual's biological clock fails to synchronize to a 24-hour day
+T5	RAREDISEASE 225 228	N24
+T6	SIGN 326 420	sleep at later and later clock times until their sleep periods go all the way around the clock
+T7	SIGN 527 543;569 596	body temperature follow a non-24-hour rhythm
+T8	SIGN 548 596	hormone rhythms also follow a non-24-hour rhythm
+T9	SIGN 687 726	severe and cumulative sleep deprivation
+T10	RAREDISEASE 728 731	N24
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Is_acron Arg1:T2 Arg2:T1	
+R4	Produces Arg1:T5 Arg2:T6	
+R5	Produces Arg1:T5 Arg2:T7	
+R6	Produces Arg1:T5 Arg2:T8	
+R7	Produces Arg1:T5 Arg2:T90	

@@ -1,0 +1,15 @@
+T1	RAREDISEASE 22 25	MDD
+T2	RAREDISEASE 45 48	MDD
+T3	SIGN 73 158	body’s balance system inadequately processing and adapting to multiple sensory inputs
+T4	ANAPHOR 271 273	It
+T5	SIGN 320 384	balance system’s inability to appropriately compensate and adapt
+T6	DISEASE 558 566	migraine
+T7	RAREDISEASE 650 653	MDD
+T8	SYMPTOM 737 746;748 843	dizziness after an ocean cruise, a sailing trip, a prolonged airplane flight or a cross-country road trip
+T9	RAREDISEASE 868 871	MDD
+T10	RAREDISEASE 916 919	MDD
+R1	Produces Arg1:T2 Arg2:T3	
+R2	Anaphora Arg1:T2 Arg2:T40	
+R3	Produces Arg1:T10 Arg2:T6	
+R4	Increases_risk_of Arg1:T6 Arg2:T7	
+R5	Produces Arg1:T9 Arg2:T8	

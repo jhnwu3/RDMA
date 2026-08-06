@@ -1,0 +1,58 @@
+T1	RAREDISEASE 0 18	Ruvalcaba syndrome
+T2	DISEASE 29 47	inherited disorder
+T3	SIGN 65 78	short stature
+T4	SIGN 80 143	abnormalities affecting the head and facial (craniofacial) area
+T5	DISEASE 145 163	mental retardation
+T6	SIGN 145 163	mental retardation
+T7	SIGN 165 187	skeletal malformations
+T8	SIGN 212 223;225 234	hypoplastic genitalia
+T9	SIGN 236 272	Characteristic craniofacial features
+T10	DISEASE 307 319	microcephaly
+T11	SIGN 307 319	microcephaly
+T12	SIGN 336 354	small, narrow nose
+T13	SIGN 360 386	down-slanting eyelid folds
+T14	SIGN 409 431	Skeletal malformations
+T15	SIGN 505 517	clinodactyly
+T16	SIGN 537 542;585 596	short metacarpals
+T17	SIGN 537 542;623 634	short metatarsals
+T18	SIGN 660 671	small hands
+T19	SIGN 660 665;676 680	small feet
+T20	DISEASE 768 777	scoliosis
+T21	SIGN 768 777	scoliosis
+T22	SIGN 794 822	prominence of the breastbone
+T23	RAREDISEASE 843 861	Ruvalcaba syndrome
+T24	RAREDISEASE 915 933	Ruvalcaba syndrome
+T25	RAREDISEASE 1157 1175	Ruvalcaba syndrome
+T26	RAREDISEASE 1222 1261	trichorhinophalangeal syndrome type III
+T27	RAREDISEASE 1266 1298	Hunter-McAlpine craniosynostosis
+T28	RAREDISEASE 1434 1452	Ruvalcaba syndrome
+T29	RAREDISEASE 1593 1611	Ruvalcaba syndrome
+T30	DISEASE 1698 1710	microcephaly
+T31	SIGN 1698 1710	microcephaly
+T32	SIGN 1712 1747	characteristic facial abnormalities
+T33	SIGN 1749 1771	skeletal malformations
+T34	SIGN 1920 1952	shortening of bones in the hands
+T35	SIGN 1920 1946;1957 1961	shortening of bones in the feet
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T6	
+R5	Produces Arg1:T1 Arg2:T7	
+R6	Produces Arg1:T1 Arg2:T8	
+R7	Produces Arg1:T1 Arg2:T9	
+R8	Produces Arg1:T1 Arg2:T11	
+R9	Produces Arg1:T1 Arg2:T12	
+R10	Produces Arg1:T1 Arg2:T13	
+R11	Produces Arg1:T1 Arg2:T14	
+R12	Produces Arg1:T1 Arg2:T15	
+R13	Produces Arg1:T1 Arg2:T16	
+R14	Produces Arg1:T1 Arg2:T17	
+R15	Produces Arg1:T1 Arg2:T18	
+R16	Produces Arg1:T1 Arg2:T19	
+R17	Produces Arg1:T1 Arg2:T210	
+R18	Produces Arg1:T1 Arg2:T22	
+R19	Produces Arg1:T29 Arg2:T31	
+R20	Produces Arg1:T29 Arg2:T32	
+R21	Produces Arg1:T29 Arg2:T33	
+R22	Produces Arg1:T29 Arg2:T34	
+R23	Produces Arg1:T29 Arg2:T35	

@@ -1,0 +1,43 @@
+T1	RAREDISEASE 0 14	Brown Syndrome
+T2	DISEASE 25 37	eye disorder
+T3	SIGN 55 79	defects in eye movements
+T4	ANAPHOR 81 94	This disorder
+T5	RAREDISEASE 494 508	Brown Syndrome
+T6	SIGN 523 558	abnormalities of this tendon sheath
+T7	SIGN 545 558;569 579	tendon sheath shortening
+T8	SIGN 545 558;581 591	tendon sheath thickening
+T9	SIGN 545 558;596 608	tendon sheath inflammation
+T10	SIGN 630 671	inability to move the affected eye upward
+T11	RAREDISEASE 685 699	Brown Syndrome
+T12	SIGN 705 745	limited eye movement in the affected eye
+T13	SIGN 751 778;857 877	ability to move the eyeball restricted or absent
+T14	SIGN 884 887;905 945	eye out of alignment with the unaffected eye
+T15	RAREDISEASE 996 1010	Brown Syndrome
+T16	SIGN 1045 1051	ptosis
+T17	SIGN 1075 1092	palpebral fissure
+T18	SIGN 1137 1147	strabismus
+T19	SIGN 1159 1177	backward head tilt
+T20	DISEASE 1203 1213	hypotropia
+T21	SIGN 1203 1213	hypotropia
+T22	RAREDISEASE 1461 1475	Brown Syndrome
+T23	RAREDISEASE 1477 1491	Brown Syndrome
+T24	DISEASE 1502 1514	eye disorder
+T25	ANAPHOR 1602 1613	the disease
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Anaphora Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T5 Arg2:T6	
+R5	Produces Arg1:T5 Arg2:T7	
+R6	Produces Arg1:T5 Arg2:T8	
+R7	Produces Arg1:T5 Arg2:T9	
+R8	Produces Arg1:T5 Arg2:T10	
+R9	Produces Arg1:T11 Arg2:T12	
+R10	Produces Arg1:T11 Arg2:T13	
+R11	Produces Arg1:T11 Arg2:T140	
+R12	Produces Arg1:T15 Arg2:T16	
+R13	Produces Arg1:T15 Arg2:T17	
+R14	Produces Arg1:T15 Arg2:T18	
+R15	Produces Arg1:T15 Arg2:T19	
+R16	Produces Arg1:T15 Arg2:T21	
+R17	Is_a Arg1:T10 Arg2:T19	
+R18	Anaphora Arg1:T10 Arg2:T27	

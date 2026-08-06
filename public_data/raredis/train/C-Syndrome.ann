@@ -1,0 +1,10 @@
+T1	RAREDISEASE 1 11	C syndrome
+T2	RAREDISEASE 27 56	Opitz trigonocephaly syndrome
+T3	RAREDISEASE 106 123	gonadal mosaicism
+T4	RAREDISEASE 127 136	Mosaicism
+T5	SIGN 181 232	cells that differ from each other in genetic makeup
+T6	RAREDISEASE 361 370	mosaicism
+T7	RAREDISEASE 402 411	Mosaicism
+T8	RAREDISEASE 568 578	C syndrome
+R1	Is_synon Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T4 Arg2:T50	

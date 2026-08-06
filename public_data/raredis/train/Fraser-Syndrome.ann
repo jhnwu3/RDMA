@@ -1,0 +1,45 @@
+T1	RAREDISEASE 0 15	Fraser syndrome
+T2	DISEASE 26 42	genetic disorder
+T3	DISEASE 104 122	partial syndactyly
+T4	SIGN 104 122	partial syndactyly
+T5	SIGN 133 138;140 153	renal abnormalities
+T6	SIGN 155 176	genital malformations
+T7	SIGN 233 248	cryptophthalmos
+T8	SIGN 278 302	malformation of the eyes
+T9	SIGN 312 321	blindness
+T10	RAREDISEASE 339 354	Fraser syndrome
+T11	SIGN 356 375	renal malformations
+T12	SIGN 488 526	unilateral or bilateral renal agenesis
+T13	RAREDISEASE 512 526	renal agenesis
+T14	DISEASE 605 619	cryptorchidism
+T15	SIGN 605 619	cryptorchidism
+T16	DISEASE 707 718	hypospadias
+T17	SIGN 707 718	hypospadias
+T18	SIGN 763 773	micropenis
+T19	SIGN 802 827	malformed fallopian tubes
+T20	SIGN 862 875	clitoromegaly
+T21	SIGN 914 930	bicornate uterus
+T22	SIGN 1003 1008;1028 1033	labia fused
+T23	RAREDISEASE 1061 1076	Fraser syndrome
+T24	SIGN 1126 1167	malformations of the middle and outer ear
+T25	SIGN 1187 1205	hearing impairment
+T26	RAREDISEASE 1207 1222	Fraser syndrome
+T27	RAREDISEASE 1277 1292	Fraser syndrome
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Produces Arg1:T1 Arg2:T5	
+R4	Produces Arg1:T1 Arg2:T6	
+R5	Produces Arg1:T1 Arg2:T7	
+R6	Produces Arg1:T1 Arg2:T8	
+R7	Produces Arg1:T1 Arg2:T9	
+R8	Produces Arg1:T10 Arg2:T11	
+R9	Produces Arg1:T10 Arg2:T12	
+R10	Produces Arg1:T10 Arg2:T15	
+R11	Produces Arg1:T10 Arg2:T17	
+R12	Produces Arg1:T10 Arg2:T18	
+R13	Produces Arg1:T10 Arg2:T19	
+R14	Produces Arg1:T10 Arg2:T20	
+R15	Produces Arg1:T10 Arg2:T21	
+R16	Produces Arg1:T10 Arg2:T22	
+R17	Produces Arg1:T23 Arg2:T24	
+R18	Produces Arg1:T23 Arg2:T25	

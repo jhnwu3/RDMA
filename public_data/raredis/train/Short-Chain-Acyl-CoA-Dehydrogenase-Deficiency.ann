@@ -1,0 +1,14 @@
+T1	RAREDISEASE 0 45	Short chain acyl-CoA dehydrogenase deficiency
+T2	RAREDISEASE 47 52	SCADD
+T3	DISEASE 64 123	autosomal recessive genetic defect in fatty acid catabolism
+T4	DISEASE 166 196	fatty acid oxidation disorders
+T5	DISEASE 198 201	FOD
+T6	ANAPHOR 204 206	It
+T7	SIGN 227 293	deficiency of the short-chain acyl-CoA dehydrogenase (SCAD) enzyme
+T8	RAREDISEASE 295 310	SCAD deficiency
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Is_a Arg1:T1 Arg2:T4	
+R3	Anaphora Arg1:T1 Arg2:T6	
+R4	Is_acron Arg1:T2 Arg2:T1	
+R5	Is_acron Arg1:T5 Arg2:T4	
+R6	Produces Arg1:T6 Arg2:T7	

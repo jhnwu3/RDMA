@@ -1,0 +1,51 @@
+T1	RAREDISEASE 0 23	Chiari-Frommel Syndrome
+T2	DISEASE 34 52	endocrine disorder
+T3	DISEASE 175 187	galactorrhea
+T4	SIGN 175 187	galactorrhea
+T5	DISEASE 209 220	anovulation
+T6	SIGN 209 220	anovulation
+T7	DISEASE 269 279	amenorrhea
+T8	SIGN 269 279	amenorrhea
+T9	RAREDISEASE 285 308	Chiari-Frommel Syndrome
+T10	SIGN 455 461;463 470	uterus atrophy
+T11	RAREDISEASE 487 510	Chiari-Frommel Syndrome
+T12	RAREDISEASE 624 647	Chiari-Frommel Syndrome
+T13	DISEASE 724 736	galactorrhea
+T14	SIGN 724 736	galactorrhea
+T15	DISEASE 785 795	amenorrhea
+T16	SIGN 785 795	amenorrhea
+T17	SIGN 812 823	anovulatory
+T18	RAREDISEASE 979 1002	Chiari-Frommel Syndrome
+T19	SIGN 1085 1137	normal menstrual periods and ovulation do not resume
+T20	SIGN 1143 1180	persistent discharge from the nipples
+T21	SIGN 1253 1271	emotional distress
+T22	SIGN 1273 1280	anxiety
+T23	SYMPTOM 1282 1291	headaches
+T24	SYMPTOM 1293 1302	backaches
+T25	SYMPTOM 1304 1318	abdominal pain
+T26	SIGN 1320 1335	impaired vision
+T27	DISEASE 1354 1361	obesity
+T28	SIGN 1354 1361	obesity
+T29	RAREDISEASE 1379 1402	Chiari-Frommel Syndrome
+T30	SIGN 1435 1468	loss of muscle tone in the uterus
+T31	SIGN 1484 1491;1498 1505	uterine atrophy
+T32	RAREDISEASE 1508 1531	Chiari-Frommel Syndrome
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Produces Arg1:T1 Arg2:T6	
+R4	Produces Arg1:T1 Arg2:T8	
+R5	Produces Arg1:T7 Arg2:T10	
+R6	Produces Arg1:T12 Arg2:T14	
+R7	Produces Arg1:T12 Arg2:T16	
+R8	Produces Arg1:T12 Arg2:T170	
+R9	Produces Arg1:T10 Arg2:T32	
+R10	Produces Arg1:T10 Arg2:T11	
+R11	Produces Arg1:T10 Arg2:T33	
+R12	Produces Arg1:T10 Arg2:T12	
+R13	Produces Arg1:T10 Arg2:T34	
+R14	Produces Arg1:T10 Arg2:T35	
+R15	Produces Arg1:T10 Arg2:T13	
+R16	Produces Arg1:T10 Arg2:T36	
+R17	Produces Arg1:T10 Arg2:T37	
+R18	Produces Arg1:T29 Arg2:T30	
+R19	Produces Arg1:T29 Arg2:T31	

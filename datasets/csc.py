@@ -8,10 +8,9 @@ from pyhealth.datasets import BaseDataset
 
 logger = logging.getLogger(__name__)
 
-# Raw corpus root (contains phenotype_mining_benchmark.json)
-_DEFAULT_ROOT = Path(
-    "/home/johnwu3/projects/rare_disease/workspace/repos/CSC"
-)
+# Raw corpus root (contains phenotype_mining_benchmark.json). Vendored into the
+# repo under public_data/; see public_data/README.md for provenance and license.
+_DEFAULT_ROOT = Path(__file__).resolve().parents[1] / "public_data" / "csc"
 
 # Source JSON file name
 _JSON_FILE = "phenotype_mining_benchmark.json"

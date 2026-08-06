@@ -1,0 +1,5 @@
+T1	RAREDISEASE 71 88	Mosaic trisomy 22
+T2	ANAPHOR 376 388	The disorder
+T3	ANAPHOR 720 732	the disorder
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	

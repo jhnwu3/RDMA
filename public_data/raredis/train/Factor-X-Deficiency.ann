@@ -1,0 +1,4 @@
+T1	RAREDISEASE 0 19	Factor X deficiency
+T2	ANAPHOR 107 119	The disorder
+T3	RAREDISEASE 232 251	factor X deficiency
+R1	Anaphora Arg1:T1 Arg2:T2	

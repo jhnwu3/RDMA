@@ -1,0 +1,33 @@
+T1	RAREDISEASE 0 31	Ablepharon-Macrostomia Syndrome
+T2	RAREDISEASE 33 36	AMS
+T3	DISEASE 59 77	inherited disorder
+T4	SIGN 103 175	physical abnormalities affecting the head and facial (craniofacial) area
+T5	SIGN 103 135;177 185	physical abnormalities affecting the skin
+T6	SIGN 103 135;187 198	physical abnormalities affecting the fingers
+T7	SIGN 103 135;204 216	physical abnormalities affecting the genitals
+T8	SIGN 261 289	malformations of the nipples
+T9	SIGN 261 274;298 312	malformations abdominal wall
+T10	RAREDISEASE 340 343	AMS
+T11	SIGN 364 394	delays in language development
+T12	DISEASE 415 433	mental retardation
+T13	SIGN 415 433	mental retardation
+T14	RAREDISEASE 435 466	Ablepharon-Macrostomia Syndrome
+T15	RAREDISEASE 468 471	AMS
+T16	DISEASE 494 510;538 548	genetic disorder congenital
+T17	ANAPHOR 552 564	The disorder
+T18	RAREDISEASE 781 784	AMS
+T19	ANAPHOR 880 892	the syndrome
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Produces Arg1:T1 Arg2:T5	
+R4	Produces Arg1:T1 Arg2:T6	
+R5	Produces Arg1:T1 Arg2:T7	
+R6	Produces Arg1:T1 Arg2:T80	
+R7	Produces Arg1:T1 Arg2:T9	
+R8	Is_acron Arg1:T2 Arg2:T1	
+R9	Produces Arg1:T10 Arg2:T11	
+R10	Produces Arg1:T10 Arg2:T13	
+R11	Is_a Arg1:T14 Arg2:T16	
+R12	Anaphora Arg1:T14 Arg2:T17	
+R13	Is_acron Arg1:T15 Arg2:T14	
+R14	Anaphora Arg1:T18 Arg2:T19	

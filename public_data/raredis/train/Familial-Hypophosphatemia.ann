@@ -1,0 +1,33 @@
+T1	RAREDISEASE 0 25	Familial hypophosphatemia
+T2	DISEASE 67 86	inherited disorders
+T3	SIGN 104 145	impaired kidney conservation of phosphate
+T4	SIGN 165 193	altered vitamin D metabolism
+T5	DISEASE 223 239	hypophosphatemia
+T6	DISEASE 344 368	chronic hypophosphatemia
+T7	DISEASE 414 421	rickets
+T8	SIGN 414 421	rickets
+T9	DISEASE 435 447	bone disease
+T10	SIGN 468 495	bow deformities of the legs
+T11	SIGN 497 523	growth plate abnormalities
+T12	SIGN 529 562	progressive softening of the bone
+T13	DISEASE 579 591	osteomalacia
+T14	SIGN 579 591	osteomalacia
+T15	SIGN 607 635	growth rates may be impaired
+T16	SIGN 661 674	short stature
+T17	DISEASE 727 739	osteomalacia
+T18	SIGN 727 739	osteomalacia
+T19	RAREDISEASE 769 794	Familial hypophosphatemia
+T20	RAREDISEASE 902 927	familial hypophosphatemia
+R1	Is_a Arg1:T1 Arg2:T20	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Is_a Arg1:T1 Arg2:T5	
+R5	Produces Arg1:T6 Arg2:T8	
+R6	Produces Arg1:T6 Arg2:T11	
+R7	Produces Arg1:T6 Arg2:T12	
+R8	Produces Arg1:T6 Arg2:T14	
+R9	Produces Arg1:T6 Arg2:T15	
+R10	Produces Arg1:T6 Arg2:T16	
+R11	Produces Arg1:T6 Arg2:T18	
+R12	Is_a Arg1:T7 Arg2:T9	
+R13	Produces Arg1:T7 Arg2:T10	

@@ -1,0 +1,6 @@
+T1	RAREDISEASE 0 15	Kabuki syndrome
+T2	RAREDISEASE 77 92	Kabuki syndrome
+T3	RAREDISEASE 273 288	Kabuki syndrome
+T4	ANAPHOR 344 356	the disorder
+T5	RAREDISEASE 386 401	Kabuki syndrome
+R1	Anaphora Arg1:T5 Arg2:T4	

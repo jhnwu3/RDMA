@@ -1,0 +1,14 @@
+T1	RAREDISEASE 0 20	Autoimmune hepatitis
+T2	SIGN 11 20	hepatitis
+T3	RAREDISEASE 262 265	AIH
+T4	RAREDISEASE 298 301	AIH
+T5	DISEASE 323 348	autoimmune liver diseases
+T6	RAREDISEASE 350 380	primary sclerosing cholangitis
+T7	RAREDISEASE 384 411	primary biliary cholangitis
+T8	DISEASE 430 451	autoimmune conditions
+T9	RAREDISEASE 537 540	AIH
+T10	RAREDISEASE 711 714	AIH
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Is_a Arg1:T6 Arg2:T5	
+R3	Is_a Arg1:T7 Arg2:T5	
+R4	Increases_risk_of Arg1:T8 Arg2:T9	

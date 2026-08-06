@@ -1,0 +1,33 @@
+T1	RAREDISEASE 0 17	Fournier gangrene
+T2	SIGN 9 17	gangrene
+T3	SIGN 24 63	acute necrotic infection of the scrotum
+T4	SIGN 24 55;65 70	acute necrotic infection of the penis
+T5	SIGN 24 55;75 83	acute necrotic infection of the perineum
+T6	ANAPHOR 85 87	It
+T7	SYMPTOM 108 120	scrotum pain
+T8	SIGN 108 115;125 132	scrotum redness
+T9	SIGN 159 167	gangrene
+T10	RAREDISEASE 193 210	Fournier gangrene
+T11	SIGN 202 210	gangrene
+T12	DISEASE 235 245;262 272	perirectal infections
+T13	DISEASE 249 272	periurethral infections
+T14	DISEASE 328 349	urinary tract disease
+T15	RAREDISEASE 479 496	Fournier gangrene
+T16	SIGN 488 496	gangrene
+T17	ANAPHOR 539 541	It
+T18	ANAPHOR 684 686	It
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T5	
+R5	Anaphora Arg1:T1 Arg2:T6	
+R6	Produces Arg1:T6 Arg2:T7	
+R7	Produces Arg1:T6 Arg2:T8	
+R8	Produces Arg1:T6 Arg2:T9	
+R9	Produces Arg1:T10 Arg2:T4	
+R10	Increases_risk_of Arg1:T12 Arg2:T100	
+R11	Increases_risk_of Arg1:T13 Arg2:T100	
+R12	Increases_risk_of Arg1:T14 Arg2:T100	
+R13	Produces Arg1:T15 Arg2:T16	
+R14	Anaphora Arg1:T15 Arg2:T17	
+R15	Anaphora Arg1:T15 Arg2:T18	

@@ -1,0 +1,28 @@
+T1	RAREDISEASE 0 43	Carbamoyl phosphate synthetase I deficiency
+T2	RAREDISEASE 45 50	CPSID
+T3	DISEASE 62 80	inherited disorder
+T4	SIGN 98 173	complete or partial lack of the carbamoyl phosphate synthetase (CPS) enzyme
+T5	SIGN 315 338	lack of the CPSI enzyme
+T6	SIGN 410 424	hyperammonemia
+T7	SIGN 474 482	vomiting
+T8	SYMPTOM 484 498	refusal to eat
+T9	SYMPTOM 500 520	progressive lethargy
+T10	SIGN 526 530	coma
+T11	RAREDISEASE 532 537	CPSID
+T12	DISEASE 557 593	autosomal recessive genetic disorder
+T13	RAREDISEASE 622 627	CPSID
+T14	DISEASE 683 703	urea cycle disorders
+T15	DISEASE 753 773	urea cycle disorders
+T16	RAREDISEASE 779 784	CPSID
+T17	DISEASE 900 920	urea cycle disorders
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Produces Arg1:T1 Arg2:T5	
+R4	Produces Arg1:T1 Arg2:T60	
+R5	Produces Arg1:T1 Arg2:T7	
+R6	Produces Arg1:T1 Arg2:T8	
+R7	Produces Arg1:T1 Arg2:T9	
+R8	Produces Arg1:T1 Arg2:T10	
+R9	Is_acron Arg1:T2 Arg2:T1	
+R10	Is_a Arg1:T11 Arg2:T12	
+R11	Is_a Arg1:T16 Arg2:T15	

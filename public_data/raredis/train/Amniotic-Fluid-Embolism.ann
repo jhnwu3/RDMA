@@ -1,0 +1,19 @@
+T1	RAREDISEASE 0 23	Amniotic fluid embolism
+T2	RAREDISEASE 25 28	AFE
+T3	ANAPHOR 223 236	this disorder
+T4	RAREDISEASE 529 552	Amniotic fluid embolism
+T5	RAREDISEASE 613 616	AFE
+T6	SIGN 1011 1029	Breathing problems
+T7	DISEASE 1031 1045	cardiac arrest
+T8	SIGN 1031 1045	cardiac arrest
+T9	SIGN 1051 1069	excessive bleeding
+T10	RAREDISEASE 1288 1311	Amniotic fluid embolism
+T11	RAREDISEASE 1453 1476	Amniotic fluid embolism
+T12	ANAPHOR 1602 1619	this complication
+T13	RAREDISEASE 1633 1656	Amniotic fluid embolism
+R1	Anaphora Arg1:T1 Arg2:T3	
+R2	Is_acron Arg1:T2 Arg2:T1	
+R3	Produces Arg1:T5 Arg2:T6	
+R4	Produces Arg1:T5 Arg2:T8	
+R5	Produces Arg1:T5 Arg2:T9	
+R6	Anaphora Arg1:T10 Arg2:T12	

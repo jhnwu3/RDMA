@@ -1,0 +1,18 @@
+T1	RAREDISEASE 0 15	Horner syndrome
+T2	SIGN 84 90	miosis
+T3	DISEASE 123 129	ptosis
+T4	SIGN 123 129	ptosis
+T5	SIGN 152 163;165 175	of the face anhidrosis
+T6	DISEASE 165 175	anhidrosis
+T7	DISEASE 249 261	enophthalmos
+T8	SIGN 249 261	enophthalmos
+T9	ANAPHOR 300 312	the disorder
+T10	RAREDISEASE 314 329	Horner syndrome
+T11	RAREDISEASE 494 509	Horner syndrome
+T12	ANAPHOR 557 569	the disorder
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Produces Arg1:T1 Arg2:T5	
+R4	Produces Arg1:T1 Arg2:T8	
+R5	Anaphora Arg1:T1 Arg2:T9	
+R6	Anaphora Arg1:T10 Arg2:T16	

@@ -1,0 +1,28 @@
+T1	RAREDISEASE 0 3	PTS
+T2	ANAPHOR 60 72	the disorder
+T3	RAREDISEASE 257 260	PTS
+T4	ANAPHOR 376 389	The condition
+T5	RAREDISEASE 583 586	PTS
+T6	DISEASE 595 603	bursitis
+T7	DISEASE 605 635	rotator cuff injury or disease
+T8	DISEASE 637 656	calcific tendonitis
+T9	DISEASE 658 679	impingement syndromes
+T10	RAREDISEASE 681 704	Guillain-Barre syndrome
+T11	DISEASE 706 727	cervical disc disease
+T12	DISEASE 729 751	cervical radiculopathy
+T13	DISEASE 753 774	mononeuritis monoplex
+T14	RAREDISEASE 776 805	amyotrophic lateral sclerosis
+T15	RAREDISEASE 807 827	Lou Gehrig’s disease
+T16	RAREDISEASE 830 879	chronic inflammatory demyelinating polyneuropathy
+T17	DISEASE 881 904	polymyalgica rheumatica
+T18	RAREDISEASE 906 930	thoracic outlet syndrome
+T19	DISEASE 936 978	brachial plexus injury secondary to cancer
+T20	DISEASE 980 1010	neoplastic brachial plexopathy
+T21	SIGN 1013 1032	Adhesive capsulitis
+T22	RAREDISEASE 1073 1076	PTS
+T23	DISEASE 1196 1217	peripheral neuropathy
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T3 Arg2:T4	
+R3	Is_synon Arg1:T15 Arg2:T14	
+R4	Is_synon Arg1:T20 Arg2:T19	
+R5	Produces Arg1:T22 Arg2:T21	

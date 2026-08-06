@@ -1,0 +1,7 @@
+T1	RAREDISEASE 0 21	Hereditary angioedema
+T2	ANAPHOR 200 213	this disorder
+T3	RAREDISEASE 242 263	hereditary angioedema
+T4	SIGN 363 402	decreased levels of complement proteins
+T5	DISEASE 467 477	angioedema
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T3 Arg2:T4	

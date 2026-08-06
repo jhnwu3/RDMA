@@ -1,0 +1,18 @@
+T1	RAREDISEASE 0 21	Wolff-Parkinson-White
+T2	RAREDISEASE 23 26	WPW
+T3	DISEASE 47 72	congenital heart disorder
+T4	SIGN 83 135	irregularities in the electrical system of the heart
+T5	RAREDISEASE 157 169	WPW syndrome
+T6	SIGN 174 211	abnormal alternate electrical pathway
+T7	SIGN 319 330	arrhythmias
+T8	SIGN 367 378	tachycardia
+T9	RAREDISEASE 381 393	WPW syndrome
+T10	RAREDISEASE 617 629	WPW syndrome
+T11	ANAPHOR 671 683	The disorder
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Is_acron Arg1:T2 Arg2:T1	
+R4	Produces Arg1:T5 Arg2:T6	
+R5	Produces Arg1:T5 Arg2:T7	
+R6	Produces Arg1:T5 Arg2:T8	
+R7	Anaphora Arg1:T10 Arg2:T11	

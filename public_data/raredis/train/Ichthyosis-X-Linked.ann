@@ -1,0 +1,21 @@
+T1	SKINRAREDISEASE 0 19	X-linked ichthyosis
+T2	DISEASE 25 46	genetic skin disorder
+T3	ANAPHOR 67 69	It
+T4	SIGN 76 102	inborn error of metabolism
+T5	SIGN 122 164	deficiency of the enzyme steroid sulfatase
+T6	SIGN 373 406	steroid metabolism is interrupted
+T7	SIGN 411 460	cholesterol sulfate accumulates in the skin cells
+T8	SIGN 462 491	the skin cells stick together
+T9	SIGN 613 619	scales
+T10	DISEASE 621 649	X-linked recessive disorders
+T11	DISEASE 1033 1051	X-linked disorders
+T12	DISEASE 1167 1184	X-linked disorder
+T13	SKINRAREDISEASE 1332 1351	X-linked ichthyosis
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T3 Arg2:T4	
+R4	Produces Arg1:T3 Arg2:T5	
+R5	Produces Arg1:T3 Arg2:T6	
+R6	Produces Arg1:T3 Arg2:T7	
+R7	Produces Arg1:T3 Arg2:T8	
+R8	Produces Arg1:T3 Arg2:T9	

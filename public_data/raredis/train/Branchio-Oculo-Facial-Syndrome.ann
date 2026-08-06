@@ -1,0 +1,10 @@
+T1	RAREDISEASE 0 30	Branchio-oculo-facial syndrome
+T2	RAREDISEASE 32 36	BOFS
+T3	DISEASE 48 64	genetic disorder
+T4	SIGN 127 137;70 89	congenital defects of the head
+T5	SIGN 127 137;70 84;94 98	congenital defects of the neck
+T6	RAREDISEASE 317 321	BOFS
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Produces Arg1:T1 Arg2:T5	
+R4	Is_acron Arg1:T2 Arg2:T1	

@@ -1,0 +1,39 @@
+T1	RAREDISEASE 0 41	Autoimmune polyendocrine syndrome type II
+T2	RAREDISEASE 57 73	Schmidt syndrome
+T3	DISEASE 85 104	autoimmune disorder
+T4	SIGN 125 179	steep drop in production of several essential hormones
+T5	ANAPHOR 245 258	this disorder
+T6	DISEASE 310 327	Addison's disease
+T7	SIGN 310 327	Addison's disease
+T8	DISEASE 356 379	Hashimoto's thyroiditis
+T9	SIGN 356 379	Hashimoto's thyroiditis
+T10	ANAPHOR 446 458	the disorder
+T11	SIGN 502 534	underperforming endocrine glands
+T12	DISEASE 657 674	diabetes mellitus
+T13	SIGN 714 745	Failure of the endocrine glands
+T14	DISEASE 793 805	malnutrition
+T15	SIGN 793 805	malnutrition
+T16	SIGN 853 880	absorb nutrients is reduced
+T17	ANAPHOR 983 996	this disorder
+T18	RAREDISEASE 1029 1036	AIPS-II
+T19	ANAPHOR 1055 1057	it
+T20	RAREDISEASE 1301 1308	AIPS-II
+T21	ANAPHOR 1368 1370	it
+T22	ANAPHOR 1412 1414	it
+T23	RAREDISEASE 1428 1435	AIPS-II
+T24	RAREDISEASE 1518 1550	autoimmune polyendocrine type II
+R1	Is_a Arg1:T1 Arg2:T30	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Anaphora Arg1:T1 Arg2:T5	
+R4	Anaphora Arg1:T1 Arg2:T10	
+R5	Is_synon Arg1:T2 Arg2:T1	
+R6	Produces Arg1:T5 Arg2:T70	
+R7	Produces Arg1:T5 Arg2:T9	
+R8	Produces Arg1:T10 Arg2:T11	
+R9	Produces Arg1:T18 Arg2:T13	
+R10	Produces Arg1:T18 Arg2:T15	
+R11	Produces Arg1:T18 Arg2:T16	
+R12	Anaphora Arg1:T18 Arg2:T17	
+R13	Anaphora Arg1:T18 Arg2:T19	
+R14	Anaphora Arg1:T20 Arg2:T21	
+R15	Anaphora Arg1:T20 Arg2:T22	

@@ -1,0 +1,30 @@
+T1	RAREDISEASE 20 43	mesenteric panniculitis
+T2	RAREDISEASE 126 149	mesenteric panniculitis
+T3	DISEASE 413 419	cancer
+T4	RAREDISEASE 438 461	mesenteric panniculitis
+T5	RAREDISEASE 494 517	Mesenteric panniculitis
+T6	RAREDISEASE 849 872	mesenteric panniculitis
+T7	RAREDISEASE 1036 1059	mesenteric panniculitis
+T8	SIGN 1219 1243	mesenteric abnormalities
+T9	RAREDISEASE 1290 1328	primary or metastatic mesentery cancer
+T10	RAREDISEASE 1330 1355	gastrointestinal lymphoma
+T11	DISEASE 1357 1371	desmoid tumors
+T12	SIGN 1373 1401	inflammation of the pancreas
+T13	DISEASE 1403 1415	pancreatitis
+T14	RAREDISEASE 1418 1433	Crohn’s disease
+T15	RAREDISEASE 1435 1466	idiopathic nodular panniculitis
+T16	RAREDISEASE 1468 1510	locally advanced pancreatic adenocarcinoma
+T17	RAREDISEASE 1512 1536	retroperitoneal fibrosis
+T18	DISEASE 1547 1565	sclerotic diseases
+R1	Increases_risk_of Arg1:T2 Arg2:T3	
+R2	Produces Arg1:T7 Arg2:T8	
+R3	Produces Arg1:T9 Arg2:T8	
+R4	Produces Arg1:T10 Arg2:T8	
+R5	Produces Arg1:T11 Arg2:T8	
+R6	Produces Arg1:T13 Arg2:T8	
+R7	Produces Arg1:T13 Arg2:T12	
+R8	Produces Arg1:T14 Arg2:T8	
+R9	Produces Arg1:T20 Arg2:T23	
+R10	Produces Arg1:T16 Arg2:T8	
+R11	Produces Arg1:T17 Arg2:T8	
+R12	Produces Arg1:T18 Arg2:T8	

@@ -1,0 +1,8 @@
+T1	RAREDISEASE 0 17	Stickler syndrome
+T2	RAREDISEASE 269 286	Stickler syndrome
+T3	RAREDISEASE 314 331	Stickler syndrome
+T4	DISEASE 358 385	connective tissue disorders
+T5	RAREDISEASE 423 440	Stickler syndrome
+T6	RAREDISEASE 631 648	Stickler syndrome
+T7	RAREDISEASE 832 849	Stickler syndrome
+R1	Is_a Arg1:T3 Arg2:T4	

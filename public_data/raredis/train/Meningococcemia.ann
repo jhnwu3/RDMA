@@ -1,0 +1,24 @@
+T1	RAREDISEASE 0 15	Meningococcemia
+T2	DISEASE 26 44	infectious disease
+T3	SIGN 62 95	upper respiratory tract infection
+T4	SIGN 97 102	fever
+T5	SIGN 104 113	skin rash
+T6	SIGN 118 125	lesions
+T7	SIGN 127 130;139 147	eye problems
+T8	SIGN 135 147	ear problems
+T9	SIGN 209 214	shock
+T10	RAREDISEASE 303 318	meningococcemia
+T11	RAREDISEASE 320 345	Fluminant meningococcemia
+T12	RAREDISEASE 392 415	chronic meningococcemia
+T13	RAREDISEASE 455 470	Meningococcemia
+T14	RAREDISEASE 1155 1170	Meningococcemia
+T15	RAREDISEASE 1283 1298	Meningococcemia
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T5	
+R5	Produces Arg1:T1 Arg2:T6	
+R6	Produces Arg1:T1 Arg2:T7	
+R7	Produces Arg1:T1 Arg2:T8	
+R8	Produces Arg1:T1 Arg2:T9	
+R9	Is_a Arg1:T11 Arg2:T10	

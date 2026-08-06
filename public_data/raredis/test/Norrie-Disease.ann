@@ -1,0 +1,10 @@
+T1	RAREDISEASE 0 14	Norrie disease
+T2	DISEASE 25 42	X-linked disorder
+T3	RAREDISEASE 112 126	Norrie disease
+T4	ANAPHOR 245 257	the disorder
+T5	RAREDISEASE 298 312	Norrie disease
+T6	ANAPHOR 326 338	The disorder
+T7	RAREDISEASE 394 408	Norrie disease
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T3 Arg2:T4	
+R3	Anaphora Arg1:T5 Arg2:T6	

@@ -1,0 +1,26 @@
+T1	RAREDISEASE 0 33	Leber hereditary optic neuropathy
+T2	RAREDISEASE 35 39	LHON
+T3	SIGN 68 143	bilateral, painless subacute loss of central vision during young adult life
+T4	SIGN 225 246;253 256	visual failure in the eye
+T5	SIGN 288 312	neurologic abnormalities
+T6	DISEASE 322 343	peripheral neuropathy
+T7	SIGN 322 343	peripheral neuropathy
+T8	SIGN 345 360	postural tremor
+T9	SIGN 362 382	nonspecific myopathy
+T10	DISEASE 374 382	myopathy
+T11	SIGN 388 406	movement disorders
+T12	RAREDISEASE 408 412	LHON
+T13	RAREDISEASE 504 508	LHON
+T14	RAREDISEASE 676 680	LHON
+T15	RAREDISEASE 777 781	LHON
+T16	RAREDISEASE 819 823	LHON
+T17	RAREDISEASE 1171 1175	LHON
+T18	RAREDISEASE 1286 1290	LHON
+R1	Produces Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Produces Arg1:T1 Arg2:T5	
+R4	Produces Arg1:T1 Arg2:T7	
+R5	Produces Arg1:T1 Arg2:T8	
+R6	Produces Arg1:T1 Arg2:T9	
+R7	Produces Arg1:T1 Arg2:T11	
+R8	Is_acron Arg1:T2 Arg2:T1	

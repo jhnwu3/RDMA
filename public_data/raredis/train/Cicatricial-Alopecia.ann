@@ -1,0 +1,12 @@
+T1	RAREDISEASE 0 21	Cicatricial alopecias
+T2	RAREDISEASE 97 126	primary cicatricial alopecias
+T3	RAREDISEASE 211 242	secondary cicatricial alopecias
+T4	RAREDISEASE 427 448	cicatricial alopecias
+T5	RAREDISEASE 495 516	cicatricial alopecias
+T6	SIGN 525 537;565 585	inflammation of the hair follicle
+T7	SIGN 659 703	stem cells and sebaceous gland are destroyed
+T8	SIGN 779 798	permanent hair loss
+T9	RAREDISEASE 800 821	Cicatricial alopecias
+R1	Produces Arg1:T5 Arg2:T6	
+R2	Produces Arg1:T5 Arg2:T7	
+R3	Produces Arg1:T5 Arg2:T8	

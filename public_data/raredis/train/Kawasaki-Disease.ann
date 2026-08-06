@@ -1,0 +1,35 @@
+T1	RAREDISEASE 0 16	Kawasaki disease
+T2	RAREDISEASE 23 78	acute multisystem inflammatory disease of blood vessels
+T3	RAREDISEASE 80 90	vasculitis
+T4	ANAPHOR 147 158	The disease
+T5	SIGN 185 195	high fever
+T6	SIGN 197 257	inflammation of the mucous membranes of the mouth and throat
+T7	SIGN 261 278	reddish skin rash
+T8	SIGN 309 324	lymphadenopathy
+T9	RAREDISEASE 357 373	Kawasaki disease
+T10	SIGN 449 467	coronary arteritis
+T11	SIGN 502 511;526 555	aneurysms of affected coronary arteries
+T12	SIGN 587 598	myocarditis
+T13	RAREDISEASE 637 653	Kawasaki disease
+T14	DISEASE 678 700	acquired heart disease
+T15	ANAPHOR 757 768	the disease
+T16	ANAPHOR 781 783	it
+T17	RAREDISEASE 870 886	Kawasaki disease
+T18	RAREDISEASE 975 991	Kawasaki disease
+T19	ANAPHOR 1085 1096	the disease
+T20	RAREDISEASE 1193 1209	Kawasaki disease
+T21	RAREDISEASE 1308 1324	Kawasaki disease
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T4	
+R3	Is_synon Arg1:T3 Arg2:T2	
+R4	Produces Arg1:T4 Arg2:T5	
+R5	Produces Arg1:T4 Arg2:T6	
+R6	Produces Arg1:T4 Arg2:T7	
+R7	Produces Arg1:T4 Arg2:T8	
+R8	Produces Arg1:T10 Arg2:T11	
+R9	Produces Arg1:T10 Arg2:T4	
+R10	Produces Arg1:T10 Arg2:T13	
+R11	Is_a Arg1:T13 Arg2:T14	
+R12	Anaphora Arg1:T13 Arg2:T15	
+R13	Anaphora Arg1:T13 Arg2:T16	
+R14	Anaphora Arg1:T18 Arg2:T19	

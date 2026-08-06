@@ -1,0 +1,45 @@
+T1	RAREDISEASE 0 29	Extrinsic allergic alveolitis
+T2	RAREDISEASE 0 29;152 162	Extrinsic allergic alveolitis acute form
+T3	RAREDISEASE 0 29;247 259	Extrinsic allergic alveolitis chronic form
+T4	DISEASE 35 48	lung disorder
+T5	SYMPTOM 165 184	espiratory symptoms
+T6	SIGN 189 194	fever
+T7	SIGN 280 314	gradual changes in the lung tissue
+T8	RAREDISEASE 411 440	Extrinsic Allergic Alveolitis
+T9	SIGN 449 469	breathing difficulty
+T10	SIGN 471 479	wheezing
+T11	SIGN 485 495	dry coughs
+T12	SIGN 535 541	Chills
+T13	SIGN 543 551	sweating
+T14	SIGN 553 559	aching
+T15	SIGN 561 571	discomfort
+T16	SIGN 579 586	fatigue
+T17	SIGN 601 614	lung symptoms
+T18	ANAPHOR 631 644	this disorder
+T19	SIGN 862 867	fever
+T20	SIGN 904 909	rales
+T21	SIGN 912 932	breathing difficulty
+T22	SIGN 965 973	cyanosis
+T23	SIGN 990 1012	expectoration of blood
+T24	RAREDISEASE 1016 1045	Extrinsic allergic alveolitis
+T25	RAREDISEASE 1262 1291	extrinsic allergic alveolitis
+T26	DISEASE 1348 1365	allergic reaction
+R1	Produces Arg1:T2 Arg2:T5	
+R2	Produces Arg1:T2 Arg2:T6	
+R3	Is_a Arg1:T3 Arg2:T4	
+R4	Produces Arg1:T3 Arg2:T7	
+R5	Produces Arg1:T8 Arg2:T9	
+R6	Produces Arg1:T8 Arg2:T10	
+R7	Produces Arg1:T8 Arg2:T11	
+R8	Produces Arg1:T8 Arg2:T12	
+R9	Produces Arg1:T8 Arg2:T13	
+R10	Produces Arg1:T8 Arg2:T14	
+R11	Produces Arg1:T8 Arg2:T15	
+R12	Produces Arg1:T8 Arg2:T16	
+R13	Produces Arg1:T8 Arg2:T170	
+R14	Anaphora Arg1:T8 Arg2:T18	
+R15	Produces Arg1:T8 Arg2:T19	
+R16	Produces Arg1:T8 Arg2:T20	
+R17	Produces Arg1:T8 Arg2:T210	
+R18	Produces Arg1:T8 Arg2:T22	
+R19	Produces Arg1:T8 Arg2:T23	

@@ -1,0 +1,29 @@
+T1	RAREDISEASE 0 19	Chandler's syndrome
+T2	RAREDISEASE 21 23	CS
+T3	DISEASE 35 47	eye disorder
+T4	SIGN 135 147;61 72	proliferates endothelium
+T5	DISEASE 156 169	corneal edema
+T6	SIGN 156 169	corneal edema
+T7	SIGN 171 193	distortion of the iris
+T8	DISEASE 235 243	glaucoma
+T9	SIGN 235 243	glaucoma
+T10	RAREDISEASE 246 248	CS
+T11	DISEASE 295 319	progressive iris atrophy
+T12	RAREDISEASE 324 344	Cogan-Reese syndrome
+T13	RAREDISEASE 381 414	iridocorneal endothelial syndrome
+T14	RAREDISEASE 416 428	ICE syndrome
+T15	RAREDISEASE 567 586	Chandler's syndrome
+T16	RAREDISEASE 655 674	Chandler’s syndrome
+T17	ANAPHOR 751 763	The disorder
+T18	RAREDISEASE 890 902	ICE syndrome
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Produces Arg1:T1 Arg2:T6	
+R4	Produces Arg1:T1 Arg2:T7	
+R5	Produces Arg1:T1 Arg2:T9	
+R6	Is_acron Arg1:T2 Arg2:T1	
+R7	Is_a Arg1:T10 Arg2:T13	
+R8	Is_a Arg1:T11 Arg2:T13	
+R9	Is_a Arg1:T12 Arg2:T13	
+R10	Is_acron Arg1:T14 Arg2:T13	
+R11	Anaphora Arg1:T16 Arg2:T17	

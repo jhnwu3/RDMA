@@ -1,0 +1,4 @@
+T1	RAREDISEASE 0 12	AEC syndrome
+T2	ANAPHOR 95 107	the disorder
+T3	RAREDISEASE 146 158	AEC syndrome
+R1	Anaphora Arg1:T1 Arg2:T2	

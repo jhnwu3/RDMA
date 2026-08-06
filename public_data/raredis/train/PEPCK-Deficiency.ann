@@ -1,0 +1,22 @@
+T1	RAREDISEASE 0 16	PEPCK deficiency
+T2	RAREDISEASE 38 73	disorder of carbohydrate metabolism
+T3	SIGN 119 177	deficiency of the enzyme phosphoenolpyruvate carboxykinase
+T4	SIGN 328 336	acidemia
+T5	ANAPHOR 358 371	this disorder
+T6	DISEASE 393 405	hypoglycemia
+T7	SIGN 393 405	hypoglycemia
+T8	SIGN 408 427	loss of muscle tone
+T9	SIGN 429 446	liver enlargement
+T10	SIGN 451 489	impairment, and failure to gain weight
+T11	SIGN 451 477;494 498	impairment, and failure to grow
+T12	RAREDISEASE 509 525	PEPCK deficiency
+T13	RAREDISEASE 646 662	PEPCK deficiency
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Anaphora Arg1:T1 Arg2:T5	
+R5	Produces Arg1:T5 Arg2:T70	
+R6	Produces Arg1:T5 Arg2:T8	
+R7	Produces Arg1:T5 Arg2:T9	
+R8	Produces Arg1:T5 Arg2:T10	
+R9	Produces Arg1:T5 Arg2:T11	

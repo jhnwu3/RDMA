@@ -1,0 +1,22 @@
+T1	RAREDISEASE 0 8	Syphilis
+T2	DISEASE 14 40	chronic infectious disease
+T3	ANAPHOR 101 103	It
+T4	RAREDISEASE 214 222	syphilis
+T5	RAREDISEASE 300 308	syphilis
+T6	RAREDISEASE 470 478	Syphilis
+T7	ANAPHOR 726 728	It
+T8	RAREDISEASE 829 837	syphilis
+T9	RAREDISEASE 885 904	congenital syphilis
+T10	ANAPHOR 931 944	this disorder
+T11	RAREDISEASE 953 972	congenital syphilis
+T12	RAREDISEASE 1040 1048	syphilis
+T13	RAREDISEASE 1303 1311	syphilis
+T14	SIGN 1454 1459	ulcer
+T15	SIGN 1463 1467	rash
+T16	RAREDISEASE 1532 1540	syphilis
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Anaphora Arg1:T6 Arg2:T7	
+R4	Anaphora Arg1:T11 Arg2:T10	
+R5	Produces Arg1:T16 Arg2:T14	
+R6	Produces Arg1:T16 Arg2:T15	

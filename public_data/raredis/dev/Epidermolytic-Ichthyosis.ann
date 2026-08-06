@@ -1,0 +1,42 @@
+T1	SKINRAREDISEASE 13 15	EI
+T2	SIGN 33 65	red, blistering and denuded skin
+T3	SIGN 88 103	skin thickening
+T4	SIGN 147 157	blistering
+T5	SIGN 198 205	scaling
+T6	SIGN 210 225	skin thickening
+T7	SIGN 227 233	Scales
+T8	SIGN 287 311	generalized erythroderma
+T9	DISEASE 299 311	erythroderma
+T10	DISEASE 370 385	Skin infections
+T11	SYMPTOM 425 441	Heat intolerance
+T12	SIGN 455 479	palmoplantar keratoderma
+T13	SKINRAREDISEASE 455 479	palmoplantar keratoderma
+T14	SIGN 522 538	limit ambulation
+T15	SIGN 522 527;543 556	limit hand function
+T16	SIGN 677 687	blistering
+T17	SIGN 733 757	palmoplantar keratoderma
+T18	SKINRAREDISEASE 733 757	palmoplantar keratoderma
+T19	SIGN 790 822	brown-grey hyperkeratotic spines
+T20	SKINRAREDISEASE 839 857	ichthyosis hystrix
+T21	SKINRAREDISEASE 859 872	Curth-Macklin
+T22	SKINRAREDISEASE 875 877	EI
+T23	ANAPHOR 928 930	It
+T24	SKINRAREDISEASE 975 977	EI
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T50	
+R5	Produces Arg1:T1 Arg2:T6	
+R6	Produces Arg1:T1 Arg2:T70	
+R7	Produces Arg1:T1 Arg2:T8	
+R8	Increases_risk_of Arg1:T1 Arg2:T10	
+R9	Produces Arg1:T1 Arg2:T11	
+R10	Produces Arg1:T1 Arg2:T12	
+R11	Produces Arg1:T13 Arg2:T14	
+R12	Produces Arg1:T13 Arg2:T15	
+R13	Produces Arg1:T20 Arg2:T19	
+R14	Is_a Arg1:T20 Arg2:T22	
+R15	Is_synon Arg1:T21 Arg2:T20	
+R16	Produces Arg1:T22 Arg2:T16	
+R17	Produces Arg1:T22 Arg2:T17	
+R18	Anaphora Arg1:T22 Arg2:T23	

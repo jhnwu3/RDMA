@@ -1,0 +1,24 @@
+T1	RAREDISEASE 1 11	Papillitis
+T2	RAREDISEASE 27 41	optic neuritis
+T3	SIGN 141 151;63 100	optic disk inflammation and deterioration of the
+T4	RAREDISEASE 477 487	papillitis
+T5	SIGN 499 524	loss of vision in one eye
+T6	SIGN 587 604	visual impairment
+T7	SIGN 646 670	slight visual deficiency
+T8	SIGN 674 707	complete loss of light perception
+T9	SIGN 756 785	reduction in color perception
+T10	SIGN 859 886	permanent visual impairment
+T11	RAREDISEASE 950 960	Papillitis
+T12	RAREDISEASE 1109 1119	Papillitis
+T13	RAREDISEASE 1218 1228	papillitis
+T14	DISEASE 1262 1280	multiple sclerosis
+T15	ANAPHOR 1308 1321	this disorder
+R1	Produces Arg1:T1 Arg2:T3	
+R2	Is_synon Arg1:T2 Arg2:T1	
+R3	Produces Arg1:T4 Arg2:T5	
+R4	Produces Arg1:T4 Arg2:T6	
+R5	Produces Arg1:T4 Arg2:T7	
+R6	Produces Arg1:T4 Arg2:T8	
+R7	Produces Arg1:T4 Arg2:T9	
+R8	Produces Arg1:T4 Arg2:T10	
+R9	Anaphora Arg1:T13 Arg2:T15	

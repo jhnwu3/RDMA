@@ -1,0 +1,31 @@
+T1	RAREDISEASE 0 20	Central core disease
+T2	RAREDISEASE 22 25	CCD
+T3	DISEASE 37 67	genetic neuromuscular disorder
+T4	RAREDISEASE 92 111	congenital myopathy
+T5	DISEASE 151 159	myopathy
+T6	SIGN 246 255	hypotonia
+T7	SIGN 280 290	floppiness
+T8	SIGN 293 308	muscle weakness
+T9	DISEASE 395 404	scoliosis
+T10	SIGN 395 404	scoliosis
+T11	SIGN 407 422	Muscle weakness
+T12	SIGN 414 422;444 460	weakness proximal muscles
+T13	SIGN 621 657	delays in acquiring motor milestones
+T14	RAREDISEASE 709 712	CCD
+T15	DISEASE 746 768	malignant hyperthermia
+T16	SIGN 811 856	adverse reactions to certain anesthetic drugs
+T17	RAREDISEASE 858 861	CCD
+T18	DISEASE 988 1017	nonprogressive muscle disease
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Is_a Arg1:T1 Arg2:T4	
+R3	Produces Arg1:T1 Arg2:T6	
+R4	Produces Arg1:T1 Arg2:T7	
+R5	Produces Arg1:T1 Arg2:T8	
+R6	Produces Arg1:T1 Arg2:T10	
+R7	Produces Arg1:T1 Arg2:T11	
+R8	Produces Arg1:T1 Arg2:T120	
+R9	Produces Arg1:T1 Arg2:T13	
+R10	Is_acron Arg1:T2 Arg2:T1	
+R11	Is_a Arg1:T4 Arg2:T5	
+R12	Increases_risk_of Arg1:T14 Arg2:T15	
+R13	Produces Arg1:T15 Arg2:T16	

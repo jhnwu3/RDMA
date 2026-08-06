@@ -1,0 +1,13 @@
+T1	SKINRAREDISEASE 0 10	Cutis laxa
+T2	ANAPHOR 79 91	The disorder
+T3	SKINRAREDISEASE 151 161	Cutis laxa
+T4	SKINRAREDISEASE 331 341	cutis laxa
+T5	SKINRAREDISEASE 382 392	Cutis laxa
+T6	SKINRAREDISEASE 465 475	cutis laxa
+T7	SIGN 725 750	changes in elastic fibers
+T8	SKINRAREDISEASE 805 815	cutis laxa
+T9	SKINRAREDISEASE 890 915	inherited form cutis laxa
+T10	SKINRAREDISEASE 1058 1068	cutis laxa
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T10 Arg2:T1	
+R3	Is_a Arg1:T9 Arg2:T8	

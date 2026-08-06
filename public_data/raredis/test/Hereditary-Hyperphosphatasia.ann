@@ -1,0 +1,38 @@
+T1	RAREDISEASE 0 28	Hereditary hyperphosphatasia
+T2	DISEASE 62 72	osteopathy
+T3	SIGN 168 202	progressive skeletal malformations
+T4	SIGN 254 288	Skeletal malformations in the legs
+T5	SIGN 299 315	problems walking
+T6	SIGN 345 358	short stature
+T7	SYMPTOM 388 392	pain
+T8	SIGN 394 421	fractures of affected bones
+T9	SIGN 427 442	muscle weakness
+T10	RAREDISEASE 497 525	hereditary hyperphosphatasia
+T11	DISEASE 550 565	Paget's disease
+T12	DISEASE 569 592	focal skeletal disorder
+T13	SIGN 620 642	abnormal bone turnover
+T14	ANAPHOR 645 657	the disorder
+T15	RAREDISEASE 686 710	juvenile Paget's disease
+T16	ANAPHOR 753 766	two disorders
+T17	RAREDISEASE 781 809	Hereditary hyperphosphatasia
+T18	RAREDISEASE 858 886	Hereditary hyperphosphatasia
+T19	ANAPHOR 960 962	it
+T20	ANAPHOR 1079 1091	the disorder
+T21	RAREDISEASE 1161 1189	hereditary hyperphosphatasia
+T22	SIGN 1388 1433	elevated levels of serum alkaline phosphatase
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T5	
+R5	Produces Arg1:T1 Arg2:T6	
+R6	Produces Arg1:T1 Arg2:T7	
+R7	Produces Arg1:T1 Arg2:T8	
+R8	Produces Arg1:T1 Arg2:T9	
+R9	Anaphora Arg1:T10 Arg2:T160	
+R10	Is_a Arg1:T11 Arg2:T12	
+R11	Produces Arg1:T11 Arg2:T13	
+R12	Anaphora Arg1:T15 Arg2:T14	
+R13	Anaphora Arg1:T15 Arg2:T160	
+R14	Anaphora Arg1:T10 Arg2:T21	
+R15	Anaphora Arg1:T10 Arg2:T22	
+R16	Produces Arg1:T21 Arg2:T22	

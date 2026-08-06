@@ -1,0 +1,32 @@
+T1	RAREDISEASE 0 33	Chromosome 7, Partial Monosomy 7p
+T2	DISEASE 44 64	chromosomal disorder
+T3	RAREDISEASE 409 425	craniosynostosis
+T4	SIGN 409 425	craniosynostosis
+T5	SIGN 444 466	abnormally shaped head
+T6	SIGN 580 594	trigonocephaly
+T7	RAREDISEASE 677 689	turricephaly
+T8	SIGN 677 689	turricephaly
+T9	SIGN 747 806	malformations of the skull and facial (craniofacial) region
+T10	DISEASE 864 876	microcephaly
+T11	SIGN 864 876	microcephaly
+T12	SIGN 907 926	ocular hypotelorism
+T13	SIGN 930 943	hypertelorism
+T14	SIGN 946 958;973 991	downslanting palpebral fissures
+T15	RAREDISEASE 1017 1050	Chromosome 7, Partial Monosomy 7p
+T16	DISEASE 1061 1081	chromosomal disorder
+T17	DISEASE 1229 1250	chromosomal disorders
+T18	RAREDISEASE 1330 1363	Chromosome 7, Partial Monosomy 7p
+T19	ANAPHOR 1485 1499	such disorders
+T20	DISEASE 1533 1553	chromosomal disorder
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Produces Arg1:T1 Arg2:T5	
+R4	Produces Arg1:T1 Arg2:T6	
+R5	Produces Arg1:T1 Arg2:T8	
+R6	Produces Arg1:T1 Arg2:T90	
+R7	Produces Arg1:T1 Arg2:T11	
+R8	Produces Arg1:T1 Arg2:T12	
+R9	Produces Arg1:T1 Arg2:T13	
+R10	Produces Arg1:T1 Arg2:T14	
+R11	Is_a Arg1:T15 Arg2:T16	
+R12	Anaphora Arg1:T20 Arg2:T21	

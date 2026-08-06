@@ -1,0 +1,13 @@
+T1	RAREDISEASE 0 14	Leiomyosarcoma
+T2	SIGN 20 29;42 47	malignant tumor
+T3	RAREDISEASE 686 701	Leiomyosarcomas
+T4	RAREDISEASE 733 747	Leiomyosarcoma
+T5	RAREDISEASE 761 780	soft tissue sarcoma
+T6	RAREDISEASE 853 872	soft tissue sarcoma
+T7	RAREDISEASE 901 921	Soft tissue sarcomas
+T8	RAREDISEASE 1012 1032	Soft tissue sarcomas
+T9	RAREDISEASE 1115 1130	leiomyosarcomas
+T10	RAREDISEASE 1172 1192	soft tissue sarcomas
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Is_a Arg1:T4 Arg2:T5	
+R3	Is_a Arg1:T9 Arg2:T100	

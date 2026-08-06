@@ -1,0 +1,8 @@
+T1	SKINRAREDISEASE 23 50;4 14	arodermatitis enteropathica congenital
+T2	ANAPHOR 143 156	the condition
+T3	ANAPHOR 252 264	the disorder
+T4	SKINRAREDISEASE 295 303;312 314	acquired AE
+T5	DISEASE 525 565	gastro-intestinal malabsorption syndrome
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Increases_risk_of Arg1:T5 Arg2:T4	

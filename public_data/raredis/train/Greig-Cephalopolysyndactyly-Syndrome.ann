@@ -1,0 +1,6 @@
+T1	RAREDISEASE 0 4	GCPS
+T2	ANAPHOR 88 101	this disorder
+T3	ANAPHOR 252 264	the disorder
+T4	RAREDISEASE 328 332	GCPS
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	

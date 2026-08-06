@@ -1,0 +1,9 @@
+T1	RAREDISEASE 0 22	Mitochondrial diseases
+T2	DISEASE 59 76	metabolic disease
+T3	RAREDISEASE 190 212	mitochondrial diseases
+T4	RAREDISEASE 214 217	PMM
+T5	RAREDISEASE 311 314	PMM
+T6	ANAPHOR 428 443	These disorders
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T3 Arg2:T6	
+R3	Is_a Arg1:T4 Arg2:T3	

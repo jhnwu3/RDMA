@@ -1,0 +1,21 @@
+T1	RAREDISEASE 0 22	Essential iris atrophy
+T2	DISEASE 39 70	progressive disorder of the eye
+T3	SIGN 90 116	pupil that is out of place
+T4	SIGN 163 167;169 176	iris atrophy
+T5	SIGN 186 203	holes in the iris
+T6	ANAPHOR 205 218	This disorder
+T7	DISEASE 350 379	peripheral anterior synechiae
+T8	SIGN 350 379	peripheral anterior synechiae
+T9	SIGN 396 425	closure of the drainage angle
+T10	DISEASE 448 456	glaucoma
+T11	SIGN 448 456	glaucoma
+T12	SIGN 461 472	vision loss
+T13	RAREDISEASE 474 496	Essential iris atrophy
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T5	
+R5	Produces Arg1:T6 Arg2:T8	
+R6	Produces Arg1:T6 Arg2:T90	
+R7	Produces Arg1:T6 Arg2:T11	
+R8	Produces Arg1:T6 Arg2:T12	

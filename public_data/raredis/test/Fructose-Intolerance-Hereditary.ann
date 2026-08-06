@@ -1,0 +1,19 @@
+T1	DISEASE 16 58	inherited disorders of fructose metabolism
+T2	RAREDISEASE 98 119	Essential fructosuria
+T3	RAREDISEASE 171 202	Hereditary fructose intolerance
+T4	RAREDISEASE 204 207	HFI
+T5	RAREDISEASE 213 261	Hereditary fructose-1,6-biphosphatase deficiency
+T6	RAREDISEASE 263 267	HFBP
+T7	RAREDISEASE 329 360	Hereditary Fructose Intolerance
+T8	DISEASE 447 466	autosomal disorders
+T9	ANAPHOR 467 469	it
+T10	ANAPHOR 549 561	the disorder
+T11	RAREDISEASE 625 628	HFI
+R1	Is_a Arg1:T2 Arg2:T1	
+R2	Is_a Arg1:T3 Arg2:T1	
+R3	Is_acron Arg1:T4 Arg2:T3	
+R4	Is_a Arg1:T5 Arg2:T1	
+R5	Is_acron Arg1:T6 Arg2:T5	
+R6	Anaphora Arg1:T7 Arg2:T90	
+R7	Anaphora Arg1:T7 Arg2:T10	
+R8	Is_a Arg1:T10 Arg2:T9	

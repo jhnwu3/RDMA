@@ -1,0 +1,29 @@
+T1	RAREDISEASE 0 23	Tooth and nail syndrome
+T2	DISEASE 34 50	genetic disorder
+T3	RAREDISEASE 96 116	ectodermal dysplasia
+T4	RAREDISEASE 187 208	Ectodermal dysplasias
+T5	RAREDISEASE 263 286	Tooth and nail syndrome
+T6	DISEASE 316 326	hypodontia
+T7	SIGN 316 326	hypodontia
+T8	SIGN 335 366;379 392;405 410	malformation of certain primary and secondary teeth
+T9	SIGN 463 472;474 486	dysplasia of the nails
+T10	RAREDISEASE 530 553	tooth and nail syndrome
+T11	SIGN 571 579;595 633	at birth toenails and/or fingernails are absent
+T12	ANAPHOR 650 662	the disorder
+T13	SIGN 728 754;767 772	absence of certain primary teeth
+T14	SIGN 795 805;807 815	hypoplasia of nails
+T15	RAREDISEASE 860 883	tooth and nail syndrome
+T16	SIGN 956 1019	absence and malformation of several secondary (permanent) teeth
+T17	SIGN 1024 1056	nail dysplasia has been verified
+T18	RAREDISEASE 1073 1096	tooth and nail syndrome
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Is_a Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T5 Arg2:T7	
+R4	Produces Arg1:T5 Arg2:T80	
+R5	Produces Arg1:T5 Arg2:T9	
+R6	Produces Arg1:T10 Arg2:T11	
+R7	Anaphora Arg1:T10 Arg2:T12	
+R8	Produces Arg1:T12 Arg2:T13	
+R9	Produces Arg1:T12 Arg2:T14	
+R10	Produces Arg1:T15 Arg2:T16	
+R11	Produces Arg1:T15 Arg2:T17	

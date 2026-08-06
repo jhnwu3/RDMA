@@ -1,0 +1,21 @@
+T1	RAREDISEASE 0 13	Cysticercosis
+T2	DISEASE 24 42	infectious disease
+T3	RAREDISEASE 204 217	cysticercosis
+T4	RAREDISEASE 393 411	neurocysticercosis
+T5	SIGN 486 522	central nervous system abnormalities
+T6	SIGN 545 553	seizures
+T7	SYMPTOM 558 567	headaches
+T8	RAREDISEASE 569 582	Cysticercosis
+T9	RAREDISEASE 638 651	Cysticercosis
+T10	RAREDISEASE 710 723	cysticercosis
+T11	RAREDISEASE 741 754	cysticercosis
+T12	RAREDISEASE 818 831	cysticercosis
+T13	ANAPHOR 877 888	The disease
+T14	RAREDISEASE 981 994	Cysticercosis
+T15	RAREDISEASE 1281 1294	cysticercosis
+T16	RAREDISEASE 1504 1522	neurocysticercosis
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T4 Arg2:T5	
+R3	Produces Arg1:T4 Arg2:T6	
+R4	Produces Arg1:T4 Arg2:T7	
+R5	Anaphora Arg1:T12 Arg2:T130	

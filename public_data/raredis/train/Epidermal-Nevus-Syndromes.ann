@@ -1,0 +1,62 @@
+T1	RAREDISEASE 0 25	Epidermal nevus syndromes
+T2	RAREDISEASE 27 31	ENSs
+T3	SIGN 104 116	skin lesions
+T4	SIGN 126 197	epidermal nevi associated with additional extra-cutaneous abnormalities
+T5	SIGN 257 271	Epidermal nevi
+T6	SIGN 387 401	epidermal nevi
+T7	SIGN 467 493	Neurological abnormalities
+T8	RAREDISEASE 522 526	ENSs
+T9	SIGN 539 547	seizures
+T10	SIGN 549 569	cognitive impairment
+T11	SIGN 571 591	developmental delays
+T12	SIGN 631 642	hemiparesis
+T13	SIGN 645 667	Skeletal abnormalities
+T14	SIGN 680 711	abnormal curvature of the spine
+T15	SIGN 713 736	malformation of the hip
+T16	SIGN 741 775	abnormalities of the arms and legs
+T17	SIGN 783 833	underdevelopment or absence or overgrowth of limbs
+T18	SIGN 836 856	Ocular abnormalities
+T19	SIGN 869 878	cataracts
+T20	SIGN 880 912	clouding (opacity) of the cornea
+T21	SIGN 965 974	colobomas
+T22	SIGN 977 1000	Endocrine abnormalities
+T23	DISEASE 1009 1036	vitamin D-resistant rickets
+T24	RAREDISEASE 1063 1087	Schimmelpenning syndrome
+T25	RAREDISEASE 1127 1131	ENSs
+T26	RAREDISEASE 1182 1186	ENSs
+T27	SIGN 1402 1416	Epidermal nevi
+T28	SIGN 1562 1575	epidermal nev
+T29	SIGN 1591 1620	extra-cutaneous malformations
+T30	RAREDISEASE 1700 1704	ENSs
+T31	RAREDISEASE 1735 1759	epidermal nevus syndrome
+T32	RAREDISEASE 2313 2328	epidermal nevus
+T33	RAREDISEASE 2539 2543	ENSs
+T34	RAREDISEASE 2545 2576	type 2 segmental Cowden disease
+T35	RAREDISEASE 2578 2607	García-Hafner-Happle syndrome
+T36	RAREDISEASE 2609 2623	CHILD syndrome
+R1	Produces Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Produces Arg1:T1 Arg2:T5	
+R4	Produces Arg1:T1 Arg2:T6	
+R5	Is_acron Arg1:T2 Arg2:T1	
+R6	Produces Arg1:T8 Arg2:T7	
+R7	Produces Arg1:T8 Arg2:T9	
+R8	Produces Arg1:T8 Arg2:T10	
+R9	Produces Arg1:T8 Arg2:T110	
+R10	Produces Arg1:T8 Arg2:T12	
+R11	Produces Arg1:T8 Arg2:T13	
+R12	Produces Arg1:T8 Arg2:T14	
+R13	Produces Arg1:T8 Arg2:T15	
+R14	Produces Arg1:T8 Arg2:T16	
+R15	Produces Arg1:T8 Arg2:T17	
+R16	Produces Arg1:T8 Arg2:T18	
+R17	Produces Arg1:T8 Arg2:T19	
+R18	Produces Arg1:T8 Arg2:T20	
+R19	Produces Arg1:T8 Arg2:T210	
+R20	Produces Arg1:T23 Arg2:T22	
+R21	Produces Arg1:T26 Arg2:T27	
+R22	Produces Arg1:T26 Arg2:T28	
+R23	Produces Arg1:T26 Arg2:T29	
+R24	Is_a Arg1:T34 Arg2:T33	
+R25	Is_a Arg1:T35 Arg2:T33	
+R26	Is_a Arg1:T10 Arg2:T38	

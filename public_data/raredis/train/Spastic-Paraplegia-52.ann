@@ -1,0 +1,49 @@
+T1	RAREDISEASE 0 45	AP-4-associated hereditary spastic paraplegia
+T2	RAREDISEASE 47 50	HSP
+T3	DISEASE 66 112	slowly-progressing neurodegenerative disorders
+T4	SIGN 141 167	global developmental delay
+T5	SIGN 169 211	moderate to severe intellectual disability
+T6	DISEASE 188 211	intellectual disability
+T7	SIGN 213 235	impaired/absent speech
+T8	DISEASE 237 249	microcephaly
+T9	SIGN 237 249	microcephaly
+T10	SIGN 251 259	seizures
+T11	SIGN 265 291	progressive motor symptoms
+T12	ANAPHOR 293 307	The conditions
+T13	RAREDISEASE 335 340	SPG47
+T14	RAREDISEASE 342 347	SPG50
+T15	RAREDISEASE 349 354	SPG51
+T16	RAREDISEASE 359 364	SPG52
+T17	ANAPHOR 396 412	These conditions
+T18	SIGN 530 564	abnormal adaptor protein complex 4
+T19	RAREDISEASE 619 624	SPG52
+T20	SIGN 691 701	spasticity
+T21	SIGN 703 722	developmental delay
+T22	DISEASE 725 748	intellectual disability
+T23	SIGN 725 748	intellectual disability
+T24	SIGN 754 761	seizure
+T25	SIGN 901 921	thin corpus callosum
+T26	SIGN 923 946	wide lateral ventricles
+T27	SIGN 951 979	changes in the white matter.
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Produces Arg1:T1 Arg2:T5	
+R4	Produces Arg1:T1 Arg2:T7	
+R5	Produces Arg1:T1 Arg2:T9	
+R6	Produces Arg1:T1 Arg2:T10	
+R7	Produces Arg1:T1 Arg2:T11	
+R8	Anaphora Arg1:T1 Arg2:T12	
+R9	Anaphora Arg1:T1 Arg2:T17	
+R10	Is_acron Arg1:T2 Arg2:T1	
+R11	Is_a Arg1:T13 Arg2:T12	
+R12	Is_a Arg1:T14 Arg2:T12	
+R13	Is_a Arg1:T15 Arg2:T12	
+R14	Is_a Arg1:T16 Arg2:T12	
+R15	Produces Arg1:T17 Arg2:T18	
+R16	Produces Arg1:T19 Arg2:T20	
+R17	Produces Arg1:T19 Arg2:T210	
+R18	Produces Arg1:T19 Arg2:T23	
+R19	Produces Arg1:T19 Arg2:T24	
+R20	Produces Arg1:T19 Arg2:T25	
+R21	Produces Arg1:T19 Arg2:T26	
+R22	Produces Arg1:T19 Arg2:T27	

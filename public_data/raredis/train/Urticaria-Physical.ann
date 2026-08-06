@@ -1,0 +1,22 @@
+T1	RAREDISEASE 0 18	Physical urticaria
+T2	SIGN 9 18	urticaria
+T3	SIGN 48 60;62 83	erythematous allergic skin lesions
+T4	SIGN 97 105	pruritus
+T5	SIGN 201 207	wheals
+T6	SIGN 330 336	lesion
+T7	ANAPHOR 428 440	The disorder
+T8	RAREDISEASE 499 517	physical urticaria
+T9	RAREDISEASE 619 633	Cold urticaria
+T10	SIGN 624 633	urticaria
+T11	ANAPHOR 673 675	it
+T12	RAREDISEASE 791 809	physical urticaria
+T13	SIGN 800 809	urticaria
+R1	Produces Arg1:T1 Arg2:T20	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T5	
+R5	Produces Arg1:T1 Arg2:T6	
+R6	Anaphora Arg1:T1 Arg2:T7	
+R7	Produces Arg1:T9 Arg2:T10	
+R8	Anaphora Arg1:T9 Arg2:T11	
+R9	Produces Arg1:T12 Arg2:T13	

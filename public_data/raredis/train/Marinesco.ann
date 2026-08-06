@@ -1,0 +1,4 @@
+T1	RAREDISEASE 0 26	Marinesco-Sjögren syndrome
+T2	ANAPHOR 160 172	the disorder
+T3	RAREDISEASE 211 237	Marinesco-Sjögren syndrome
+R1	Anaphora Arg1:T1 Arg2:T2	

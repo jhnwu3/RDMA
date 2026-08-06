@@ -1,0 +1,25 @@
+T1	DISEASE 0 10	Meningitis
+T2	SIGN 31 50;62 70	inflammation of the meninges
+T3	ANAPHOR 105 117	The disorder
+T4	SIGN 191 203	inflammation
+T5	DISEASE 365 375	Meningitis
+T6	SIGN 382 394	inflammation
+T7	DISEASE 470 480	Meningitis
+T8	SIGN 502 507	fever
+T9	SYMPTOM 509 517	headache
+T10	SIGN 525 535	stiff neck
+T11	SYMPTOM 552 566	aching muscles
+T12	SYMPTOM 568 574	Nausea
+T13	SIGN 576 584	vomiting
+T14	ANAPHOR 671 684	the infection
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T5 Arg2:T6	
+R5	Produces Arg1:T7 Arg2:T8	
+R6	Produces Arg1:T7 Arg2:T9	
+R7	Produces Arg1:T7 Arg2:T10	
+R8	Produces Arg1:T7 Arg2:T11	
+R9	Produces Arg1:T7 Arg2:T120	
+R10	Produces Arg1:T7 Arg2:T13	
+R11	Anaphora Arg1:T7 Arg2:T14	

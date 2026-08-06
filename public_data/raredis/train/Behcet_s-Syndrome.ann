@@ -1,0 +1,10 @@
+T1	SKINRAREDISEASE 17 34	Behçet’s syndrome
+T2	DISEASE 180 199	aphthous stomatitis
+T3	SIGN 180 199	aphthous stomatitis
+T4	SIGN 254 265	eye lesions
+T5	SIGN 267 279	skin lesions
+T6	SIGN 281 310	recurrent genital ulcerations
+R1	Produces Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Produces Arg1:T1 Arg2:T5	
+R4	Produces Arg1:T1 Arg2:T6	

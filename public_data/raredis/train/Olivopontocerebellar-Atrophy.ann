@@ -1,0 +1,27 @@
+T1	RAREDISEASE 9 37	olivopontocerebellar atrophy
+T2	RAREDISEASE 39 43	OPCA
+T3	DISEASE 159 185	neurodegenerative diseases
+T4	SIGN 211 281	progressive deterioration of nerve cells in certain parts of the brain
+T5	ANAPHOR 283 299	These conditions
+T6	SIGN 351 365	disequilibrium
+T7	DISEASE 441 458	cerebellar ataxia
+T8	SIGN 441 458	cerebellar ataxia
+T9	SIGN 465 484	difficulty speaking
+T10	SIGN 504 514	dysarthria
+T11	RAREDISEASE 517 521	OPCA
+T12	RAREDISEASE 779 783	OPCA
+T13	RAREDISEASE 858 862	OPCA
+T14	RAREDISEASE 985 1000	Hereditary OPCA
+T15	ANAPHOR 1145 1158	the condition
+T16	RAREDISEASE 1248 1252	OPCA
+T17	RAREDISEASE 1275 1280	OPCAs
+T18	RAREDISEASE 1330 1334	OPCA
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Anaphora Arg1:T1 Arg2:T5	
+R4	Is_acron Arg1:T2 Arg2:T1	
+R5	Produces Arg1:T5 Arg2:T60	
+R6	Produces Arg1:T5 Arg2:T8	
+R7	Produces Arg1:T5 Arg2:T9	
+R8	Produces Arg1:T5 Arg2:T10	
+R9	Anaphora Arg1:T14 Arg2:T150	

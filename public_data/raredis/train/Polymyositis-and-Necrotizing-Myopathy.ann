@@ -1,0 +1,34 @@
+T1	RAREDISEASE 0 2	PM
+T2	RAREDISEASE 7 9	NM
+T3	RAREDISEASE 170 181	Juvenile PM
+T4	RAREDISEASE 218 229	juvenile DM
+T5	RAREDISEASE 350 352	PM
+T6	RAREDISEASE 426 428	PM
+T7	DISEASE 503 517	muscle disease
+T8	SIGN 503 517	muscle disease
+T9	DISEASE 605 613	myopathy
+T10	SIGN 605 613	myopathy
+T11	DISEASE 750 772	neuromuscular diseases
+T12	RAREDISEASE 884 896	polymyositis
+T13	SIGN 930 942;959 979	inflammation in the muscle tissue
+T14	SIGN 950 979	necrosis in the muscle tissue
+T15	SIGN 1063 1075;1086 1110	inflammation within the muscle tissue
+T16	SIGN 1080 1110	edema within the muscle tissue
+T17	SIGN 1151 1184	elevated levels of muscle enzymes
+T18	SIGN 1151 1169;1200 1215	elevated levels of creatine kinase
+T19	SIGN 1151 1169;1225 1233	elevated levels of aldolase
+T20	SIGN 1272 1285	muscle damage
+T21	RAREDISEASE 1331 1333	PM
+T22	RAREDISEASE 1338 1340	NM
+R1	Is_a Arg1:T3 Arg2:T10	
+R2	Produces Arg1:T6 Arg2:T8	
+R3	Produces Arg1:T6 Arg2:T100	
+R4	Is_a Arg1:T12 Arg2:T11	
+R5	Produces Arg1:T12 Arg2:T13	
+R6	Produces Arg1:T12 Arg2:T14	
+R7	Produces Arg1:T12 Arg2:T15	
+R8	Produces Arg1:T12 Arg2:T16	
+R9	Produces Arg1:T12 Arg2:T17	
+R10	Produces Arg1:T12 Arg2:T18	
+R11	Produces Arg1:T12 Arg2:T19	
+R12	Produces Arg1:T12 Arg2:T20	

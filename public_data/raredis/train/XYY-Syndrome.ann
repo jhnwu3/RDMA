@@ -1,0 +1,10 @@
+T1	RAREDISEASE 0 12	XYY syndrome
+T2	DISEASE 23 43	chromosomal disorder
+T3	RAREDISEASE 178 190	XYY syndrome
+T4	RAREDISEASE 258 270	XYY syndrome
+T5	RAREDISEASE 544 556	XYY syndrome
+T6	DISEASE 567 587	chromosomal disorder
+T7	ANAPHOR 630 632	It
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Is_a Arg1:T5 Arg2:T6	
+R3	Anaphora Arg1:T5 Arg2:T7	

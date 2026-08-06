@@ -1,0 +1,41 @@
+T1	RAREDISEASE 0 32	Subacute cerebellar degeneration
+T2	RAREDISEASE 34 37	SCD
+T3	SIGN 150 164;63 83	the cerebellum deterioration of the
+T4	SIGN 264 326;63 79	the medulla oblongata, the cerebral cortex, and the brain stem deterioration of
+T5	RAREDISEASE 352 384	subacute cerebellar degeneration
+T6	RAREDISEASE 386 424	paraneoplastic cerebellar degeneration
+T7	DISEASE 468 474	cancer
+T8	RAREDISEASE 480 489;505 528	alcoholic cerebellar degeneration
+T9	RAREDISEASE 493 528	nutritional cerebellar degeneration
+T10	ANAPHOR 578 593	These two types
+T11	RAREDISEASE 636 674	paraneoplastic cerebellar degeneration
+T12	ANAPHOR 754 790	This form of cerebellar degeneration
+T13	DISEASE 767 790	cerebellar degeneration
+T14	DISEASE 803 809	cancer
+T15	RAREDISEASE 812 821;837 860	Alcoholic cerebellar degeneration
+T16	RAREDISEASE 825 860	nutritional cerebellar degeneration
+T17	DISEASE 896 915	thiamine deficiency
+T18	ANAPHOR 918 920	It
+T19	DISEASE 939 945	cancer
+T20	ANAPHOR 970 993	the paraneoplastic type
+T21	RAREDISEASE 995 1033	Paraneoplastic cerebellar degeneration
+T22	DISEASE 1091 1097	cancer
+T23	RAREDISEASE 1103 1112;1125 1148	alcoholic cerebellar degeneration
+T24	RAREDISEASE 1113 1148	nutritional cerebellar degeneration
+R1	Produces Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Is_acron Arg1:T10 Arg2:T9	
+R4	Is_a Arg1:T6 Arg2:T5	
+R5	Increases_risk_of Arg1:T6 Arg2:T7	
+R6	Anaphora Arg1:T6 Arg2:T10	
+R7	Is_a Arg1:T8 Arg2:T5	
+R8	Is_a Arg1:T9 Arg2:T5	
+R9	Anaphora Arg1:T9 Arg2:T10	
+R10	Anaphora Arg1:T11 Arg2:T12	
+R11	Anaphora Arg1:T11 Arg2:T20	
+R12	Is_a Arg1:T12 Arg2:T13	
+R13	Increases_risk_of Arg1:T12 Arg2:T14	
+R14	Anaphora Arg1:T15 Arg2:T18	
+R15	Anaphora Arg1:T16 Arg2:T18	
+R16	Increases_risk_of Arg1:T17 Arg2:T16	
+R17	Increases_risk_of Arg1:T21 Arg2:T22	

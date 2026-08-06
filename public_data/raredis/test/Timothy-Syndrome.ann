@@ -1,0 +1,19 @@
+T1	RAREDISEASE 0 16	Timothy syndrome
+T2	DISEASE 27 43	genetic disorder
+T3	SIGN 142 161;176 188	long repolarization in the heart
+T4	SIGN 218 237	cardiac arrhythmias
+T5	SIGN 242 262	sudden cardiac death
+T6	DISEASE 286 302	long QT syndrome
+T7	RAREDISEASE 318 334	Timothy syndrome
+T8	SIGN 353 374	cardiac malformations
+T9	SIGN 409 428	cardiac hypertrophy
+T10	SIGN 460 478	cardiac dilatation
+T11	RAREDISEASE 481 497	Timothy syndrome
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T40	
+R4	Produces Arg1:T1 Arg2:T5	
+R5	Is_a Arg1:T7 Arg2:T6	
+R6	Produces Arg1:T7 Arg2:T8	
+R7	Produces Arg1:T7 Arg2:T9	
+R8	Produces Arg1:T7 Arg2:T10	

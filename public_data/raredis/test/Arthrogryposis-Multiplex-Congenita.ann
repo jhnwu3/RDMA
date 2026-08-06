@@ -1,0 +1,38 @@
+T1	DISEASE 0 14	Arthrogryposis
+T2	SIGN 155 167;56 98	congenitally development of nonprogressive contractures
+T3	SIGN 172 183	contracture
+T4	SIGN 210 241	joint becomes permanently fixed
+T5	SIGN 375 398;410 425	congenital contractures in one body are
+T6	DISEASE 453 467	arthrogryposis
+T7	DISEASE 482 513	isolated congenital contracture
+T8	DISEASE 542 573	isolated congenital contracture
+T9	DISEASE 577 585	clubfoot
+T10	DISEASE 592 606	arthrogryposis
+T11	SIGN 592 606;615 642	arthrogryposis two or more different areas
+T12	RAREDISEASE 681 715	arthrogryposis multiplex congenita
+T13	RAREDISEASE 717 720	AMC
+T14	RAREDISEASE 747 750	AMC
+T15	RAREDISEASE 754 764	amyoplasia
+T16	DISEASE 766 780	Arthrogryposis
+T17	RAREDISEASE 785 819	arthrogryposis multiplex congenita
+T18	RAREDISEASE 900 903	AMC
+T19	ANAPHOR 928 941	The condition
+T20	DISEASE 1015 1047	Isolated congenital contractures
+T21	RAREDISEASE 1117 1120	AMC
+T22	RAREDISEASE 1167 1170	AMC
+T23	RAREDISEASE 1236 1239	AMC
+T24	SIGN 1308 1340	multiple congenital contractures
+T25	RAREDISEASE 1475 1478	AMC
+T26	DISEASE 1567 1578;1592 1601	neuropathic disorders
+T27	DISEASE 1582 1601	myopathic disorders
+T28	DISEASE 2254 2268	arthrogryposis
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T40	
+R4	Produces Arg1:T7 Arg2:T5	
+R5	Is_a Arg1:T9 Arg2:T8	
+R6	Produces Arg1:T12 Arg2:T11	
+R7	Is_acron Arg1:T13 Arg2:T12	
+R8	Is_a Arg1:T14 Arg2:T15	
+R9	Anaphora Arg1:T18 Arg2:T190	
+R10	Produces Arg1:T23 Arg2:T24	

@@ -1,0 +1,36 @@
+T1	SKINRAREDISEASE 0 3	TTD
+T2	SKINRAREDISEASE 212 215	TTD
+T3	SKINRAREDISEASE 282 285	TTD
+T4	SIGN 478 496	hair abnormalities
+T5	SIGN 498 511	short stature
+T6	SIGN 513 523	small chin
+T7	SIGN 525 535	ichthyosis
+T8	SKINRAREDISEASE 525 535	ichthyosis
+T9	DISEASE 537 560	intellectual impairment
+T10	SIGN 537 560	intellectual impairment
+T11	SIGN 564 583	developmental delay
+T12	SIGN 589 613	bone and teeth anomalies
+T13	SIGN 708 727	developmental delay
+T14	DISEASE 731 754	intellectual impairment
+T15	SIGN 731 754	intellectual impairment
+T16	SIGN 793 825	abnormal patterns of myelination
+T17	SKINRAREDISEASE 937 940	TTD
+T18	SIGN 1022 1040;997 1008	tiger-tail pattern hair shafts
+T19	SIGN 1073 1113	reduced sulfur content in patient’s hair
+T20	SKINRAREDISEASE 1184 1187	TTD
+T21	SIGN 1238 1262	hair shaft abnormalities
+T22	SKINRAREDISEASE 1377 1380	TTD
+T23	SKINRAREDISEASE 1477 1480	TTD
+R1	Produces Arg1:T3 Arg2:T4	
+R2	Produces Arg1:T3 Arg2:T5	
+R3	Produces Arg1:T3 Arg2:T6	
+R4	Produces Arg1:T3 Arg2:T7	
+R5	Produces Arg1:T3 Arg2:T10	
+R6	Produces Arg1:T3 Arg2:T11	
+R7	Produces Arg1:T3 Arg2:T120	
+R8	Produces Arg1:T3 Arg2:T13	
+R9	Produces Arg1:T3 Arg2:T15	
+R10	Produces Arg1:T3 Arg2:T16	
+R11	Produces Arg1:T17 Arg2:T18	
+R12	Produces Arg1:T17 Arg2:T19	
+R13	Produces Arg1:T20 Arg2:T21	

@@ -1,0 +1,6 @@
+T1	RAREDISEASE 52 66	ovarian cancer
+T2	ANAPHOR 89 91	It
+T3	RAREDISEASE 161 181	gynecological cancer
+T4	RAREDISEASE 194 212	endometrial cancer
+T5	RAREDISEASE 309 323	ovarian cancer
+R1	Anaphora Arg1:T1 Arg2:T2	

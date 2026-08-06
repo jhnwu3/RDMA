@@ -1,0 +1,4 @@
+T1	RAREDISEASE 0 20	Cri du chat syndrome
+T2	RAREDISEASE 132 152	cri du chat syndrome
+T3	ANAPHOR 227 240	this disorder
+R1	Anaphora Arg1:T2 Arg2:T3	

@@ -1,0 +1,39 @@
+T1	RAREDISEASE 1 21	Goodpasture syndrome
+T2	DISEASE 32 51	autoimmune disorder
+T3	SIGN 138 156	glomerulonephritis
+T4	SIGN 197 219	pulmonary hemorrhaging
+T5	DISEASE 222 242	Autoimmune syndromes
+T6	RAREDISEASE 415 435	Goodpasture syndrome
+T7	SIGN 488 498	hemoptysis
+T8	SIGN 523 530	dyspnea
+T9	SYMPTOM 533 540	fatigue
+T10	SYMPTOM 542 552	chest pain
+T11	SIGN 615 621	anemia
+T12	RAREDISEASE 639 658	Goodpasture syndrom
+T13	SIGN 774 793	acute renal failure
+T14	RAREDISEASE 813 833	Goodpasture syndrome
+T15	DISEASE 868 901	upper respiratory tract infection
+T16	ANAPHOR 928 940	the disorder
+T17	RAREDISEASE 961 981	Goodpasture syndrome
+T18	RAREDISEASE 1011 1031	Goodpasture syndrome
+T19	SIGN 1122 1144	pulmonary hemorrhaging
+T20	SIGN 1149 1167	glomerulonephritis
+T21	SIGN 1242 1299	anti-glomerular basement membranes antibodies in the body
+T22	SIGN 1356 1365	hematuria
+T23	SIGN 1383 1394	proteinuria
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T6 Arg2:T7	
+R5	Produces Arg1:T6 Arg2:T80	
+R6	Produces Arg1:T6 Arg2:T9	
+R7	Produces Arg1:T6 Arg2:T10	
+R8	Produces Arg1:T6 Arg2:T11	
+R9	Produces Arg1:T12 Arg2:T13	
+R10	Anaphora Arg1:T14 Arg2:T16	
+R11	Increases_risk_of Arg1:T15 Arg2:T16	
+R12	Produces Arg1:T18 Arg2:T190	
+R13	Produces Arg1:T18 Arg2:T20	
+R14	Produces Arg1:T18 Arg2:T21	
+R15	Produces Arg1:T18 Arg2:T22	
+R16	Produces Arg1:T18 Arg2:T23	

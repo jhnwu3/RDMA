@@ -1,0 +1,17 @@
+T1	RAREDISEASE 0 29	Congenital Varicella Syndrome
+T2	SIGN 91 125	distinctive abnormalities at birth
+T3	DISEASE 174 184	chickenpox
+T4	DISEASE 186 211	maternal varicella zoster
+T5	SIGN 299 315	low birth weight
+T6	SIGN 335 360	abnormalities of the skin
+T7	SIGN 335 351;398 409	abnormalities of extremities
+T8	SIGN 335 351;412 421	abnormalities of the brain
+T9	SIGN 335 351;423 431	abnormalities of the eyes
+T10	DISEASE 604 639	maternal varicella zoster infection
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T5	
+R3	Produces Arg1:T1 Arg2:T6	
+R4	Produces Arg1:T1 Arg2:T7	
+R5	Produces Arg1:T1 Arg2:T8	
+R6	Produces Arg1:T1 Arg2:T90	
+R7	Is_synon Arg1:T4 Arg2:T3	

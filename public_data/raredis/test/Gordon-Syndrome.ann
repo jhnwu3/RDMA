@@ -1,0 +1,12 @@
+T1	RAREDISEASE 0 15	Gordon syndrome
+T2	RAREDISEASE 204 219	Gordon syndrome
+T3	RAREDISEASE 271 286	Gordon syndrome
+T4	RAREDISEASE 449 464	Gordon syndrome
+T5	SIGN 472 485	camptodactyly
+T6	DISEASE 487 495	clubfoot
+T7	SIGN 487 495	clubfoot
+T8	RAREDISEASE 504 516	cleft palate
+T9	SIGN 504 516	cleft palate
+R1	Produces Arg1:T4 Arg2:T5	
+R2	Produces Arg1:T4 Arg2:T7	
+R3	Produces Arg1:T4 Arg2:T9	

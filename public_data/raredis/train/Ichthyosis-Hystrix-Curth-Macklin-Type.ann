@@ -1,0 +1,22 @@
+T1	SKINRAREDISEASE 0 38	Ichthyosis hystrix, Curth-Macklin type
+T2	DISEASE 49 72	inherited skin disorder
+T3	ANAPHOR 74 76	It
+T4	SIGN 111 121	ichthyosis
+T5	SIGN 156 188	patches of scaly, thickened skin
+T6	SKINRAREDISEASE 265 303	Ichthyosis hystrix, Curth-Macklin type
+T7	SIGN 324 331;346 362	patches thick, hard skin
+T8	SIGN 479 486	patches
+T9	SIGN 575 588;590 605	keratinocytes with two nuclei
+T10	SKINRAREDISEASE 712 745	Ichthyosis hystrix, Curth Macklin
+T11	ANAPHOR 789 791	It
+T12	SKINRAREDISEASE 836 874	Ichthyosis hystrix, Curth-Macklin type
+T13	ANAPHOR 1267 1280	this disorder
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T3 Arg2:T4	
+R4	Produces Arg1:T3 Arg2:T5	
+R5	Produces Arg1:T6 Arg2:T7	
+R6	Produces Arg1:T6 Arg2:T8	
+R7	Produces Arg1:T6 Arg2:T9	
+R8	Anaphora Arg1:T10 Arg2:T11	
+R9	Anaphora Arg1:T12 Arg2:T13	

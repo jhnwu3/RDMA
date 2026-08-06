@@ -1,0 +1,31 @@
+T1	RAREDISEASE 0 25	Intracranial Hypertension
+T2	RAREDISEASE 27 29	IH
+T3	SIGN 51 86	increased pressure inside the skull
+T4	DISEASE 128 140	hypertension
+T5	SIGN 128 140;88 100	hypertension Intracranial
+T6	RAREDISEASE 168 193	Intracranial hypertension
+T7	SIGN 209 220;280 283;285 296	pressure of CSF is too high
+T8	SIGN 298 319	Elevated CSF pressure
+T9	SYMPTOM 344 359	severe headache
+T10	SIGN 364 375	visual loss
+T11	SIGN 384 405	elevated CSF pressure
+T12	SIGN 425 446	permanent visual loss
+T13	SIGN 450 459	blindness
+T14	RAREDISEASE 472 491	Pseudotumor cerebri
+T15	RAREDISEASE 496 528	benign intracranial hypertension
+T16	RAREDISEASE 555 557	IH
+T17	ANAPHOR 635 647	the disorder
+T18	RAREDISEASE 682 683	.
+R1	Produces Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T50	
+R3	Is_acron Arg1:T2 Arg2:T1	
+R4	Produces Arg1:T6 Arg2:T7	
+R5	Produces Arg1:T6 Arg2:T8	
+R6	Produces Arg1:T6 Arg2:T9	
+R7	Produces Arg1:T6 Arg2:T10	
+R8	Produces Arg1:T6 Arg2:T11	
+R9	Produces Arg1:T6 Arg2:T12	
+R10	Produces Arg1:T6 Arg2:T13	
+R11	Is_synon Arg1:T15 Arg2:T14	
+R12	Is_acron Arg1:T16 Arg2:T15	
+R13	Anaphora Arg1:T18 Arg2:T17	

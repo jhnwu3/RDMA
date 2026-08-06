@@ -1,0 +1,19 @@
+T1	RAREDISEASE 0 18	Chromosome 21 Ring
+T2	DISEASE 29 49	chromosomal disorder
+T3	ANAPHOR 473 485	the disorder
+T4	DISEASE 528 546	mental retardation
+T5	SIGN 528 546	mental retardation
+T6	SIGN 558 583	abnormalities of the face
+T7	SIGN 558 578;585 589	abnormalities of the eyes
+T8	SIGN 558 578;591 599	abnormalities of the skeleton
+T9	SIGN 558 578;608 623	abnormalities of the internal organs
+T10	RAREDISEASE 625 643	Chromosome 21 Ring
+T11	DISEASE 654 674	chromosomal disorder
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T3 Arg2:T5	
+R4	Produces Arg1:T3 Arg2:T6	
+R5	Produces Arg1:T3 Arg2:T7	
+R6	Produces Arg1:T3 Arg2:T8	
+R7	Produces Arg1:T3 Arg2:T9	
+R8	Is_a Arg1:T10 Arg2:T110	

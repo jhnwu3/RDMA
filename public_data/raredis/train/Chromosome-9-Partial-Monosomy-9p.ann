@@ -1,0 +1,27 @@
+T1	RAREDISEASE 0 33	Chromosome 9, Partial Monosomy 9p
+T2	DISEASE 44 64	chromosomal disorder
+T3	DISEASE 184 202	mental retardation
+T4	SIGN 184 202	mental retardation
+T5	SIGN 216 275	malformations of the skull and facial (craniofacial) region
+T6	SIGN 288 314	abnormally shaped forehead
+T7	SIGN 322 336	trigonocephaly
+T8	SIGN 339 369	upwardly slanting eyelid folds
+T9	SIGN 430 450	midfacial hypoplasia
+T10	DISEASE 492 516	congenital heart defects
+T11	SIGN 492 516	congenital heart defects
+T12	SIGN 519 534	genital defects
+T13	SIGN 584 606	physical abnormalities
+T14	RAREDISEASE 623 656	Chromosome 9, Partial Monosomy 9p
+T15	RAREDISEASE 811 844	Chromosome 9, Partial Monosomy 9p
+T16	ANAPHOR 911 923	the disorder
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Produces Arg1:T1 Arg2:T5	
+R4	Produces Arg1:T1 Arg2:T6	
+R5	Produces Arg1:T1 Arg2:T70	
+R6	Produces Arg1:T1 Arg2:T8	
+R7	Produces Arg1:T1 Arg2:T9	
+R8	Produces Arg1:T1 Arg2:T11	
+R9	Produces Arg1:T1 Arg2:T12	
+R10	Produces Arg1:T1 Arg2:T13	
+R11	Anaphora Arg1:T15 Arg2:T16	

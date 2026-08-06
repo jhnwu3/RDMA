@@ -1,0 +1,17 @@
+T1	RAREDISEASE 10 46	Familial isolated hypoparathyroidism
+T2	DISEASE 76 93	genetic disorders
+T3	SIGN 111 187	parathyroid glands that do not produce or secrete enough parathyroid hormone
+T4	DISEASE 461 491	Parathyroid hormone deficiency
+T5	SIGN 461 491	Parathyroid hormone deficiency
+T6	SIGN 535 547	hypocalcemia
+T7	SIGN 553 579	high levels of phosphorous
+T8	RAREDISEASE 581 617	Familial isolated hypoparathyroidism
+T9	ANAPHOR 794 809	these disorders
+T10	ANAPHOR 940 955	these disorders
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T5	
+R4	Produces Arg1:T4 Arg2:T6	
+R5	Produces Arg1:T4 Arg2:T7	
+R6	Anaphora Arg1:T8 Arg2:T90	
+R7	Anaphora Arg1:T8 Arg2:T10	

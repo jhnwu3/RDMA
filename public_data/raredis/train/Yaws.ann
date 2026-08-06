@@ -1,0 +1,28 @@
+T1	RAREDISEASE 1 5	Yaws
+T2	DISEASE 12 39	infectious tropical disease
+T3	ANAPHOR 120 131	The disease
+T4	SIGN 349 382	small, painless bumps on the skin
+T5	SIGN 482 487	ulcer
+T6	SIGN 581 601	crispy, crunchy rash
+T7	SYMPTOM 692 710	walking is painful
+T8	SIGN 739 748	crab yaws
+T9	RAREDISEASE 811 815	Yaws
+T10	ANAPHOR 866 868	it
+T11	ANAPHOR 904 906	It
+T12	ANAPHOR 946 948	It
+T13	RAREDISEASE 998 1002	Yaws
+T14	DISEASE 1009 1027	infectious disease
+T15	RAREDISEASE 1107 1111	Yaws
+T16	RAREDISEASE 1323 1327	yaws
+T17	RAREDISEASE 1460 1464	yaws
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T3 Arg2:T4	
+R4	Produces Arg1:T3 Arg2:T50	
+R5	Produces Arg1:T3 Arg2:T6	
+R6	Produces Arg1:T3 Arg2:T7	
+R7	Produces Arg1:T3 Arg2:T8	
+R8	Anaphora Arg1:T9 Arg2:T10	
+R9	Anaphora Arg1:T9 Arg2:T110	
+R10	Anaphora Arg1:T9 Arg2:T12	
+R11	Is_a Arg1:T13 Arg2:T14	

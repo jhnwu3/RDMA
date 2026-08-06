@@ -1,0 +1,20 @@
+T1	SKINRAREDISEASE 0 21	Rosai-Dorfman disease
+T2	DISEASE 190 205	lymphadenopathy
+T3	SIGN 190 205	lymphadenopathy
+T4	DISEASE 238 262	cervical lymphadenopathy
+T5	SIGN 238 262	cervical lymphadenopathy
+T6	SIGN 280 316;379 389	abnormal accumulation of histiocytes extranodal
+T7	SKINRAREDISEASE 526 547	Rosai-Dorfman disease
+T8	ANAPHOR 618 630	The disorder
+T9	SKINRAREDISEASE 711 732	Rosai-Dorfman disease
+T10	SKINRAREDISEASE 771 792	Rosai-Dorfman disease
+T11	ANAPHOR 832 844	The disorder
+T12	SKINRAREDISEASE 949 970	Rosai-Dorfman disease
+T13	ANAPHOR 1092 1104	the disorder
+T14	SKINRAREDISEASE 1177 1198	Rosai-Dorfman disease
+R1	Produces Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T5	
+R3	Produces Arg1:T1 Arg2:T6	
+R4	Anaphora Arg1:T7 Arg2:T80	
+R5	Anaphora Arg1:T10 Arg2:T11	
+R6	Anaphora Arg1:T12 Arg2:T13	

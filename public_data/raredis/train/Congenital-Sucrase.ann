@@ -1,0 +1,25 @@
+T1	RAREDISEASE 0 40	Congenital sucrase-isomaltase deficiency
+T2	RAREDISEASE 42 46	CSID
+T3	DISEASE 58 86	inherited metabolic disorder
+T4	SIGN 108 152	deficiency or absence of the enzymes sucrase
+T5	SIGN 108 132;157 167	deficiency or absence of isomaltase
+T6	ANAPHOR 618 631	this disorder
+T7	SIGN 1036 1051	watery diarrhea
+T8	SIGN 1073 1083	distension
+T9	SYMPTOM 1092 1102	discomfort
+T10	RAREDISEASE 1276 1280	CSID
+T11	RAREDISEASE 1335 1339	CSID
+T12	DISEASE 1345 1363	metabolic disorder
+T13	ANAPHOR 1478 1491	This disorder
+T14	ANAPHOR 1906 1919	this disorder
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Produces Arg1:T1 Arg2:T5	
+R4	Anaphora Arg1:T1 Arg2:T6	
+R5	Is_acron Arg1:T2 Arg2:T1	
+R6	Produces Arg1:T6 Arg2:T7	
+R7	Produces Arg1:T6 Arg2:T80	
+R8	Produces Arg1:T6 Arg2:T9	
+R9	Is_a Arg1:T11 Arg2:T12	
+R10	Anaphora Arg1:T11 Arg2:T13	
+R11	Anaphora Arg1:T11 Arg2:T14	

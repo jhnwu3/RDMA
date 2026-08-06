@@ -1,0 +1,5 @@
+T1	RAREDISEASE 0 24	Landau-Kleffner syndrome
+T2	SIGN 184 203	language regression
+T3	SIGN 244 281;296 316	severely epileptiform activity on EEG during non-REM sleep
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	

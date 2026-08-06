@@ -1,0 +1,22 @@
+T1	RAREDISEASE 0 14	Tooth agenesis
+T2	RAREDISEASE 58 67	Anodontia
+T3	DISEASE 73 89	genetic disorder
+T4	SIGN 105 125	absence of all teeth
+T5	ANAPHOR 127 129	It
+T6	RAREDISEASE 234 243	anodontia
+T7	DISEASE 248 258	hypodontia
+T8	RAREDISEASE 263 274	oligodontia
+T9	DISEASE 276 286	Hypodontia
+T10	SIGN 333 361	absence of from 1 to 5 teeth
+T11	RAREDISEASE 363 374	Oligodontia
+T12	SIGN 448 477	six or more teeth are missing
+T13	RAREDISEASE 497 506	anodontia
+T14	ANAPHOR 519 533	This condition
+T15	DISEASE 596 606	hypodontia
+T16	RAREDISEASE 672 683	oligodontia
+R1	Is_a Arg1:T2 Arg2:T3	
+R2	Produces Arg1:T2 Arg2:T4	
+R3	Anaphora Arg1:T2 Arg2:T5	
+R4	Produces Arg1:T9 Arg2:T10	
+R5	Produces Arg1:T11 Arg2:T12	
+R6	Anaphora Arg1:T10 Arg2:T16	

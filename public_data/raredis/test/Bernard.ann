@@ -1,0 +1,37 @@
+T1	RAREDISEASE 16 40	Bernard-Soulier syndrome
+T2	SIGN 138 184	bleed excessively from cuts and other injuries
+T3	SIGN 198 207	epistaxis
+T4	SIGN 230 259	heavy menstrual flow in women
+T5	RAREDISEASE 291 294	BSS
+T6	ANAPHOR 316 328	the disorder
+T7	ANAPHOR 376 388	this disease
+T8	SIGN 394 400	bruise
+T9	SIGN 416 423	bruises
+T10	SIGN 440 448	Bleeding
+T11	DISEASE 583 590	purpura
+T12	SIGN 583 590	purpura
+T13	SIGN 594 603	petechiae
+T14	RAREDISEASE 606 630	Bernard-Soulier syndrome
+T15	DISEASE 641 658	bleeding disorder
+T16	RAREDISEASE 738 762	Bernard Soulier syndrome
+T17	RAREDISEASE 861 885	Bernard-Soulier syndrome
+T18	DISEASE 986 1002	thrombocytopenia
+T19	SIGN 986 1002	thrombocytopenia
+T20	SIGN 1069 1084	large platelets
+T21	SIGN 1089 1117	irregularly shaped platelets
+T22	RAREDISEASE 1267 1291	Bernard-Soulier syndrome
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Is_acron Arg1:T5 Arg2:T1	
+R5	Anaphora Arg1:T5 Arg2:T60	
+R6	Anaphora Arg1:T5 Arg2:T7	
+R7	Produces Arg1:T7 Arg2:T8	
+R8	Produces Arg1:T7 Arg2:T9	
+R9	Produces Arg1:T7 Arg2:T10	
+R10	Produces Arg1:T7 Arg2:T12	
+R11	Produces Arg1:T7 Arg2:T13	
+R12	Is_a Arg1:T10 Arg2:T11	
+R13	Produces Arg1:T17 Arg2:T19	
+R14	Produces Arg1:T17 Arg2:T20	
+R15	Produces Arg1:T17 Arg2:T21	

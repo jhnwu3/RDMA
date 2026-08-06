@@ -1,0 +1,30 @@
+T1	RAREDISEASE 0 18	Takayasu arteritis
+T2	SIGN 59 144	progressive inflammation of one or more of the larger arteries leading from the heart
+T3	ANAPHOR 252 265	this disorder
+T4	SIGN 273 314	progressive inflammation of many arteries
+T5	DISEASE 331 344	polyarteritis
+T6	SIGN 331 344	polyarteritis
+T7	SIGN 373 386	polyarteritis
+T8	SIGN 395 417	eduction of blood flow
+T9	RAREDISEASE 600 618	Takayasu arteritis
+T10	SIGN 679 697	segmental stenosis
+T11	DISEASE 788 808	aortic regurgitation
+T12	SIGN 788 808	aortic regurgitation
+T13	SIGN 873 881	aneurysm
+T14	RAREDISEASE 914 932	Takayasu arteritis
+T15	ANAPHOR 1051 1064	This disorder
+T16	RAREDISEASE 1120 1138	Takayasu arteritis
+T17	ANAPHOR 1202 1215	this disorder
+T18	ANAPHOR 1272 1274	it
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T3 Arg2:T6	
+R4	Produces Arg1:T3 Arg2:T7	
+R5	Produces Arg1:T3 Arg2:T8	
+R6	Produces Arg1:T5 Arg2:T4	
+R7	Produces Arg1:T9 Arg2:T100	
+R8	Produces Arg1:T9 Arg2:T12	
+R9	Produces Arg1:T9 Arg2:T13	
+R10	Anaphora Arg1:T14 Arg2:T15	
+R11	Anaphora Arg1:T16 Arg2:T17	
+R12	Anaphora Arg1:T16 Arg2:T18	

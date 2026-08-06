@@ -1,0 +1,51 @@
+T1	RAREDISEASE 0 17	Testicular cancer
+T2	DISEASE 41 47	cancer
+T3	ANAPHOR 105 107	it
+T4	DISEASE 135 141	cancer
+T5	RAREDISEASE 223 240	testicular cancer
+T6	RAREDISEASE 360 377	testicular cancer
+T7	DISEASE 396 414	testicular torsion
+T8	DISEASE 416 428	epididymitis
+T9	DISEASE 430 447	epididymoorchitis
+T10	DISEASE 449 458	hydrocele
+T11	DISEASE 460 470	varicocele
+T12	DISEASE 472 480	hematoma
+T13	DISEASE 482 494	spermatocele
+T14	DISEASE 500 516	syphilitic gumma
+T15	DISEASE 518 536	Testicular torsion
+T16	SIGN 547 600	testicle rotates and twists around the spermatic cord
+T17	DISEASE 683 695	Epididymitis
+T18	SIGN 699 711;754 764	inflammation epididymis
+T19	DISEASE 864 881	Epididymoorchitis
+T20	SIGN 885 915	inflammation of the epididymis
+T21	SIGN 885 904;920 933	inflammation of the the testicles
+T22	DISEASE 935 944	Hydrocele
+T23	SIGN 957 1011	fluid builds up in the sac that surrounds the testicle
+T24	SIGN 1023 1031;1060 1084	swelling of the affected testicle
+T25	SYMPTOM 1049 1084	discomfort of the affected testicle
+T26	DISEASE 1086 1096	Varicocele
+T27	SIGN 1113 1156	enlargement of the veins within the scrotum
+T28	SYMPTOM 1174 1195	feeling of discomfort
+T29	SYMPTOM 1199 1203	pain
+T30	SIGN 1208 1224	impair fertility
+T31	DISEASE 1228 1236	hematoma
+T32	SIGN 1242 1291	collection or small mass made up of clotted blood
+T33	DISEASE 1295 1307	spermatocele
+T34	SIGN 1372 1388	Syphilitic gumma
+T35	DISEASE 1442 1450	syphilis
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Is_a Arg1:T3 Arg2:T4	
+R4	Produces Arg1:T15 Arg2:T16	
+R5	Produces Arg1:T17 Arg2:T18	
+R6	Produces Arg1:T19 Arg2:T20	
+R7	Produces Arg1:T19 Arg2:T21	
+R8	Produces Arg1:T22 Arg2:T23	
+R9	Produces Arg1:T22 Arg2:T24	
+R10	Produces Arg1:T22 Arg2:T25	
+R11	Produces Arg1:T26 Arg2:T27	
+R12	Produces Arg1:T26 Arg2:T28	
+R13	Produces Arg1:T26 Arg2:T290	
+R14	Produces Arg1:T26 Arg2:T30	
+R15	Produces Arg1:T31 Arg2:T32	
+R16	Produces Arg1:T35 Arg2:T34	

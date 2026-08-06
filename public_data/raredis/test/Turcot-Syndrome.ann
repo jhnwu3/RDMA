@@ -1,0 +1,30 @@
+T1	RAREDISEASE 0 15	Turcot syndrome
+T2	DISEASE 26 44	inherited disorder
+T3	SIGN 117 167;97 115	in the mucous lining of the gastrointestinal tract adenomatous polyps
+T4	SIGN 173 209	tumors of the central nervous system
+T5	SIGN 236 251	polyp formation
+T6	DISEASE 264 272	diarrhea
+T7	SIGN 264 272	diarrhea
+T8	SIGN 274 326	bleeding from the end portion of the large intestine
+T9	SYMPTOM 337 344	fatigue
+T10	SYMPTOM 346 360	abdominal pain
+T11	SIGN 366 377	weight loss
+T12	SIGN 420 441	neurological symptoms
+T13	SIGN 504 515	brain tumor
+T14	RAREDISEASE 547 562	Turcot syndrome
+T15	RAREDISEASE 579 609	familial adenomatous polyposis
+T16	ANAPHOR 631 633	it
+T17	RAREDISEASE 677 692	Turcot syndrome
+T18	RAREDISEASE 707 722	Turcot syndrome
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T5	
+R5	Produces Arg1:T1 Arg2:T7	
+R6	Produces Arg1:T1 Arg2:T8	
+R7	Produces Arg1:T1 Arg2:T9	
+R8	Produces Arg1:T1 Arg2:T10	
+R9	Produces Arg1:T1 Arg2:T11	
+R10	Produces Arg1:T1 Arg2:T12	
+R11	Produces Arg1:T1 Arg2:T13	
+R12	Anaphora Arg1:T14 Arg2:T16	

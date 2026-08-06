@@ -1,0 +1,46 @@
+T1	RAREDISEASE 0 7	Rubella
+T2	DISEASE 13 28	viral infection
+T3	SIGN 46 51	fever
+T4	SYMPTOM 53 61	headache
+T5	SIGN 63 82	swollen lymph nodes
+T6	SYMPTOM 84 97	aching joints
+T7	SIGN 105 125	distinctive red rash
+T8	ANAPHOR 136 138	it
+T9	RAREDISEASE 159 173	German measles
+T10	RAREDISEASE 177 194	three-day measles
+T11	ANAPHOR 196 198	it
+T12	DISEASE 243 250	measles
+T13	RAREDISEASE 252 259	Rubella
+T14	RAREDISEASE 388 395	rubella
+T15	ANAPHOR 397 399	it
+T16	DISEASE 497 504	measles
+T17	DISEASE 505 510	mumps
+T18	RAREDISEASE 511 518	rubella
+T19	ANAPHOR 548 559	the disease
+T20	RAREDISEASE 628 635	rubella
+T21	ANAPHOR 850 861	the disease
+T22	RAREDISEASE 952 959	rubella
+T23	RAREDISEASE 1057 1064	Rubella
+T24	RAREDISEASE 1156 1163	rubella
+T25	RAREDISEASE 1236 1243	rubella
+T26	RAREDISEASE 1264 1291	congenital rubella syndrome
+T27	RAREDISEASE 1468 1475	rubella
+T28	DISEASE 1507 1514	measles
+T29	DISEASE 1516 1521	mumps
+T30	RAREDISEASE 1527 1534	rubella
+T31	RAREDISEASE 1605 1612	rubella
+T32	SIGN 1613 1617	rash
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T5	
+R5	Produces Arg1:T1 Arg2:T60	
+R6	Produces Arg1:T1 Arg2:T7	
+R7	Anaphora Arg1:T1 Arg2:T8	
+R8	Anaphora Arg1:T1 Arg2:T11	
+R9	Is_synon Arg1:T9 Arg2:T8	
+R10	Is_synon Arg1:T10 Arg2:T8	
+R11	Anaphora Arg1:T10 Arg2:T17	
+R12	Anaphora Arg1:T18 Arg2:T19	
+R13	Anaphora Arg1:T20 Arg2:T21	
+R14	Produces Arg1:T31 Arg2:T32	

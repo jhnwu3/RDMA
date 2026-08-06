@@ -1,0 +1,36 @@
+T1	RAREDISEASE 0 5;50 58	MERRF syndrome
+T2	SIGN 7 16	Myoclonus
+T3	RAREDISEASE 50 58;7 48	syndrome Myoclonus Epilepsy with Ragged-Red Fibers
+T4	RAREDISEASE 226 231	MERRF
+T5	SIGN 235 244	myoclonus
+T6	RAREDISEASE 374 388	MERRF syndrome
+T7	DISEASE 415 423	myopathy
+T8	SIGN 415 423	myopathy
+T9	SIGN 471 477	ataxia
+T10	SIGN 480 488	seizures
+T11	DISEASE 541 549	dementia
+T12	SIGN 541 549	dementia
+T13	SIGN 552 565	Short stature
+T14	DISEASE 600 613	optic atrophy
+T15	SIGN 600 613	optic atrophy
+T16	DISEASE 630 644	cardiomyopathy
+T17	SIGN 630 644	cardiomyopathy
+T18	DISEASE 687 708	peripheral neuropathy
+T19	SIGN 687 708	peripheral neuropathy
+T20	SIGN 736 757;774 801	Abnormal muscle cells appear as ragged red fibers
+T21	RAREDISEASE 885 890	MERRF
+T22	RAREDISEASE 944 958	MERRF syndrome
+T23	DISEASE 1059 1083	mitochondrial myopathies
+T24	RAREDISEASE 1220 1234	MERRF syndrome
+R1	Is_acron Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T3 Arg2:T2	
+R3	Produces Arg1:T4 Arg2:T5	
+R4	Produces Arg1:T6 Arg2:T8	
+R5	Produces Arg1:T6 Arg2:T9	
+R6	Produces Arg1:T6 Arg2:T100	
+R7	Produces Arg1:T6 Arg2:T12	
+R8	Produces Arg1:T6 Arg2:T130	
+R9	Produces Arg1:T6 Arg2:T15	
+R10	Produces Arg1:T6 Arg2:T17	
+R11	Produces Arg1:T6 Arg2:T19	
+R12	Produces Arg1:T6 Arg2:T20	

@@ -1,0 +1,38 @@
+T1	RAREDISEASE 0 36	Sinonasal undifferentiated carcinoma
+T2	RAREDISEASE 38 42	SNUC
+T3	DISEASE 54 105	cancer of the nasal cavity and/or paranasal sinuses
+T4	SIGN 135 146	bloody nose
+T5	SIGN 148 158	runny nose
+T6	SIGN 160 173	double vision
+T7	SIGN 179 212	bulging eye to chronic infections
+T8	SIGN 217 234	nasal obstruction
+T9	ANAPHOR 236 238	It
+T10	DISEASE 281 290	papilloma
+T11	DISEASE 391 398	cancers
+T12	RAREDISEASE 443 447	SNUC
+T13	DISEASE 546 552	cancer
+T14	SIGN 843 852	epistaxis
+T15	SIGN 867 877	rhinorrhea
+T16	SIGN 893 904	exopthalmos
+T17	SIGN 905 914	proptosis
+T18	SIGN 932 940	diplopia
+T19	SIGN 943 960	nasal obstruction
+T20	SIGN 966 981	nasal infection
+T21	RAREDISEASE 1021 1025	SNUC
+T22	ANAPHOR 1028 1030	It
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Produces Arg1:T1 Arg2:T5	
+R4	Produces Arg1:T1 Arg2:T6	
+R5	Produces Arg1:T1 Arg2:T7	
+R6	Produces Arg1:T1 Arg2:T8	
+R7	Anaphora Arg1:T1 Arg2:T9	
+R8	Is_acron Arg1:T2 Arg2:T1	
+R9	Produces Arg1:T12 Arg2:T14	
+R10	Produces Arg1:T12 Arg2:T15	
+R11	Produces Arg1:T12 Arg2:T16	
+R12	Produces Arg1:T12 Arg2:T170	
+R13	Produces Arg1:T12 Arg2:T18	
+R14	Produces Arg1:T12 Arg2:T19	
+R15	Produces Arg1:T12 Arg2:T20	
+R16	Anaphora Arg1:T21 Arg2:T22	

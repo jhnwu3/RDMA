@@ -1,0 +1,19 @@
+T1	RAREDISEASE 0 34	Spondyloepiphyseal dysplasia tarda
+T2	RAREDISEASE 36 40	SEDT
+T3	RAREDISEASE 42 46	SEDL
+T4	DISEASE 59 87	hereditary skeletal disorder
+T5	SIGN 170 178	dwarfism
+T6	SIGN 181 218	moderate-to-severe spinal deformities
+T7	SIGN 220 239	barrel-shaped chest
+T8	SIGN 241 271	disproportionately short trunk
+T9	SIGN 277 301	premature osteoarthritis
+T10	DISEASE 287 301	osteoarthritis
+T11	RAREDISEASE 303 307	SEDT
+R1	Is_a Arg1:T1 Arg2:T4	
+R2	Produces Arg1:T1 Arg2:T5	
+R3	Produces Arg1:T1 Arg2:T6	
+R4	Produces Arg1:T1 Arg2:T7	
+R5	Produces Arg1:T1 Arg2:T80	
+R6	Produces Arg1:T1 Arg2:T9	
+R7	Is_acron Arg1:T2 Arg2:T1	
+R8	Is_acron Arg1:T3 Arg2:T1	

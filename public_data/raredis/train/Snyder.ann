@@ -1,0 +1,40 @@
+T1	RAREDISEASE 42 45	SRS
+T2	SIGN 121 128	gestalt
+T3	SIGN 144 162	facial dysmorphism
+T4	SIGN 170 189	prominent lower lip
+T5	SIGN 194 208	asthenic build
+T6	SIGN 210 225	low muscle mass
+T7	SIGN 227 240	kyphoscohosis
+T8	SIGN 245 265	speech abnormalities
+T9	RAREDISEASE 278 281	SRS
+T10	SIGN 304 313;315 323	hypotonia at birth
+T11	SIGN 363 378	facial features
+T12	SIGN 380 404;414 435	Developmental milestones not met early in life
+T13	SIGN 441 460	developmental delay
+T14	RAREDISEASE 497 500	SRS
+T15	SIGN 511 527	motor disability
+T16	DISEASE 529 541	Osteoporosis
+T17	SIGN 529 541	Osteoporosis
+T18	SIGN 617 625	Seizures
+T19	RAREDISEASE 662 686	Snyder-Robinson syndrome
+T20	DISEASE 697 729	X-linked intellectual disability
+T21	RAREDISEASE 798 801	SRS
+T22	DISEASE 969 973	XLID
+T23	RAREDISEASE 1036 1039	SRS
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T5	
+R5	Produces Arg1:T1 Arg2:T6	
+R6	Produces Arg1:T1 Arg2:T70	
+R7	Produces Arg1:T1 Arg2:T8	
+R8	Produces Arg1:T9 Arg2:T10	
+R9	Produces Arg1:T9 Arg2:T11	
+R10	Produces Arg1:T9 Arg2:T120	
+R11	Produces Arg1:T14 Arg2:T13	
+R12	Produces Arg1:T14 Arg2:T15	
+R13	Produces Arg1:T14 Arg2:T17	
+R14	Produces Arg1:T14 Arg2:T18	
+R15	Is_a Arg1:T19 Arg2:T20	
+R16	Is_acron Arg1:T21 Arg2:T19	
+R17	Is_acron Arg1:T22 Arg2:T20	

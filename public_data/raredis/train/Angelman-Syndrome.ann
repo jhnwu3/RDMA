@@ -1,0 +1,4 @@
+T1	RAREDISEASE 0 17	Angelman syndrome
+T2	RAREDISEASE 80 97	Angelman syndrome
+T3	ANAPHOR 256 268	the disorder
+R1	Anaphora Arg1:T2 Arg2:T3	

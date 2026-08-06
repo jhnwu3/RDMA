@@ -1,0 +1,92 @@
+T1	RAREDISEASE 26 29	OMS
+T2	RAREDISEASE 133 143	opsoclonus
+T3	SIGN 133 143	opsoclonus
+T4	SIGN 198 204	ataxia
+T5	SIGN 284 293	myoclonus
+T6	SIGN 299 331	tremor interfering with hand use
+T7	SIGN 333 343;354 366	Behavioral disturbances
+T8	SIGN 348 366	sleep disturbances
+T9	SIGN 378 398	extreme irritability
+T10	SIGN 400 419	inconsolable crying
+T11	SIGN 451 459	insomnia
+T12	SIGN 465 477	rage attacks
+T13	SIGN 522 532	dysarthria
+T14	SIGN 550 586	complete loss of speech and language
+T15	SIGN 649 658	hypotonia
+T16	SIGN 664 672	vomiting
+T17	RAREDISEASE 710 713	OMS
+T18	SIGN 773 778	tumor
+T19	SIGN 879 884	tumor
+T20	SIGN 914 920;979 1006	Tumors usually in chest or abdomen
+T21	RAREDISEASE 1087 1100	neuroblastoma
+T22	SIGN 1087 1100	neuroblastoma
+T23	RAREDISEASE 1104 1124	ganglioneuroblastoma
+T24	SIGN 1104 1124	ganglioneuroblastoma
+T25	RAREDISEASE 1174 1177	OMS
+T26	ANAPHOR 1210 1222	the disorder
+T27	DISEASE 1288 1304	viral infections
+T28	SIGN 1344 1349	tumor
+T29	SIGN 1376 1381	tumor
+T30	DISEASE 1447 1463	viral infections
+T31	RAREDISEASE 1504 1507	OMS
+T32	DISEASE 1572 1576;1587 1594	lung cancers
+T33	DISEASE 1580 1586;1587 1594	breast cancers
+T34	RAREDISEASE 1611 1629	paraneoplastic OMS
+T35	SIGN 1667 1673	tumors
+T36	RAREDISEASE 1783 1786	OMS
+T37	ANAPHOR 1844 1846	It
+T38	ANAPHOR 1900 1902	it
+T39	RAREDISEASE 2075 2085	opsoclonus
+T40	RAREDISEASE 2139 2149	opsoclonus
+T41	RAREDISEASE 2215 2218	OMS
+T42	ANAPHOR 2265 2267	It
+T43	RAREDISEASE 2308 2322	neuroblastomas
+T44	SIGN 2442 2454	dancing eyes
+T45	SIGN 2461 2485	shock-like muscle spasms
+T46	SIGN 2495 2513	impairment of gait
+T47	SIGN 2544 2556	irritability
+T48	ANAPHOR 2592 2605	this syndrome
+T49	RAREDISEASE 2803 2806	OMS
+T50	SIGN 3068 3109	antibodies secreted by B cells in the CSF
+T51	SIGN 3196 3237	increased frequency of CSF CD 19+ B cells
+T52	RAREDISEASE 3275 3278	OMS
+T53	RAREDISEASE 3334 3337	OMS
+R1	Produces Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Produces Arg1:T1 Arg2:T5	
+R4	Produces Arg1:T1 Arg2:T6	
+R5	Produces Arg1:T1 Arg2:T7	
+R6	Produces Arg1:T1 Arg2:T8	
+R7	Produces Arg1:T1 Arg2:T9	
+R8	Produces Arg1:T1 Arg2:T10	
+R9	Produces Arg1:T1 Arg2:T11	
+R10	Produces Arg1:T1 Arg2:T12	
+R11	Produces Arg1:T1 Arg2:T13	
+R12	Produces Arg1:T1 Arg2:T14	
+R13	Produces Arg1:T1 Arg2:T15	
+R14	Produces Arg1:T1 Arg2:T16	
+R15	Produces Arg1:T17 Arg2:T18	
+R16	Produces Arg1:T17 Arg2:T19	
+R17	Produces Arg1:T17 Arg2:T20	
+R18	Anaphora Arg1:T17 Arg2:T26	
+R19	Produces Arg1:T20 Arg2:T30	
+R20	Produces Arg1:T20 Arg2:T31	
+R21	Produces Arg1:T26 Arg2:T28	
+R22	Produces Arg1:T26 Arg2:T29	
+R23	Anaphora Arg1:T27 Arg2:T26	
+R24	Increases_risk_of Arg1:T30 Arg2:T310	
+R25	Increases_risk_of Arg1:T32 Arg2:T310	
+R26	Is_a Arg1:T33 Arg2:T310	
+R27	Is_a Arg1:T34 Arg2:T310	
+R28	Produces Arg1:T34 Arg2:T35	
+R29	Anaphora Arg1:T36 Arg2:T37	
+R30	Anaphora Arg1:T36 Arg2:T38	
+R31	Anaphora Arg1:T41 Arg2:T420	
+R32	Anaphora Arg1:T41 Arg2:T48	
+R33	Increases_risk_of Arg1:T43 Arg2:T420	
+R34	Produces Arg1:T48 Arg2:T44	
+R35	Produces Arg1:T48 Arg2:T450	
+R36	Produces Arg1:T48 Arg2:T46	
+R37	Produces Arg1:T48 Arg2:T47	
+R38	Produces Arg1:T49 Arg2:T50	
+R39	Produces Arg1:T52 Arg2:T51	

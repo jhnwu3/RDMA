@@ -1,0 +1,18 @@
+T1	RAREDISEASE 0 7	Malaria
+T2	DISEASE 13 44	communicable parasitic disorder
+T3	SIGN 226 232	Chills
+T4	SIGN 237 242	fever
+T5	ANAPHOR 319 331	the disorder
+T6	RAREDISEASE 391 398	malaria
+T7	RAREDISEASE 610 617	Malaria
+T8	RAREDISEASE 720 727	malaria
+T9	ANAPHOR 1001 1014	the infection
+T10	ANAPHOR 1064 1076	the disorder
+T11	RAREDISEASE 1212 1219	malaria
+T12	RAREDISEASE 1372 1379	malaria
+R1	Is_a Arg1:T1 Arg2:T20	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Anaphora Arg1:T6 Arg2:T5	
+R5	Anaphora Arg1:T8 Arg2:T9	
+R6	Anaphora Arg1:T8 Arg2:T10	

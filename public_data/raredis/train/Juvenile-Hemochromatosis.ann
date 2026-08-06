@@ -1,0 +1,34 @@
+T1	RAREDISEASE 0 24	Juvenile hemochromatosis
+T2	DISEASE 35 51	genetic disorder
+T3	SIGN 73 93	accumulation of iron
+T4	RAREDISEASE 218 242	juvenile hemochromatosis
+T5	DISEASE 375 399	hypotrophic hypogonadism
+T6	SIGN 375 399	hypotrophic hypogonadism
+T7	DISEASE 402 407;418 425	heart disease
+T8	SIGN 402 407;418 425	heart disease
+T9	DISEASE 450 459	cirrhosis
+T10	SIGN 450 459	cirrhosis
+T11	DISEASE 462 475	joint disease
+T12	SIGN 462 475	joint disease
+T13	DISEASE 477 485	diabetes
+T14	SIGN 477 485	diabetes
+T15	SIGN 530 547	hyperpigmentation
+T16	DISEASE 594 628	classic hereditary hemochromatosis
+T17	RAREDISEASE 668 692	juvenile hemochromatosis
+T18	RAREDISEASE 758 782	juvenile hemochromatosis
+T19	RAREDISEASE 837 861	Juvenile hemochromatosis
+T20	RAREDISEASE 1003 1027	Juvenile hemochromatosis
+T21	ANAPHOR 1072 1084	The disorder
+T22	RAREDISEASE 1157 1181	Juvenile hemochromatosis
+T23	ANAPHOR 1211 1223	The disorder
+T24	RAREDISEASE 1340 1364	juvenile hemochromatosis
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T4 Arg2:T6	
+R4	Produces Arg1:T4 Arg2:T8	
+R5	Produces Arg1:T4 Arg2:T10	
+R6	Produces Arg1:T4 Arg2:T120	
+R7	Produces Arg1:T4 Arg2:T14	
+R8	Produces Arg1:T4 Arg2:T15	
+R9	Anaphora Arg1:T20 Arg2:T21	
+R10	Increases_risk_of Arg1:T22 Arg2:T23	

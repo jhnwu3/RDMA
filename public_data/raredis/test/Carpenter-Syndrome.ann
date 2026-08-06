@@ -1,0 +1,32 @@
+T1	RAREDISEASE 0 18	Carpenter syndrome
+T2	DISEASE 46 62	genetic disorder
+T3	RAREDISEASE 102 106	ACPS
+T4	RAREDISEASE 108 117;74 99	disorders acrocephalopolysyndactyly
+T5	RAREDISEASE 132 136	ACPS
+T6	RAREDISEASE 252 268	craniosynostosis
+T7	SIGN 252 268	craniosynostosis
+T8	RAREDISEASE 318 329	acrocephaly
+T9	SIGN 318 329	acrocephaly
+T10	DISEASE 351 361	syndactyly
+T11	SIGN 351 361	syndactyly
+T12	DISEASE 446 457	polydactyly
+T13	SIGN 446 457	polydactyly
+T14	RAREDISEASE 460 478	Carpenter syndrome
+T15	RAREDISEASE 496 508	ACPS type II
+T16	RAREDISEASE 510 528	Carpenter syndrome
+T17	ANAPHOR 616 628	the disorder
+T18	ANAPHOR 695 706	the disease
+T19	DISEASE 969 985	genetic disorder
+T20	ANAPHOR 1120 1131	the disease
+R1	Is_a Arg1:T1 Arg2:T4	
+R2	Is_acron Arg1:T10 Arg2:T2	
+R3	Is_a Arg1:T4 Arg2:T2	
+R4	Produces Arg1:T5 Arg2:T7	
+R5	Produces Arg1:T5 Arg2:T9	
+R6	Produces Arg1:T5 Arg2:T11	
+R7	Produces Arg1:T5 Arg2:T13	
+R8	Is_synon Arg1:T14 Arg2:T15	
+R9	Anaphora Arg1:T16 Arg2:T17	
+R10	Anaphora Arg1:T16 Arg2:T18	
+R11	Anaphora Arg1:T16 Arg2:T20	
+R12	Is_a Arg1:T20 Arg2:T19	

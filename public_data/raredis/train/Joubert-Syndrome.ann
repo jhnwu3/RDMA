@@ -1,0 +1,29 @@
+T1	RAREDISEASE 1 17	Joubert syndrome
+T2	DISEASE 24 60	autosomal recessive genetic disorder
+T3	ANAPHOR 136 150	This condition
+T4	SIGN 211 227	molar tooth sign
+T5	SIGN 243 301	cerebellar vermis of the brain is absent or underdeveloped
+T6	SIGN 310 332	brain stem is abnormal
+T7	RAREDISEASE 362 378	Joubert syndrome
+T8	SIGN 407 413	ataxia
+T9	SIGN 445 454	hyperpnea
+T10	SIGN 457 468	sleep apnea
+T11	SIGN 470 478;487 503	abnormal tongue movements
+T12	SIGN 470 482;494 503	abnormal eye movements
+T13	SIGN 508 523	low muscle tone
+T14	RAREDISEASE 543 559	Joubert syndrome
+T15	RAREDISEASE 703 719	Joubert syndrome
+T16	SIGN 760 776	molar tooth sign
+T17	RAREDISEASE 886 902	Joubert syndrome
+R1	Is_a Arg1:T1 Arg2:T20	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T3 Arg2:T4	
+R4	Produces Arg1:T3 Arg2:T5	
+R5	Produces Arg1:T3 Arg2:T6	
+R6	Produces Arg1:T7 Arg2:T8	
+R7	Produces Arg1:T7 Arg2:T9	
+R8	Produces Arg1:T7 Arg2:T10	
+R9	Produces Arg1:T7 Arg2:T11	
+R10	Produces Arg1:T7 Arg2:T120	
+R11	Produces Arg1:T7 Arg2:T13	
+R12	Produces Arg1:T15 Arg2:T16	

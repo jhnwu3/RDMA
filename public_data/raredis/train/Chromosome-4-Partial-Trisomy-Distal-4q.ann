@@ -1,0 +1,35 @@
+T1	RAREDISEASE 0 39	Chromosome 4, Partial Trisomy Distal 4q
+T2	DISEASE 50 70	chromosomal disorder
+T3	SIGN 279 296	growth deficiency
+T4	DISEASE 298 316	mental retardation
+T5	SIGN 298 316	mental retardation
+T6	SIGN 330 389	malformations of the skull and facial (craniofacial) region
+T7	DISEASE 426 438	microcephaly
+T8	SIGN 426 438	microcephaly
+T9	SIGN 441 455	malformed ears
+T10	SIGN 463 485	prominent nasal bridge
+T11	SIGN 494 514	defects of the hands
+T12	SIGN 494 508;519 523	defects of the feet
+T13	SIGN 551 573	physical abnormalities
+T14	DISEASE 662 686	congenital heart defects
+T15	SIGN 662 686	congenital heart defects
+T16	SIGN 689 728	genital abnormalities in affected males
+T17	SIGN 730 751	urinary tract defects
+T18	ANAPHOR 791 802	the trisomy
+T19	ANAPHOR 894 896	it
+T20	RAREDISEASE 1053 1092	Chromosome 4, Partial Trisomy Distal 4q
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T5	
+R4	Produces Arg1:T1 Arg2:T6	
+R5	Produces Arg1:T1 Arg2:T8	
+R6	Produces Arg1:T1 Arg2:T9	
+R7	Produces Arg1:T1 Arg2:T10	
+R8	Produces Arg1:T1 Arg2:T11	
+R9	Produces Arg1:T1 Arg2:T12	
+R10	Produces Arg1:T1 Arg2:T13	
+R11	Produces Arg1:T1 Arg2:T15	
+R12	Produces Arg1:T1 Arg2:T16	
+R13	Produces Arg1:T1 Arg2:T17	
+R14	Anaphora Arg1:T1 Arg2:T180	
+R15	Anaphora Arg1:T1 Arg2:T190	

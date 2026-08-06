@@ -1,0 +1,26 @@
+T1	RAREDISEASE 0 22	Antley-Bixler syndrome
+T2	DISEASE 33 49	genetic disorder
+T3	SIGN 65 96	structural changes of the skull
+T4	SIGN 65 83;98 115	structural changes bones of the face
+T5	SIGN 126 148	skeletal abnormalities
+T6	ANAPHOR 150 162	The disorder
+T7	RAREDISEASE 277 293	craniosynostosis
+T8	SIGN 277 293	craniosynostosis
+T9	SIGN 347 365	prominent forehead
+T10	SIGN 401 421	midfacial hypoplasia
+T11	SIGN 441 450	proptosis
+T12	SIGN 457 469	low-set ears
+T13	ANAPHOR 471 485	This condition
+T14	ANAPHOR 563 576	the condition
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T5	
+R5	Anaphora Arg1:T1 Arg2:T6	
+R6	Produces Arg1:T1 Arg2:T9	
+R7	Produces Arg1:T1 Arg2:T100	
+R8	Produces Arg1:T1 Arg2:T12	
+R9	Anaphora Arg1:T1 Arg2:T13	
+R10	Anaphora Arg1:T1 Arg2:T14	
+R11	Produces Arg1:T6 Arg2:T8	
+R12	Produces Arg1:T6 Arg2:T11	

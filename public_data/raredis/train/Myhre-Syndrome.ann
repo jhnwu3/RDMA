@@ -1,0 +1,6 @@
+T1	RAREDISEASE 0 14	Myhre syndrome
+T2	DISEASE 36 54	inherited disorder
+T3	RAREDISEASE 203 217	Myhre syndrome
+T4	ANAPHOR 296 308	the disorder
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T3 Arg2:T4	

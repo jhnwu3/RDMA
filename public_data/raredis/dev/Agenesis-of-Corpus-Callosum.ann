@@ -1,0 +1,40 @@
+T1	RAREDISEASE 0 27	Agenesis of corpus callosum
+T2	RAREDISEASE 29 32	ACC
+T3	ANAPHOR 92 94	It
+T4	SIGN 117 222	partial or complete absence (agenesis) of an area of the brain that connects the two cerebral hemispheres
+T5	RAREDISEASE 303 330	agenesis of corpus callosum
+T6	ANAPHOR 357 359	it
+T7	ANAPHOR 447 449	It
+T8	SIGN 579 623	developmental disturbance of the fetal brain
+T9	RAREDISEASE 659 681	Fetal alcohol syndrome
+T10	RAREDISEASE 702 705	ACC
+T11	DISEASE 721 739	mental retardation
+T12	SIGN 721 739	mental retardation
+T13	RAREDISEASE 846 873	Agenesis of Corpus Callosum
+T14	ANAPHOR 978 980	It
+T15	ANAPHOR 1139 1153	This condition
+T16	RAREDISEASE 1289 1316	Agenesis of corpus callosum
+T17	DISEASE 1347 1359	spina bifida
+T18	DISEASE 1361 1373	Spina bifida
+T19	SIGN 1392 1417	open (or non-fused) spine
+T20	DISEASE 1423 1435	spina bifida
+T21	DISEASE 1665 1676	meningocele
+T22	SIGN 1665 1676	meningocele
+T23	SIGN 1680 1696	meningomyelocele
+T24	ANAPHOR 1723 1736	this disorder
+T25	DISEASE 1746 1758	spina bifida
+T26	RAREDISEASE 1907 1934	agenesis of corpus callosum
+R1	Anaphora Arg1:T10 Arg2:T24	
+R2	Is_acron Arg1:T2 Arg2:T10	
+R3	Produces Arg1:T3 Arg2:T4	
+R4	Anaphora Arg1:T5 Arg2:T6	
+R5	Anaphora Arg1:T5 Arg2:T7	
+R6	Produces Arg1:T7 Arg2:T8	
+R7	Increases_risk_of Arg1:T9 Arg2:T10	
+R8	Produces Arg1:T9 Arg2:T12	
+R9	Anaphora Arg1:T13 Arg2:T14	
+R10	Anaphora Arg1:T13 Arg2:T15	
+R11	Produces Arg1:T18 Arg2:T19	
+R12	Produces Arg1:T20 Arg2:T22	
+R13	Produces Arg1:T20 Arg2:T23	
+R14	Anaphora Arg1:T25 Arg2:T24	

@@ -1,0 +1,29 @@
+T1	SKINRAREDISEASE 0 14	Refsum disease
+T2	DISEASE 37 54	genetic disorders
+T3	DISEASE 68 84	leukodystrophies
+T4	SIGN 119 149	disruption of lipid metabolism
+T5	SIGN 155 168;221 234	myelin sheath fails to grow
+T6	ANAPHOR 236 238	It
+T7	ANAPHOR 285 287	It
+T8	DISEASE 336 356	retinitis pigmentosa
+T9	SIGN 336 356	retinitis pigmentosa
+T10	DISEASE 387 408	peripheral neuropathy
+T11	SIGN 387 408	peripheral neuropathy
+T12	DISEASE 443 449	ataxia
+T13	SIGN 443 449	ataxia
+T14	SIGN 480 490	ichthyosis
+T15	SKINRAREDISEASE 513 527	Refsum disease
+T16	ANAPHOR 545 547	It
+T17	SIGN 738 769	phytanic acid in blood or urine
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Produces Arg1:T1 Arg2:T5	
+R4	Anaphora Arg1:T1 Arg2:T6	
+R5	Anaphora Arg1:T1 Arg2:T7	
+R6	Is_a Arg1:T3 Arg2:T2	
+R7	Produces Arg1:T7 Arg2:T9	
+R8	Produces Arg1:T7 Arg2:T11	
+R9	Produces Arg1:T7 Arg2:T13	
+R10	Produces Arg1:T7 Arg2:T14	
+R11	Anaphora Arg1:T10 Arg2:T3	
+R12	Produces Arg1:T16 Arg2:T17	

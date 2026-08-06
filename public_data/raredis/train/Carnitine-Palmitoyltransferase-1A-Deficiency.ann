@@ -1,0 +1,54 @@
+T1	RAREDISEASE 0 44	Carnitine palmitoyltransferase 1A deficiency
+T2	RAREDISEASE 46 51	CPT1A
+T3	SIGN 91 104	liver failure
+T4	DISEASE 168 190	hepatic encephalopathy
+T5	SIGN 168 190	hepatic encephalopathy
+T6	RAREDISEASE 237 253	CPT1A deficiency
+T7	SIGN 331 410	production of an abnormally functioning carnitine palmitoyltransferase 1 enzyme
+T8	SIGN 415 461	decreased metabolism of long-chain fatty acids
+T9	RAREDISEASE 463 479	CPT1A deficiency
+T10	DISEASE 499 535	autosomal recessive genetic disorder
+T11	RAREDISEASE 552 568	CPT1A deficiency
+T12	DISEASE 596 618	hepatic encephalopathy
+T13	SIGN 596 618	hepatic encephalopathy
+T14	SIGN 676 709	low level of ketones in the blood
+T15	DISEASE 728 740	hypoglycemia
+T16	SIGN 728 740	hypoglycemia
+T17	SIGN 743 757	enlarged liver
+T18	SIGN 759 774	muscle weakness
+T19	SIGN 779 810	elevated carnitine in the blood
+T20	DISEASE 817 837	adult-onset myopathy
+T21	SIGN 829 837	myopathy
+T22	SIGN 865 921	sudden onset of muscle cramping associated with exercise
+T23	RAREDISEASE 987 1017	acute fatty liver of pregnancy
+T24	RAREDISEASE 1179 1195	CPT1A deficiency
+T25	ANAPHOR 1269 1283	this condition
+T26	ANAPHOR 1437 1451	This condition
+T27	RAREDISEASE 1502 1518	CPT1A deficiency
+T28	SIGN 1634 1655	low levels of ketones
+T29	SIGN 1657 1685	elevated liver transaminases
+T30	SIGN 1687 1703	elevated ammonia
+T31	SIGN 1708 1738	elevated total serum carnitine
+T32	SIGN 1741 1762;1819 1833	CPT1A enzyme activity 1-5% of normal
+T33	RAREDISEASE 1992 2008	CPT1A deficiency
+R1	Produces Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T5	
+R3	Is_acron Arg1:T2 Arg2:T1	
+R4	Produces Arg1:T6 Arg2:T7	
+R5	Produces Arg1:T6 Arg2:T8	
+R6	Is_a Arg1:T9 Arg2:T10	
+R7	Produces Arg1:T11 Arg2:T130	
+R8	Produces Arg1:T12 Arg2:T14	
+R9	Produces Arg1:T12 Arg2:T16	
+R10	Produces Arg1:T12 Arg2:T17	
+R11	Produces Arg1:T12 Arg2:T18	
+R12	Produces Arg1:T12 Arg2:T19	
+R13	Produces Arg1:T20 Arg2:T21	
+R14	Produces Arg1:T20 Arg2:T22	
+R15	Anaphora Arg1:T24 Arg2:T25	
+R16	Anaphora Arg1:T24 Arg2:T26	
+R17	Produces Arg1:T27 Arg2:T28	
+R18	Produces Arg1:T27 Arg2:T29	
+R19	Produces Arg1:T27 Arg2:T300	
+R20	Produces Arg1:T27 Arg2:T31	
+R21	Produces Arg1:T27 Arg2:T32	

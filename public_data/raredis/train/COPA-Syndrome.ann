@@ -1,0 +1,8 @@
+T1	ANAPHOR 228 241	this disorder
+T2	ANAPHOR 309 322	this disorder
+T3	ANAPHOR 376 389	this disorder
+T4	RAREDISEASE 401 414	COPA syndrome
+T5	RAREDISEASE 663 676	COPA syndrome
+R1	Anaphora Arg1:T4 Arg2:T1	
+R2	Anaphora Arg1:T4 Arg2:T2	
+R3	Anaphora Arg1:T4 Arg2:T3	

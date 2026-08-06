@@ -1,0 +1,21 @@
+T1	RAREDISEASE 0 21	Hereditary lymphedema
+T2	ANAPHOR 89 104	these disorders
+T3	RAREDISEASE 162 191	Hereditary lymphedema type II
+T4	RAREDISEASE 193 207	Meige syndrome
+T5	RAREDISEASE 301 329	hereditary lymphedema type I
+T6	RAREDISEASE 331 345	Milroy disease
+T7	RAREDISEASE 446 467	hereditary lymphedema
+T8	RAREDISEASE 891 912	congenital lymphedema
+T9	DISEASE 1182 1196	varicose veins
+T10	DISEASE 1201 1219	venous blood clots
+T11	RAREDISEASE 1393 1414	hereditary lymphedema
+T12	SIGN 1435 1440	edema
+T13	DISEASE 1494 1504	lymphocele
+T14	SIGN 1494 1504	lymphocele
+T15	SIGN 1544 1552	fibrosis
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Is_synon Arg1:T4 Arg2:T3	
+R3	Is_synon Arg1:T6 Arg2:T5	
+R4	Produces Arg1:T11 Arg2:T120	
+R5	Produces Arg1:T11 Arg2:T14	
+R6	Produces Arg1:T11 Arg2:T15	

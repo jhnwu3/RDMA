@@ -1,0 +1,32 @@
+T1	RAREDISEASE 0 5;80 88	MELAS syndrome
+T2	RAREDISEASE 7 78	Mitochondrial Encephalopathy, Lactic Acidosis, and Stroke-like episodes
+T3	SIGN 266 274	seizures
+T4	SYMPTOM 276 295	recurrent headaches
+T5	SYMPTOM 297 313	loss of appetite
+T6	SIGN 328 336	vomiting
+T7	DISEASE 338 344	Stroke
+T8	SIGN 338 358	Stroke-like episodes
+T9	SIGN 415 426	hemiparesis
+T10	SIGN 464 485	altered consciousness
+T11	SIGN 487 510	vision and hearing loss
+T12	SIGN 512 532	loss of motor skills
+T13	DISEASE 537 560	intellectual disability
+T14	SIGN 537 560	intellectual disability
+T15	RAREDISEASE 562 567	MELAS
+T16	ANAPHOR 632 645	this syndrome
+T17	RAREDISEASE 707 721	MELAS syndrome
+T18	RAREDISEASE 805 819	MELAS syndrome
+T19	RAREDISEASE 856 878	mitochondrial myopathy
+T20	RAREDISEASE 1100 1114	MELAS syndrome
+R1	Is_acron Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T15 Arg2:T3	
+R3	Produces Arg1:T15 Arg2:T4	
+R4	Produces Arg1:T15 Arg2:T5	
+R5	Produces Arg1:T15 Arg2:T6	
+R6	Produces Arg1:T15 Arg2:T80	
+R7	Produces Arg1:T15 Arg2:T9	
+R8	Produces Arg1:T15 Arg2:T10	
+R9	Produces Arg1:T15 Arg2:T11	
+R10	Produces Arg1:T15 Arg2:T12	
+R11	Produces Arg1:T15 Arg2:T14	
+R12	Anaphora Arg1:T15 Arg2:T16	

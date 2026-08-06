@@ -1,0 +1,48 @@
+T1	RAREDISEASE 0 27	Pseudo-Hurler polydystrophy
+T2	RAREDISEASE 29 51	mucolipidosis type III
+T3	DISEASE 63 89	genetic metabolic disorder
+T4	SIGN 109 118;135 179	defective UPD-N-acetylglucosamine-1-phosphotransferase
+T5	SIGN 229 244;276 295;297 300;319 329	accumulation of mucopolysaccharides and mucolipids
+T6	ANAPHOR 379 392	this disorder
+T7	RAREDISEASE 436 450	I-cell disease
+T8	RAREDISEASE 452 473	mucolipidosis type II
+T9	SIGN 491 518	progressive joint stiffness
+T10	DISEASE 544 553	scoliosis
+T11	SIGN 544 553	scoliosis
+T12	SIGN 563 596	skeletal deformities of the hands
+T13	SIGN 604 614	claw-hands
+T14	SIGN 617 630	Growth delays
+T15	SIGN 646 677	deterioration of the hip joints
+T16	RAREDISEASE 713 740	pseudo-Hurler polydystrophy
+T17	SIGN 774 809	clouding of the corneas of the eyes
+T18	SIGN 811 857	mild to moderate coarseness of facial features
+T19	SIGN 859 882	mild mental retardation
+T20	DISEASE 864 882	mental retardation
+T21	SIGN 884 901	easy fatigability
+T22	DISEASE 910 923	heart disease
+T23	SIGN 910 923	heart disease
+T24	RAREDISEASE 925 952	Pseudo-Hurler polydystrophy
+T25	RAREDISEASE 1014 1041	pseudo-Hurler polydystrophy
+T26	SIGN 1262 1305	elevated lysosomal enzyme activity in serum
+T27	SIGN 1309 1353	decreased enzyme levels in white blood cells
+T28	SIGN 1309 1335;1391 1402	decreased enzyme levels in fibroblasts
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Produces Arg1:T1 Arg2:T5	
+R4	Anaphora Arg1:T1 Arg2:T6	
+R5	Is_synon Arg1:T2 Arg2:T1	
+R6	Produces Arg1:T6 Arg2:T9	
+R7	Produces Arg1:T6 Arg2:T11	
+R8	Produces Arg1:T6 Arg2:T120	
+R9	Produces Arg1:T6 Arg2:T13	
+R10	Is_synon Arg1:T8 Arg2:T7	
+R11	Produces Arg1:T16 Arg2:T14	
+R12	Produces Arg1:T16 Arg2:T15	
+R13	Produces Arg1:T16 Arg2:T17	
+R14	Produces Arg1:T16 Arg2:T18	
+R15	Produces Arg1:T16 Arg2:T19	
+R16	Produces Arg1:T16 Arg2:T21	
+R17	Produces Arg1:T16 Arg2:T23	
+R18	Produces Arg1:T25 Arg2:T26	
+R19	Produces Arg1:T25 Arg2:T27	
+R20	Produces Arg1:T25 Arg2:T28	

@@ -1,0 +1,10 @@
+T1	RAREDISEASE 0 12	Hemophilia A
+T2	DISEASE 32 59	X-linked recessive disorder
+T3	RAREDISEASE 130 152	von Willebrand disease
+T4	RAREDISEASE 154 166	Hemophilia A
+T5	RAREDISEASE 263 275	hemophilia A
+T6	RAREDISEASE 315 327	hemophilia A
+T7	ANAPHOR 350 362	the disorder
+T8	RAREDISEASE 417 427	hemophilia
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T6 Arg2:T7	

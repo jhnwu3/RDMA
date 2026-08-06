@@ -1,0 +1,28 @@
+T1	RAREDISEASE 0 18	Hemimegalencephaly
+T2	RAREDISEASE 20 23	HME
+T3	DISEASE 35 57	neurological condition
+T4	SIGN 67 151	one-half of the brain, or one side of the brain, is abnormally larger than the other
+T5	SIGN 333 354	enlarged brain tissue
+T6	SIGN 371 379	seizures
+T7	SIGN 403 439	cognitive or behavioral disabilities
+T8	SIGN 441 449;486 506	Seizures in early infant life
+T9	RAREDISEASE 470 473	HME
+T10	RAREDISEASE 537 553	infantile spasms
+T11	RAREDISEASE 555 573	Hemimegalencephaly
+T12	RAREDISEASE 611 629	brain malformation
+T13	ANAPHOR 633 635	it
+T14	DISEASE 665 693	neurodevelopmental syndromes
+T15	RAREDISEASE 716 719	HME
+T16	RAREDISEASE 774 792	Hemimegalencephaly
+T17	RAREDISEASE 939 942	HME
+T18	RAREDISEASE 1000 1003	HME
+T19	SIGN 1018 1026	Seizures
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Produces Arg1:T1 Arg2:T5	
+R4	Produces Arg1:T1 Arg2:T60	
+R5	Produces Arg1:T1 Arg2:T7	
+R6	Is_acron Arg1:T2 Arg2:T1	
+R7	Produces Arg1:T9 Arg2:T8	
+R8	Anaphora Arg1:T11 Arg2:T13	
+R9	Produces Arg1:T18 Arg2:T19	

@@ -1,0 +1,10 @@
+T1	RAREDISEASE 0 20	Soft tissue sarcomas
+T2	ANAPHOR 104 108	This
+T3	DISEASE 129 135	tumors
+T4	ANAPHOR 150 154	they
+T5	RAREDISEASE 275 295	soft tissue sarcomas
+T6	DISEASE 324 331	cancers
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Is_a Arg1:T1 Arg2:T3	
+R3	Anaphora Arg1:T1 Arg2:T4	
+R4	Is_a Arg1:T5 Arg2:T6	

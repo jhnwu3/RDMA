@@ -1,0 +1,17 @@
+T1	RAREDISEASE 0 33	Oculo-auriculo-vertebral spectrum
+T2	RAREDISEASE 35 39	OAVS
+T3	ANAPHOR 205 220	These disorders
+T4	SIGN 292 317	malformations of the eyes
+T5	SIGN 292 312;319 323	malformations of the ears
+T6	SIGN 292 312;328 333	malformations of the spine
+T7	RAREDISEASE 335 339	OAVS
+T8	ANAPHOR 477 489	the disorder
+T9	RAREDISEASE 669 673	OAVS
+T10	SIGN 742 757	acial asymmetry
+R1	Anaphora Arg1:T1 Arg2:T3	
+R2	Is_acron Arg1:T2 Arg2:T1	
+R3	Produces Arg1:T3 Arg2:T4	
+R4	Produces Arg1:T3 Arg2:T5	
+R5	Produces Arg1:T3 Arg2:T6	
+R6	Anaphora Arg1:T7 Arg2:T80	
+R7	Produces Arg1:T9 Arg2:T10	

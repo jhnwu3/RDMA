@@ -1,0 +1,29 @@
+T1	RAREDISEASE 0 12	Osteosarcoma
+T2	DISEASE 26 32	cancer
+T3	ANAPHOR 34 36	It
+T4	RAREDISEASE 80 92	Osteosarcoma
+T5	DISEASE 193 204	bone cancer
+T6	RAREDISEASE 443 455	osteosarcoma
+T7	SYMPTOM 543 547	Pain
+T8	RAREDISEASE 578 590	osteosarcoma
+T9	SIGN 612 636;643 651	mass or bump that can be palpable
+T10	ANAPHOR 728 738	the cancer
+T11	DISEASE 732 738	cancer
+T12	ANAPHOR 759 761	it
+T13	RAREDISEASE 779 791	Osteosarcoma
+T14	RAREDISEASE 920 932	osteosarcoma
+T15	RAREDISEASE 1154 1166	osteosarcoma
+T16	RAREDISEASE 1267 1279	Osteosarcoma
+T17	DISEASE 1335 1346	bone cancer
+T18	RAREDISEASE 1627 1639	osteosarcoma
+T19	RAREDISEASE 1679 1691	osteosarcoma
+T20	RAREDISEASE 1771 1783	Osteosarcoma
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Is_a Arg1:T4 Arg2:T5	
+R4	Produces Arg1:T8 Arg2:T7	
+R5	Produces Arg1:T8 Arg2:T9	
+R6	Anaphora Arg1:T8 Arg2:T100	
+R7	Anaphora Arg1:T8 Arg2:T120	
+R8	Is_a Arg1:T10 Arg2:T11	
+R9	Is_a Arg1:T16 Arg2:T17	

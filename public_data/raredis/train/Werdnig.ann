@@ -1,0 +1,16 @@
+T1	RAREDISEASE 4 29	spinal muscular atrophies
+T2	RAREDISEASE 31 35	SMAs
+T3	SIGN 102 108;141 156;59 86	within lower brainstem degeneration of nerve cells
+T4	SIGN 204 223;59 74	anterior horn cells degeneration of
+T5	SIGN 236 251	muscle weakness
+T6	RAREDISEASE 506 530	Werdnig-Hoffmann disease
+T7	DISEASE 630 653	spinal muscular atrophy
+T8	RAREDISEASE 731 734	SMA
+T9	ANAPHOR 749 774	the Werdnig-Hoffmann form
+R1	Produces Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Produces Arg1:T1 Arg2:T5	
+R4	Is_acron Arg1:T2 Arg2:T1	
+R5	Is_a Arg1:T6 Arg2:T7	
+R6	Is_a Arg1:T6 Arg2:T8	
+R7	Anaphora Arg1:T6 Arg2:T9	

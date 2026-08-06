@@ -1,0 +1,45 @@
+T1	RAREDISEASE 0 46	Congenital fibrosis of the extraocular muscles
+T2	RAREDISEASE 48 53	CFEOM
+T3	DISEASE 83 113	genetic eye movement disorders
+T4	DISEASE 157 178	incomitant strabismus
+T5	SIGN 157 178	incomitant strabismus
+T6	SIGN 256 270	opthalmoplegia
+T7	SIGN 289 295	ptosis
+T8	SIGN 301 305;315 344	eyes fixed in an abnormal position
+T9	SIGN 619 664	limited ability to move their eyes vertically
+T10	SIGN 709 754	limitations in moving their eyes horizontally
+T11	RAREDISEASE 756 761	CFEOM
+T12	SIGN 813 819	ptosis
+T13	SIGN 825 868	eyes that are fixed in an abnormal position
+T14	RAREDISEASE 887 892	CFEOM
+T15	SIGN 910 943	eyes fixed in a downward position
+T16	SIGN 949 965	elevate the chin
+T17	ANAPHOR 983 998	These disorders
+T18	RAREDISEASE 1023 1029	CFEOM1
+T19	RAREDISEASE 1031 1037	CFEOM2
+T20	RAREDISEASE 1043 1049	CFEOM3
+T21	RAREDISEASE 1114 1120	CFEOM3
+T22	DISEASE 1246 1260	Tukel syndrome
+T23	SIGN 1281 1307	missing and webbed fingers
+T24	SIGN 1281 1299;1312 1316	missing and webbed toes
+T25	ANAPHOR 1350 1365	These disorders
+T26	RAREDISEASE 1391 1396	CFEOM
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T5	
+R3	Produces Arg1:T1 Arg2:T6	
+R4	Produces Arg1:T1 Arg2:T7	
+R5	Produces Arg1:T1 Arg2:T8	
+R6	Produces Arg1:T1 Arg2:T9	
+R7	Produces Arg1:T1 Arg2:T10	
+R8	Is_a Arg1:T2 Arg2:T1	
+R9	Produces Arg1:T11 Arg2:T12	
+R10	Produces Arg1:T11 Arg2:T13	
+R11	Produces Arg1:T14 Arg2:T15	
+R12	Produces Arg1:T14 Arg2:T160	
+R13	Anaphora Arg1:T14 Arg2:T17	
+R14	Anaphora Arg1:T14 Arg2:T25	
+R15	Is_a Arg1:T18 Arg2:T17	
+R16	Is_a Arg1:T19 Arg2:T17	
+R17	Is_a Arg1:T20 Arg2:T17	
+R18	Produces Arg1:T22 Arg2:T23	
+R19	Produces Arg1:T22 Arg2:T24	

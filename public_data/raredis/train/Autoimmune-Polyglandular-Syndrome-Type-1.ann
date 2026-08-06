@@ -1,0 +1,24 @@
+T1	RAREDISEASE 0 40	Autoimmune polyglandular syndrome type 1
+T2	RAREDISEASE 42 47	APS-1
+T3	DISEASE 71 101	recessively inherited disorder
+T4	SIGN 105 128	immune-cell dysfunction
+T5	SIGN 134 157	multiple autoimmunities
+T6	ANAPHOR 159 161	It
+T7	SIGN 216 248;270 282	life-threatening endocrine gland dysfunctions
+T8	SIGN 253 282	gastrointestinal dysfunctions
+T9	DISEASE 284 304	Autoimmune disorders
+T10	RAREDISEASE 421 426	APS-1
+T11	DISEASE 576 594	autoimmune disease
+T12	RAREDISEASE 626 631	APS-I
+T13	ANAPHOR 787 789	it
+T14	RAREDISEASE 872 877	APS-1
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Produces Arg1:T1 Arg2:T5	
+R4	Anaphora Arg1:T1 Arg2:T6	
+R5	Is_acron Arg1:T2 Arg2:T1	
+R6	Produces Arg1:T6 Arg2:T7	
+R7	Produces Arg1:T6 Arg2:T8	
+R8	Is_a Arg1:T10 Arg2:T9	
+R9	Is_a Arg1:T12 Arg2:T11	
+R10	Anaphora Arg1:T12 Arg2:T13	

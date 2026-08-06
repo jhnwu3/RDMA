@@ -1,0 +1,30 @@
+T1	RAREDISEASE 0 16	Renal glycosuria
+T2	RAREDISEASE 32 48	renal glucosuria
+T3	SIGN 83 184	simple sugar glucose is eliminated (excreted) in the urine despite normal or low blood glucose levels
+T4	RAREDISEASE 351 367	renal glycosuria
+T5	SIGN 369 414	glucose is abnormally eliminated in the urine
+T6	SIGN 422 463	improper functioning of the renal tubules
+T7	ANAPHOR 574 587	the condition
+T8	SYMPTOM 617 629	asymptomatic
+T9	RAREDISEASE 656 672	renal glycosuria
+T10	ANAPHOR 742 755	the condition
+T11	RAREDISEASE 816 832	Renal glycosuria
+T12	ANAPHOR 931 943	the disorder
+T13	RAREDISEASE 1049 1065	renal glycosuria
+T14	SYMPTOM 1104 1116	asymptomatic
+T15	SIGN 1258 1269	dehydration
+T16	SIGN 1271 1278	ketosis
+T17	RAREDISEASE 1281 1297	Renal glycosuria
+T18	SIGN 1356 1443	presence of glucose in the urine in association with normal or low blood glucose levels
+R1	Produces Arg1:T1 Arg2:T3	
+R2	Is_synon Arg1:T2 Arg2:T1	
+R3	Produces Arg1:T4 Arg2:T50	
+R4	Produces Arg1:T4 Arg2:T6	
+R5	Anaphora Arg1:T4 Arg2:T7	
+R6	Produces Arg1:T7 Arg2:T8	
+R7	Anaphora Arg1:T9 Arg2:T10	
+R8	Anaphora Arg1:T11 Arg2:T12	
+R9	Produces Arg1:T13 Arg2:T14	
+R10	Produces Arg1:T13 Arg2:T15	
+R11	Produces Arg1:T13 Arg2:T16	
+R12	Produces Arg1:T17 Arg2:T18	

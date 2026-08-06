@@ -1,0 +1,41 @@
+T1	RAREDISEASE 0 26	Alveolar soft part sarcoma
+T2	RAREDISEASE 28 32	ASPS
+T3	DISEASE 45 75	slow growing soft tissue tumor
+T4	ANAPHOR 98 100	It
+T5	DISEASE 127 135	sarcomas
+T6	DISEASE 184 204	soft tissue sarcomas
+T7	RAREDISEASE 206 210	ASPS
+T8	SIGN 233 246;273 283	painless mass in the leg
+T9	SIGN 233 246;273 279;287 294	painless mass in the buttock
+T10	ANAPHOR 384 395	the sarcoma
+T11	DISEASE 388 395	sarcoma
+T12	ANAPHOR 419 432	This disorder
+T13	ANAPHOR 454 456	it
+T14	SIGN 540 564	unbalanced translocation
+T15	RAREDISEASE 623 627	ASPS
+T16	ANAPHOR 845 857	the disorder
+T17	RAREDISEASE 859 863	ASPS
+T18	RAREDISEASE 957 961	ASPS
+T19	ANAPHOR 1043 1045	It
+T20	ANAPHOR 1173 1183	this tumor
+T21	RAREDISEASE 1211 1215	ASPS
+T22	DISEASE 1249 1269	soft tissue sarcomas
+T23	DISEASE 1280 1300	soft tissue sarcomas
+T24	DISEASE 1337 1344	cancers
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Anaphora Arg1:T1 Arg2:T4	
+R3	Is_acron Arg1:T2 Arg2:T1	
+R4	Is_a Arg1:T4 Arg2:T50	
+R5	Is_a Arg1:T4 Arg2:T6	
+R6	Produces Arg1:T7 Arg2:T8	
+R7	Produces Arg1:T7 Arg2:T9	
+R8	Anaphora Arg1:T7 Arg2:T10	
+R9	Anaphora Arg1:T7 Arg2:T12	
+R10	Anaphora Arg1:T7 Arg2:T13	
+R11	Is_a Arg1:T10 Arg2:T11	
+R12	Produces Arg1:T13 Arg2:T14	
+R13	Anaphora Arg1:T15 Arg2:T16	
+R14	Anaphora Arg1:T18 Arg2:T19	
+R15	Anaphora Arg1:T18 Arg2:T200	
+R16	Is_a Arg1:T21 Arg2:T22	
+R17	Is_a Arg1:T23 Arg2:T24	

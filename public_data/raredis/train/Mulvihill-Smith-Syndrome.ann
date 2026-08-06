@@ -1,0 +1,36 @@
+T1	RAREDISEASE 0 24	Mulvihill-Smith syndrome
+T2	SIGN 72 88	low birth weight
+T3	SIGN 90 103	growth delays
+T4	SIGN 130 138	dwarfism
+T5	SIGN 150 184	prematurely aged facial appearance
+T6	SIGN 224 281	abnormalities of the head and facial (craniofacial) areas
+T7	SIGN 321 335	pigmented nevi
+T8	SIGN 338 356	hearing impairment
+T9	DISEASE 365 383	mental retardation
+T10	SIGN 365 383	mental retardation
+T11	RAREDISEASE 504 528	primary immunodeficiency
+T12	SIGN 504 528	primary immunodeficiency
+T13	RAREDISEASE 614 638	Mulvihill-Smith syndrome
+T14	ANAPHOR 693 707	this condition
+T15	RAREDISEASE 748 772	Mulvihill-Smith syndrome
+T16	RAREDISEASE 974 998	Mulvihill-Smith Syndrome
+T17	SIGN 1096 1112	low birth weight
+T18	SIGN 1114 1150	lack of subcutaneous fat in the face
+T19	SIGN 1378 1396	hearing impairment
+T20	SIGN 1417 1431	Pigmented nevi
+T21	SIGN 1530 1543	short stature
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T5	
+R5	Produces Arg1:T1 Arg2:T6	
+R6	Produces Arg1:T1 Arg2:T7	
+R7	Produces Arg1:T1 Arg2:T8	
+R8	Produces Arg1:T1 Arg2:T10	
+R9	Produces Arg1:T1 Arg2:T12	
+R10	Anaphora Arg1:T13 Arg2:T14	
+R11	Produces Arg1:T16 Arg2:T17	
+R12	Produces Arg1:T16 Arg2:T180	
+R13	Produces Arg1:T16 Arg2:T190	
+R14	Produces Arg1:T16 Arg2:T20	
+R15	Produces Arg1:T16 Arg2:T21	

@@ -1,0 +1,9 @@
+T1	RAREDISEASE 0 12	Mucormycosis
+T2	DISEASE 23 39	fungal infection
+T3	ANAPHOR 174 188	this infection
+T4	RAREDISEASE 457 469	mucormycosis
+T5	RAREDISEASE 485 497	Mucormycosis
+T6	ANAPHOR 536 550	This infection
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Anaphora Arg1:T5 Arg2:T6	

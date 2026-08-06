@@ -1,0 +1,7 @@
+T1	RAREDISEASE 1 17	Mosaic trisomy 9
+T2	DISEASE 28 48	chromosomal disorder
+T3	RAREDISEASE 285 301	Mosaic Trisomy 9
+T4	RAREDISEASE 472 488	Mosaic trisomy 9
+T5	ANAPHOR 579 591	the disorder
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T4 Arg2:T5	

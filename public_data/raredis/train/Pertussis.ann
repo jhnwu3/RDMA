@@ -1,0 +1,29 @@
+T1	RAREDISEASE 1 10	Pertussis
+T2	DISEASE 16 59	highly contagious acute respiratory disease
+T3	ANAPHOR 105 117	This disease
+T4	RAREDISEASE 264 273	Pertussis
+T5	SIGN 306 314	coughing
+T6	SIGN 334 370	"whooping"""" sound when breathing in"
+T7	SIGN 391 411	characteristic cough
+T8	ANAPHOR 418 429	the disease
+T9	RAREDISEASE 447 461	Whooping Cough
+T10	RAREDISEASE 572 581	Pertussis
+T11	RAREDISEASE 645 655	Diphtheria
+T12	RAREDISEASE 656 665	Pertussis
+T13	RAREDISEASE 666 673	Tetanus
+T14	RAREDISEASE 772 781	Pertussis
+T15	DISEASE 788 806	infectious disease
+T16	RAREDISEASE 873 882	Pertussis
+T17	DISEASE 888 913	highly contagious disease
+T18	RAREDISEASE 1114 1123	Pertussis
+T19	RAREDISEASE 1403 1412	Pertussis
+T20	SIGN 1484 1497	lymphocytosis
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T4 Arg2:T5	
+R4	Produces Arg1:T4 Arg2:T6	
+R5	Produces Arg1:T30 Arg2:T29	
+R6	Is_synon Arg1:T9 Arg2:T80	
+R7	Is_a Arg1:T14 Arg2:T15	
+R8	Is_a Arg1:T16 Arg2:T17	
+R9	Produces Arg1:T19 Arg2:T20	

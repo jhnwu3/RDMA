@@ -1,0 +1,42 @@
+T1	RAREDISEASE 0 20	Tolosa-Hunt syndrome
+T2	SYMPTOM 57 85	severe periorbital headaches
+T3	SIGN 135 150	ophthalmoplegia
+T4	SYMPTOM 265 269	pain
+T5	SIGN 274 297	decreased eye movements
+T6	SIGN 467 476;485 510	paralysis of certain cranial nerves
+T7	SIGN 549 555	ptosis
+T8	SIGN 573 581	diplopia
+T9	SIGN 584 595	large pupil
+T10	SIGN 601 616	facial numbness
+T11	SIGN 663 672	proptosis
+T12	RAREDISEASE 694 714	Tolosa-Hunt syndrome
+T13	ANAPHOR 733 745	the disorder
+T14	SIGN 779 794;826 870	inflammation of cavernous sinus and superior orbital fissure
+T15	RAREDISEASE 898 918	Tolosa-Hunt syndrome
+T16	SIGN 1040 1084;990 1007	cavernous sinus and superior orbital fissure n inflammation in
+T17	SIGN 1102 1114	inflammation
+T18	SIGN 1167 1193	granulomatous inflammation
+T19	DISEASE 1196 1216	Autoimmune disorders
+T20	SIGN 1406 1430	generalized inflammation
+T21	SIGN 1435 1480	constricted or inflamed cranial blood vessels
+T22	RAREDISEASE 1482 1502	Tolosa-Hunt syndrome
+T23	DISEASE 1513 1541	neuro-immunological disorder
+T24	RAREDISEASE 1769 1789	Tolosa-Hunt syndrome
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T50	
+R5	Produces Arg1:T1 Arg2:T6	
+R6	Produces Arg1:T1 Arg2:T7	
+R7	Produces Arg1:T1 Arg2:T8	
+R8	Produces Arg1:T1 Arg2:T9	
+R9	Produces Arg1:T1 Arg2:T10	
+R10	Produces Arg1:T12 Arg2:T11	
+R11	Anaphora Arg1:T12 Arg2:T13	
+R12	Produces Arg1:T13 Arg2:T140	
+R13	Produces Arg1:T15 Arg2:T16	
+R14	Produces Arg1:T15 Arg2:T17	
+R15	Produces Arg1:T15 Arg2:T18	
+R16	Produces Arg1:T15 Arg2:T20	
+R17	Produces Arg1:T15 Arg2:T21	
+R18	Is_a Arg1:T22 Arg2:T23	

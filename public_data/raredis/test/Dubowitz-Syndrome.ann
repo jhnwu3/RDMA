@@ -1,0 +1,4 @@
+T1	SKINRAREDISEASE 62 79	Dubowitz syndrome
+T2	ANAPHOR 81 83	It
+T3	SKINRAREDISEASE 258 275	Dubowitz syndrome
+R1	Anaphora Arg1:T1 Arg2:T2	

@@ -1,0 +1,5 @@
+T1	RAREDISEASE 0 17	De Barsy syndrome
+T2	ANAPHOR 166 179	this disorder
+T3	RAREDISEASE 276 293	de Barsy syndrome
+T4	RAREDISEASE 334 351	De Barsy syndrome
+R1	Anaphora Arg1:T1 Arg2:T2	

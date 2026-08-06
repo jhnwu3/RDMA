@@ -1,0 +1,13 @@
+T1	RAREDISEASE 9 22	pars planitis
+T2	SIGN 57 80	significant vision loss
+T3	ANAPHOR 99 101	It
+T4	DISEASE 108 141	immunological disorder of the eye
+T5	SIGN 159 193	inflammation of a part of the uvea
+T6	RAREDISEASE 460 473	Pars planitis
+T7	DISEASE 489 504	ocular disorder
+T8	RAREDISEASE 592 605	Pars planitis
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Is_a Arg1:T3 Arg2:T4	
+R4	Produces Arg1:T3 Arg2:T5	
+R5	Is_a Arg1:T6 Arg2:T7	

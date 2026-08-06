@@ -1,0 +1,21 @@
+T1	RAREDISEASE 1 24	Marshall-Smith Syndrome
+T2	SIGN 55 76	quick physical growth
+T3	SIGN 81 97	bone development
+T4	SIGN 170 194	respiratory difficulties
+T5	SIGN 196 214	mental retardation
+T6	RAREDISEASE 261 284	Marshall-Smith Syndrome
+T7	SKINRAREDISEASE 314 322;325 333	Marshall Syndrome
+T8	RAREDISEASE 366 380;383 391	Marshall-Smith Syndrome
+T9	RAREDISEASE 413 436	Marshall-Smith Syndrome
+T10	ANAPHOR 476 478	it
+T11	RAREDISEASE 491 514	Marshall-Smith Syndrome
+T12	ANAPHOR 610 622	the syndrome
+T13	RAREDISEASE 687 710	Marshall-Smith Syndrome
+T14	SIGN 766 775;790 802	breathing difficulties
+R1	Produces Arg1:T10 Arg2:T11	
+R2	Produces Arg1:T10 Arg2:T12	
+R3	Produces Arg1:T10 Arg2:T13	
+R4	Produces Arg1:T10 Arg2:T14	
+R5	Anaphora Arg1:T9 Arg2:T10	
+R6	Anaphora Arg1:T11 Arg2:T12	
+R7	Produces Arg1:T20 Arg2:T21	

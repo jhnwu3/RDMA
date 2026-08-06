@@ -1,0 +1,29 @@
+T1	SKINRAREDISEASE 0 44	Oculocerebral Syndrome with Hypopigmentation
+T2	DISEASE 66 84	inherited disorder
+T3	SIGN 128 144	hypopigmentation
+T4	SIGN 171 214;268 281	abnormalities of the central nervous system oculocerebral
+T5	SIGN 329 345	light skin color
+T6	SIGN 350 367	silvery-gray hair
+T7	DISEASE 482 496	microphthalmia
+T8	SIGN 482 496	microphthalmia
+T9	SIGN 509 518;548 554;587 593	opacities of the cornea
+T10	SIGN 637 646	nystagmus
+T11	SIGN 709 740	involuntary muscle contractions
+T12	SIGN 778 796	spastic paraplegia
+T13	DISEASE 786 796	paraplegia
+T14	SIGN 799 819	developmental delays
+T15	DISEASE 828 846	mental retardation
+T16	SIGN 828 846	mental retardation
+T17	SKINRAREDISEASE 848 892	Oculocerebral Syndrome with Hypopigmentation
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T40	
+R4	Produces Arg1:T1 Arg2:T5	
+R5	Produces Arg1:T1 Arg2:T6	
+R6	Produces Arg1:T1 Arg2:T8	
+R7	Produces Arg1:T1 Arg2:T9	
+R8	Produces Arg1:T1 Arg2:T10	
+R9	Produces Arg1:T1 Arg2:T11	
+R10	Produces Arg1:T1 Arg2:T12	
+R11	Produces Arg1:T1 Arg2:T14	
+R12	Produces Arg1:T1 Arg2:T160	

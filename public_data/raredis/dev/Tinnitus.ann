@@ -1,0 +1,20 @@
+T1	DISEASE 0 8	Tinnitus
+T2	ANAPHOR 53 55	It
+T3	DISEASE 106 114	Tinnitus
+T4	DISEASE 226 243	Rhythmic tinnitus
+T5	SYMPTOM 235 243	tinnitus
+T6	DISEASE 276 297	non-rhythmic tinnitus
+T7	SYMPTOM 289 297	tinnitus
+T8	DISEASE 347 355	tinnitus
+T9	DISEASE 454 471	rhythmic tinnitus
+T10	SYMPTOM 463 471	tinnitus
+T11	DISEASE 484 501	Rhythmic tinnitus
+T12	SYMPTOM 493 501	tinnitus
+T13	DISEASE 638 646	tinnitus
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T4 Arg2:T5	
+R3	Is_a Arg1:T4 Arg2:T8	
+R4	Produces Arg1:T6 Arg2:T7	
+R5	Is_a Arg1:T6 Arg2:T8	
+R6	Produces Arg1:T9 Arg2:T10	
+R7	Produces Arg1:T11 Arg2:T12	

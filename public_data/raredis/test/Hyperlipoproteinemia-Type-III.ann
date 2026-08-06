@@ -1,0 +1,20 @@
+T1	RAREDISEASE 0 29	Hyperlipoproteinemia type III
+T2	DISEASE 35 51	genetic disorder
+T3	SIGN 105 111;113 124;87 97	lipids incorrectly metabolize
+T4	SIGN 177 191	hyperlipidemia
+T5	SIGN 265 274	xanthomas
+T6	DISEASE 368 383	atherosclerosis
+T7	SIGN 368 383	atherosclerosis
+T8	DISEASE 432 444	heart attack
+T9	SIGN 432 444	heart attack
+T10	DISEASE 448 454	stroke
+T11	SIGN 448 454	stroke
+T12	RAREDISEASE 456 485	Hyperlipoproteinemia type III
+T13	DISEASE 629 651	cardiovascular disease
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T5	
+R5	Produces Arg1:T1 Arg2:T7	
+R6	Produces Arg1:T1 Arg2:T9	
+R7	Produces Arg1:T1 Arg2:T11	

@@ -1,0 +1,5 @@
+T1	RAREDISEASE 0 14	Apert syndrome
+T2	RAREDISEASE 99 113	Apert syndrome
+T3	ANAPHOR 183 195	the disorder
+T4	RAREDISEASE 309 323	Apert syndrome
+R1	Anaphora Arg1:T2 Arg2:T3	

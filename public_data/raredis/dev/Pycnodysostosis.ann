@@ -1,0 +1,6 @@
+T1	RAREDISEASE 0 15	Pycnodysostosis
+T2	ANAPHOR 150 163	this disorder
+T3	ANAPHOR 165 167	It
+T4	RAREDISEASE 248 263	Pycnodysostosis
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	

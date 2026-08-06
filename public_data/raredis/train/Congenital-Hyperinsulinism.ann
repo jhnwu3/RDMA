@@ -1,0 +1,56 @@
+T1	RAREDISEASE 0 26	Congenital hyperinsulinism
+T2	RAREDISEASE 28 30	HI
+T3	SIGN 62 134	severe, persistent hypoglycemia in newborn babies, infants, and children
+T4	DISEASE 81 93	hypoglycemia
+T5	RAREDISEASE 235 237	HI
+T6	DISEASE 424 436	hypoglycemia
+T7	SIGN 424 436	hypoglycemia
+T8	SIGN 438 450	brain damage
+T9	SIGN 478 490	brain damage
+T10	RAREDISEASE 518 520	HI
+T11	ANAPHOR 524 537	the condition
+T12	DISEASE 608 620	hypoglycemia
+T13	SIGN 608 620	hypoglycemia
+T14	RAREDISEASE 668 670	HI
+T15	SYMPTOM 775 787	irritability
+T16	SYMPTOM 789 799	sleepiness
+T17	SYMPTOM 801 809	lethargy
+T18	SYMPTOM 811 827	excessive hunger
+T19	SIGN 832 848	rapid heart rate
+T20	SIGN 880 888	seizures
+T21	SIGN 893 897	coma
+T22	SIGN 943 960	blood sugar level
+T23	SIGN 981 996	low blood sugar
+T24	SIGN 1046 1055	shakiness
+T25	SYMPTOM 1057 1065	weakness
+T26	SYMPTOM 1070 1079	tiredness
+T27	SYMPTOM 1081 1090	confusion
+T28	SIGN 1095 1106	rapid pulse
+T29	SIGN 1137 1145	seizures
+T30	SIGN 1149 1153	coma
+T31	RAREDISEASE 1155 1157	HI
+T32	ANAPHOR 1248 1250	it
+R1	Produces Arg1:T1 Arg2:T3	
+R2	Is_acron Arg1:T2 Arg2:T1	
+R3	Produces Arg1:T5 Arg2:T7	
+R4	Produces Arg1:T5 Arg2:T8	
+R5	Produces Arg1:T10 Arg2:T9	
+R6	Anaphora Arg1:T10 Arg2:T110	
+R7	Produces Arg1:T30 Arg2:T31	
+R8	Produces Arg1:T14 Arg2:T15	
+R9	Produces Arg1:T14 Arg2:T16	
+R10	Produces Arg1:T14 Arg2:T17	
+R11	Produces Arg1:T14 Arg2:T18	
+R12	Produces Arg1:T14 Arg2:T190	
+R13	Produces Arg1:T14 Arg2:T20	
+R14	Produces Arg1:T14 Arg2:T21	
+R15	Produces Arg1:T14 Arg2:T22	
+R16	Produces Arg1:T14 Arg2:T23	
+R17	Produces Arg1:T14 Arg2:T24	
+R18	Produces Arg1:T14 Arg2:T25	
+R19	Produces Arg1:T14 Arg2:T26	
+R20	Produces Arg1:T14 Arg2:T270	
+R21	Produces Arg1:T14 Arg2:T28	
+R22	Produces Arg1:T14 Arg2:T29	
+R23	Produces Arg1:T14 Arg2:T30	
+R24	Anaphora Arg1:T31 Arg2:T32	

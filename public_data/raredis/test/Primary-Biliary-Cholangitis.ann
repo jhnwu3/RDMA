@@ -1,0 +1,38 @@
+T1	RAREDISEASE 0 27	Primary biliary cholangitis
+T2	RAREDISEASE 29 32	PBC
+T3	DISEASE 39 91	chronic, or long lasting, progressive liver disorder
+T4	RAREDISEASE 157 160	PBC
+T5	SIGN 170 182;196 219	inflammation of the small bile ducts
+T6	SIGN 187 219	scarring of the small bile ducts
+T7	RAREDISEASE 320 323	PBC
+T8	ANAPHOR 340 342	it
+T9	SIGN 389 397	jaundice
+T10	RAREDISEASE 403 406	PBC
+T11	ANAPHOR 421 423	it
+T12	DISEASE 436 445	cirrhosis
+T13	SIGN 436 445	cirrhosis
+T14	SIGN 450 478	scarring of the entire liver
+T15	SIGN 498 511	liver failure
+T16	RAREDISEASE 515 518	PBC
+T17	DISEASE 656 665	cirrhosis
+T18	SIGN 656 665	cirrhosis
+T19	RAREDISEASE 695 698	PBC
+T20	ANAPHOR 730 732	it
+T21	RAREDISEASE 887 890	PBC
+T22	ANAPHOR 951 963	The disorder
+T23	ANAPHOR 1090 1102	the disorder
+T24	RAREDISEASE 1223 1226	PBC
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Is_acron Arg1:T2 Arg2:T1	
+R3	Produces Arg1:T10 Arg2:T3	
+R4	Produces Arg1:T10 Arg2:T11	
+R5	Anaphora Arg1:T7 Arg2:T8	
+R6	Produces Arg1:T8 Arg2:T9	
+R7	Anaphora Arg1:T10 Arg2:T11	
+R8	Produces Arg1:T11 Arg2:T13	
+R9	Produces Arg1:T11 Arg2:T14	
+R10	Produces Arg1:T11 Arg2:T15	
+R11	Produces Arg1:T16 Arg2:T18	
+R12	Anaphora Arg1:T19 Arg2:T20	
+R13	Anaphora Arg1:T20 Arg2:T25	
+R14	Anaphora Arg1:T20 Arg2:T26	

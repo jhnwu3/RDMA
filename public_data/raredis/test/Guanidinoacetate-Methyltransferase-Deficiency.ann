@@ -1,0 +1,31 @@
+T1	RAREDISEASE 16 20	GAMT
+T2	SIGN 53 80	Global developmental delays
+T3	ANAPHOR 109 122	this disorder
+T4	RAREDISEASE 215 230	GAMT deficiency
+T5	DISEASE 236 261	intellectual disabilities
+T6	SIGN 236 261	intellectual disabilities
+T7	DISEASE 263 280	seizure disorders
+T8	SIGN 263 270	seizure
+T9	SIGN 282 297	muscle weakness
+T10	DISEASE 299 317	behavior disorders
+T11	SIGN 299 317	behavior disorders
+T12	DISEASE 323 341	movement disorders
+T13	SIGN 323 341	movement disorders
+T14	RAREDISEASE 355 359	GAMT
+T15	SIGN 369 385	weak muscle tone
+T16	SIGN 390 425	delayed development of motor skills
+T17	RAREDISEASE 600 615	GAMT deficiency
+T18	RAREDISEASE 835 850	GAMT deficiency
+T19	RAREDISEASE 872 887	GAMT deficiency
+T20	DISEASE 930 944	cerebral palsy
+T21	DISEASE 1007 1013	autism
+T22	DISEASE 1017 1044	global developmental delays
+R1	Produces Arg1:T3 Arg2:T20	
+R2	Anaphora Arg1:T4 Arg2:T3	
+R3	Produces Arg1:T4 Arg2:T6	
+R4	Produces Arg1:T4 Arg2:T8	
+R5	Produces Arg1:T4 Arg2:T9	
+R6	Produces Arg1:T4 Arg2:T11	
+R7	Produces Arg1:T4 Arg2:T13	
+R8	Produces Arg1:T14 Arg2:T15	
+R9	Produces Arg1:T14 Arg2:T16	

@@ -1,0 +1,19 @@
+T1	RAREDISEASE 0 3	FVS
+T2	SIGN 79 98	neural tube defects
+T3	RAREDISEASE 100 120	cleft lip and palate
+T4	SIGN 100 120	cleft lip and palate
+T5	SIGN 122 150	cardiovascular abnormalities
+T6	SIGN 152 173	genitourinary defects
+T7	SIGN 175 194	developmental delay
+T8	SIGN 196 215	endocrine disorders
+T9	SIGN 217 229	limb defects
+T10	DISEASE 235 241	autism
+T11	SIGN 235 241	autism
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Produces Arg1:T1 Arg2:T5	
+R4	Produces Arg1:T1 Arg2:T6	
+R5	Produces Arg1:T1 Arg2:T7	
+R6	Produces Arg1:T1 Arg2:T80	
+R7	Produces Arg1:T1 Arg2:T9	
+R8	Produces Arg1:T1 Arg2:T11	

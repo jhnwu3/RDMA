@@ -1,0 +1,44 @@
+T1	RAREDISEASE 0 24	Schwartz-Jampel syndrome
+T2	RAREDISEASE 26 29	SJS
+T3	DISEASE 41 57	genetic disorder
+T4	SIGN 75 112	abnormalities of the skeletal muscles
+T5	SIGN 155 172	myotonic myopathy
+T6	DISEASE 164 172	myopathy
+T7	SIGN 202 216	bone dysplasia
+T8	SIGN 289 307	joint contractures
+T9	SIGN 317 330	growth delays
+T10	SIGN 370 378	dwarfism
+T11	SIGN 416 444	small, fixed facial features
+T12	SIGN 457 482	abnormalities of the eyes
+T13	SIGN 508 523	impaired vision
+T14	ANAPHOR 605 617	the disorder
+T15	RAREDISEASE 701 711	SJS type 1
+T16	ANAPHOR 755 767	the disorder
+T17	RAREDISEASE 832 842	SJS type 2
+T18	ANAPHOR 864 876	the disorder
+T19	RAREDISEASE 959 969	SJS type 2
+T20	RAREDISEASE 1003 1027	Stuve-Wiedemann syndrome
+T21	RAREDISEASE 1046 1049	SJS
+T22	RAREDISEASE 1076 1100	Stuve-Wiedemann syndrome
+T23	RAREDISEASE 1152 1155	SJS
+T24	RAREDISEASE 1157 1160	SJS
+T25	RAREDISEASE 1435 1445	SJS type 2
+T26	ANAPHOR 1547 1559	the disorder
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Produces Arg1:T1 Arg2:T5	
+R4	Produces Arg1:T1 Arg2:T7	
+R5	Produces Arg1:T1 Arg2:T8	
+R6	Produces Arg1:T1 Arg2:T9	
+R7	Produces Arg1:T1 Arg2:T10	
+R8	Produces Arg1:T1 Arg2:T11	
+R9	Produces Arg1:T1 Arg2:T12	
+R10	Produces Arg1:T1 Arg2:T130	
+R11	Anaphora Arg1:T1 Arg2:T14	
+R12	Is_acron Arg1:T2 Arg2:T1	
+R13	Is_a Arg1:T15 Arg2:T16	
+R14	Is_a Arg1:T17 Arg2:T180	
+R15	Is_synon Arg1:T20 Arg2:T19	
+R16	Anaphora Arg1:T21 Arg2:T16	
+R17	Anaphora Arg1:T21 Arg2:T180	
+R18	Anaphora Arg1:T23 Arg2:T26	

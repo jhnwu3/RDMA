@@ -1,0 +1,67 @@
+T1	SKINRAREDISEASE 0 22	Dyskeratosis congenita
+T2	DISEASE 49 68	bone marrow failure
+T3	SIGN 74 131	inability of the marrow to produce sufficient blood cells
+T4	SIGN 169 209	irreversible degeneration of skin tissue
+T5	SKINRAREDISEASE 290 312	dyskeratosis congenita
+T6	DISEASE 344 356	skin disease
+T7	SIGN 502 521	bone marrow failure
+T8	DISEASE 562 590	bone marrow failure syndrome
+T9	SKINRAREDISEASE 591 613	dyskeratosis congenita
+T10	SIGN 670 683	abnormal skin
+T11	SIGN 699 708;710 722	dystrophy of the nails
+T12	SIGN 791 807	oral leukoplakia
+T13	SIGN 868 887	bone marrow failure
+T14	SIGN 889 908	Bone marrow failure
+T15	SIGN 937 974	low number of circulating blood cells
+T16	SKINRAREDISEASE 1073 1095	dyskeratosis congenita
+T17	SIGN 1108 1121	short stature
+T18	SIGN 1123 1126;1137 1150	eye abnormalities
+T19	SIGN 1131 1150	tooth abnormalities
+T20	SIGN 1152 1186	thin and early graying of the hair
+T21	DISEASE 1194 1203;1205 1212	pulmonary disease
+T22	SIGN 1194 1203;1205 1212	pulmonary disease
+T23	DISEASE 1214 1227	liver disease
+T24	SIGN 1214 1227	liver disease
+T25	SIGN 1229 1246	gut abnormalities
+T26	DISEASE 1263 1275	osteoporosis
+T27	SIGN 1263 1275	osteoporosis
+T28	DISEASE 1278 1289	infertility
+T29	SIGN 1278 1289	infertility
+T30	SIGN 1291 1312	learning difficulties
+T31	SIGN 1318 1361	delays in reaching developmental milestones
+T32	RAREDISEASE 1389 1397	leukemia
+T33	DISEASE 1402 1408	cancer
+T34	SKINRAREDISEASE 1466 1488	dyskeratosis congenita
+T35	DISEASE 1546 1565	bone marrow failure
+T36	DISEASE 1594 1613	bone marrow failure
+T37	SKINRAREDISEASE 1621 1643	dyskeratosis congenita
+T38	DISEASE 1662 1680	pulmonary fibrosis
+T39	DISEASE 1791 1810	bone marrow failure
+T40	DISEASE 1818 1830	lung disease
+T41	SKINRAREDISEASE 1832 1854	dyskeratosis congenita
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Is_a Arg1:T5 Arg2:T6	
+R5	Produces Arg1:T5 Arg2:T7	
+R6	Is_a Arg1:T9 Arg2:T8	
+R7	Produces Arg1:T9 Arg2:T10	
+R8	Produces Arg1:T9 Arg2:T11	
+R9	Produces Arg1:T9 Arg2:T12	
+R10	Produces Arg1:T9 Arg2:T13	
+R11	Produces Arg1:T9 Arg2:T14	
+R12	Produces Arg1:T9 Arg2:T15	
+R13	Produces Arg1:T16 Arg2:T17	
+R14	Produces Arg1:T16 Arg2:T18	
+R15	Produces Arg1:T16 Arg2:T190	
+R16	Produces Arg1:T16 Arg2:T20	
+R17	Produces Arg1:T16 Arg2:T22	
+R18	Produces Arg1:T16 Arg2:T24	
+R19	Produces Arg1:T16 Arg2:T25	
+R20	Produces Arg1:T16 Arg2:T270	
+R21	Produces Arg1:T16 Arg2:T290	
+R22	Produces Arg1:T16 Arg2:T30	
+R23	Produces Arg1:T16 Arg2:T31	
+R24	Increases_risk_of Arg1:T16 Arg2:T32	
+R25	Increases_risk_of Arg1:T16 Arg2:T33	
+R26	Is_a Arg1:T37 Arg2:T36	

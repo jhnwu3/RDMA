@@ -1,0 +1,18 @@
+T1	RAREDISEASE 0 23	Catamenial pneumothorax
+T2	DISEASE 75 87	Pneumothorax
+T3	SIGN 114 128	collapsed lung
+T4	RAREDISEASE 250 273	catamenial pneumothorax
+T5	DISEASE 301 313	pneumothorax
+T6	SIGN 301 313	pneumothorax
+T7	RAREDISEASE 403 426	catamenial pneumothorax
+T8	DISEASE 580 593	endometriosis
+T9	SIGN 580 593	endometriosis
+T10	RAREDISEASE 685 708	catamenial pneumothorax
+T11	DISEASE 861 873	pneumothorax
+T12	SIGN 861 873	pneumothorax
+T13	DISEASE 1026 1058	thoracic or pelvic endometriosis
+T14	DISEASE 1062 1085	damage to the diaphragm
+R1	Produces Arg1:T2 Arg2:T3	
+R2	Produces Arg1:T4 Arg2:T60	
+R3	Produces Arg1:T7 Arg2:T9	
+R4	Produces Arg1:T10 Arg2:T12	

@@ -1,0 +1,21 @@
+T1	RAREDISEASE 0 28	Rocky Mountain spotted fever
+T2	RAREDISEASE 30 34	RMSF
+T3	DISEASE 42 60	infectious disease
+T4	DISEASE 110 143	spotted fever group rickettsioses
+T5	ANAPHOR 145 147	It
+T6	SIGN 393 399;433 447;459 466	damage of small blood vessels
+T7	SIGN 393 399;504 532	damage vascular smooth muscle cells
+T8	RAREDISEASE 603 613	vasculitis
+T9	SIGN 603 613	vasculitis
+T10	SIGN 616 655	leakage of fluid from the blood vessels
+T11	SIGN 708 713	edema
+T12	ANAPHOR 801 812	the disease
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Is_a Arg1:T1 Arg2:T4	
+R3	Anaphora Arg1:T1 Arg2:T5	
+R4	Produces Arg1:T1 Arg2:T6	
+R5	Produces Arg1:T1 Arg2:T7	
+R6	Is_acron Arg1:T2 Arg2:T1	
+R7	Produces Arg1:T12 Arg2:T9	
+R8	Produces Arg1:T12 Arg2:T10	
+R9	Produces Arg1:T12 Arg2:T11	

@@ -8,10 +8,9 @@ from pyhealth.datasets import BaseDataset
 
 logger = logging.getLogger(__name__)
 
-# Raw corpus root (contains biolarkgsc_locs.csv)
-_DEFAULT_ROOT = Path(
-    "/home/johnwu3/projects/rare_disease/workspace/repos/BioLarkGSC"
-)
+# Raw corpus root (contains biolarkgsc_locs.csv). Vendored into the repo under
+# public_data/; see public_data/README.md for provenance and license (CC BY 4.0).
+_DEFAULT_ROOT = Path(__file__).resolve().parents[1] / "public_data" / "biolarkgsc"
 
 # Source TSV file with character-offset annotations
 _LOCS_FILE = "biolarkgsc_locs.csv"

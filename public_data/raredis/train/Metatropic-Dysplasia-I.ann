@@ -1,0 +1,20 @@
+T1	RAREDISEASE 0 22	Metatropic Dysplasia I
+T2	DISEASE 33 49	genetic disorder
+T3	SIGN 67 90	extremely small stature
+T4	SIGN 97 107	short arms
+T5	SIGN 112 116;97 102	legs short
+T6	ANAPHOR 143 156	this disorder
+T7	SIGN 163 176	narrow thorax
+T8	SIGN 178 188	short ribs
+T9	SIGN 194 208	kyphoscoliosis
+T10	SIGN 284 304	short trunk dwarfism
+T11	RAREDISEASE 306 328	Metatropic Dysplasia I
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T5	
+R5	Anaphora Arg1:T1 Arg2:T6	
+R6	Produces Arg1:T6 Arg2:T7	
+R7	Produces Arg1:T6 Arg2:T8	
+R8	Produces Arg1:T6 Arg2:T9	
+R9	Produces Arg1:T6 Arg2:T100	

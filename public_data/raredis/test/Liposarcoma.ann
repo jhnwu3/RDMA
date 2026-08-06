@@ -1,0 +1,36 @@
+T1	RAREDISEASE 22 33	liposarcoma
+T2	ANAPHOR 64 66	it
+T3	RAREDISEASE 248 259	Liposarcoma
+T4	RAREDISEASE 500 511	Liposarcoma
+T5	RAREDISEASE 517 536	soft tissue sarcoma
+T6	ANAPHOR 611 613	It
+T7	RAREDISEASE 756 767	liposarcoma
+T8	RAREDISEASE 866 877	liposarcoma
+T9	RAREDISEASE 971 991	soft tissue sarcomas
+T10	RAREDISEASE 1001 1012	liposarcoma
+T11	DISEASE 1042 1067	familial cancer syndromes
+T12	RAREDISEASE 1264 1275	liposarcoma
+T13	RAREDISEASE 1277 1283	Lipoma
+T14	RAREDISEASE 1343 1354	liposarcoma
+T15	ANAPHOR 1359 1361	it
+T16	SIGN 1397 1425	mass directly below the skin
+T17	RAREDISEASE 1469 1475	lipoma
+T18	RAREDISEASE 1500 1511	liposarcoma
+T19	DISEASE 1519 1536	soft tissue tumor
+T20	RAREDISEASE 1547 1583	undifferentiated pleomorphic sarcoma
+T21	RAREDISEASE 1585 1614	lipomatous hemangiopericytoma
+T22	RAREDISEASE 1616 1637	non-lipogenic sarcoma
+T23	RAREDISEASE 1642 1673	gastrointestinal stromal tumors
+T24	RAREDISEASE 1700 1711	liposarcoma
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Is_a Arg1:T4 Arg2:T5	
+R3	Anaphora Arg1:T4 Arg2:T6	
+R4	Is_a Arg1:T10 Arg2:T9	
+R5	Increases_risk_of Arg1:T11 Arg2:T9	
+R6	Anaphora Arg1:T13 Arg2:T15	
+R7	Produces Arg1:T15 Arg2:T16	
+R8	Is_a Arg1:T20 Arg2:T19	
+R9	Is_a Arg1:T21 Arg2:T19	
+R10	Is_a Arg1:T22 Arg2:T19	
+R11	Is_a Arg1:T23 Arg2:T19	
+R12	Is_a Arg1:T20 Arg2:T23	

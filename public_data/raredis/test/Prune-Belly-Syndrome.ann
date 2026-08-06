@@ -1,0 +1,32 @@
+T1	RAREDISEASE 0 20	Prune-Belly syndrome
+T2	RAREDISEASE 36 58	Eagle-Barrett syndrome
+T3	SIGN 140 149;151 158;96 130	abdominal muscles partial or complete absence of the
+T4	SIGN 212 236	bilateral cryptorchidism
+T5	DISEASE 222 236	cryptorchidism
+T6	SIGN 246 273	urinary tract malformations
+T7	SIGN 279 300	urinary malformations
+T8	SIGN 332 340;342 348;388 395	dilation of the ureters
+T9	SIGN 436 447	hydroureter
+T10	DISEASE 466 480	hydronephrosis
+T11	SIGN 466 480	hydronephrosis
+T12	DISEASE 543 564	vesicoureteral reflux
+T13	SIGN 543 564	vesicoureteral reflux
+T14	RAREDISEASE 597 617	Prune-Belly syndrome
+T15	SIGN 661 681	pulmonary hypoplasia
+T16	SIGN 690 711	chronic renal failure
+T17	DISEASE 698 711	renal failure
+T18	RAREDISEASE 732 752	Prune-Belly syndrome
+T19	RAREDISEASE 767 787	Prune Belly syndrome
+T20	ANAPHOR 839 851	The disorder
+R1	Produces Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Produces Arg1:T1 Arg2:T6	
+R4	Produces Arg1:T1 Arg2:T7	
+R5	Produces Arg1:T1 Arg2:T8	
+R6	Produces Arg1:T1 Arg2:T9	
+R7	Produces Arg1:T1 Arg2:T11	
+R8	Produces Arg1:T1 Arg2:T13	
+R9	Is_acron Arg1:T2 Arg2:T1	
+R10	Produces Arg1:T14 Arg2:T15	
+R11	Produces Arg1:T14 Arg2:T16	
+R12	Anaphora Arg1:T10 Arg2:T11	

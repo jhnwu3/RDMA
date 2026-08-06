@@ -1,0 +1,14 @@
+T1	RAREDISEASE 0 15	Segawa syndrome
+T2	RAREDISEASE 250 265	Segawa syndrome
+T3	ANAPHOR 329 341	the disorder
+T4	RAREDISEASE 464 515	Segawa syndrome and tyrosine hydroxylase deficiency
+T5	RAREDISEASE 540 584	autosomal recessive dopa-responsive dystonia
+T6	DISEASE 649 657	dystonia
+T7	RAREDISEASE 672 687	Segawa syndrome
+T8	ANAPHOR 743 745	It
+T9	RAREDISEASE 768 831	hereditary progressive dystonia with marked diurnal fluctuation
+R1	Anaphora Arg1:T2 Arg2:T3	
+R2	Is_a Arg1:T4 Arg2:T6	
+R3	Is_synon Arg1:T5 Arg2:T4	
+R4	Anaphora Arg1:T7 Arg2:T8	
+R5	Is_synon Arg1:T9 Arg2:T8	

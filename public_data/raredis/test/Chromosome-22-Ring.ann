@@ -1,0 +1,31 @@
+T1	RAREDISEASE 0 18	Chromosome 22 Ring
+T2	ANAPHOR 180 192	the disorder
+T3	SIGN 222 259	moderate to severe mental retardation
+T4	DISEASE 241 259	mental retardation
+T5	SIGN 346 356;358 366	dysplastic features
+T6	SIGN 429 451	physical abnormalities
+T7	SIGN 549 558	hypotonia
+T8	SIGN 564 584	motor incoordination
+T9	SIGN 617 621	gait
+T10	SIGN 624 648	pronounced verbal delays
+T11	SIGN 665 724	malformations of the skull and facial (craniofacial) region
+T12	SIGN 731 757	craniofacial abnormalities
+T13	DISEASE 795 807	microcephaly
+T14	SIGN 795 807	microcephaly
+T15	SIGN 870 886	epicanthal folds
+T16	SIGN 899 909	large ears
+T17	RAREDISEASE 939 957	Chromosome 22 Ring
+T18	RAREDISEASE 1133 1151	Chromosome 22 Ring
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T2 Arg2:T3	
+R3	Produces Arg1:T2 Arg2:T5	
+R4	Produces Arg1:T2 Arg2:T6	
+R5	Produces Arg1:T2 Arg2:T7	
+R6	Produces Arg1:T2 Arg2:T8	
+R7	Produces Arg1:T2 Arg2:T9	
+R8	Produces Arg1:T2 Arg2:T10	
+R9	Produces Arg1:T2 Arg2:T11	
+R10	Produces Arg1:T2 Arg2:T12	
+R11	Produces Arg1:T2 Arg2:T14	
+R12	Produces Arg1:T2 Arg2:T15	
+R13	Produces Arg1:T2 Arg2:T16	

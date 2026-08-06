@@ -1,0 +1,38 @@
+T1	RAREDISEASE 0 22	Formaldehyde Poisoning
+T2	SIGN 221 253	eye, nose, and throat irritation
+T3	SYMPTOM 255 264	headaches
+T4	SIGN 273 284	skin rashes
+T5	RAREDISEASE 298 320	Formaldehyde Poisoning
+T6	SIGN 347 361	eye irritation
+T7	SIGN 363 381	breathing problems
+T8	SIGN 383 399	skin irritations
+T9	SYMPTOM 404 413	headaches
+T10	SIGN 455 477	burns to the esophagus
+T11	SIGN 455 467;482 489	burns to the stomach
+T12	SIGN 599 614	acute hemolysis
+T13	RAREDISEASE 635 657	Formaldehyde Poisoning
+T14	SIGN 690 701	hypotension
+T15	SIGN 704 733	abnormalities of heart rhythm
+T16	SIGN 735 754	irregular breathing
+T17	SYMPTOM 756 768	restlessness
+T18	SIGN 770 785	unconsciousness
+T19	SIGN 790 794	coma
+T20	RAREDISEASE 796 818	Formaldehyde Poisoning
+T21	RAREDISEASE 1636 1658	Formaldehyde Poisoning
+T22	RAREDISEASE 1660 1682	Formaldehyde Poisoning
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T10 Arg2:T11	
+R5	Produces Arg1:T10 Arg2:T1	
+R6	Produces Arg1:T10 Arg2:T12	
+R7	Produces Arg1:T10 Arg2:T13	
+R8	Produces Arg1:T10 Arg2:T23	
+R9	Produces Arg1:T10 Arg2:T24	
+R10	Produces Arg1:T10 Arg2:T2	
+R11	Produces Arg1:T13 Arg2:T14	
+R12	Produces Arg1:T13 Arg2:T15	
+R13	Produces Arg1:T13 Arg2:T16	
+R14	Produces Arg1:T13 Arg2:T17	
+R15	Produces Arg1:T13 Arg2:T18	
+R16	Produces Arg1:T13 Arg2:T19	

@@ -1,0 +1,22 @@
+T1	RAREDISEASE 0 22	Tethered cord syndrome
+T2	DISEASE 28 63	stretch-induced functional disorder
+T3	SIGN 84 157	fixation (tethering) effect of inelastic tissue on the caudal spinal cord
+T4	SIGN 226 248;271 289	progressive stretching of the spinal cord
+T5	SIGN 253 289	increased tension of the spinal cord
+T6	SIGN 389 458	variation of the growth rate of the spinal cord and the spinal column
+T7	RAREDISEASE 561 592	tethered cord syndrome at birth
+T8	SIGN 887 898;948 956;958 980	progressive fibrosis in the filum terminale
+T9	SIGN 1088 1120	inelastic structures in children
+T10	SIGN 1137 1173	defective closure of the neural tube
+T11	DISEASE 1279 1291	spina bifida
+T12	SIGN 1279 1291	spina bifida
+T13	RAREDISEASE 1343 1365	tethered cord syndrome
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T5	
+R5	Produces Arg1:T1 Arg2:T6	
+R6	Produces Arg1:T7 Arg2:T8	
+R7	Produces Arg1:T7 Arg2:T90	
+R8	Produces Arg1:T7 Arg2:T10	
+R9	Produces Arg1:T7 Arg2:T12	

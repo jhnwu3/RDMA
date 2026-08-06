@@ -1,0 +1,28 @@
+T1	RAREDISEASE 1 16	Sakati syndrome
+T2	DISEASE 79 96	genetic disorders
+T3	RAREDISEASE 108 133	Acrocephalopolysyndactyly
+T4	RAREDISEASE 137 141	ACPS
+T5	RAREDISEASE 157 161	ACPS
+T6	SIGN 277 293	craniosynostosis
+T7	SIGN 343 354	acrocephaly
+T8	SIGN 376 386	syndactyly
+T9	SIGN 471 482	polydactyly
+T10	RAREDISEASE 498 513	Sakati syndrome
+T11	RAREDISEASE 538 551	ACPS type III
+T12	SIGN 572 606	abnormalities of bones of the legs
+T13	SIGN 666 690	congenital heart defects
+T14	RAREDISEASE 716 731	Sakati syndrome
+T15	RAREDISEASE 907 922	Sakati syndrome
+T16	ANAPHOR 1052 1063	the disease
+T17	RAREDISEASE 1224 1239	Sakati syndrome
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Is_a Arg1:T1 Arg2:T3	
+R3	Is_acron Arg1:T4 Arg2:T3	
+R4	Produces Arg1:T5 Arg2:T6	
+R5	Produces Arg1:T5 Arg2:T7	
+R6	Produces Arg1:T5 Arg2:T8	
+R7	Produces Arg1:T5 Arg2:T90	
+R8	Produces Arg1:T10 Arg2:T12	
+R9	Produces Arg1:T10 Arg2:T13	
+R10	Is_synon Arg1:T11 Arg2:T10	
+R11	Anaphora Arg1:T15 Arg2:T16	

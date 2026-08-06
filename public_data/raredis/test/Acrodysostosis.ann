@@ -1,0 +1,6 @@
+T1	RAREDISEASE 0 14	Acrodysostosis
+T2	ANAPHOR 59 73	The disorder i
+T3	ANAPHOR 192 204	the disorder
+T4	RAREDISEASE 306 320	acrodysostosis
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	

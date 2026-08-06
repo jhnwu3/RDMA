@@ -1,0 +1,17 @@
+T1	RAREDISEASE 0 15	Whipple disease
+T2	SIGN 119 132	malabsorption
+T3	ANAPHOR 154 156	It
+T4	ANAPHOR 306 317	the disease
+T5	RAREDISEASE 401 416	Whipple disease
+T6	RAREDISEASE 724 739	Whipple disease
+T7	ANAPHOR 825 838	this disorder
+T8	RAREDISEASE 1047 1062	Whipple disease
+T9	ANAPHOR 1150 1161	the disease
+T10	RAREDISEASE 1359 1374	Whipple disease
+T11	SIGN 1530 1536	anemia
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Anaphora Arg1:T1 Arg2:T40	
+R4	Anaphora Arg1:T6 Arg2:T7	
+R5	Anaphora Arg1:T8 Arg2:T9	
+R6	Produces Arg1:T10 Arg2:T11	

@@ -1,0 +1,35 @@
+T1	SKINRAREDISEASE 0 14	Bloom syndrome
+T2	DISEASE 25 41	genetic disorder
+T3	SIGN 59 72	short stature
+T4	SIGN 135 151	photosensitivity
+T5	SIGN 192 206;208 232	telangiectasia over the nose and cheeks
+T6	SIGN 266 288	mild immune deficiency
+T7	DISEASE 322 332	infections
+T8	DISEASE 409 415	cancer
+T9	DISEASE 428 436	leukemia
+T10	RAREDISEASE 438 446	lymphoma
+T11	DISEASE 451 480	gastrointestinal tract tumors
+T12	SKINRAREDISEASE 482 496	Bloom syndrome
+T13	DISEASE 526 544	genetic conditions
+T14	RAREDISEASE 554 583	chromosome breakage syndromes
+T15	SKINRAREDISEASE 612 626	Bloom syndrome
+T16	SIGN 634 658	problems with DNA repair
+T17	SIGN 690 726	chromosome breaks and rearrangements
+T18	SIGN 732 751	abnormal DNA repair
+T19	DISEASE 794 800	cancer
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T5	
+R5	Produces Arg1:T1 Arg2:T6	
+R6	Increases_risk_of Arg1:T1 Arg2:T7	
+R7	Increases_risk_of Arg1:T1 Arg2:T8	
+R8	Is_a Arg1:T9 Arg2:T8	
+R9	Is_a Arg1:T10 Arg2:T8	
+R10	Is_a Arg1:T11 Arg2:T8	
+R11	Is_a Arg1:T10 Arg2:T11	
+R12	Is_a Arg1:T14 Arg2:T13	
+R13	Produces Arg1:T15 Arg2:T16	
+R14	Produces Arg1:T15 Arg2:T17	
+R15	Produces Arg1:T15 Arg2:T18	
+R16	Increases_risk_of Arg1:T15 Arg2:T19	

@@ -1,0 +1,32 @@
+T1	RAREDISEASE 0 17	Chromosome 6 Ring
+T2	RAREDISEASE 383 400	Chromosome 6 Ring
+T3	ANAPHOR 477 504	the chromosomal abnormality
+T4	SIGN 521 539	growth retardation
+T5	DISEASE 560 578	mental retardation
+T6	SIGN 560 578	mental retardation
+T7	SIGN 693 716	psychomotor retardation
+T8	SIGN 734 793	abnormalities of the skull and facial (craniofacial) region
+T9	DISEASE 861 873	microcephaly
+T10	SIGN 861 873	microcephaly
+T11	SIGN 876 901	malformed or low-set ears
+T12	SIGN 923 935	micrognathia
+T13	SIGN 938 941;951 958	Eye defects
+T14	SIGN 1026 1032	ptosis
+T15	DISEASE 1057 1071	microphthalmia
+T16	SIGN 1057 1071	microphthalmia
+T17	DISEASE 1130 1140	strabismus
+T18	SIGN 1130 1140	strabismus
+T19	RAREDISEASE 1166 1183	Chromosome 6 Ring
+T20	RAREDISEASE 1341 1358	Chromosome 6 Ring
+R1	Anaphora Arg1:T2 Arg2:T3	
+R2	Produces Arg1:T3 Arg2:T4	
+R3	Produces Arg1:T3 Arg2:T6	
+R4	Produces Arg1:T3 Arg2:T70	
+R5	Produces Arg1:T3 Arg2:T8	
+R6	Produces Arg1:T3 Arg2:T10	
+R7	Produces Arg1:T3 Arg2:T11	
+R8	Produces Arg1:T3 Arg2:T12	
+R9	Produces Arg1:T3 Arg2:T13	
+R10	Produces Arg1:T3 Arg2:T14	
+R11	Produces Arg1:T3 Arg2:T160	
+R12	Produces Arg1:T3 Arg2:T18	

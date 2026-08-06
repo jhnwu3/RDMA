@@ -1,0 +1,31 @@
+# csc_llm_extractor.sub — ablation: CSC HPO pipeline with --entity_extractor simple
+# Compares against csc.sub (retrieval extractor) to isolate FP impact of extractor choice.
+# Results land in results/csc/rdma_simple_extractor/ for direct comparison via evaluate_hpo_runs.py.
+executable = /home/johnwu3/projects/rare_disease/workspace/condor/hpo/run_csc_llm_extractor.sh
+
+Requirements = (Machine == "sunlab-c01.cs.illinois.edu")
+
+universe       = vanilla
+request_cpus   = 16
+request_memory = 32GB
+request_gpus   = 1
+
+log    = /home/johnwu3/projects/rare_disease/workspace/logs/csc/hpo_llm_extractor/$(model_type)/$(Cluster).$(Process).log
+output = /home/johnwu3/projects/rare_disease/workspace/logs/csc/hpo_llm_extractor/$(model_type)/$(Cluster).$(Process).out
+error  = /home/johnwu3/projects/rare_disease/workspace/logs/csc/hpo_llm_extractor/$(model_type)/$(Cluster).$(Process).err
+
+model_type = llama3_8b
+arguments  = $(model_type)
+queue
+
+model_type = mistral_24b
+arguments  = $(model_type)
+queue
+
+model_type = llama3_70b
+arguments  = $(model_type)
+queue
+
+model_type = qwen3_32b
+arguments  = $(model_type)
+queue

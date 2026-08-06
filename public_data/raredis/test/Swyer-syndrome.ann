@@ -1,0 +1,9 @@
+T1	SKINRAREDISEASE 0 14	Swyer syndrome
+T2	SIGN 64 74	no ovaries
+T3	SKINRAREDISEASE 285 299	Swyer syndrome
+T4	SKINRAREDISEASE 301 328	complete gonadal dysgenesis
+T5	SKINRAREDISEASE 334 360	partial gonadal dysgenesis
+T6	SIGN 393 410	Genital anomalies
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T3 Arg2:T6	
+R3	Is_synon Arg1:T4 Arg2:T3	

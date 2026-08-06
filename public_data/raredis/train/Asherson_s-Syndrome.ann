@@ -1,0 +1,14 @@
+T1	RAREDISEASE 1 20	Asherson's syndrome
+T2	DISEASE 42 61	autoimmune disorder
+T3	DISEASE 235 245	infections
+T4	DISEASE 247 260	immunizations
+T5	DISEASE 283 298	physical trauma
+T6	RAREDISEASE 441 460	Asherson’s syndrome
+T7	ANAPHOR 467 479	the disorder
+T8	ANAPHOR 573 585	The disorder
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Increases_risk_of Arg1:T3 Arg2:T1	
+R3	Increases_risk_of Arg1:T4 Arg2:T1	
+R4	Increases_risk_of Arg1:T5 Arg2:T1	
+R5	Anaphora Arg1:T6 Arg2:T7	
+R6	Anaphora Arg1:T6 Arg2:T80	

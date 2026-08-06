@@ -1,0 +1,13 @@
+T1	RAREDISEASE 0 3	CIP
+T2	RAREDISEASE 104 107	CIP
+T3	RAREDISEASE 203 206	CIP
+T4	RAREDISEASE 273 276	CIP
+T5	RAREDISEASE 382 385	CIP
+T6	RAREDISEASE 452 487	primary, non-familial, sporadic CIP
+T7	RAREDISEASE 522 535	secondary CIP
+T8	RAREDISEASE 581 592	scleroderma
+T9	DISEASE 594 602	diabetes
+T10	DISEASE 607 631	paraneoplastic syndromes
+R1	Increases_risk_of Arg1:T8 Arg2:T7	
+R2	Increases_risk_of Arg1:T9 Arg2:T7	
+R3	Increases_risk_of Arg1:T10 Arg2:T9	

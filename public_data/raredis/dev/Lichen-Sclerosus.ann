@@ -1,0 +1,14 @@
+T1	SKINRAREDISEASE 0 16	Lichen sclerosus
+T2	DISEASE 22 56	chronic inflammatory skin disorder
+T3	ANAPHOR 140 142	it
+T4	ANAPHOR 189 200	the disease
+T5	SKINRAREDISEASE 213 242	balanitis xerotica obliterans
+T6	SKINRAREDISEASE 244 260	Lichen sclerosus
+T7	ANAPHOR 562 575	the condition
+T8	SKINRAREDISEASE 577 593	Lichen sclerosus
+T9	SKINRAREDISEASE 837 853	lichen sclerosus
+T10	SKINRAREDISEASE 1037 1060	squamous cell carcinoma
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Anaphora Arg1:T5 Arg2:T4	
+R4	Anaphora Arg1:T6 Arg2:T70	

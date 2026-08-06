@@ -1,0 +1,66 @@
+# biolarkgsc_ablation.sub — ablation sweep for mistral_24b
+# Flags: decompose_compound (dc), extract_qualified (eq), allow_inheritance (ai), parent_match (pm)
+# 0 = flag off (--no-X), 1 = flag on (--X)
+executable = /home/johnwu3/projects/rare_disease/workspace/condor/hpo/run_biolarkgsc_ablation.sh
+
+Requirements = (Machine == "sunlab-c02.cs.illinois.edu")
+
+universe       = vanilla
+request_cpus   = 16
+request_memory = 32GB
+request_gpus   = 1
+
+log    = /home/johnwu3/projects/rare_disease/workspace/logs/biolarkgsc/hpo/ablation/mistral_24b/$(combo_tag).$(Cluster).$(Process).log
+output = /home/johnwu3/projects/rare_disease/workspace/logs/biolarkgsc/hpo/ablation/mistral_24b/$(combo_tag).$(Cluster).$(Process).out
+error  = /home/johnwu3/projects/rare_disease/workspace/logs/biolarkgsc/hpo/ablation/mistral_24b/$(combo_tag).$(Cluster).$(Process).err
+
+# ── Previously run (dc/eq/ai sweep) — commented out ──────────────────────────
+# combo_tag = dc0_eq0_ai0
+# arguments = $(combo_tag) --no-decompose_compound --no-extract_qualified --no-allow_inheritance
+# queue
+#
+# combo_tag = dc1_eq0_ai0
+# arguments = $(combo_tag) --decompose_compound --no-extract_qualified --no-allow_inheritance
+# queue
+#
+# combo_tag = dc0_eq1_ai0
+# arguments = $(combo_tag) --no-decompose_compound --extract_qualified --no-allow_inheritance
+# queue
+#
+# combo_tag = dc0_eq0_ai1
+# arguments = $(combo_tag) --no-decompose_compound --no-extract_qualified --allow_inheritance
+# queue
+#
+# combo_tag = dc1_eq1_ai0
+# arguments = $(combo_tag) --decompose_compound --extract_qualified --no-allow_inheritance
+# queue
+#
+# combo_tag = dc1_eq0_ai1
+# arguments = $(combo_tag) --decompose_compound --no-extract_qualified --allow_inheritance
+# queue
+#
+# combo_tag = dc0_eq1_ai1
+# arguments = $(combo_tag) --no-decompose_compound --extract_qualified --allow_inheritance
+# queue
+#
+# combo_tag = dc1_eq1_ai1
+# arguments = $(combo_tag) --decompose_compound --extract_qualified --allow_inheritance
+# queue
+
+# ── Parent match sweep (ai1 = best baseline from prior run) ──────────────────
+combo_tag = dc0_eq0_ai1_pm1
+arguments = $(combo_tag) --no-decompose_compound --no-extract_qualified --allow_inheritance --parent_match --no-exhaustive
+queue
+
+combo_tag = dc0_eq0_ai1_pm0
+arguments = $(combo_tag) --no-decompose_compound --no-extract_qualified --allow_inheritance --no-parent_match --no-exhaustive
+queue
+
+# ── Exhaustive sweep (ai1+pm1 = best baseline) ───────────────────────────────
+combo_tag = dc0_eq0_ai1_pm1_ex1
+arguments = $(combo_tag) --no-decompose_compound --no-extract_qualified --allow_inheritance --parent_match --exhaustive
+queue
+
+combo_tag = dc0_eq0_ai1_pm1_ex0
+arguments = $(combo_tag) --no-decompose_compound --no-extract_qualified --allow_inheritance --parent_match --no-exhaustive
+queue

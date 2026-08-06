@@ -1,0 +1,24 @@
+T1	RAREDISEASE 0 12	Tuberculosis
+T2	RAREDISEASE 14 16	TB
+T3	DISEASE 24 60	acute or chronic bacterial infection
+T4	ANAPHOR 95 108	The infection
+T5	RAREDISEASE 213 215	TB
+T6	SIGN 277 286	tubercles
+T7	SIGN 308 317	tubercles
+T8	SIGN 326 346	breathing impairment
+T9	SIGN 348 356	coughing
+T10	SIGN 372 378	sputum
+T11	RAREDISEASE 380 382	TB
+T12	RAREDISEASE 482 484	TB
+T13	ANAPHOR 591 603	This disease
+T14	ANAPHOR 649 651	It
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Is_acron Arg1:T2 Arg2:T1	
+R3	Anaphora Arg1:T5 Arg2:T4	
+R4	Produces Arg1:T5 Arg2:T6	
+R5	Produces Arg1:T5 Arg2:T7	
+R6	Produces Arg1:T5 Arg2:T8	
+R7	Produces Arg1:T5 Arg2:T9	
+R8	Produces Arg1:T5 Arg2:T10	
+R9	Anaphora Arg1:T10 Arg2:T13	
+R10	Anaphora Arg1:T10 Arg2:T14	

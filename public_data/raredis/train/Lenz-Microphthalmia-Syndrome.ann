@@ -1,0 +1,42 @@
+T1	RAREDISEASE 0 28	Lenz Microphthalmia syndrome
+T2	DISEASE 50 68	inherited disorder
+T3	DISEASE 126 164	unilateral or bilateral microphthalmos
+T4	SIGN 126 164	unilateral or bilateral microphthalmos
+T5	DISEASE 189 203	blepharoptosis
+T6	SIGN 189 203	blepharoptosis
+T7	SIGN 219 236	visual impairment
+T8	SIGN 312 324	anophthalmia
+T9	SIGN 362 381	developmental delay
+T10	DISEASE 386 404	mental retardation
+T11	SIGN 386 404	mental retardation
+T12	SIGN 446 468	physical abnormalities
+T13	ANAPHOR 495 508	this disorder
+T14	DISEASE 542 554	microcephaly
+T15	SIGN 542 554	microcephaly
+T16	SIGN 563 589	malformations of the teeth
+T17	SIGN 563 583;591 595	malformations of the ears
+T18	SIGN 563 583;604 611	malformations of the fingers
+T19	SIGN 563 583;619 623	malformations of the toes
+T20	RAREDISEASE 697 725	Lenz microphthalmia syndrome
+T21	DISEASE 747 765	inherited disorder
+T22	ANAPHOR 874 885	the disease
+T23	ANAPHOR 964 976	the disorder
+T24	ANAPHOR 1064 1076	The disorder
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T40	
+R3	Produces Arg1:T1 Arg2:T6	
+R4	Produces Arg1:T1 Arg2:T7	
+R5	Produces Arg1:T1 Arg2:T8	
+R6	Produces Arg1:T1 Arg2:T9	
+R7	Produces Arg1:T1 Arg2:T11	
+R8	Anaphora Arg1:T1 Arg2:T13	
+R9	Produces Arg1:T13 Arg2:T12	
+R10	Produces Arg1:T13 Arg2:T150	
+R11	Produces Arg1:T13 Arg2:T16	
+R12	Produces Arg1:T13 Arg2:T17	
+R13	Produces Arg1:T13 Arg2:T18	
+R14	Produces Arg1:T13 Arg2:T19	
+R15	Is_a Arg1:T20 Arg2:T21	
+R16	Anaphora Arg1:T20 Arg2:T22	
+R17	Anaphora Arg1:T20 Arg2:T23	
+R18	Anaphora Arg1:T20 Arg2:T24	

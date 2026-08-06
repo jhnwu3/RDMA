@@ -1,0 +1,17 @@
+T1	RAREDISEASE 0 19	AP-4-associated HSP
+T2	RAREDISEASE 104 112	AP-4-HSP
+T3	RAREDISEASE 125 133	AP-4-HSP
+T4	DISEASE 231 245	cerebral palsy
+T5	DISEASE 325 339	cerebral palsy
+T6	RAREDISEASE 388 407	AP-4-associated HSP
+T7	SIGN 474 484	spasticity
+T8	SIGN 486 505	developmental delay
+T9	DISEASE 508 531	intellectual disability
+T10	SIGN 508 531	intellectual disability
+T11	SIGN 537 545	seizures
+T12	DISEASE 586 600	cerebral palsy
+T13	RAREDISEASE 619 638	AP-4-associated HSP
+R1	Produces Arg1:T6 Arg2:T7	
+R2	Produces Arg1:T6 Arg2:T80	
+R3	Produces Arg1:T6 Arg2:T10	
+R4	Produces Arg1:T6 Arg2:T11	

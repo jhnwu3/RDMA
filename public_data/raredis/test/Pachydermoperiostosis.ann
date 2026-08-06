@@ -1,0 +1,25 @@
+T1	SKINRAREDISEASE 0 21	Pachydermoperiostosis
+T2	SIGN 58 81	clubbing of the fingers
+T3	SIGN 119 129	pachyderma
+T4	SIGN 156 169	hyperhidrosis
+T5	ANAPHOR 172 174	It
+T6	SKINRAREDISEASE 303 324	Pachydermoperiostosis
+T7	SIGN 529 540	periostosis
+T8	SKINRAREDISEASE 646 649	HOA
+T9	SIGN 679 695	digital clubbing
+T10	SIGN 722 733	periostosis
+T11	SKINRAREDISEASE 736 757	Pachydermoperiostosis
+T12	SKINRAREDISEASE 782 785	HOA
+T13	SIGN 826 834	clubbing
+T14	SIGN 842 853	periostosis
+T15	SIGN 876 886	pachyderma
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Anaphora Arg1:T1 Arg2:T5	
+R5	Produces Arg1:T6 Arg2:T7	
+R6	Produces Arg1:T6 Arg2:T9	
+R7	Produces Arg1:T6 Arg2:T100	
+R8	Produces Arg1:T11 Arg2:T13	
+R9	Produces Arg1:T11 Arg2:T14	
+R10	Produces Arg1:T11 Arg2:T15	

@@ -1,0 +1,41 @@
+T1	RAREDISEASE 0 13	Ewing sarcoma
+T2	DISEASE 24 34	bone tumor
+T3	ANAPHOR 74 76	It
+T4	RAREDISEASE 128 154	extraosseous Ewing sarcoma
+T5	RAREDISEASE 157 170	Ewing sarcoma
+T6	RAREDISEASE 216 247	primitive neuroectodermal tumor
+T7	RAREDISEASE 249 253	PNET
+T8	ANAPHOR 286 298	these tumors
+T9	ANAPHOR 448 460	these tumors
+T10	RAREDISEASE 506 528	Ewing family of tumors
+T11	RAREDISEASE 530 533	EFT
+T12	RAREDISEASE 566 579	Ewing sarcoma
+T13	RAREDISEASE 589 615	extraosseous Ewing sarcoma
+T14	RAREDISEASE 617 648	primitive neuroectodermal tumor
+T15	RAREDISEASE 654 667	Askin’s tumor
+T16	RAREDISEASE 697 710	Ewing sarcoma
+T17	ANAPHOR 774 785	this family
+T18	RAREDISEASE 807 820	Ewing sarcoma
+T19	ANAPHOR 872 874	it
+T20	RAREDISEASE 902 915	Ewing sarcoma
+T21	RAREDISEASE 1042 1055	Ewing sarcoma
+T22	DISEASE 1062 1079	aggressive cancer
+T23	ANAPHOR 1224 1236	these tumors
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Is_a Arg1:T4 Arg2:T3	
+R4	Anaphora Arg1:T5 Arg2:T8	
+R5	Anaphora Arg1:T5 Arg2:T9	
+R6	Anaphora Arg1:T6 Arg2:T8	
+R7	Anaphora Arg1:T6 Arg2:T9	
+R8	Is_acron Arg1:T7 Arg2:T6	
+R9	Is_a Arg1:T9 Arg2:T10	
+R10	Anaphora Arg1:T10 Arg2:T17	
+R11	Anaphora Arg1:T10 Arg2:T230	
+R12	Is_acron Arg1:T11 Arg2:T10	
+R13	Is_a Arg1:T13 Arg2:T120	
+R14	Is_a Arg1:T14 Arg2:T120	
+R15	Is_a Arg1:T15 Arg2:T120	
+R16	Is_a Arg1:T16 Arg2:T17	
+R17	Anaphora Arg1:T18 Arg2:T19	
+R18	Is_a Arg1:T21 Arg2:T22	

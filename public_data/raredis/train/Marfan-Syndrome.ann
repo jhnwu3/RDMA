@@ -1,0 +1,4 @@
+T1	RAREDISEASE 5 20	Marfan syndrome
+T2	RAREDISEASE 263 278	Marfan syndrome
+T3	ANAPHOR 280 292	the disorder
+R1	Anaphora Arg1:T2 Arg2:T3	

@@ -1,0 +1,41 @@
+T1	RAREDISEASE 0 27	Congenital hepatic fibrosis
+T2	RAREDISEASE 29 32	CHF
+T3	RAREDISEASE 113 116	CHF
+T4	DISEASE 186 198	ciliopathies
+T5	DISEASE 231 263	hepatorenal fibrocystic diseases
+T6	DISEASE 265 268	FCD
+T7	DISEASE 285 310	polycystic kidney disease
+T8	DISEASE 312 315	PKD
+T9	RAREDISEASE 318 334	nephronophthisis
+T10	RAREDISEASE 336 340	NPHP
+T11	DISEASE 342 376	chronic tubulointerstitial disease
+T12	SIGN 396 417	l liver abnormalities
+T13	SIGN 445 457	hepatomegaly
+T14	DISEASE 555 574	portal hypertension
+T15	SIGN 555 574	portal hypertension
+T16	SIGN 651 667	hepatic fibrosis
+T17	SIGN 670 686;711 719	Gastrointestinal bleeding
+T18	SIGN 735 750	enlarged spleen
+T19	DISEASE 756 769	hypersplenism
+T20	SIGN 756 769	hypersplenism
+T21	ANAPHOR 859 873	this condition
+T22	RAREDISEASE 892 895	CHF
+T23	RAREDISEASE 1032 1035	CHF
+T24	RAREDISEASE 1037 1040	CHF
+T25	RAREDISEASE 1159 1162	CHF
+T26	RAREDISEASE 1167 1184	Caroli’s syndrome
+T27	DISEASE 1211 1240	cystic disease of the kidneys
+T28	DISEASE 1444 1456	FCD syndrome
+R1	Is_acron Arg1:T2 Arg2:T1	
+R2	Produces Arg1:T3 Arg2:T12	
+R3	Produces Arg1:T3 Arg2:T13	
+R4	Produces Arg1:T3 Arg2:T15	
+R5	Produces Arg1:T3 Arg2:T16	
+R6	Is_a Arg1:T5 Arg2:T4	
+R7	Is_acron Arg1:T6 Arg2:T5	
+R8	Is_acron Arg1:T8 Arg2:T7	
+R9	Is_acron Arg1:T10 Arg2:T9	
+R10	Produces Arg1:T30 Arg2:T7	
+R11	Produces Arg1:T30 Arg2:T23	
+R12	Produces Arg1:T30 Arg2:T24	
+R13	Anaphora Arg1:T22 Arg2:T210	

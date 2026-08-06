@@ -1,0 +1,60 @@
+T1	RAREDISEASE 1 17	Moyamoya disease
+T2	DISEASE 23 43;89 104	progressive disorder cerebrovascular
+T3	ANAPHOR 107 109	It
+T4	SIGN 145 153;182 220	stenosis of the carotid artery inside the skull
+T5	SIGN 171 180;182 220	occlusion of the carotid artery inside the skull
+T6	SIGN 289 340	tiny blood vessels at the base of the brain open up
+T7	SIGN 444 464	"moyamoya"""" vessels"
+T8	ANAPHOR 475 486	the disease
+T9	SIGN 498 521	Inadequate blood supply
+T10	SIGN 536 572	reduced oxygen delivery to the brain
+T11	SIGN 589 607	oxygen deprivation
+T12	RAREDISEASE 633 641	moyamoya
+T13	SIGN 676 682	stroke
+T14	SIGN 701 722	paralysis of the face
+T15	SIGN 701 717;724 728	paralysis of the arms
+T16	SIGN 701 719;732 736	paralysis of the f legs
+T17	SIGN 738 752	loss of speech
+T18	SIGN 826 852	transient ischemic attacks
+T19	SIGN 858 861	TIA
+T20	SYMPTOM 904 913	headaches
+T21	SIGN 915 934	visual disturbances
+T22	SIGN 936 955	developmental delay
+T23	SIGN 961 969	seizures
+T24	RAREDISEASE 1001 1009	moyamoya
+T25	RAREDISEASE 1153 1169	moyamoya disease
+T26	SIGN 1192 1206	artery changes
+T27	RAREDISEASE 1257 1276	sickle cell disease
+T28	RAREDISEASE 1280 1293	Down syndrome
+T29	RAREDISEASE 1311 1327	moyamoya disease
+T30	RAREDISEASE 1363 1379	moyamoya disease
+T31	RAREDISEASE 1421 1437	moyamoya disease
+T32	ANAPHOR 1497 1508	the disease
+T33	RAREDISEASE 1565 1573	moyamoya
+T34	RAREDISEASE 2035 2043	moyamoya
+T35	SIGN 2182 2204	blood vessel narrowing
+T36	ANAPHOR 2382 2396	this condition
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T3 Arg2:T4	
+R4	Produces Arg1:T3 Arg2:T5	
+R5	Produces Arg1:T3 Arg2:T6	
+R6	Produces Arg1:T8 Arg2:T70	
+R7	Produces Arg1:T12 Arg2:T9	
+R8	Produces Arg1:T12 Arg2:T10	
+R9	Produces Arg1:T12 Arg2:T11	
+R10	Produces Arg1:T12 Arg2:T13	
+R11	Produces Arg1:T12 Arg2:T14	
+R12	Produces Arg1:T12 Arg2:T15	
+R13	Produces Arg1:T12 Arg2:T16	
+R14	Produces Arg1:T12 Arg2:T17	
+R15	Produces Arg1:T12 Arg2:T18	
+R16	Produces Arg1:T12 Arg2:T19	
+R17	Produces Arg1:T12 Arg2:T20	
+R18	Produces Arg1:T12 Arg2:T21	
+R19	Produces Arg1:T12 Arg2:T22	
+R20	Produces Arg1:T12 Arg2:T23	
+R21	Produces Arg1:T40 Arg2:T41	
+R22	Anaphora Arg1:T50 Arg2:T51	
+R23	Anaphora Arg1:T34 Arg2:T36	
+R24	Produces Arg1:T36 Arg2:T35	

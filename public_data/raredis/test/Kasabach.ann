@@ -1,0 +1,79 @@
+T1	RAREDISEASE 0 27	Kasabach-Merritt phenomenon
+T2	RAREDISEASE 29 32	KMP
+T3	SIGN 80 92	coagulopathy
+T4	DISEASE 126 142	thrombocytopenia
+T5	SIGN 126 142	thrombocytopenia
+T6	SIGN 160 178	hypofibrinogenemia
+T7	DISEASE 201 207	anemia
+T8	SIGN 201 207	anemia
+T9	ANAPHOR 209 224	This phenomenon
+T10	DISEASE 259 274	vascular tumors
+T11	RAREDISEASE 276 308	kaposiform hemangioendotheliomas
+T12	RAREDISEASE 313 328	tufted angiomas
+T13	ANAPHOR 331 345	This condition
+T14	SIGN 395 403	bleeding
+T15	DISEASE 423 426	DIC
+T16	DISEASE 428 467	disseminated intravascular coagulopathy
+T17	SIGN 428 467	disseminated intravascular coagulopathy
+T18	SIGN 482 497	vascular lesion
+T19	SIGN 514 518;532 560	skin firm, indurated and purpuric
+T20	SIGN 583 596	tiny red dots
+T21	SIGN 620 626	lesion
+T22	SIGN 666 681	vascular lesion
+T23	SIGN 701 710;723 734	petechiae on the skin
+T24	SIGN 737 745	Bruising
+T25	SIGN 750 770	spontaneous bleeding
+T26	SIGN 794 800	tumors
+T27	DISEASE 809 820	hemangiomas
+T28	SIGN 949 955;962 980	tumors in the extremities
+T29	SIGN 949 955;962 968;982 987	tumors in the chest
+T30	SIGN 949 955;962 968;989 993	tumors in the neck
+T31	SIGN 949 955;962 968;995 1002	tumors in the abdomen
+T32	SIGN 1007 1013;949 955;962 968	pelvis tumors in the
+T33	RAREDISEASE 1138 1141	KMP
+T34	ANAPHOR 1198 1202	they
+T35	SIGN 1292 1300	bleeding
+T36	RAREDISEASE 1315 1342	Kasabach-Merritt phenomenon
+T37	ANAPHOR 1355 1357	It
+T38	RAREDISEASE 1572 1575	KMP
+T39	ANAPHOR 1590 1592	it
+T40	RAREDISEASE 1652 1679	Kasabach-Merritt phenomenon
+T41	RAREDISEASE 1847 1850	KHE
+T42	RAREDISEASE 1855 1857	TA
+T43	RAREDISEASE 1883 1886	KMP
+T44	RAREDISEASE 2053 2080	Kasabach-Merritt phenomenon
+T45	RAREDISEASE 2110 2141	Kaposiform hemangioendothelioma
+T46	SIGN 2110 2141	Kaposiform hemangioendothelioma
+T47	RAREDISEASE 2142 2156	tufted angioma
+T48	SIGN 2142 2156	tufted angioma
+T49	SIGN 2166 2178	coagulopathy
+R1	Produces Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T5	
+R3	Produces Arg1:T1 Arg2:T60	
+R4	Produces Arg1:T1 Arg2:T8	
+R5	Anaphora Arg1:T1 Arg2:T9	
+R6	Is_acron Arg1:T2 Arg2:T1	
+R7	Produces Arg1:T9 Arg2:T22	
+R8	Produces Arg1:T13 Arg2:T14	
+R9	Produces Arg1:T13 Arg2:T17	
+R10	Produces Arg1:T13 Arg2:T18	
+R11	Produces Arg1:T13 Arg2:T19	
+R12	Produces Arg1:T13 Arg2:T20	
+R13	Produces Arg1:T13 Arg2:T21	
+R14	Produces Arg1:T13 Arg2:T230	
+R15	Produces Arg1:T13 Arg2:T24	
+R16	Is_acron Arg1:T40 Arg2:T45	
+R17	Produces Arg1:T30 Arg2:T12	
+R18	Produces Arg1:T30 Arg2:T29	
+R19	Produces Arg1:T30 Arg2:T43	
+R20	Produces Arg1:T30 Arg2:T49	
+R21	Produces Arg1:T30 Arg2:T48	
+R22	Produces Arg1:T30 Arg2:T50	
+R23	Produces Arg1:T30 Arg2:T51	
+R24	Anaphora Arg1:T30 Arg2:T47	
+R25	Produces Arg1:T30 Arg2:T13	
+R26	Anaphora Arg1:T36 Arg2:T37	
+R27	Anaphora Arg1:T38 Arg2:T39	
+R28	Produces Arg1:T44 Arg2:T46	
+R29	Produces Arg1:T44 Arg2:T48	
+R30	Produces Arg1:T44 Arg2:T49	

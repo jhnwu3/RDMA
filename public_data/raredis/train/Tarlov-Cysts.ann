@@ -1,0 +1,5 @@
+T1	RAREDISEASE 41 53	Tarlov cysts
+T2	RAREDISEASE 113 125	Tarlov cysts
+T3	SIGN 178 183	cysts
+T4	RAREDISEASE 325 336	Tarlov cyst
+R1	Produces Arg1:T2 Arg2:T3	

@@ -1,0 +1,38 @@
+T1	RAREDISEASE 0 20	Ahumada-Del Castillo
+T2	DISEASE 31 49	endocrine disorder
+T3	SIGN 101 144	impairment in the function of the pituitary
+T4	SIGN 102 134;149 168	mpairment in the function of the hypothalamus glands
+T5	SIGN 222 231	lactation
+T6	DISEASE 299 309	amenorrhea
+T7	SIGN 299 309	amenorrhea
+T8	DISEASE 349 360	anovulation
+T9	SIGN 349 360	anovulation
+T10	RAREDISEASE 379 399	Ahumada-Del Castillo
+T11	DISEASE 457 469	galactorrhea
+T12	SIGN 457 469	galactorrhea
+T13	DISEASE 546 556	amenorrhea
+T14	SIGN 546 556	amenorrhea
+T15	ANAPHOR 571 584	this disorder
+T16	RAREDISEASE 837 857	Ahumada-Del Castillo
+T17	SIGN 918 937;951 970	small tumors in the hypothalamus glands
+T18	SIGN 918 947;964 970	small tumors in the pituitary glands
+T19	RAREDISEASE 1099 1119	Ahumada-Del Castillo
+T20	SIGN 1152 1181	low levels of thyroid hormone
+T21	DISEASE 1183 1197	hypothyroidism
+T22	DISEASE 1436 1454	hyperprolactinemia
+T23	SIGN 1436 1454	hyperprolactinemia
+T24	RAREDISEASE 1483 1503	Ahumada-Del Castillo
+T25	RAREDISEASE 1505 1525	Ahumada-Del Castillo
+R1	Is_a Arg1:T10 Arg2:T11	
+R2	Produces Arg1:T10 Arg2:T12	
+R3	Produces Arg1:T10 Arg2:T13	
+R4	Produces Arg1:T10 Arg2:T14	
+R5	Produces Arg1:T10 Arg2:T16	
+R6	Produces Arg1:T10 Arg2:T18	
+R7	Produces Arg1:T10 Arg2:T120	
+R8	Produces Arg1:T10 Arg2:T14	
+R9	Anaphora Arg1:T10 Arg2:T15	
+R10	Produces Arg1:T16 Arg2:T17	
+R11	Produces Arg1:T16 Arg2:T18	
+R12	Produces Arg1:T21 Arg2:T200	
+R13	Produces Arg1:T24 Arg2:T23	

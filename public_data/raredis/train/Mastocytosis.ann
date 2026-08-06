@@ -1,0 +1,3 @@
+T1	RAREDISEASE 0 12	Mastocytosis
+T2	ANAPHOR 57 59	It
+R1	Anaphora Arg1:T1 Arg2:T2	

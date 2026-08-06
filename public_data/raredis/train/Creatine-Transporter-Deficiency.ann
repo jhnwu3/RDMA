@@ -1,0 +1,10 @@
+T1	RAREDISEASE 0 3	CTD
+T2	DISEASE 56 90	X-linked intellectual disabilities
+T3	ANAPHOR 92 94	It
+T4	DISEASE 127 165	cerebral creatine deficiency syndromes
+T5	RAREDISEASE 181 184	CTD
+T6	DISEASE 213 219	autism
+T7	DISEASE 223 250	global developmental delays
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Is_a Arg1:T3 Arg2:T4	

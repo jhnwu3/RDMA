@@ -1,0 +1,11 @@
+T1	RAREDISEASE 0 21	Juvenile CLN3 disease
+T2	RAREDISEASE 88 109	juvenile CLN3 disease
+T3	DISEASE 140 170	neuronal ceroid lipofuscinoses
+T4	ANAPHOR 221 223	It
+T5	ANAPHOR 355 357	It
+T6	RAREDISEASE 423 444	Juvenile CLN3 disease
+T7	DISEASE 471 497	neurodegenerative disorder
+R1	Is_a Arg1:T2 Arg2:T3	
+R2	Increases_risk_of Arg1:T2 Arg2:T4	
+R3	Anaphora Arg1:T2 Arg2:T5	
+R4	Is_a Arg1:T6 Arg2:T7	

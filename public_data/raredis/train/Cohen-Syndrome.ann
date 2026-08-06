@@ -1,0 +1,8 @@
+T1	RAREDISEASE 0 26	VPS13B/COH1 Cohen syndrome
+T2	ANAPHOR 77 79	It
+T3	ANAPHOR 311 323	the disorder
+T4	RAREDISEASE 357 371	Cohen syndrome
+T5	ANAPHOR 465 477	the disorder
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Anaphora Arg1:T4 Arg2:T5	

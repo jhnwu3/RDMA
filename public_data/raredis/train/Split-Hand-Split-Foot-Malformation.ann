@@ -1,0 +1,26 @@
+T1	RAREDISEASE 0 34	Split hand/split foot malformation
+T2	RAREDISEASE 36 40	SHFM
+T3	DISEASE 47 63	genetic disorder
+T4	SIGN 85 128	complete or partial absence of some fingers
+T5	SIGN 132 136;85 115	toes complete or partial absence of
+T6	SIGN 158 177	clefts in the hands
+T7	SIGN 158 171;181 185	clefts in the feet
+T8	DISEASE 256 266	syndactyly
+T9	SIGN 256 266	syndactyly
+T10	SIGN 287 292;307 327	hands claw-like appearance
+T11	SIGN 300 327	feet a claw-like appearance
+T12	RAREDISEASE 329 363	Split hand/split foot malformation
+T13	RAREDISEASE 471 475	SHFM
+T14	SIGN 577 595	skeletal anomalies
+T15	RAREDISEASE 656 661	SHFM4
+T16	RAREDISEASE 780 784	SHFM
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Produces Arg1:T1 Arg2:T5	
+R4	Produces Arg1:T1 Arg2:T60	
+R5	Produces Arg1:T1 Arg2:T7	
+R6	Produces Arg1:T1 Arg2:T9	
+R7	Produces Arg1:T1 Arg2:T10	
+R8	Produces Arg1:T1 Arg2:T11	
+R9	Is_acron Arg1:T2 Arg2:T1	
+R10	Produces Arg1:T13 Arg2:T14	

@@ -1,0 +1,46 @@
+T1	RAREDISEASE 1 15	TORCH Syndrome
+T2	RAREDISEASE 111 116	TORCH
+T3	SIGN 460 465	fever
+T4	SIGN 467 487	difficulties feeding
+T5	SIGN 489 527	small areas of bleeding under the skin
+T6	SIGN 555 586	small reddish or purplish spots
+T7	SIGN 625 643	hepatosplenomegaly
+T8	SIGN 725 733	jaundice
+T9	SIGN 736 754	hearing impairment
+T10	SIGN 756 781	abnormalities of the eyes
+T11	RAREDISEASE 978 992	TORCH Syndrome
+T12	RAREDISEASE 1017 1022	TORCH
+T13	DISEASE 1187 1200	Toxoplasmosis
+T14	DISEASE 1202 1215	rubella virus
+T15	DISEASE 1217 1232	cytomegalovirus
+T16	DISEASE 1238 1260	herpes simplex viruses
+T17	RAREDISEASE 1310 1315	TORCH
+T18	RAREDISEASE 1352 1358	STORCH
+T19	RAREDISEASE 1371 1379	syphilis
+T20	RAREDISEASE 1462 1467	TORCH
+T21	RAREDISEASE 1477 1485	Syphilis
+T22	RAREDISEASE 1562 1567	TORCH
+T23	DISEASE 1679 1689	chickenpox
+T24	DISEASE 1695 1705	parvovirus
+T25	RAREDISEASE 1708 1722	TORCH syndrome
+T26	SIGN 1790 1801	miscarriage
+T27	SIGN 1840 1871	intrauterine growth retardation
+T28	SIGN 1877 1891	early delivery
+T29	RAREDISEASE 1932 1946	TORCH Syndrome
+T30	ANAPHOR 2073 2086	the infection
+T31	DISEASE 2164 2177	toxoplasmosis
+T32	DISEASE 2267 2281	Herpes simplex
+T33	DISEASE 2376 2383	rubella
+T34	DISEASE 2387 2402	cytomegalovirus
+R1	Produces Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Produces Arg1:T1 Arg2:T5	
+R4	Produces Arg1:T1 Arg2:T60	
+R5	Produces Arg1:T1 Arg2:T7	
+R6	Produces Arg1:T1 Arg2:T8	
+R7	Produces Arg1:T1 Arg2:T9	
+R8	Produces Arg1:T1 Arg2:T10	
+R9	Produces Arg1:T25 Arg2:T260	
+R10	Produces Arg1:T25 Arg2:T27	
+R11	Produces Arg1:T25 Arg2:T280	
+R12	Anaphora Arg1:T29 Arg2:T30	

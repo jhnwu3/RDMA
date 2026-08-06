@@ -1,0 +1,37 @@
+T1	RAREDISEASE 0 32	Systemic capillary leak syndrome
+T2	RAREDISEASE 34 38	SCLS
+T3	SIGN 85 166	acute and severe recurrent attacks associated with a rapid fall in blood pressure
+T4	RAREDISEASE 254 258	SCLS
+T5	ANAPHOR 291 302	the disease
+T6	RAREDISEASE 329 333	SCLS
+T7	SIGN 391 436	monoclonal or M protein detected in the blood
+T8	SIGN 442 475	level of M protein is usually low
+T9	RAREDISEASE 860 864	SCLS
+T10	RAREDISEASE 959 963	SCLS
+T11	ANAPHOR 1031 1042	the disease
+T12	RAREDISEASE 1159 1163	SCLS
+T13	ANAPHOR 1217 1228	The disease
+T14	RAREDISEASE 1329 1333	SCLS
+T15	DISEASE 1381 1393	septic shock
+T16	DISEASE 1397 1417	toxic shock syndrome
+T17	DISEASE 1479 1492	heart failure
+T18	DISEASE 1496 1510	kidney disease
+T19	RAREDISEASE 1512 1554	C-1 esterase inhibitor deficiency syndrome
+T20	SIGN 1592 1597	edema
+T21	DISEASE 1605 1615	angioedema
+T22	SIGN 1605 1615	angioedema
+T23	RAREDISEASE 1668 1672	SCLS
+T24	SIGN 1724 1739	high hematocrit
+T25	SIGN 1724 1728;1744 1754	high hemoglobin
+T26	RAREDISEASE 1784 1796	polycythemia
+R1	Produces Arg1:T1 Arg2:T3	
+R2	Is_acron Arg1:T2 Arg2:T1	
+R3	Anaphora Arg1:T4 Arg2:T5	
+R4	Produces Arg1:T6 Arg2:T7	
+R5	Produces Arg1:T6 Arg2:T8	
+R6	Anaphora Arg1:T10 Arg2:T11	
+R7	Anaphora Arg1:T12 Arg2:T13	
+R8	Produces Arg1:T19 Arg2:T20	
+R9	Produces Arg1:T19 Arg2:T220	
+R10	Produces Arg1:T20 Arg2:T16	
+R11	Produces Arg1:T20 Arg2:T23	

@@ -1,0 +1,68 @@
+T1	RAREDISEASE 0 28	Eosinophilic gastroenteritis
+T2	SIGN 130 139	dysphagia
+T3	SYMPTOM 182 191	heartburn
+T4	SYMPTOM 193 207	abdominal pain
+T5	SYMPTOM 209 215	nausea
+T6	SIGN 217 225	vomiting
+T7	SIGN 227 235	diarrhea
+T8	SIGN 237 248	weight loss
+T9	SIGN 264 271	ascites
+T10	DISEASE 574 600	protein-losing enteropathy
+T11	SIGN 574 600	protein-losing enteropathy
+T12	SIGN 605 618	malabsorption
+T13	SYMPTOM 652 666	abdominal pain
+T14	SIGN 668 676	vomiting
+T15	SYMPTOM 678 695	dyspeptic symptom
+T16	SIGN 701 718	bowel obstruction
+T17	SIGN 764 771	ascites
+T18	DISEASE 784 796	eosinophilia
+T19	SIGN 784 796	eosinophilia
+T20	SIGN 808 837	eosinophilic pleural effusion
+T21	RAREDISEASE 850 878	Eosinophilic gastroenteritis
+T22	RAREDISEASE 941 969	eosinophilic gastroenteritis
+T23	ANAPHOR 996 1008	this disease
+T24	DISEASE 1028 1044	hypersensitivity
+T25	DISEASE 1117 1124	allergy
+T26	DISEASE 1144 1150	asthma
+T27	SIGN 1144 1150	asthma
+T28	DISEASE 1152 1161	hay fever
+T29	SIGN 1152 1161	hay fever
+T30	SIGN 1165 1171	eczema
+T31	SIGN 1209 1223	Food allergies
+T32	RAREDISEASE 1236 1264	Eosinophilic gastroenteritis
+T33	DISEASE 1558 1567	allergies
+T34	DISEASE 1569 1575	eczema
+T35	DISEASE 1581 1596	seasonal asthma
+T36	ANAPHOR 1624 1636	this disease
+T37	SIGN 1665 1677	elevated IgE
+T38	DISEASE 1682 1694	eosinophilia
+T39	SIGN 1682 1694	eosinophilia
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T5	
+R5	Produces Arg1:T1 Arg2:T6	
+R6	Produces Arg1:T1 Arg2:T7	
+R7	Produces Arg1:T1 Arg2:T8	
+R8	Produces Arg1:T1 Arg2:T90	
+R9	Produces Arg1:T1 Arg2:T11	
+R10	Produces Arg1:T1 Arg2:T12	
+R11	Produces Arg1:T21 Arg2:T13	
+R12	Produces Arg1:T21 Arg2:T14	
+R13	Produces Arg1:T21 Arg2:T15	
+R14	Produces Arg1:T21 Arg2:T16	
+R15	Produces Arg1:T21 Arg2:T17	
+R16	Produces Arg1:T21 Arg2:T19	
+R17	Produces Arg1:T21 Arg2:T20	
+R18	Anaphora Arg1:T22 Arg2:T23	
+R19	Produces Arg1:T23 Arg2:T27	
+R20	Produces Arg1:T23 Arg2:T29	
+R21	Produces Arg1:T23 Arg2:T30	
+R22	Produces Arg1:T23 Arg2:T31	
+R23	Increases_risk_of Arg1:T20 Arg2:T39	
+R24	Increases_risk_of Arg1:T25 Arg2:T23	
+R25	Increases_risk_of Arg1:T33 Arg2:T36	
+R26	Increases_risk_of Arg1:T40 Arg2:T41	
+R27	Increases_risk_of Arg1:T35 Arg2:T36	
+R28	Produces Arg1:T36 Arg2:T37	
+R29	Produces Arg1:T36 Arg2:T39	

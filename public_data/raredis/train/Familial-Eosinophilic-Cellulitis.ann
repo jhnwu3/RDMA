@@ -1,0 +1,23 @@
+T1	SKINRAREDISEASE 0 32	Familial eosinophilic cellulitis
+T2	DISEASE 43 56	skin disorder
+T3	ANAPHOR 58 60	It
+T4	SIGN 81 173	raised, red, swollen, and warm areas of skin, in a flame-shaped pattern with associated pain
+T5	SYMPTOM 169 173	pain
+T6	ANAPHOR 194 205	the disease
+T7	ANAPHOR 313 332	this skin condition
+T8	SKINRAREDISEASE 353 385	familial eosinophilic cellulitis
+T9	ANAPHOR 473 485	the disorder
+T10	DISEASE 488 508	Autoimmune disorders
+T11	SKINRAREDISEASE 664 696	Familial eosinophilic cellulitis
+T12	ANAPHOR 742 754	The disorder
+T13	SKINRAREDISEASE 844 876	familial eosinophilic cellulitis
+T14	ANAPHOR 934 946	the disorder
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Anaphora Arg1:T1 Arg2:T6	
+R4	Anaphora Arg1:T1 Arg2:T7	
+R5	Produces Arg1:T3 Arg2:T4	
+R6	Produces Arg1:T3 Arg2:T5	
+R7	Anaphora Arg1:T8 Arg2:T90	
+R8	Anaphora Arg1:T11 Arg2:T12	
+R9	Anaphora Arg1:T13 Arg2:T14	

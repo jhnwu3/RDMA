@@ -1,0 +1,48 @@
+T1	SKINRAREDISEASE 0 19	Neu-Laxova syndrome
+T2	SKINRAREDISEASE 21 24	NLS
+T3	DISEASE 36 52	genetic disorder
+T4	ANAPHOR 104 116	The syndrome
+T5	SIGN 172 203	intrauterine growth retardation
+T6	SIGN 206 222	low birth weight
+T7	SIGN 206 215;227 233	low birth length
+T8	SIGN 251 287	abnormalities of the head and facial
+T9	DISEASE 359 371	microcephaly
+T10	SIGN 359 371	microcephaly
+T11	SIGN 374 397	sloping of the forehead
+T12	SIGN 419 439	ocular hypertelorism
+T13	SIGN 452 465	malformations
+T14	SIGN 482 511	distinctive facial appearance
+T15	SKINRAREDISEASE 513 516	NLS
+T16	SIGN 616 633	generalized edema
+T17	SIGN 693 713	flexion contractures
+T18	SIGN 722 740	limb malformations
+T19	SIGN 749 775	abnormalities of the brain
+T20	SIGN 749 769;777 781	abnormalities of the skin
+T21	SIGN 749 769;783 791	abnormalities of the genitals
+T22	SIGN 749 769;793 800	abnormalities of the kidneys
+T23	SIGN 749 769;809 814	abnormalities of the heart
+T24	SKINRAREDISEASE 816 819	NLS
+T25	ANAPHOR 891 903	the disorder
+T26	ANAPHOR 1102 1114	the disorder
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Anaphora Arg1:T1 Arg2:T4	
+R3	Is_acron Arg1:T2 Arg2:T1	
+R4	Produces Arg1:T4 Arg2:T5	
+R5	Produces Arg1:T4 Arg2:T6	
+R6	Produces Arg1:T4 Arg2:T7	
+R7	Produces Arg1:T4 Arg2:T8	
+R8	Produces Arg1:T4 Arg2:T10	
+R9	Produces Arg1:T4 Arg2:T110	
+R10	Produces Arg1:T4 Arg2:T12	
+R11	Produces Arg1:T4 Arg2:T13	
+R12	Produces Arg1:T4 Arg2:T14	
+R13	Produces Arg1:T15 Arg2:T16	
+R14	Produces Arg1:T15 Arg2:T17	
+R15	Produces Arg1:T15 Arg2:T18	
+R16	Produces Arg1:T15 Arg2:T19	
+R17	Produces Arg1:T15 Arg2:T20	
+R18	Produces Arg1:T15 Arg2:T210	
+R19	Produces Arg1:T15 Arg2:T22	
+R20	Produces Arg1:T15 Arg2:T23	
+R21	Anaphora Arg1:T24 Arg2:T25	
+R22	Anaphora Arg1:T24 Arg2:T26	

@@ -1,0 +1,26 @@
+T1	SKINRAREDISEASE 0 30	Erythrokeratodermia variabilis
+T2	DISEASE 37 60	inherited skin disorder
+T3	SIGN 92 117	short-lasting red patches
+T4	DISEASE 213 227	hyperkeratosis
+T5	SIGN 213 227	hyperkeratosis
+T6	DISEASE 234 248	hyperkeratosis
+T7	SIGN 234 248	hyperkeratosis
+T8	DISEASE 339 353	hyperkeratosis
+T9	SIGN 339 353;375 402	hyperkeratosis skin of the palms and soles
+T10	SIGN 404 416	Skin lesions
+T11	SIGN 483 494	red patches
+T12	SIGN 519 536	burning sensation
+T13	SKINRAREDISEASE 538 568	Erythrokeratodermia variabilis
+T14	DISEASE 579 597	inherited disorder
+T15	DISEASE 842 856	hyperkeratosis
+T16	SIGN 842 856	hyperkeratosis
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T5	
+R4	Produces Arg1:T1 Arg2:T7	
+R5	Produces Arg1:T1 Arg2:T9	
+R6	Produces Arg1:T1 Arg2:T10	
+R7	Produces Arg1:T1 Arg2:T110	
+R8	Produces Arg1:T1 Arg2:T12	
+R9	Is_a Arg1:T13 Arg2:T14	
+R10	Produces Arg1:T13 Arg2:T16	

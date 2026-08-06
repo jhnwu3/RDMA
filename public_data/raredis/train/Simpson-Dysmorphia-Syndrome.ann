@@ -1,0 +1,33 @@
+T1	RAREDISEASE 0 27	Simpson dysmorphia syndrome
+T2	RAREDISEASE 0 35	Simpson dysmorphia syndrome types 1
+T3	RAREDISEASE 0 27;28 32;40 41	Simpson dysmorphia syndrome type 2
+T4	DISEASE 67 105	X-linked recessive, inherited disorder
+T5	SIGN 148 167	prenatal overgrowth
+T6	SIGN 197 217	postnatal overgrowth
+T7	SIGN 259 290	characteristic facial features,
+T8	SIGN 314 336	super-numerary nipples
+T9	SIGN 343 404	multisystemic malformations that may vary from child to child
+T10	SIGN 428 449	cardiac malformations
+T11	SIGN 451 486	mild to moderate mental retardation
+T12	DISEASE 468 486	mental retardation
+T13	RAREDISEASE 488 500	cleft palate
+T14	SIGN 488 500	cleft palate
+T15	DISEASE 546 557	polydactyly
+T16	SIGN 546 557	polydactyly
+T17	RAREDISEASE 560 587	Simpson dysmorphia syndrome
+T18	ANAPHOR 624 636	The syndrome
+T19	RAREDISEASE 783 788	SDYS1
+T20	RAREDISEASE 847 852	SDYS2
+R1	Is_a Arg1:T1 Arg2:T4	
+R2	Produces Arg1:T1 Arg2:T5	
+R3	Produces Arg1:T1 Arg2:T6	
+R4	Produces Arg1:T1 Arg2:T7	
+R5	Produces Arg1:T1 Arg2:T8	
+R6	Produces Arg1:T1 Arg2:T9	
+R7	Produces Arg1:T1 Arg2:T10	
+R8	Produces Arg1:T1 Arg2:T11	
+R9	Produces Arg1:T1 Arg2:T14	
+R10	Produces Arg1:T1 Arg2:T160	
+R11	Is_a Arg1:T2 Arg2:T1	
+R12	Is_a Arg1:T3 Arg2:T1	
+R13	Anaphora Arg1:T17 Arg2:T18	

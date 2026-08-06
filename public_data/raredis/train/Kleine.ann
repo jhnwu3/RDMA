@@ -1,0 +1,19 @@
+T1	RAREDISEASE 0 21	Kleine-Levin syndrome
+T2	SIGN 99 114	hypersomnolence
+T3	SIGN 170 192	compulsive hyperphagia
+T4	SIGN 199 217	behavioral changes
+T5	SIGN 240 264	uninhibited sexual drive
+T6	ANAPHOR 266 278	The disorder
+T7	SIGN 360 372	irritability
+T8	SYMPTOM 390 398	lethargy
+T9	SIGN 426 432	apathy
+T10	RAREDISEASE 522 543	Kleine-Levin syndrome
+T11	RAREDISEASE 737 758	Kleine-Levin syndrome
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T40	
+R4	Produces Arg1:T1 Arg2:T5	
+R5	Anaphora Arg1:T1 Arg2:T6	
+R6	Produces Arg1:T6 Arg2:T7	
+R7	Produces Arg1:T6 Arg2:T8	
+R8	Produces Arg1:T6 Arg2:T9	

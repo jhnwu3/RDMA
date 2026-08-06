@@ -1,0 +1,6 @@
+T1	RAREDISEASE 8 20	KBG syndrome
+T2	ANAPHOR 149 161	The disorder
+T3	RAREDISEASE 255 267	KBG syndrome
+T4	RAREDISEASE 310 322	KBG syndrome
+T5	DISEASE 606 629	intellectual disability
+R1	Anaphora Arg1:T3 Arg2:T2	

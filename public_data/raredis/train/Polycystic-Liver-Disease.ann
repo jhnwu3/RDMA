@@ -1,0 +1,59 @@
+T1	RAREDISEASE 0 24	Polycystic liver disease
+T2	SIGN 49 90	growth of more than 10 cysts in the liver
+T3	SIGN 404 409	cysts
+T4	SIGN 446 458	hepatomegaly
+T5	SYMPTOM 522 536	abdominal pain
+T6	SYMPTOM 541 551	discomfort
+T7	SIGN 574 581	dyspnea
+T8	SIGN 597 606	dyspepsia
+T9	DISEASE 609 633	gastro-esophageal reflux
+T10	SIGN 609 633	gastro-esophageal reflux
+T11	SIGN 639 655	limited mobility
+T12	SIGN 676 687	liver cysts
+T13	SIGN 697 719	compress the bile duct
+T14	SIGN 755 763	jaundice
+T15	SIGN 766 810	Compression of the blood vessels of the live
+T16	SIGN 815 820	cysts
+T17	SIGN 871 878	ascites
+T18	SIGN 881 889	bleeding
+T19	DISEASE 963 982	portal hypertension
+T20	SIGN 963 982	portal hypertension
+T21	SIGN 1049 1072	hepatic cyst hemorrhage
+T22	SIGN 1114 1136	hepatic cyst infection
+T23	SYMPTOM 1147 1151	pain
+T24	SIGN 1156 1161	fever
+T25	SIGN 1177 1206	large liver cysts may rupture
+T26	SYMPTOM 1223 1237	abdominal pain
+T27	SIGN 1294 1299	cysts
+T28	RAREDISEASE 1331 1355	polycystic liver disease
+T29	RAREDISEASE 1376 1400	Polycystic liver disease
+T30	ANAPHOR 1543 1550	disease
+T31	ANAPHOR 1798 1805	disease
+T32	SIGN 1815 1820	Cysts
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T5	
+R5	Produces Arg1:T1 Arg2:T6	
+R6	Produces Arg1:T1 Arg2:T7	
+R7	Produces Arg1:T1 Arg2:T8	
+R8	Produces Arg1:T1 Arg2:T10	
+R9	Produces Arg1:T1 Arg2:T11	
+R10	Produces Arg1:T1 Arg2:T12	
+R11	Produces Arg1:T1 Arg2:T13	
+R12	Produces Arg1:T1 Arg2:T140	
+R13	Produces Arg1:T28 Arg2:T150	
+R14	Produces Arg1:T28 Arg2:T16	
+R15	Produces Arg1:T28 Arg2:T17	
+R16	Produces Arg1:T28 Arg2:T18	
+R17	Produces Arg1:T28 Arg2:T20	
+R18	Produces Arg1:T28 Arg2:T21	
+R19	Produces Arg1:T28 Arg2:T22	
+R20	Produces Arg1:T28 Arg2:T23	
+R21	Produces Arg1:T28 Arg2:T24	
+R22	Produces Arg1:T28 Arg2:T25	
+R23	Produces Arg1:T28 Arg2:T26	
+R24	Produces Arg1:T28 Arg2:T27	
+R25	Anaphora Arg1:T20 Arg2:T37	
+R26	Anaphora Arg1:T20 Arg2:T38	
+R27	Produces Arg1:T31 Arg2:T32	

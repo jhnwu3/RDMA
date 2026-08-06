@@ -18,6 +18,16 @@ from pathlib import Path
 from rdma.utils.search_tools import ToolSearcher
 from rdma.utils.embedding import EmbeddingsManager
 
+# Location of the prebuilt abbreviation embedding store. This lives under the
+# gitignored ``data/`` tree, so it is absent on a fresh clone — download it with
+# the embedding files linked from the README, or point ``RDMA_ABBREVIATIONS_FILE``
+# at your own copy.
+_REPO_ROOT = Path(__file__).resolve().parents[2]
+DEFAULT_ABBREVIATIONS_FILE = os.environ.get(
+    "RDMA_ABBREVIATIONS_FILE",
+    str(_REPO_ROOT / "data" / "tools" / "abbreviations_medembed_sm.npy"),
+)
+
 
 class AbbreviationDetector:
     """
@@ -41,7 +51,7 @@ class AbbreviationDetector:
 
     def __init__(
         self,
-        abbreviations_file: str = "/home/johnwu3/projects/rare_disease/workspace/repos/RDMA/data/tools/abbreviations_medembed_sm.npy",
+        abbreviations_file: str = DEFAULT_ABBREVIATIONS_FILE,
         model_type: str = "sentence_transformer",
         model_name: str = "abhinand/MedEmbed-small-v0.1",  # Medical domain default
         device: str = "cpu",
@@ -455,7 +465,7 @@ def main():
     print("=" * 60)
 
     # Initialize detector with default medical embeddings
-    abbreviations_file = "/home/johnwu3/projects/rare_disease/workspace/repos/RDMA/data/tools/abbreviations_medembed_sm.npy"
+    abbreviations_file = DEFAULT_ABBREVIATIONS_FILE
 
     try:
         detector = AbbreviationDetector(

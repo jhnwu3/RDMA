@@ -1,0 +1,6 @@
+T1	RAREDISEASE 0 16	Hanhart syndrome
+T2	DISEASE 32 54	developmental disorder
+T3	RAREDISEASE 195 211	Hanhart syndrome
+T4	RAREDISEASE 271 287	Hanhart syndrome
+T5	RAREDISEASE 415 431	Hanhart syndrome
+R1	Is_a Arg1:T1 Arg2:T2	

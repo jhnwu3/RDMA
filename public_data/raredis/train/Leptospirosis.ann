@@ -1,0 +1,21 @@
+T1	RAREDISEASE 0 13	Leptospirosis
+T2	DISEASE 20 38	infectious disease
+T3	ANAPHOR 72 74	It
+T4	ANAPHOR 157 159	It
+T5	SIGN 230 240	high fever
+T6	SIGN 242 248	chills
+T7	SYMPTOM 250 262	muscle aches
+T8	SYMPTOM 264 272	headache
+T9	SIGN 274 282	vomiting
+T10	SIGN 284 292	diarrhea
+T11	SIGN 298 306	jaundice
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Anaphora Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T4 Arg2:T5	
+R5	Produces Arg1:T4 Arg2:T6	
+R6	Produces Arg1:T4 Arg2:T7	
+R7	Produces Arg1:T4 Arg2:T8	
+R8	Produces Arg1:T4 Arg2:T9	
+R9	Produces Arg1:T4 Arg2:T10	
+R10	Produces Arg1:T4 Arg2:T11	

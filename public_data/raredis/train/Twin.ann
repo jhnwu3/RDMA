@@ -1,0 +1,26 @@
+T1	RAREDISEASE 0 30	Twin-twin transfusion syndrome
+T2	RAREDISEASE 32 36	TTTS
+T3	ANAPHOR 139 141	It
+T4	RAREDISEASE 522 552	twin-twin transfusion syndrome
+T5	SIGN 558 682	blood begins to flow unevenly, with one fetal twin receiving too much blood (recipient) and one receiving too little (donor)
+T6	SIGN 688 702;718 731	recipient twin heart failure
+T7	SIGN 816 826;862 885	donor twin life-threatening anemia
+T8	SIGN 816 826;887 909	donor twin insufficient nutrition
+T9	SIGN 816 826;887 899;914 920	donor twin insufficient oxygen
+T10	SIGN 816 826;932 958	donor twin inadequate supply of blood
+T11	SIGN 968 991	imbalance in blood flow
+T12	SIGN 999 1020	twin-twin transfusion
+T13	RAREDISEASE 1093 1097	TTTS
+T14	RAREDISEASE 1247 1251	TTTS
+T15	RAREDISEASE 1286 1316	Twin-twin transfusion syndrome
+T16	RAREDISEASE 1513 1517	TTTS
+R1	Anaphora Arg1:T1 Arg2:T3	
+R2	Is_acron Arg1:T2 Arg2:T1	
+R3	Produces Arg1:T4 Arg2:T5	
+R4	Produces Arg1:T4 Arg2:T6	
+R5	Produces Arg1:T4 Arg2:T7	
+R6	Produces Arg1:T4 Arg2:T8	
+R7	Produces Arg1:T4 Arg2:T9	
+R8	Produces Arg1:T4 Arg2:T100	
+R9	Produces Arg1:T4 Arg2:T11	
+R10	Produces Arg1:T4 Arg2:T12	

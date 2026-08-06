@@ -1,0 +1,50 @@
+T1	RAREDISEASE 0 33	Chromosome 15, Distal Trisomy 15q
+T2	DISEASE 55 75	chromosomal disorder
+T3	ANAPHOR 229 241	The disorder
+T4	SIGN 303 311;329 347	prenatal growth retardation
+T5	SIGN 319 347	postnatal growth retardation
+T6	DISEASE 350 368	mental retardation
+T7	SIGN 350 368	mental retardation
+T8	SIGN 389 445	malformations of the head and facial (craniofacial) area
+T9	SIGN 503 513	short neck
+T10	SIGN 515 543	malformations of the fingers
+T11	SIGN 515 535;551 555	malformations of the toes
+T12	DISEASE 599 608	scoliosis
+T13	SIGN 599 608	scoliosis
+T14	SIGN 623 645	skeletal malformations
+T15	SIGN 647 668	genital abnormalities
+T16	SIGN 725 730;741 748	heart defects
+T17	RAREDISEASE 934 967	Chromosome 15, Distal Trisomy 15q
+T18	RAREDISEASE 1038 1071	Chromosome 15, Distal Trisomy 15q
+T19	ANAPHOR 1194 1206	the disorder
+T20	ANAPHOR 1402 1414	the disorder
+T21	DISEASE 1444 1464	chromosomal disorder
+T22	SIGN 1490 1531	prenatal and postnatal growth retardation
+T23	DISEASE 1533 1551	mental retardation
+T24	SIGN 1533 1551	mental retardation
+T25	SIGN 1553 1591	distinctive craniofacial abnormalities
+T26	SIGN 1593 1614	genital malformations
+T27	DISEASE 1616 1640	congenital heart defects
+T28	SIGN 1616 1640	congenital heart defects
+T29	RAREDISEASE 1714 1747	Chromosome 15, Distal Trisomy 15q
+T30	DISEASE 1916 1936	chromosomal disorder
+R1	Is_a Arg1:T1 Arg2:T20	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T3 Arg2:T4	
+R4	Produces Arg1:T3 Arg2:T5	
+R5	Produces Arg1:T3 Arg2:T7	
+R6	Produces Arg1:T3 Arg2:T8	
+R7	Produces Arg1:T3 Arg2:T9	
+R8	Produces Arg1:T3 Arg2:T10	
+R9	Produces Arg1:T3 Arg2:T11	
+R10	Produces Arg1:T3 Arg2:T13	
+R11	Produces Arg1:T3 Arg2:T14	
+R12	Produces Arg1:T3 Arg2:T15	
+R13	Produces Arg1:T3 Arg2:T160	
+R14	Anaphora Arg1:T18 Arg2:T19	
+R15	Anaphora Arg1:T18 Arg2:T200	
+R16	Produces Arg1:T21 Arg2:T22	
+R17	Produces Arg1:T21 Arg2:T24	
+R18	Produces Arg1:T21 Arg2:T25	
+R19	Produces Arg1:T21 Arg2:T26	
+R20	Produces Arg1:T21 Arg2:T28	

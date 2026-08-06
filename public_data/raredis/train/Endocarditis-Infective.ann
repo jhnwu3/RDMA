@@ -1,0 +1,10 @@
+T1	RAREDISEASE 0 22	Infective endocarditis
+T2	DISEASE 28 50;89 100	bacterial infection of endocardium
+T3	RAREDISEASE 206 228	infective endocarditis
+T4	ANAPHOR 233 246	the infection
+T5	SIGN 335 348	heart failure
+T6	SIGN 386 392	emboli
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T3 Arg2:T4	
+R3	Produces Arg1:T3 Arg2:T5	
+R4	Produces Arg1:T3 Arg2:T6	

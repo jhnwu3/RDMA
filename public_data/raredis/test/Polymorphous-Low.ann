@@ -1,0 +1,23 @@
+T1	RAREDISEASE 0 37	Polymorphous low-grade adenocarcinoma
+T2	RAREDISEASE 39 43	PLGA
+T3	DISEASE 55 83	tumor of the salivary glands
+T4	SIGN 758 784	lump or mass in the palate
+T5	SIGN 758 770;788 819	lump or mass near any of the salivary glands
+T6	SYMPTOM 874 923	lingering pain in the area of the salivary glands
+T7	SIGN 1005 1020;1022 1031	salivary glands asymmetry
+T8	SIGN 1078 1111	Unexplained bleeding in the mouth
+T9	SIGN 1160 1203	persistent numbness on any part of the face
+T10	SIGN 1209 1257	weakening of the muscles on one side of the face
+T11	RAREDISEASE 1438 1442	PLGA
+T12	ANAPHOR 1608 1620	this disease
+T13	RAREDISEASE 1676 1680	PLGA
+R1	Is_a Arg1:T10 Arg2:T2	
+R2	Produces Arg1:T10 Arg2:T3	
+R3	Produces Arg1:T10 Arg2:T12	
+R4	Produces Arg1:T10 Arg2:T4	
+R5	Produces Arg1:T10 Arg2:T13	
+R6	Produces Arg1:T10 Arg2:T5	
+R7	Produces Arg1:T10 Arg2:T6	
+R8	Produces Arg1:T10 Arg2:T7	
+R9	Is_acron Arg1:T2 Arg2:T10	
+R10	Anaphora Arg1:T11 Arg2:T12	

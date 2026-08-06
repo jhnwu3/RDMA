@@ -1,0 +1,98 @@
+T1	RAREDISEASE 0 18	Fragile X syndrome
+T2	SIGN 39 89	moderate intellectual disability in affected males
+T3	DISEASE 48 71	intellectual disability
+T4	SIGN 94 142	mild intellectual disability in affected females
+T5	DISEASE 99 122	intellectual disability
+T6	SIGN 226 236	large head
+T7	SIGN 238 247	long face
+T8	SIGN 249 267	prominent forehead
+T9	SIGN 249 258;272 276	prominent chin
+T10	SIGN 278 293	protruding ears
+T11	SIGN 295 307	loose joints
+T12	SIGN 312 324	large testes
+T13	SIGN 401 406;420 426	Motor delays
+T14	SIGN 411 426	language delays
+T15	SIGN 488 512	Behavioral abnormalities
+T16	SIGN 523 541	autistic behaviors
+T17	RAREDISEASE 554 572	Fragile X syndrome
+T18	SIGN 593 643	moderate intellectual disability in affected males
+T19	DISEASE 602 625	intellectual disability
+T20	SIGN 648 696	mild intellectual disability in affected females
+T21	DISEASE 653 676	intellectual disability
+T22	SIGN 818 828	large head
+T23	SIGN 830 839	long face
+T24	SIGN 841 859	prominent forehead
+T25	SIGN 841 850;864 868	prominent chin
+T26	SIGN 870 885	protruding ears
+T27	SIGN 887 899	loose joints
+T28	SIGN 904 916	large testes
+T29	SIGN 945 955	flat feet,
+T30	SIGN 956 979	frequent ear infections
+T31	SIGN 981 996	low muscle tone
+T32	SIGN 1000 1016	long narrow face
+T33	SIGN 1018 1036	high arched palate
+T34	SIGN 1038 1053	dental problems
+T35	DISEASE 1069 1079	strabismus
+T36	SIGN 1069 1079	strabismus
+T37	SIGN 1085 1099	heart problems
+T38	DISEASE 1110 1131	mitral valve prolapse
+T39	SIGN 1110 1131	mitral valve prolapse
+T40	SIGN 1133 1158	Delayed motor development
+T41	SIGN 1160 1173	hyperactivity
+T42	SIGN 1175 1192	behavior problems
+T43	SIGN 1194 1205	toe walking
+T44	SIGN 1214 1233	occasional seizures
+T45	SIGN 1267 1285	Autistic behaviors
+T46	SIGN 1294 1310	poor eye contact
+T47	SIGN 1312 1325	hand flapping
+T48	SIGN 1334 1360	self-stimulating behaviors
+T49	SIGN 1378 1383;1397 1403	Motor delays
+T50	SIGN 1388 1403	language delays
+T51	RAREDISEASE 1464 1482	fragile X syndrome
+T52	ANAPHOR 1567 1569	it
+T53	ANAPHOR 1607 1609	it
+T54	RAREDISEASE 1754 1772	Fragile X syndrome
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Produces Arg1:T1 Arg2:T6	
+R4	Produces Arg1:T1 Arg2:T7	
+R5	Produces Arg1:T1 Arg2:T8	
+R6	Produces Arg1:T1 Arg2:T90	
+R7	Produces Arg1:T1 Arg2:T10	
+R8	Produces Arg1:T1 Arg2:T11	
+R9	Produces Arg1:T1 Arg2:T12	
+R10	Produces Arg1:T1 Arg2:T13	
+R11	Produces Arg1:T1 Arg2:T14	
+R12	Produces Arg1:T1 Arg2:T15	
+R13	Produces Arg1:T1 Arg2:T16	
+R14	Produces Arg1:T17 Arg2:T18	
+R15	Produces Arg1:T17 Arg2:T20	
+R16	Produces Arg1:T17 Arg2:T220	
+R17	Produces Arg1:T17 Arg2:T23	
+R18	Produces Arg1:T17 Arg2:T24	
+R19	Produces Arg1:T17 Arg2:T25	
+R20	Produces Arg1:T17 Arg2:T26	
+R21	Produces Arg1:T17 Arg2:T27	
+R22	Produces Arg1:T17 Arg2:T28	
+R23	Produces Arg1:T17 Arg2:T29	
+R24	Produces Arg1:T17 Arg2:T30	
+R25	Produces Arg1:T17 Arg2:T31	
+R26	Produces Arg1:T17 Arg2:T32	
+R27	Produces Arg1:T17 Arg2:T33	
+R28	Produces Arg1:T17 Arg2:T340	
+R29	Produces Arg1:T17 Arg2:T36	
+R30	Produces Arg1:T17 Arg2:T37	
+R31	Produces Arg1:T17 Arg2:T39	
+R32	Produces Arg1:T51 Arg2:T40	
+R33	Produces Arg1:T51 Arg2:T41	
+R34	Produces Arg1:T51 Arg2:T42	
+R35	Produces Arg1:T51 Arg2:T43	
+R36	Produces Arg1:T51 Arg2:T44	
+R37	Produces Arg1:T51 Arg2:T45	
+R38	Produces Arg1:T51 Arg2:T460	
+R39	Produces Arg1:T51 Arg2:T47	
+R40	Produces Arg1:T51 Arg2:T48	
+R41	Produces Arg1:T51 Arg2:T49	
+R42	Produces Arg1:T51 Arg2:T50	
+R43	Anaphora Arg1:T51 Arg2:T52	
+R44	Anaphora Arg1:T51 Arg2:T53	

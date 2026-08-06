@@ -1,0 +1,50 @@
+T1	SKINRAREDISEASE 0 16	Sneddon syndrome
+T2	DISEASE 27 47	progressive disorder
+T3	ANAPHOR 97 109	The disorder
+T4	DISEASE 151 165	skin condition
+T5	SIGN 170 196	neurological abnormalities
+T6	DISEASE 284 301	cerebral ischemia
+T7	SIGN 284 301	cerebral ischemia
+T8	DISEASE 311 323	mini-strokes
+T9	SIGN 311 323	mini-strokes
+T10	DISEASE 327 333	stroke
+T11	SIGN 327 333	stroke
+T12	SIGN 427 445	livedo reticularis
+T13	SYMPTOM 480 488	headache
+T14	SYMPTOM 490 499	dizziness
+T15	DISEASE 533 545	hypertension
+T16	SIGN 533 545	hypertension
+T17	DISEASE 552 565	heart disease
+T18	SIGN 552 565	heart disease
+T19	SIGN 567 574;598 620	Lesions central nervous system
+T20	SIGN 636 667	reduced blood flow to the brain
+T21	SIGN 685 713	reduced intellectual ability
+T22	SIGN 715 726	memory loss
+T23	SIGN 728 747	personality changes
+T24	SIGN 762 783	neurological symptoms
+T25	DISEASE 804 810	stroke
+T26	SIGN 804 810	stroke
+T27	SIGN 824 842	livedo reticularis
+T28	ANAPHOR 858 871	this syndrome
+T29	SKINRAREDISEASE 913 929	Sneddon syndrome
+T30	SKINRAREDISEASE 955 971	Sneddon syndrome
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Anaphora Arg1:T1 Arg2:T280	
+R4	Produces Arg1:T3 Arg2:T5	
+R5	Produces Arg1:T3 Arg2:T7	
+R6	Produces Arg1:T3 Arg2:T12	
+R7	Produces Arg1:T3 Arg2:T13	
+R8	Produces Arg1:T3 Arg2:T14	
+R9	Produces Arg1:T3 Arg2:T16	
+R10	Produces Arg1:T3 Arg2:T180	
+R11	Produces Arg1:T3 Arg2:T19	
+R12	Produces Arg1:T3 Arg2:T20	
+R13	Produces Arg1:T3 Arg2:T21	
+R14	Produces Arg1:T3 Arg2:T22	
+R15	Produces Arg1:T3 Arg2:T230	
+R16	Produces Arg1:T3 Arg2:T24	
+R17	Produces Arg1:T6 Arg2:T9	
+R18	Produces Arg1:T6 Arg2:T11	
+R19	Produces Arg1:T30 Arg2:T13	
+R20	Produces Arg1:T30 Arg2:T12	

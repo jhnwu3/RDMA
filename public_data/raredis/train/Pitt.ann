@@ -1,0 +1,6 @@
+T1	RAREDISEASE 0 21	Pitt-Hopkins syndrome
+T2	ANAPHOR 139 151	the disorder
+T3	ANAPHOR 371 383	the disorder
+T4	DISEASE 411 434	Intellectual disability
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	

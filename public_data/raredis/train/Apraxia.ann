@@ -1,0 +1,11 @@
+T1	RAREDISEASE 0 7	Apraxia
+T2	DISEASE 13 34	neurological disorder
+T3	SIGN 56 105	inability to perform learned (familiar) movements
+T4	RAREDISEASE 358 365	apraxia
+T5	RAREDISEASE 374 381	apraxia
+T6	DISEASE 396 404	dementia
+T7	DISEASE 408 414	stroke
+T8	ANAPHOR 416 418	it
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Anaphora Arg1:T5 Arg2:T8	

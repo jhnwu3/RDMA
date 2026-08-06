@@ -1,0 +1,21 @@
+T1	RAREDISEASE 0 15	Meckel syndrome
+T2	RAREDISEASE 143 158	Meckel syndrome
+T3	ANAPHOR 253 265	The disorder
+T4	ANAPHOR 465 467	It
+T5	RAREDISEASE 537 552	Meckel syndrome
+T6	DISEASE 857 870	encephalocele
+T7	SIGN 857 870	encephalocele
+T8	DISEASE 872 883	polydactyly
+T9	SIGN 872 883	polydactyly
+T10	DISEASE 885 899	cystic kidneys
+T11	SIGN 885 899	cystic kidneys
+T12	DISEASE 904 919	oligohydramnios
+T13	SIGN 904 919	oligohydramnios
+T14	RAREDISEASE 1054 1064	trisomy 13
+T15	RAREDISEASE 1066 1093	Smith Lemli- Opitz syndrome
+R1	Anaphora Arg1:T2 Arg2:T3	
+R2	Anaphora Arg1:T2 Arg2:T4	
+R3	Produces Arg1:T5 Arg2:T70	
+R4	Produces Arg1:T5 Arg2:T9	
+R5	Produces Arg1:T5 Arg2:T11	
+R6	Produces Arg1:T5 Arg2:T13	

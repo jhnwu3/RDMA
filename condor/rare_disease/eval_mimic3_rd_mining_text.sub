@@ -1,0 +1,78 @@
+# eval_mimic3_rd_mining_text.sub — submits one MIMIC-III text-extraction evaluation job per (approach, model); each job is scheduled independently
+executable = /home/johnwu3/projects/rare_disease/workspace/condor/rare_disease/run_eval_mimic3_rd_mining_text.sh
+
+Requirements = (Machine == "sunlab-c02.cs.illinois.edu")
+
+universe       = vanilla
+request_cpus   = 16
+request_memory = 32GB
+request_gpus   = 1
+
+log    = /home/johnwu3/projects/rare_disease/workspace/logs/mimic3_rd_mining_text/eval_$(approach)/$(model_type)/$(Cluster).$(Process).log
+output = /home/johnwu3/projects/rare_disease/workspace/logs/mimic3_rd_mining_text/eval_$(approach)/$(model_type)/$(Cluster).$(Process).out
+error  = /home/johnwu3/projects/rare_disease/workspace/logs/mimic3_rd_mining_text/eval_$(approach)/$(model_type)/$(Cluster).$(Process).err
+
+arguments = $(model_type) $(approach)
+
+# ── rdma approach ─────────────────────────────────────────────────────────────
+approach = rdma
+
+model_type = llama3_8b
+queue
+
+model_type = mistral_24b
+queue
+
+model_type = llama3_70b
+queue
+
+model_type = qwen3_32b
+queue
+
+# ── zeroshot approach ─────────────────────────────────────────────────────────
+approach = zeroshot
+
+model_type = llama3_8b
+queue
+
+model_type = mistral_24b
+queue
+
+model_type = llama3_70b
+queue
+
+model_type = qwen3_32b
+queue
+
+# ── rdrag approach ────────────────────────────────────────────────────────────
+approach = rdrag
+
+model_type = llama3_8b
+queue
+
+model_type = mistral_24b
+queue
+
+model_type = llama3_70b
+queue
+
+model_type = qwen3_32b
+queue
+
+# ── biobert_mrc approach ──────────────────────────────────────────────────────
+approach = biobert_mrc
+
+model_type = biobert_mrc
+queue
+
+# ── bioclinicalbert_ner approach ──────────────────────────────────────────────
+approach = bioclinicalbert_ner
+
+model_type = bioclinicalbert_ner
+queue
+
+# ── i2b2_rd approach ──────────────────────────────────────────────────────────
+approach = i2b2_rd
+
+model_type = i2b2_rd
+queue

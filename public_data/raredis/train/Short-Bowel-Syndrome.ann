@@ -1,0 +1,7 @@
+T1	RAREDISEASE 0 20	Short bowel syndrome
+T2	ANAPHOR 65 77	The disorder
+T3	RAREDISEASE 178 198	short bowel syndrome
+T4	RAREDISEASE 278 293	Crohn’s disease
+T5	RAREDISEASE 388 413	necrotizing enterocolitis
+T6	RAREDISEASE 522 542	short bowel syndrome
+R1	Anaphora Arg1:T1 Arg2:T2	

@@ -1,0 +1,12 @@
+T1	RAREDISEASE 0 22	Amniotic band syndrome
+T2	RAREDISEASE 235 257	amniotic band syndrome
+T3	RAREDISEASE 489 511	amniotic band syndrome
+T4	ANAPHOR 609 621	the disorder
+T5	ANAPHOR 645 657	the disorder
+T6	ANAPHOR 755 767	the disorder
+T7	RAREDISEASE 898 920	amniotic band syndrome
+T8	ANAPHOR 944 956	the disorder
+R1	Anaphora Arg1:T3 Arg2:T4	
+R2	Anaphora Arg1:T3 Arg2:T5	
+R3	Anaphora Arg1:T3 Arg2:T6	
+R4	Anaphora Arg1:T7 Arg2:T8	

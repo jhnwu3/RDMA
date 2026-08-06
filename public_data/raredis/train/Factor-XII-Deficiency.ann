@@ -1,0 +1,4 @@
+T1	RAREDISEASE 0 21	Factor XII deficiency
+T2	RAREDISEASE 200 221	factor XII deficiency
+T3	ANAPHOR 283 295	the disorder
+R1	Anaphora Arg1:T2 Arg2:T3	

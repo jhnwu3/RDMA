@@ -1,0 +1,32 @@
+T1	RAREDISEASE 0 21	Senior Løken syndrome
+T2	RAREDISEASE 23 26	SLS
+T3	RAREDISEASE 116 128	ciliopathies
+T4	RAREDISEASE 144 160	nephronophthisis
+T5	SIGN 144 160	nephronophthisis
+T6	RAREDISEASE 165 191	Leber congenital amaurosis
+T7	SIGN 165 191	Leber congenital amaurosis
+T8	RAREDISEASE 193 209	Nephronophthisis
+T9	SIGN 217 272	progressive wasting of the filtering unit of the kidney
+T10	ANAPHOR 274 276	it
+T11	SIGN 297 364	cysts that develop in the kidneys during infancy or early childhood
+T12	SIGN 408 437	early-onset retinal dystrophy
+T13	RAREDISEASE 420 437	retinal dystrophy
+T14	SIGN 441 467	progressive retina disease
+T15	SIGN 473 487	damages vision
+T16	SIGN 566 579	renal failure
+T17	SIGN 584 595	vision loss
+T18	RAREDISEASE 597 618	Senior Løken syndrome
+T19	ANAPHOR 781 794	the condition
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T5	
+R3	Produces Arg1:T1 Arg2:T7	
+R4	Produces Arg1:T1 Arg2:T12	
+R5	Produces Arg1:T1 Arg2:T14	
+R6	Produces Arg1:T1 Arg2:T15	
+R7	Produces Arg1:T1 Arg2:T16	
+R8	Produces Arg1:T1 Arg2:T17	
+R9	Is_acron Arg1:T10 Arg2:T1	
+R10	Produces Arg1:T8 Arg2:T9	
+R11	Anaphora Arg1:T8 Arg2:T10	
+R12	Produces Arg1:T10 Arg2:T11	
+R13	Anaphora Arg1:T18 Arg2:T19	

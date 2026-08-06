@@ -1,0 +1,5 @@
+T1	RAREDISEASE 0 7	HSAN IV
+T2	ANAPHOR 250 262	the disorder
+T3	ANAPHOR 524 536	the disorder
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	

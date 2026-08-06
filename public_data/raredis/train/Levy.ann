@@ -1,0 +1,29 @@
+T1	RAREDISEASE 0 19	Levy-Yeboa syndrome
+T2	RAREDISEASE 21 24	LYS
+T3	DISEASE 52 97	inherited (congenital), multi-system disorder
+T4	SIGN 153 168	low muscle tone
+T5	SIGN 220 232	contractions
+T6	SIGN 235 250	loss of hearing
+T7	SIGN 252 269	neuronal deafness
+T8	SIGN 336 353	bullous eruptions
+T9	SIGN 369 394	gastrointestinal distress
+T10	DISEASE 433 451	secretory diarrhea
+T11	SIGN 433 451	secretory diarrhea
+T12	RAREDISEASE 751 770	Levy-Yeboa syndrome
+T13	SIGN 807 815	myopathy
+T14	SIGN 817 825	deafness
+T15	SIGN 827 841	skin eruptions
+T16	SIGN 846 879	recurrent, massive, watery stools
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Produces Arg1:T1 Arg2:T5	
+R4	Produces Arg1:T1 Arg2:T6	
+R5	Produces Arg1:T1 Arg2:T7	
+R6	Produces Arg1:T1 Arg2:T8	
+R7	Produces Arg1:T1 Arg2:T9	
+R8	Produces Arg1:T1 Arg2:T11	
+R9	Is_acron Arg1:T2 Arg2:T1	
+R10	Produces Arg1:T12 Arg2:T13	
+R11	Produces Arg1:T12 Arg2:T14	
+R12	Produces Arg1:T12 Arg2:T15	
+R13	Produces Arg1:T12 Arg2:T16	

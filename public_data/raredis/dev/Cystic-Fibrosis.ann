@@ -1,0 +1,14 @@
+T1	RAREDISEASE 20 35	cystic fibrosis
+T2	DISEASE 132 149	pulmonary disease
+T3	SIGN 132 149	pulmonary disease
+T4	SIGN 151 175	pancreatic insufficiency
+T5	RAREDISEASE 240 255	cystic fibrosis
+T6	RAREDISEASE 527 542	cystic fibrosis
+T7	RAREDISEASE 555 570	Cystic Fibrosis
+T8	ANAPHOR 644 655	the disease
+T9	RAREDISEASE 698 700	CF
+T10	RAREDISEASE 882 884	CF
+R1	Produces Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Anaphora Arg1:T7 Arg2:T8	
+R4	Is_acron Arg1:T10 Arg2:T5	

@@ -1,0 +1,25 @@
+T1	RAREDISEASE 1 17	Filippi syndrome
+T2	DISEASE 39 55	genetic disorder
+T3	ANAPHOR 100 112	The disorder
+T4	SIGN 136 161	unusual facial appearance
+T5	SIGN 163 200	abnormalities of the fingers and toes
+T6	SIGN 206 239	mild to severe mental retardation
+T7	DISEASE 221 239	mental retardation
+T8	SIGN 275 288	growth delays
+T9	SIGN 309 319	syndactyly
+T10	SIGN 379 391	clinodactyly
+T11	DISEASE 432 444	microcephaly
+T12	SIGN 432 444	microcephaly
+T13	RAREDISEASE 562 578	Filippi syndrome
+T14	RAREDISEASE 644 660	Filippi syndrome
+T15	ANAPHOR 948 961	the disorder.
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T10	
+R4	Produces Arg1:T1 Arg2:T12	
+R5	Produces Arg1:T3 Arg2:T4	
+R6	Produces Arg1:T3 Arg2:T50	
+R7	Produces Arg1:T3 Arg2:T6	
+R8	Produces Arg1:T3 Arg2:T8	
+R9	Produces Arg1:T3 Arg2:T9	
+R10	Anaphora Arg1:T20 Arg2:T22	

@@ -1,0 +1,9 @@
+T1	SKINRAREDISEASE 0 13	Fabry disease
+T2	DISEASE 24 43	pan-ethnic disorder
+T3	ANAPHOR 58 60	it
+T4	SKINRAREDISEASE 155 183	type 1 classic Fabry disease
+T5	SKINRAREDISEASE 517 530	Fabry disease
+T6	SKINRAREDISEASE 658 671	Fabry disease
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Is_a Arg1:T4 Arg2:T1	

@@ -1,0 +1,14 @@
+T1	RAREDISEASE 0 26	Congenital lobar emphysema
+T2	DISEASE 37 57	respiratory disorder
+T3	SIGN 67 108	air can enter the lungs but cannot escape
+T4	SIGN 133 147;149 173	hyperinflation of the lobes of the lung
+T5	ANAPHOR 175 177	It
+T6	ANAPHOR 286 299	This disorder
+T7	RAREDISEASE 425 451	congenital lobar emphysema
+T8	ANAPHOR 687 700	This disorder
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Anaphora Arg1:T1 Arg2:T5	
+R5	Anaphora Arg1:T1 Arg2:T6	
+R6	Anaphora Arg1:T7 Arg2:T8	

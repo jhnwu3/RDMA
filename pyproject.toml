@@ -1,0 +1,116 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rdma"
+version = "1.0.0"
+description = "Agent-driven mining of rare diseases and phenotypes from clinical text"
+readme = "readme.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [
+    { name = "John Wu" },
+    { name = "Adam Cross" },
+    { name = "Jimeng Sun" },
+]
+keywords = [
+    "rare disease",
+    "phenotype extraction",
+    "human phenotype ontology",
+    "orphanet",
+    "clinical nlp",
+    "large language models",
+]
+classifiers = [
+    "Intended Audience :: Science/Research",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+]
+
+# Everything needed to run the RDMA pipeline itself, including the recommended
+# 4-bit quantized Mistral 24B backend (accelerate + bitsandbytes).
+dependencies = [
+    "torch>=2.0",
+    "transformers>=4.40",
+    "accelerate>=0.26",
+    "bitsandbytes>=0.43",
+    "huggingface_hub>=0.23",
+    "sentence-transformers>=3.0",
+    "fastembed>=0.6",
+    "faiss-cpu>=1.8",
+    "numpy>=1.26",
+    "pandas>=2.0",
+    "tqdm>=4.66",
+    "fuzzywuzzy>=0.18",
+    "python-Levenshtein>=0.25",
+    "rapidfuzz>=3.0",
+    "pyhpo>=3.1",
+    "openai>=1.0",
+    "groq>=0.24",
+    "langchain-openai>=0.1",
+    "python-dotenv>=1.0",
+    "ratelimit>=2.2",
+]
+
+[project.optional-dependencies]
+# Reproducing the paper: PyHealth dataset loaders, tasks and evaluators.
+benchmarks = [
+    "pyhealth>=1.1",
+    "scipy>=1.11",
+]
+
+# Baseline methods we compare against. stanza/nltk/sent2vec back the i2b2
+# baseline, optuna drives the BioBERT / Bio_ClinicalBERT trainers, and
+# peft + joblib are required by the PhenoGPT wrapper (rdma/hporag/phenogpt.py).
+baselines = [
+    "pyhealth>=1.1",
+    "scipy>=1.11",
+    "stanza>=1.10",
+    "nltk>=3.9",
+    "sent2vec>=0.3",
+    "tokenizers>=0.19",
+    "optuna>=3.6",
+    "peft>=0.11",
+    "joblib>=1.4",
+]
+
+# GGUF backend (--llm_type llama_cpp). Kept separate: the build is
+# platform-specific and often needs custom CMake flags for GPU offload.
+llamacpp = ["llama-cpp-python>=0.3"]
+
+dev = [
+    "pytest>=8.0",
+    "flake8>=7.0",
+    "black>=24.0",
+]
+
+all = ["rdma[benchmarks,baselines,llamacpp]"]
+
+[project.urls]
+Homepage = "https://github.com/jhnwu3/RDMA"
+Repository = "https://github.com/jhnwu3/RDMA"
+Paper = "https://arxiv.org/abs/2507.15867"
+Issues = "https://github.com/jhnwu3/RDMA/issues"
+
+# Only the `rdma` library is installed onto sys.path.
+#
+# The benchmark harness (datasets/, tasks/, models/, scripts/, baselines/) is
+# deliberately NOT packaged. Those are flat top-level directories, and
+# `datasets/` in particular would shadow HuggingFace `datasets` for every other
+# project in the same environment. They are still importable when you run from
+# the repository root, which is how the reproduction scripts are invoked anyway
+# (each one sys.path-inserts the repo root).
+[tool.setuptools.packages.find]
+include = ["rdma*"]
+namespaces = false
+
+[tool.black]
+line-length = 88
+target-version = ["py310"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

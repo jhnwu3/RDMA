@@ -1,0 +1,4 @@
+T1	SKINRAREDISEASE 0 25	Infantile myofibromatosis
+T2	SKINRAREDISEASE 445 470	infantile myofibromatosis
+T3	DISEASE 490 503	fibrous tumor
+R1	Is_a Arg1:T2 Arg2:T3	

@@ -1,0 +1,47 @@
+T1	RAREDISEASE 1 21	Polyarteritis nodosa
+T2	DISEASE 32 53	multi-system disorder
+T3	SIGN 111 152	damage to small and medium-sized arteries
+T4	SIGN 121 152;71 94	small and medium-sized arteries widespread inflammation
+T5	SIGN 121 152;96 105	small and medium-sized arteries weakening
+T6	SIGN 391 403	hypertension
+T7	SIGN 422 430;432 451	aneurysm of an arterial wall
+T8	SIGN 483 493	thrombosis
+T9	SIGN 496 542	obstruction of blood supply to certain tissues
+T10	SIGN 575 583	necrosis
+T11	RAREDISEASE 612 632	Polyarteritis nodosa
+T12	SIGN 844 871	Damage to affected arteries
+T13	SIGN 923 935	hypertension
+T14	SIGN 952 960;962 981	aneurysm of an arterial wall
+T15	SIGN 1013 1023	thrombosis
+T16	SIGN 1026 1072	obstruction of blood supply to certain tissues
+T17	SIGN 1105 1113	necrosis
+T18	SYMPTOM 1142 1147;1182 1186	Joint pain
+T19	SYMPTOM 1149 1155;1182 1186	muscle pain
+T20	SYMPTOM 1157 1166;1182 1186	abdominal pain
+T21	RAREDISEASE 1319 1339	Polyarteritis nodosa
+T22	ANAPHOR 1399 1401	it
+T23	ANAPHOR 1431 1433	It
+T24	ANAPHOR 1622 1635	this disorder
+T25	SIGN 1858 1865	lesions
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T5	
+R5	Produces Arg1:T1 Arg2:T6	
+R6	Produces Arg1:T1 Arg2:T7	
+R7	Produces Arg1:T1 Arg2:T8	
+R8	Produces Arg1:T1 Arg2:T9	
+R9	Produces Arg1:T1 Arg2:T10	
+R10	Produces Arg1:T11 Arg2:T12	
+R11	Produces Arg1:T11 Arg2:T13	
+R12	Produces Arg1:T11 Arg2:T14	
+R13	Produces Arg1:T11 Arg2:T15	
+R14	Produces Arg1:T11 Arg2:T160	
+R15	Produces Arg1:T11 Arg2:T17	
+R16	Produces Arg1:T11 Arg2:T18	
+R17	Produces Arg1:T11 Arg2:T19	
+R18	Produces Arg1:T11 Arg2:T20	
+R19	Anaphora Arg1:T21 Arg2:T22	
+R20	Anaphora Arg1:T21 Arg2:T23	
+R21	Anaphora Arg1:T21 Arg2:T240	
+R22	Produces Arg1:T40 Arg2:T33	

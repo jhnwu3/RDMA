@@ -1,0 +1,32 @@
+T1	RAREDISEASE 0 16	Mucolipidosis IV
+T2	DISEASE 27 45	metabolic disorder
+T3	DISEASE 63 86	intellectual disability
+T4	SIGN 63 86	intellectual disability
+T5	SIGN 197 220	psychomotor retardation
+T6	SIGN 247 256	hypotonia
+T7	SIGN 269 276;278 284;339 345	opacity of the cornea
+T8	DISEASE 421 441	retinal degeneration
+T9	SIGN 421 441	retinal degeneration
+T10	RAREDISEASE 444 460	Mucolipidosis IV
+T11	RAREDISEASE 558 574	Mucolipidosis IV
+T12	DISEASE 585 613	inherited metabolic disorder
+T13	ANAPHOR 663 675	The disorder
+T14	RAREDISEASE 921 937	Mucolipidosis IV
+T15	RAREDISEASE 1080 1096	mucolipidosis IV
+T16	DISEASE 1110 1132	iron deficiency anemia
+T17	SIGN 1110 1132	iron deficiency anemia
+T18	SIGN 1134 1159	high serum gastrin levels
+T19	SIGN 1164 1213	characteristic findings on brain MRI examinations
+T20	SIGN 1274 1328	characteristic lysosomal storage bodies in fibroblasts
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Produces Arg1:T1 Arg2:T5	
+R4	Produces Arg1:T1 Arg2:T6	
+R5	Produces Arg1:T1 Arg2:T7	
+R6	Produces Arg1:T1 Arg2:T9	
+R7	Is_a Arg1:T11 Arg2:T12	
+R8	Anaphora Arg1:T11 Arg2:T13	
+R9	Produces Arg1:T15 Arg2:T17	
+R10	Produces Arg1:T15 Arg2:T18	
+R11	Produces Arg1:T15 Arg2:T19	
+R12	Produces Arg1:T15 Arg2:T200	

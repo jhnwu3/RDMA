@@ -1,0 +1,27 @@
+T1	RAREDISEASE 0 31	Human Granulocytic Ehrlichiosis
+T2	RAREDISEASE 33 36	HGE
+T3	DISEASE 48 66	infectious disease
+T4	RAREDISEASE 116 134	Human Ehrlichioses
+T5	RAREDISEASE 140 152	Ehrlichioses
+T6	DISEASE 157 176	infectious diseases
+T7	RAREDISEASE 240 266	Human Ehrlichial infection
+T8	RAREDISEASE 298 329	Human Granulocytic Ehrlichiosis
+T9	RAREDISEASE 331 334	HGE
+T10	RAREDISEASE 337 351	Sennetsu Fever
+T11	SIGN 346 351	Fever
+T12	RAREDISEASE 357 385	Human Monocytic Ehrlichiosis
+T13	RAREDISEASE 387 390	HME
+T14	ANAPHOR 451 464	the disorders
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Is_a Arg1:T1 Arg2:T4	
+R3	Is_acron Arg1:T2 Arg2:T1	
+R4	Is_a Arg1:T5 Arg2:T6	
+R5	Is_a Arg1:T8 Arg2:T7	
+R6	Anaphora Arg1:T8 Arg2:T14	
+R7	Is_acron Arg1:T9 Arg2:T8	
+R8	Is_a Arg1:T10 Arg2:T7	
+R9	Produces Arg1:T10 Arg2:T11	
+R10	Anaphora Arg1:T10 Arg2:T14	
+R11	Is_a Arg1:T12 Arg2:T7	
+R12	Anaphora Arg1:T12 Arg2:T14	
+R13	Is_acron Arg1:T10 Arg2:T9	

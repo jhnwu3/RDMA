@@ -1,0 +1,29 @@
+T1	RAREDISEASE 0 18	Tardive dyskinesia
+T2	SIGN 39 101	involuntary and abnormal movements of the jaw, lips and tongue
+T3	SIGN 128 144	facial grimacing
+T4	SIGN 146 169	sticking out the tongue
+T5	SIGN 171 214	sucking or fish-like movements of the mouth
+T6	DISEASE 314 320	chorea
+T7	SIGN 314 320	chorea
+T8	SIGN 352 361	athetosis
+T9	RAREDISEASE 376 392	tardive dystonia
+T10	SIGN 401 487	slower, twisting movements of larger muscles of the neck and trunk as well as the face
+T11	RAREDISEASE 489 507	Tardive dyskinesia
+T12	DISEASE 643 649;685 694	mental disorders
+T13	DISEASE 651 663;685 694	neurological disorders
+T14	DISEASE 668 694	gastrointestinal disorders
+T15	DISEASE 751 786	chronic gastrointestinal conditions
+T16	RAREDISEASE 802 820	tardive dyskinesia
+T17	RAREDISEASE 1111 1129	Tardive dyskinesia
+T18	RAREDISEASE 1344 1346	TD
+T19	DISEASE 1399 1409	depression
+T20	DISEASE 1416 1435	digestive disorders
+T21	DISEASE 1447 1467	neurologic illnesses
+R1	Produces Arg1:T1 Arg2:T20	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T5	
+R5	Produces Arg1:T1 Arg2:T7	
+R6	Produces Arg1:T1 Arg2:T8	
+R7	Produces Arg1:T9 Arg2:T10	
+R8	Is_acron Arg1:T18 Arg2:T17	

@@ -1,0 +1,23 @@
+T1	RAREDISEASE 0 14	Banti syndrome
+T2	RAREDISEASE 269 283	Banti syndrome
+T3	RAREDISEASE 342 356	Banti syndrome
+T4	SIGN 412 426;520 533	obstruction of splenic veins
+T5	SIGN 412 426;555 578	obstruction of hepatic or portal veins
+T6	DISEASE 469 481	hypertension
+T7	SIGN 469 481;520 533;555 578	hypertension splenic veins hepatic or portal veins
+T8	SIGN 632 642;659 670	congenital blood clots
+T9	SIGN 751 771	vascular obstruction
+T10	DISEASE 795 804	cirrhosis
+T11	SIGN 795 804	cirrhosis
+T12	RAREDISEASE 985 999	Banti syndrome
+T13	ANAPHOR 1036 1038	It
+T14	SIGN 1121 1145	Increased arsenic levels
+T15	RAREDISEASE 1268 1282	Banti syndrome
+R1	Produces Arg1:T3 Arg2:T4	
+R2	Produces Arg1:T3 Arg2:T5	
+R3	Produces Arg1:T3 Arg2:T70	
+R4	Produces Arg1:T3 Arg2:T8	
+R5	Produces Arg1:T3 Arg2:T9	
+R6	Produces Arg1:T3 Arg2:T11	
+R7	Anaphora Arg1:T12 Arg2:T13	
+R8	Produces Arg1:T13 Arg2:T14	

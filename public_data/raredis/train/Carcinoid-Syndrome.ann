@@ -1,0 +1,32 @@
+T1	SIGN 24 40	carcinoid tumors
+T2	RAREDISEASE 578 596	carcinoid syndrome
+T3	SIGN 603 609	tumors
+T4	RAREDISEASE 684 702	carcinoid syndrome
+T5	SIGN 749 765	Carcinoid tumors
+T6	RAREDISEASE 881 899	carcinoid syndrome
+T7	ANAPHOR 901 913	The syndrome
+T8	SIGN 1134 1159	Bronchial (airway) tumors
+T9	RAREDISEASE 1234 1252	Carcinoid syndrome
+T10	SIGN 1415 1423	flushing
+T11	SIGN 1425 1433	wheezing
+T12	SIGN 1439 1447	diarrhea
+T13	SIGN 1665 1689	episodic facial flushing
+T14	SIGN 1697 1713	chronic diarrhea
+T15	RAREDISEASE 1814 1832	carcinoid syndrome
+T16	SIGN 2073 2113	level of 5-HIAA will be clearly elevated
+T17	RAREDISEASE 2322 2340	carcinoid syndrome
+T18	SIGN 2442 2458	carcinoid tumors
+T19	DISEASE 2764 2786	intestinal obstruction
+T20	DISEASE 2790 2802	appendicitis
+R1	Produces Arg1:T2 Arg2:T1	
+R2	Produces Arg1:T4 Arg2:T3	
+R3	Produces Arg1:T6 Arg2:T5	
+R4	Anaphora Arg1:T6 Arg2:T7	
+R5	Produces Arg1:T7 Arg2:T8	
+R6	Produces Arg1:T9 Arg2:T10	
+R7	Produces Arg1:T9 Arg2:T11	
+R8	Produces Arg1:T9 Arg2:T12	
+R9	Produces Arg1:T15 Arg2:T13	
+R10	Produces Arg1:T15 Arg2:T140	
+R11	Produces Arg1:T15 Arg2:T160	
+R12	Produces Arg1:T17 Arg2:T18	

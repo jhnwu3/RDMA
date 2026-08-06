@@ -1,0 +1,27 @@
+T1	RAREDISEASE 0 13	Weil syndrome
+T2	DISEASE 22 41	infectious disorder
+T3	RAREDISEASE 141 154	Weil syndrome
+T4	SIGN 175 201	dysfunction of the kidneys
+T5	SIGN 175 193;206 211	dysfunction of the liver
+T6	SIGN 248 260	hepatomegaly
+T7	SIGN 339 347	jaundice
+T8	SIGN 357 385	alterations in consciousness
+T9	RAREDISEASE 402 415	Weil syndrome
+T10	RAREDISEASE 478 491	Weil syndrome
+T11	ANAPHOR 642 655	The infection
+T12	ANAPHOR 754 767	The infection
+T13	RAREDISEASE 824 837	Weil syndrome
+T14	ANAPHOR 910 923	this disorder
+T15	ANAPHOR 935 937	It
+T16	DISEASE 948 969	occupational disorder
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T3 Arg2:T4	
+R3	Produces Arg1:T3 Arg2:T5	
+R4	Produces Arg1:T3 Arg2:T6	
+R5	Produces Arg1:T3 Arg2:T7	
+R6	Produces Arg1:T3 Arg2:T8	
+R7	Anaphora Arg1:T10 Arg2:T11	
+R8	Anaphora Arg1:T10 Arg2:T12	
+R9	Anaphora Arg1:T13 Arg2:T14	
+R10	Anaphora Arg1:T13 Arg2:T15	
+R11	Is_a Arg1:T15 Arg2:T160	

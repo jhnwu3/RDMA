@@ -1,0 +1,5 @@
+T1	ANAPHOR 6 18	the disorder
+T2	RAREDISEASE 114 140	frontofacionasal dysplasia
+T3	ANAPHOR 250 262	the disorder
+R1	Anaphora Arg1:T2 Arg2:T1	
+R2	Anaphora Arg1:T2 Arg2:T3	

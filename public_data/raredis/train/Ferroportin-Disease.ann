@@ -1,0 +1,9 @@
+T1	RAREDISEASE 0 19	Ferroportin disease
+T2	RAREDISEASE 87 106	ferroportin disease
+T3	ANAPHOR 144 156	the disorder
+T4	RAREDISEASE 322 341	ferroportin disease
+T5	DISEASE 369 393	hereditary iron overload
+T6	DISEASE 400 432	classic (type 1) hemochromatosis
+R1	Anaphora Arg1:T2 Arg2:T3	
+R2	Is_a Arg1:T4 Arg2:T5	
+R3	Is_a Arg1:T6 Arg2:T5	

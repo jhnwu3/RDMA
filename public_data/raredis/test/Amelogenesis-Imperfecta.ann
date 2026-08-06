@@ -1,0 +1,15 @@
+T1	RAREDISEASE 0 23	Amelogenesis imperfecta
+T2	RAREDISEASE 25 27	AI
+T3	DISEASE 56 75	inherited disorders
+T4	SIGN 93 118	abnormal enamel formation
+T5	ANAPHOR 156 193	those disorders of enamel development
+T6	ANAPHOR 421 432	the disorde
+T7	ANAPHOR 507 519	the disorder
+T8	RAREDISEASE 621 623	AI
+T9	RAREDISEASE 808 810	AI
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Anaphora Arg1:T1 Arg2:T5	
+R4	Anaphora Arg1:T1 Arg2:T6	
+R5	Anaphora Arg1:T1 Arg2:T7	
+R6	Is_acron Arg1:T2 Arg2:T1	

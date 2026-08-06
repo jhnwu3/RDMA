@@ -1,0 +1,16 @@
+T1	RAREDISEASE 0 31	Cytochrome C Oxidase deficiency
+T2	DISEASE 47 75	inherited metabolic disorder
+T3	SIGN 93 138	deficiency of the enzyme cytochrome C oxidase
+T4	SIGN 282 299	Deficiency of COX
+T5	SIGN 498 512	COX deficiency
+T6	RAREDISEASE 567 598	Cytochrome C Oxidase deficiency
+T7	ANAPHOR 638 651	this disorder
+T8	RAREDISEASE 664 719	COX deficiency, benign infantile mitochondrial myopathy
+T9	SIGN 854 868	COX deficiency
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T5	
+R5	Anaphora Arg1:T6 Arg2:T7	
+R6	Produces Arg1:T7 Arg2:T9	
+R7	Is_a Arg1:T8 Arg2:T7	

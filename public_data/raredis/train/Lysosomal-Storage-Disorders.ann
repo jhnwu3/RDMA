@@ -1,0 +1,25 @@
+T1	RAREDISEASE 0 26	Lysosomal storage diseases
+T2	DISEASE 31 59	inherited metabolic diseases
+T3	SIGN 89 133	abnormal build-up of various toxic materials
+T4	SIGN 169 188	enzyme deficiencies
+T5	ANAPHOR 213 228	these disorders
+T6	ANAPHOR 245 249	they
+T7	RAREDISEASE 366 393	lysosomal storage disorders
+T8	ANAPHOR 494 508	these diseases
+T9	RAREDISEASE 560 586	lysosomal storage diseases
+T10	RAREDISEASE 600 626	lysosomal storage diseases
+T11	ANAPHOR 822 834	the diseases
+T12	RAREDISEASE 898 905	Gaucher
+T13	RAREDISEASE 910 919	Tay-Sachs
+T14	RAREDISEASE 1015 1030	Hurler syndrome
+T15	RAREDISEASE 1144 1171	lysosomal storage disorders
+T16	RAREDISEASE 1192 1218	lysosomal storage diseases
+T17	ANAPHOR 1448 1459	the disease
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Anaphora Arg1:T1 Arg2:T5	
+R5	Anaphora Arg1:T1 Arg2:T6	
+R6	Anaphora Arg1:T9 Arg2:T8	
+R7	Anaphora Arg1:T10 Arg2:T11	
+R8	Anaphora Arg1:T16 Arg2:T17	

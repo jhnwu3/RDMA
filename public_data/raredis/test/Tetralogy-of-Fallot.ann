@@ -1,0 +1,4 @@
+T1	RAREDISEASE 17 36	tetralogy of Fallot
+T2	RAREDISEASE 258 277	tetralogy of Fallot
+T3	ANAPHOR 503 516	this disorder
+R1	Anaphora Arg1:T2 Arg2:T3	

@@ -1,0 +1,8 @@
+T1	RAREDISEASE 49 57	botulism
+T2	SIGN 271 329	presence of botulinum toxin in serum, gastric fluid, stool
+T3	RAREDISEASE 340 358	foodborne botulism
+T4	RAREDISEASE 371 379	Botulism
+T5	SIGN 414 443;471 489	f C. botulinum organisms from contaminated wound
+T6	RAREDISEASE 491 505	wound botulism
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T6 Arg2:T5	

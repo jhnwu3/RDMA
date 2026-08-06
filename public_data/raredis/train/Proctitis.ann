@@ -1,0 +1,14 @@
+T1	RAREDISEASE 0 9	Proctitis
+T2	DISEASE 15 43	chronic inflammatory disease
+T3	SIGN 87 102	bloody diarrhea
+T4	RAREDISEASE 128 137	proctitis
+T5	RAREDISEASE 234 254	Gonorrheal proctitis
+T6	RAREDISEASE 294 303	Proctitis
+T7	RAREDISEASE 333 353	Gonococcal Proctitis
+T8	RAREDISEASE 461 470	proctitis
+T9	SIGN 506 625	inflammation of the mucus lining of the rectum with a clearly demarcated upper border above which the lining is normal.
+T10	RAREDISEASE 808 834	chronic ulcerative colitis
+T11	RAREDISEASE 861 887	chronic ulcerative colitis
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T8 Arg2:T9	

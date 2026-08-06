@@ -1,0 +1,22 @@
+T1	RAREDISEASE 0 18	Heterozygous OSMED
+T2	RAREDISEASE 20 56	oto-spondyl-megaepiphyseal dysplasia
+T3	DISEASE 68 84	genetic disorder
+T4	SIGN 102 124	skeletal malformations
+T5	SIGN 138 178	shortening of the upper limbs and thighs
+T6	SIGN 198 217	rhizomelic dwarfism
+T7	SIGN 248 275	distinctive facial features
+T8	SIGN 280 313	delays in psychomotor development
+T9	SIGN 343 360	growth deficiency
+T10	SIGN 599 611	hearing loss
+T11	RAREDISEASE 613 631	Heterozygous OSMED
+T12	RAREDISEASE 721 739	heterozygous OSMED
+T13	RAREDISEASE 990 1008	heterozygous OSMED
+R1	Is_acron Arg1:T1 Arg2:T2	
+R2	Is_a Arg1:T2 Arg2:T3	
+R3	Produces Arg1:T2 Arg2:T4	
+R4	Produces Arg1:T2 Arg2:T5	
+R5	Produces Arg1:T2 Arg2:T60	
+R6	Produces Arg1:T2 Arg2:T7	
+R7	Produces Arg1:T2 Arg2:T8	
+R8	Produces Arg1:T2 Arg2:T9	
+R9	Produces Arg1:T2 Arg2:T10	

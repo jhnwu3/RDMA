@@ -1,0 +1,33 @@
+T1	RAREDISEASE 0 15	ACTH deficiency
+T2	SIGN 133 182	decline in the concentration of ACTH in the blood
+T3	SIGN 194 240	reduction in the secretion of adrenal hormones
+T4	DISEASE 278 292	hypoadrenalism
+T5	SIGN 278 292	hypoadrenalism
+T6	DISEASE 295 316	Adrenal insufficiency
+T7	SIGN 326 337	weight loss
+T8	SYMPTOM 357 365	anorexia
+T9	SYMPTOM 368 376	weakness
+T10	SYMPTOM 378 384	nausea
+T11	SIGN 386 394	vomiting
+T12	SIGN 420 431	hypotension
+T13	ANAPHOR 569 581	the disorder
+T14	RAREDISEASE 637 652	ACTH deficiency
+T15	ANAPHOR 685 697	the disorder
+T16	ANAPHOR 732 744	The disorder
+T17	RAREDISEASE 794 809	ACTH deficiency
+T18	SIGN 1025 1057	concentration of cortisol is low
+T19	SIGN 1084 1109	low concentration of ACTH
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T5	
+R4	Anaphora Arg1:T1 Arg2:T13	
+R5	Produces Arg1:T6 Arg2:T7	
+R6	Produces Arg1:T6 Arg2:T8	
+R7	Produces Arg1:T6 Arg2:T9	
+R8	Produces Arg1:T6 Arg2:T10	
+R9	Produces Arg1:T6 Arg2:T11	
+R10	Produces Arg1:T6 Arg2:T12	
+R11	Anaphora Arg1:T14 Arg2:T15	
+R12	Anaphora Arg1:T14 Arg2:T160	
+R13	Produces Arg1:T17 Arg2:T18	
+R14	Produces Arg1:T17 Arg2:T19	

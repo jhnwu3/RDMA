@@ -1,0 +1,3 @@
+T1	RAREDISEASE 15 36	African iron overload
+T2	SIGN 231 278	elevated levels of ferritin in the blood plasma
+R1	Produces Arg1:T1 Arg2:T2	

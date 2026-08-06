@@ -1,0 +1,58 @@
+T1	RAREDISEASE 0 16	Long QT syndrome
+T2	RAREDISEASE 18 22	LQTS
+T3	DISEASE 30 57	autosomal dominant disorder
+T4	SIGN 69 126	abnormalities of the heart’s electrical conduction system
+T5	SIGN 236 267	prolongation of the QT interval
+T6	SIGN 288 360	prolongation of the recovery phase or repolarization of the heart muscle
+T7	SIGN 408 423	QT prolongation
+T8	DISEASE 542 553	arrhythmias
+T9	SIGN 542 553	arrhythmias
+T10	DISEASE 569 587	torsade de pointes
+T11	SIGN 569 587	torsade de pointes
+T12	DISEASE 589 592	TdP
+T13	DISEASE 597 621	ventricular fibrillation
+T14	SIGN 597 621	ventricular fibrillation
+T15	DISEASE 623 625	VF
+T16	ANAPHOR 628 645	These arrhythmias
+T17	DISEASE 634 645	arrhythmias
+T18	SIGN 688 695	syncope
+T19	DISEASE 698 712	cardiac arrest
+T20	SIGN 698 712	cardiac arrest
+T21	SIGN 735 755	sudden cardiac death
+T22	SYMPTOM 948 960	asymptomatic
+T23	DISEASE 1008 1019	arrhythmias
+T24	SIGN 1008 1019	arrhythmias
+T25	SIGN 1045 1052	syncope
+T26	DISEASE 1058 1072	cardiac arrest
+T27	SIGN 1058 1072	cardiac arrest
+T28	RAREDISEASE 1270 1286	Long QT syndrome
+T29	ANAPHOR 1414 1426	the disorder
+T30	ANAPHOR 1441 1443	It
+R1	Is_a Arg1:T1 Arg2:T30	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Produces Arg1:T1 Arg2:T5	
+R4	Produces Arg1:T1 Arg2:T6	
+R5	Produces Arg1:T1 Arg2:T7	
+R6	Increases_risk_of Arg1:T1 Arg2:T8	
+R7	Produces Arg1:T1 Arg2:T9	
+R8	Increases_risk_of Arg1:T1 Arg2:T10	
+R9	Produces Arg1:T1 Arg2:T11	
+R10	Increases_risk_of Arg1:T1 Arg2:T13	
+R11	Produces Arg1:T1 Arg2:T14	
+R12	Is_acron Arg1:T2 Arg2:T1	
+R13	Is_a Arg1:T10 Arg2:T8	
+R14	Anaphora Arg1:T10 Arg2:T160	
+R15	Is_acron Arg1:T12 Arg2:T10	
+R16	Is_a Arg1:T13 Arg2:T8	
+R17	Anaphora Arg1:T13 Arg2:T160	
+R18	Is_acron Arg1:T15 Arg2:T13	
+R19	Is_a Arg1:T30 Arg2:T29	
+R20	Produces Arg1:T30 Arg2:T4	
+R21	Produces Arg1:T30 Arg2:T20	
+R22	Produces Arg1:T30 Arg2:T21	
+R23	Produces Arg1:T23 Arg2:T25	
+R24	Produces Arg1:T23 Arg2:T27	
+R25	Produces Arg1:T28 Arg2:T22	
+R26	Produces Arg1:T28 Arg2:T24	
+R27	Anaphora Arg1:T28 Arg2:T29	
+R28	Anaphora Arg1:T28 Arg2:T30	

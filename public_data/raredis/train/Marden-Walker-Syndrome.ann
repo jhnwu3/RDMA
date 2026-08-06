@@ -1,0 +1,19 @@
+T1	RAREDISEASE 0 22	Marden-Walker syndrome
+T2	DISEASE 33 59	connective tissue disorder
+T3	ANAPHOR 125 138	this disorder
+T4	SIGN 156 182	distinct facial expression
+T5	SIGN 186 213	cleft or high-arched palate
+T6	SIGN 238 250	micrognathia
+T7	SIGN 253 284	bone joints in a fixed position
+T8	SIGN 286 298	growth delay
+T9	SIGN 303 337	limited control of muscle movement
+T10	RAREDISEASE 339 361	Marden-Walker syndrome
+T11	RAREDISEASE 401 423	Marden-Walker Syndrome
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T3 Arg2:T4	
+R4	Produces Arg1:T3 Arg2:T5	
+R5	Produces Arg1:T3 Arg2:T6	
+R6	Produces Arg1:T3 Arg2:T7	
+R7	Produces Arg1:T3 Arg2:T80	
+R8	Produces Arg1:T3 Arg2:T9	

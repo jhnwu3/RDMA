@@ -1,0 +1,50 @@
+T1	RAREDISEASE 60 64	BPES
+T2	DISEASE 117 133	blepharophimosis
+T3	SIGN 117 133;77 85	blepharophimosis at birth
+T4	DISEASE 152 158	ptosis
+T5	SIGN 152 158;77 85	ptosis at birth
+T6	SIGN 216 235;77 85	epicanthus inversus at birth
+T7	SIGN 278 289;77 85	telecanthus at birth
+T8	RAREDISEASE 315 319	BPES
+T9	RAREDISEASE 321 332	BPES type I
+T10	RAREDISEASE 321 325;337 344	BPES type II
+T11	SIGN 390 409	eyelid malformation
+T12	RAREDISEASE 420 431	BPES type I
+T13	SIGN 456 480	loss of ovarian function
+T14	DISEASE 484 515	premature ovarian insufficiency
+T15	SIGN 484 515	premature ovarian insufficiency
+T16	DISEASE 517 520	POI
+T17	SIGN 523 540;566 579;590 619	Menstrual periods less frequent and stop before the age of 40
+T18	DISEASE 555 558	POI
+T19	SIGN 555 558	POI
+T20	SIGN 599 619;655 667	before the age of 40 subfertility
+T21	SIGN 599 619;695 706	before the age of 40 infertility
+T22	DISEASE 695 706	infertility
+T23	DISEASE 792 801	amblyopia
+T24	SIGN 792 801	amblyopia
+T25	DISEASE 818 828	strabismus
+T26	SIGN 818 828	strabismus
+T27	SIGN 831 843	low-set ears
+T28	SIGN 847 892	short distance between the upper lip and nose
+T29	SIGN 900 918	broad nasal bridge
+T30	RAREDISEASE 938 942	BPES
+R1	Produces Arg1:T10 Arg2:T12	
+R2	Produces Arg1:T10 Arg2:T3	
+R3	Produces Arg1:T10 Arg2:T15	
+R4	Produces Arg1:T10 Arg2:T17	
+R5	Produces Arg1:T8 Arg2:T24	
+R6	Produces Arg1:T8 Arg2:T26	
+R7	Produces Arg1:T8 Arg2:T27	
+R8	Produces Arg1:T8 Arg2:T28	
+R9	Produces Arg1:T8 Arg2:T29	
+R10	Is_a Arg1:T9 Arg2:T8	
+R11	Produces Arg1:T9 Arg2:T11	
+R12	Is_a Arg1:T20 Arg2:T18	
+R13	Produces Arg1:T20 Arg2:T38	
+R14	Produces Arg1:T12 Arg2:T13	
+R15	Produces Arg1:T12 Arg2:T15	
+R16	Produces Arg1:T12 Arg2:T19	
+R17	Is_acron Arg1:T16 Arg2:T14	
+R18	Produces Arg1:T18 Arg2:T17	
+R19	Produces Arg1:T18 Arg2:T20	
+R20	Produces Arg1:T18 Arg2:T21	

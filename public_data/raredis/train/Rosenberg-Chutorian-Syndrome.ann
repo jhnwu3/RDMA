@@ -1,0 +1,19 @@
+T1	RAREDISEASE 0 28	Rosenberg-Chutorian syndrome
+T2	DISEASE 50 66	genetic disorder
+T3	SIGN 97 109	hearing loss
+T4	SIGN 144 157	optic atrophy
+T5	SIGN 163 189	neurological abnormalities
+T6	DISEASE 265 286	peripheral neuropathy
+T7	SIGN 265 286	peripheral neuropathy
+T8	DISEASE 334 355	peripheral neuropathy
+T9	SIGN 334 355	peripheral neuropathy
+T10	RAREDISEASE 357 385	Rosenberg-Chutorian syndrome
+T11	DISEASE 405 422	X-linked disorder
+T12	RAREDISEASE 499 527	Rosenberg-Chutorian syndrome
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T5	
+R5	Produces Arg1:T1 Arg2:T7	
+R6	Produces Arg1:T1 Arg2:T9	
+R7	Is_a Arg1:T10 Arg2:T11	

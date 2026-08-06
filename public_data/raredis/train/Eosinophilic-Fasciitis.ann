@@ -1,0 +1,5 @@
+T1	RAREDISEASE 0 22	Eosinophilic fasciitis
+T2	ANAPHOR 121 133	The disorder
+T3	ANAPHOR 263 265	It
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	

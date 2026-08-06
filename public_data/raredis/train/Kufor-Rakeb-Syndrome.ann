@@ -1,0 +1,11 @@
+T1	RAREDISEASE 0 20	Kufor Rakeb syndrome
+T2	RAREDISEASE 131 134	KRS
+T3	ANAPHOR 166 168	it
+T4	ANAPHOR 223 234	the disease
+T5	DISEASE 292 321	autosomal recessive disorders
+T6	ANAPHOR 406 417	the disease
+R1	Is_acron Arg1:T2 Arg2:T1	
+R2	Anaphora Arg1:T2 Arg2:T3	
+R3	Anaphora Arg1:T2 Arg2:T4	
+R4	Is_a Arg1:T2 Arg2:T5	
+R5	Anaphora Arg1:T2 Arg2:T6	

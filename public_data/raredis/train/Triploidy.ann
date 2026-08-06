@@ -1,0 +1,37 @@
+T1	RAREDISEASE 0 9	Triploidy
+T2	DISEASE 20 43	chromosomal abnormality
+T3	RAREDISEASE 45 54	Triploidy
+T4	RAREDISEASE 309 318	triploidy
+T5	SIGN 544 563	developmental delay
+T6	SIGN 565 586	learning difficulties
+T7	SIGN 588 596	seizures
+T8	SIGN 598 610	hearing loss
+T9	RAREDISEASE 667 676	triploidy
+T10	RAREDISEASE 821 830	triploidy
+T11	SIGN 843 861	growth restriction
+T12	SIGN 866 888	multiple birth defects
+T13	RAREDISEASE 890 899	Triploidy
+T14	ANAPHOR 1222 1235	This disorder
+T15	RAREDISEASE 1314 1323	Triploidy
+T16	ANAPHOR 1369 1382	The condition
+T17	SIGN 1508 1536	multiple major malformations
+T18	SIGN 1538 1556	low amniotic fluid
+T19	SIGN 1564 1591	growth restriction on fetal
+T20	RAREDISEASE 1644 1653	triploidy
+T21	RAREDISEASE 1924 1933	Triploidy
+T22	RAREDISEASE 2086 2095	triploidy
+T23	SIGN 2120 2171	Abnormal levels of specific maternal blood proteins
+T24	RAREDISEASE 2325 2334	triploidy
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T4 Arg2:T5	
+R3	Produces Arg1:T4 Arg2:T6	
+R4	Produces Arg1:T4 Arg2:T7	
+R5	Produces Arg1:T4 Arg2:T8	
+R6	Produces Arg1:T10 Arg2:T11	
+R7	Produces Arg1:T10 Arg2:T12	
+R8	Anaphora Arg1:T13 Arg2:T14	
+R9	Anaphora Arg1:T15 Arg2:T16	
+R10	Produces Arg1:T20 Arg2:T17	
+R11	Produces Arg1:T20 Arg2:T18	
+R12	Produces Arg1:T20 Arg2:T190	
+R13	Produces Arg1:T24 Arg2:T23	

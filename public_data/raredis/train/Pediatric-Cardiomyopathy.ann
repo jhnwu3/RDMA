@@ -1,0 +1,20 @@
+T1	RAREDISEASE 0 24	Pediatric cardiomyopathy
+T2	DISEASE 35 50	heart condition
+T3	DISEASE 100 114	cardiomyopathy
+T4	DISEASE 190 204	cardiomyopathy
+T5	SYMPTOM 323 335	asymptomatic
+T6	DISEASE 354 368	cardiomyopathy
+T7	SIGN 418 461	impaired ability of the heart to pump blood
+T8	SYMPTOM 463 470	fatigue
+T9	SIGN 472 483	heart block
+T10	SIGN 516 527	tachycardia
+T11	SIGN 548 561	heart failure
+T12	SIGN 566 586	sudden cardiac death
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T6 Arg2:T5	
+R3	Produces Arg1:T6 Arg2:T7	
+R4	Produces Arg1:T6 Arg2:T8	
+R5	Produces Arg1:T6 Arg2:T90	
+R6	Produces Arg1:T6 Arg2:T10	
+R7	Produces Arg1:T6 Arg2:T11	
+R8	Produces Arg1:T6 Arg2:T12	

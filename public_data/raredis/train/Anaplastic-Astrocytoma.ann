@@ -1,0 +1,12 @@
+T1	RAREDISEASE 0 22	Anaplastic astrocytoma
+T2	DISEASE 33 54	malignant brain tumor
+T3	RAREDISEASE 56 68	Astrocytomas
+T4	DISEASE 73 79	tumors
+T5	RAREDISEASE 425 437	astrocytomas
+T6	DISEASE 471 478	gliomas
+T7	RAREDISEASE 496 519	anaplastic astrocytomas
+T8	ANAPHOR 607 617	this tumor
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Is_a Arg1:T3 Arg2:T4	
+R3	Is_a Arg1:T5 Arg2:T6	
+R4	Anaphora Arg1:T7 Arg2:T8	

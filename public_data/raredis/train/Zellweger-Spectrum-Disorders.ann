@@ -1,0 +1,42 @@
+T1	RAREDISEASE 0 28	Zellweger spectrum disorders
+T2	DISEASE 50 80	genetic, multisystem disorders
+T3	ANAPHOR 129 144	These disorders
+T4	RAREDISEASE 284 302	Zellweger syndrome
+T5	RAREDISEASE 328 357	neonatal adrenoleukodystrophy
+T6	RAREDISEASE 388 412	infantile Refsum disease
+T7	RAREDISEASE 434 462	Zellweger spectrum disorders
+T8	SIGN 499 520	Neurological deficits
+T9	SIGN 543 552	hypotonia
+T10	SIGN 555 567	hearing loss
+T11	SIGN 569 584	vision problems
+T12	SIGN 586 603	liver dysfunction
+T13	SIGN 609 629	kidney abnormalities
+T14	RAREDISEASE 651 679	Zellweger spectrum disorders
+T15	RAREDISEASE 819 847	Zellweger spectrum disorders
+T16	RAREDISEASE 893 921	Zellweger spectrum disorders
+T17	RAREDISEASE 940 971	peroxisome biogenesis disorders
+T18	RAREDISEASE 973 977	PBDs
+T19	RAREDISEASE 1261 1265	PBDs
+T20	RAREDISEASE 1296 1324	Zellweger spectrum disorders
+T21	RAREDISEASE 1329 1365	rhizomelic chondrodysplasia punctata
+T22	RAREDISEASE 1368 1396	Zellweger spectrum disorders
+T23	ANAPHOR 1522 1537	these disorders
+T24	ANAPHOR 1622 1637	these disorders
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Is_a Arg1:T4 Arg2:T1	
+R4	Is_a Arg1:T5 Arg2:T1	
+R5	Is_a Arg1:T6 Arg2:T1	
+R6	Produces Arg1:T7 Arg2:T8	
+R7	Produces Arg1:T7 Arg2:T9	
+R8	Produces Arg1:T7 Arg2:T10	
+R9	Produces Arg1:T7 Arg2:T11	
+R10	Produces Arg1:T7 Arg2:T12	
+R11	Produces Arg1:T7 Arg2:T13	
+R12	Is_synon Arg1:T17 Arg2:T16	
+R13	Is_acron Arg1:T20 Arg2:T19	
+R14	Anaphora Arg1:T19 Arg2:T23	
+R15	Anaphora Arg1:T19 Arg2:T24	
+R16	Is_a Arg1:T20 Arg2:T19	
+R17	Is_a Arg1:T21 Arg2:T19	
+R18	Is_a Arg1:T22 Arg2:T19	

@@ -1,0 +1,18 @@
+T1	RAREDISEASE 0 4	CBPS
+T2	DISEASE 15 36	neurological disorder
+T3	ANAPHOR 106 118	The disorder
+T4	RAREDISEASE 290 306	infantile spasms
+T5	DISEASE 432 440	epilepsy
+T6	SIGN 432 440	epilepsy
+T7	RAREDISEASE 469 473	CBPS
+T8	SIGN 481 506	atypical absence seizures
+T9	SIGN 508 529	atonic-tonic seizures
+T10	SIGN 538 559	tonic-clonic seizures
+T11	RAREDISEASE 604 608	CBPS
+T12	RAREDISEASE 815 829	polymicrogyria
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T7 Arg2:T6	
+R4	Produces Arg1:T7 Arg2:T8	
+R5	Produces Arg1:T7 Arg2:T9	
+R6	Produces Arg1:T7 Arg2:T100	

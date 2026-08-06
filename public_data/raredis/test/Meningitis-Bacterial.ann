@@ -1,0 +1,51 @@
+T1	RAREDISEASE 0 20	Bacterial Meningitis
+T2	SIGN 10 20	Meningitis
+T3	DISEASE 26 56	central nervous system disease
+T4	RAREDISEASE 94 104	Meningitis
+T5	SIGN 125 197	inflammation of the membranes (meninges) around the brain or spinal cord
+T6	SIGN 199 211	Inflammation
+T7	SIGN 299 304	fever
+T8	SYMPTOM 306 314	headache
+T9	SIGN 322 332	stiff neck
+T10	SYMPTOM 349 363	aching muscles
+T11	SYMPTOM 365 371	Nausea
+T12	SIGN 373 381	vomiting
+T13	RAREDISEASE 472 492	Bacterial Meningitis
+T14	SIGN 482 492	Meningitis
+T15	RAREDISEASE 518 528	Meningitis
+T16	RAREDISEASE 606 616	Meningitis
+T17	DISEASE 639 648	influenza
+T18	RAREDISEASE 715 735	Bacterial Meningitis
+T19	SIGN 725 735	Meningitis
+T20	RAREDISEASE 879 899	Bacterial Meningitis
+T21	SIGN 889 899	Meningitis
+T22	RAREDISEASE 1075 1095	Bacterial Meningitis
+T23	SIGN 1085 1095	Meningitis
+T24	RAREDISEASE 1246 1266	Bacterial Meningitis
+T25	SIGN 1256 1266	Meningitis
+T26	RAREDISEASE 1396 1416	Bacterial Meningitis
+T27	SIGN 1406 1416	Meningitis
+T28	RAREDISEASE 1520 1543	pneumococcal meningitis
+T29	SIGN 1533 1543	meningitis
+T30	RAREDISEASE 1597 1617	Bacterial Meningitis
+T31	SIGN 1607 1617	Meningitis
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Is_a Arg1:T1 Arg2:T3	
+R3	Is_a Arg1:T1 Arg2:T4	
+R4	Produces Arg1:T1 Arg2:T6	
+R5	Produces Arg1:T1 Arg2:T7	
+R6	Produces Arg1:T1 Arg2:T8	
+R7	Produces Arg1:T1 Arg2:T90	
+R8	Produces Arg1:T1 Arg2:T10	
+R9	Produces Arg1:T1 Arg2:T11	
+R10	Produces Arg1:T1 Arg2:T12	
+R11	Produces Arg1:T4 Arg2:T5	
+R12	Produces Arg1:T13 Arg2:T14	
+R13	Increases_risk_of Arg1:T17 Arg2:T16	
+R14	Produces Arg1:T20 Arg2:T21	
+R15	Produces Arg1:T20 Arg2:T21	
+R16	Produces Arg1:T22 Arg2:T23	
+R17	Produces Arg1:T24 Arg2:T25	
+R18	Produces Arg1:T26 Arg2:T270	
+R19	Produces Arg1:T28 Arg2:T29	
+R20	Produces Arg1:T30 Arg2:T31	

@@ -1,0 +1,28 @@
+T1	DISEASE 0 22	Fetal alcohol syndrome
+T2	DISEASE 24 27	FAS
+T3	SIGN 60 93	mental and physical birth defects
+T4	SIGN 326 334;349 367	prenatal growth retardation
+T5	SIGN 339 367	postnatal growth retardation
+T6	SIGN 370 429	malformations of the skull and facial (craniofacial) region
+T7	SIGN 431 450	brain abnormalities
+T8	DISEASE 489 492	FAS
+T9	SIGN 521 558	varying degrees of mental retardation
+T10	DISEASE 540 558	mental retardation
+T11	SIGN 560 582	learning abnormalities
+T12	SIGN 591 610	behavioral problems
+T13	DISEASE 718 740	fetal alcohol syndrome
+T14	DISEASE 742 745	FAS
+T15	DISEASE 874 877	FAS
+T16	DISEASE 913 931	mental retardation
+T17	SIGN 913 931	mental retardation
+R1	Produces Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Produces Arg1:T1 Arg2:T5	
+R4	Produces Arg1:T1 Arg2:T60	
+R5	Produces Arg1:T1 Arg2:T7	
+R6	Is_acron Arg1:T2 Arg2:T1	
+R7	Produces Arg1:T8 Arg2:T9	
+R8	Produces Arg1:T8 Arg2:T11	
+R9	Produces Arg1:T8 Arg2:T12	
+R10	Is_acron Arg1:T14 Arg2:T13	
+R11	Produces Arg1:T15 Arg2:T17	

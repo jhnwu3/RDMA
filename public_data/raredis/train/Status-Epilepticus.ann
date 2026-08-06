@@ -1,0 +1,19 @@
+T1	RAREDISEASE 0 18	Status epilepticus
+T2	RAREDISEASE 20 22	SE
+T3	SIGN 98 116	prolonged seizures
+T4	SIGN 259 274	iatrogenic coma
+T5	RAREDISEASE 303 321	status epilepticus
+T6	SIGN 410 418	seizures
+T7	DISEASE 522 530	epilepsy
+T8	DISEASE 624 632	Epilepsy
+T9	DISEASE 751 759	Epilepsy
+T10	DISEASE 899 907	epilepsy
+T11	RAREDISEASE 913 931	Status Epilepticus
+T12	DISEASE 1001 1009	epilepsy
+T13	SIGN 1055 1062	seizure
+R1	Produces Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Is_acron Arg1:T2 Arg2:T1	
+R4	Produces Arg1:T5 Arg2:T6	
+R5	Increases_risk_of Arg1:T10 Arg2:T11	
+R6	Produces Arg1:T12 Arg2:T130	

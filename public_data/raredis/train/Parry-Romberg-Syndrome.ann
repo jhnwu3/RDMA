@@ -1,0 +1,29 @@
+T1	RAREDISEASE 0 22	Parry-Romberg syndrome
+T2	RAREDISEASE 158 176	hemifacial atrophy
+T3	SIGN 158 176;69 87	hemifacial atrophy slowly progressive
+T4	RAREDISEASE 379 401	Parry-Romberg syndrome
+T5	SIGN 519 545	neurological abnormalities
+T6	SIGN 549 581	abnormalities affecting the eyes
+T7	SIGN 549 576;585 590	abnormalities affecting the teeth
+T8	RAREDISEASE 592 614	Parry-Romberg syndrome
+T9	RAREDISEASE 768 790	Parry-Romberg syndrome
+T10	RAREDISEASE 858 880	Parry-Romberg syndrome
+T11	RAREDISEASE 958 980	Parry-Romberg syndrome
+T12	ANAPHOR 1040 1052	the disorder
+T13	RAREDISEASE 1126 1148	Parry-Romberg syndrome
+T14	ANAPHOR 1209 1221	the disorder
+T15	RAREDISEASE 1242 1255	Parry-Romberg
+T16	RAREDISEASE 1326 1348	Parry-Romberg syndrome
+T17	RAREDISEASE 1452 1474	Parry-Romberg syndrome
+T18	ANAPHOR 1663 1675	the disorder
+T19	RAREDISEASE 1749 1771	Parry-Romberg syndrome
+T20	RAREDISEASE 1914 1936	Parry-Romberg syndrome
+T21	RAREDISEASE 2039 2061	Parry-Romberg syndrome
+T22	SKINRAREDISEASE 2652 2670	linear scleroderma
+R1	Produces Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T4 Arg2:T5	
+R3	Produces Arg1:T4 Arg2:T6	
+R4	Produces Arg1:T4 Arg2:T7	
+R5	Anaphora Arg1:T10 Arg2:T19	
+R6	Anaphora Arg1:T15 Arg2:T140	
+R7	Anaphora Arg1:T17 Arg2:T18	

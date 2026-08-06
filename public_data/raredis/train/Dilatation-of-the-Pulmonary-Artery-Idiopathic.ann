@@ -1,0 +1,28 @@
+T1	RAREDISEASE 0 45	Idiopathic dilatation of the pulmonary artery
+T2	RAREDISEASE 47 51	IDPA
+T3	SIGN 100 139	wider than normal main pulmonary artery
+T4	RAREDISEASE 206 251	Idiopathic dilatation of the pulmonary artery
+T5	SIGN 386 460	palpable pulmonary ejection sound that disappears when the patient inhales
+T6	SIGN 464 502	soft pulmonary ejection systolic murmu
+T7	SIGN 532 577	splitting of the second sound on breathing in
+T8	RAREDISEASE 580 584	IDPA
+T9	DISEASE 600 623	pulmonary valve disease
+T10	DISEASE 634 656	bacterial endocarditis
+T11	ANAPHOR 680 694	this condition
+T12	RAREDISEASE 854 899	idiopathic dilatation of the pulmonary artery
+T13	DISEASE 1085 1110	connective tissue disease
+T14	DISEASE 1142 1159	Marfan’s syndrome
+T15	RAREDISEASE 1163 1185	Ehlers-Danlos syndrome
+T16	RAREDISEASE 1348 1352	IDPA
+T17	ANAPHOR 1377 1389	the disorder
+T18	ANAPHOR 1498 1509	the disease
+T19	ANAPHOR 1616 1630	this condition
+R1	Produces Arg1:T1 Arg2:T30	
+R2	Is_acron Arg1:T2 Arg2:T1	
+R3	Produces Arg1:T4 Arg2:T5	
+R4	Produces Arg1:T4 Arg2:T6	
+R5	Produces Arg1:T4 Arg2:T7	
+R6	Anaphora Arg1:T8 Arg2:T11	
+R7	Anaphora Arg1:T16 Arg2:T17	
+R8	Anaphora Arg1:T16 Arg2:T18	
+R9	Anaphora Arg1:T16 Arg2:T190	

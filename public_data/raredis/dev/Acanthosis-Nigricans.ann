@@ -1,0 +1,17 @@
+T1	DISEASE 0 20	Acanthosis nigricans
+T2	DISEASE 22 24	AN
+T3	DISEASE 31 45	skin condition
+T4	SIGN 141 155;157 168	hyperkeratosis of the skin
+T5	SIGN 157 168;96 113	of the skin hyperpigmentation
+T6	DISEASE 305 307	AN
+T7	ANAPHOR 338 350	the disorder
+T8	DISEASE 476 483	obesity
+T9	DISEASE 527 542	drug-induced AN
+T10	DISEASE 565 567	AN
+T11	DISEASE 635 647	malignant AN
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Produces Arg1:T1 Arg2:T4	
+R3	Produces Arg1:T1 Arg2:T5	
+R4	Is_acron Arg1:T2 Arg2:T1	
+R5	Anaphora Arg1:T6 Arg2:T7	
+R6	Increases_risk_of Arg1:T8 Arg2:T7	

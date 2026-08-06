@@ -1,0 +1,14 @@
+T1	RAREDISEASE 0 20	Factor XI deficiency
+T2	ANAPHOR 65 77	The disorder
+T3	ANAPHOR 134 136	It
+T4	DISEASE 163 180	bleeding disorder
+T5	SIGN 163 171	bleeding
+T6	RAREDISEASE 204 226	von Willebrand disease
+T7	RAREDISEASE 246 266	factor XI deficiency
+T8	ANAPHOR 393 405	the disorder
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Is_a Arg1:T3 Arg2:T4	
+R4	Produces Arg1:T3 Arg2:T5	
+R5	Is_a Arg1:T6 Arg2:T4	
+R6	Anaphora Arg1:T7 Arg2:T8	

@@ -1,0 +1,5 @@
+T1	RAREDISEASE 27 41	melorheostosis
+T2	RAREDISEASE 136 150	melorheostosis
+T3	RAREDISEASE 322 336	melorheostosis
+T4	SIGN 387 409	sclerotic bone lesions
+R1	Produces Arg1:T3 Arg2:T4	

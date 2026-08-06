@@ -1,0 +1,28 @@
+T1	SKINRAREDISEASE 0 18	Granuloma annulare
+T2	DISEASE 24 58	chronic degenerative skin disorder
+T3	SKINRAREDISEASE 94 112	granuloma annulare
+T4	SIGN 197 204	nodules
+T5	SIGN 208 215	papules
+T6	SIGN 293 300;312 335	lesions one to five centimeters
+T7	SIGN 549 556	lesions
+T8	SKINRAREDISEASE 573 591	granuloma annulare
+T9	SIGN 666 673	lesions
+T10	SKINRAREDISEASE 709 727	granuloma annulare
+T11	SKINRAREDISEASE 740 758	Granuloma annulare
+T12	ANAPHOR 800 812	The disorder
+T13	SKINRAREDISEASE 918 936	granuloma annulare
+T14	SKINRAREDISEASE 975 1003	Localized granuloma annulare
+T15	SIGN 1064 1073	eruptions
+T16	SKINRAREDISEASE 1077 1095	granuloma annulare
+T17	ANAPHOR 1246 1258	the disorder
+T18	ANAPHOR 1302 1314	the disorder
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T3 Arg2:T4	
+R3	Produces Arg1:T3 Arg2:T5	
+R4	Produces Arg1:T3 Arg2:T6	
+R5	Produces Arg1:T8 Arg2:T7	
+R6	Produces Arg1:T8 Arg2:T9	
+R7	Anaphora Arg1:T10 Arg2:T9	
+R8	Produces Arg1:T16 Arg2:T15	
+R9	Anaphora Arg1:T16 Arg2:T17	
+R10	Anaphora Arg1:T16 Arg2:T18	

@@ -1,0 +1,7 @@
+T1	RAREDISEASE 6 26	Protein S deficiency
+T2	RAREDISEASE 119 139	protein S deficiency
+T3	ANAPHOR 171 183	the disorder
+T4	ANAPHOR 257 269	the disorder
+T5	RAREDISEASE 290 317	Severe protein S deficiency
+R1	Anaphora Arg1:T2 Arg2:T3	
+R2	Anaphora Arg1:T2 Arg2:T4	

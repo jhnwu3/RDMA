@@ -1,0 +1,10 @@
+T1	RAREDISEASE 0 20	Hirschsprung disease
+T2	RAREDISEASE 95 99	HSCR
+T3	ANAPHOR 127 139	The disorder
+T4	ANAPHOR 190 192	It
+T5	RAREDISEASE 280 300	Hirschsprung disease
+T6	DISEASE 350 369	severe constipation
+T7	SIGN 350 369	severe constipation
+R1	Anaphora Arg1:T1 Arg2:T3	
+R2	Anaphora Arg1:T1 Arg2:T4	
+R3	Produces Arg1:T5 Arg2:T7	

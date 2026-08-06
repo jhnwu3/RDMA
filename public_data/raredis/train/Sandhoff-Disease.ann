@@ -1,0 +1,21 @@
+T1	RAREDISEASE 0 16	Sandhoff disease
+T2	DISEASE 22 44	lipid storage disorder
+T3	SIGN 64 119	progressive deterioration of the central nervous system
+T4	RAREDISEASE 147 163	Sandhoff disease
+T5	RAREDISEASE 181 198	Tay-Sachs disease
+T6	RAREDISEASE 200 216	Sandhoff disease
+T7	DISEASE 223 259	autosomal recessive genetic disorder
+T8	SIGN 375 411	deficiency of hexosaminidase A and B
+T9	SIGN 428 443;465 481	accumulation of GM2 gangliosides
+T10	RAREDISEASE 516 532	Sandhoff disease
+T11	ANAPHOR 607 620	This disorder
+T12	RAREDISEASE 677 693	Sandhoff disease
+T13	RAREDISEASE 841 857	Sandhoff disease
+T14	SIGN 934 956;993 1019	hexosaminidase A and B absent or reduced activity
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Is_a Arg1:T6 Arg2:T7	
+R4	Produces Arg1:T6 Arg2:T8	
+R5	Produces Arg1:T6 Arg2:T90	
+R6	Anaphora Arg1:T10 Arg2:T11	
+R7	Produces Arg1:T13 Arg2:T14	

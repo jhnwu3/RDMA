@@ -1,0 +1,19 @@
+T1	RAREDISEASE 0 23	Immune thrombocytopenia
+T2	SIGN 7 23	thrombocytopenia
+T3	RAREDISEASE 25 28	ITP
+T4	DISEASE 36 64	autoimmune bleeding disorder
+T5	SIGN 126 135;93 106	platelets low levels of
+T6	DISEASE 173 189	thrombocytopenia
+T7	SIGN 173 189	thrombocytopenia
+T8	SIGN 496 553	platelet count lower than 100,000 per microliter of blood
+T9	SIGN 579 592	low platelets
+T10	RAREDISEASE 617 620	ITP
+T11	RAREDISEASE 683 686	ITP
+T12	RAREDISEASE 695 698	ITP
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Is_a Arg1:T1 Arg2:T4	
+R3	Produces Arg1:T1 Arg2:T5	
+R4	Produces Arg1:T1 Arg2:T7	
+R5	Is_acron Arg1:T3 Arg2:T1	
+R6	Produces Arg1:T10 Arg2:T7	
+R7	Produces Arg1:T10 Arg2:T11	

@@ -1,0 +1,45 @@
+T1	RAREDISEASE 0 21;23 36	Acrocallosal syndrome Schinzel type
+T2	DISEASE 47 63;91 101	genetic disorder congenital
+T3	ANAPHOR 226 238	the disorder
+T4	SIGN 287 297;321 323;397 412	hypoplasia of corpus callosum
+T5	SIGN 311 319;321 323;397 412	agenesis of corpus callosum
+T6	SIGN 418 455	moderate to severe mental retardation
+T7	SIGN 501 560	malformations of the skull and facial (craniofacial) region
+T8	SIGN 580 600;619 625	abnormalities of the digits
+T9	SIGN 643 669	craniofacial abnormalities
+T10	SIGN 707 719	macrocephaly
+T11	SIGN 728 746	prominent forehead
+T12	SIGN 768 788	ocular hypertelorism
+T13	SIGN 818 836	palpebral fissures
+T14	SIGN 841 877	small nose with a broad nasal bridge
+T15	SIGN 894 904;906 910	dysplastic ears
+T16	SIGN 960 981	digital malformations
+T17	SIGN 1047 1058	polydactyly
+T18	SIGN 1083 1093	syndactyly
+T19	SIGN 1125 1147	physical abnormalities
+T20	SIGN 1179 1197	growth retardation
+T21	SIGN 1212 1225	short stature
+T22	RAREDISEASE 1288 1309	acrocallosal syndrome
+T23	RAREDISEASE 1378 1399;1401 1414	Acrocallosal syndrome Schinzel type
+T24	ANAPHOR 1481 1493	The disorder
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T7	
+R4	Produces Arg1:T1 Arg2:T8	
+R5	Produces Arg1:T1 Arg2:T9	
+R6	Produces Arg1:T1 Arg2:T10	
+R7	Produces Arg1:T1 Arg2:T11	
+R8	Produces Arg1:T1 Arg2:T12	
+R9	Produces Arg1:T1 Arg2:T130	
+R10	Produces Arg1:T1 Arg2:T14	
+R11	Produces Arg1:T1 Arg2:T15	
+R12	Produces Arg1:T3 Arg2:T40	
+R13	Produces Arg1:T3 Arg2:T5	
+R14	Produces Arg1:T3 Arg2:T6	
+R15	Produces Arg1:T23 Arg2:T16	
+R16	Produces Arg1:T23 Arg2:T17	
+R17	Produces Arg1:T23 Arg2:T18	
+R18	Produces Arg1:T23 Arg2:T19	
+R19	Produces Arg1:T23 Arg2:T20	
+R20	Produces Arg1:T23 Arg2:T21	
+R21	Anaphora Arg1:T23 Arg2:T24	

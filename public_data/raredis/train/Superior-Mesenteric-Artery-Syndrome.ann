@@ -1,0 +1,6 @@
+T1	ANAPHOR 199 211	the disorder
+T2	RAREDISEASE 213 225	SMA syndrome
+T3	ANAPHOR 331 343	The disorder
+T4	RAREDISEASE 405 417	SMA syndrome
+R1	Anaphora Arg1:T2 Arg2:T1	
+R2	Anaphora Arg1:T2 Arg2:T3	

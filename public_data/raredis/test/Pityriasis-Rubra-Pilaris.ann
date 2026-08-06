@@ -1,0 +1,5 @@
+T1	SKINRAREDISEASE 33 36	PRP
+T2	DISEASE 180 200	Vitamin A deficiency
+T3	ANAPHOR 236 248	the disorder
+R1	Anaphora Arg1:T1 Arg2:T3	
+R2	Increases_risk_of Arg1:T3 Arg2:T2	

@@ -1,0 +1,19 @@
+T1	RAREDISEASE 0 15	Medulloblastoma
+T2	SIGN 35 56	malignant brain tumor
+T3	RAREDISEASE 70 86	Medulloblastomas
+T4	RAREDISEASE 375 391	Medulloblastomas
+T5	RAREDISEASE 451 467	medulloblastomas
+T6	ANAPHOR 514 526	these tumors
+T7	RAREDISEASE 585 600	medulloblastoma
+T8	SYMPTOM 609 633	headaches in the morning
+T9	SIGN 667 685	recurrent vomiting
+T10	SIGN 690 708	difficulty walking
+T11	SIGN 690 700;713 725	difficulty with balance
+T12	RAREDISEASE 727 743	Medulloblastomas
+T13	RAREDISEASE 822 837	medulloblastoma
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T5 Arg2:T6	
+R3	Produces Arg1:T7 Arg2:T8	
+R4	Produces Arg1:T7 Arg2:T9	
+R5	Produces Arg1:T7 Arg2:T10	
+R6	Produces Arg1:T7 Arg2:T110	

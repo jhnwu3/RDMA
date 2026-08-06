@@ -1,0 +1,6 @@
+T1	SKINRAREDISEASE 8 23	Hartnup disease
+T2	ANAPHOR 73 85	The disorder
+T3	SKINRAREDISEASE 177 192	Hartnup disease
+T4	ANAPHOR 205 207	It
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T3 Arg2:T4	

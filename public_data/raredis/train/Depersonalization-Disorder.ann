@@ -1,0 +1,27 @@
+T1	DISEASE 0 26	Depersonalization disorder
+T2	DISEASE 32 52	psychiatric disorder
+T3	ANAPHOR 86 88	It
+T4	SYMPTOM 112 209	alteration in how an affected individual perceives or experiences his or her unique sense of self
+T5	SYMPTOM 215 278	usual sense of one's own reality is temporarily lost or changed
+T6	SYMPTOM 282 303	feeling of detachment
+T7	SYMPTOM 313 338	being an outside observer
+T8	SYMPTOM 393 422	sensation of being in a dream
+T9	DISEASE 443 469	depersonalization disorder
+T10	DISEASE 607 633	depersonalization disorder
+T11	SIGN 660 686	depersonalization episodes
+T12	ANAPHOR 696 708	the disorder
+T13	DISEASE 710 736	Depersonalization disorder
+T14	ANAPHOR 788 800	The disorder
+T15	ANAPHOR 867 869	It
+T16	DISEASE 931 957	depersonalization disorder
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T3 Arg2:T4	
+R4	Produces Arg1:T3 Arg2:T5	
+R5	Produces Arg1:T3 Arg2:T6	
+R6	Produces Arg1:T3 Arg2:T70	
+R7	Produces Arg1:T3 Arg2:T8	
+R8	Anaphora Arg1:T10 Arg2:T12	
+R9	Produces Arg1:T12 Arg2:T11	
+R10	Anaphora Arg1:T13 Arg2:T14	
+R11	Anaphora Arg1:T13 Arg2:T15	

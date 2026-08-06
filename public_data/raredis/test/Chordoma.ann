@@ -1,0 +1,17 @@
+T1	RAREDISEASE 0 9	Chordomas
+T2	RAREDISEASE 200 209	chordomas
+T3	RAREDISEASE 289 306	skull base tumors
+T4	RAREDISEASE 381 398	skull base tumors
+T5	RAREDISEASE 400 409	Chordomas
+T6	RAREDISEASE 448 469	malignant bone tumors
+T7	RAREDISEASE 488 523	primary tumors of the spinal column
+T8	RAREDISEASE 542 550	chordoma
+T9	RAREDISEASE 631 639	chordoma
+T10	RAREDISEASE 776 790	Chondrosarcoma
+T11	DISEASE 823 834	bone cancer
+T12	RAREDISEASE 1045 1060	Chondrosarcomas
+T13	RAREDISEASE 1264 1279	Chondrosarcomas
+T14	ANAPHOR 1362 1375	this disorder
+T15	RAREDISEASE 1385 1399	chondrosarcoma
+R1	Is_a Arg1:T10 Arg2:T11	
+R2	Anaphora Arg1:T15 Arg2:T14	

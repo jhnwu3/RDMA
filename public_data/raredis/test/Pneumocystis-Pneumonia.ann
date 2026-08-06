@@ -1,0 +1,58 @@
+T1	RAREDISEASE 0 22	Pneumocystis pneumonia
+T2	SIGN 13 22	pneumonia
+T3	SIGN 64 83	shortness of breath
+T4	SIGN 91 111	difficulty breathing
+T5	ANAPHOR 113 126	This disorder
+T6	SIGN 151 157	fevers
+T7	SIGN 159 171	night sweats
+T8	SIGN 173 184	weight loss
+T9	SIGN 189 198	dry cough
+T10	SIGN 200 209	Dry cough
+T11	DISEASE 242 251	pneumonia
+T12	SIGN 242 251	pneumonia
+T13	SIGN 266 272;287 307	sputum to become productive
+T14	SIGN 330 335	cough
+T15	RAREDISEASE 356 359	PJP
+T16	RAREDISEASE 377 380	PJP
+T17	RAREDISEASE 484 487	PJP
+T18	DISEASE 502 506	AIDS
+T19	RAREDISEASE 562 584	Pneumocystis pneumonia
+T20	SIGN 575 584	pneumonia
+T21	DISEASE 605 608	HIV
+T22	SIGN 632 668	CD4 count of less than 200 cells/mm3
+T23	DISEASE 788 794	cancer
+T24	RAREDISEASE 811 814	PJP
+T25	RAREDISEASE 866 898	granulomatosis with polyangiitis
+T26	RAREDISEASE 912 924	polymyositis
+T27	SKINRAREDISEASE 928 943	dermatomyositis
+T28	RAREDISEASE 989 992	PJP
+T29	RAREDISEASE 1011 1033	Pneumocystis pneumonia
+T30	SIGN 1024 1033	pneumonia
+T31	SIGN 1096 1102	sputum
+T32	RAREDISEASE 1175 1178	PJP
+T33	DISEASE 1208 1217	pneumonia
+T34	RAREDISEASE 1238 1241	PJP
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T4	
+R4	Anaphora Arg1:T1 Arg2:T5	
+R5	Produces Arg1:T5 Arg2:T6	
+R6	Produces Arg1:T5 Arg2:T7	
+R7	Produces Arg1:T5 Arg2:T8	
+R8	Produces Arg1:T5 Arg2:T9	
+R9	Is_acron Arg1:T15 Arg2:T1	
+R10	Produces Arg1:T15 Arg2:T10	
+R11	Produces Arg1:T15 Arg2:T120	
+R12	Produces Arg1:T15 Arg2:T13	
+R13	Produces Arg1:T15 Arg2:T14	
+R14	Increases_risk_of Arg1:T18 Arg2:T17	
+R15	Produces Arg1:T19 Arg2:T20	
+R16	Increases_risk_of Arg1:T21 Arg2:T19	
+R17	Produces Arg1:T21 Arg2:T220	
+R18	Increases_risk_of Arg1:T23 Arg2:T24	
+R19	Increases_risk_of Arg1:T25 Arg2:T28	
+R20	Increases_risk_of Arg1:T26 Arg2:T28	
+R21	Increases_risk_of Arg1:T20 Arg2:T32	
+R22	Produces Arg1:T29 Arg2:T30	
+R23	Produces Arg1:T29 Arg2:T31	
+R24	Is_a Arg1:T32 Arg2:T33	

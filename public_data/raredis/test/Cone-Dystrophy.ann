@@ -1,0 +1,27 @@
+T1	RAREDISEASE 0 14	Cone dystrophy
+T2	DISEASE 66 79	eye disorders
+T3	RAREDISEASE 122 136	Cone dystrophy
+T4	SIGN 188 197;214 220;251 265	decreased acuity central vision
+T5	SIGN 270 299	reduced ability to see colors
+T6	SIGN 339 350	photophobia
+T7	RAREDISEASE 353 367	Cone dystrophy
+T8	RAREDISEASE 453 467	cone dystrophy
+T9	RAREDISEASE 555 581	progressive cone dystrophy
+T10	RAREDISEASE 659 673	cone dystrophy
+T11	RAREDISEASE 721 735	cone dystrophy
+T12	RAREDISEASE 826 840	cone dystrophy
+T13	RAREDISEASE 856 870	cone dystrophy
+T14	RAREDISEASE 967 981	Cone dystrophy
+T15	ANAPHOR 1030 1032	it
+T16	RAREDISEASE 1118 1136;1145 1159	X-linked recessive cone dystrophy
+T17	ANAPHOR 1234 1246	the disorder
+T18	RAREDISEASE 1271 1285	cone dystrophy
+T19	RAREDISEASE 1455 1469	Cone dystrophy
+T20	ANAPHOR 1555 1567	the disorder
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T3 Arg2:T4	
+R3	Produces Arg1:T3 Arg2:T5	
+R4	Produces Arg1:T3 Arg2:T6	
+R5	Anaphora Arg1:T14 Arg2:T15	
+R6	Anaphora Arg1:T16 Arg2:T17	
+R7	Anaphora Arg1:T19 Arg2:T20	

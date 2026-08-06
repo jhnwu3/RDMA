@@ -1,0 +1,11 @@
+T1	RAREDISEASE 24 28	MVID
+T2	ANAPHOR 98 111	this disorder
+T3	RAREDISEASE 339 343	MVID
+T4	RAREDISEASE 424 428	MVID
+T5	ANAPHOR 704 716	the disorder
+T6	SIGN 824 835	dehydration
+T7	SIGN 840 848	diarrhea
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T4 Arg2:T5	
+R3	Produces Arg1:T4 Arg2:T6	
+R4	Produces Arg1:T4 Arg2:T7	

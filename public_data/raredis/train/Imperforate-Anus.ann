@@ -1,0 +1,26 @@
+T1	RAREDISEASE 0 16	Imperforate anus
+T2	SIGN 67 111	absence or abnormal localization of the anus
+T3	SIGN 131 194	colon may be connected to the vagina or the bladder by a tunnel
+T4	RAREDISEASE 272 288	Imperforate anus
+T5	SIGN 350 391	absence of the normal opening of the anus
+T6	SIGN 394 434	Elimination of feces may not be possible
+T7	SIGN 482 539	rectum opens into the lower part of the vagina in females
+T8	SIGN 482 494;544 573	rectum opens close to the scrotum in males
+T9	RAREDISEASE 575 591	Imperforate anus
+T10	SIGN 648 671	anorectal malformations
+T11	RAREDISEASE 772 788	imperforate anus
+T12	ANAPHOR 826 839	the condition
+T13	ANAPHOR 954 967	the condition
+T14	DISEASE 1003 1016	birth defects
+T15	DISEASE 1020 1041	malformation syndrome
+T16	RAREDISEASE 1050 1069	VACTERL association
+T17	RAREDISEASE 1072 1088	Imperforate anus
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T4 Arg2:T5	
+R4	Produces Arg1:T4 Arg2:T60	
+R5	Produces Arg1:T4 Arg2:T7	
+R6	Produces Arg1:T4 Arg2:T8	
+R7	Produces Arg1:T9 Arg2:T10	
+R8	Anaphora Arg1:T11 Arg2:T12	
+R9	Anaphora Arg1:T11 Arg2:T13	

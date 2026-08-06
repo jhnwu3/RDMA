@@ -1,0 +1,21 @@
+T1	SKINRAREDISEASE 0 20	Yellow nail syndrome
+T2	SIGN 68 120	malformations affecting the fingernails and toenails
+T3	SIGN 122 171	abnormalities affecting the lungs and the airways
+T4	RAREDISEASE 353 363	lymphedema
+T5	SIGN 353 363	lymphedema
+T6	SKINRAREDISEASE 366 386	Yellow nail syndrome
+T7	SKINRAREDISEASE 436 456	yellow nail syndrome
+T8	SKINRAREDISEASE 485 505	yellow nail syndrome
+T9	ANAPHOR 613 625	the disorder
+T10	SKINRAREDISEASE 659 679	yellow nail syndrome
+T11	SKINRAREDISEASE 825 845	yellow nail syndrome
+T12	SIGN 868 880	nail changes
+T13	RAREDISEASE 906 926	lymphedema syndromes
+T14	SIGN 906 916	lymphedema
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T5	
+R4	Anaphora Arg1:T8 Arg2:T90	
+R5	Produces Arg1:T11 Arg2:T12	
+R6	Produces Arg1:T11 Arg2:T14	
+R7	Produces Arg1:T13 Arg2:T12	

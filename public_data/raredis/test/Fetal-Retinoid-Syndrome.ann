@@ -1,0 +1,12 @@
+T1	RAREDISEASE 0 23	Fetal retinoid syndrome
+T2	SIGN 75 99	congenital malformations
+T3	SIGN 187 211	congenital malformations
+T4	RAREDISEASE 380 403	Fetal retinoid syndrome
+T5	RAREDISEASE 471 494	fetal retinoid syndrome
+T6	RAREDISEASE 537 560	fetal retinoid syndrome
+T7	ANAPHOR 584 596	The disorder
+T8	ANAPHOR 672 684	the disorder
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Anaphora Arg1:T5 Arg2:T7	
+R4	Anaphora Arg1:T6 Arg2:T8	

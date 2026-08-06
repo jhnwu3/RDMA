@@ -1,0 +1,12 @@
+T1	RAREDISEASE 0 7	Cholera
+T2	DISEASE 20 38	infectious disease
+T3	RAREDISEASE 230 237	cholera
+T4	SIGN 249 264	watery diarrhea
+T5	ANAPHOR 449 460	the disease
+T6	RAREDISEASE 507 514	Cholera
+T7	ANAPHOR 703 714	the disease
+T8	RAREDISEASE 733 740	cholera
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T3 Arg2:T4	
+R3	Anaphora Arg1:T3 Arg2:T5	
+R4	Anaphora Arg1:T6 Arg2:T7	

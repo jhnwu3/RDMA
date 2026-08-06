@@ -1,0 +1,17 @@
+T1	RAREDISEASE 0 26	VACTERL with hydrocephalus
+T2	SIGN 13 26	hydrocephalus
+T3	DISEASE 48 64	genetic disorder
+T4	RAREDISEASE 102 121	VACTERL association
+T5	DISEASE 143 156	hydrocephalus
+T6	SIGN 143 156	hydrocephalus
+T7	RAREDISEASE 291 317	VACTERL with hydrocephalus
+T8	SIGN 304 317	hydrocephalus
+T9	ANAPHOR 421 433	the disorder
+T10	RAREDISEASE 611 630	VACTERL association
+T11	SIGN 652 665	hydrocephalus
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Is_a Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T4 Arg2:T6	
+R4	Produces Arg1:T7 Arg2:T8	
+R5	Anaphora Arg1:T7 Arg2:T9	
+R6	Produces Arg1:T10 Arg2:T11	

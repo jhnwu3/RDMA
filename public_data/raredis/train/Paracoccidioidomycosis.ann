@@ -1,0 +1,8 @@
+T1	RAREDISEASE 0 22	Paracoccidioidomycosis
+T2	RAREDISEASE 24 27	PCM
+T3	DISEASE 34 69	chronic infectious tropical disease
+T4	RAREDISEASE 405 427	paracoccidioidomycosis
+T5	ANAPHOR 528 540	this disease
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Is_acron Arg1:T2 Arg2:T1	
+R3	Anaphora Arg1:T4 Arg2:T5	

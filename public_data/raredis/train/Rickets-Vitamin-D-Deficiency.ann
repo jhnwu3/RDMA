@@ -1,0 +1,14 @@
+T1	RAREDISEASE 0 28	Vitamin-D deficiency rickets
+T2	SIGN 109 154	insufficient amounts of vitamin D in the body
+T3	DISEASE 160 178	vitamin deficiency
+T4	RAREDISEASE 571 599	vitamin D deficiency rickets
+T5	DISEASE 608 620	bone disease
+T6	SIGN 608 620	bone disease
+T7	SIGN 622 634	restlessness
+T8	SIGN 640 651	slow growth
+T9	ANAPHOR 653 666	This disorder
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T4 Arg2:T6	
+R3	Produces Arg1:T4 Arg2:T7	
+R4	Produces Arg1:T4 Arg2:T8	
+R5	Anaphora Arg1:T4 Arg2:T90	

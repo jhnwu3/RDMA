@@ -1,0 +1,10 @@
+T1	RAREDISEASE 0 14	KAT6A syndrome
+T2	ANAPHOR 109 122	this disorder
+T3	ANAPHOR 230 242	the disorder
+T4	RAREDISEASE 264 278	KAT6A syndrome
+T5	RAREDISEASE 398 412	KAT6A syndrome
+T6	ANAPHOR 462 474	the disorder
+T7	DISEASE 537 566	syndromic developmental delay
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Anaphora Arg1:T5 Arg2:T6	

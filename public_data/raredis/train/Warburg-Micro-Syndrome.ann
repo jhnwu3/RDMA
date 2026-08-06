@@ -1,0 +1,7 @@
+T1	RAREDISEASE 0 22	Warburg Micro syndrome
+T2	ANAPHOR 120 133	this disorder
+T3	ANAPHOR 146 158	The disorder
+T4	ANAPHOR 307 320	this disorder
+R1	Anaphora Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Anaphora Arg1:T1 Arg2:T4	

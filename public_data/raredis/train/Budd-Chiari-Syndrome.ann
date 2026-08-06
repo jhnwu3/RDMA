@@ -1,0 +1,26 @@
+T1	RAREDISEASE 0 20	Budd-Chiari syndrome
+T2	SIGN 122 135;84 93;95 101	hepatic veins occlusion of the
+T3	RAREDISEASE 163 183	Budd Chiari syndrome
+T4	SYMPTOM 192 235	pain in the upper right part of the abdomen
+T5	SIGN 264 276	hepatomegaly
+T6	SIGN 404 411	ascites
+T7	ANAPHOR 462 474	the disorder
+T8	SYMPTOM 483 489	nausea
+T9	SIGN 491 499	vomiting
+T10	SIGN 536 548	splenomegaly
+T11	ANAPHOR 567 579	the disorder
+T12	DISEASE 838 857	portal hypertension
+T13	SIGN 838 857	portal hypertension
+T14	RAREDISEASE 909 929	Budd-Chiari syndrome
+T15	RAREDISEASE 942 962	Budd-Chiari syndrome
+T16	RAREDISEASE 1098 1118	Budd-Chiari syndrome
+T17	RAREDISEASE 1706 1726	Budd-Chiari syndrome
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T3 Arg2:T4	
+R3	Produces Arg1:T3 Arg2:T5	
+R4	Produces Arg1:T3 Arg2:T6	
+R5	Anaphora Arg1:T3 Arg2:T110	
+R6	Produces Arg1:T3 Arg2:T13	
+R7	Produces Arg1:T7 Arg2:T8	
+R8	Produces Arg1:T7 Arg2:T9	
+R9	Produces Arg1:T7 Arg2:T10	

@@ -1,0 +1,14 @@
+T1	RAREDISEASE 0 12	Histidinemia
+T2	DISEASE 39 66	inborn errors of metabolism
+T3	RAREDISEASE 151 163	histidinemia
+T4	ANAPHOR 225 237	The disorder
+T5	ANAPHOR 453 465	the disorder
+T6	RAREDISEASE 547 559	Histidinemia
+T7	RAREDISEASE 715 727	histidinemia
+T8	RAREDISEASE 803 815	histidinemia
+T9	RAREDISEASE 854 866	histidinemia
+T10	SIGN 890 941	increased levels of histidine in the blood or urine
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T3 Arg2:T4	
+R3	Anaphora Arg1:T3 Arg2:T50	
+R4	Produces Arg1:T9 Arg2:T10	

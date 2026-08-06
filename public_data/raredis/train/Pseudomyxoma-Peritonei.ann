@@ -1,0 +1,23 @@
+T1	RAREDISEASE 17 39	pseudomyxoma peritonei
+T2	SIGN 223 299	large amounts of mucus to particular locations within the abdomen and pelvis
+T3	SIGN 385 393	mucocele
+T4	RAREDISEASE 424 446	pseudomyxoma peritonei
+T5	DISEASE 668 682	mucinous tumor
+T6	SIGN 668 682;689 741	mucinous tumor widely distributed throughout the abdomen and pelvis
+T7	DISEASE 815 821	cancer
+T8	SIGN 1019 1044	primary appendiceal tumor
+T9	DISEASE 1091 1105	mucinous tumor
+T10	SIGN 1091 1105	mucinous tumor
+T11	DISEASE 1110 1126	mucinous ascites
+T12	SIGN 1110 1126	mucinous ascites
+T13	ANAPHOR 1273 1285	this disease
+T14	DISEASE 1434 1448	mucinous tumor
+T15	SIGN 1434 1448	mucinous tumor
+R1	Produces Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T30	
+R3	Produces Arg1:T4 Arg2:T6	
+R4	Produces Arg1:T4 Arg2:T8	
+R5	Produces Arg1:T4 Arg2:T10	
+R6	Produces Arg1:T4 Arg2:T12	
+R7	Anaphora Arg1:T4 Arg2:T13	
+R8	Produces Arg1:T13 Arg2:T15	

@@ -1,0 +1,3 @@
+T1	RAREDISEASE 0 11	Berylliosis
+T2	DISEASE 25 40	metal poisoning
+R1	Is_a Arg1:T1 Arg2:T2	

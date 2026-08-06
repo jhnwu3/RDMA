@@ -1,0 +1,60 @@
+T1	RAREDISEASE 0 27	Chromosome 18, Monosomy 18p
+T2	DISEASE 38 58	chromosomal disorder
+T3	ANAPHOR 142 154	The disorder
+T4	SIGN 185 198	short stature
+T5	DISEASE 220 238	mental retardation
+T6	SIGN 220 238	mental retardation
+T7	SIGN 240 253	speech delays
+T8	SIGN 255 314	malformations of the skull and facial (craniofacial) region
+T9	SIGN 334 356	physical abnormalities
+T10	SIGN 369 389	craniofacial defects
+T11	DISEASE 513 525	microcephaly
+T12	SIGN 513 525	microcephaly
+T13	SIGN 530 546	broad, flat nose
+T14	SIGN 550 569	carp-shaped mouth
+T15	SIGN 571 593	large, protruding ears
+T16	SIGN 615 635	ocular hypertelorism
+T17	RAREDISEASE 711 723	Monosomy 18p
+T18	RAREDISEASE 747 764	holoprosencephaly
+T19	SIGN 802 816;818 871	prosencephalon fails to divide properly during embryonic development
+T20	RAREDISEASE 873 890	Holoprosencephaly
+T21	DISEASE 924 942	mental retardation
+T22	SIGN 924 942	mental retardation
+T23	SIGN 997 1019	midline facial defects
+T24	SIGN 1047 1053;1076 1093	single maxillary incisor
+T25	SIGN 1117 1129	hypotelorism
+T26	DISEASE 1169 1178	cleft lip
+T27	SIGN 1169 1178	cleft lip
+T28	RAREDISEASE 1226 1238	cleft palate
+T29	SIGN 1226 1238	cleft palate
+T30	SIGN 1266 1285	absence of the nose
+T31	SIGN 1293 1301	cyclopia
+T32	SIGN 1303 1311	Cyclopia
+T33	SIGN 1332 1358	fusion of the eye cavities
+T34	RAREDISEASE 1409 1436	Chromosome 18, Monosomy 18p
+T35	RAREDISEASE 1644 1656	Monosomy 18p
+T36	RAREDISEASE 1713 1725	Monosomy 18p
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Anaphora Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T3 Arg2:T4	
+R4	Produces Arg1:T3 Arg2:T6	
+R5	Produces Arg1:T3 Arg2:T7	
+R6	Produces Arg1:T3 Arg2:T8	
+R7	Produces Arg1:T3 Arg2:T90	
+R8	Produces Arg1:T3 Arg2:T10	
+R9	Produces Arg1:T3 Arg2:T120	
+R10	Produces Arg1:T3 Arg2:T13	
+R11	Produces Arg1:T3 Arg2:T14	
+R12	Produces Arg1:T3 Arg2:T15	
+R13	Produces Arg1:T3 Arg2:T16	
+R14	Produces Arg1:T18 Arg2:T19	
+R15	Produces Arg1:T20 Arg2:T22	
+R16	Produces Arg1:T20 Arg2:T23	
+R17	Produces Arg1:T20 Arg2:T24	
+R18	Produces Arg1:T20 Arg2:T25	
+R19	Produces Arg1:T20 Arg2:T27	
+R20	Produces Arg1:T20 Arg2:T29	
+R21	Produces Arg1:T20 Arg2:T30	
+R22	Produces Arg1:T20 Arg2:T31	
+R23	Produces Arg1:T20 Arg2:T32	
+R24	Produces Arg1:T20 Arg2:T33	

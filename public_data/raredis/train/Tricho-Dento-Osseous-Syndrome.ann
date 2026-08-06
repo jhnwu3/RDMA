@@ -1,0 +1,32 @@
+T1	SKINRAREDISEASE 0 20;27 35	Tricho-dento-osseous syndrome
+T2	SKINRAREDISEASE 22 25;27 35	TDO syndrome
+T3	DISEASE 42 77	autosomal dominant genetic disorder
+T4	SKINRAREDISEASE 123 144	ectodermal dysplasias
+T5	SKINRAREDISEASE 146 167	Ectodermal dysplasias
+T6	SKINRAREDISEASE 222 234	TDO syndrome
+T7	SIGN 255 274	kinky or curly hair
+T8	SIGN 276 305	poorly developed tooth enamel
+T9	SIGN 347 356;358 389	sclerosis of the top portion of the skull
+T10	SIGN 347 356;358 364;408 422	sclerosis of the the long bones
+T11	SIGN 347 356;358 364;430 447	sclerosis of the bones in the arms
+T12	SIGN 347 356;358 364;430 442;452 456	sclerosis of the bones in the legs
+T13	SIGN 519 538	thin, brittle nails
+T14	RAREDISEASE 627 643	craniosynostosis
+T15	SIGN 627 643	craniosynostosis
+T16	SIGN 701 714	dolicocephaly
+T17	SKINRAREDISEASE 717 746	Tricho-dento-osseous syndrome
+T18	DISEASE 757 775	inherited disorder
+T19	SKINRAREDISEASE 919 931	TDO syndrome
+R1	Is_a Arg1:T1 Arg2:T3	
+R2	Is_a Arg1:T1 Arg2:T4	
+R3	Is_acron Arg1:T2 Arg2:T1	
+R4	Produces Arg1:T6 Arg2:T7	
+R5	Produces Arg1:T6 Arg2:T80	
+R6	Produces Arg1:T6 Arg2:T9	
+R7	Produces Arg1:T6 Arg2:T10	
+R8	Produces Arg1:T6 Arg2:T11	
+R9	Produces Arg1:T6 Arg2:T12	
+R10	Produces Arg1:T6 Arg2:T13	
+R11	Produces Arg1:T6 Arg2:T15	
+R12	Produces Arg1:T6 Arg2:T16	
+R13	Is_a Arg1:T17 Arg2:T18	

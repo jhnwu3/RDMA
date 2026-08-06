@@ -1,0 +1,30 @@
+T1	SKINRAREDISEASE 0 31	Idiopathic nodular panniculitis
+T2	DISEASE 54 68	skin disorders
+T3	SIGN 161 181	subcutaneous nodules
+T4	DISEASE 251 263	panniculitis
+T5	SIGN 251 263	panniculitis
+T6	SKINRAREDISEASE 389 420	idiopathic nodular panniculitis
+T7	SIGN 440 445	fever
+T8	SYMPTOM 480 487	malaise
+T9	SYMPTOM 503 510	myalgia
+T10	SYMPTOM 520 534	abdominal pain
+T11	SKINRAREDISEASE 653 684	idiopathic nodular panniculitis
+T12	SKINRAREDISEASE 731 762	idiopathic nodular panniculitis
+T13	DISEASE 858 870	panniculitis
+T14	DISEASE 881 885	gout
+T15	DISEASE 887 904	diabetes mellitus
+T16	RAREDISEASE 906 934	systemic lupus erythematosus
+T17	DISEASE 936 967	subacute bacterial endocarditis
+T18	RAREDISEASE 969 981	tuberculosis
+T19	DISEASE 1061 1073	pancreatitis
+T20	DISEASE 1119 1126	allergy
+T21	SKINRAREDISEASE 1216 1247	idiopathic nodular panniculitis
+T22	SIGN 1482 1533	l inflammation of subcutaneous layers of fat tissue
+R1	Is_a Arg1:T1 Arg2:T2	
+R2	Produces Arg1:T1 Arg2:T3	
+R3	Produces Arg1:T1 Arg2:T5	
+R4	Produces Arg1:T6 Arg2:T7	
+R5	Produces Arg1:T6 Arg2:T8	
+R6	Produces Arg1:T6 Arg2:T9	
+R7	Produces Arg1:T6 Arg2:T10	
+R8	Produces Arg1:T20 Arg2:T21	
