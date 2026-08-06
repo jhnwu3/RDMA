@@ -34,3 +34,8 @@ __pycache__/
 
 # Credentialed working copies rebuilt by scripts/data/rehydrate_mimic_text.py
 rehydrated/
+
+# Packaging build artifacts
+*.egg-info/
+build/
+dist/
