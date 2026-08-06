@@ -6,6 +6,7 @@ abstract: >-
   electronic health records, pairing LLM extraction with ontology-grounded
   verification and matching against Orphanet and the Human Phenotype Ontology.
 type: software
+license: MIT
 repository-code: "https://github.com/jhnwu3/RDMA"
 authors:
   - family-names: "Wu"
